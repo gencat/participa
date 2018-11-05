@@ -1,0 +1,56 @@
+---
+es:
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Se ha producido un error creando un nuevo Consejo de participación.
+          success: Consejo de participación creado correctamente.
+        destroy:
+          success: El Consejo de participación se ha eliminado con éxito.
+        new:
+          title: Nuevo Consejo de participación
+        update:
+          error: Se ha producido un error actualizando este Consejo de participación.
+          success: El Consejo de participación se ha actualitzado correctamente.
+      assemblies_copies:
+        create:
+          error: Se ha producido un error duplicando este Consejo de participación.
+          success: El Consejo de participación se ha duplicado correctamente.
+      assembly_copies:
+        new:
+          title: Consejo de participación duplicado
+      assembly_publications:
+        create:
+          error: Se ha producido un error publicando este Consejo de participación.
+          success: Consejo de participación publicado con éxito.
+        destroy:
+          error: Se ha producido un error despublicando este Consejo de participación.
+          success: Consejo de participación despublicado con éxito.
+      menu:
+        assemblies: Consejos de participación
+      models:
+        assembly:
+          name: Consejo de participación
+      titles:
+        assemblies: Consejos de participación
+    assemblies:
+      index:
+        title: Consejos de participación
+      statistics:
+        assemblies_count: Consejos de participación
+    menu:
+      assemblies: Consejos de participación
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          promoted_assemblies: Consejos de participación destacados
+        no_assemblies_yet:
+          no_assemblies_yet: Aún no hay ningún Consejo de participación!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} Consejo de participación"
+            other: "%{count} Consejos de participación"
+      assembly_header:
+        assembly_menu_item: Consejo de participación

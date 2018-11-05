@@ -1,0 +1,13 @@
+oc:
+  decidim:
+    admin:
+      newsletters:
+        show:
+          confirm_deliver_process: Enviar butlletí per procés?
+          deliver_process: Enviar butlletí per procés
+          back: Enrere
+          re_select: Selecciona de nou
+        processes_div:
+          select_process: Selecciona procés
+          related_mails: E-mails relacionats
+          no_mails: No hi ha mails

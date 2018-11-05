@@ -1,0 +1,389 @@
+---
+oc:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Arrason entà eliminar eth vòste compde
+      report:
+        details: Comentaris addicionaus
+      user:
+        email: Eth vòste corrèu electronic
+        name: Eth vòste nòm
+        password: Clau
+        password_confirmation: Confirmatz era vòsta clau
+        remove_avatar: Elimina era imatge d'usatgèr
+        user_group_document_number: Numèro de document acreditatiu
+        user_group_name: Nòm dera organizacion
+        user_group_phone: Telefòn dera organizacion
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Clau actuau
+        email: Corrèu electronic
+        name: Nòm d'usatgèr
+        password: Clau
+        password_confirmation: Confirmacion dera clau
+        remember_me: Arrebremba-me
+        user_group_document_number: Numèro de document acreditatiu
+        user_group_name: Nòm dera organizacion
+        user_group_phone: Telefòn dera organizacion
+  booleans:
+    'false': 'Non'
+    'true': Òc
+  carrierwave:
+    errors:
+      image_too_big: Era imatge ei massa grana
+  decidim:
+    account:
+        delete:
+          alert: Aguesta accion non se pòt des·hèir. S'eliminatz eth vòste compde non poderatz iniciar session.
+          confirm:
+            close: Barra era hièstra
+            ok: Òc, voi eliminar eth mèn compde
+            question: Ètz segur/a que voletz eliminar eth vòste compde?
+            title: Elimina eth mèn compde
+          explanation: Se vos platz, indicatz era arrason entà eliminar eth vòste compde (volontari).
+        destroy:
+          error: I a agut un error entà eliminar eth vòste compde.
+          success: Eth vòste compde s'a eliminat corrèctaments.
+        show:
+          change_password: Cambiatz era clau
+          update_account: Actualiza eth compde
+        update:
+          error: S'a produsit un error entà actualizar eth vòste compde.
+          success: Eth vòste compde s'a actualizat corrèctaments.
+          success_with_email_confirmation: Eth vòste compde s'a actualizat corrèctaments. Arreceberatz un corrèu electronic entà confirmar era vòsta adreça de corrèu electronic naua.
+    anonymous_user: Anonim
+    application:
+      documents:
+        related_documents: Documents restacadi
+      photos:
+        related_photos: Fòtos restacades
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Numèro de document
+          postal_code: Còdi postau
+        name: Exemple d'autorizacion
+      errors:
+        duplicate_authorization: Un usatgèr ja ei autorizat damb es madeishes donades.
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Autorizacion foo
+    authorizations:
+      create:
+        error: S'a produsit un error entà crear era autorizacion.
+        success: Auetz estat autorizat/da corrèctaments.
+      current_participatory_processes: Hè un còp d'uelh as procèssi actuaus
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Verifica contra er exemple d'autorizacion
+        title: Verificatz era vòsta identitat
+        verify_with_these_options: 'Aguestes son es opcions disponibles entà verificar era vòsta identitat:'
+      new:
+        authorize: Envia
+        authorize_with: Verifica-me damb %{authorizer}
+      skip_verification: Podetz sautar aguest pas per ara e %{link}
+    core:
+      actions:
+        unauthorized: Non auetz permís entà realizar aguesta accion
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Un aute compde utilize era madeisha adreça de corrèu electronic
+        new:
+          complete_profile: Completatz eth perfil
+          sign_up: Se vos platz, completatz eth vòste perfil
+          subtitle: Se vos platz, ramplitz eth formulari següent entà completar era vòsta inscripcion
+          username_help: Nòm public qu'apareish en es vòsti messatges. Damb er objectiu de garantir er anonimat, pòt èster quin nòm que sigue.
+      registrations:
+        new:
+          already_have_an_account?: Ja auetz un compde?
+          newsletter_notifications: Voi arrecéber informacion sus activitat considerabla
+          sign_in: Entratz
+          sign_up: Enregistratz-vos
+          sign_up_as:
+            legend: Inscriu-me coma
+            user: Individu
+            user_group: Organizacion/Collectiu
+          subtitle: Creatz un compde entà poder participar enes debates e sostier as prepauses.
+          terms: es tèrmes e condicions d'usatge
+          tos_agreement: En enregistrar-vos acceptatz %{link}.
+          username_help: Nòm public qu'apareish en es vòsti messatges. Damb er objectiu de garantir er anonimat, pòt èster quin nòm que sigue.
+      sessions:
+        new:
+          are_you_new?: Ètz nau/a ena plataforma?
+          register: Creatz un compde
+      shared:
+        omniauth_buttons:
+          or: O
+    errors:
+      internal_server_error:
+        title: Hi ha hagut un problema amb el nostre servidor
+        try_later: Si us plau, torna-ho a intentar més tard.
+      not_found:
+        back_home: Tornar a l'inici
+        content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
+        title: No s'ha trobat la pàgina que busques
+    events:
+      email_event:
+        email_greeting: Hola %{user_name},
+        email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
+        email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+        email_subject: Una actualització a %{resource_title}
+      notification_event:
+        notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+    export_mailer:
+      export:
+        ready: S'adjunta ua version comprenuda dera exportacion.
+      subject: Era exportacion "%{name}" ei prèste
+    features:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Foncionalitat de pròva
+        settings:
+          global:
+            comments_enabled: Comentaris abilitadi
+            dummy_global_attribute_1: Proprietat de pròva 1
+            dummy_global_attribute_2: Proprietat de pròva 2
+          step:
+            comments_blocked: Comentaris bloquejadi
+            dummy_step_attribute_1: Proprietat de fasa de pròva 1
+            dummy_step_attribute_2: Proprietat de fasa de pròva 2
+    filters:
+      linked_classes:
+        all: Toti
+        meeting: Amassades
+        project: Projèctes
+        proposal: Prepauses
+        result: Resultats
+    follows:
+      create:
+        button: Seguir
+        error: Hi ha hagut un error seguint aquest recurs.
+      destroy:
+        button: Deixar de seguir
+        error: Hi ha hagut un error deixar seguint aquest recurs.
+    forms:
+      current_file: Fitxer actual
+      current_image: Imatge actual
+      default_image: Imatge predeterminada
+      errors:
+        error: I a un error en aguest camp.
+      remove_this_file: Eliminar aquest arxiu
+    managed_users:
+      expired_session: La sessió de suplantació actual ha caducat.
+    menu:
+      home: Inici
+      more_information: Mès informacion
+    newsletter_mailer:
+      newsletter:
+        note: uetz arrecebut aguest messatge pr'amor qu'ètz soscrit/a a bulletins de notícies %{organization_name}. Podetz cambiar era configuracion ara vòsta <a href="%{link}">pagina de notificacions</a>.
+    notifications_settings:
+      show:
+        email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
+        newsletter_notifications: Voi arrecéber informacion sus l'activitat considerabla e es novetats deth portau.
+        update_notifications_settings: Sauvar cambiaments
+      update:
+        error: I a agut un error en actualizar era configuracion des notificacions.
+        success: Era configuracion des notificacions s'a actualizat corrèctaments.
+    own_user_groups:
+      index:
+        pending: Pendentes
+        rejected: Refusades
+        verified: Verificada
+    pages:
+      index:
+        title: Mès informacion
+    reported_mailer:
+      hide:
+        hello: Òla %{name},
+        manage_moderations: Gerís moderacions
+        report_html: <p>Eth <a href="%{url}">contengut</a> següent s'a amagat automaticaments.</p>
+        subject: Un contengut a estat amagat automaticaments
+      report:
+        hello: Òla %{name},
+        manage_moderations: Gerís moderacions
+        report_html: <p>Eth <a href="%{url}">contengut</a> següent a estat denonciat.</p>
+        subject: Un contengut a estat denonciat
+    reports:
+      create:
+        error: S'a produsit un error en denonciar. Tornatz-ac a sajar.
+        success: Era denóncia s'a creat damb succès e serà revisada per un administrador.
+    shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Anulle
+          explanation: Maugrat qu'actuauments ètz autorizat/da damb "%{authorization}", auem de besonh que vos tornatz a autorizar pr'amor que non auem es donades següentes:'
+          reauthorize: Reautoriza'm
+          title: Se vos platz, reautorizatz-vos
+        missing:
+          authorize: Autoriza damb "%{authorization}"
+          explanation: Per amiar a tèrme aguesta accion, vos cau disposar dera autorizacion "%{authorization}".
+          title: Se requerís autorizacion
+        unauthorized:
+          explanation: Non se pòt amiar a tèrme aguesta accion donques que bèra ua des vòstes donades d'autorizacion non coïncidissen damb es requerides.
+          invalid: "%{field} non ei valid."
+          ok: D'acòrd
+          title: Accion non autorizada
+      embed_modal:
+        close_window: Barra era hièstra
+        embed: Se vos platz, enganchatz aguest còdi ena vòsta pagina
+        embed_link: Incrusta
+      flag_modal:
+        already_reported: Aguest contengut ja a estat denonciat e serà revisat per un administrador..
+        close: Cleda
+        description: Aguest contengut non ei apropriat?
+        does_not_belong: Conten activitat illegau, menaces de suicidi, informacion personau o quina auta causa que sigue que creigatz que non aparten a %{organization_name}.
+        offensive: Conten racisme, sexisme, insults, atacs personaus, menaces de mòrt, peticions de suicidi o quina forma que sigue de discors d'òdi.
+        report: Denóncia
+        spam: Conten "clickbait", publicitat o fraudes.
+        title: Denóncia un problèma
+      login_modal:
+        please_sign_in: Se vos platz, iniciatz session
+        sign_up: Da-me de nauta
+      reference:
+        reference: 'Referéncia: %{reference}'
+      results_per_page:
+        label: 'Resultats per pàgina:'
+      share_modal:
+        close_window: Barra era hièstra
+        share: Compartís
+        share_link: Compartís eth ligam
+  devise:
+    invitations:
+      edit:
+        header: Establís era clau
+        submit_button: Sauva
+    mailer:
+      invitation_instructions:
+        accept: Accèpta invitacion
+        accept_until: Aguesta invitacion deisharà d'èster valida eth dia %{due_date}.
+        hello: Òla %{email},
+        ignore: |-
+          Se non voletz acceptar era invitacion, ignoratz aguest corrèu.<br />
+          Eth vòste compde non se crearà enquia que non acceditz ath ligam de jos e escuelhetz era vòsta clau.
+        invited_you_as_admin: "%{invited_by} vos a convidat coma un administrador de %{application}, podetz acceptà'c mejançant eth ligam següent."
+        someone_invited_you: Quauquarrés vos a convidat a %{application}, podetz acceptà'c mejançant eth ligam següent.
+        you_are_now_admin: Ara ets administrador
+      invite_admin:
+        subject: Auetz estat convidat/da a gerir %{organization}
+      invite_collaborator:
+        subject: Auetz estat convidat/da a collaborar a %{organization}
+      organization_admin_invitation_instructions:
+        subject: Auetz estat convidat/da a gerir %{organization}
+      password_change:
+        greeting: Òla, %{recipient}!
+        message:  Vos contactam entà notificar-vos qu'era vòsta clau a estat cambiada corrèctaments.
+        subject: Clau modificada
+  errors:
+    messages:
+      content_type_whitelist_error: Eth tipe de fichèr non ei valid
+      cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
+      file_size_is_less_than_or_equal_to: Era mesura deth fichèr li cau èster mendre qu'o parièr a %{count}
+      invalid_manifest: Archiu de manifèst invalid
+      invalid_participatory_process: Procès participatiu invalid
+      long_words: Conten paraules que son massa longues
+      must_start_with_caps: Li cau començar damb majuscules
+      nesting_too_deep: Non pòt èster laguens d'ua soscategoria
+      too_many_marks: Utilize massa simbèus de exclamacion o interrogacion
+      too_much_caps: Utilize massa majuscules
+      too_short: Ei massa cuert
+  forms:
+    required: Obligatori
+  invisible_captcha:
+    sentence_for_humans: S'ètz un uman, podetz ignorar aguest camp
+    timestamp_error_message: Ac sentem, auetz estat massa rapid/a! Tornatz a envià'c.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: "Aguest lòc web emplegue cookies pròpries e de tresaus entà melhorar l’experiéncia de navegacion, e aufrir contenguts e servicis d’interès.\nEn contunhar era navegacion, comprenem qu'acceptatz era nòsta politica de cookies. Entà mès informacion, consultatz %{link}."
+        link_label: ací
+        ok: I sò d'acòrd
+      footer:
+        made_with_open_source: 'Web hèta damb  <a target="_blank" href="https://github.com/decidim/decidim">software liure</a>.'
+      header:
+        close_menu: Barra eth menu
+        navigation: Navegacion
+        sign_in: Entratz
+        sign_up: Enregistratz-vos
+      impersonation_warning:
+        close_session: Tanca la sessió
+        description_html: Esteu suplantant l'usuari <b>%{user_name}</b>.
+        expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
+      notifications_dashboard:
+        mark_all_as_read: Marca tots com a llegits
+        no_notifications: Encara no hi ha notificacions.
+        title: Notificacions
+      user_menu:
+        admin_dashboard: Taula d'administracion
+        notifications: Notificacions
+        profile: Eth mèn compde
+        sign_out: Ges
+      user_profile:
+        account: Compde
+        authorizations: Autorizacions
+        delete_my_account: Elimina eth mèn compde
+        notifications_settings: Configuracion des notificacions
+        title: Configuracion d'usatgèr
+        user_groups: Organizacions
+      widget:
+        see_more: Vedetz-ne mès
+  locale:
+    name: Aranès
+  pages:
+    home:
+      hero:
+        participate: Participatz
+        welcome: Benvengut/da a %{organization}!
+      highlighted_processes:
+        active_processes: Procèssi actius
+        active_step: Fasa activa
+        see_all_processes: Vedetz toti es procèssi
+      statistics:
+        answers_count: Respostes
+        comments_count: Comentaris
+        headline: Estat actuau de %{organization}
+        meetings_count: Amassades
+        orders_count: Vots
+        pages_count: Pàgines
+        processes_count: Procèssi
+        projects_count: Projectes
+        proposals_count: Prepauses
+        results_count: Resultats
+        surveys_count: Enquestes
+        users_count: Participaires
+        votes_count: Supòrts
+      sub_hero:
+        register: Registra't
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Correu electrònic
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Compartís a %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Dauritz eth WeChat, hètz clic en eth boton "Discover" e dempús hètz clic en eth menu "Escanejar còdi QR".
+    weibo: Sina Weibo
+    xing: Xing
+  views:
+    pagination:
+      first: "&laquo; Prumèra"
+      last: Darrèra &raquo;
+      next: Següent &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

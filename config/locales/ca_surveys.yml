@@ -1,0 +1,27 @@
+ca:
+  decidim:
+    features:
+      surveys:
+        name: Qüestionari
+    surveys:
+      admin:
+        surveys:
+          form:
+            already_answered_warning: El qüestionari ja està contestat per alguns usuaris i per tant no pots modificar les seves preguntes.
+          update:
+            invalid: Hi ha hagut errors en desar el qüestionari.
+            success: Qüestionari desat correctament.
+      surveys:
+        answer:
+          invalid: Hi ha hagut errors en respondre al qüestionari.
+          success: Qüestionari respost correctament.
+        show:
+          answer_survey:
+            title: Respon al qüestionari
+          survey_answered:
+            body: Ja ha respost a aquest qüestionari.
+            title: Qüestionari respost
+          survey_closed:
+            body: El qüestionari està tancada i no s'hi pot participar.
+            title: Qüestionari tancat
+          tos_agreement: En participar en aquest qüestionari acceptes els Termes de Servei

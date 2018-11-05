@@ -1,0 +1,13 @@
+es:
+  decidim:
+    admin:
+      newsletters:
+        show:
+          confirm_deliver_process: ¿Enviar boletín por proceso?
+          deliver_process: Enviar boletín por proceso
+          back: Atrás
+          re_select: Selecciona de nuevo
+        processes_div:
+          select_process: Selecciona proceso
+          related_mails: E-mails relacionados
+          no_mails: No hay emails

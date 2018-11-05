@@ -1,0 +1,37 @@
+es:
+  menu:
+    stableareas_static: Consejos de participación
+    queries_static: Participación en normativa
+    proces_static: Procesos activos
+  static:
+    queries:
+      meta_tags:
+        see_all_processes: Todos los procesos
+        see_all_assemblies: Todas las participaciones
+        see_all_stableareas: Todos los consejos de participación
+    stableareas:
+      meta_tags:
+        active_step: Proceso activo
+    footer:
+      legal_advice_title: Aviso legal
+      legal_advice_text: "De acuerdo con el artículo 17.1 de la ley 19/2014, la @Generalitat de Catalunya permite la reutilización de los contenidos y de los datos siempre que se cite la fuente y la fecha de actualización y no se desnaturalice la información (artículo 8 de la ley 37/2007) y también que no se contradiga con una licencia específica."
+  pages:
+    home:
+      regulatory_inquiries:
+        active_step: Proceso activo
+      extended:
+        debates: Participa
+        debates_explanation: Ven a las sesiones de debate, haz aportaciones en linea o comenta las de otros participantes
+        how_to_participate: ¿Cómo tomo parte en un proceso?
+        meetings: Infórmate
+        meetings_explanation: Consulta los procesos participativos, iniciativas normativas o consejos de participación que están en marcha. Podrás ver las propuestas que han hecho los ciudadanos y revisar las más recientes, las más valoradas o las más comentadas
+        more_info: Más información
+        proposals: Consulta los resultados
+        proposals_explanation: Revisa los informes de las sesiones, accede a la valoración de los participantes y conoce la respuesta de la Administración
+      footer_sub_hero:
+        footer_sub_hero_body: Construimos una sociedad más abierta, transparente y colaborativa. Únete y participa
+        footer_sub_hero_headline: Te damos la bienvenida al portal %{organization}
+        register: Regístrate
+  decidim:
+      menu:
+        more_information: Más información

@@ -1,0 +1,23 @@
+<% add_decidim_meta_tags({
+  description: t(".meta_tags.description"),
+  title: t(".meta_tags.title")
+}) %>
+
+<main class="wrapper global-meetings">
+
+  <div class="row section">
+    <div class="section-heading">
+      <%= render partial: "layouts/pages/meetings/header" %>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="columns medium-3 mediumlarge-3">
+      <%= render partial: "layouts/pages/meetings/left_filter" %>
+    </div>
+    <div class="columns medium-9 mediumlarge-9">
+      <%= render partial: "layouts/pages/meetings/show_meetings" %>
+    </div>
+
+  </div>
+</main>

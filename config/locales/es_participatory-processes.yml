@@ -1,0 +1,10 @@
+es:
+  decidim:
+    admin:
+      menu:
+        participatory_processes_submenu:
+          info: Información del proceso
+      models:
+        participatory_process_step:
+          fields:
+            title: Nombre de la fase

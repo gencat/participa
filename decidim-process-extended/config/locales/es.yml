@@ -1,0 +1,36 @@
+es:
+  decidim:
+    menu:
+      processes: Procesos participativos
+    themes:
+      none: Ninguno
+    participatory_processes:
+      admin:
+        participatory_processes:
+          form:
+            appear_home: Aparecer en home (imagen)
+    projects:
+      filters:
+        category: Ejes de debate
+        select_category: Selecciona
+    application:
+      attachments:
+        meetings_available: Hay encuentros programados actualmente
+    proposals:
+      proposals:
+        votes_limit:
+          vote_limit:
+            description: En vez de dar soporte a tantas propuestas como se desee, sólo se puede dar soporte hasta un máximo de %{limit} propuestas.
+            left: Restante
+            title: Tiene %{limit} soportes a distribuir
+            votes: Soportes
+  activemodel:
+    attributes:
+      participatory_process:
+        theme_id: Tema
+        type_id: Tipo
+        department_id: Departamento
+        title: Título
+        email: Buzón de sugerencias
+      participatory_process_step:
+        title: Nombre de la fase

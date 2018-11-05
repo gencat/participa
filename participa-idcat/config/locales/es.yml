@@ -1,0 +1,11 @@
+es:
+  decidim:
+    authorization_handlers:
+      idcat_authorization_handler:
+        name: idCAT Móvil
+        form:
+          msg: Serás redigido a una URL externa
+          submit: Validar con idCAT
+        error:
+          title: La autenticación con idCAT Móvil ha fallado
+          auth: Los datos introducidos en idCAT son incorrectos

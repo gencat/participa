@@ -1,0 +1,45 @@
+es:
+  menu:
+    regulations_static: Participación en normativa
+  decidim:
+    regulations:
+      regulation:
+        show:
+          email: Buzón de soporte
+          categories: Ejes de debate
+        index:
+          loading: Cargando
+    participatory_processes:
+      order_by_processes:
+        opened: Abiertas
+        closed : Cerradas
+        all : Todas
+        select_type: Selecciona tipo
+        select_department: Selecciona departamento
+        select_tema: Selecciona tema
+      participatory_processes:
+        show:
+          email: Buzón de soporte
+          categories: Ejes de debate
+    proposals:
+      proposals:
+        index:
+          see_proposals: Ver Propuestas
+  layouts:
+    decidim:
+      regulation_header:
+        unfold: Despliega
+        process_menu_item: Participación
+      process_header:
+        regulation_menu_item: Participación
+      participatory_processes:
+        order_by_processes:
+          regulations: "%{count} Participaciones"
+        index: 
+          promoted_regulation: Participaciones destacadas
+      regulations_info: |+
+        <p>Durante el proceso de creación de una norma, hay dos momentos en los que puedes participar:</p>
+        <p>En las <strong>consultas públicas</strong>: el Gobierno, antes de iniciar la elaboración de la norma, consulta a la ciudadanía sobre la oportunidad y los aspectos más relevantes a regular de la materia en cuestión.</p>
+        <p>En esta fase inicial, puedes valorar la necesidad de regular una materia y hacer aportaciones sobre que aspectos hay que tener en cuenta a la hora de hacerlo.</p>
+        <p>Una vez ya hay un <strong>borrador de norma</strong>: cuando el Gobierno ya ha redactado un primer texto, lo abre a la ciudadanía para mejorar el redactado y el contenido.</p>
+        <p>En esta parte del proceso, puedes hacer aportaciones y comentarios sobre el borrador de norma antes de su aprobación definitiva.</p>

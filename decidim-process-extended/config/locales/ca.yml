@@ -1,0 +1,36 @@
+ca:
+  decidim:
+    menu:
+      processes: Processos participatius
+    themes:
+      none: Cap
+    participatory_processes:
+      admin:
+        participatory_processes:
+          form:
+            appear_home: Sortir al home (imatge)
+    projects:
+      filters:
+        category: Eixos de debat
+        select_category: Selecciona
+    application:
+      attachments:
+        meetings_available: Hi ha trobades programades actualment
+    proposals:
+      proposals:
+        votes_limit:
+          vote_limit:
+            description: En lloc de donar suport a tantes propostes com es vulgui, només es pot donar suport fins a un màxim de %{limit} propostes.
+            left: Restant
+            title: Té %{limit} suports a distribuir
+            votes: Suports
+  activemodel:
+    attributes:
+      participatory_process:
+        theme_id: Tema
+        type_id: Tipus
+        department_id: Departament
+        title: Títol
+        email: Bústia de suggeriments
+      participatory_process_step:
+        title: Nom de la fase

@@ -1,0 +1,70 @@
+---
+oc:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Resposta
+      survey_question:
+        mandatory: Obligatori
+        question_type: Tipus
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Resposta
+        name: Qüestonari
+        settings:
+          global:
+            announcement: Avís
+          step:
+            allow_answers: Permetre respostes
+            announcement: Avís
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Respostes dels usuaris
+        models:
+          components:
+            description: Descripció
+            tos: Termes del servei
+        surveys:
+          answer_option:
+            answer_option: Opció de resposta
+            remove_answer_option: Elimina l'opció de resposta
+            statement: Enunciat
+          edit:
+            save: Desar
+            title: Títol
+          form:
+            add_question: Afegir pregunta
+            already_answered_warning: El qüestonari ja està contestat per alguns usuaris i per tant no pots modificar les seves preguntes.
+          question:
+            add_answer_option: Afegir opció de resposta
+            question: Pregunta
+            remove_question: Elimina pregunta
+            statement: Enunciat
+          update:
+            invalid: Hi ha hagut errors en desar el qüestonari.
+            success: Qüestonari desat correctament.
+      question_types:
+        long_answer: Resposta llarga
+        multiple_option: Opció múltiple
+        short_answer: Resposta curta
+        single_option: Única opció
+      surveys:
+        answer:
+          invalid: Hi ha hagut errors en respondre al qüestonari.
+          success: Qüestonari respost correctament.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Entra amb el teu compte</a> o <a href="%{sign_up_link}">dona't d'alta</a> per contestar l'enquesta.
+            title: Respon al qüestionari
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols seguir?
+          submit: Enviar
+          survey_answered:
+            body: Ja ha respost a aquest qüestonari.
+            title: Qüestonari respost
+          survey_closed:
+            body: El qüestonari està tancada i no s'hi pot participar.
+            title: Qüestonari tancat
+          tos_agreement: En participar en aquest qüestonari acceptes els Termes de Servei

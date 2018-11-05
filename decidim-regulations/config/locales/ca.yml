@@ -1,0 +1,47 @@
+ca:
+  menu:
+    regulations_static: Participació en normativa
+  decidim:
+    regulations:
+      regulation:
+        show:
+          email: Bústia de suport
+          categories: Eixos de debat
+        index:
+          loading: Carregant
+    participatory_processes:
+      order_by_processes:
+        opened: Obertes
+        closed : Tancades
+        all: Totes
+        select_type: Selecciona tipus
+        select_department: Selecciona departament
+        select_tema: Selecciona tema
+      participatory_processes:
+        show:
+          email: Bústia de suport
+          categories: Eixos de debat
+      show:
+        theme: Tema
+    proposals:
+      proposals:
+        index:
+          see_proposals: Veure Propostes
+  layouts:
+    decidim:
+      regulation_header:
+        unfold: Desplega
+        process_menu_item: Participació
+      process_header:
+        regulation_menu_item: Participació
+      participatory_processes:
+        order_by_processes:
+          regulations: "%{count} Participacions"
+        index: 
+          promoted_regulation: Participacions destacades
+      regulations_info: |+
+        <p>Durant el procés de creació d’una norma, hi ha dos moments en què pots participar:</p>
+        <p>En les <strong>consultes públiques</strong>: el Govern, abans d’iniciar l’elaboració de la norma, consulta a la ciutadania sobre l’oportunitat i els aspectes més rellevants a regular de la matèria en qüestió.</p>
+        <p>En aquesta fase inicial, pots valorar la necessitat de regular una matèria, i fer aportacions sobre quins aspectes cal tenir en compte a l’hora de fer-ho.</p>
+        <p>Un cop ja hi ha un <strong>esborrany de norma</strong>: quan el Govern ja ha redactat un primer text, l’obre a la ciutadania per millorar-ne el redactat i el contingut.</p>
+        <p>En aquesta part del procés, pots fer aportacions i comentaris sobre l’esborrany de norma abans de la seva aprovació definitiva.</p>

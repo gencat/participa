@@ -1,0 +1,7 @@
+es:
+  activemodel:
+    attributes:
+      scope:
+        scope_type_id: Tipo de ámbito
+      feature:
+        weight: Peso (la funcionalidad con más peso aparecerá más a la derecha)

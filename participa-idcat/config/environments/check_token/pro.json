@@ -1,0 +1,6 @@
+{
+    "url": "https://identitats.aoc.cat/o/oauth2/token",
+    "redirect_uri": "${base_url}/idcat/check_token",
+    "client_id": "0123456789.serveis.aoc.cat",
+    "grant_type": "authorization_code"
+}

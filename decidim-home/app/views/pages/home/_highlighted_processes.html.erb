@@ -1,0 +1,38 @@
+<section class="wrapper-home">
+  <div class="row">
+    <h2 class=""><%= t("menu.proces_static") %></h2>
+    <div class="row collapse">
+      <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
+                  large-up-4 card-grid">
+        <% searchProcesses.each do |regulation| %>
+        <div class="column">
+          <article class="card card--process card--mini part-card">
+            <a href="/processes/<%= regulation.id.to_s %>">
+              <div class="card__image-top"
+                    style="background-image:url(<%= regulation.hero_image.url %>)"></div>
+            </a>
+            <div class="card__content part-card-content">
+              <a class="card__link part-card-title" href="/processes/<%= regulation.id.to_s %>">
+                  <%= translated_attribute regulation.title %>
+              </a>
+
+                <% if regulation.active_step %>
+                  <span class="card--process__small part-cont-5">
+                    <%= t(".active_step") %>
+                    <strong><%= translated_attribute regulation.active_step.title %></strong>
+                  </span>
+                <% end %>
+            </div>
+          </article>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to "processes", class: "button--sc part-a" do %>
+      <%= t("static.queries.meta_tags.see_all_processes") %>
+      <%= icon "chevron-right", aria_hidden: true %>
+    <% end %>
+  </div>
+</section>

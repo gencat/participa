@@ -1,0 +1,29 @@
+es:
+  decidim:
+    admin:
+      menu:
+        departments: Departamentos
+        themes: Temas
+        types: Tipo de normativa
+      departments:
+        new:
+          title: Nuevo departamento
+          create: Crear departamento
+        edit:
+          title: Título
+          update: Actualiza
+        destroy:
+          success: Departamento eliminado correctamente
+        create:
+          error: Error al crear el departamento
+          success: Departamento creado correctamente
+          exists: Ya existe un departamento con el nombre introducido
+        fields:
+          updated_at: actualizado
+          created_at: creado
+      titles:
+        departments: Nuevo departamento
+      models:
+        scope:
+          fields:
+            created_at: Fecha de creación

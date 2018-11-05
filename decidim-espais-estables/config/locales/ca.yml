@@ -1,0 +1,56 @@
+---
+ca:
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: S'ha produït un error en crear una nou Consell de participació.
+          success: Consell de participació creat correctament.
+        destroy:
+          success: El Consell de participació s'ha eliminat amb èxit.
+        new:
+          title: Nou Consell de participació
+        update:
+          error: S'ha produït un error en actualitzar aquest Consell de participació.
+          success: El Consell de participació s'ha actualitzat correctament.
+      assemblies_copies:
+        create:
+          error: S'ha produït un error en duplicar aquest Consell de participació.
+          success: El Consell de participació s'ha duplicat correctament.
+      assembly_copies:
+        new:
+          title: Consell de participació duplicat
+      assembly_publications:
+        create:
+          error: S'ha produït un error en publicar aquest Consell de participació.
+          success: Consell de participació publicat amb èxit.
+        destroy:
+          error: S'ha produït un error en despublicar aquest Consell de participació.
+          success: Consell de participació despublicat amb èxit.
+      menu:
+        assemblies: Consells de participació
+      models:
+        assembly:
+          name: Consell de participació
+      titles:
+        assemblies: Consells de participació
+    assemblies:
+      index:
+        title: Consells de participació
+      statistics:
+        assemblies_count: Consells de participació
+    menu:
+      assemblies: Consells de participació
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          promoted_assemblies: Consells de participació destacats
+        no_assemblies_yet:
+          no_assemblies_yet: Encara no hi ha cap Consell de participació!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} Consell de participació"
+            other: "%{count} Consells de participació"
+      assembly_header:
+        assembly_menu_item: El Consell de participació

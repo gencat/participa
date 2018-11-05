@@ -1,0 +1,142 @@
+<%
+  #No estoy recogiendo el puerto por lo que si vamos por otro que no sea el 80 las URLs serán incorrectas
+  currentUrl = decidim.root_url(host: @organization.host)
+  currentUrl = currentUrl[0..(currentUrl.length - 2)]
+
+  #headerLogo      = currentUrl + (image_url "logo-generalitat.png")
+  #footerLogo      = currentUrl + (image_url "logo-generalitat_gris.png")
+  headerLogo      = "http://guiaweb.gencat.cat/web/resources/fwkResponsive/fpca_butlleti/img/logo-generalitat.png"
+  footerLogo      = "http://guiaweb.gencat.cat/web/resources/fwkResponsive/fpca_butlleti/img/logo-generalitat_gris.png"
+  legalAdviceLink = "https://web.gencat.cat/" + I18n.locale.to_s + "/menu-ajuda/ajuda/avis_legal/"
+%>
+<!--[if mso]>
+  <style> body,table tr,table td,a, span,table.MsoNormalTable {  font-family:Arial, Helvetica, sans-serif !important;  }</style>
+<!--<![endif]-->
+<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#fff">
+<tbody>
+	<tr>
+		<td>
+      <!--[if (gte mso 9)|(IE)]>
+        <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td>
+      <![endif]-->
+			<div id="butlletiZone">
+				<div>
+					<table class="content" style="padding:0px;width:100%;max-width:600px;box-shadow:0 1px 25px #ddd;border:1px solid #ddd;border-spacing:0px !important;border-collapse:collapse !important;padding-bottom: 40px; background: #fff" align="center" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff">
+					<tbody>
+            <tr>
+              <td>
+                <table class="header-gen" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                  <tr>
+                    <td style="padding: 10px 50px 20px 50px; background-color: #333">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tbody>
+                        <tr>
+                          <td align="left">
+                            <img src="<%= headerLogo %>" alt="" width="101" height="26" border="0" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-family: sans-serif, 'Open Sans'; font-size: 35px; padding-top: 15px; color: #fff;"><% 
+                            if (@organization)
+                              %><%= @organization.name%><%
+                            else
+                              %><%= Decidim.application_name %><%
+                            end %>
+                          </td>
+                        </tr>
+                      </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff">
+                <tbody>
+                  <tr>
+                    <td style="font-family: Open Sans, sans-serif; font-size: 16px; padding: 25px 25px 25px 25px; color: #666;"><%=yield%></td>
+                  </tr>
+                </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#eeeeee">
+                <% # shadow %>
+                <table class="shadow" style="border-collapse: collapse; border-spacing: 0px;" width="100%" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td style="padding:0px;border-spacing:0px !important;border-collapse:collapse !important;padding: 0px" bgcolor="#eeeeee"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table style="padding-bottom: 20px" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#eeeeee">
+                <tbody>
+                  <tr>
+                    <td class="p-0-20">
+                      <table width="100%">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <table style="margin-top: 10px;" class="pl-15" align="left">
+                            <tbody>
+                              <tr>
+                                <td style="margin-top:15px;">                                 
+                                  <a target="_self" href="<%=currentUrl%>" title="logotip" style="cursor:pointer">
+                                    <img src="<%=footerLogo%>" style="padding-left: 15px" />
+                                  </a>
+                                </td>
+                              </tr>
+                            </tbody>
+                            </table>
+                          </td>
+                          <td colspan="2">
+                            <table style="width: 92%" align="left">
+                            <tbody>
+                              <tr>
+                                <td style="margin-top: 15px; font-family: Open Sans, sans-serif; font-size: 10px; padding: 0px; color: #999;" class="avis_legal">
+                                  <p style="padding-top: 20px;">
+                                    <strong>
+                                      <a title="<%= t("static.footer.legal_advice_title")%>" href="<%=legalAdviceLink%>" target="_blank">
+                                        <%= t("static.footer.legal_advice_title")%>:
+                                      </a>&nbsp;
+                                    </strong>
+                                    <%= t("static.footer.legal_advice_text")%>
+                                  </p>
+                                </td>
+                              </tr>
+                            </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+          </table>
+				</div>
+			</div>
+      <!--[if (gte mso 9)|(IE)]>
+          </td>
+        </tr>
+        </table>
+      <![endif]-->
+		</td>
+	</tr>
+</tbody>
+</table>

@@ -1,0 +1,546 @@
+@import "./decidim/application";
+@import "../settings";
+@import "../vendor/mq";
+
+.navbar{
+    padding-top: 8px;
+    background-color: #333;
+
+    .main-nav__link:not(.main-nav__link--active){
+        a{
+            box-shadow: none;
+            color: #fff;
+            
+            &:hover{
+                background-color: #bbb;
+                color: #333;
+            }
+        }
+    }
+    .main-nav__link--active{
+        background-color: #fff;
+        
+        a, a:hover{
+            box-shadow: none;
+    
+            color: #333;
+        }
+    }
+    @include mq($from: tablet){
+        .main-nav__link{
+            a{
+                padding: 6px 28px;
+            }
+        }
+    }
+}
+.part-gencat-logo-nomargin {
+    height: 1.688em;
+    display: block;
+    color: transparent;
+    cursor:pointer;
+}
+.part-main-title {
+    margin-bottom: 0;
+    margin-left: -2px;
+
+    font-size: 28px;
+    font-weight: bold;
+}
+.site-title{
+    padding: 0;
+}
+.title-bar{
+    padding: 0;
+}
+
+
+
+/* styles */
+
+.is-open {
+  width: 100% !important;
+}
+.site-title{
+  .column{
+    padding: 0;
+  }
+  
+}
+.title-sm{
+  //background: yellow;
+ position: relative;
+ width: 100%;
+ left:-1px;
+margin-top: 27px;
+text-align: center;
+a{
+  font-weight: bold;
+  font-size: 22px;
+    display: inline !important;
+ }
+}
+.part-navbar-background{
+.title-sm{
+  margin-top: 14px;
+ a{ outline: none !important;}
+}
+}
+
+nav {
+  @include breakpoint(640 down){
+    background: gray;
+  }
+}
+
+.main-nav__link {
+  height: 36px;
+  display: table !important;
+  @include breakpoint(640 down){
+    height: 46px;
+    display: block !important;
+        a{
+            &:hover {
+                color: $White !important;
+            }
+        }
+  }
+
+}
+
+.main-nav__link a{
+  height: 36px;
+  padding-top: 7px;
+
+  border-top: 1px !important;
+  border-color: $white !important;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include breakpoint(640 down){
+    // background: linear-gradient(top,rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* Standard syntax */
+    background: linear-gradient(to bottom,rgba(109, 109, 109, 1),rgba(94, 94, 94, 1) ) ; /* IE ? */
+    background: -ms-linear-gradient(top, rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* IE 11 */
+  }
+  &:hover{
+    background: $navbar-bg-hover-participa;
+    color: $navbar-active-color;
+    text-decoration: none;
+    
+    @include breakpoint(640 down){
+      background-image: image-url("nav-bar-actiu.jpg"), 
+        -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) );
+            color: $navbar-color-hover;
+
+        // background: linear-gradient(top,rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* Standard syntax */
+        background: linear-gradient(to bottom,rgba(162, 162, 162, 1),rgba(135, 135, 135, 1) ) ; /* IE ? */
+        background: -ms-linear-gradient(top, rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* IE 11 */
+
+    }
+}
+
+  @include breakpoint(640 down){
+    background-image: image-url(""), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(109, 109, 109, 1) ), color-stop(100%, rgba(94, 94, 94, 1) ) );
+    margin-top: 1px;
+    height: 46px;
+    padding-top: 12px;
+  }
+
+  font-family: 'Open Sans Semibold';
+  color: $navbar-color-hover;  
+}
+.main-nav__link--active a {
+  box-shadow: $navbar-active-shadow-none;
+
+  color: $navbar-active-color;
+  background: $White;
+  font-family: 'Open Sans Semibold';
+  height: 36px;
+
+  @include breakpoint(640 down){
+    height: 46px;
+    background-image: image-url("nav-bar-actiu.jpg"), linear-gradient(to bottom, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100% );
+    color: $White !important;
+    background-repeat: no-repeat;
+    background-position: left center;
+    box-shadow: 0px !important;
+      &:hover {
+        background-image: image-url("nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
+        background-repeat: no-repeat !important;
+        background-position: left center !important;
+        color: $White !important;
+        // background: linear-gradient(top,rgba(135, 135, 135, 1), rgba(162, 162, 162, 1) ) !important; /* Standard syntax */
+        background: linear-gradient(to bottom,rgba(135, 135, 135, 1),rgba(162, 162, 162, 1) ) !important; /* IE ? */
+        background: -ms-linear-gradient(top, rgba(135, 135, 135, 1), rgba(162, 162, 162, 1) ) !important; /* IE 11 */
+      }
+  }
+}
+
+.main-nav__link {
+  box-shadow: $navbar-active-shadow-small;
+  @include breakpoint(640 down){
+    box-shadow: $navbar-active-shadow-none;
+  }
+}
+
+.participa-left-bar li{
+  //font-weight: bold;
+  font-weight: normal !important;
+  font-family: 'Open Sans Semibold';
+  box-shadow: $navbar-active-shadow-small;
+
+  @include breakpoint(640 down){
+    box-shadow: $navbar-active-shadow-none;
+    // background: linear-gradient(top,rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* Standard syntax */
+    background: linear-gradient(to bottom,rgba(109, 109, 109, 1),rgba(94, 94, 94, 1) ) ; /* IE ? */
+    background: -ms-linear-gradient(top, rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* IE 11 */
+
+    &:hover {
+      // background: linear-gradient(top,rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* Standard syntax */
+      background: linear-gradient(to bottom,rgba(162, 162, 162, 1),rgba(135, 135, 135, 1) ) ; /* IE ? */
+      background: -ms-linear-gradient(top, rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* IE 11 */
+    }
+  }
+
+  a {
+    //height: 46px;
+    vertical-align: 50%;
+    padding-top: 12px !important;
+    padding-left: 15px !important;
+    @include breakpoint(640 down){
+      background-image: image-url(""), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(109, 109, 109, 1) ), color-stop(100%, rgba(94, 94, 94, 1) ) );
+      margin-top: 1px !important;
+      box-shadow: $navbar-active-shadow-none;
+    }
+
+  }
+}
+
+.participa-left-bar {
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+.participa-left-bar li{
+  &:hover{
+    background-color: $navbar-bg-hover-participa;
+
+    @include breakpoint(640 down){
+
+      &:hover{
+        background-image: image-url("nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
+        text-decoration: none !important;
+        color: $navbar-color-hover;
+        background-size: auto 100%;
+      }
+
+      background-image: image-url(""), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) );
+    }
+
+  }
+
+}
+.usermenu-off-canvas-holder .usermenu-off-canvas a {
+   color: $navbar-color-hover;
+}
+
+.topbar__user__login a{
+    color: $navbar-color-hover;
+    font-weight: normal;
+    &:hover {
+      color: $navbar-color-hover;
+      font-weight: normal;
+    }
+}
+
+.topbar__user__login {
+    @include breakpoint(640 down){
+    // background: linear-gradient(top,rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* Standard syntax */
+    background: linear-gradient(to bottom,rgba(109, 109, 109, 1),rgba(94, 94, 94, 1) ) ; /* IE ? */
+    background: -ms-linear-gradient(top, rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* IE 11 */
+
+      &:hover {
+      // background: linear-gradient(top,rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* Standard syntax */
+      background: linear-gradient(to bottom,rgba(162, 162, 162, 1),rgba(135, 135, 135, 1) ) ; /* IE ? */
+      background: -ms-linear-gradient(top, rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* IE 11 */
+      }
+  }
+
+}
+
+.language-choose {
+  @include breakpoint(640 down){
+    display: none !important;
+  }
+}
+
+.usermenu-off-canvas-holder .usermenu-off-canvas.is-dropdown-submenu {
+  border-top: 0;
+}
+
+.part-signin {
+  font-family: 'Open Sans Semibold';
+  font-weight: normal;
+
+  color: $navbar-color-hover;
+  margin-top: 0px !important;
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+  height: 46px;
+  @include breakpoint(640 down){
+    background-image: image-url(""), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(109, 109, 109, 1) ), color-stop(100%, rgba(94, 94, 94, 1) ) );
+    text-align: left !important;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    &:hover{
+      background-image: image-url("nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
+      color: $navbar-active-color !important;
+      text-decoration: none !important;
+    }
+  }
+}
+
+.part-background-gray {
+  @include breakpoint(640 down){
+    background: gray !important;
+  }
+}
+
+.part-bakcground-navbar {
+  background: $cardNotice;
+}
+
+
+.part-header {
+  font-family: "Open Sans Semibold";
+  font-size: 28px;
+}
+
+.part-topNavbar-content  {
+  margin: 8px;
+  padding-top: 9px; 
+  padding-bottom: 9px; 
+  padding-left: 10px; 
+  padding-right: 10px; 
+  width: 42px;
+  height: 40px;
+  
+  &:hover {
+    background-color: #4d4d4d;
+  }
+
+  .part-icon-bars{
+    color: $white;
+
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    cursor:pointer;
+  }
+}
+
+.part-gencat-cat-img {
+  background-image: image-url("gencat_cat_navbar.png");
+  height: 1.688em;
+  margin: 1em auto 0;
+  width: 8.063em;
+  display: block;
+  color: transparent;
+  cursor:pointer;
+}
+
+.part-gencat-logo-nomargin {
+  background: image-url("logo_generalitat_white.png") no-repeat 0 0;
+  height: 1.688em;
+  display: block;
+  color: transparent;
+  cursor:pointer;
+  margin-left: -14px;
+}
+
+.part-upArrow-white {
+    background: image-url("upArrow_white.png") no-repeat 0 0;
+    width: 30px;
+    height: 36px;
+}
+
+.part-downArrow-white {
+    background: image-url("downArrow_white.png") no-repeat 0 0;
+    width: 30px;
+    height: 36px;
+}
+
+.part-leftArrow-white {
+    background: image-url("leftArrow_white.png") no-repeat 0 0;
+    width: 30px;
+    height: 36px;
+}
+
+
+.part-rightArrow-white {
+    background: image-url("rightArrow_white.png") no-repeat 0 0;
+    width: 30px;
+    height: 36px;
+}
+
+.part-uparrow-circle-red {
+    background: image-url("uparrow_red_circle.png") no-repeat 0 0;
+    width: 30px;
+    height: 36px;
+}
+
+.part-downarrow-circle-red {
+    background: image-url("downarrow_red_circle.png") no-repeat 0 0;
+    width: 30px;
+    height: 36px;
+}
+
+.part-leftarrow-circle-red {
+    background: image-url("leftarrow_red_circle.png") no-repeat 0 0;
+    width: 30px;
+    height: 36px;
+}
+
+.part-rightarrow-circle-red {
+    background: image-url("rightarrow_red_circle.png") no-repeat 0 0;
+    width: 30px;
+    height: 36px;
+}
+
+
+/* Zona logo navbar (Gencat y cerrar, dispositivos móviles) */
+
+.part-topNavbar-logo {
+    background: image-url("logo_generalitat_white.png") no-repeat 0 0;
+    height: 2em;
+    text-indent: -555em;
+    margin: .5em 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor:pointer;
+}
+
+.part-background-grey-navbar {
+    background: $grayLogoNavbar;
+}
+
+.part-close-button {
+  background-image: image-url("tancar_menu.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  width: 20px;
+  height: 25px;
+  margin-top: 3px;
+}
+
+.close-button {
+  top: 62px;
+}
+/* Fin zona logo navbar */
+
+.title-bar {
+  a.logo {
+    color: #fff;
+  }
+  @include breakpoint(640 down){
+    border-top: 0px;
+  }
+}
+
+.tool-bar{
+  text-align: right;
+  position: absolute;
+  right: 2rem;
+  vertical-align: middle;
+  @include breakpoint(smallmedium down){
+    position: initial;
+  }
+  .user-login{
+    vertical-align: middle;
+    position: initial;
+    text-align: left;
+    display: inline-block;
+    margin-top: 0px;
+    @include breakpoint(smallmedium down){
+      position: absolute;
+      right: 2rem;
+      margin-top: -1.2rem;
+    }
+  }
+  .language-choose{
+    position: initial;
+    vertical-align: middle;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    .is-dropdown-submenu-parent a{
+      color: #fff;
+      &:after{
+        border-color: #fff transparent transparent !important;
+      }
+    }
+    .is-dropdown-submenu li > a {
+      color: $dark-gray;
+      &:hover{
+        background-color: lighten($medium-gray, 30%)
+      }
+    }
+    @include breakpoint(smallmedium down){
+      font-size: .8rem;
+      position: absolute;
+      top: -2.2rem;
+      left: .5rem;
+      margin-left: 0;
+      .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+        border-width: 3px;
+        right: 10px;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.title-bar {
+    background: #333;
+}
+
+.navbar.js-append .row.column  {
+  @include breakpoint(640 up){
+    padding-left: 0px;
+  }
+    
+}
+
+.hide-for-medium.topbar__menu {
+  @include breakpoint(640 up){
+    display: none;
+  }
+}
+
+.part-background-gray .navbar {
+    padding-top: 0px;
+    .row {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.part-navbar-background {
+    background-color: #333;
+}
+
+.off-canvas {
+    background-color: #333333;
+}
+
+.part-regulation-tab {
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: .05em;
+
+}

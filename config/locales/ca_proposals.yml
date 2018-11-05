@@ -1,0 +1,7 @@
+---
+ca:
+  decidim:
+    proposals:
+      proposals:
+        show:
+          proposal_in_evaluation_reason: 'Aquesta proposta està en avaluació perquè:'

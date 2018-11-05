@@ -1,0 +1,76 @@
+<%= javascript_include_tag "decidim/meetings/extended/application" %>
+
+<% 
+    # Id del grupo de procesos "Normativa"
+    regulation_process_group_id = 2 
+%>
+<div class="row small-up-1 medium-up-2 card-grid">
+    <% show_meetings.each do |meeting| %>
+ 
+        <div class="column">
+            <article class="card card--meeting">
+                <div class="card__content"><% 
+                    related_feature(meeting.decidim_feature_id).each do |relatedFeature| 
+                        related_process(relatedFeature.participatory_space_id).each do |relatedProcess|
+                      
+                            if relatedProcess.decidim_participatory_process_group_id == regulation_process_group_id %>
+                                <a class="card__link part-card-title" href="/processes/<%= relatedProcess.id.to_s %>">
+                                    <h5 class="card__title"><%= translated_attribute relatedProcess.title %></h5>
+                                </a>
+                                <a class="part-a" href="/processes/<%= relatedProcess.id %>/f/<%= relatedFeature.id %>/meetings/<%= meeting.id %>">
+                                    <h5><%= translated_attribute meeting.title %></h5>
+                                </a><% 
+                            else %>
+                                <a class="card__link part-card-title" href="/processes/<%= relatedProcess.id.to_s %>">
+                                    <h5 class="card__title"><%= translated_attribute relatedProcess.title %></h5>
+                                </a>
+                                <a class="part-a" href="<%= resource_locator(meeting).path %>">
+                                    <h5 class="card__title"><%= translated_attribute meeting.title %></h5>
+                                </a>
+                                  
+                                <% 
+                            end
+                            %>
+                            <%
+                        end
+                    end %>
+                    <div class="card__datetime">
+                        <div class="card__datetime__date">
+                            <%= l meeting.start_time, format: "%d" %> <span class="card__datetime__month"><%= l meeting.start_time, format: "%B %Y" %></span>
+                        </div>
+                        <div class="card__datetime__time">
+                            <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
+                        </div>
+                    </div>
+                    <%== translated_attribute meeting.description %>
+                    <div class="address card__extra">
+                        <div class="address__icon">
+                            <svg width="40" height="70" class="icon--meetings"><use xlink:href="/assets/decidim/icons-aa71fb7b9fb5d043b71aef057f4425f0f67c6e3642210bc7d2a80d6db01e4206.svg#icon-meetings"></use></svg>
+                        </div>
+                        <div class="address__details">
+                            <strong><%= translated_attribute meeting.location %></strong><br>
+                            <span><%= meeting.address %></strong></span><br>
+                            <span><%= translated_attribute meeting.location_hints %></strong></span>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+            </article>
+        </div>
+    <% end %>
+</div>
+<%= decidim_paginate show_meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+<% if params.has_key?(:filter)
+    show_selected_scopes.each do |params| 
+        %><input type="hidden" value="<%= params %>" class="scope_selected" /><% 
+    end
+end
+if params.has_key?(:post) 
+    %><input type="hidden" value="<%= show_happened %>" id="happened_selected" /><% 
+end 
+if params.has_key?(:date) 
+    %><input type="hidden" value="<%= show_date %>" id="date_selected" /><% 
+end
+if params.has_key?(:related_process) 
+    %><input type="hidden" value="<%= params[:related_process] %>" id="meeting_selected"><% 
+end %>

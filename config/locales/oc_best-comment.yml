@@ -1,0 +1,29 @@
+oc:
+  decidim:
+    proposals:
+      proposals:
+        index:
+          accepted: Acceptades
+          activity: Activitat
+          all: Tots
+          category: Categoria
+          category_prompt: Selecciona una categoria
+          citizenship: Ciutadania
+          evaluating: En avaluació
+          official: Oficial
+          origin: Origen
+          rejected: Rebutjades
+          related_to: Relacionat amb
+          scope_prompt: Seleccioneu un àmbit
+          scopes: Àmbits
+          search: Cerca
+          state: Estat
+          voted: Votat
+        show:
+          most_voted_comments: Comentaris més votats
+        most_voted_comments:
+          positive: A favor
+          negative: En contra
+          no_results: No s'han trobat resultats
+          actually_positive: A favor
+          actually_negattive: En contra

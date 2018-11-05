@@ -1,0 +1,28 @@
+oc:
+  decidim:
+    menu:
+      processes: Processos participatius
+    themes:
+      none: Cap
+    participatory_processes:
+      admin:
+        participatory_processes:
+          form:
+            appear_home: Sortir al home (imatge)
+    projects:
+      filters:
+        category: Eixos de debat
+        select_category: Selecciona
+    application:
+      attachments:
+        meetings_available: Hi ha trobades programades actualment
+  activemodel:
+    attributes:
+      participatory_process:
+        theme_id: Tema
+        type_id: Tipus
+        department_id: Departament
+        title: Títol
+        email: Bústia de suggeriments
+      participatory_process_step:
+        title: Nom de la fase

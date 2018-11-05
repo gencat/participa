@@ -1,0 +1,40 @@
+oc:
+  decidim:
+    devise:
+      registrations:
+        new:
+          already_have_an_account?: Ja tens un compte?
+          newsletter_notifications: Vull rebre informació sobre activitat rellevant
+          sign_in: Entra
+          sign_up: Registra't
+          sign_up_as:
+            legend: Inscriu-te com a
+            user: Individu
+            user_group: Organització/Col·lectiu/Entitat
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Raó per eliminar el teu compte
+      report:
+        details: Comentaris addicionals
+      user:
+        email: El teu email
+        name: El teu nom
+        password: Contrasenya
+        password_confirmation: Confirma la teva contrasenya
+        remove_avatar: Elimina la imatge d'usuari
+        user_group_document_number: CIF de l'organització
+        user_group_name: Nom de l'organització
+        user_group_phone: Telèfon de l'organització
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Contrasenya actual
+        email: Correu electrònic
+        name: Nom d'usuari
+        password: Contrasenya
+        password_confirmation: Confirmació de la contrasenya
+        remember_me: Recorda'm
+        user_group_document_number: CIF de l'organització
+        user_group_name: Nom de l'organització
+        user_group_phone: Telèfon de l'organització

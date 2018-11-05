@@ -1,0 +1,2 @@
+class DecidimTheme < ApplicationRecord
+end

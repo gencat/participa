@@ -1,0 +1,18 @@
+@import "../settings.scss";
+@import "../vendor/mq";
+
+body{
+    .dropdown{
+        &.menu{
+            li{
+                &.is-dropdown-submenu-parent{
+                    >a{
+                        &::after{
+                            border-top-color: $RedGenCat;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+oc:
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
+  time:
+    formats:
+      datepicker: "%d/%m/%Y"
+      timepicker: "%d/%m/%Y %H:%M"
+      datepicker_info: esto es para arreglar un bug que persiste en la 0.6.5. cuando lo arreglen podemos borrar el date y time
+  menu:
+    stableareas_static: Consells de participació
+    queries_static: Participació normativa
+    proces_static: Processos actius
+  static:
+    queries:
+      meta_tags:
+        see_all_processes: Tots es procèssi
+        see_all_assemblies: Totes les participacions
+        see_all_stableareas: Tots els consells de participació
+    stableareas:
+      meta_tags:
+        active_step: Procés actiu
+    footer:
+      legal_advice_title: Avís legal
+      legal_advice_text: "D’acord amb l’article 17.1 de la Llei 19/2014, la ©Generalitat de Catalunya permet la reutilització dels continguts i de les dades sempre que se'n citi la font i la data d'actualització i que no es desnaturalitzi la informació (article 8 de la Llei 37/2007) i també que no es contradigui amb una llicència específica."
+  pages:
+    home:
+      regulatory_inquiries:
+        active_step: Procés actiu
+      extended:
+        debates: Participa-i
+        debates_explanation: Ven as sessions de debat, hè aportacions en linha o comenta es des auti participaires
+        how_to_participate: Com participi en un procès?
+        meetings: Informa-te
+        meetings_explanation: Consulta es procèssi participatius, iniciatiues normatiues o conselhs de participacion que son actius. Poderàs veir es prepauses qu'an hèt es ciutadans e revisar es mès recentes, es mès avalorades o es mès comentades
+        more_info: Mès informacion
+        proposals: Consulta els resultats
+        proposals_explanation: Revisa es informes des sessions, accedís ara avaloracion des participaires e coneish era responsa dera Administracion
+      footer_sub_hero:
+        footer_sub_hero_body: Bastim ua societat mès dubèrta, transparenta e collaboratiua. Junh-te e participa
+        footer_sub_hero_headline: Te dam era benvenguda en portau %{organization}
+        register: Enregistra-te
+  decidim:
+      menu:
+        more_information: Altres

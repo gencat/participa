@@ -1,0 +1,8 @@
+es:
+  decidim:
+    account:
+      delete:
+        explanation: Por favor, indica el motivo por el que deseas eliminar tu cuenta (opcional).
+    notifications_settings:
+      show:
+        newsletter_notifications: Quiero recibir informació sobre la actividad relevante y las novedades del portal.
