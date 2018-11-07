@@ -2,7 +2,13 @@
 Short description and motivation.
 
 ## Usage
-How to use my plugin.
+This module produces a "Regulations" participatory space. This participatory space is just like the Participatory Processes space.
+
+The way to add ParticipatoryProcesses to Regulations is to group them into a Process Group and then configure the application with this Process Group's ID. Then this module takes the ParticipatoryProcesses from this group by filtering rows based on the following query:
+
+```ruby
+Decidim::ParticipatoryProcess.where("decidim_participatory_processes.decidim_participatory_process_group_id = ?", Rails.application.config.regulation)
+```
 
 ## Installation
 Add this line to your application's Gemfile:
