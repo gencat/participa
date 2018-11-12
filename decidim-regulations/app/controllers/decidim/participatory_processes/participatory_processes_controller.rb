@@ -5,17 +5,18 @@ module Decidim
     # A controller that holds the logic to show ParticipatoryProcesses in a
     # public layout.
     class ParticipatoryProcessesController < Decidim::ApplicationController
-      layout "layouts/decidim/participatory_process", only: [:show]
-
-      before_action -> { extend NeedsParticipatoryProcess }, only: [:show]
+      include ParticipatorySpaceContext
+      participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
+      helper Decidim::SanitizeHelper
 
       helper ParticipatoryProcessHelper
 
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :categories, :has_debats, :is_subcategory
+      helper_method :current_participatory_process
 
       def index
         authorize! :read, ParticipatoryProcess
@@ -27,6 +28,22 @@ module Decidim
       end
 
       private
+
+      def organization_participatory_processes
+        @organization_participatory_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
+      end
+
+      def current_participatory_space
+        @current_participatory_space ||= organization_participatory_processes.find_by(slug: params[:slug])
+      end
+
+      def current_participatory_process
+        @current_participatory_process ||= organization_participatory_processes.find_by(slug: params[:slug])
+      end
+
+      def published_processes
+        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization)
+      end
 
       def collection
         @collection ||= (participatory_processes.to_a).flatten
@@ -71,7 +88,6 @@ module Decidim
       def is_subcategory(category_id)
         @is_subcategory = Decidim::Category.all.where(id: category_id).where.not(parent_id: nil).exists?
       end
-
     end
   end
 end
