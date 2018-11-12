@@ -1,0 +1,22 @@
+oc:
+  decidim:
+    features:
+      pages:
+        name: Pàgina
+        settings:
+          global:
+            announcement: Avís
+          step:
+            announcement: Avís
+    pages:
+      admin:
+        models:
+          components:
+            body: Cos
+        pages:
+          edit:
+            save: Actualitzar
+            title: Editar pàgina
+          update:
+            invalid: Hi ha hagut errors en desar la pàgina.
+            success: Pàgina guardada correctament.
