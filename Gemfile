@@ -18,11 +18,14 @@ gem 'decidim-meetings-extended', path: 'decidim-meetings-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
+gem 'decidim-selectable-news', path: 'decidim-selectable-news'
+gem 'decidim-search-user', path: 'decidim-search-user'
 
 gem "puma", "~> 3.0"
 gem "uglifier", ">= 1.3.0"
 
 gem "faker", "~> 1.8.4"
+gem 'figaro', '>= 1.1.1'
 
 group :development, :test do
   gem "byebug", platform: :mri
@@ -40,5 +43,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'decidim-selectable-news', path: 'decidim-selectable-news'
-gem 'decidim-search-user', path: 'decidim-search-user'
