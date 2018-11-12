@@ -1,12 +1,14 @@
 source "https://rubygems.org"
 
-ruby "2.4.1"
+ruby RUBY_VERSION
+DECIDIM_VERSION = "~> 0.8.4"
 
-
-gem "decidim", "0.7.4"
+# gem "decidim", "0.7.4"
+gem "decidim", DECIDIM_VERSION
 
 # Uncomment the following line if you want to use decidim-assemblies plugin
-gem "decidim-assemblies", "0.7.4"
+# gem "decidim-assemblies", "0.7.4"
+gem "decidim-assemblies", DECIDIM_VERSION
 gem 'decidim-debates', path: 'decidim-debates'
 
 gem 'decidim-department', path: 'decidim-department'
@@ -30,7 +32,7 @@ gem 'figaro', '>= 1.1.1'
 group :development, :test do
   gem "byebug", platform: :mri
 
-  gem "decidim-dev", "0.7.4"
+  gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
