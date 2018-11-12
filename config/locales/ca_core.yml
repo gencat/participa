@@ -9,3 +9,9 @@ ca:
     shared:
       share_modal:
         share: Comparteix  
+  pages:
+    home:
+      highlighted_processes:
+        active_processes: Processos actius
+        active_step: Pas actiu
+        see_all_processes: Veure tots els processos

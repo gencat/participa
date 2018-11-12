@@ -29,6 +29,8 @@ gem "uglifier", ">= 1.3.0"
 gem "faker", "~> 1.8.4"
 gem 'figaro', '>= 1.1.1'
 
+gem 'foundation-rails', '6.4.1.3'
+
 group :development, :test do
   gem "byebug", platform: :mri
 

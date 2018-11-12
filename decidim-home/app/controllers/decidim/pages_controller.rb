@@ -16,7 +16,8 @@ module Decidim
         authorize_resource :public_pages, class: false
         delegate :page, to: :page_finder
         helper_method :page, :next_meetings, :promoted_participatory_processes, :highlighted_participatory_processes, :stats, :home_participatory_processes, :searchProcesses, :searchFeatures, :searchMeetings, :searchRegulations, :searchAssemblies
-
+        helper Decidim::SanitizeHelper
+        
         def index
             @pages = current_organization.static_pages.all.to_a.sort do |a, b|
                 a.title[I18n.locale.to_s] <=> b.title[I18n.locale.to_s]
