@@ -11,7 +11,6 @@ gem 'decidim-debates', path: 'decidim-debates'
 
 gem 'decidim-department', path: 'decidim-department'
 gem 'decidim-type', path: 'decidim-type'
-# gem 'decidim-proposals-best-comments', path: 'decidim-proposals-best-comments'
 gem 'decidim-theme', path: 'decidim-theme'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
 
