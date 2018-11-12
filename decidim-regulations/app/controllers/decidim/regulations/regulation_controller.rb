@@ -5,16 +5,27 @@ module Decidim
     # A controller that holds the logic to show ParticipatoryProcesses in a
     # public layout.
     class RegulationController < Decidim::ApplicationController
-      layout "layouts/decidim/regulation", only: [:show]
-
-      before_action -> { extend NeedsParticipatoryProcess }, only: [:show]
+      include ParticipatorySpaceContext
+      participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
-      helper Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper
+      helper Decidim::SanitizeHelper
+
+      # helper Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper
+
+      # layout "layouts/decidim/regulation", only: [:show]
+
+      # before_action -> { extend NeedsParticipatoryProcess }, only: [:show]
+
+      # helper Decidim::AttachmentsHelper
+      # helper Decidim::IconHelper
+      # helper Decidim::WidgetUrlsHelper
+      # helper Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper
 
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :types, :departments, :categories, :has_debats, :is_subcategory
+      helper_method :current_participatory_process
 
       def index
         authorize! :read, ParticipatoryProcess
@@ -45,6 +56,16 @@ module Decidim
 
       def participatory_process_groups
         @process_groups ||= Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, regulation)
+      end
+
+      def current_participatory_space
+        return unless params[:slug].present?
+        @current_participatory_space ||= collection.find_by(slug: params[:slug])
+      end
+
+      def current_participatory_process
+        return unless params[:slug].present?
+        @current_participatory_process ||= collection.find_by(slug: params[:slug])
       end
 
       def stats
