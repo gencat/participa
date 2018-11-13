@@ -1,5 +1,5 @@
 # Decidim::Home
-Short description and motivation.
+Decidim::Home, overwrites a few functionalities of de main page of Decidim, like adding slider in home, and some translations.
 
 ## Usage
 How to use my plugin.
