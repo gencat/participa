@@ -39,6 +39,11 @@ ca:
         title: Consells de participació
       statistics:
         assemblies_count: Consells de participació
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Consells de participació
+            see_all_assemblies: Veure tots els consells de participació
     menu:
       assemblies: Consells de participació
   layouts:

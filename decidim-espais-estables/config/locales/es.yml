@@ -39,6 +39,11 @@ es:
         title: Consejos de participación
       statistics:
         assemblies_count: Consejos de participación
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Consejos de participación
+            see_all_assemblies: Ver todos los consejos de participación
     menu:
       assemblies: Consejos de participación
   layouts:
