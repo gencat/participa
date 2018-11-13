@@ -3,7 +3,6 @@
 Decidim.configure do |config|
   config.application_name = "Participa"
   config.mailer_sender = ENV.fetch("SMTP_USERNAME") { "participagencat@gencat.cat" }
-  # config.authorization_handlers = [ExampleAuthorizationHandler]
 
   # Change these lines to set your preferred locales
   config.default_locale = :ca

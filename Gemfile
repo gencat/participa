@@ -3,11 +3,8 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 DECIDIM_VERSION = "~> 0.8.4"
 
-# gem "decidim", "0.7.4"
 gem "decidim", DECIDIM_VERSION
 
-# Uncomment the following line if you want to use decidim-assemblies plugin
-# gem "decidim-assemblies", "0.7.4"
 gem "decidim-assemblies", DECIDIM_VERSION
 gem 'decidim-debates', path: 'decidim-debates'
 

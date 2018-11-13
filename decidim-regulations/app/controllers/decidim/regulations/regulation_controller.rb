@@ -13,17 +13,6 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
 
-      # helper Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper
-
-      # layout "layouts/decidim/regulation", only: [:show]
-
-      # before_action -> { extend NeedsParticipatoryProcess }, only: [:show]
-
-      # helper Decidim::AttachmentsHelper
-      # helper Decidim::IconHelper
-      # helper Decidim::WidgetUrlsHelper
-      # helper Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper
-
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :types, :departments, :categories, :has_debats, :is_subcategory
       helper_method :current_participatory_process
 
