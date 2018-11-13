@@ -1,5 +1,5 @@
 # Decidim::Espais::Estables
-This is know now as "Consells de Participació"
+This is know now as "Consells de Participació" This module just change some translation values from decidim assemblies.
 
 ## Usage
 How to use my plugin.
