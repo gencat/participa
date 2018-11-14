@@ -22,7 +22,6 @@ module Decidim
           mount Decidim::Department::Engine => "/"
         end
       end
-
     end
   end
 end

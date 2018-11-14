@@ -1,0 +1,14 @@
+oc:
+  decidim:
+    admin:
+      extended:
+        menu:
+          more_configuration: Més configuració
+  layouts:
+    decidim:
+      admin:
+        extended:
+          settings:
+            title: Més configuració
+
+          

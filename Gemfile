@@ -8,6 +8,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-assemblies", DECIDIM_VERSION
 gem 'decidim-debates', path: 'decidim-debates'
 
+gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-department', path: 'decidim-department'
 gem 'decidim-type', path: 'decidim-type'
 gem 'decidim-theme', path: 'decidim-theme'

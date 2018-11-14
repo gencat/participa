@@ -4,12 +4,6 @@
       <%= t ".title" %>
     </div>
     <ul>
-      <li <% if is_active_link?(decidim_admin.edit_organization_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.settings", scope: "decidim.admin"), decidim_admin.edit_organization_path %>
-      </li>
-      <li <% if is_active_link?(decidim_admin.scopes_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.scopes", scope: "decidim.admin"), decidim_admin.scopes_path %>
-      </li>
       <%= render "layouts/decidim/admin/department_link" rescue nil %>
       <%= render "layouts/decidim/admin/type_link" rescue nil %>
       <%= render "layouts/decidim/admin/theme_link" rescue nil %>

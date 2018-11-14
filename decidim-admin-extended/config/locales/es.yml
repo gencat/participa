@@ -1,0 +1,12 @@
+es:
+  decidim:
+    admin:
+      extended:
+        menu:
+          more_configuration: Más configuración
+  layouts:
+    decidim:
+      admin:
+        extended:
+          settings:
+            title: Más configuración
