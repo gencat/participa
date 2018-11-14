@@ -35,9 +35,8 @@ module Decidim
 
         initializer "decidim_admin_extended.menu" do
           Decidim.menu :admin_menu do |menu|
-            menu.item I18n.t("menu.more_configuration", scope: "decidim.admin.extended"),
-                      decidim_department_admin.departments_path,
-                      # "/admin/departments",
+            menu.item I18n.t("menu.custom_configuration", scope: "decidim.admin.extended"),
+                      "/admin/departments",
                       icon_name: "wrench",
                       position: 10,
                       active: [%w(decidim/admin/themes decidim/admin/types decidim/admin/departments), []]

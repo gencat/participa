@@ -3,10 +3,10 @@ es:
     admin:
       extended:
         menu:
-          more_configuration: Más configuración
+          custom_configuration: Configuración customizada
   layouts:
     decidim:
       admin:
         extended:
           settings:
-            title: Más configuración
+            title: Configuración customizada

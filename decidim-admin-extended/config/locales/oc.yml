@@ -3,12 +3,12 @@ oc:
     admin:
       extended:
         menu:
-          more_configuration: Més configuració
+          custom_configuration: Configuració customitzada
   layouts:
     decidim:
       admin:
         extended:
           settings:
-            title: Més configuració
+            title: Configuració customitzada
 
           
