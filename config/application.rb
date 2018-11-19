@@ -14,7 +14,7 @@ module Participa
 
     # Processes group ids used to determine whether a process is a regulation or a process
     config.process    = 1
-    config.regulation = 2
+    config.regulation = 3
 
     config.photos = ['image1.png', 
           'image2.png',

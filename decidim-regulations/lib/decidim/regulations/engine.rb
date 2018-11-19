@@ -11,7 +11,7 @@ module Decidim
 
       routes do
           resources :participatory_process_groups, only: :show, path: "regulations_groups"
-          resources :regulation, only: [:index, :show], path: "regulations" do
+          resources :regulation, only: [:index], path: "regulations" do
           resources :participatory_process_steps, only: [:index], path: "steps"
           resource :participatory_process_widget, only: :show, path: "embed"
 

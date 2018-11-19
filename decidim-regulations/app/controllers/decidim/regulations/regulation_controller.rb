@@ -74,7 +74,7 @@ module Decidim
       end
 
       def types
-          @types ||= ::DecidimType.all
+        @types ||= ::DecidimType.all
       end
 
       def departments 

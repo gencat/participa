@@ -1,0 +1,35 @@
+<% is_regulation ||= (request.original_fullpath.at(1..11).to_s == "regulations".to_s) %>
+
+<% if categories.any? %>
+  <div class="part-cont-2">
+    <p><%= t("decidim.participatory_processes.participatory_processes.show.categories") %></p>
+  </div>
+  <% is_assembly = (request.original_fullpath.to_s.include? "/assemblies") %>
+  <% if !is_assembly %>
+    <% categories.each do |category| %>
+      <p class="part-cont-3">
+        <% if has_debats(current_participatory_process.id).any? %>
+          <% if is_regulation %>
+            <% if is_subcategory(category.id) %>
+              &emsp;-&emsp;
+            <% end %>
+            <a class="part-a" href="/processes/<%= current_participatory_process.slug.to_s %>/f/<%= has_debats(current_participatory_process).map.pluck(:id).first %>/proposals?utf8=✓&filter[category_id]=<%= category.id %>&menu=true"><%= translated_attribute(category.name) %></a>
+          <% else %>
+            <% if is_subcategory(category.id) %>
+              &emsp;-&emsp;
+            <% end %>
+            <a class="part-a" href="/processes/<%= current_participatory_process.slug.to_s %>/f/<%= has_debats(current_participatory_process).map.pluck(:id).first %>/proposals?utf8=✓&filter[category_id]=<%= category.id %>&menu=true"><%= translated_attribute(category.name) %></a>
+          <% end %>
+        <% else %>
+          <% if is_subcategory(category.id) %>
+            &emsp;-&emsp;
+          <% end %>
+          <%= translated_attribute(category.name) %>
+        <% end %>
+      </p>
+      <div class="part-cont-5">
+        <%= raw(translated_attribute(category.description)) %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
