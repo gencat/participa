@@ -5,16 +5,16 @@ module Decidim
     # A controller that holds the logic to show ParticipatoryProcesses in a
     # public layout.
     class RegulationController < Decidim::ApplicationController
-      layout "layouts/decidim/regulation", only: [:show]
-
-      before_action -> { extend NeedsParticipatoryProcess }, only: [:show]
+      include ParticipatorySpaceContext
+      participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
-      helper Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper
+      helper Decidim::SanitizeHelper
 
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :types, :departments, :categories, :has_debats, :is_subcategory
+      helper_method :current_participatory_process
 
       def index
         authorize! :read, ParticipatoryProcess
@@ -27,10 +27,6 @@ module Decidim
 
       private
 
-      def collection
-        @collection ||= (participatory_processes.to_a).flatten
-      end
-
       def filtered_participatory_processes(filter = default_filter, filter_type_filter = 0, department_type_filter = 0, status_filter = 0)
         Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, regulation, filter_type_filter, department_type_filter, status_filter)
       end
@@ -39,12 +35,26 @@ module Decidim
         @participatory_processes ||= filtered_participatory_processes(filter, filter_type, theme_type, status)
       end
 
+      def collection
+        @collection ||= (participatory_processes.to_a).flatten
+      end
+
       def promoted_participatory_processes
         @promoted_processes ||= filtered_participatory_processes | Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
       end
 
       def participatory_process_groups
         @process_groups ||= Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, regulation)
+      end
+
+      def current_participatory_space
+        return unless params[:slug].present?
+        @current_participatory_space ||= collection.find_by(slug: params[:slug])
+      end
+
+      def current_participatory_process
+        return unless params[:slug].present?
+        @current_participatory_process ||= collection.find_by(slug: params[:slug])
       end
 
       def stats
@@ -64,7 +74,7 @@ module Decidim
       end
 
       def types
-          @types ||= ::DecidimType.all
+        @types ||= ::DecidimType.all
       end
 
       def departments 
@@ -106,7 +116,6 @@ module Decidim
       def is_subcategory(category_id)
         @is_subcategory = Decidim::Category.all.where(id: category_id).where.not(parent_id: nil).exists?
       end
-
     end
   end
 end

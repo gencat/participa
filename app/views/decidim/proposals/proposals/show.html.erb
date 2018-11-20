@@ -4,8 +4,8 @@
   url: proposal_url(@proposal.id)
 }) %>
 
-<%= render partial: "votes_limit" %>
-<div class="row column view-header part-timeline-margin">
+<%= render partial: "voting_rules" %>
+<div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
   <div class="author-data">
     <%= render partial: "author", locals: { proposal: @proposal } %>
@@ -13,11 +13,19 @@
       <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
         <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
       </button>
+      <% unless @proposal.official? %>
+        <%= link_to link_to_current_or_new_conversation_with(@proposal.author), title: t('.contact') do %>
+          <%= icon "envelope-closed", aria_label: t('.contact'), class: 'icon--small' %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <% if can?(:edit, @proposal) %>
+      <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% end %>
     <% if current_settings.votes_enabled? || current_user %>
       <div class="card extra">
         <div class="card__content">
@@ -49,21 +57,21 @@
         <div class="section">
           <div class="callout success">
             <h5><%= t(".proposal_accepted_reason") %></h5>
-            <p><%== translated_attribute @proposal.answer %></p>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
-        <%elsif(@proposal.state == 'evaluating')%>
-          <div class="section">
-            <div class="callout secondary">
-              <h5><%= t(".proposal_in_evaluation_reason") %></h5>
-              <p><%== translated_attribute @proposal.answer %></p>
-            </div>
-          </div>
-      <% else %>
+      <% elsif @proposal.rejected? %>
         <div class="section">
           <div class="callout warning">
             <h5><%= t(".proposal_rejected_reason") %></h5>
-            <p><%== translated_attribute @proposal.answer %></p>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
+          </div>
+        </div>
+      <% else %>
+        <div class="section">
+          <div class="callout secondary">
+            <h5><%= t(".proposal_in_evaluation_reason") %></h5>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
       <% end %>
@@ -75,14 +83,18 @@
 </div>
 <%= attachments_for @proposal %>
 </div>
+
+<!-- CUSTOM BLOCK MOST VOTED COMMENTS - DON'T DELETE-->
 <div class="expanded">
   <div class="wrapper wrapper--inner">
     <div class="row">
-        <h2 class="order-by__text section-heading"><%= t(".most_voted_comments")%></h2>
-            <%= render partial: "most_voted_comments"%>
+      <h2 class="order-by__text section-heading"><%= t(".most_voted_comments")%></h2>
+      <%= render partial: "most_voted_comments"%>
     </div>
   </div>
 </div>
+<!-- CUSTOM BLOCK MOST VOTED COMMENTS - DON'T DELETE -->
+
 <%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
@@ -95,3 +107,4 @@
     url: decidim.report_path(sgid: @proposal.to_sgid.to_s)
   }
 %>
+

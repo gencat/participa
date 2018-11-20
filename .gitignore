@@ -19,5 +19,7 @@
 
 .byebug_history
 
+/config/application.yml
+
 # Ignore public uploads
 public/uploads

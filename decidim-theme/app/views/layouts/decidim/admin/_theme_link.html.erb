@@ -1,3 +1,3 @@
-<li>
-    <%= link_to t("menu.themes", scope: "decidim.admin"), "/admin/themes" %>
+<li <% if is_active_link?("/admin/themes") %> class="is-active" <% end %>>
+  <%= link_to t("menu.themes", scope: "decidim.admin"), "/admin/themes" %>
 </li>

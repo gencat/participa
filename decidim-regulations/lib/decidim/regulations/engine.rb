@@ -11,7 +11,7 @@ module Decidim
 
       routes do
           resources :participatory_process_groups, only: :show, path: "regulations_groups"
-          resources :regulation, only: [:index, :show], path: "regulations" do
+          resources :regulation, only: [:index], path: "regulations" do
           resources :participatory_process_steps, only: [:index], path: "steps"
           resource :participatory_process_widget, only: :show, path: "embed"
 
@@ -33,6 +33,21 @@ module Decidim
       initializer "decidim_regulations.append_routes", before: :load_config_initializers do |app|
         Rails.application.routes.append do
           mount Decidim::Regulations::Engine => "/"
+        end
+      end
+
+      initializer "decidim_participatory_processes.view_hooks" do
+        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
+          highlighted_regulations = Decidim::ParticipatoryProcess.where(organization: view_context.current_organization, decidim_participatory_process_group_id: Rails.application.config.regulation).where('DATE(published_at) > \'1990/01/01\'' ).order(published_at: :desc).limit(8)
+          
+          next unless highlighted_regulations.any?
+
+          view_context.render(
+            partial: "decidim/regulations/pages/home/highlighted_regulations",
+            locals: {
+              highlighted_regulations: highlighted_regulations
+            }
+          )
         end
       end
     end

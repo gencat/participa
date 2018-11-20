@@ -1,0 +1,195 @@
+---
+oc:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Nombre d'assistents
+        attending_organizations: Llista d'organitzacions que han participat
+        closing_report: Informe
+        contributions_count: Nombre de contribucions
+        proposal_ids: Propostes creades en una trobada
+      meeting:
+        address: Adreça
+        decidim_category_id: Categoria
+        decidim_scope_id: Àmbit
+        description: Descripció
+        end_time: Hora de finalització
+        location: Ubicació
+        location_hints: Detalls d'ubicació
+        start_time: Hora d'inici
+        title: Editar trobada
+  decidim:
+    features:
+      meetings:
+        actions:
+          join: Inscriu-t'hi
+        name: Trobades
+        settings:
+          global:
+            announcement: Avís
+            comments_enabled: Comentaris habilitats
+          step:
+            announcement: Avís
+            comments_blocked: Comentaris bloquejats
+    meetings:
+      actions:
+        attachments: Adjunts
+        close: Tancar
+        confirm_destroy: Segur que vols suprimir aquesta trobada?
+        destroy: Esborra
+        edit: Edita
+        new: Nova
+        preview: Previsualitzar
+        registrations: Inscripcions
+        title: Accions
+      admin:
+        exports:
+          registrations: Inscripcions
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a participar en una trobada a %{application}. Pots acceptar la invitació a través de l'enllaç següent."
+            join: Uneix-te a la trobada '%{meeting_title}'
+        invites:
+          create:
+            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la trobada.
+            success: L'usuari s'ha convidat correctament a unir-se a la trobada.
+          new:
+            explanation: L'usuari serà convidat a participar en una trobada. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
+            invite: Convidar
+            new_invite: Convida l'usuari
+        meeting_closes:
+          edit:
+            close: Tancar
+            title: Tancar trobada
+        meetings:
+          close:
+            invalid: Hi ha hagut un problema en tancar aquesta trobada
+            success: Trobada tancada amb èxit
+          create:
+            invalid: Hi ha hagut un problema en crear aquesta trobada
+            success: Trobada creada amb èxit
+          destroy:
+            success: La trobada s'ha eliminat correctament
+          edit:
+            update: Actualitzar
+          index:
+            title: Trobades
+          new:
+            create: Crear
+            title: Crear trobada
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquesta trobada
+            success: Trobada actualitzada correctament
+        models:
+          meeting:
+            name: Trobada
+        registrations:
+          edit:
+            save: Desa
+          form:
+            available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
+            invite_user: Convida l'usuari
+            registrations_count:
+              one: Hi ha hagut 1 inscripció.
+              other: Hi ha hagut %{count} inscripcions.
+          update:
+            invalid: S'ha produït un problema en desar la configuració de la inscripció.
+            success: La configuració de les inscripcions de la trobada s'ha desat correctament.
+      events:
+        close_meeting_event:
+          email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Podeu llegir les conclusions a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació, perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des del seu enllaç.
+          email_subject: S'ha tancat la trobada "%{resource_title}"
+          notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+        meeting_registrations_enabled:
+          email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir a l'enllaç anterior.
+          email_subject: La trobada de "%{resource_title}" ha permès inscripcions.
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha activat inscripcions.
+        meeting_registrations_over_percentage:
+          email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
+          email_subject: L'espai ocupat per la trobada "%{resource_title}" està per sobre del %{percentage}%
+          notification_title: L'espai ocupat per la trobada <a href="%{resource_path}">%{resource_title}</a> està per sobre del %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir a l'enllaç anterior.
+          email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
+        update_meeting_event:
+          email_intro: 'La trobada de "%{resource_title}" ha estat actualitzada. Pots llegir-ne la nova versió a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: La trobada "%{resource_title}" s'ha actualitzat
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Assumpte
+        registration_mailer:
+          confirmation:
+            subject: La teva inscripció a la trobada ha estat confirmada
+      meetings:
+        filters:
+          category: Categoria
+          category_prompt: Selecciona una categoria
+          date: Data
+          past: Passades
+          scope_prompt: Seleccioneu un àmbit
+          scopes: Àmbits
+          search: Cerca
+          upcoming: Properes
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplegar
+        index:
+          view_meeting: Veure trobada
+        meetings:
+          no_meetings_warning: No hi ha trobades que coincideixin amb el criteri de cerca o no hi ha cap trobada programada.
+          upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors trobades.
+        registration_confirm:
+          cancel: Cancel·lar
+          confirm: Confirmar
+        show:
+          attendees: Nombre d'assistents
+          contributions: Nombre d'aportacions
+          going: Inscrit
+          join: Inscriu-te a la reunió
+          meeting_report: Informe de la trobada
+          no_slots_available: No hi ha lloc disponible
+          organizations: Llista d'organitzacions que han atès
+          remaining_slots:
+            one: 1 espai reservat restant
+            other: "%{count} inscripcions restants"
+      models:
+        meeting:
+          fields:
+            closed: Tancada
+            end_time: Data de finalització
+            map: Mapa
+            start_time: Data d'inici
+            title: Títol
+      read_more: "(Llegeix més)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: La teva inscripció a la trobada <a href="%{url}">%{title}</a> ha estat confirmada.
+          details: A l'arxiu adjunt trobaràs els detalls de la reunió.
+      registrations:
+        create:
+          invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
+          success: T'has inscrit a la reunió amb èxit.
+        destroy:
+          invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
+          success: Heu deixat la trobada amb èxit.
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Resultats relacionats:'
+        result_meetings: 'Trobades relacionades:'
+      proposals_from_meeting:
+        meeting_proposals: 'Propostes relacionades:'
+        proposal_meetings: 'Trobades relacionades:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Assumpte

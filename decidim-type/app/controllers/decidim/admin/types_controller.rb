@@ -9,9 +9,9 @@ module Decidim
   module Admin
     # Controller that allows managing all types at the admin panel.
     #
-    class TypesController < ApplicationController
+    class TypesController < Decidim::Admin::ApplicationController
       skip_authorization_check
-      layout "decidim/admin/settings"
+      layout "decidim/admin/extended/settings"
        
       def index
         authorize! :index, Type
