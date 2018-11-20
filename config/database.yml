@@ -3,17 +3,20 @@ default: &default
   encoding: unicode
   pool: <%= ENV['DB_POOL'] %>
   host: <%= ENV['DB_HOST'] %>
-  database: <%= ENV['DB_DATABASE'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
   port: <%= ENV['DB_PORT'] %>
 
 development:
   <<: *default
   min_messages: notice
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 test:
   <<: *default
+  database: <%= ENV['TEST_DB_DATABASE'] %>
+  username: <%= ENV['TEST_DB_USERNAME'] %>
+  password: <%= ENV['TEST_DB_PASSWORD'] %>
 
 integration:
   <<: *default

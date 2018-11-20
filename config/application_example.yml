@@ -3,9 +3,6 @@ default: &default
   DB_PORT: "5432"
   DB_POOL: <%= ENV.fetch("RAILS_MAX_THREADS") { "5" } %>
   DB_HOST: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
-  DB_DATABASE: "participa_gencat_development"
-  DB_USERNAME: "admin"
-  DB_PASSWORD: "admin"
   # Mailer configuration
   MAILER_SMTP_ADDRESS: "smtp email address"
   MAILER_SMTP_DOMAIN: "smtp email domain"
@@ -18,7 +15,16 @@ default: &default
 
 development:
   <<: *default
+  DB_DATABASE: "participa_gencat_development"
+  DB_USERNAME: "admin"
+  DB_PASSWORD: "admin"
 
+test:
+  <<: *default
+  TEST_DB_DATABASE: "participa_gencat_test"
+  TEST_DB_USERNAME: "admin"
+  TEST_DB_PASSWORD: "admin"
+  
 integration:
   <<: *default
   # secrets
