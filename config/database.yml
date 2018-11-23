@@ -27,3 +27,7 @@ integration:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+
+preprod:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
