@@ -21,15 +21,17 @@ gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-search-user', path: 'decidim-search-user'
 
+gem 'omniauth-idcat_mobil', git: "https://github.com/gencat/omniauth-idcat_mobil.git", branch: "master"
+
 gem "puma", "~> 3.0"
 gem "uglifier", ">= 1.3.0"
 
-gem "faker", "~> 1.8.4"
 gem 'figaro', '>= 1.1.1'
 
 gem 'foundation-rails', '6.4.1.3'
 
 group :development, :test do
+  gem "faker", ">= 1.8.4"
   gem "byebug", platform: :mri
 
   gem "decidim-dev", DECIDIM_VERSION
@@ -45,5 +47,3 @@ group :development do
   gem "letter_opener_web", "~> 1.3.0"
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
