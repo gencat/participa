@@ -20,6 +20,7 @@
 .byebug_history
 
 /config/application.yml
+/config/puma.rb
 
 # Ignore public uploads
 public/uploads
