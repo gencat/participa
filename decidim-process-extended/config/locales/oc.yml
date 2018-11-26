@@ -9,6 +9,12 @@ oc:
         participatory_processes:
           form:
             appear_home: Sortir al home (imatge)
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Procèssi actius
+            active_step: Fasa activa
+            see_all_processes: Vedetz toti es procèssi
     projects:
       filters:
         category: Eixos de debat
