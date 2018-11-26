@@ -27,6 +27,8 @@ oc:
         show:
           email: Bústia de suport
           categories: Eixos de debat
+      show:
+        theme: Tema
     proposals:
       proposals:
         index:
