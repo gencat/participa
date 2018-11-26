@@ -5,7 +5,10 @@ module Decidim
     # Controller that allows managing newsletters.
     #
     class NewslettersController < Decidim::Admin::ApplicationController
-        helper_method :get_all_processes, :get_process_feature_id, :get_process_proposals_ids, :get_users_from_proposals, :get_mails_from_users, :process_has_follows
+      include Decidim::NewslettersHelper
+
+      helper_method :get_all_processes, :get_process_feature_id, :get_process_proposals_ids, :get_users_from_proposals, :get_mails_from_users, :process_has_follows
+
       def index
         authorize! :index, Newsletter
         @newsletters = collection.order(Newsletter.arel_table[:created_at].desc)
@@ -131,10 +134,10 @@ module Decidim
 
       def get_all_processes
         @get_all_processes ||= Decidim::ParticipatoryProcess.all
-      end 
+      end
 
       def get_process_feature_id (process_id)
-        @get_process_proposal_id = Decidim::Feature.where(participatory_space_id: process_id, manifest_name: "proposals") 
+        @get_process_proposal_id = Decidim::Feature.where(participatory_space_id: process_id, manifest_name: "proposals")
       end
 
       def get_process_proposals_ids(feature_id)
@@ -151,13 +154,13 @@ module Decidim
 
       def process_has_follows(process_id)
         features = Decidim::Feature.where(participatory_space_id: process_id, manifest_name: "proposals")
-        
+
         features.each do |feature|
-          
+
           proposals = Decidim::Proposals::Proposal.where(decidim_feature_id: feature.id)
 
           proposals.each do |proposal|
-            
+
             follows = Decidim::Follow.where(decidim_followable_id: proposal.id, decidim_followable_type: "Decidim::Proposals::Proposal")
 
             follows.each do |follow|
