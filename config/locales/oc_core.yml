@@ -280,6 +280,12 @@ oc:
         greeting: Òla, %{recipient}!
         message:  Vos contactam entà notificar-vos qu'era vòsta clau a estat cambiada corrèctaments.
         subject: Clau modificada
+    sessions:
+      new:
+        sign_in: Entra
+    shared:
+      links:
+        forgot_your_password: Has oblidat la contrassenya
   errors:
     messages:
       content_type_whitelist_error: Eth tipe de fichèr non ei valid
@@ -321,8 +327,10 @@ oc:
         title: Notificacions
       user_menu:
         admin_dashboard: Taula d'administracion
+        conversations: Converses
         notifications: Notificacions
         profile: Eth mèn compde
+        public_profile: El meu perfil públic
         sign_out: Ges
       user_profile:
         account: Compde
