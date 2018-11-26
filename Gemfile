@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = "~> 0.8.4"
+DECIDIM_VERSION = "~> 0.9.3"
 
 gem "decidim", DECIDIM_VERSION
 
 gem "decidim-assemblies", DECIDIM_VERSION
-gem 'decidim-debates', path: 'decidim-debates'
+# gem 'decidim-debates', path: 'decidim-debates'
 
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-department', path: 'decidim-department'
