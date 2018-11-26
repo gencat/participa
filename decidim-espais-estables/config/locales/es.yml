@@ -59,3 +59,7 @@ es:
             other: "%{count} Consejos de participación"
       assembly_header:
         assembly_menu_item: Consejo de participación
+  pages:
+    home:
+      statistics:
+        assemblies_count: Consejos de participación
