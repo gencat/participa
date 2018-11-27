@@ -34,7 +34,7 @@
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra definition-data">
-         
+
         <% if translated_attribute(current_participatory_space.target).present? %>
           <div class="definition-data__item target">
             <span class="definition-data__title"><%= t("participatory_processes.show.target", scope: "decidim") %></span>
@@ -107,6 +107,7 @@
           </div>
         <% end %>
       </div>
+      <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/share_modal" %>
       <% embed_modal_for participatory_process_participatory_process_widget_url(current_participatory_process, format: :js) %>
     </div>
@@ -118,4 +119,3 @@
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>
-

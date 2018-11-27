@@ -159,7 +159,7 @@ oc:
             success: Proposta resposta amb èxit
           create:
             invalid: Hi ha hagut un problema en crear aquesta proposta
-            success: Proposta creada correctament
+            success: Proposta creada correctament. Guardada com a borrador.
           form:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             select_a_category: Selecciona una categoria
