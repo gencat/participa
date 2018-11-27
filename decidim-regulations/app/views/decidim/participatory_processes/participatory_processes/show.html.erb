@@ -29,6 +29,7 @@
         </div>
         <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
       </div>
+      <%= render_hook(:participatory_space_highlighted_elements) %>
       <%= attachments_for current_participatory_space %>
       <%= render partial: "decidim/participatory_processes/participatory_processes/categories" %>
     </div>

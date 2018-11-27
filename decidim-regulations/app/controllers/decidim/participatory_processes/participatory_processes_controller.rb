@@ -4,14 +4,14 @@ module Decidim
   module ParticipatoryProcesses
     # A controller that holds the logic to show ParticipatoryProcesses in a
     # public layout.
-    class ParticipatoryProcessesController < Decidim::ApplicationController
+    class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
-
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::ResourceReferenceHelper
 
       helper ParticipatoryProcessHelper
 
