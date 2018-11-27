@@ -35,6 +35,14 @@ module Decidim
 
         @proposals = paginate(@proposals)
         @proposals = reorder(@proposals)
+
+        # TODO esto es nuevo
+        #@proposals = @proposals.page(params[:page]).per(12)
+        if params.has_key?(:filter)
+          @category_id = params[:filter][:category_id]
+        else
+            @category_id = ""
+        end
       end
 
       def show
@@ -198,6 +206,47 @@ module Decidim
         end
       end
 
+      def edit
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :edit, @proposal
+
+        @form = form(ProposalForm).from_model(@proposal)
+      end
+
+      def update
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :edit, @proposal
+
+        @form = form(ProposalForm).from_params(params)
+        UpdateProposal.call(@form, current_user, @proposal) do
+          on(:ok) do |proposal|
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            render :edit
+          end
+        end
+      end
+
+      def withdraw
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :withdraw, @proposal
+
+        WithdrawProposal.call(@proposal, current_user) do
+          on(:ok) do |_proposal|
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+          end
+        end
+      end
+
       private
 
       def geocoded_proposals
@@ -228,7 +277,7 @@ module Decidim
         @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
         redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
-  
+
       def most_voted_positive_comment
         @most_voted_positive_comment = Decidim::Comments::Comment.where(decidim_commentable_type: "Decidim::Proposals::Proposal", decidim_commentable_id: params[:id], alignment: 1)
       end
