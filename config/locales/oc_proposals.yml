@@ -368,9 +368,8 @@ oc:
           contact: Contactar
           edit_proposal: Editar proposta
           proposal_accepted_reason: "Aguesta prepausa a estat acceptada pr'amor que:"
-          proposal_rejected_reason: "Aguesta prepausa a estat refusada pr'amor que:"
           proposal_in_evaluation_reason: "Aguesta prepausa ei en avaloracion pr'amor que:"
-          proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
+          proposal_rejected_reason: "Aguesta prepausa a estat refusada pr'amor que:"
           report: Informe
           sign_in: Inicia sessió
           sign_in_or_up: "%{in} o %{up} per participar"
@@ -394,6 +393,19 @@ oc:
             other: SUPORTS
           most_popular_proposal: Proposta més popular
           need_more_votes: Necessita més vots
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Cada proposta pot acumular més de %{limit} suports
+          proposal_limit:
+            description: Pots crear fins a %{limit} propostes.
+          threshold_per_proposal:
+            description: Per ser validades, les propostes han d'arribar a %{limit} suports
+          title: 'La selecció de propostes es regeix per les següents normes:'
+        votes_limit:
+          vote_limit:
+            description: Pots donar suport a %{limit} propostes.
+            left: Restant
+            votes: Suports
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
