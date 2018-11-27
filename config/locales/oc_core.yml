@@ -101,7 +101,7 @@ oc:
       registrations:
         new:
           already_have_an_account?: Ja auetz un compde?
-          newsletter_notifications: Voi arrecéber informacion sus activitat considerabla
+          newsletter: Voi arrecéber informacion sus activitat considerabla
           sign_in: Entratz
           sign_up: Enregistratz-vos
           sign_up_as:
@@ -285,7 +285,9 @@ oc:
         sign_in: Entra
     shared:
       links:
+        didn_t_receive_confirmation_instructions: No has rebut les instruccions de confirmació?
         forgot_your_password: Has oblidat la contrassenya
+        sign_in: Iniciar sessió
   errors:
     messages:
       content_type_whitelist_error: Eth tipe de fichèr non ei valid
