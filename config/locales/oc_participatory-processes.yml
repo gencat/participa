@@ -215,6 +215,14 @@ oc:
           notification_title: Les dates de la fase <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> s'han actualitzat.
     menu:
       processes: Procèssi
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultats
+    participatory_spaces:
+      highlighted_results:
+        results: Resultats
+        see_all_results: Veure tots els resultats
     participatory_process_groups:
       show:
         group_participatory_processes: procèssi per a %{group}
