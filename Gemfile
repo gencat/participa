@@ -5,7 +5,7 @@ DECIDIM_VERSION = "~> 0.9.3"
 
 gem "decidim", DECIDIM_VERSION
 
-#Custom gems and modifciations
+#### Custom gems and modifciations block start ####
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-department', path: 'decidim-department'
 gem 'decidim-type', path: 'decidim-type'
@@ -17,7 +17,8 @@ gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-search-user', path: 'decidim-search-user'
-#Custom gems and modifciations
+#### Custom gems and modifciations block end ####
+
 gem "puma", "~> 3.0"
 gem "uglifier", ">= 1.3.0"
 
