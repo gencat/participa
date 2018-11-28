@@ -19,6 +19,7 @@ oc:
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
         promoted: Destacat
+        published_at: Published at
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
@@ -201,6 +202,15 @@ oc:
         resend_invitation:
           error: Hi ha hagut un error reenviant la invitació.
           success: Invitació reenviada amb èxit.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+      participatory_process_user_role:
+        create: "%{user_name} invited the user %{resource_name} to the %{space_name} participatory process"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory process"
+        update: "%{user_name} changed the role of the user %{resource_name} in the %{space_name} participatory process"
     events:
       participatory_process:
         step_activated:
