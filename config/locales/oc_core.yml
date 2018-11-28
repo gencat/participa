@@ -163,7 +163,7 @@ oc:
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
         title: No s'ha trobat la pàgina que busques
     events:
-    attachments:
+      attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure-ho des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
