@@ -19,11 +19,11 @@ module Decidim
         end
 
         # FIXME: does not work
-        scope "/regulations/:regulation_id/f/:feature_id" do
-          Decidim.feature_manifests.each do |manifest|
+        scope "/regulations/:regulation_id/f/:component_id" do
+          Decidim.component_manifests.each do |manifest|
             next unless manifest.engine
 
-            constraints CurrentFeature.new(manifest) do
+            constraints CurrentComponent.new(manifest) do
               mount manifest.engine, at: "/", as: "decidim_#{manifest.name}"
             end
           end
@@ -39,7 +39,7 @@ module Decidim
       initializer "decidim_participatory_processes.view_hooks" do
         Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           highlighted_regulations = Decidim::ParticipatoryProcess.where(organization: view_context.current_organization, decidim_participatory_process_group_id: Rails.application.config.regulation).where('DATE(published_at) > \'1990/01/01\'' ).order(published_at: :desc).limit(8)
-          
+
           next unless highlighted_regulations.any?
 
           view_context.render(

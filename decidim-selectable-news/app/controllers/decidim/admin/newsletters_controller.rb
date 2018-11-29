@@ -7,7 +7,7 @@ module Decidim
     class NewslettersController < Decidim::Admin::ApplicationController
       include Decidim::NewslettersHelper
 
-      helper_method :get_all_processes, :get_process_feature_id, :get_process_proposals_ids, :get_users_from_proposals, :get_mails_from_users, :process_has_follows
+      helper_method :get_all_processes, :get_process_component_id, :get_process_proposals_ids, :get_users_from_proposals, :get_mails_from_users, :process_has_follows
 
       def index
         authorize! :index, Newsletter
@@ -139,12 +139,12 @@ module Decidim
         @get_all_processes ||= Decidim::ParticipatoryProcess.all
       end
 
-      def get_process_feature_id (process_id)
-        @get_process_proposal_id = Decidim::Feature.where(participatory_space_id: process_id, manifest_name: "proposals")
+      def get_process_component_id (process_id)
+        @get_process_proposal_id = Decidim::Component.where(participatory_space_id: process_id, manifest_name: "proposals")
       end
 
-      def get_process_proposals_ids(feature_id)
-        @get_process_proposal_ids = Decidim::Proposals::Proposal.where(decidim_feature_id: feature_id)
+      def get_process_proposals_ids(component_id)
+        @get_process_proposal_ids = Decidim::Proposals::Proposal.where(decidim_component_id: component_id)
       end
 
       def get_users_from_proposals (proposal_id)
@@ -156,11 +156,11 @@ module Decidim
       end
 
       def process_has_follows(process_id)
-        features = Decidim::Feature.where(participatory_space_id: process_id, manifest_name: "proposals")
+        components = Decidim::Component.where(participatory_space_id: process_id, manifest_name: "proposals")
 
-        features.each do |feature|
+        components.each do |component|
 
-          proposals = Decidim::Proposals::Proposal.where(decidim_feature_id: feature.id)
+          proposals = Decidim::Proposals::Proposal.where(decidim_component_id: component.id)
 
           proposals.each do |proposal|
 

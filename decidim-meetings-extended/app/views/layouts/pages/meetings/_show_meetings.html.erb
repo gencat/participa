@@ -1,25 +1,25 @@
 <%= javascript_include_tag "decidim/meetings/extended/application" %>
 
-<% 
+<%
     # Id del grupo de procesos "Normativa"
-    regulation_process_group_id = 2 
+    regulation_process_group_id = 2
 %>
 <div class="row small-up-1 medium-up-2 card-grid">
     <% show_meetings.each do |meeting| %>
- 
+
         <div class="column">
             <article class="card card--meeting">
-                <div class="card__content"><% 
-                    related_feature(meeting.decidim_feature_id).each do |relatedFeature| 
-                        related_process(relatedFeature.participatory_space_id).each do |relatedProcess|
-                      
+                <div class="card__content"><%
+                    related_component(meeting.decidim_component_id).each do |relatedComponent|
+                        related_process(relatedComponent.participatory_space_id).each do |relatedProcess|
+
                             if relatedProcess.decidim_participatory_process_group_id == regulation_process_group_id %>
                                 <a class="card__link part-card-title" href="/processes/<%= relatedProcess.id.to_s %>">
                                     <h5 class="card__title"><%= translated_attribute relatedProcess.title %></h5>
                                 </a>
-                                <a class="part-a" href="/processes/<%= relatedProcess.id %>/f/<%= relatedFeature.id %>/meetings/<%= meeting.id %>">
+                                <a class="part-a" href="/processes/<%= relatedProcess.id %>/f/<%= relatedComponent.id %>/meetings/<%= meeting.id %>">
                                     <h5><%= translated_attribute meeting.title %></h5>
-                                </a><% 
+                                </a><%
                             else %>
                                 <a class="card__link part-card-title" href="/processes/<%= relatedProcess.id.to_s %>">
                                     <h5 class="card__title"><%= translated_attribute relatedProcess.title %></h5>
@@ -27,8 +27,8 @@
                                 <a class="part-a" href="<%= resource_locator(meeting).path %>">
                                     <h5 class="card__title"><%= translated_attribute meeting.title %></h5>
                                 </a>
-                                  
-                                <% 
+
+                                <%
                             end
                             %>
                             <%
@@ -49,8 +49,8 @@
                         </div>
                         <div class="address__details">
                             <strong><%= translated_attribute meeting.location %></strong><br>
-                            <span><%= meeting.address %></strong></span><br>
-                            <span><%= translated_attribute meeting.location_hints %></strong></span>
+                            <span><strong><%= meeting.address %></strong></span><br>
+                            <span><strong><%= translated_attribute meeting.location_hints %></strong></span>
                         </div>
                     </div>
                     <br/>
@@ -61,16 +61,16 @@
 </div>
 <%= decidim_paginate show_meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
 <% if params.has_key?(:filter)
-    show_selected_scopes.each do |params| 
-        %><input type="hidden" value="<%= params %>" class="scope_selected" /><% 
+    show_selected_scopes.each do |params|
+        %><input type="hidden" value="<%= params %>" class="scope_selected" /><%
     end
 end
-if params.has_key?(:post) 
-    %><input type="hidden" value="<%= show_happened %>" id="happened_selected" /><% 
-end 
-if params.has_key?(:date) 
-    %><input type="hidden" value="<%= show_date %>" id="date_selected" /><% 
+if params.has_key?(:post)
+    %><input type="hidden" value="<%= show_happened %>" id="happened_selected" /><%
 end
-if params.has_key?(:related_process) 
-    %><input type="hidden" value="<%= params[:related_process] %>" id="meeting_selected"><% 
+if params.has_key?(:date)
+    %><input type="hidden" value="<%= show_date %>" id="date_selected" /><%
+end
+if params.has_key?(:related_process)
+    %><input type="hidden" value="<%= params[:related_process] %>" id="meeting_selected"><%
 end %>

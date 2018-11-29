@@ -102,7 +102,7 @@ oc:
         show:
           budget: Pressupost
           view_all_projects: Veure tots els projectes
-    features:
+    components:
       budgets:
         actions:
           vote: Donar suport

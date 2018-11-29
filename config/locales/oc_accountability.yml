@@ -163,7 +163,7 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{proposal_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{proposal_title}
           notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al resultat <a href="%{resource_path}">%{resource_title}</a>.
-    features:
+    components:
       accountability:
         name: Seguiment
         settings:

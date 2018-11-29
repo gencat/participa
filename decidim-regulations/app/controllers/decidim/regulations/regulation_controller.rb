@@ -77,7 +77,7 @@ module Decidim
         @types ||= ::DecidimType.all
       end
 
-      def departments 
+      def departments
         @departments ||= ::DecidimDepartment.all
       end
 
@@ -110,7 +110,7 @@ module Decidim
       end
 
       def has_debats(process_id)
-        @has_debats ||= Decidim::Feature.where(participatory_space_id: process_id, manifest_name: "proposals").where.not(published_at: nil)
+        @has_debats ||= Decidim::Component.where(participatory_space_id: process_id, manifest_name: "proposals").where.not(published_at: nil)
       end
 
       def is_subcategory(category_id)

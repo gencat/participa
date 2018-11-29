@@ -3,5 +3,5 @@ ca:
     attributes:
       scope:
         scope_type_id: Tipus d'àmbit
-      feature:
+      component:
         weight: Pes (la funcionalitat amb més pes apareixerà més a la dreta)

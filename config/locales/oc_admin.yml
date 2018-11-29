@@ -21,7 +21,7 @@ oc:
         description: Descripció
         name: Nom
         parent_id: Superior
-      feature:
+      component:
         name: Nom
         published_at: Publicat el
         weight: Pes
@@ -216,14 +216,14 @@ oc:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
-      feature_permissions:
+      component_permissions:
         edit:
           everyone: Tothom
           submit: Desar permisos
           title: Edita els permisos
         update:
           success: Permisos actualitzats correctament.
-      features:
+      components:
         create:
           error: S'ha produït un error en afegir aquesta funcionalitat.
           success: Funcionalitat creada correctament.

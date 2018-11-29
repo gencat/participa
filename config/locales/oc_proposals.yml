@@ -16,7 +16,7 @@ oc:
         answer: Resposta
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
-        origin_feature_id: Component des d'on copiar les propostes
+        origin_component_id: Component des d'on copiar les propostes
   decidim:
     events:
       proposals:
@@ -70,7 +70,7 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           notification_title: Ja pots començar a <a href="%{resource_path}">donar suports a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
+    components:
       proposals:
         actions:
           create: Crear
@@ -184,8 +184,8 @@ oc:
             success: "%{number} propostes importades correctament"
           new:
             create: Importa propostes
-            no_features: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
-            select_feature: Escull un continent
+            no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
+            select_component: Escull un continent
             select_states: Consulteu els estats de les propostes per importar
         shared:
           info_proposal:

@@ -6,7 +6,7 @@ module Decidim
     module Extended
       class MeetingsExtendedController < Decidim::ApplicationController
         skip_authorization_check
-        helper_method :show_meetings, :show_scopes, :show_selected_scopes, :show_happened, :show_date, :related_feature, :related_process, :show_processes
+        helper_method :show_meetings, :show_scopes, :show_selected_scopes, :show_happened, :show_date, :related_component, :related_process, :show_processes
 
         helper Decidim::PaginateHelper
         helper Decidim::ResourceHelper
@@ -15,10 +15,10 @@ module Decidim
           end
 
 
-          def related_meeting_feature
-              @related_meeting_feature = Decidim::Feature.where(participatory_space_id: params[:related_process], manifest_name: "meetings").map(&:id)
+          def related_meeting_component
+              @related_meeting_component = Decidim::Component.where(participatory_space_id: params[:related_process], manifest_name: "meetings").map(&:id)
           end
-          
+
           def show_meetings
             #name filter
             #if it's needed, add organization filter
@@ -40,7 +40,7 @@ module Decidim
             # else
             #   @show_meetings = @show_meetings
             # end
-            
+
             #happened filter
             if params.has_key?(:post)
               if !params[:post].empty? && params[:post][:happened][0] == "1"
@@ -51,7 +51,7 @@ module Decidim
             else
               @show_meetings = @show_meetings.where("DATE(start_time) >= ?", Time.now.strftime("%Y-%m-%d"))
             end
-          
+
             #date filter
             if params.has_key?(:date)
               if params[:date] == "1"
@@ -70,7 +70,7 @@ module Decidim
             #process filter
             if params.has_key?(:related_process)
               if params[:related_process] != "0"
-                @show_meetings = @show_meetings.where(decidim_feature_id: related_meeting_feature)
+                @show_meetings = @show_meetings.where(decidim_component_id: related_meeting_component)
               else
                 @show_meetings = @show_meetings
               end
@@ -91,7 +91,7 @@ module Decidim
           def show_selected_scopes
               if params.has_key?(:filter)
                 @show_selected_scopes = params[:filter][:scope_id]
-              else 
+              else
                   @show_selected_scopes = ""
               end
           end
@@ -109,11 +109,11 @@ module Decidim
               @show_happened = params[:date]
             else
               @show_happened = @show_happened
-            end    
+            end
           end
 
-          def related_feature(feature_id)
-            @related_fature =  Decidim::Feature.all.where(id: feature_id)
+          def related_component(component_id)
+            @related_fature =  Decidim::Component.all.where(id: component_id)
           end
 
           def related_process(process_id)
