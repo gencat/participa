@@ -77,8 +77,6 @@ module Decidim
             announcement: form.announcement,
 
             # Participa added attributes
-
-            #TODO: revisar lo de aplicar el downcase cuando no existe
             email: form.email,
             show_home: form.show_home,
             decidim_department_id: form.department_id,
