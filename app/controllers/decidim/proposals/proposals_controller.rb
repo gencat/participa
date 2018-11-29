@@ -52,7 +52,7 @@ module Decidim
         authorize! :create, Proposal
         @step = :step_1
         if proposal_draft.present?
-          redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, assembly_slug: proposal_draft.component.participatory_space.slug)
+          redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
           @form = form(ProposalForm).from_params(params)
         end
@@ -80,7 +80,7 @@ module Decidim
       def compare
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_component, @proposal)
+                               .for(current_component, params[:proposal])
                                .all
         @form = form(ProposalForm).from_params(params)
 
@@ -159,47 +159,6 @@ module Decidim
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.destroy_draft.error", scope: "decidim")
             render :edit_draft
-          end
-        end
-      end
-
-      def edit
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
-        authorize! :edit, @proposal
-
-        @form = form(ProposalForm).from_model(@proposal)
-      end
-
-      def update
-        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
-        authorize! :edit, @proposal
-
-        @form = form(ProposalForm).from_params(params)
-        UpdateProposal.call(@form, current_user, @proposal) do
-          on(:ok) do |proposal|
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            render :edit
-          end
-        end
-      end
-
-      def withdraw
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
-        authorize! :withdraw, @proposal
-
-        WithdrawProposal.call(@proposal, current_user) do
-          on(:ok) do |_proposal|
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-          end
-          on(:invalid) do
-            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
         end
       end

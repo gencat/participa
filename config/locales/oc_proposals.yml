@@ -33,6 +33,7 @@ oc:
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
+            maximum_votes_per_proposal: Suports màxims per proposta
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
             proposal_answering_enabled: Activar resposta oficial a propostes
@@ -41,8 +42,7 @@ oc:
             proposal_limit: Límit de propostes per usuari
             proposal_wizard_step_1_help_text: Text del pas "Crear" de l'assistent de propostes
             proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
-            proposal_wizard_step_3_help_text: Text d'ajuda al pas de "completar" propostes
-            proposal_wizard_step_4_help_text: Text del pas "Publicar" de l'assistent de propostes
+            proposal_wizard_step_3_help_text: Text del pas "Publicar" de l'assistent de propostes
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per usuari
           step:
@@ -54,8 +54,7 @@ oc:
             proposal_answering_enabled: Activar resposta oficial a propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
-            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
-    events:
+            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)    events:
       proposals:
         creation_enabled:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar a aquesta pàgina:'
@@ -111,43 +110,6 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           notification_title: Ja pots començar a <a href="%{resource_path}">donar suports a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    components:
-      proposals:
-        actions:
-          create: Crear
-          endorse: Adherir-se
-          vote: Donar suport
-          withdraw: Retirar
-        name: Propostes
-        settings:
-          global:
-            announcement: Anunci
-            attachments_allowed: Permetre arxius adjunts
-            can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
-            comments_enabled: Comentaris habilitats
-            geocoding_enabled: Geocodificació habilitada
-            maximum_votes_per_proposal: Suports màxims per proposta
-            new_proposal_help_text: Text d'ajuda al crear una nova proposta
-            official_proposals_enabled: Propostes oficials habilitades
-            proposal_answering_enabled: Activar resposta oficial a propostes
-            proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
-            proposal_length: Longitud màxima del cos de la proposta
-            proposal_limit: Límit de propostes per usuari
-            proposal_wizard_step_1_help_text: Text del pas "Crear" de l'assistent de propostes
-            proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
-            proposal_wizard_step_3_help_text: Text del pas "Publicar" de l'assistent de propostes
-            threshold_per_proposal: Llindar per proposta
-            vote_limit: Límit de suports per usuari
-          step:
-            announcement: Anunci
-            comments_blocked: Comentaris bloquejats
-            creation_enabled: Habilitar de creació de propostes
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
-            proposal_answering_enabled: Activar resposta oficial a propostes
-            votes_blocked: Suports bloquejats
-            votes_enabled: Suports habilitats
-            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -341,6 +303,7 @@ oc:
             one: suport
             other: suports
         new:
+<<<<<<< HEAD
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Enrere
           proposal_edit_before_minutes:
@@ -349,6 +312,10 @@ oc:
           select_a_category: Si us plau, seleccioni una categoria
           send: Enviar
           title: Nova proposta
+=======
+          send: Continua
+          title: Crea la teva proposta
+>>>>>>> add missing locales, and meetings cells
         orders:
           label: 'Ordenar propostes per:'
           most_voted: Ha rebut més suports
@@ -393,6 +360,7 @@ oc:
             other: SUPORTS
           most_popular_proposal: Proposta més popular
           need_more_votes: Necessita més vots
+<<<<<<< HEAD
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
@@ -406,6 +374,8 @@ oc:
             description: Pots donar suport a %{limit} propostes.
             left: Restant
             votes: Suports
+=======
+>>>>>>> add missing locales, and meetings cells
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
