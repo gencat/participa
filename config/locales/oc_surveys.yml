@@ -6,8 +6,27 @@ oc:
         body: Resposta
       survey_question:
         mandatory: Obligatori
+        max_choices: Nombre màxim d'opcions
         question_type: Tipus
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: no estan complets
+              too_many: són massa
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Resposta
+        name: Enquesta
+        settings:
+          global:
+            announcement: Anunci
+          step:
+            allow_answers: Permetre respostes
+            announcement: Anunci
     events:
       surveys:
         survey_closed:
@@ -20,17 +39,10 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
-    components:
-      surveys:
-        actions:
-          answer: Resposta
-        name: Enquesta
-        settings:
-          global:
-            announcement: Anunci
-          step:
-            allow_answers: Permetre respostes
-            announcement: Anunci
+    forms:
+      errors:
+        survey_answer:
+          body: El cos no pot estar en blanc
     surveys:
       admin:
         exports:
@@ -42,7 +54,8 @@ oc:
         surveys:
           answer_option:
             answer_option: Opció de resposta
-            remove_answer_option: Elimina l'opció de resposta
+            free_text: Text lliure
+            remove: Eliminar
             statement: Enunciat
           edit:
             save: Desar
@@ -52,9 +65,13 @@ oc:
             already_answered_warning: L'enquesta ja està contestada per alguns usuaris i per tant no pots modificar les seves preguntes.
           question:
             add_answer_option: Afegir opció de resposta
+            any: Qualsevol
+            description: Descripció
+            down: Avall
             question: Pregunta
-            remove_question: Elimina pregunta
+            remove: Elimina
             statement: Enunciat
+            up: Pujar
           update:
             invalid: Hi ha hagut errors en desar l'enquesta.
             success: Enquesta desada correctament.
@@ -63,10 +80,13 @@ oc:
         multiple_option: Opció múltiple
         short_answer: Resposta curta
         single_option: Única opció
+        sorting: Ordenació
       surveys:
         answer:
           invalid: Hi ha hagut errors en respondre a l'enquesta.
           success: Enquesta resposta correctament.
+        question:
+          max_choices: 'Opcions màximes: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Entra amb el teu compte</a> o <a href="%{sign_up_link}">dona't d'alta</a> per contestar l'enquesta.

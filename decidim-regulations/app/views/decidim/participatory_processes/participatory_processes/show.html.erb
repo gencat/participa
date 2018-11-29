@@ -29,9 +29,9 @@
         </div>
         <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
       </div>
-      <%= render_hook(:participatory_space_highlighted_elements) %>
       <%= attachments_for current_participatory_space %>
       <%= render partial: "decidim/participatory_processes/participatory_processes/categories" %>
+      <%= render_hook(:participatory_space_highlighted_elements) %>
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra definition-data">

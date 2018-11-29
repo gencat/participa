@@ -269,6 +269,15 @@ oc:
     pages:
       index:
         title: Mès informacion
+    participatory_space_private_users:
+      not_allowed: No tens permís per visualitzar aquest contingut
+    profile:
+      deleted: Usuari eliminat
+    profiles:
+      default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
+      show:
+        about_me: Sobre mi
+        personal_url: Lloc web personal
     reported_mailer:
       hide:
         hello: Òla %{name},
