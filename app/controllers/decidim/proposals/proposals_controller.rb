@@ -36,8 +36,6 @@ module Decidim
         @proposals = paginate(@proposals)
         @proposals = reorder(@proposals)
 
-        # TODO esto es nuevo
-        #@proposals = @proposals.page(params[:page]).per(12)
         if params.has_key?(:filter)
           @category_id = params[:filter][:category_id]
         else
@@ -54,7 +52,7 @@ module Decidim
         authorize! :create, Proposal
         @step = :step_1
         if proposal_draft.present?
-          redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
+          redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, assembly_slug: proposal_draft.component.participatory_space.slug)
         else
           @form = form(ProposalForm).from_params(params)
         end
@@ -82,7 +80,7 @@ module Decidim
       def compare
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_component, params[:proposal])
+                               .for(current_component, @proposal)
                                .all
         @form = form(ProposalForm).from_params(params)
 
@@ -207,14 +205,14 @@ module Decidim
       end
 
       def edit
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_params(params)
@@ -232,7 +230,7 @@ module Decidim
       end
 
       def withdraw
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         authorize! :withdraw, @proposal
 
         WithdrawProposal.call(@proposal, current_user) do
