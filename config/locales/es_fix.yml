@@ -1,9 +1,4 @@
 es:
-  layouts:
-    decidim:
-      participatory_processes:
-        no_processes_yet: 
-          no_processes_yet: No hay resultados
   activemodel:
     attributes:
       debate:
@@ -27,4 +22,4 @@ es:
           welcome: Bienvenido al nuevo panel de administración de Participa.
       categories:
         index:
-          categories_title: Ejes de debate      
+          categories_title: Ejes de debate

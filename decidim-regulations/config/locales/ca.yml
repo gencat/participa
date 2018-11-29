@@ -1,4 +1,9 @@
 ca:
+  layouts:
+    decidim:
+      participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No hi ha resultats
   menu:
     regulations_static: Participació en normativa
   decidim:
@@ -43,7 +48,7 @@ ca:
       participatory_processes:
         order_by_processes:
           regulations: "%{count} Participacions"
-        index: 
+        index:
           promoted_regulation: Participacions destacades
       regulations_info: |+
         <p>Durant el procés de creació d’una norma, hi ha dos moments en què pots participar:</p>

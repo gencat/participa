@@ -1,25 +1,4 @@
 ca:
-  layouts:
-    decidim:
-      participatory_processes:
-        no_processes_yet: 
-          no_processes_yet: No hi ha resultats
-  activemodel:
-    attributes:
-      debate:
-        title: Títol
-        description: Descripció
-        instructions: Instruccions
-        start_time: Data d'inici
-        end_time: Data de fi
-        decidim_category_id: Eixos/Categories del debat
-      participatory_process:
-        announcement: Avís
-        show_statistics: Mostrar estadístiques
-      meeting:
-        available_slots: Inscripcions disponibles per la trobada
-        registration_terms: Termes d'inscripció
-        registrations_enabled: Inscripcions habilitades
   decidim:
     admin:
       dashboard:
@@ -27,12 +6,12 @@ ca:
           welcome: Benvingut al nou panell d'administració de Participa.
       categories:
         index:
-          categories_title: Eixos de debat 
+          categories_title: Eixos de debat
       models:
         assembly:
           fields:
-            title: Nom del consell de participació 
-          name: Assemblea
+            title: Nom del consell de participació
+          name: Consell de participació
   activemodel:
     attributes:
       assembly:

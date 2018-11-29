@@ -17,8 +17,7 @@ module Decidim
 
       def query
         Rectify::Query.merge(
-          OrganizationParticipatoryProcesses.new(@organization, @user),
-          PublishedParticipatoryProcesses.new,
+          OrganizationPublishedParticipatoryProcesses.new(@organization, @user),
           PrioritizedParticipatoryProcesses.new,
           FilteredParticipatoryProcesses.new(@filter, @regulation, @filter_type, @theme_type, @status)
         ).query
