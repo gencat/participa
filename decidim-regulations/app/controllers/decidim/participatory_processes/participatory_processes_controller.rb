@@ -42,7 +42,7 @@ module Decidim
       end
 
       def published_processes
-        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization)
+        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user)
       end
 
       def collection

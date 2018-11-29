@@ -54,6 +54,10 @@ oc:
           success: Eth vòste compde s'a actualizat corrèctaments.
           success_with_email_confirmation: Eth vòste compde s'a actualizat corrèctaments. Arreceberatz un corrèu electronic entà confirmar era vòsta adreça de corrèu electronic naua.
     admin_log:
+      area:
+        create: "%{user_name} ha creat l'àrea %{resource_name}"
+        delete: "%{user_name} ha eliminat l'àrea %{resource_name}"
+        update: "%{user_name} ha actualitzat l'àrea %{resource_name}"
       component:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
@@ -438,6 +442,7 @@ oc:
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
+        debates_count: Debats
         headline: Estat actuau de %{organization}
         meetings_count: Amassades
         orders_count: Vots

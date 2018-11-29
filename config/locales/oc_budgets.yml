@@ -1,4 +1,3 @@
----
 oc:
   activemodel:
     attributes:
@@ -12,6 +11,7 @@ oc:
   decidim:
     budgets:
       actions:
+        attachment_collections: Col·leccions
         attachments: Adjunts
         confirm_destroy: Segur que vols eliminar aquest projecte?
         destroy: Esborrar
@@ -42,6 +42,11 @@ oc:
           update:
             invalid: Hi ha hagut un problema actualitzant aquest projecte
             success: Projecte actualitzat correctament
+      admin_log:
+        project:
+          create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
       models:
         project:
           fields:
@@ -74,8 +79,6 @@ oc:
         filters:
           category: Categoria
           category_prompt: Selecciona una categoria
-          scope_prompt: Seleccioneu un àmbit
-          scopes: Àmbits
           search: Cerca
         filters_small_view:
           close_modal: Tancar finestra
@@ -109,15 +112,15 @@ oc:
         name: Pressupostos
         settings:
           global:
-            announcement: Avís
+            announcement: Anunci
             comments_enabled: Comentaris habilitats
             projects_per_page: Projectes per pàgina
             total_budget: Pressupost total
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
-            announcement: Avís
+            announcement: Anunci
             comments_blocked: Comentaris bloquejats
-            show_votes: Mostra vots
+            show_votes: Mostra els suports
             votes_enabled: Suports habilitats
     orders:
       checkout:
@@ -130,5 +133,5 @@ oc:
       included_proposals:
         project_proposals: 'Propostes incloses en aquest projecte:'
   index:
-    confirmed_orders_count: Nombre de vots
+    confirmed_orders_count: Recompte de vots
   total_budget: Pressupost total

@@ -270,6 +270,7 @@ oc:
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
+        debates_count: Debats
         headline: Activitat
         meetings_count: Trobades presencials
         orders_count: Vots
