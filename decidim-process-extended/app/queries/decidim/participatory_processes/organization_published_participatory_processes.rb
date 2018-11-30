@@ -14,7 +14,7 @@ module Decidim
           OrganizationParticipatoryProcesses.new(@organization),
           VisibleParticipatoryProcesses.new(@user),
           PublishedParticipatoryProcesses.new,
-          NotRegulation.new
+          # NotRegulation.new
         ).query
       end
     end

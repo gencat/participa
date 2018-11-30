@@ -30,7 +30,7 @@ module Decidim
 
 		def promoted_participatory_processes
 			@promoted_participatory_processes ||=
-				ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(current_organization) | ParticipatoryProcesses::PromotedParticipatoryProcesses.new
+				ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(current_organization, "active", current_user) | ParticipatoryProcesses::PromotedParticipatoryProcesses.new
 		end
 
 		def highlighted_participatory_processes

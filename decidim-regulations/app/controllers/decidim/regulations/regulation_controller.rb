@@ -28,7 +28,7 @@ module Decidim
       private
 
       def filtered_participatory_processes(filter = default_filter, filter_type_filter = 0, department_type_filter = 0, status_filter = 0)
-        Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, regulation, filter_type_filter, department_type_filter, status_filter)
+        Decidim::ParticipatoryProcesses::OrganizationPrioritizedRegulations.new(current_organization, filter, current_user, regulation, filter_type_filter, department_type_filter, status_filter)
       end
 
       def participatory_processes
@@ -44,7 +44,7 @@ module Decidim
       end
 
       def participatory_process_groups
-        @process_groups ||= Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, regulation)
+        @process_groups ||= Decidim::ParticipatoryProcesses::OrganizationPrioritizedRegulations.new(current_organization, filter, current_user, regulation)
       end
 
       def current_participatory_space

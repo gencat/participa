@@ -50,7 +50,7 @@ module Decidim
       end
 
       def filtered_participatory_processes(filter = default_filter)
-        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter)
+        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, current_user)
       end
 
       def participatory_processes

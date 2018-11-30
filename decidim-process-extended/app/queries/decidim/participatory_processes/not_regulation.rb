@@ -5,7 +5,7 @@ module Decidim
     # This query filters published processes only.
     class NotRegulation < Rectify::Query
       def query
-        Decidim::ParticipatoryProcess.where("decidim_participatory_processes.decidim_participatory_process_group_id = 1 and decidim_participatory_processes.end_date >= ?", DateTime.now.to_date).limit(8)
+        Decidim::ParticipatoryProcess.where("decidim_participatory_processes.decidim_participatory_process_group_id = 1 and decidim_participatory_processes.end_date >= ?", DateTime.now.to_date)
       end
     end
   end
