@@ -16,3 +16,5 @@ ca:
     attributes:
       assembly:
         title: Nom del consell de participació
+      participatory_process:
+        announcement: Avís
