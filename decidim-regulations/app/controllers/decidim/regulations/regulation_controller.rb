@@ -17,12 +17,12 @@ module Decidim
       helper_method :current_participatory_process
 
       def index
-        authorize! :read, ParticipatoryProcess
-        authorize! :read, ParticipatoryProcessGroup
+        enforce_permission_to :list, :process
+        enforce_permission_to :list, :process_group
       end
 
       def show
-        authorize! :read, current_participatory_process
+        enforce_permission_to :read, :process, process: current_participatory_process
       end
 
       private

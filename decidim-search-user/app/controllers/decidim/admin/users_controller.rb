@@ -6,7 +6,7 @@ module Decidim
     #
     class UsersController < Decidim::Admin::ApplicationController
       def index
-        authorize! :index, :admin_users
+        enforce_permission_to :read, :admin_user
 
         if params.has_key?(:user_search)
             @users = search_collection.page(params[:page]).per(15)
@@ -17,12 +17,12 @@ module Decidim
       end
 
       def new
-        authorize! :new, :admin_users
+        enforce_permission_to :create, :admin_user
         @form = form(InviteUserForm).instance
       end
 
       def create
-        authorize! :new, :admin_users
+        enforce_permission_to :create, :admin_user
 
         default_params = {
           organization: current_organization,
@@ -46,7 +46,7 @@ module Decidim
       end
 
       def resend_invitation
-        authorize! :invite, :admin_users
+        enforce_permission_to :invite, :admin_user, user: user
 
         InviteUserAgain.call(user, "invite_admin") do
           on(:ok) do
@@ -62,7 +62,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :destroy, :admin_users
+        enforce_permission_to :destroy, :admin_user, user: user
 
         RemoveAdmin.call(user, current_user) do
           on(:ok) do

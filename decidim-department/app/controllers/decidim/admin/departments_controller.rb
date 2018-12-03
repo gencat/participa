@@ -10,28 +10,27 @@ module Decidim
     # Controller that allows managing all departments at the admin panel.
     #
     class DepartmentsController < Decidim::Admin::ApplicationController
-      skip_authorization_check
       layout "decidim/admin/extended/settings"
-       
+
       def index
-        authorize! :index, Department
+        # authorize! :index, Department
         @departments = collection
       end
 
       def collection
         @collection ||= ::DecidimDepartment.all.order(:name)
       end
-      
+
       def edit
-        authorize! :update, Department
+        # authorize! :update, Department
         @form = form(DepartmentForm).from_model(department)
       end
 
       def update
         @departments = collection.find(params[:id])
-        authorize! :update, Department
+        # authorize! :update, Department
         @form = form(DepartmentForm).from_params(params)
-        
+
         UpdateDepartment.call(department, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("scopes.update.success", scope: "decidim.admin")
@@ -49,12 +48,12 @@ module Decidim
       end
 
       def new
-        authorize! :new, Department
+        # authorize! :new, Department
         @form = form(DepartmentForm).instance
       end
 
       def create
-        authorize! :new, Department
+        # authorize! :new, Department
         @form = form(DepartmentForm).from_params(params)
 
         CreateDepartment.call(@form) do
@@ -74,7 +73,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :destroy, Department
+        # authorize! :destroy, Department
         department.destroy!
 
         flash[:notice] = I18n.t("departments.destroy.success", scope: "decidim.admin")

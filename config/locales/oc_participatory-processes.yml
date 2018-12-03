@@ -3,6 +3,7 @@ oc:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Anunci
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
         copy_components: Copiar funcionalitats
@@ -43,6 +44,20 @@ oc:
         email: Correu electrònic
         name: Nom
         role: Rol
+    models:
+      decidim/participatory_process_step_activated_event: Pas activat
+      decidim/participatory_process_step_changed_event: Pas canviat
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Procés participatiu
+        other: Processos participatius
+      decidim/participatory_process_group:
+        one: Grup de procés participatiu
+        other: Grups de procés participatiu
+      decidim/participatory_process_step:
+        one: Fase
+        other: Fases
   decidim:
     admin:
       actions:
@@ -295,6 +310,7 @@ oc:
       participatory_process_groups:
         participatory_process_group:
           browse: Explòra
+          processes_count: 'Processos:'
       participatory_process_widgets:
         show:
           active_step: Fasa activa

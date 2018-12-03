@@ -17,15 +17,15 @@
 </div>
 
 <div class="button--double form-general-submit">
-  <% if can?(:update, @newsletter) && !@newsletter.sent? %>
-    <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', @newsletter], class: "button edit" %>
+  <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
+    <%= link_to t("actions.edit", scope: "decidim.admin"), ["edit", @newsletter], class: "button" %>
   <% end %>
   <% unless @newsletter.sent? %>
     <%= link_to t(".deliver"), deliver_newsletter_path(@newsletter), method: :post, class: "button alert deliver", data: { confirm: t(".confirm_deliver") } %>
   <% end %>
   <% unless @newsletter.sent? %>
-  <a class="button back" style="display:none"><%= t(".back")%></a>  
-  <a class="button clean-newsletter" style="display:none"><%= t(".re_select")%></a>  
+  <a class="button back" style="display:none"><%= t(".back")%></a>
+  <a class="button clean-newsletter" style="display:none"><%= t(".re_select")%></a>
   <a class="button alert confirm-newsletter"><%= t(".deliver_process") %></a>
     <% if false %><%= link_to t(".deliver_process"), deliver_newsletter_path(@newsletter), method: :post, class: "button alert", data: { confirm: t(".confirm_deliver_process") } %><% end %>
   <% end %>
@@ -87,7 +87,7 @@
         $(".confirm-newsletter").attr("href", "#");
         $(".confirm-newsletter").hide();
         $(".clean-newsletter").hide();
-    });    
+    });
     $( ".confirm-newsletter" ).click(function() {
         $( ".selectable" ).each(function( index ) {
             $(this).show();
@@ -99,5 +99,5 @@
     $( ".no_mails_in_process" ).each(function( index ) {
         $(this).closest(".column").remove();
     });
-    
+
 </script>

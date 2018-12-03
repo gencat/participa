@@ -10,28 +10,27 @@ module Decidim
     # Controller that allows managing all types at the admin panel.
     #
     class TypesController < Decidim::Admin::ApplicationController
-      skip_authorization_check
       layout "decidim/admin/extended/settings"
-       
+
       def index
-        authorize! :index, Type
+        #authorize! :index, Type
         @types = collection
       end
 
       def collection
         @collection ||= ::DecidimType.all.order(:name)
       end
-      
+
       def edit
-        authorize! :update, Type
+        #authorize! :update, Type
         @form = form(TypeForm).from_model(type)
       end
 
       def update
         @types = collection.find(params[:id])
-        authorize! :update, Type
+        #authorize! :update, Type
         @form = form(TypeForm).from_params(params)
-        
+
         UpdateType.call(type, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("types.update.success", scope: "decidim.admin")
@@ -49,12 +48,12 @@ module Decidim
       end
 
       def new
-        authorize! :new, Type
+        #authorize! :new, Type
         @form = form(TypeForm).instance
       end
 
       def create
-        authorize! :new, Type
+        #authorize! :new, Type
         @form = form(TypeForm).from_params(params)
 
         CreateType.call(@form) do
@@ -75,7 +74,7 @@ module Decidim
 
 
       def destroy
-        authorize! :destroy, Type
+        #authorize! :destroy, Type
         type.destroy!
 
         flash[:notice] = I18n.t("types.destroy.success", scope: "decidim.admin")
@@ -86,7 +85,6 @@ module Decidim
       def type
         @type ||= ::DecidimType.find(params[:id])
       end
-
     end
   end
 end

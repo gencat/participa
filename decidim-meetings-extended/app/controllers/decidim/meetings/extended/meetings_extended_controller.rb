@@ -5,7 +5,6 @@ module Decidim
   module Meetings
     module Extended
       class MeetingsExtendedController < Decidim::ApplicationController
-        skip_authorization_check
         helper_method :show_meetings, :show_scopes, :show_selected_scopes, :show_happened, :show_date, :related_component, :related_process, :show_processes
 
         helper Decidim::PaginateHelper

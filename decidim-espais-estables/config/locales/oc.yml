@@ -50,10 +50,30 @@ oc:
         title: Títol
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Aniversari
+        birthplace: Lloc de naixement
+        ceased_date: Data de cessament
+        designation_date: Data de designació
+        designation_mode: Mode de designació
+        full_name: Nom complet
+        gender: Gènere
+        position: Posició
       assembly_user_role:
         email: Correu electrònic
         name: Nom
         role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assemblea
+        other: Assemblees
+      decidim/assembly_member:
+        one: Membre de l'assemblea
+        other: Membres de l'assemblea
+      decidim/assembly_user_role:
+        one: Rol d'usuari de l'assemblea
+        other: Rol dels usuaris de l'assemblea
   decidim:
     admin:
       assemblies:
@@ -86,6 +106,23 @@ oc:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Consell de participació duplicat
+      assembly_members:
+        create:
+          error: S'ha produït un error en afegir un membre per a aquest assemblea.
+          success: Membre creat amb èxit per a aquesta assemblea.
+        destroy:
+          success: Membre destruït amb èxit per a aquesta assemblea.
+        edit:
+          title: Actualitza el membre de l'assemblea.
+          update: Actualitza
+        index:
+          assembly_members_title: Membres de l'assemblea
+        new:
+          create: Crear
+          title: Nou membre de l'assemblea.
+        update:
+          error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
+          success: Membre actualitzat amb èxit per a aquesta assemblea.
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquest consell de participació.
@@ -114,6 +151,7 @@ oc:
         assemblies: Consells de participació
         assemblies_submenu:
           assembly_admins: Usuaris del consell de participació
+          assembly_members: Membres
           attachment_collections: Col·leccions
           attachment_files: Fitxers
           attachments: Adjunts
@@ -122,6 +160,18 @@ oc:
           info: Informació
           moderations: Moderacions
           private_users: Usuaris privats
+        assembly_member:
+          fields:
+            ceased_date: Ceased date
+            designation_date: Designation date
+            full_name: Name
+            position: Position
+          name: Member
+          positions:
+            other: Other
+            president: President
+            secretary: Secretary
+            vice_president: Vice president
       models:
         assembly:
           fields:
@@ -165,6 +215,23 @@ oc:
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        assembly_members:
+          form:
+            existing_user: Usuari existent
+            non_user: No usuari
+            select_a_position: Selecciona una posició
+            select_user: Selecciona un usuari
+            user_type: Tipus d'usuari
+          index:
+            filter:
+              all: Tots
+              ceased: Cessat
+              not_ceased: No cessat
+            filter_by: Filtra per
+            search: Cerca
+      assembly_members:
+        index:
+          members: Membres
       assembly_types:
         commission: Comissió
         consultative_advisory: Consultiva / assessora
@@ -184,6 +251,9 @@ oc:
           highlighted_assemblies:
             active_assemblies: Consells de participació actius
             see_all_assemblies: Veure tots els consells de participació
+        user_profile:
+          member_of:
+            member_of: Membre de
       show:
         area: Àrea
         assembly_type: Tipus de consell de participació
@@ -227,6 +297,11 @@ oc:
         surveys_count: Enquestes
         users_count: Participants
         votes_count: Suports
+    assembly_members:
+      assembly_member:
+        designated_on: Designat a
+      index:
+        title: Membres
     log:
       value_types:
         assembly_presenter:

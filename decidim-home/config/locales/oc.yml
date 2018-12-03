@@ -2,6 +2,8 @@ oc:
   date:
     formats:
       datepicker: "%d/%m/%Y"
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
   time:
     formats:
       day_of_month: "%b %d"
