@@ -126,7 +126,7 @@ These are custom modules and that you have to keep in mind when updating the ver
 
   5. Decidim Regulations ("decidim-regulations"): Group the ParticipatoryProcesses with a ParticipatoryProcessGroup and showed in a clone of index iew of ParticipatoryProcesses called Regulations.
 
-    This needs to be upgraded according with the upgrades of "ParticipatoryProcesses".
+      This needs to be upgraded according with the upgrades of "ParticipatoryProcesses".
       The files to take care are:
       * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
       * "app/controllers/decidim/regulations/"
@@ -140,7 +140,7 @@ These are custom modules and that you have to keep in mind when updating the ver
 
   6. Decidim Meetings Extended ("decidim-meetings"): Add a new functionality of "Global Agenda".
 
-    This needs to be upgraded according with the upgrades of "Meetings".
+      This needs to be upgraded according with the upgrades of "Meetings".
       The files to take care are:
       * "app/controllers/decidim/meetings/extended/meetings_extended_controller.rb"
       * "app/views/decidim/meetings/extended/meetings_extended/meetings.html.erb"
