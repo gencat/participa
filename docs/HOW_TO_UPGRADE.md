@@ -98,21 +98,21 @@ These are custom modules and that you have to keep in mind when updating the ver
 
   6. Also there, are custom files in the participa.
 
-    The files modified are:
-    * "app/assets/fonts/"
-    * "app/assets/stylesheets/"
-    * "app/controllers/decidim/proposals/proposals_controller.rb"
-    * "app/controllers/decidim_controller.rb"
-    * "app/helpers/decidim/participatory_processes/admin/"
-    * "app/views/decidim/assemblies/assemblies/index.html.erb"
-    * "app/views/decidim/assemblies/order_by_assemblies.html.erb"
-    * "app/views/decidim/pages/index.html.erb"
-    * "app/views/decidim/proposals/proposals/index.html.erb"
-    * "app/views/decidim/proposals/proposals/index.js.erb"
-    * "app/views/decidim/proposals/proposals/show.html.erb"
-    * "app/views/decidim/proposals/proposals/most_voted_comments.html.erb"
-    * "app/views/layouts/decidim/mailer.html.erb"
-    * "config/locales/"
+      The files modified are:
+      * "app/assets/fonts/"
+      * "app/assets/stylesheets/"
+      * "app/controllers/decidim/proposals/proposals_controller.rb"
+      * "app/controllers/decidim_controller.rb"
+      * "app/helpers/decidim/participatory_processes/admin/"
+      * "app/views/decidim/assemblies/assemblies/index.html.erb"
+      * "app/views/decidim/assemblies/order_by_assemblies.html.erb"
+      * "app/views/decidim/pages/index.html.erb"
+      * "app/views/decidim/proposals/proposals/index.html.erb"
+      * "app/views/decidim/proposals/proposals/index.js.erb"
+      * "app/views/decidim/proposals/proposals/show.html.erb"
+      * "app/views/decidim/proposals/proposals/most_voted_comments.html.erb"
+      * "app/views/layouts/decidim/mailer.html.erb"
+      * "config/locales/"
 
 ### New modules
   1. Decidim Admin Extended ("decidim-admin"):
@@ -127,22 +127,22 @@ These are custom modules and that you have to keep in mind when updating the ver
   5. Decidim Regulations ("decidim-regulations"): Group the ParticipatoryProcesses with a ParticipatoryProcessGroup and showed in a clone of index iew of ParticipatoryProcesses called Regulations.
 
     This needs to be upgraded according with the upgrades of "ParticipatoryProcesses".
-    The files to take care are:
-    * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
-    * "app/controllers/decidim/regulations/"
-    * "app/queries/decidim/participatory_processes/"
-    * "app/views/decidim/participatory_process_groups/"
-    * "app/views/decidim/participatory_processes/"
-    * "app/views/decidim/regulations/"
-    * "app/views/layouts/"
-    * "config/locales/"
+      The files to take care are:
+      * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
+      * "app/controllers/decidim/regulations/"
+      * "app/queries/decidim/participatory_processes/"
+      * "app/views/decidim/participatory_process_groups/"
+      * "app/views/decidim/participatory_processes/"
+      * "app/views/decidim/regulations/"
+      * "app/views/layouts/"
+      * "config/locales/"
 
 
   6. Decidim Meetings Extended ("decidim-meetings"): Add a new functionality of "Global Agenda".
 
     This needs to be upgraded according with the upgrades of "Meetings".
-    The files to take care are:
-    * "app/controllers/decidim/meetings/extended/meetings_extended_controller.rb"
-    * "app/views/decidim/meetings/extended/meetings_extended/meetings.html.erb"
-    * "app/views/layouts/pages/meetings/"
-    * "config/locales/"
+      The files to take care are:
+      * "app/controllers/decidim/meetings/extended/meetings_extended_controller.rb"
+      * "app/views/decidim/meetings/extended/meetings_extended/meetings.html.erb"
+      * "app/views/layouts/pages/meetings/"
+      * "config/locales/"
