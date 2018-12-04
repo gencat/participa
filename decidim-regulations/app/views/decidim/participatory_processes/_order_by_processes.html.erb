@@ -4,7 +4,7 @@
 
   <div class="row collapse order-by">
     <h2 class="order-by__text section-heading">
-      <%#= t("participatory_processes.order_by_processes.processes", scope: "layouts.decidim", count: collection.count) %>
+      <%= t("participatory_processes.order_by_processes.processes", scope: "layouts.decidim", count: collection.count) %>
       <% if include_filter %>
         <span class="order-by__tabs">
           <% %w(past active upcoming).each do |filter_name| %>
@@ -22,7 +22,7 @@
     <div class="fwk-col-md-5">
       <div class="row collapse order-by">
         <h2 class="order-by__text section-heading part-regulation-top-margin">
-          <%#= t("participatory_processes.order_by_processes.regulations", scope: "layouts.decidim", count: collection.count) %>
+          <%= t("participatory_processes.order_by_processes.regulations", scope: "layouts.decidim", count: collection.count) %>
             <span class="order-by__tabs">
               <button type="submit" name="status" class="order-by__tab part-regulation-tab" value="2" id="status_2"><%= t(".opened") %></button>
               <button type="submit" name="status" class="order-by__tab part-regulation-tab" value="1" id="status_1"><%= t(".closed") %></button>

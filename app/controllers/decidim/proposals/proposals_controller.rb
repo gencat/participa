@@ -9,7 +9,7 @@ module Decidim
       include FilterResource
       include Orderable
       include Paginable
-      
+
       helper_method :geocoded_proposals, :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment, :process_categories, :has_categories, :get_id, :process_name, :my_category
 
       before_action :authenticate_user!, only: [:new, :create]
@@ -38,7 +38,7 @@ module Decidim
         #@proposals = @proposals.page(params[:page]).per(12)
         if params.has_key?(:filter)
           @category_id = params[:filter][:category_id]
-        else 
+        else
             @category_id = ""
         end
       end
@@ -73,6 +73,33 @@ module Decidim
           end
         end
       end
+
+      def edit
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :edit, @proposal
+
+        @form = form(ProposalForm).from_model(@proposal)
+      end
+
+      def update
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :edit, @proposal
+
+        @form = form(ProposalForm).from_params(params)
+
+        UpdateProposal.call(@form, current_user, @proposal) do
+          on(:ok) do |proposal|
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to proposal_path(proposal)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            render :new
+          end
+        end
+      end
+
 
       private
 

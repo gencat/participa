@@ -57,8 +57,8 @@ oc:
         hero_image: Imatge de portada
         local_area: Àrea municipal
         meta_scope: 'Metadades: àmbit'
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
         promoted: Destacat
         scope: Àmbit
         short_description: Descripció breu
