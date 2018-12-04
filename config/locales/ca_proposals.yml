@@ -1,5 +1,12 @@
 ---
 ca:
+  activerecord:
+    errors:
+      models:
+        decidim/attachment:
+            attributes:
+              attached_to:
+                required: Requerit
   decidim:
     proposals:
       proposals:
