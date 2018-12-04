@@ -4,7 +4,7 @@ module Decidim
   module Regulations
     # A controller that holds the logic to show ParticipatoryProcesses in a
     # public layout.
-    class RegulationController < Decidim::ApplicationController
+    class RegulationController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
 
