@@ -21,6 +21,8 @@ es:
         show:
           email: Buzón de soporte
           categories: Ejes de debate
+      show:
+        theme: Tema
     proposals:
       proposals:
         index:
@@ -35,7 +37,7 @@ es:
       participatory_processes:
         order_by_processes:
           regulations: "%{count} Participaciones"
-        index: 
+        index:
           promoted_regulation: Participaciones destacadas
       regulations_info: |+
         <p>Durante el proceso de creación de una norma, hay dos momentos en los que puedes participar:</p>

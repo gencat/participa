@@ -212,6 +212,11 @@ oc:
         process_steps: Fases del procés
         title: Fases del procés participatiu
     participatory_processes:
+      admin:
+        participatory_processes:
+          form:
+            announcement_help: El text que introdueixis aquí es mostrarà a l'usuari just a sota de la informació del procés.
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
       index:
         title: procèssi participatius
       order_by_processes:

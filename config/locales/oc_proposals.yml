@@ -105,7 +105,7 @@ oc:
           all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
-          citizenship: Ciutadania
+          citizens: Ciutadania
           evaluating: En avaluació
           official: Oficial
           origin: Origen
@@ -140,6 +140,7 @@ oc:
           random: Aleatori
           recent: Recent
         proposal:
+          creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
         show:
           proposal_accepted_reason: "Aguesta prepausa a estat acceptada pr'amor que:"

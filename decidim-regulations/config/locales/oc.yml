@@ -3,6 +3,12 @@ oc:
     regulations_static: Participació normativa
   decidim:
     regulations:
+      pages:
+        home:
+          highlighted_regulations:
+            active_processes: Processos actius
+            active_step: Pas actiu
+            see_all_processes: Veure tots els processos
       regulation:
         show:
           email: Bústia de suport
@@ -21,6 +27,8 @@ oc:
         show:
           email: Bústia de suport
           categories: Eixos de debat
+      show:
+        theme: Tema
     proposals:
       proposals:
         index:
@@ -34,8 +42,11 @@ oc:
         regulation_menu_item: Participació
       participatory_processes:
         order_by_processes:
+          processes:
+            one: "%{count} procés"
+            other: "%{count} processos"
           regulations: "%{count} Participacions"
-        index: 
+        index:
           promoted_regulation: Participacions destacades
       regulations_info: |+
         <p>Pendent eth procès de creacion d'ua nòrma, i a dus moments que i pòdes participar:</p>

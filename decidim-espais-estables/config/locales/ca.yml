@@ -59,3 +59,7 @@ ca:
             other: "%{count} Consells de participació"
       assembly_header:
         assembly_menu_item: El Consell de participació
+  pages:
+    home:
+      statistics:
+        assemblies_count: Consells de participació
