@@ -8,10 +8,7 @@ module Decidim
       #
       class ParticipatoryProcessForm < Form
         include TranslatableAttributes
-        # extend ActiveModel::Callbacks
-        # include ActiveModel::Validations
-        # include ActiveModel::Validations::Callbacks
-
+     
         translatable_attribute :title, String
         translatable_attribute :subtitle, String
         translatable_attribute :description, String

@@ -1,16 +1,37 @@
 es:
   decidim:
     devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
+        new:
+          complete_profile: Completar perfil
+          nickname_help: Su identificador corto y único
+          sign_up: Por favor, completa tu perfil
+          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
+          username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
-          already_have_an_account?: Ya tienes una cuenta?
-          newsletter_notifications: Quiero recibir información sobre actividad relevante
+          already_have_an_account?: '¿Ya tienes una cuenta?'
+          newsletter: Reciba un boletín ocasional con información relevante
+          nickname_help: Su identificador corto y único
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
-            legend: Inscríbete como
-            user: Individuo
+            legend: Inscribirse como
+            user: Individual
             user_group: Organización/Colectivo/Entidad
+          subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
+          terms: los términos y condiciones de uso
+          tos_agreement: Al registrarte aceptas %{link}.
+          username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
+      sessions:
+        new:
+          are_you_new?: '¿Eres nuevo en la plataforma?'
+          register: Créate una cuenta
+      shared:
+        omniauth_buttons:
+          or: O
   activemodel:
     attributes:
       account:

@@ -8,17 +8,21 @@
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
   <div class="author-data">
-    <%= render partial: "author", locals: { proposal: @proposal } %>
+    <%= render partial: "decidim/shared/author_reference", locals: { author: Decidim::Proposals::ProposalPresenter.new(@proposal).author } %>
     <div class="author-data__extra">
       <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
         <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
       </button>
       <% unless @proposal.official? %>
-        <%= link_to link_to_current_or_new_conversation_with(@proposal.author), title: t('.contact') do %>
-          <%= icon "envelope-closed", aria_label: t('.contact'), class: 'icon--small' %>
-        <% end %>
+        <%= link_to_current_or_new_conversation_with(@proposal.author) %>
       <% end %>
     </div>
+    <% if @proposal.withdrawable_by?(current_user) %>
+      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", data: {confirm: t('.withdraw_confirmation')}  do %>
+        <%= t('.withdraw_proposal') %>
+        <%= icon "x" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 <div class="row">
@@ -107,4 +111,3 @@
     url: decidim.report_path(sgid: @proposal.to_sgid.to_s)
   }
 %>
-

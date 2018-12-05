@@ -86,20 +86,34 @@ module Decidim
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_params(params)
-
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to proposal_path(proposal)
+            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            render :new
+            render :edit
           end
         end
       end
 
+      def withdraw
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :withdraw, @proposal
+
+        WithdrawProposal.call(@proposal, current_user) do
+          on(:ok) do |_proposal|
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+          end
+        end
+      end
 
       private
 
@@ -117,7 +131,7 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          state: "all",
+          state: "not_withdrawn",
           scope_id: nil,
           related_to: ""
         }
@@ -173,7 +187,6 @@ module Decidim
       def process_name(my_slug)
         @process_name ||= Decidim::ParticipatoryProcess.where(slug: my_slug)
       end
-
     end
   end
 end

@@ -8,7 +8,7 @@ ca:
         newsletter_notifications: Vull rebre informació sobre l'activitat rellevant i les novetats del portal.
     shared:
       share_modal:
-        share: Comparteix  
+        share: Comparteix
   pages:
     home:
       highlighted_processes:
