@@ -85,7 +85,7 @@ oc:
             proposal_answering_enabled: Activar resposta oficial a propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
-            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)    events:
+            votes_hidden: 'Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports) events:'
       proposals:
         creation_enabled:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar a aquesta pàgina:'
@@ -335,7 +335,6 @@ oc:
             one: suport
             other: suports
         new:
-<<<<<<< HEAD
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Enrere
           proposal_edit_before_minutes:
@@ -344,10 +343,6 @@ oc:
           select_a_category: Si us plau, seleccioni una categoria
           send: Enviar
           title: Nova proposta
-=======
-          send: Continua
-          title: Crea la teva proposta
->>>>>>> add missing locales, and meetings cells
         orders:
           label: 'Ordenar propostes per:'
           most_voted: Ha rebut més suports
@@ -392,7 +387,6 @@ oc:
             other: SUPORTS
           most_popular_proposal: Proposta més popular
           need_more_votes: Necessita més vots
-<<<<<<< HEAD
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
@@ -402,20 +396,6 @@ oc:
             description: Per ser validades, les propostes han d'arribar a %{limit} suports
           title: 'La selecció de propostes es regeix per les següents normes:'
         votes_limit:
-          vote_limit:
-            description: Pots donar suport a %{limit} propostes.
-            left: Restant
-            votes: Suports
-=======
->>>>>>> add missing locales, and meetings cells
-        voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pot acumular més de %{limit} suports
-          proposal_limit:
-            description: Pots crear fins a %{limit} propostes.
-          threshold_per_proposal:
-            description: Per ser validades, les propostes han d'arribar a %{limit} suports
-          title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
             left: Restant
