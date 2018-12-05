@@ -1,4 +1,0 @@
-{
-    "auth_config_file": "participa-idcat/config/environments/auth/pro.json",
-    "check_token_file": "participa-idcat/config/environments/check_token/pro.json"
-}
