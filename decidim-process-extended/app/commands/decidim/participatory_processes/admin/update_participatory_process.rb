@@ -40,7 +40,13 @@ module Decidim
 
         def update_participatory_process
           @participatory_process.assign_attributes(attributes)
-          @participatory_process.save! if @participatory_process.valid?
+          if @participatory_process.valid?
+            @participatory_process.save!
+
+            Decidim.traceability.perform_action!(:update, @participatory_process, form.current_user) do
+              @participatory_process
+            end
+          end
         end
 
         def attributes
@@ -71,9 +77,6 @@ module Decidim
             announcement: form.announcement,
 
             # Participa added attributes
-
-            #TODO: revisar lo de aplicar el downcase cuando no existe
-            #email: form.email.downcase, 
             email: form.email,
             show_home: form.show_home,
             decidim_department_id: form.department_id,

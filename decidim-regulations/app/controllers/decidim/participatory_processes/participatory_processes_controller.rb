@@ -12,20 +12,20 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
-
+      helper Decidim::ResourceReferenceHelper
+      helper Decidim::ResourceHelper
       helper ParticipatoryProcessHelper
 
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :categories, :has_debats, :is_subcategory
-      helper_method :current_participatory_process
 
       def index
+        redirect_to "/404" if published_processes.none?
+
         authorize! :read, ParticipatoryProcess
         authorize! :read, ParticipatoryProcessGroup
       end
 
-      def show
-        authorize! :read, current_participatory_process
-      end
+      def show; end
 
       private
 
@@ -34,11 +34,11 @@ module Decidim
       end
 
       def current_participatory_space
-        @current_participatory_space ||= organization_participatory_processes.find_by(slug: params[:slug])
-      end
+        return unless params["slug"]
 
-      def current_participatory_process
-        @current_participatory_process ||= organization_participatory_processes.find_by(slug: params[:slug])
+        @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
+          organization_participatory_processes.where(id: params["slug"])
+        ).first!
       end
 
       def published_processes
@@ -46,7 +46,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= (participatory_processes.to_a).flatten
+        @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
       end
 
       def filtered_participatory_processes(filter = default_filter)
@@ -66,7 +66,7 @@ module Decidim
       end
 
       def stats
-        @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_process)
+        @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
       end
 
       def filter
@@ -78,7 +78,7 @@ module Decidim
       end
 
       def categories
-        @categories ||= Decidim::Category.where(decidim_participatory_space_id: current_participatory_process.id, decidim_participatory_space_type: "Decidim::ParticipatoryProcess")
+        @categories ||= Decidim::Category.where(decidim_participatory_space_id: current_participatory_space.id, decidim_participatory_space_type: "Decidim::ParticipatoryProcess")
       end
 
       def has_debats(process_id)

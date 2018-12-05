@@ -19,6 +19,7 @@ oc:
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
         promoted: Destacat
+        published_at: Published at
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
@@ -201,8 +202,37 @@ oc:
         resend_invitation:
           error: Hi ha hagut un error reenviant la invitació.
           success: Invitació reenviada amb èxit.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+      participatory_process_user_role:
+        create: "%{user_name} invited the user %{resource_name} to the %{space_name} participatory process"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory process"
+        update: "%{user_name} changed the role of the user %{resource_name} in the %{space_name} participatory process"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'La fase %{resource_title} ja està activa per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: La fase %{resource_title} ja està activa per <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'S''han actualitzat les dates de la fase %{resource_title} a %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: Les dates de la fase <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> s'han actualitzat.
     menu:
       processes: Procèssi
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultats
+    participatory_spaces:
+      highlighted_results:
+        results: Resultats
+        see_all_results: Veure tots els resultats
     participatory_process_groups:
       show:
         group_participatory_processes: procèssi per a %{group}

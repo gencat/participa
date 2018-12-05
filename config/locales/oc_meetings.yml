@@ -10,15 +10,50 @@ oc:
         proposal_ids: Propostes creades en una trobada
       meeting:
         address: Adreça
+        available_slots: Espais disponibles per a aquesta trobada
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
         end_time: Hora de finalització
         location: Ubicació
         location_hints: Detalls d'ubicació
+        registration_terms: Termes i condicions de l'inscripció
+        registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
-        title: Editar trobada
+        title: Trobada
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Pots llegir les conclusions a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: S'ha tancat la trobada "%{resource_title}"
+          notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+        meeting_created:
+          email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Nova trobada a %{participatory_space_title}
+          notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+        meeting_registrations_over_percentage:
+          email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
+          email_subject: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%
+          notification_title: L'espai ocupat per la trobada <a href="%{resource_path}">%{resource_title}</a> està per sobre del %{percentage}%.
+        meeting_updated:
+          email_intro: 'La trobada de "%{resource_title}" ha estat actualitzada. Pots llegir-ne la nova versió a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: La trobada "%{resource_title}" s'ha actualitzat
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
+        registrations_enabled:
+          email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: La trobada de "%{resource_title}" ha obert les inscripcions.
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha obert les inscripcions.
+        upcoming_meeting:
+          email_intro: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     features:
       meetings:
         actions:
@@ -26,13 +61,14 @@ oc:
         name: Trobades
         settings:
           global:
-            announcement: Avís
+            announcement: Anunci
             comments_enabled: Comentaris habilitats
           step:
-            announcement: Avís
+            announcement: Anunci
             comments_blocked: Comentaris bloquejats
     meetings:
       actions:
+        attachment_collections: Col·leccions
         attachments: Adjunts
         close: Tancar
         confirm_destroy: Segur que vols suprimir aquesta trobada?
@@ -95,36 +131,16 @@ oc:
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
-      events:
-        close_meeting_event:
-          email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Podeu llegir les conclusions a la seva pàgina:'
-          email_outro: Has rebut aquesta notificació, perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des del seu enllaç.
-          email_subject: S'ha tancat la trobada "%{resource_title}"
-          notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
-        meeting_registrations_enabled:
-          email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir a l'enllaç anterior.
-          email_subject: La trobada de "%{resource_title}" ha permès inscripcions.
-          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha activat inscripcions.
-        meeting_registrations_over_percentage:
-          email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
-          email_subject: L'espai ocupat per la trobada "%{resource_title}" està per sobre del %{percentage}%
-          notification_title: L'espai ocupat per la trobada <a href="%{resource_path}">%{resource_title}</a> està per sobre del %{percentage}%.
-        upcoming_meeting_event:
-          email_intro: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir a l'enllaç anterior.
-          email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
-          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
-        update_meeting_event:
-          email_intro: 'La trobada de "%{resource_title}" ha estat actualitzada. Pots llegir-ne la nova versió a la seva pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
-          email_subject: La trobada "%{resource_title}" s'ha actualitzat
-          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
+      admin_log:
+        meeting:
+          close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
+          create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Assumpte
+            subject: Invitació per participar en una reunió
         registration_mailer:
           confirmation:
             subject: La teva inscripció a la trobada ha estat confirmada
@@ -134,8 +150,6 @@ oc:
           category_prompt: Selecciona una categoria
           date: Data
           past: Passades
-          scope_prompt: Seleccioneu un àmbit
-          scopes: Àmbits
           search: Cerca
           upcoming: Properes
         filters_small_view:
@@ -182,6 +196,16 @@ oc:
         destroy:
           invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
           success: Heu deixat la trobada amb èxit.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Trobades anteriors
+          upcoming_meetings: Properes trobades
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Trobades anteriors
+        see_all_meetings: Veure totes les trobades
+        upcoming_meetings: Properes trobades
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'
@@ -192,4 +216,4 @@ oc:
   devise:
     mailer:
       join_meeting:
-        subject: Assumpte
+        subject: Invitació per participar en una reunió

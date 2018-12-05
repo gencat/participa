@@ -1,11 +1,13 @@
----
 oc:
   activemodel:
     attributes:
       assembly:
+        area_id: Àrea
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
         copy_features: Copiar funcionalitats
+        decidim_area_id: Àrea
+        decidim_scope_id: Abast
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
@@ -16,13 +18,15 @@ oc:
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
         promoted: Destacat
+        published_at: Publicat el
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
+        show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         subtitle: Subtítol
         target: A qui va dirigit?
-        title: Grup de processos participatius
+        title: Títol
   decidim:
     admin:
       assemblies:
@@ -78,9 +82,11 @@ oc:
           error: S'ha produït un error en l'actualització d'un usuari per a aquesta assemblea.
           success: L'usuari s'ha actualitzat correctament per a aquesta assemblea.
       menu:
-        assemblies: Conselhs de participacion
+        assemblies: Assemblees
         assemblies_submenu:
           assembly_admins: Usuaris de l'assemblea
+          attachment_collections: Col·leccions
+          attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
           features: Funcionalitats
@@ -92,7 +98,7 @@ oc:
             created_at: Data de creació
             promoted: Destacat
             published: Publicat
-            title: Grup de processos participatius
+            title: Títol
           name: Assemblea
         assembly_user_role:
           fields:
@@ -105,15 +111,35 @@ oc:
             collaborator: Col·laborador
             moderator: Moderador
       titles:
-        assemblies: Conselhs de participacion
+        assemblies: Assemblees
+    admin_log:
+      assembly:
+        create: "%{user_name} ha creat l'assemblea %{resource_name}"
+        publish: "%{user_name} ha publicat l'assemblea %{resource_name}"
+        unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
+        update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
+        delete: "%{user_name} ha eliminat l'usuari %{resource_name} de l'assemblea %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} a l'assemblea %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest Consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            select_an_area: Selecciona una àrea
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
       index:
-        title: Conselhs de participacion
+        title: Assemblees
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Assemblees actives
+            see_all_assemblies: Veure totes les assemblees
       show:
+        area: Àrea
         developer_group: Grup promotor
         local_area: Àrea municipal
         participatory_scope: Què es decideix
@@ -122,8 +148,9 @@ oc:
         target: A qui va dirigit
       statistics:
         answers_count: Respostes
-        assemblies_count: Conselhs de participacion
+        assemblies_count: Assemblees
         comments_count: Comentaris
+        endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades presencials
         orders_count: Vots
@@ -135,20 +162,18 @@ oc:
         users_count: Participants
         votes_count: Suports
     menu:
-      assemblies: Conselhs de participacion
+      assemblies: Assemblees
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Participa
         index:
-          promoted_assemblies: Conselhs de participacion destacades
-        no_assemblies_yet:
-          no_assemblies_yet: Encara no hi ha cap assemblea!
+          promoted_assemblies: Assemblees destacades
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblea"
-            other: "%{count} conselhs de participacion"
+            other: "%{count} assemblees"
         promoted_assembly:
           more_info: Més informació
           take_part: Participa
