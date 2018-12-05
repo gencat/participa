@@ -56,16 +56,15 @@
               <% end %>
             </li>
 
-              <% current_participatory_space.components.each do |component| %>
-                <% if component.published? || component == self.try(:current_component) %>
-                  <li class="<%= "" if is_active_link?(main_component_path(component), :inclusive) %>">
-                    <%= active_link_to main_component_path(component), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
-                      <%= component_icon(component) %>
+            <% current_participatory_space.components.each do |component| %>
+              <% if component.published? || component == self.try(:current_component) %>
+                <li class="<%= "" if is_active_link?(main_component_path(component), :inclusive) %>">
+                  <%= active_link_to main_component_path(component), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
+                    <%= component_icon(component) %>
 
-                      <%= translated_attribute(component.name) %>
-                    <% end %>
-                  </li>
-                <% end %>
+                    <%= translated_attribute(component.name) %>
+                  <% end %>
+                </li>
               <% end %>
             <% end %>
           </ul>
