@@ -1,6 +1,6 @@
 namespace :participa do
   desc "Fix Orphan Component records"
-  task :fix_orphan_component_records do
+  task :fix_orphan_component_records  => [ :environment ] do
     organization =  Decidim::Organization.first
     participatory_space = Decidim::ParticipatoryProcess.create(
                             title: {"ca"=> "Procés registres orfes"},
@@ -15,6 +15,7 @@ namespace :participa do
 
     orphan_components.each do |component|
       next unless component.participatory_space.blank?
+      puts "----- Upgrade #{component.manifest_name} ---#{component.id}"
       component.update(participatory_space: participatory_space)
     end
   end
