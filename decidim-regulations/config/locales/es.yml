@@ -1,4 +1,9 @@
 es:
+  layouts:
+    decidim:
+      participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No hay resultados
   menu:
     regulations_static: Participación en normativa
   decidim:

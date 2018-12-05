@@ -1,5 +1,0 @@
-ca:
-  decidim:
-    authorization_handlers:
-      example_authorization_handler:
-        name: Autoritzar amb IdCat

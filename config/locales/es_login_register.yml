@@ -1,61 +1,16 @@
 es:
   decidim:
     devise:
-      omniauth_registrations:
-        create:
-          email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
-        new:
-          complete_profile: Completar perfil
-          nickname_help: Su identificador corto y único
-          sign_up: Por favor, completa tu perfil
-          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
-          username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
-          already_have_an_account?: '¿Ya tienes una cuenta?'
-          newsletter: Reciba un boletín ocasional con información relevante
-          nickname_help: Su identificador corto y único
-          sign_in: Entra
-          sign_up: Regístrate
           sign_up_as:
-            legend: Inscribirse como
-            user: Individual
             user_group: Organización/Colectivo/Entidad
-          subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
-          terms: los términos y condiciones de uso
-          tos_agreement: Al registrarte aceptas %{link}.
-          username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
-      sessions:
-        new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
-          register: Créate una cuenta
-      shared:
-        omniauth_buttons:
-          or: O
   activemodel:
     attributes:
-      account:
-        delete_reason: Razón para eliminar tu cuenta
-      report:
-        details: Comentarios adicionales
       user:
-        email: Tu email
-        name: Tu nombre
-        password: Contraseña
-        password_confirmation: Confirma tu contraseña
-        remove_avatar: Elimina la imagen de usuario
         user_group_document_number: CIF de la organización
-        user_group_name: Nombre de la organitzación
-        user_group_phone: Teléfono de la organitzación
   activerecord:
     attributes:
       decidim/user:
-        current_password: Contraseña actual
-        email: Correo electrónico
-        name: Nombre de usuario
-        password: Contraseña
-        password_confirmation: Confirmación de la contraseña
-        remember_me: Recuérdame
         user_group_document_number: CIF de la organitzación
-        user_group_name: Nombre de la organitzación
-        user_group_phone: Teléfono de la organitzación
+  

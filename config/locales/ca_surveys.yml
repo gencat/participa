@@ -1,6 +1,6 @@
 ca:
   decidim:
-    features:
+    components:
       surveys:
         name: Qüestionari
     surveys:

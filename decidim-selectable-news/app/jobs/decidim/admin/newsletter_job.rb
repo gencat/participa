@@ -39,19 +39,19 @@ module Decidim
       end
 
       def processrecipients(id)
-        
+
         @processrecipients = User.joins("left outer join decidim_follows fol
                   on decidim_users.id = fol.decidim_user_id
                   left outer join decidim_proposals_proposals pro
-                  on pro.id = fol.decidim_followable_id 
-                  left outer join decidim_features fea
-                  on pro.decidim_feature_id = fea.id
+                  on pro.id = fol.decidim_followable_id
+                  left outer join decidim_components fea
+                  on pro.decidim_component_id = fea.id
                   left outer join decidim_participatory_processes p
                   on p.id = fea.participatory_space_id
                   where fol.decidim_followable_type = 'Decidim::Proposals::Proposal' and p.id = " + id).distinct
 
       end
-      
+
     end
   end
 end

@@ -16,9 +16,9 @@
                     <div class="mail-info" style="display:none">
                       <%= t(".related_mails") %>
                       <ul>
-                        <% get_process_feature_id(process.id).each do |feature_id| %>
+                        <% get_process_component_id(process.id).each do |component_id| %>
                           <% id = Array.new %>
-                          <% get_process_proposals_ids(feature_id.id).each do |proposal_id| %>
+                          <% get_process_proposals_ids(component_id.id).each do |proposal_id| %>
                             <% get_users_from_proposals(proposal_id.id).each do |user_id| %>
                               <% get_mails_from_users(user_id.decidim_user_id).each do |user| %>
                                 <% id.push(user.email) %>

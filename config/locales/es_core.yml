@@ -1,17 +1,8 @@
 es:
   decidim:
-    account:
-      delete:
-        explanation: Por favor, indica el motivo por el que deseas eliminar tu cuenta (opcional).
     notifications_settings:
       show:
         newsletter_notifications: Quiero recibir informació sobre la actividad relevante y las novedades del portal.
       shared:
         share_modal:
-          share: Comparte 
-  pages:
-    home:
-      highlighted_processes:
-        active_processes: Procesos activos
-        active_step: Paso activo
-        see_all_processes: Ver todos los procesos
+          share: Comparte

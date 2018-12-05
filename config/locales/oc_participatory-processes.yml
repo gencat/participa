@@ -5,7 +5,7 @@ oc:
       participatory_process:
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
-        copy_features: Copiar funcionalitats
+        copy_components: Copiar funcionalitats
         copy_steps: Copiar fases
         description: Descripció
         developer_group: Grup promotor
@@ -63,7 +63,7 @@ oc:
         participatory_processes_submenu:
           attachments: Adjunts
           categories: Categories
-          features: Funcionalitats
+          components: Funcionalitats
           info: Informacion es procès
           moderations: Moderacions
           process_admins: Usuaris del procés
@@ -270,6 +270,7 @@ oc:
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
+        debates_count: Debats
         headline: Activitat
         meetings_count: Trobades presencials
         orders_count: Vots

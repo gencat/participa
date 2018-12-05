@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = "~> 0.10.1"
+DECIDIM_VERSION = "~> 0.11.2"
 
 gem "decidim", DECIDIM_VERSION
 
@@ -24,9 +24,6 @@ gem "uglifier", ">= 1.3.0"
 
 gem "faker", "~> 1.8.4"
 gem 'figaro', '>= 1.1.1'
-
-gem 'foundation-rails', '6.4.1.3'
-gem 'high_voltage', '3.0.0'
 
 group :development, :test do
   gem "byebug", platform: :mri

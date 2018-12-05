@@ -1,4 +1,3 @@
----
 oc:
   activemodel:
     attributes:
@@ -20,8 +19,30 @@ oc:
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
-        title: Trobada
+        title: Títol
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: S'ha produït un error en duplicar aquesta trobada.
+          success: Trobada duplicada amb èxit.
+        new:
+          copy: Copia
+          select: Selecciona quines dades vols duplicar
+          title: Duplicar trobada
+    components:
+      meetings:
+        actions:
+          join: Inscriu-t'hi
+        name: Trobades
+        settings:
+          global:
+            announcement: Anunci
+            comments_enabled: Comentaris habilitats
+            default_registration_terms: Termes de registre per defecte
+          step:
+            announcement: Anunci
+            comments_blocked: Comentaris bloquejats
     events:
       meetings:
         meeting_closed:
@@ -54,18 +75,6 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
-    features:
-      meetings:
-        actions:
-          join: Inscriu-t'hi
-        name: Trobades
-        settings:
-          global:
-            announcement: Anunci
-            comments_enabled: Comentaris habilitats
-          step:
-            announcement: Anunci
-            comments_blocked: Comentaris bloquejats
     meetings:
       actions:
         attachment_collections: Col·leccions
@@ -113,6 +122,16 @@ oc:
           new:
             create: Crear
             title: Crear trobada
+          service:
+            description: Descripció
+            down: Avall
+            remove: Elimina
+            service: Servei
+            title: Títol
+            up: Pujar
+          services:
+            add_service: Afegeix servei
+            services: Serveis
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
@@ -128,6 +147,8 @@ oc:
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
+            reserved_slots_help: Deixa'l a 0 si no tens espais reservats
+            reserved_slots_less_than: Ha de ser inferior o igual que %{count}
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
@@ -136,6 +157,7 @@ oc:
           close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
+          export_registrations: "%{user_name} va exportar les inscripcions de la trobada %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
