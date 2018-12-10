@@ -20,7 +20,7 @@ gem 'decidim-search-user', path: 'decidim-search-user'
 #### Custom gems and modifciations block end ####
 
 gem "puma", "~> 3.0"
-gem "uglifier", ">= 1.3.0"
+gem "uglifier", "~> 4.0.0"
 
 gem "faker", "~> 1.8.4"
 gem 'figaro', '>= 1.1.1'
