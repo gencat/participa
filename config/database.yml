@@ -24,6 +24,10 @@ integration:
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
 
+preprod:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
