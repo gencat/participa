@@ -27,6 +27,7 @@ gem 'figaro', '>= 1.1.1'
 
 ## Start force versions Gem
 gem 'graphiql-rails', '1.4.11'
+gem 'graphql', '1.8.10'
 ## End force versions Gem
 
 group :development, :test do
