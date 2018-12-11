@@ -17,6 +17,7 @@ oc:
       attachment_collection:
         description: Descripció
         name: Nom
+        weight: Pes
       category:
         description: Descripció
         name: Nom
