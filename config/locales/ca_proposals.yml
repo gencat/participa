@@ -1,6 +1,19 @@
 ---
 ca:
+  activerecord:
+    errors:
+      models:
+        decidim/attachment:
+            attributes:
+              attached_to:
+                required: Requerit
   decidim:
+    components:
+      proposals:
+        settings:
+          step:
+            endorsements_blocked: Adhesions bloquejades
+            endorsements_enabled: Adhesions habilitades
     proposals:
       proposals:
         show:

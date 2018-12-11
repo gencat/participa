@@ -1,7 +1,3 @@
-<% 
-    
-%>
-
 <div class="card" style="display: block;">
   <div class="card-divider">
     <h2 class="card-title">Previsualitzar</h2>
@@ -11,41 +7,41 @@
       <dt><%= t(".select_process") %></dt>
       <dd>
         <div class="row small-up-3 medium-up-3 large-up-3 card-grid">
-            <% get_all_processes.each do |process| %>
-                <% if process_has_follows(process.id) == "true" %>
-                    <div class="column">
-                        <div class="card selectable" id="<%= process.id %>">
-                            <div class="card-section">
-                                <legend><h3><strong><%= translated_attribute(process.title) %></strong></h3></legend>
-                                <div class="mail-info" style="display:none">
-                                    <%= t(".related_mails") %>
-                                    <ul>
-                                        <% get_process_feature_id(process.id).each do |feature_id| %>
-                                            <% id = Array.new %>
-                                            <% get_process_proposals_ids(feature_id.id).each do |proposal_id| %>
-                                                <% get_users_from_proposals(proposal_id.id).each do |user_id| %>
-                                                    <% get_mails_from_users(user_id.decidim_user_id).each do |user| %>
-                                                        <% id.push(user.email) %>
-                                                    <% end %>
-                                                <% end %>
-                                            <% end %>
-                                            <% id = id.uniq %>
-                                            <% id.each do |mail| %>
-                                                <li>
-                                                    <%= mail %>
-                                                </li>
-                                            <% end %>
-                                            <% if id.empty? %>
-                                                <strong class="no_mails_in_process"><%= t(".no_mails") %></strong>
-                                            <% end %>
-                                        <% end %>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+          <% get_all_processes.each do |process| %>
+            <% if process_has_follows(process.id) == "true" %>
+              <div class="column">
+                <div class="card selectable" id="<%= process.id %>">
+                  <div class="card-section">
+                    <legend><h3><strong><%= translated_attribute(process.title) %></strong></h3></legend>
+                    <div class="mail-info" style="display:none">
+                      <%= t(".related_mails") %>
+                      <ul>
+                        <% get_process_component_id(process.id).each do |component_id| %>
+                          <% id = Array.new %>
+                          <% get_process_proposals_ids(component_id.id).each do |proposal_id| %>
+                            <% get_users_from_proposals(proposal_id.id).each do |user_id| %>
+                              <% get_mails_from_users(user_id.decidim_user_id).each do |user| %>
+                                <% id.push(user.email) %>
+                              <% end %>
+                            <% end %>
+                          <% end %>
+                          <% id = id.uniq %>
+                          <% id.each do |mail| %>
+                            <li>
+                              <%= mail %>
+                            </li>
+                          <% end %>
+                          <% if id.empty? %>
+                            <strong class="no_mails_in_process"><%= t(".no_mails") %></strong>
+                          <% end %>
+                        <% end %>
+                      </ul>
                     </div>
-                <% end %>
+                  </div>
+                </div>
+              </div>
             <% end %>
+          <% end %>
         </div>
       </dd>
     </dl>

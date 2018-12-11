@@ -5,7 +5,10 @@ module Decidim
     # Controller that allows managing newsletters.
     #
     class NewslettersController < Decidim::Admin::ApplicationController
-        helper_method :get_all_processes, :get_process_feature_id, :get_process_proposals_ids, :get_users_from_proposals, :get_mails_from_users, :process_has_follows
+      include Decidim::NewslettersHelper
+
+      helper_method :get_all_processes, :get_process_component_id, :get_process_proposals_ids, :get_users_from_proposals, :get_mails_from_users, :process_has_follows
+
       def index
         authorize! :index, Newsletter
         @newsletters = collection.order(Newsletter.arel_table[:created_at].desc)
@@ -79,13 +82,16 @@ module Decidim
         @newsletter = collection.find(params[:id])
         authorize! :destroy, @newsletter
 
-        if @newsletter.sent?
-          flash.now[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
-          redirect_to :back
-        else
-          @newsletter.destroy!
-          flash[:notice] = I18n.t("newsletters.destroy.success", scope: "decidim.admin")
-          redirect_to action: :index
+        DestroyNewsletter.call(@newsletter, current_user) do
+          on(:already_sent) do
+            flash.now[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
+            redirect_to :back
+          end
+
+          on(:ok) do
+            flash[:notice] = I18n.t("newsletters.destroy.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
         end
       end
 
@@ -93,7 +99,7 @@ module Decidim
         @newsletter = collection.find(params[:id])
         authorize! :update, @newsletter
 
-        DeliverNewsletter.call(@newsletter) do
+        DeliverNewsletter.call(@newsletter, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
             redirect_to action: :index
@@ -110,7 +116,7 @@ module Decidim
         @newsletter = collection.find(params[:id])
         authorize! :update, @newsletter
 
-        DeliverNewsletter.call(@newsletter) do
+        DeliverNewsletter.call(@newsletter, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
             redirect_to action: :index
@@ -131,14 +137,14 @@ module Decidim
 
       def get_all_processes
         @get_all_processes ||= Decidim::ParticipatoryProcess.all
-      end 
-
-      def get_process_feature_id (process_id)
-        @get_process_proposal_id = Decidim::Feature.where(participatory_space_id: process_id, manifest_name: "proposals") 
       end
 
-      def get_process_proposals_ids(feature_id)
-        @get_process_proposal_ids = Decidim::Proposals::Proposal.where(decidim_feature_id: feature_id)
+      def get_process_component_id (process_id)
+        @get_process_proposal_id = Decidim::Component.where(participatory_space_id: process_id, manifest_name: "proposals")
+      end
+
+      def get_process_proposals_ids(component_id)
+        @get_process_proposal_ids = Decidim::Proposals::Proposal.where(decidim_component_id: component_id)
       end
 
       def get_users_from_proposals (proposal_id)
@@ -150,14 +156,14 @@ module Decidim
       end
 
       def process_has_follows(process_id)
-        features = Decidim::Feature.where(participatory_space_id: process_id, manifest_name: "proposals")
-        
-        features.each do |feature|
-          
-          proposals = Decidim::Proposals::Proposal.where(decidim_feature_id: feature.id)
+        components = Decidim::Component.where(participatory_space_id: process_id, manifest_name: "proposals")
+
+        components.each do |component|
+
+          proposals = Decidim::Proposals::Proposal.where(decidim_component_id: component.id)
 
           proposals.each do |proposal|
-            
+
             follows = Decidim::Follow.where(decidim_followable_id: proposal.id, decidim_followable_type: "Decidim::Proposals::Proposal")
 
             follows.each do |follow|

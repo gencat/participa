@@ -1,34 +1,35 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = "~> 0.8.4"
+DECIDIM_VERSION = "~> 0.11.2"
 
 gem "decidim", DECIDIM_VERSION
 
-gem "decidim-assemblies", DECIDIM_VERSION
-gem 'decidim-debates', path: 'decidim-debates'
-
+#### Custom gems and modifciations block start ####
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-department', path: 'decidim-department'
 gem 'decidim-type', path: 'decidim-type'
 gem 'decidim-theme', path: 'decidim-theme'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
-
 gem 'decidim-meetings-extended', path: 'decidim-meetings-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-search-user', path: 'decidim-search-user'
+#### Custom gems and modifciations block end ####
 
 gem 'omniauth-idcat_mobil', git: "https://github.com/gencat/omniauth-idcat_mobil.git", branch: "master"
 
 gem "puma", "~> 3.0"
-gem "uglifier", ">= 1.3.0"
+gem "uglifier", "~> 4.0.0"
 
 gem 'figaro', '>= 1.1.1'
 
-gem 'foundation-rails', '6.4.1.3'
+## Start force versions Gem
+gem 'graphiql-rails', '1.4.11'
+gem 'graphql', '1.8.10'
+## End force versions Gem
 
 group :development, :test do
   gem "faker", ">= 1.8.4"

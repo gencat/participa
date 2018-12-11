@@ -1,17 +1,5 @@
 ca:
   decidim:
-    account:
-      delete:
-        explanation: Si us plau, indica la raó per la qual vols eliminar el teu compte (opcional).
     notifications_settings:
       show:
         newsletter_notifications: Vull rebre informació sobre l'activitat rellevant i les novetats del portal.
-    shared:
-      share_modal:
-        share: Comparteix  
-  pages:
-    home:
-      highlighted_processes:
-        active_processes: Processos actius
-        active_step: Pas actiu
-        see_all_processes: Veure tots els processos

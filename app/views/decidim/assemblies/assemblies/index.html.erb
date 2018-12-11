@@ -1,12 +1,10 @@
 <% provide :meta_title, t("assemblies.index.title", scope: "decidim") %>
 
 <main class="wrapper">
-
-    <section class="section row collapse">
-        <p><%= t("assembly_info") %></p>
-        <p><%= t("assembly_info_2") %></p>
-    </section>
-
+  <section class="section row collapse">
+    <p><%= t("assembly_info") %></p>
+    <p><%= t("assembly_info_2") %></p>
+  </section>
 
   <% if promoted_assemblies.any? %>
     <section id ="highlighted-assemblies" class="row section">

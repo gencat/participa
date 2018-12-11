@@ -8,9 +8,6 @@ module Decidim
       #
       class ParticipatoryProcessForm < Form
         include TranslatableAttributes
-        # extend ActiveModel::Callbacks
-        # include ActiveModel::Validations
-        # include ActiveModel::Validations::Callbacks
 
         translatable_attribute :title, String
         translatable_attribute :subtitle, String
@@ -39,6 +36,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :participatory_process_group_id, Integer
         attribute :show_statistics, Boolean
+        attribute :private_space, Boolean
 
         # Participa added attributes
         attribute :department_id, Integer

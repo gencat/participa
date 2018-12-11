@@ -1,120 +1,261 @@
 ---
 oc:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Àrea
+        assembly_type: Tipus de consell de participació
+        assembly_type_other: Altre tipus de consell de participació
+        banner_image: Imatge de bàner
+        closing_date: Data de finalització
+        closing_date_reason: Raó de la data de tancament
+        composition: Composició
+        copy_categories: Copiar categories
+        copy_components: Copiar components
+        copy_features: Copiar funcionalitats
+        created_by: Creat per
+        created_by_other: Creat per un altre
+        creation_date: Data de creació
+        decidim_area_id: Àrea
+        decidim_scope_id: Abast
+        description: Descripció
+        developer_group: Grup promotor
+        domain: Àrees municipals
+        duration: Durada
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Imatge de portada
+        included_at: Inclòs a
+        instagram: Instagram
+        internal_organisation: Organització interna
+        is_transparent: És transparent
+        local_area: Àrea municipal
+        meta_scope: Metadades d'àmbit
+        participatory_processes_ids: Processos participatius relacionats
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
+        private_space: Espai privat
+        promoted: Destacat
+        published_at: Publicat el
+        purpose_of_action: Propòsit de l'acció
+        scope_id: Àmbit
+        scopes_enabled: Àmbit habilitat
+        short_description: Descripció breu
+        show_statistics: Mostra estadístiques
+        slug: Nom curt d'URL
+        special_features: Característiques especials
+        subtitle: Subtítol
+        target: A qui va dirigit?
+        title: Títol
+        twitter: Twitter
+        youtube: YouTube
+      assembly_user_role:
+        email: Correu electrònic
+        name: Nom
+        role: Rol
   decidim:
     admin:
       assemblies:
         create:
-          error: S'ha produït un error en crear una nou Consell de participació.
+          error: S'ha produït un error en crear un nou consell de participació.
           success: Consell de participació creat correctament.
         destroy:
-          success: El Consell de participació s'ha eliminat amb èxit.
+          success: El consell de participació s'ha eliminat amb èxit.
+        edit:
+          update: Actualitzar
+        form:
+          title: Informació general
+        index:
+          not_published: No publicada
+          private: Privat
+          public: Públic
+          published: Publicat
         new:
-          title: Nou Consell de participació
+          create: Crear
+          title: Nou consell de participació
         update:
-          error: S'ha produït un error en actualitzar aquest Consell de participació.
-          success: El Consell de participació s'ha actualitzat correctament.
+          error: S'ha produït un error en actualitzar aquest consell de participació.
+          success: El consell de participació s'ha actualitzat correctament.
       assemblies_copies:
         create:
-          error: S'ha produït un error en duplicar aquest Consell de participació.
-          success: El Consell de participació s'ha duplicat correctament.
+          error: S'ha produït un error en duplicar aquest consell de participació.
+          success: El consell de participació s'ha duplicat correctament.
       assembly_copies:
         new:
+          copy: Còpia
+          select: Selecciona quines dades vols duplicar
           title: Consell de participació duplicat
       assembly_publications:
         create:
-          error: S'ha produït un error en publicar aquest Consell de participació.
+          error: S'ha produït un error en publicar aquest consell de participació.
           success: Consell de participació publicat amb èxit.
         destroy:
-          error: S'ha produït un error en despublicar aquest Consell de participació.
+          error: S'ha produït un error en despublicar aquest consell de participació.
           success: Consell de participació despublicat amb èxit.
+      assembly_user_roles:
+        create:
+          error: S'ha produït un error en afegir un usuari per a aquest consell de participació.
+          success: L'usuari s'ha creat correctament per a aquest consell de participació.
+        destroy:
+          success: S'ha destruït l'usuari amb èxit per a aquest consell de participació.
+        edit:
+          title: Actualitza l'usuari del consell de participació.
+          update: Actualitza
+        index:
+          assembly_admins_title: Usuaris del consell de participació
+        new:
+          create: Crea
+          title: Nou usuari del consell de participació.
+        update:
+          error: S'ha produït un error en l'actualització d'un usuari per a aquest consell de participació.
+          success: L'usuari s'ha actualitzat correctament per a aquest consell de participació.
       menu:
         assemblies: Consells de participació
+        assemblies_submenu:
+          assembly_admins: Usuaris del consell de participació
+          attachment_collections: Col·leccions
+          attachment_files: Fitxers
+          attachments: Adjunts
+          categories: Categories
+          components: Components
+          info: Informació
+          moderations: Moderacions
+          private_users: Usuaris privats
       models:
         assembly:
+          fields:
+            created_at: Data de creació
+            private: Privat
+            promoted: Destacat
+            published: Publicat
+            title: Títol
           name: Consell de participació
+        assembly_user_role:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            role: Rol
+          name: Usuari del consell de participació
+          roles:
+            admin: Administrador
+            collaborator: Col·laborador
+            moderator: Moderador
       titles:
         assemblies: Consells de participació
+    admin_log:
+      assembly:
+        create: "%{user_name} ha creat el consell de participació %{resource_name}"
+        publish: "%{user_name} ha publicat el consell de participació %{resource_name}"
+        unpublish: "%{user_name} ha despublicat el consell de participació %{resource_name}"
+        update: "%{user_name} ha actualitzat el consell de participació %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} ha convidat %{resource_name} al consell de participació %{space_name}"
+        delete: "%{user_name} ha eliminat l'usuari %{resource_name} del consell de participació %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} al consell de participació %{space_name}"
     assemblies:
+      admin:
+        assemblies:
+          form:
+            select_a_created_by: Selecciona un creador
+            select_an_area: Selecciona una àrea
+            select_an_assembly_type: Seleccioneu un tipus de consell de participació
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            social_handlers: Social
+        assembly_copies:
+          form:
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+      assembly_types:
+        commission: Comissió
+        consultative_advisory: Consultiva / assessora
+        executive: Executiva
+        government: Govern
+        others: Altres
+        participatory: Participativa
+        working_group: Grup de treball
+      created_by:
+        city_council: Ajuntament
+        others: Altres
+        public: Públic
       index:
         title: Consells de participació
-      statistics:
-        assemblies_count: Consells de participació
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Consells de participació
+            active_assemblies: Consells de participació actius
             see_all_assemblies: Veure tots els consells de participació
-    menu:
-      assemblies: Consells de participació
-  layouts:
-    decidim:
-      assemblies:
-        index:
-          promoted_assemblies: Consells de participació destacats
-        no_assemblies_yet:
-          no_assemblies_yet: Encara no hi ha cap Consell de participació!
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} Consell de participació"
-            other: "%{count} Consells de participació"
-      assembly_header:
-        assembly_menu_item: El Consell de participació
-  pages:
-    home:
-      extended:
-        debates: Debats
-        debates_explanation: Debat i discuteix, comparteix les teves opinions i enriqueix els temes rellevants.
-        how_to_participate: Com participo en un procés?
-        meetings: Trobades
-        meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
-        more_info: Més informació
-        proposals: Propostes
-        proposals_explanation: Realitza propostes, recolza les ja existents i promociona els canvis que vols veure.
-      footer_sub_hero:
-        footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-        footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
-        register: Registra't
-      hero:
-        participate: Participa
-        welcome: Benvingut a %{organization}!
+      show:
+        area: Àrea
+        assembly_type: Tipus de consell de participació
+        children: Consells de participació
+        closing_date: Data de finalització
+        composition: Composició
+        created_by: Creat per
+        creation_date: Data de creació
+        developer_group: Grup promotor
+        duration: Durada
+        included_at: Inclòs a
+        indefinite_duration: Indefinida
+        internal_organisation: Organització interna
+        is_transparent:
+          'false': opaca
+          'true': transparent
+        local_area: Àrea municipal
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
+        private_space: Aquest és un consell de participació privat
+        purpose_of_action: Propòsit de l'acció
+        read_less: Llegir menys
+        read_more: Llegir més
+        related_participatory_processes: Processos participatius relacionats
+        scope: Àmbit
+        social_networks: Xarxes socials
+        target: A qui va dirigit
       statistics:
-        answers_count: Enquestes realitzades
-        assemblies_count: Conslls de participació
+        answers_count: Respostes
+        assemblies_count: Consells de participació
         comments_count: Comentaris
-        headline: Estat actual de %{organization}
-        meetings_count: Trobades
+        debates_count: Debats
+        endorsements_count: Adhesions
+        headline: Activitat
+        meetings_count: Trobades presencials
         orders_count: Vots
         pages_count: Pàgines
-        processes_count: Processos
         projects_count: Projectes
-        proposals_accepted: Propostes acceptades
         proposals_count: Propostes
         results_count: Resultats
         surveys_count: Enquestes
         users_count: Participants
         votes_count: Suports
-      sub_hero:
-        register: Registre
-  social_share_button:
-    delicious: Delicious
-    douban: Douban
-    email: Correu electrònic
-    facebook: Facebook
-    google_bookmark: Google Bookmark
-    google_plus: Google+
-    hacker_news: Hacker News
-    linkedin: LinkedIn
-    pinterest: Pinterest
-    qq: Qzone
-    reddit: Reddit
-    share_to: Compartir a %{name}
-    tumblr: Tumblr
-    twitter: Twitter
-    vkontakte: Vkontakte
-    wechat: WeChat
-    wechat_footer: Obri el WeChat, feu clic al botó "Discover" i després feu clic al menú "Escanejar codi QR".
-    weibo: Sina Weibo
-    xing: Xing
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'El consell de participació no s''ha trobada a la base de dades (ID: %{id})'
+    menu:
+      assemblies: Consells de participació
+  errors:
+    messages:
+      cannot_be_blank: no es pot deixar en blanc
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Participa
+        index:
+          promoted_assemblies: Consells de participació destacats
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} consell de participació"
+            other: "%{count} consells de participació"
+        promoted_assembly:
+          more_info: Més informació
+          take_part: Participa
+      assembly_header:
+        assembly_menu_item: El consell de participació
+        unfold: Desplega
+      assembly_widgets:
+        show:
+          take_part: Participa
   time:
     formats:
       day_of_month: "%b %d"

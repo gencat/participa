@@ -1,6 +1,6 @@
-<%= render partial: "decidim/shared/feature_announcement" %>
+<%= render partial: "decidim/shared/component_announcement" %>
 
-<% if feature_settings.geocoding_enabled? %>
+<% if component_settings.geocoding_enabled? %>
   <%= dynamic_map_for proposals_data_for_map(geocoded_proposals) do %>
     <template id="marker-popup">
       <div class="map-info__content">
@@ -45,8 +45,8 @@
       </span>
     <% end %>
     <div class="fwk-col-md-12 part-timeline-margin">
-      <% if current_feature.categories.any? %>
-        <% current_feature.categories.first_class.each do |category| %>
+      <% if current_component.categories.any? %>
+        <% current_component.categories.first_class.each do |category| %>
           <% if category.id.to_s == @category_id %>
             <div class="timeline__info part-panel-default category_description" id="category_description_<%= category.id %>">
               <div class="timeline__content">
@@ -76,6 +76,10 @@
     <%= render partial: "proposals" %>
   </div>
 </div>
-
+<div class="row">
+  <div class="text-right">
+    <%= link_to t('.see_all_withdrawn'), proposals_path('filter[state]' => 'withdrawn') %>
+  </div>
+</div>
 <%= javascript_include_tag("decidim/filters") %>
 <%= javascript_include_tag "decidim/orders" %>

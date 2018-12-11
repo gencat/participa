@@ -1,4 +1,4 @@
-<% add_decidim_page_title(translated_attribute(current_feature.name)) if try(:current_feature) %>
+<% add_decidim_page_title(translated_attribute(current_component.name)) if try(:current_component) %>
 <% add_decidim_page_title(translated_attribute(current_participatory_process.title)) %>
 <% add_decidim_meta_tags(
   image_url: current_participatory_process.banner_image.url,
@@ -21,8 +21,8 @@
   <% end %>
 <% end %>
 
-<% if try(:current_feature) %>
-  <% current_feature.manifest.actions.each do |action| %>
+<% if try(:current_component) %>
+  <% current_component.manifest.actions.each do |action| %>
     <%= action_authorization_modal(action) %>
   <% end %>
 <% end %>

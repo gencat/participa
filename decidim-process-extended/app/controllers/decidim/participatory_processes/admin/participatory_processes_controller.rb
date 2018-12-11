@@ -91,15 +91,13 @@ module Decidim
 
         private
 
-        def current_participatory_space
-          current_participatory_process
-        end
-
         def current_participatory_process
           @current_participatory_process ||= collection.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
           ).first
         end
+
+        alias current_participatory_space current_participatory_process
 
         def collection
           @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user).order("(title ->> '" + I18n.locale.to_s + "') ASC")

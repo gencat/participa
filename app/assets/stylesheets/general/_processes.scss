@@ -65,7 +65,7 @@
 }
 
 .definition-data__title {
-    
+
 }
 
 .is-dropdown-submenu-parent {
@@ -183,11 +183,11 @@
 }
 
 .card--result .card__link:hover, .card--result .card__link:focus {
-    color: #3D393C; 
+    color: #3D393C;
 }
 
 .card--meeting .card__link:hover, .card--meeting .card__link:focus {
-    color: #3D393C; 
+    color: #3D393C;
 }
 
 .card--proposal {
@@ -253,6 +253,9 @@
     color: $RedGenCat !important;
     border-color: $RedGenCat !important;
 }
+.title-action__action.button{
+  color: #fff !important;
+}
 
 .filters__section {
     .filters__search {
@@ -269,12 +272,12 @@
 }
 
 .button:hover, .button:focus {
-    background-color: $RedGenCat; 
+    background-color: $RedGenCat;
 }
 .process-nav__link:hover, .process-nav__link:focus {
-    color: $RedGenCat; 
+    color: $RedGenCat;
     svg{
-        fill:  $RedGenCat; 
+        fill:  $RedGenCat;
     }
 }
 

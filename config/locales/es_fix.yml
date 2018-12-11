@@ -1,25 +1,4 @@
 es:
-  layouts:
-    decidim:
-      participatory_processes:
-        no_processes_yet: 
-          no_processes_yet: No hay resultados
-  activemodel:
-    attributes:
-      debate:
-        title: Título
-        description: Descripción
-        instructions: Instrucciones
-        start_time: Fecha de inicio
-        end_time: Fecha de fin
-        decidim_category_id: Ejes/Categorías del debate
-      participatory_process:
-        announcement: Aviso
-        show_statistics: Mostrar estadísticas
-      meeting:
-        available_slots: Inscripciones disponibles para el encuentro
-        registration_terms: Términos de inscripción
-        registrations_enabled: Inscripciones habilitadas
   decidim:
     admin:
       dashboard:
@@ -27,4 +6,10 @@ es:
           welcome: Bienvenido al nuevo panel de administración de Participa.
       categories:
         index:
-          categories_title: Ejes de debate      
+          categories_title: Ejes de debate
+  activemodel:
+    attributes:
+      assembly:
+        title: Nombre del consejo de participación
+      participatory_process:
+        announcement: Aviso

@@ -1,40 +1,79 @@
----
 oc:
   activemodel:
     attributes:
-      id: Id
+      area:
+        area_type: Tipus d'àrea
+        name: Nom
+        organization: Organització
+      area_type:
+        name: Nom
+        organization: Organització
+        plural: Plural
       attachment:
+        attachment_collection_id: Col·lecció
         description: Descripció
         file: Arxiu
         title: Títol
+      attachment_collection:
+        description: Descripció
+        name: Nom
+        weight: Pes
       category:
         description: Descripció
         name: Nom
         parent_id: Superior
-      feature:
+      component:
         name: Nom
-        weight: Pes (la funcionalitat amb més pes apareixerà més a la dreta)
+        published_at: Publicat el
+        weight: Pes
+      id: ID
       newsletter:
         body: Cos
         subject: Assumpte
+      oauth_application:
+        name: Nom
+        organization_logo: Logotip de l'organització (quadrat)
+        organization_name: Nom de l'organització
+        organization_url: URL de l'organització
+        redirect_uri: URL de redirecció
       organization:
+        cta_button_path: URL del botó d'acció
+        cta_button_text: Text del botó d'acció
         default_locale: Idioma per defecte
         description: Descripció
+        enable_omnipresent_banner: Mostra pancarta omnipresent
+        facebook_handler: Nom a facebook
         favicon: Icona
-        header_snippets: Fragments de capçalera
-        homepage_image: Imatge de la portada
+        github_handler: Nom a GitHub
+        header_snippets: Fragments de codi a la capçalera
+        highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
+        highlighted_content_banner_action_title: Títol del botó d'acció
+        highlighted_content_banner_action_url: URL del botó d'acció
+        highlighted_content_banner_enabled: Mostra la pancarta de contingut ressaltat
+        highlighted_content_banner_image: Imatge
+        highlighted_content_banner_short_description: Descripció breu
+        highlighted_content_banner_title: Títol
+        homepage_image: Imatge de la pàgina d'inici
+        instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
         name: Nom
-        official_img_footer: Logotip oficial del peu de pàgina
-        official_img_header: Logotip oficial de la capçalera
-        official_url: URL oficial de l'organització
+        official_img_footer: Logotip oficial al peu de pàgina
+        official_img_header: Logotip oficial a la capçalera
+        official_url: Pàgina web oficial de l'organització
+        omnipresent_banner_short_description: Descripció breu
+        omnipresent_banner_title: Títol
+        omnipresent_banner_url: URL
         reference_prefix: Prefix de referència
-        show_statistics: Mostra Estadístiques
+        show_statistics: Mostra estadístiques
+        twitter_handler: Nom d'usuari de Twitter
         welcome_text: Text de benvinguda
+        youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
         name: Nom
         organization: Organització
+        parent_id: Pare
+        scope_type: Tipus d'àmbit
         scope_type_id: Tipus d'àmbit
       scope_type:
         name: Nom
@@ -45,6 +84,12 @@ oc:
         organization: Organització
         slug: Nom curt d'URL
         title: Títol
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URL de redirecció ha de ser SSL
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -57,8 +102,8 @@ oc:
         hero_image: Imatge de portada
         local_area: Àrea municipal
         meta_scope: 'Metadades: àmbit'
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
         promoted: Destacat
         scope: Àmbit
         short_description: Descripció breu
@@ -67,6 +112,11 @@ oc:
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
+      decidim/participatory_process_group:
+        description: Descripció
+        hero_image: Imatge de portada
+        name: Nom
+        participatory_processes: Processos participatius
       decidim/participatory_process_step:
         end_date: Data de finalització
         start_date: Data d'inici
@@ -74,9 +124,17 @@ oc:
         content: Contingut
         slug: Nom curt d'URL
         title: Títol
+      doorkeeper/application:
+        authorize_url: URL d'autorització
+        client_id: Identificador de client
+        client_secret: Secret del client
+        organization_name: Nom de l'organització
+        organization_url: URL de l'organització
+        redirect_uri: URL de redirecció
+        site: Lloc web
   date:
     formats:
-      datepicker: "%m/%d/%Y"
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -87,6 +145,55 @@ oc:
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
+      area_types:
+        create:
+          error: S'ha produït un error en crear un tipus d'àrea nova.
+          success: El tipus d'àrea ha estat creat correctament.
+        destroy:
+          success: El tipus d'àrea s'ha destruït amb èxit
+        edit:
+          title: Editar el tipus d'àrea
+          update: Actualitzar
+        new:
+          create: Crea un tipus d'àrea
+          title: Tipus d'àrea nou
+        update:
+          error: S'ha produït un error en actualitzar aquest tipus d'àrea.
+          success: El tipus d'àrea s'ha actualitzat correctament
+      areas:
+        create:
+          error: S'ha produït un error en crear una nova àrea.
+          success: Àrea creada correctament.
+        destroy:
+          success: Àrea destruïda correctament
+        edit:
+          title: Editar àrea
+          update: Actualitzar
+        new:
+          create: Crea àrea
+          title: Nova àrea
+        no_areas: Sense àrees
+        update:
+          error: S'ha produït un error en actualitzar aquesta àrea.
+          success: Àrea actualitzada correctament
+      attachment_collections:
+        create:
+          error: S'ha produït un error en crear la col·lecció.
+          success: Col·lecció creada correctament.
+        destroy:
+          success: Col·lecció destruïda correctament.
+        edit:
+          title: Editar col·lecció
+          update: Actualitzar
+        index:
+          attachment_collection_used: Aquesta col·lecció no es pot eliminar perquè està en ús.
+          attachment_collections_title: Col·leccions d'adjunts
+        new:
+          create: Crear
+          title: Nova col·lecció
+        update:
+          error: S'ha produït un error en actualitzar aquesta col·lecció.
+          success: Col·lecció actualitzada correctament.
       attachments:
         create:
           error: S'ha produït un error en crear un nou arxiu adjunt.
@@ -123,75 +230,88 @@ oc:
         update:
           error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
-      dashboard:
-        show:
-          welcome: Benvingut al nou panell d'administració de Participa.
-      exports:
-        export_as: "%{name} com a %{export_format}"
-        notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
-      feature_permissions:
+      component_permissions:
         edit:
           everyone: Tothom
           submit: Desar permisos
-          title: Permisos d'edició
+          title: Edita els permisos
         update:
           success: Permisos actualitzats correctament.
-      features:
+      components:
         create:
-          error: S'ha produït un error en afegir aquesta funcionalitat.
-          success: Funcionalitat creada correctament.
+          error: S'ha produït un error en crear aquest component.
+          success: El component s'ha creat correctament.
         destroy:
-          error: S'ha produït un error destruir aquesta funcionalitat.
-          success: Funcionalitat eliminada correctament.
+          error: S'ha produït un error en destruir aquest component.
+          success: El component s'ha suprimit correctament.
         edit:
-          title: Editar funcionalitat
-          update: Actualitza
+          title: Edita el component
+          update: Actualitzar
         form:
           default_step_settings: Configuració per defecte
           global_settings: Configuració global
           step_settings: Configuració de fase
         index:
-          add: Afegir funcionalitat
+          add: Afegeix un component
           headers:
             actions: Accions
-            name: Nom de la funcionalitat
-            type: Tipus de funcionalitat
+            name: Nom del component
+            type: Tipus de component
         new:
-          add: Afegir funcionalitat
-          title: 'Afegir funcionalitat: %{name}'
+          add: Afegeix un component
+          title: 'Afegir component: %{name}'
         publish:
-          success: La funcionalitat s'ha publicat correctament.
-        title: Funcionalitats
+          success: El component s'ha publicat correctament.
+        title: Components
         unpublish:
-          success: La funcionalitat ha estat despublicada exitosament.
+          success: El component s'ha despublicat correctament.
         update:
-          error: S'ha produït un error en actualitzar aquesta funcionalitat.
-          success: La funcionalitat s'ha actualitzat correctament.
-      managed_users:
+          error: S'ha produït un error en actualitzar aquest component.
+          success: El component s'ha actualitzat correctament.
+      dashboard:
+        show:
+          view_more_logs: Veure més registres
+          welcome: Benvingut al tauler d'administració de Decidim.
+      exports:
+        export_as: "%{name} com a %{export_format}"
+        notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
+      impersonatable_users:
+        index:
+          filter:
+            all: Tots
+            managed: Gestionat
+            not_managed: No gestionat
+          filter_by: Filtra per
+          impersonate: Suplantar
+          impersonate_new_managed_user: Substitueix un nou usuari administrat
+          managed: Gestionat
+          name: Nom
+          needs_authorization_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
+          not_managed: No gestionat
+          promote: Promocionar
+          search: Cerca
+          status: Estat
+          view_logs: Veure registres
+      impersonations:
         close_session:
           error: S'ha produït un error en tancar la sessió de suplantació actual.
           success: La sessió de suplantació actual s'ha finalitzat amb èxit.
         create:
-          error: S'ha produït un error en crear l'usuari gestionat.
+          error: S'ha produït un error en impersonar l'usuari.
           success: L'usuari gestionat s'ha creat correctament.
         form:
+          authorization_method: Mètode d'autorització
           name: Nom
-        impersonate:
-          error: S'ha produït un error en suplantar l'usuari gestionat.
-        impersonations:
-          new:
-            impersonate: Suplantar
-            new_managed_user_impersonation: Nova suplantació d'usuaris gestionats
-        index:
-          impersonate: Suplantar
-          needs_authoriation_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
-          promote: Promocionar
-          view_logs: Veure registres
+          reason: Raó
         new:
-          create: Crear
-          new_managed_user: Nou usuari gestionat
-          select_authorization_method: Seleccioneu un mètode d'autorització
-          step: Fase %{current} de %{total}
+          impersonate: Suplantar
+          impersonate_existing_managed_user: Impersonar l'usuari gestionat "%{name}"
+          impersonate_existing_user: Impersona l'usuari "%{name}"
+          impersonate_new_managed_user: Impersona un nou usuari administrat
+      logs:
+        logs_list:
+          no_logs_yet: Encara no hi ha cap registre d'activitat
+      managed_users:
         promotion:
           error: S'ha produït un error en promoure l'usuari gestionat.
           success: S'ha promogut amb èxit l'usuari gestionat.
@@ -201,13 +321,16 @@ oc:
             new_managed_user_promotion: Nova promoció d'usuari gestionat
             promote: Promocionar
       menu:
+        admin_log: Registre d'activitat d'administració
         admins: Administradors
         appearance: Aparença
-        authorization_workflows: Verificacions
+        area_types: Tipus d'àrees
+        areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
-        managed_users: Usuaris gestionats
+        impersonations: Impersonacions
         newsletters: Butlletins
+        oauth_applications: Aplicacions OAuth
         officializations: Oficialitzacions
         scope_types: Tipus d'àmbit
         scopes: Àmbits
@@ -216,11 +339,23 @@ oc:
         user_groups: Grups d'usuaris
         users: Usuaris
       models:
+        area:
+          fields:
+            area_type: Tipus d'àrea
+            name: Nom
+        area_type:
+          fields:
+            name: Nom
+            plural: Plural
         attachment:
           fields:
+            collection: Col·lecció
             content_type: Tipus
+            file_size: Mida
             title: Títol
           name: Arxiu adjunt
+        attachment_collection:
+          name: Col·lecció
         category:
           name: Categoria
         impersonation_log:
@@ -228,10 +363,9 @@ oc:
             admin: Administrador
             ended_at: Va acabar el
             expired_at: Vençut el
+            reason: Raó
             started_at: Va començar el
             user: Usuari
-        managed_user:
-          name: Usuari gestionat
         newsletter:
           fields:
             created_at: Data de creació
@@ -239,6 +373,13 @@ oc:
             sent_at: Enviat el
             subject: Assumpte
           name: Butlletí
+        oauth_application:
+          fields:
+            created_at: Creat el
+            name: Nom
+          name: Aplicació OAuth
+        participatory_space_private_user:
+          name: Usuari privat de l'espai de participació
         scope:
           fields:
             name: Nom
@@ -308,15 +449,59 @@ oc:
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
+      oauth_applications:
+        create:
+          error: S'ha produït un error en crear aquesta aplicació.
+          success: L'aplicació s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en destruir aquesta aplicació.
+          success: S'ha destruït l'aplicació amb èxit.
+        edit:
+          save: Desa
+          title: Edita l'aplicació
+        index:
+          confirm_delete: Estàs segur de que vols suprimir aquesta aplicació?
+          title: Aplicacions OAuth
+        new:
+          save: Desa
+          title: Nova aplicació
+        update:
+          error: S'ha produït un error en actualitzar aquesta aplicació.
+          success: S'ha actualitzat l'aplicació amb èxit.
+      officializations:
+        create:
+          success: L'usuari s'ha oficialitzat amb èxit
+        destroy:
+          success: La oficialització de l'usuari ha estat inhabilitada correctament
+        index:
+          actions: Accions
+          badge: Insígnia
+          created_at: Creat el
+          filter:
+            all: Tots
+            not_officialized: No oficialitzat
+            officialized: Oficialitzat
+          filter_by: Filtra per
+          name: Nom
+          nickname: Sobrenom
+          not_officialized: No oficialitzat
+          officialize: Oficialitza
+          officialized: Oficialitzat
+          reofficialize: Torna a oficialitzar
+          search: Cerca
+          status: Estat
+          unofficialize: Inhabilita la oficialització
+        new:
+          badge: Insígnia d'oficialització
+          officialize: Oficialitza
+          title: Oficialitza l'usuari "%{name}"
       organization:
         edit:
           title: Edita organització
           update: Actualitzar
         form:
-          current_image: Imatge actual
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
@@ -336,6 +521,17 @@ oc:
           homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
           omnipresent_banner_appearance_title: Edita bàner omnipresent
+      participatory_space_private_users:
+        create:
+          error: S'ha produït un error en afegir un usuari privat a aquest espai de participació.
+          success: L'accés per usuari privat de l'espai de participació s'ha creat correctament.
+        destroy:
+          success: L'accés per usuari privat de l'espai de participació s'ha eliminat correctament.
+        index:
+          title: Usuari privat de l'espai participatiu
+        new:
+          create: Crear
+          title: Nou usuari privat de l'espai participatiu.
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
@@ -379,16 +575,19 @@ oc:
           title: Editar pàgina
           update: Actualitzar
         new:
-          create: Nova
+          create: Crea
           title: Nova pàgina
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
           success: La pàgina s'ha actualitzat correctament.
       titles:
+        admin_log: Registre d'administració
+        area_types: Tipus d'àrees
+        areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
+        impersonatable_users: Usuaris impersonables
         impersonations: Suplantacions
-        managed_users: Usuaris gestionats
         officializations: Oficialitzacions
         scope_types: Tipus d'àmbit
         scopes: Àmbits
@@ -429,6 +628,10 @@ oc:
         new:
           create: Convidar
           title: Convidar un usuari com a administrador
+    forms:
+      errors:
+        impersonate_user:
+          reason: Heu d'indicar un motiu quan impersoneu un usuari no administrat
     moderations:
       actions:
         hidden: Ocults
@@ -452,6 +655,7 @@ oc:
             reportable: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
+            visit_url: Visiteu l'URL
   errors:
     messages:
       invalid_json: JSON no vàlid
@@ -466,6 +670,5 @@ oc:
           title: Usuaris
   time:
     formats:
-      datepicker: "%m/%d/%Y"
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"
-      short: "%d/%m/%Y %H:%M"
