@@ -1,0 +1,12 @@
+---
+es:
+  activemodel:
+    attributes:
+      survey_answer:
+        choices: Las opciones
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: no estan completas

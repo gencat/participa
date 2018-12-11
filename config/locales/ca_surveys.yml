@@ -1,4 +1,14 @@
 ca:
+  activemodel:
+    attributes:
+      survey_answer:
+        choices: Les opcions
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            choices:
+              missing: no estan completes
   decidim:
     components:
       surveys:

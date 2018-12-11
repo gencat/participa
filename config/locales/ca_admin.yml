@@ -1,0 +1,5 @@
+ca:
+  activemodel:
+    attributes:
+      attachment_collection:
+        weight: Pes

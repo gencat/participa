@@ -61,11 +61,14 @@ oc:
         participatory_process_groups: Grups de procèssi
         participatory_processes: procèssi
         participatory_processes_submenu:
+          attachment_collections: Col·leccions
+          attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
-          components: Funcionalitats
-          info: Informacion es procès
+          components: Components
+          info: Informació
           moderations: Moderacions
+          private_users: Usuaris privats
           process_admins: Usuaris del procés
           steps: Fases del procés
       models:
@@ -74,6 +77,7 @@ oc:
             created_at: Data de creació
             promoted: Destacat
             published: Publicat
+            private: Privat
             title: Grup de procèssi participatius
           name: Procés participatiu
         participatory_process_group:
@@ -180,6 +184,8 @@ oc:
           title: Informació general
         index:
           not_published: No publicada
+          private: Privat
+          public: Públic
           published: Publicat
         new:
           create: Crear

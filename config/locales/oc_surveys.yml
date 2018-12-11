@@ -4,6 +4,7 @@ oc:
     attributes:
       survey_answer:
         body: Resposta
+        choices: Les opcions
       survey_question:
         mandatory: Obligatori
         max_choices: Nombre màxim d'opcions
@@ -13,7 +14,7 @@ oc:
         survey_answer:
           attributes:
             choices:
-              missing: no estan complets
+              missing: no estan completes
               too_many: són massa
   decidim:
     components:
