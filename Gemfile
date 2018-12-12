@@ -17,7 +17,7 @@ gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-selectable-news', path: 'decidim-selectable-news'
-gem 'decidim-search-user', path: 'decidim-search-user'
+gem 'decidim-admin-search-user', path: 'decidim-admin-search-user'
 #### Custom gems and modifciations block end ####
 
 gem "puma", "~> 3.0"
@@ -46,6 +46,3 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "letter_opener_web", "~> 1.3.0"
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
