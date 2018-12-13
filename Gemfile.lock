@@ -748,7 +748,7 @@ DEPENDENCIES
   decidim-selectable-news!
   decidim-theme!
   decidim-type!
-  faker (~> 1.8.4)
+  faker (>= 1.8.4)
   figaro (>= 1.1.1)
   graphiql-rails (= 1.4.11)
   graphql (= 1.8.10)
@@ -758,7 +758,6 @@ DEPENDENCIES
   puma (~> 3.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  tzinfo-data
   uglifier (~> 4.0.0)
   web-console
 
@@ -766,4 +765,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
