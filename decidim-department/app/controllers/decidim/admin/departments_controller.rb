@@ -5,6 +5,7 @@ module Decidim
     # Controller that allows managing all departments at the admin panel.
     #
     class DepartmentsController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::Administrable
       layout "decidim/admin/extended/settings"
 
       def index
@@ -78,18 +79,6 @@ module Decidim
 
       def department
         @department ||= ::DecidimDepartment.find(params[:id])
-      end
-
-      private
-      def permission_class_chain
-        [
-          Decidim::Departments::Admin::Permissions,
-          Decidim::Admin::Permissions
-        ]
-      end
-
-      def permission_scope
-        :admin
       end
     end
   end
