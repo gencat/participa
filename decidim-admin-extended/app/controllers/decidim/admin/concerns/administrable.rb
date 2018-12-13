@@ -13,6 +13,7 @@ module Decidim
             [
               Decidim::Departments::Admin::Permissions,
               Decidim::Themes::Admin::Permissions,
+              Decidim::Types::Admin::Permissions,
               Decidim::Admin::Permissions
             ]
           end

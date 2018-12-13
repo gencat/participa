@@ -1,19 +1,15 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-# require_dependency "../models/decidim/type/abilities/admin_user"
-require_dependency "../commands/decidim/admin/update_type"
-require_dependency "../commands/decidim/admin/create_type"
-
 module Decidim
   module Admin
     # Controller that allows managing all types at the admin panel.
     #
     class TypesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::Administrable
       layout "decidim/admin/extended/settings"
 
       def index
-        #authorize! :index, Type
+        enforce_permission_to :read, :type
         @types = collection
       end
 
@@ -21,39 +17,13 @@ module Decidim
         @collection ||= ::DecidimType.all.order(:name)
       end
 
-      def edit
-        #authorize! :update, Type
-        @form = form(TypeForm).from_model(type)
-      end
-
-      def update
-        @types = collection.find(params[:id])
-        #authorize! :update, Type
-        @form = form(TypeForm).from_params(params)
-
-        UpdateType.call(type, @form) do
-          on(:ok) do
-            flash[:notice] = I18n.t("types.update.success", scope: "decidim.admin")
-            redirect_to "/admin/types"
-          end
-          on(:exists) do
-            flash.now[:alert] = I18n.t("types.create.exists", scope: "decidim.admin")
-            render :edit
-          end
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("types.update.error", scope: "decidim.admin")
-            render :edit
-          end
-        end
-      end
-
       def new
-        #authorize! :new, Type
+        enforce_permission_to :create, :type
         @form = form(TypeForm).instance
       end
 
       def create
-        #authorize! :new, Type
+        enforce_permission_to :create, :type
         @form = form(TypeForm).from_params(params)
 
         CreateType.call(@form) do
@@ -72,9 +42,34 @@ module Decidim
         end
       end
 
+      def edit
+        enforce_permission_to :update, :type, type: type
+        @form = form(TypeForm).from_model(type)
+      end
+
+      def update
+        @types = collection.find(params[:id])
+        enforce_permission_to :update, :type, type: type
+        @form = form(TypeForm).from_params(params)
+
+        UpdateType.call(type, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("types.update.success", scope: "decidim.admin")
+            redirect_to "/admin/types"
+          end
+          on(:exists) do
+            flash.now[:alert] = I18n.t("types.create.exists", scope: "decidim.admin")
+            render :edit
+          end
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("types.update.error", scope: "decidim.admin")
+            render :edit
+          end
+        end
+      end
 
       def destroy
-        #authorize! :destroy, Type
+        enforce_permission_to :destroy, :type, type: type
         type.destroy!
 
         flash[:notice] = I18n.t("types.destroy.success", scope: "decidim.admin")

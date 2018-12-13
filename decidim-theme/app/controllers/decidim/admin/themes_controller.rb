@@ -68,7 +68,6 @@ module Decidim
         end
       end
 
-
       def destroy
         enforce_permission_to :destroy, :theme, theme: theme
         theme.destroy!
@@ -81,18 +80,6 @@ module Decidim
       def theme
         @themes ||= DecidimTheme.find(params[:id])
       end
-
-      # private
-      # def permission_class_chain
-      #   [
-      #     Decidim::Themes::Admin::Permissions,
-      #     Decidim::Admin::Permissions
-      #   ]
-      # end
-      #
-      # def permission_scope
-      #   :admin
-      # end
     end
   end
 end
