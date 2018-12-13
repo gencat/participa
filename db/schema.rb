@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_140249) do
+ActiveRecord::Schema.define(version: 2018_12_13_162156) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
   enable_extension "ltree"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -280,6 +279,18 @@ ActiveRecord::Schema.define(version: 2018_12_03_140249) do
     t.datetime "updated_at", null: false
     t.index ["categorizable_type", "categorizable_id"], name: "decidim_categorizations_categorizable_id_and_type"
     t.index ["decidim_category_id"], name: "index_decidim_categorizations_on_decidim_category_id"
+  end
+
+  create_table "decidim_coauthorships", force: :cascade do |t|
+    t.bigint "decidim_author_id", null: false
+    t.bigint "decidim_user_group_id"
+    t.string "coauthorable_type"
+    t.bigint "coauthorable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coauthorable_type", "coauthorable_id"], name: "index_coauthorable_on_coauthorship"
+    t.index ["decidim_author_id"], name: "index_author_on_coauthorsihp"
+    t.index ["decidim_user_group_id"], name: "index_user_group_on_coauthorsihp"
   end
 
   create_table "decidim_comments_comment_votes", id: :serial, force: :cascade do |t|
@@ -719,12 +730,10 @@ ActiveRecord::Schema.define(version: 2018_12_03_140249) do
     t.text "title", null: false
     t.text "body", null: false
     t.integer "decidim_component_id", null: false
-    t.integer "decidim_author_id"
     t.integer "decidim_scope_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "proposal_votes_count", default: 0, null: false
-    t.integer "decidim_user_group_id"
     t.string "state"
     t.datetime "answered_at"
     t.jsonb "answer"
@@ -735,9 +744,10 @@ ActiveRecord::Schema.define(version: 2018_12_03_140249) do
     t.integer "proposal_notes_count", default: 0, null: false
     t.integer "proposal_endorsements_count", default: 0, null: false
     t.datetime "published_at"
+    t.integer "coauthorships_count", default: 0, null: false
     t.index ["body"], name: "decidim_proposals_proposal_body_search"
+    t.index ["coauthorships_count"], name: "idx_decidim_proposals_proposals_on_proposal_coauthorships_count"
     t.index ["created_at"], name: "index_decidim_proposals_proposals_on_created_at"
-    t.index ["decidim_author_id"], name: "index_decidim_proposals_proposals_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_proposals_proposals_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_proposals_proposals_on_decidim_scope_id"
     t.index ["proposal_endorsements_count"], name: "idx_decidim_proposals_proposals_on_proposal_endorsemnts_count"
@@ -984,7 +994,6 @@ ActiveRecord::Schema.define(version: 2018_12_03_140249) do
     t.string "name", null: false
     t.string "locale"
     t.string "avatar"
-    t.boolean "newsletter_notifications", default: false, null: false
     t.text "delete_reason"
     t.datetime "deleted_at"
     t.boolean "admin", default: false, null: false
@@ -997,6 +1006,8 @@ ActiveRecord::Schema.define(version: 2018_12_03_140249) do
     t.datetime "officialized_at"
     t.jsonb "officialized_as"
     t.datetime "accepted_tos_version"
+    t.string "newsletter_token", default: ""
+    t.datetime "newsletter_notifications_at"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false))"
