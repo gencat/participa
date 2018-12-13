@@ -6,9 +6,9 @@ PATH
       decidim-core (>= 0.9.3)
 
 PATH
-  remote: decidim-admin-search-user
+  remote: decidim-admin-search_user
   specs:
-    decidim-admin-search-user (0.1.0)
+    decidim-admin-search_user (0.1.0)
       rails (>= 5.2, < 6.0.x)
 
 PATH
@@ -762,7 +762,7 @@ DEPENDENCIES
   byebug
   decidim (~> 0.12.2)
   decidim-admin-extended!
-  decidim-admin-search-user!
+  decidim-admin-search_user!
   decidim-department!
   decidim-dev (~> 0.12.2)
   decidim-espais-estables!

@@ -1,4 +1,4 @@
-# Decidim::Admin::Search::User
+# Decidim::Admin::SearchUser
 Short description and motivation.
 
 ## Usage
@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-admin-search-user'
+gem 'decidim-admin-search_user'
 ```
 
 And then execute:
