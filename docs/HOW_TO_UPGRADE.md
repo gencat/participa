@@ -77,7 +77,7 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
 
 
-  4. Decidim Search User ("decidim-admin")
+  4. Decidim Admin Search User ("decidim-admin")
       This module adds a search user in admin site in http://participa.gencat.cat/admin/users.
 
       Modified files are:

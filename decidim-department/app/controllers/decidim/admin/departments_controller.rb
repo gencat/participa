@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-# require_dependency "../models/decidim/department/abilities/admin_user"
-require_dependency "../commands/decidim/admin/update_department"
-require_dependency "../commands/decidim/admin/create_department"
-
 module Decidim
   module Admin
     # Controller that allows managing all departments at the admin panel.
@@ -13,7 +8,7 @@ module Decidim
       layout "decidim/admin/extended/settings"
 
       def index
-        # authorize! :index, Department
+        enforce_permission_to :read, :department
         @departments = collection
       end
 
@@ -21,39 +16,13 @@ module Decidim
         @collection ||= ::DecidimDepartment.all.order(:name)
       end
 
-      def edit
-        # authorize! :update, Department
-        @form = form(DepartmentForm).from_model(department)
-      end
-
-      def update
-        @departments = collection.find(params[:id])
-        # authorize! :update, Department
-        @form = form(DepartmentForm).from_params(params)
-
-        UpdateDepartment.call(department, @form) do
-          on(:ok) do
-            flash[:notice] = I18n.t("scopes.update.success", scope: "decidim.admin")
-            redirect_to "/admin/departments"
-          end
-          on(:exists) do
-            flash.now[:alert] = I18n.t("departments.create.exists", scope: "decidim.admin")
-            render :edit
-          end
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("scopes.update.error", scope: "decidim.admin")
-            render :edit
-          end
-        end
-      end
-
       def new
-        # authorize! :new, Department
+        enforce_permission_to :create, :department
         @form = form(DepartmentForm).instance
       end
 
       def create
-        # authorize! :new, Department
+        enforce_permission_to :create, :department
         @form = form(DepartmentForm).from_params(params)
 
         CreateDepartment.call(@form) do
@@ -72,8 +41,34 @@ module Decidim
         end
       end
 
+      def edit
+        enforce_permission_to :update, :department, department: department
+        @form = form(DepartmentForm).from_model(department)
+      end
+
+      def update
+        @departments = collection.find(params[:id])
+        enforce_permission_to :update, :department, department: department
+        @form = form(DepartmentForm).from_params(params)
+
+        UpdateDepartment.call(department, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("scopes.update.success", scope: "decidim.admin")
+            redirect_to "/admin/departments"
+          end
+          on(:exists) do
+            flash.now[:alert] = I18n.t("departments.create.exists", scope: "decidim.admin")
+            render :edit
+          end
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("scopes.update.error", scope: "decidim.admin")
+            render :edit
+          end
+        end
+      end
+
       def destroy
-        # authorize! :destroy, Department
+        enforce_permission_to :destroy, :department, department: department
         department.destroy!
 
         flash[:notice] = I18n.t("departments.destroy.success", scope: "decidim.admin")
@@ -85,6 +80,17 @@ module Decidim
         @department ||= ::DecidimDepartment.find(params[:id])
       end
 
+      private
+      def permission_class_chain
+        [
+          Decidim::Departments::Admin::Permissions,
+          Decidim::Admin::Permissions
+        ]
+      end
+
+      def permission_scope
+        :admin
+      end
     end
   end
 end
