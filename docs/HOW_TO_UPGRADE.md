@@ -67,13 +67,13 @@ These are custom modules  and this is what you have to keep in mind when updatin
       This module adds the new fields to the "ParticipatoryProcess": Theme, Type, Department, email, and "show_home", so the next files are necessary to overwrite.
 
       Modified files are:
-      * "app/views/commands/decidim/participatory_procces/admin/copy_participatory_process.rb" -> overwrite decidim file and add new fields in the command.
-      * "app/views/commands/decidim/participatory_procces/admin/create_participatory_process.rb"-> overwrite decidim file and add new fields in the command.
-      * "app/views/commands/decidim/participatory_procces/admin/update_participatory_process.rb"-> overwrite decidim file and add new fields in the command.
-      * "app/views/controllers/decidim/participatory_procces/admin/participatory_procces_controller.rb"-> overwrite decidim file and add default images for hero.
-      * "app/views/form/decidim/participatory_procceses/admin/participatory_procces_form.rb"-> overwrite decidim file and add new fields in the form.
+      * "app/commands/decidim/participatory_procces/admin/copy_participatory_process.rb" -> overwrite decidim file and add new fields in the command.
+      * "app/commands/decidim/participatory_procces/admin/create_participatory_process.rb"-> overwrite decidim file and add new fields in the command.
+      * "app/commands/decidim/participatory_procces/admin/update_participatory_process.rb"-> overwrite decidim file and add new fields in the command.
+      * "app/controllers/decidim/participatory_procces/admin/participatory_procces_controller.rb"-> overwrite decidim file and add default images for hero.
+      * "app/form/decidim/participatory_procceses/admin/participatory_procces_form.rb"-> overwrite decidim file and add new fields in the form.
       * "app/views/decidim/participatory_procceses/admin/participatory_processes/form.html.erb"-> overwrite decidim file and add new fields in the form.
-      * "app/views/decidim/participatory_processes/pages/home/highlihted_processes.html.erb"> In this file, copy and paste the original file, and limit the number of assemblies to show. (This is necessary to do so until content_blocks are limited to 4 elements.)
+      * "app/decidim/participatory_processes/pages/home/highlihted_processes.html.erb"> In this file, copy and paste the original file, and limit the number of assemblies to show. (This is necessary to do so until content_blocks are limited to 4 elements.)
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
 
 
