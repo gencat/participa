@@ -48,24 +48,29 @@ oc:
       image_too_big: Era imatge ei massa grana
   decidim:
     account:
-        delete:
-          alert: Aguesta accion non se pòt des·hèir. S'eliminatz eth vòste compde non poderatz iniciar session.
-          confirm:
-            close: Barra era hièstra
-            ok: Òc, voi eliminar eth mèn compde
-            question: Ètz segur/a que voletz eliminar eth vòste compde?
-            title: Elimina eth mèn compde
-          explanation: Se vos platz, indicatz era arrason entà eliminar eth vòste compde (volontari).
-        destroy:
-          error: I a agut un error entà eliminar eth vòste compde.
-          success: Eth vòste compde s'a eliminat corrèctaments.
-        show:
-          change_password: Cambiatz era clau
-          update_account: Actualiza eth compde
-        update:
-          error: S'a produsit un error entà actualizar eth vòste compde.
-          success: Eth vòste compde s'a actualizat corrèctaments.
-          success_with_email_confirmation: Eth vòste compde s'a actualizat corrèctaments. Arreceberatz un corrèu electronic entà confirmar era vòsta adreça de corrèu electronic naua.
+      data_portability_export:
+        file_no_exists: L'arxiu no existeix
+        invalid_token: El símbol proporcionat no és vàlid.
+        no_token: No s'ha proporcionat cap testimoni
+        notice: Les teves dades estan en curs. Rebràs un correu electrònic quan estigui complet.
+      delete:
+        alert: Aguesta accion non se pòt des·hèir. S'eliminatz eth vòste compde non poderatz iniciar session.
+        confirm:
+          close: Barra era hièstra
+          ok: Òc, voi eliminar eth mèn compde
+          question: Ètz segur/a que voletz eliminar eth vòste compde?
+          title: Elimina eth mèn compde
+        explanation: Se vos platz, indicatz era arrason entà eliminar eth vòste compde (volontari).
+      destroy:
+        error: I a agut un error entà eliminar eth vòste compde.
+        success: Eth vòste compde s'a eliminat corrèctaments.
+      show:
+        change_password: Cambiatz era clau
+        update_account: Actualiza eth compde
+      update:
+        error: S'a produsit un error entà actualizar eth vòste compde.
+        success: Eth vòste compde s'a actualizat corrèctaments.
+        success_with_email_confirmation: Eth vòste compde s'a actualizat corrèctaments. Arreceberatz un corrèu electronic entà confirmar era vòsta adreça de corrèu electronic naua.
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
@@ -158,6 +163,13 @@ oc:
     core:
       actions:
         unauthorized: Non auetz permís entà realizar aguesta accion
+    data_portability:
+      export:
+        ready: Preparat
+      show:
+        download_data: Baixa't les dades
+        download_data_description: Un fitxer amb tota la informació associada al compte s'enviarà a <strong>%{user_email}</strong>
+        request_data: Sol·licita dades
     devise:
       omniauth_registrations:
         create:
@@ -240,6 +252,9 @@ oc:
           email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
           notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
+      data_portability_export:
+        click_button: Fes clic al botó següent per descarregar les teves dades. <br/> tindràs disponible el fitxer fins a %{date}.
+        download: Descarregar
       export:
         ready: S'adjunta ua version comprenuda dera exportacion.
       subject: Era exportacion "%{name}" ei prèste
@@ -277,6 +292,18 @@ oc:
       errors:
         error: I a un error en aguest camp.
       remove_this_file: Eliminar aquest arxiu
+    invitations:
+      create:
+        error: Hi ha hagut alguns problemes mentre es convidava els teus amics
+        error_empty_form: Introdueix algunes adreces de correu electrònic
+        success: Hem enviat les invitacions als teus amics!
+      index:
+        customize_message: Personalitza el missatge d'invitació
+        friend_email: 'Correu electrònic de l''amic #%{index}'
+        invitations_subtitle: Fes saber als teus amics sobre aquest lloc web
+        invitations_title: Creus que cal escoltar més veus en %{organization_name}?
+        invite: Convidar
+        visit_your_profile: Visiteu el teu perfil
     log:
       base_presenter:
         create: "%{user_name} creat %{resource_name}"
@@ -470,6 +497,7 @@ oc:
         header: Establís era clau
         nickname_help: El teu identificador únic a %{organization}.
         submit_button: Sauva
+        subtitle: Si acceptes la invitació, si us plau, estableix el teu nom d'usuari/a i contrasenya.
     mailer:
       invitation_instructions:
         accept: Accèpta invitacion
@@ -546,6 +574,7 @@ oc:
       user_menu:
         admin_dashboard: Taula d'administracion
         conversations: Converses
+        invite_friends: Convidar amics
         notifications: Notificacions
         profile: Eth mèn compde
         public_profile: El meu perfil públic
@@ -554,6 +583,7 @@ oc:
         account: Compde
         authorizations: Autorizacions
         delete_my_account: Elimina eth mèn compde
+        my_data: Les meves dades
         notifications_settings: Configuracion des notificacions
         title: Configuracion d'usatgèr
         user_groups: Organizacions
