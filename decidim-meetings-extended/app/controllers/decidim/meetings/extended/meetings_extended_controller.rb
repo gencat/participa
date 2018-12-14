@@ -19,7 +19,7 @@ module Decidim
 
         def related_meeting_component
           related_processes = if params[:related_process] == "0"
-              Decidim::ParticipatoryProcess.public_spaces
+            Decidim::ParticipatoryProcess.public_spaces.where(decidim_participatory_process_group_id: Rails.application.config.process)
           else
             Decidim::ParticipatoryProcess.where(id: params[:related_process])
           end
@@ -108,10 +108,8 @@ module Decidim
         end
 
         def show_processes
-          @show_processes = Decidim::ParticipatoryProcess.where(decidim_participatory_process_group_id: [1])
+          @show_processes = Decidim::ParticipatoryProcess.where(decidim_participatory_process_group_id: Rails.application.config.process)
         end
-        #end of meetings section
-
       end
     end
   end
