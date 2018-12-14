@@ -285,9 +285,11 @@ oc:
         local_area: Àrea municipal
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
+        private_space: Aquest és un procés privat
         scope: Àmbit
         start_date: Data d'inici
-        target: A qui va dirigit
+        target: Qui participa
+        unspecified: Sense especificar
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
