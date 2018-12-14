@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -50,10 +49,30 @@ ca:
         title: Títol
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Aniversari
+        birthplace: Lloc de naixement
+        ceased_date: Data de cessament
+        designation_date: Data de designació
+        designation_mode: Mode de designació
+        full_name: Nom complet
+        gender: Gènere
+        position: Posició
       assembly_user_role:
         email: Correu electrònic
         name: Nom
         role: Rol
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Consell de participació
+        other: Consells de participació
+      decidim/assembly_member:
+        one: Membre del consell de participació
+        other: Membres del consell de participació
+      decidim/assembly_user_role:
+        one: Rol d'usuari del consell de participació
+        other: Rol dels usuaris del consell de participació
   decidim:
     admin:
       assemblies:
@@ -86,6 +105,23 @@ ca:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Consell de participació duplicat
+      assembly_members:
+        create:
+          error: S'ha produït un error en afegir un membre per a aquest consell de participació.
+          success: Membre creat amb èxit per a aquest consell de participació.
+        destroy:
+          success: Membre destruït amb èxit per a aquesta assemblea.
+        edit:
+          title: Actualitza el membre del consell de participació.
+          update: Actualitza
+        index:
+          assembly_members_title: Membres del consell de participació
+        new:
+          create: Crear
+          title: Nou membre del consell de participació.
+        update:
+          error: S'ha produït un error en actualitzar el membre d'aquest consell de participació.
+          success: Membre actualitzat amb èxit per a aquest consell de participació.
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquest consell de participació.
@@ -114,6 +150,7 @@ ca:
         assemblies: Consells de participació
         assemblies_submenu:
           assembly_admins: Usuaris del consell de participació
+          assembly_members: Membres
           attachment_collections: Col·leccions
           attachment_files: Fitxers
           attachments: Adjunts
@@ -131,6 +168,18 @@ ca:
             published: Publicat
             title: Títol
           name: Consell de participació
+        assembly_member:
+          fields:
+            ceased_date: Data de cessament
+            designation_date: Data de designació
+            full_name: Nom
+            position: Posició
+          name: Membre
+          positions:
+            other: Un altre
+            president: President
+            secretary: Secretari
+            vice_president: Vicepresident
         assembly_user_role:
           fields:
             email: Correu electrònic
@@ -149,6 +198,10 @@ ca:
         publish: "%{user_name} ha publicat el consell de participació %{resource_name}"
         unpublish: "%{user_name} ha despublicat el consell de participació %{resource_name}"
         update: "%{user_name} ha actualitzat el consell de participació %{resource_name}"
+      assembly_member:
+        create: "%{user_name} ha afegit el membre %{resource_name} al consell de participació %{space_name}"
+        delete: "%{user_name} esborrat el membre %{resource_name} del consell de participació %{space_name}"
+        update: "%{user_name} ha actualitzat el membre %{resource_name} del consell de participació %{space_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} al consell de participació %{space_name}"
         delete: "%{user_name} ha eliminat l'usuari %{resource_name} del consell de participació %{space_name}"
@@ -157,6 +210,8 @@ ca:
       admin:
         assemblies:
           form:
+            duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
+            included_at_help: Selecciona la data en què es va afegir aquest assemblea a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
             select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
             select_an_assembly_type: Seleccioneu un tipus de consell de participació
@@ -165,6 +220,23 @@ ca:
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+      assembly_members:
+          form:
+            existing_user: Usuari existent
+            non_user: No usuari
+            select_a_position: Selecciona una posició
+            select_user: Selecciona un usuari
+            user_type: Tipus d'usuari
+          index:
+            filter:
+              all: Tots
+              ceased: Cessat
+              not_ceased: No cessat
+            filter_by: Filtra per
+            search: Cerca
+      assembly_members:
+        index:
+          members: Membres
       assembly_types:
         commission: Comissió
         consultative_advisory: Consultiva / assessora
@@ -184,6 +256,9 @@ ca:
           highlighted_assemblies:
             active_assemblies: Consells de participació actius
             see_all_assemblies: Veure tots els consells de participació
+        user_profile:
+          member_of:
+            member_of: Membre de
       show:
         area: Àrea
         assembly_type: Tipus de consell de participació
@@ -227,6 +302,11 @@ ca:
         surveys_count: Enquestes
         users_count: Participants
         votes_count: Suports
+    assembly_members:
+      assembly_member:
+        designated_on: Designat a
+      index:
+        title: Membres
     log:
       value_types:
         assembly_presenter:
@@ -251,6 +331,7 @@ ca:
           more_info: Més informació
           take_part: Participa
       assembly_header:
+        assembly_member_menu_item: Membres
         assembly_menu_item: El consell de participació
         unfold: Desplega
       assembly_widgets:

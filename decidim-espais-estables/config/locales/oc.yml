@@ -1,4 +1,3 @@
----
 oc:
   activemodel:
     attributes:
@@ -66,14 +65,14 @@ oc:
   activerecord:
     models:
       decidim/assembly:
-        one: Assemblea
-        other: Assemblees
+        one: Consell de participació
+        other: Consells de participació
       decidim/assembly_member:
-        one: Membre de l'assemblea
-        other: Membres de l'assemblea
+        one: Membre del consell de participació
+        other: Membres del consell de participació
       decidim/assembly_user_role:
-        one: Rol d'usuari de l'assemblea
-        other: Rol dels usuaris de l'assemblea
+        one: Rol d'usuari del consell de participació
+        other: Rol dels usuaris del consell de participació
   decidim:
     admin:
       assemblies:
@@ -160,6 +159,15 @@ oc:
           info: Informació
           moderations: Moderacions
           private_users: Usuaris privats
+      models:
+        assembly:
+          fields:
+            created_at: Data de creació
+            private: Privat
+            promoted: Destacat
+            published: Publicat
+            title: Títol
+          name: Consell de participació
         assembly_member:
           fields:
             ceased_date: Ceased date
@@ -172,15 +180,6 @@ oc:
             president: President
             secretary: Secretary
             vice_president: Vice president
-      models:
-        assembly:
-          fields:
-            created_at: Data de creació
-            private: Privat
-            promoted: Destacat
-            published: Publicat
-            title: Títol
-          name: Consell de participació
         assembly_user_role:
           fields:
             email: Correu electrònic
@@ -199,6 +198,10 @@ oc:
         publish: "%{user_name} ha publicat el consell de participació %{resource_name}"
         unpublish: "%{user_name} ha despublicat el consell de participació %{resource_name}"
         update: "%{user_name} ha actualitzat el consell de participació %{resource_name}"
+      assembly_member:
+        create: "%{user_name} ha afegit el membre %{resource_name} al consell de participació %{space_name}"
+        delete: "%{user_name} esborrat el membre %{resource_name} del consell de participació %{space_name}"
+        update: "%{user_name} ha actualitzat el membre %{resource_name} del consell de participació %{space_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} al consell de participació %{space_name}"
         delete: "%{user_name} ha eliminat l'usuari %{resource_name} del consell de participació %{space_name}"
@@ -207,6 +210,8 @@ oc:
       admin:
         assemblies:
           form:
+            duration_help: Si la durada d'aquest consell de participació és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
+            included_at_help: Selecciona la data en què es va afegir aquest consell de participació a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
             select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
             select_an_assembly_type: Seleccioneu un tipus de consell de participació
@@ -326,6 +331,7 @@ oc:
           more_info: Més informació
           take_part: Participa
       assembly_header:
+        assembly_member_menu_item: Membres
         assembly_menu_item: El consell de participació
         unfold: Desplega
       assembly_widgets:
