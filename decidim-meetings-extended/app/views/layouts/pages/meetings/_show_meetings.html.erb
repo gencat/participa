@@ -1,8 +1,5 @@
 <%= javascript_include_tag "decidim/meetings/extended/application" %>
 
-<% # Id del grupo de procesos "Normativa"
-  regulation_process_group_id = 2
-%>
 <div class="row small-up-1 medium-up-2 card-grid">
   <% show_meetings.each do |meeting| %>
     <div class="column">
@@ -10,7 +7,7 @@
         <div class="card__content">
           <% related_component(meeting.decidim_component_id).each do |relatedComponent| %>
             <% related_process(relatedComponent.participatory_space_id).each do |relatedProcess| %>
-              <% if relatedProcess.decidim_participatory_process_group_id == regulation_process_group_id %>
+              <% if relatedProcess.decidim_participatory_process_group_id == Rails.application.config.regulation %>
                 <a class="card__link part-card-title" href="/processes/<%= relatedProcess.id.to_s %>">
                   <h5 class="card__title"><%= translated_attribute relatedProcess.title %></h5>
                 </a>

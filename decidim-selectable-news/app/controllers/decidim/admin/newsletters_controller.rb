@@ -10,24 +10,24 @@ module Decidim
       helper_method :get_all_processes, :get_process_component_id, :get_process_proposals_ids, :get_users_from_proposals, :get_mails_from_users, :process_has_follows
 
       def index
-        authorize! :index, Newsletter
+        enforce_permission_to :read, :newsletter
         @newsletters = collection.order(Newsletter.arel_table[:created_at].desc)
       end
 
       def new
-        authorize! :create, Newsletter
+        enforce_permission_to :create, :newsletter
         @form = form(NewsletterForm).instance
       end
 
       def show
         @newsletter = collection.find(params[:id])
         @email = NewsletterMailer.newsletter(current_user, @newsletter)
-        authorize! :read, @newsletter
+        enforce_permission_to :read, :newsletter, newsletter: @newsletter
       end
 
       def preview
         @newsletter = collection.find(params[:id])
-        authorize! :read, @newsletter
+        enforce_permission_to :read, :newsletter, newsletter: @newsletter
 
         email = NewsletterMailer.newsletter(current_user, @newsletter)
         Premailer::Rails::Hook.perform(email)
@@ -36,7 +36,7 @@ module Decidim
       end
 
       def create
-        authorize! :create, Newsletter
+        enforce_permission_to :create, :newsletter
         @form = form(NewsletterForm).from_params(params)
 
         CreateNewsletter.call(@form, current_user) do
@@ -55,13 +55,13 @@ module Decidim
 
       def edit
         @newsletter = collection.find(params[:id])
-        authorize! :update, @newsletter
+        enforce_permission_to :update, :newsletter, newsletter: @newsletter
         @form = form(NewsletterForm).from_model(@newsletter)
       end
 
       def update
         @newsletter = collection.find(params[:id])
-        authorize! :update, Newsletter
+        enforce_permission_to :update, :newsletter, newsletter: @newsletter
         @form = form(NewsletterForm).from_params(params)
 
         UpdateNewsletter.call(@newsletter, @form, current_user) do
@@ -80,7 +80,7 @@ module Decidim
 
       def destroy
         @newsletter = collection.find(params[:id])
-        authorize! :destroy, @newsletter
+        enforce_permission_to :destroy, :newsletter, newsletter: @newsletter
 
         DestroyNewsletter.call(@newsletter, current_user) do
           on(:already_sent) do
@@ -97,7 +97,7 @@ module Decidim
 
       def deliver
         @newsletter = collection.find(params[:id])
-        authorize! :update, @newsletter
+        enforce_permission_to :update, :newsletter, newsletter: @newsletter
 
         DeliverNewsletter.call(@newsletter, current_user) do
           on(:ok) do
@@ -114,7 +114,7 @@ module Decidim
 
       def deliver_custom_process
         @newsletter = collection.find(params[:id])
-        authorize! :update, @newsletter
+        enforce_permission_to :update, :newsletter, newsletter: @newsletter
 
         DeliverNewsletter.call(@newsletter, current_user) do
           on(:ok) do

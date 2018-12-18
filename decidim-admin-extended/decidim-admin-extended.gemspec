@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", ">= 0.9.3"
   s.add_dependency "decidim-admin", ">= 0.9.3"
-
+  
   s.add_development_dependency "decidim-admin", ">= 0.9.3"
   s.add_development_dependency "decidim-dev", ">= 0.9.3"
 end

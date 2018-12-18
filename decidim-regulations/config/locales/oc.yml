@@ -46,6 +46,8 @@ oc:
       process_header:
         regulation_menu_item: Participació
       participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No hi ha Participacions
         order_by_processes:
           processes:
             one: "%{count} procés"

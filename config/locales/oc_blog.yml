@@ -1,4 +1,12 @@
 oc:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nova publicació del bloc
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicació
+        other: Publicacions
   decidim:
     blogs:
       actions:
@@ -39,6 +47,8 @@ oc:
       posts:
         author_data:
           comments: comentaris
+        show:
+          view: Veure
         sidebar_blog:
           comments: comentaris
           most_commented_posts: Publicacions més comentades

@@ -39,7 +39,7 @@ module Decidim
                       "/admin/departments",
                       icon_name: "wrench",
                       position: 10,
-                      active: [%w(decidim/admin/themes decidim/admin/types decidim/admin/departments), []]
+                      active: [%w(decidim/admin/themes decidim/admin/types decidim/admin/departments), []]                    
           end
         end
       end
