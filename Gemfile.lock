@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gencat/omniauth-idcat_mobil.git
-  revision: 77f1d692d409a2f3fd73bb7b0d353c26c8f08655
+  revision: d482dafd6481e6e50ee41deb4757e650bdba871d
   branch: master
   specs:
     omniauth-idcat_mobil (0.1.1)
