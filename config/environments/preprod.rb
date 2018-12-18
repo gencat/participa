@@ -75,7 +75,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Keeps the Last 5 log files which are rotated at every 10MB
-  config.logger = Logger.new("./log/production.log", 5, 10.megabytes)
+  config.logger = Logger.new("./log/preprod.log", 5, 50.megabytes)
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
