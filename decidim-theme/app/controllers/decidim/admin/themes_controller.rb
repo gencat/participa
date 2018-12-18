@@ -69,13 +69,8 @@ module Decidim
       end
 
       def destroy
-<<<<<<< HEAD
         enforce_permission_to :destroy, :theme, theme: theme
         theme.destroy!
-=======
-        # authorize! :destroy, Theme
-        department.destroy!
->>>>>>> initial commit on upgrade to 0.12
 
         flash[:notice] = I18n.t("themes.destroy.success", scope: "decidim.admin")
 
