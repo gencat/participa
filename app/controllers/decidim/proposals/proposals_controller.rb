@@ -20,7 +20,6 @@ module Decidim
                      .results
                      .published
                      .not_hidden
-                     .includes(:author)
                      .includes(:category)
                      .includes(:scope)
 
@@ -39,7 +38,7 @@ module Decidim
         if params.has_key?(:filter)
           @category_id = params[:filter][:category_id]
         else
-            @category_id = ""
+          @category_id = ""
         end
       end
 

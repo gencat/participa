@@ -159,6 +159,18 @@ oc:
           info: Informació
           moderations: Moderacions
           private_users: Usuaris privats
+        assembly_member:
+          fields:
+            ceased_date: Ceased date
+            designation_date: Designation date
+            full_name: Name
+            position: Position
+          name: Member
+          positions:
+            other: Other
+            president: President
+            secretary: Secretary
+            vice_president: Vice president
       models:
         assembly:
           fields:
