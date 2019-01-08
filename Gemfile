@@ -18,6 +18,8 @@ gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
+
+gem 'omniauth-saml'
 #### Custom gems and modifciations block end ####
 
 gem "puma", "~> 3.0"
