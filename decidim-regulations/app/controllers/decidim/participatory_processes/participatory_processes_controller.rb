@@ -46,7 +46,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
+        @collection ||= participatory_processes
       end
 
       def filtered_participatory_processes(filter = default_filter)
