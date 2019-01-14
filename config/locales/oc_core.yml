@@ -261,6 +261,7 @@ oc:
     filters:
       linked_classes:
         all: Toti
+        collaborative_draft: Esborrany de col·laboració
         dummyresource: Recursos de prova
         meeting: Amassades
         project: Projèctes
@@ -502,6 +503,7 @@ oc:
       invitation_instructions:
         accept: Accèpta invitacion
         accept_until: Aguesta invitacion deisharà d'èster valida eth dia %{due_date}.
+        decline: Decline era invitacion
         hello: Òla %{email},
         ignore: |-
           Se non voletz acceptar era invitacion, ignoratz aguest corrèu.<br />

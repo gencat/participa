@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
- 
+
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -72,7 +72,7 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = true
+  config.i18n.fallbacks = [:ca]
 
   # Keeps the Last 5 log files which are rotated at every 10MB
   config.logger = Logger.new("./log/production.log", 5, 10.megabytes)
@@ -124,5 +124,3 @@ Rails.application.configure do
   puts '=> Development Mail Server: ' + mailValues.to_s
 
 end
-
-  

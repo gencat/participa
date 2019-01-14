@@ -11,7 +11,7 @@ module Decidim
       include Orderable
       include Paginable
 
-      helper_method :geocoded_proposals, :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment, :process_categories, :has_categories, :get_id, :process_name, :my_category
+      helper_method :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment, :process_categories, :has_categories, :get_id, :process_name, :my_category
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
 
@@ -203,10 +203,6 @@ module Decidim
       end
 
       private
-
-      def geocoded_proposals
-        @geocoded_proposals ||= search.results.not_hidden.select(&:geocoded?)
-      end
 
       def search_klass
         ProposalSearch
