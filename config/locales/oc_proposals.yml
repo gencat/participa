@@ -459,6 +459,8 @@ oc:
         endorsement_button:
           already_endorsed: Adherit/da
           endorse: Adherir-se
+      render_endorsements_button_card_part:
+          endorse: Adherir-se
       proposal_votes:
         create:
           error: Hi ha hagut errors en donar suport a la proposta.
@@ -468,8 +470,6 @@ oc:
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
-          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
-          select_a_category: Selecciona una categoria
           send: Enviar
           title: Completa la teva proposta
         count:
@@ -477,6 +477,7 @@ oc:
             one: 1 proposta
             other: "%{count} propostes"
         edit:
+          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
           back: Enrere
           select_a_category: Si us plau, selecciona una categoria
           send: Enviar

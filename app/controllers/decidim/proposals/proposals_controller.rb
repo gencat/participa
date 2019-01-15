@@ -13,7 +13,9 @@ module Decidim
 
       helper_method :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment, :process_categories, :has_categories, :get_id, :process_name, :my_category
       before_action :authenticate_user!, only: [:new, :create, :complete]
-      before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
+      before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
+      before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
+      before_action :edit_form, only: [:edit_draft, :edit]
 
       def index
         @proposals = search
@@ -43,7 +45,6 @@ module Decidim
       end
 
       def show
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -59,8 +60,8 @@ module Decidim
 
       def create
         enforce_permission_to :create, :proposal
-        @step = :step_3
-        @form = form(ProposalForm).from_params(params)
+        @step = :step_1
+        @form = form(ProposalWizardCreateStepForm).from_params(params)
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
@@ -71,7 +72,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-            render :complete
+            render :new
           end
         end
       end
@@ -81,7 +82,6 @@ module Decidim
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
                                .for(current_component, params[:proposal])
                                .all
-        @form = form(ProposalForm).from_params(params)
 
         if @similar_proposals.blank?
           flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
@@ -92,14 +92,10 @@ module Decidim
       def complete
         enforce_permission_to :create, :proposal
         @step = :step_3
-        if params[:proposal].present?
-          params[:proposal][:attachment] = form(AttachmentForm).from_params({})
-          @form = form(ProposalForm).from_params(params)
-        else
-          @form = form(ProposalForm).from_params(
-            attachment: form(AttachmentForm).from_params({})
-          )
-        end
+
+        @form = form_proposal_model
+
+        @form.attachment = form_attachment_new
       end
 
       def preview
@@ -124,15 +120,13 @@ module Decidim
       def edit_draft
         @step = :step_3
         enforce_permission_to :edit, :proposal, proposal: @proposal
-
-        @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update_draft
         @step = :step_1
         enforce_permission_to :edit, :proposal, proposal: @proposal
 
-        @form = form(ProposalForm).from_params(params)
+        @form = form_proposal_params
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
@@ -162,17 +156,13 @@ module Decidim
       end
 
       def edit
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         enforce_permission_to :edit, :proposal, proposal: @proposal
-
-        @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update
-        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
         enforce_permission_to :edit, :proposal, proposal: @proposal
 
-        @form = form(ProposalForm).from_params(params)
+        @form = form_proposal_params
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
@@ -187,7 +177,6 @@ module Decidim
       end
 
       def withdraw
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
 
         WithdrawProposal.call(@proposal, current_user) do
@@ -214,7 +203,7 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          state: "not_withdrawn",
+          state: "except_rejected",
           scope_id: nil,
           related_to: ""
         }
@@ -229,6 +218,29 @@ module Decidim
         redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
 
+      def set_proposal
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
+      end
+
+      def form_proposal_params
+        form(ProposalForm).from_params(params)
+      end
+
+      def form_proposal_model
+        form(ProposalForm).from_model(@proposal)
+      end
+
+      def form_attachment_new
+        form(AttachmentForm).from_params({})
+      end
+
+      def edit_form
+        form_attachment_model = form(AttachmentForm).from_model(@proposal.attachments.first)
+        @form = form_proposal_model
+        @form.attachment = form_attachment_model
+        @form
+      end
+      
       def most_voted_positive_comment
         @most_voted_positive_comment = Decidim::Comments::Comment.where(decidim_commentable_type: "Decidim::Proposals::Proposal", decidim_commentable_id: params[:id], alignment: 1)
       end
@@ -240,6 +252,7 @@ module Decidim
       def get_comment(comment_id)
         Decidim::Comments::Comment.where(id: comment_id)
       end
+
       def most_voted_negative_comment
         @most_voted_negative_comment = Decidim::Comments::Comment.where(decidim_commentable_type: "Decidim::Proposals::Proposal", decidim_commentable_id: params[:id], alignment: -1)
       end
