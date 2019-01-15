@@ -25,14 +25,14 @@ es:
         statistics:
           regulations_count: Participaciones en normativa
     participatory_processes:
-      order_by_processes:
-        opened: Abiertas
-        closed : Cerradas
-        all : Todas
-        select_type: Selecciona tipo
-        select_department: Selecciona departamento
-        select_tema: Selecciona tema
       participatory_processes:
+        order_by_processes:
+          opened: Abiertas
+          closed : Cerradas
+          all : Todas
+          select_type: Selecciona tipo
+          select_department: Selecciona departamento
+          select_tema: Selecciona tema
         show:
           email: Buzón de soporte
           categories: Ejes de debate

@@ -73,36 +73,7 @@ oc:
             announcement: Anunci
             attachments_allowed: Permetre arxius adjunts
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
-            collaborative_drafts_enabled: Esborranys col·laboratius habilitatscollaborative_draft_access_accepted:
-          email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidor de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has rebut aquesta notificació perquè ets un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "S'ha acceptat %{requester_name} per accedir com a contribuidor del %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha estat <strong>acceptat per accedir com a contribuidor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-        collaborative_draft_access_rejected:
-          email_intro: 'S''ha rebutjat %{requester_name} per accedir com a contribuidor de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has rebut aquesta notificació perquè ets un contribuidor de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "S'ha rebutjat %{requester_name} per accedir com a col·laborador de l'esborrany col·lanoratiu %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a><strong> ha estat rebutjat per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-        collaborative_draft_access_requested:
-          email_intro: '%{requester_name} ha sol·licitat accés com a contribuïdor. Pots <strong>acceptar o rebutjar la sol·licitud</strong> de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Has rebut aquesta notificació perquè ets un contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} ha demanat accés per contribuir a %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sol·licitat accés per contribuir a l'esborrany col·laboratiu de <a href="%{resource_path}">%{resource_title}</a>. Si us plau, <strong>accepta o rebutja la sol·licitud</strong>.
-        collaborative_draft_access_requester_accepted:
-          email_intro: Has estat acceptat com a contribuïdor de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Has estat acceptat com a contribuïdor de %{resource_title}.
-          notification_title: Has estat acceptat <strong>per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-        collaborative_draft_access_requester_rejected:
-          email_intro: Has estat rebutjat per accedir com a contribuïdor de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has rebut aquesta notificació perquè has sol·licitat ser contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Has estat rebutjat com a contribuïdor de %{resource_title}.
-          notification_title: Has estat rebutjat <strong>per accedir com a contribuïdor</strong> de l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-        collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha retirat l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Has rebut aquesta notificació perquè ets un contribuïdor de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} ha retirat l'esborrany col·laboratiu %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>ha retirat</strong> l'esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.
+            collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
             maximum_votes_per_proposal: Suports màxims per proposta
@@ -127,6 +98,7 @@ oc:
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
             votes_hidden: 'Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports) events:'
+    events:
       proposals:
         collaborative_draft_access_accepted:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidor de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
@@ -162,11 +134,11 @@ oc:
           email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Les propostes ja estan disponibles a %{participatory_space_title}
-          notification_title: Ara pots començar <a href="%{resource_path}">noves propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ara pots presentar <a href="%{resource_path}">noves propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Pots adherir-te a les propostes de %{participatory_space_title}. Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Ara ja et pots adherir a les propostes de %{participatory_space_title}
+          email_subject: Ara ja pots adherir-te a les propostes de %{participatory_space_title}
           notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
@@ -212,6 +184,32 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           notification_title: Ja pots començar a <a href="%{resource_path}">donar suports a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        accepted_proposals:
+          description_another: Aquest usuari ha aconseguit tenir %{score} propostes acceptades.
+          description_own: Has aconseguit que s'acceptin %{score} de les teves propostes.
+          explanation: Els usuaris obtenen aquesta distinció aconseguint que s'acceptin les seves propostes.
+          name: Propostes acceptades
+          next_level_in: Aconsegueix que s'acceptin %{score} propostes més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha aconseguit que s'accepti cap de les seves propostes.
+          unearned_own: Cap de les teves propostes encara no ha estat acceptada.
+        proposal_votes:
+          description_another: Aquest usuari ha donat suport a %{score} propostes.
+          description_own: Has donat suport a %{score} propostes.
+          explanation: Els usuaris obtenen aquesta distinció donant suport a les propostes.
+          name: Suports a propostes
+          next_level_in: Dona suport a %{score} propostes més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha donat suport a cap proposta.
+          unearned_own: Encara no has donat suport a cap proposta.
+        proposals:
+          description_another: Aquest usuari ha creat %{score} propostes.
+          description_own: Has creat %{score} propostes.
+          explanation: Els usuaris obtenen aquesta insígnia creant propostes.
+          name: Propostes
+          next_level_in: Crea %{score} més propostes per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha creat cap proposta.
+          unearned_own: Encara no has creat cap proposta.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:

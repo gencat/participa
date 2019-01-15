@@ -1,4 +1,11 @@
 <% add_decidim_page_title(t(".title")) %>
+<%
+edit_link(
+  decidim_admin.static_pages_path,
+  :read,
+  :static_page
+)
+%>
 <main class="wrapper">
   <div class="row column">
     <h1 class="part-primary-font"><%= t ".title" %></h1>

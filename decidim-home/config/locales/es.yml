@@ -1,5 +1,8 @@
 es:
   decidim:
+    content_blocks:
+      slider:
+        name: Slider home
     menu:
       more_information: Más información
       stableareas_static: Consejos de participación

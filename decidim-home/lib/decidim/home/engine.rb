@@ -8,6 +8,7 @@ module Decidim
         app.config.assets.precompile += %w(logo_generalitat_white.png)
       end
 
+      
     end
   end
 end

@@ -20,6 +20,8 @@ oc:
     models:
       decidim/attachment_created_event: Adjunt
       decidim/component_published_event: Component actiu
+      decidim/gamification/badge_earned_event: Insígnia obtinguda
+      decidim/gamification/level_up_event: Has pujat de nivell
       decidim/profile_updated_event: Perfil actualitzat
   activerecord:
     attributes:
@@ -232,17 +234,28 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha produït un esdeveniment a %{resource_title}
           notification_title: S'ha afegit un <a href="%{resource_path}"> nou document</a> a <a href="%{attached_to_url}">%{resource_title}</a>
-      email_event:
-        email_greeting: Hola %{user_name},
-        email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
-        email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-        email_subject: Una actualització a %{resource_title}
       components:
         component_published:
           email_intro: 'Ja està actiu el component %{resource_title} per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{participatory_space_title}
           notification_title: Ja està actiu el component %{resource_title} per <a href="%{resource_path}">%{participatory_space_title}</a>
+      email_event:
+        email_greeting: Hola %{user_name},
+        email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
+        email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+        email_subject: Una actualització a %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Enhorabona! Has aconseguit la insígnia "<a href="%{resource_url}">%{badge_name}</a>" (nivell %{current_level}).
+          email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
+          email_subject: 'Has aconseguit una nova insígnia: %{badge_name}!'
+          notification_title: Enhorabona! Has aconseguit la <a href="%{resource_path}">%{badge_name} insígnia</a> (nivell %{current_level}).
+        level_up:
+          email_intro: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_url}">%{badge_name}</a>!
+          email_outro: Has rebut aquesta notificació perquè has generat activitat al nostre lloc web.
+          email_subject: Has arribat al nivell %{current_level} de la insígnia %{badge_name}!
+          notification_title: Enhorabona! Has arribat al nivell %{current_level} de la insígnia<a href="%{resource_path}">%{badge_name}</a>!
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -293,6 +306,19 @@ oc:
       errors:
         error: I a un error en aguest camp.
       remove_this_file: Eliminar aquest arxiu
+    gamification:
+      badges:
+        invitations:
+          description_another: Aquest usuari ha convidat a %{score} usuaris.
+          description_own: Has convidat %{score} usuaris.
+          explanation: Els usuaris obtenen aquesta distinció invitant altres usuaris.
+          name: Invitacions
+          next_level_in: Convida a %{score} usuaris més per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha convidat cap usuari.
+          unearned_own: Encara no has convidat cap usuari.
+      description: Les insígnies són reconeixements a les accions participatives i al progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, obtindràs diferents distintius.
+      level: Nivell %{level}
+      reached_top: Has arribat al nivell superior d'aquesta insígnia.
     invitations:
       create:
         error: Hi ha hagut alguns problemes mentre es convidava els teus amics
@@ -346,12 +372,10 @@ oc:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         index:
           no_conversations: Encara no tens converses
-          title: Converses
-        reply:
-          send: Enviar
-          title: Respon
         show:
-          title: Conversa amb %{usernames}
+          conversation_with_html: Conversa amb <strong>%{name}</strong>
+          reply: Respon
+          send: Enviar
         start:
           send: Enviar
           title: Comença una conversa
@@ -395,6 +419,8 @@ oc:
     profiles:
       default_officialization_text: Aquesta persona participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
+        badges: Insígnies
+        conversations: Converses
         followers: Seguidors
         following: Segueix
         notifications: Notificacions
@@ -438,30 +464,6 @@ oc:
         filter_by: Filtra per
         unfold: Desplegar
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Torna a autoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
-          title: L'autorització ha caducat
-        incomplete:
-          cancel: Anulle
-          explanation: Maugrat qu'actuauments ètz autorizat/da damb "%{authorization}", auem de besonh que vos tornatz a autorizar pr'amor que non auem es donades següentes:'
-          invalid_field: "%{field}"
-          reauthorize: Reautoriza'm
-          title: Se vos platz, reautorizatz-vos
-        missing:
-          authorize: Autoriza damb "%{authorization}"
-          explanation: Per amiar a tèrme aguesta accion, vos cau disposar dera autorizacion "%{authorization}".
-          title: Se requerís autorizacion
-        pending:
-          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
-          resume: Comprova el progrés de l'autorització "%{authorization}"
-          title: L'autorització encara està en progrés
-        unauthorized:
-          explanation: Non se pòt amiar a tèrme aguesta accion donques que bèra ua des vòstes donades d'autorizacion non coïncidissen damb es requerides.
-          invalid: "%{field} non ei valid."
-          ok: D'acòrd
-          title: Accion non autorizada
       author:
         deleted: Usuari eliminat
       embed_modal:
@@ -558,6 +560,8 @@ oc:
         description_html: "Aguest lòc web emplegue cookies pròpries e de tresaus entà melhorar l’experiéncia de navegacion, e aufrir contenguts e servicis d’interès.\nEn contunhar era navegacion, comprenem qu'acceptatz era nòsta politica de cookies. Entà mès informacion, consultatz %{link}."
         link_label: ací
         ok: I sò d'acòrd
+      edit_link:
+        edit: Edite
       footer:
         made_with_open_source: 'Web hèta damb  <a target="_blank" href="https://github.com/decidim/decidim">software liure</a>.'
       header:
@@ -614,6 +618,8 @@ oc:
       highlighted_processes:
         active_processes: Procèssi actius
         active_step: Fasa activa
+        more_information: Mès informacion
+        participate: Participe
         see_all_processes: Vedetz toti es procèssi
       statistics:
         answers_count: Respostes
