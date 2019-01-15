@@ -32,5 +32,10 @@ Decidim.menu :menu do |menu|
   menu.item I18n.t("decidim.menu.meetings_static"), "/meetings", position: 3, active: :inclusive
 end
 
+Decidim.content_blocks.register(:homepage, :slider) do |content_block|
+  content_block.cell = "decidim/home/content_blocks/slider"
+  content_block.public_name_key = "decidim.content_blocks.slider.name"
+end
+
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
