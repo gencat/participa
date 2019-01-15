@@ -21,14 +21,14 @@ ca:
         index:
           loading: Carregant
     participatory_processes:
-      order_by_processes:
-        opened: Obertes
-        closed : Tancades
-        all: Totes
-        select_type: Selecciona tipus
-        select_department: Selecciona departament
-        select_tema: Selecciona tema
       participatory_processes:
+        order_by_processes:
+          opened: Obertes
+          closed : Tancades
+          all: Totes
+          select_type: Selecciona tipus
+          select_department: Selecciona departament
+          select_tema: Selecciona tema
         show:
           email: Bústia de suport
           categories: Eixos de debat

@@ -8,6 +8,9 @@ ca:
       timepicker: "%d/%m/%Y %H:%M"
       datepicker_info: esto es para arreglar un bug que persiste en la 0.6.5. cuando lo arreglen podemos borrar el date y time
   decidim:
+    content_blocks:
+      slider:
+        name: Slider home
     menu:
       more_information: Més informació
       stableareas_static: Consells de participació
@@ -44,4 +47,3 @@ ca:
     footer:
       legal_advice_title: Avís legal
       legal_advice_text: "D’acord amb l’article 17.1 de la Llei 19/2014, la ©Generalitat de Catalunya permet la reutilització dels continguts i de les dades sempre que se'n citi la font i la data d'actualització i que no es desnaturalitzi la informació (article 8 de la Llei 37/2007) i també que no es contradigui amb una llicència específica."
-  
