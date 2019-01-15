@@ -1,0 +1,9 @@
+$secondary: #D04040 !default;
+
+@import "./decidim";
+@import "./vendor/*";
+@import "./general/*";
+
+.button.secondary{
+  color: #fff !important;
+}

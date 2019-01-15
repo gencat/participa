@@ -2,6 +2,4 @@
 # entry point, but you can change what controller it inherits from
 # so you can customize some methods.
 class DecidimController < ApplicationController
-  helper Decidim::SanitizeHelper
 end
-

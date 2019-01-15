@@ -7,10 +7,31 @@ ca:
       datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"
       datepicker_info: esto es para arreglar un bug que persiste en la 0.6.5. cuando lo arreglen podemos borrar el date y time
-  menu:
-    stableareas_static: Consells de participació
-    queries_static: Participació en normativa
-    proces_static: Processos actius
+  decidim:
+    menu:
+      more_information: Més informació
+      stableareas_static: Consells de participació
+      queries_static: Participació en normativa
+      proces_static: Processos actius
+    pages:
+      home:
+        regulatory_inquiries:
+          active_step: Fase activa
+        extended:
+          debates: Participa-hi
+          debates_explanation: Vine a les sessions de debat, fes aportacions en línia o comenta les d'altres participants
+          how_to_participate: Com participo en un procés?
+          meetings: Informa't
+          meetings_explanation: Consulta els processos participatius, iniciatives normatives o consells de participació que estan en marxa. Podràs veure les propostes que han fet els ciutadans i revisar les més recents, les més valorades o les més comentades
+          more_info: Més informació
+          proposals: Consulta els resultats
+          proposals_explanation: Revisa els informes de les sessions, accedeix a la valoració dels participants i coneix la resposta de l'Administració
+        footer_sub_hero:
+          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa. Uneix-te i participa
+          footer_sub_hero_headline: Et donem la benvinguda al portal %{organization}
+          register: Registra't
+        sub_hero:
+          register: Registra't
   static:
     queries:
       meta_tags:
@@ -23,25 +44,4 @@ ca:
     footer:
       legal_advice_title: Avís legal
       legal_advice_text: "D’acord amb l’article 17.1 de la Llei 19/2014, la ©Generalitat de Catalunya permet la reutilització dels continguts i de les dades sempre que se'n citi la font i la data d'actualització i que no es desnaturalitzi la informació (article 8 de la Llei 37/2007) i també que no es contradigui amb una llicència específica."
-  pages:
-    home:
-      regulatory_inquiries:
-        active_step: Fase activa
-      extended:
-        debates: Participa-hi
-        debates_explanation: Vine a les sessions de debat, fes aportacions en línia o comenta les d'altres participants
-        how_to_participate: Com participo en un procés?
-        meetings: Informa't
-        meetings_explanation: Consulta els processos participatius, iniciatives normatives o consells de participació que estan en marxa. Podràs veure les propostes que han fet els ciutadans i revisar les més recents, les més valorades o les més comentades
-        more_info: Més informació
-        proposals: Consulta els resultats
-        proposals_explanation: Revisa els informes de les sessions, accedeix a la valoració dels participants i coneix la resposta de l'Administració
-      footer_sub_hero:
-        footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa. Uneix-te i participa
-        footer_sub_hero_headline: Et donem la benvinguda al portal %{organization}
-        register: Registra't
-      sub_hero:
-        register: Registra't
-  decidim:
-      menu:
-        more_information: Més informació
+  

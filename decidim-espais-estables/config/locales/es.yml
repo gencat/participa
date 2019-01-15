@@ -49,10 +49,30 @@ es:
         title: Título
         twitter: Twitter
         youtube: Youtube
+      assembly_member:
+        birthday: Cumpleaños
+        birthplace: Lugar de nacimiento
+        ceased_date: Fecha de vencimiento
+        designation_date: Fecha de designación
+        designation_mode: Modo de designación
+        full_name: Nombre completo
+        gender: Género
+        position: Posición
       assembly_user_role:
         email: Email
         name: Nombre
         role: Rol de usuario
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Consejo de participación
+        other: Consejos de participación
+      decidim/assembly_member:
+        one: Miembro del consejo de participación
+        other: Miembros del consejo de participación
+      decidim/assembly_user_role:
+        one: Rol de usuario del consejo de participación
+        other: Roles de usuario del consejo de participación
   decidim:
     admin:
       assemblies:
@@ -85,6 +105,23 @@ es:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
           title: Duplicar consejo de participación
+      assembly_members:
+        create:
+          error: Se produjo un error al agregar un miembro para este consejo de participación.
+          success: Miembro creado con éxito para este consejo de participación.
+        destroy:
+          success: Miembro destruido con éxito para este consejo de participación.
+        edit:
+          title: Actualizar miembro del consejo de participación.
+          update: Actualizar
+        index:
+          assembly_members_title: Miembros del consejo de participación
+        new:
+          create: Crear
+          title: Nuevo miembro del consejo de participación.
+        update:
+          error: Se produjo un error al actualizar el miembro para este consejo de participación.
+          success: Miembro actualizado con éxito para este consejo de participación.
       assembly_publications:
         create:
           error: Se produjo un error al publicar este consejo de participación.
@@ -113,6 +150,7 @@ es:
         assemblies: Consejos de participación
         assemblies_submenu:
           assembly_admins: Usuarios del consejo de participación
+          assembly_members: Miembros
           attachment_collections: Colecciones
           attachment_files: Archivos
           attachments: Archivos adjuntos
@@ -130,6 +168,18 @@ es:
             published: Publicada
             title: Título
           name: Consejo de participación
+        assembly_member:
+          fields:
+            ceased_date: Fecha de vencimiento
+            designation_date: Fecha de designación
+            full_name: Nombre
+            position: Posición
+          name: Miembro
+          positions:
+            other: Otro
+            president: Presidente
+            secretary: Secretario
+            vice_president: Vicepresidente
         assembly_user_role:
           fields:
             email: Correo electrónico
@@ -148,6 +198,10 @@ es:
         publish: "%{user_name} publicó el consejo de participación %{resource_name}"
         unpublish: "%{user_name} despublicó el consejo de participación %{resource_name}"
         update: "%{user_name} actualizó el consejo de participación %{resource_name}"
+      assembly_member:
+        create: "%{user_name} creó el miembro %{resource_name} en el consejo de participación %{space_name}"
+        delete: "%{user_name} eliminó %{resource_name} del consejo de participación %{space_name}"
+        update: "%{user_name} actualizó el miembro %{resource_name} del consejo de participación %{space_name}"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} al consejo de participación %{space_name}"
         delete: "%{user_name} eliminó al usuario %{resource_name} del consejo de participación %{space_name}"
@@ -156,6 +210,8 @@ es:
       admin:
         assemblies:
           form:
+            duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
+            included_at_help: Selecciona la fecha en que se agregó este ensamblaje a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de consejo de participación
@@ -164,6 +220,23 @@ es:
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este consejo de participación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        assembly_members:
+          form:
+            existing_user: Usuario existente
+            non_user: No usuario
+            select_a_position: Selecciona una posición
+            select_user: Selecciona un usuario
+            user_type: Tipo de usuario
+          index:
+            filter:
+              all: Todas
+              ceased: Cesado
+              not_ceased: No cesado
+            filter_by: Filtrado por
+            search: Buscar
+      assembly_members:
+        index:
+          members: Miembros
       assembly_types:
         commission: Comisión
         consultative_advisory: Consultivo / Asesor
@@ -183,6 +256,9 @@ es:
           highlighted_assemblies:
             active_assemblies: Consejos de participación activos
             see_all_assemblies: Ver todos los consejos de participación
+        user_profile:
+          member_of:
+            member_of: Miembro de
       show:
         area: Área
         assembly_type: Tipo de consejos de participación
@@ -226,6 +302,11 @@ es:
         surveys_count: Encuestas
         users_count: Participantes
         votes_count: Soportes
+    assembly_members:
+      assembly_member:
+        designated_on: Designado en
+      index:
+        title: Miembros
     log:
       value_types:
         assembly_presenter:
@@ -250,6 +331,7 @@ es:
           more_info: Más información
           take_part: Participa
       assembly_header:
+        assembly_member_menu_item: Miembros
         assembly_menu_item: La consejo de participación
         unfold: Desplegar
       assembly_widgets:

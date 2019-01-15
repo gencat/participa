@@ -9,6 +9,13 @@ oc:
         target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que voleu seleccionar mitjançant el sorteig del grup de propostes que hàgiu triat prèviament)
         title: Títol
         witnesses: Testimonis
+    models:
+      decidim/sortitions/create_sortition_event: Sorteig
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorteig
+        other: Sortejos
   decidim:
     components:
       sortitions:
@@ -127,6 +134,7 @@ oc:
           time_seed: "(2) Llavor de temps"
           witnesses: Testimonis
         sortition:
+          random_seed: Llavor aleatòria
           selected_proposals:
             one: 1 proposta seleccionada
             other: "%{count} propostes seleccionades"

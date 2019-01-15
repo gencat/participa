@@ -32,6 +32,17 @@ oc:
         address: Adreça
         id_document: CIF
         name: Nom complet
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciatives
+      decidim/initiative_comittee:
+        one: Comitè
+        other: Comitès
+      decidim/initiative_vote:
+        one: Signatura
+        other: Firmes
   decidim:
     admin:
       menu:
@@ -57,6 +68,18 @@ oc:
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
+    events:
+      initiatives:
+        initiative_extended:
+          email_intro: La data de finalització de la signatura de la iniciativa %{resource_title} s'ha ampliat!
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha estès la data de finalització de la signatura d'iniciatives!
+          notification_title: S'ha ampliat la data de finalització de la signatura de la iniciativa <a href="%{resource_path}">%{resource_title}</a>.
+        milestone_completed:
+          email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha completat una nova fita!
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
     initiatives:
       admin:
         committee_requests:

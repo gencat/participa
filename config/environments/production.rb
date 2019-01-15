@@ -25,7 +25,7 @@ Rails.application.configure do
   # config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = Uglifier.new(harmony: true)
+  config.assets.js_compressor = Uglifier.new(:harmony => true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -75,7 +75,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Keeps the Last 5 log files which are rotated at every 10MB
-  config.logger = Logger.new("./log/production.log", 5, 10.megabytes)
+  config.logger = Logger.new("./log/production.log", 5, 500.megabytes)
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
