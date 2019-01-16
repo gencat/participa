@@ -8,6 +8,10 @@ es:
     regulations_static: Participación en normativa
   decidim:
     regulations:
+      content_blocks:
+        highlighted_regulations:
+          active_step: Paso activo
+          name: Participación en normativa destacadas
       pages:
         home:
           highlighted_regulations:

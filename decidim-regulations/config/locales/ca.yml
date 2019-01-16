@@ -8,11 +8,14 @@ ca:
     regulations_static: Participació en normativa
   decidim:
     regulations:
+      content_blocks:
+        highlighted_regulations:
+          active_step: Pas actiu
+          name: Participació en normativa destacades
       pages:
         home:
           highlighted_regulations:
             active_processes: Participació en normativa
-            active_step: Pas actiu
             see_all_processes: Veure totes les participacions
       regulation:
         show:

@@ -28,10 +28,5 @@ Decidim.configure do |config|
   # config.max_reports_before_hiding = 3
 end
 
-Decidim.content_blocks.register(:homepage, :slider) do |content_block|
-    content_block.cell = "decidim/home/content_blocks/slider"
-    content_block.public_name_key = "decidim.content_blocks.slider.name"
-  end
-
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
