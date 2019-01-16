@@ -13,6 +13,9 @@ es:
       filters:
         category: Ejes de debate
         select_category: Selecciona
+    show:
+      participatory_scope: Qué se decide
+      participatory_structure: Como se decide
     application:
       attachments:
         meetings_available: Hay encuentros programados actualmente
@@ -27,6 +30,8 @@ es:
   activemodel:
     attributes:
       participatory_process:
+        participatory_scope: Qué se decide
+        participatory_structure: Como se decide
         theme_id: Tema
         type_id: Tipo
         department_id: Departamento
