@@ -75,6 +75,8 @@ oc:
         other: Rol dels usuaris del consell de participació
   decidim:
     admin:
+      actions:
+        new_assembly: Nova assemblea
       assemblies:
         create:
           error: S'ha produït un error en crear un nou consell de participació.
