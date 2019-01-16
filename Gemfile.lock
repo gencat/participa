@@ -41,6 +41,7 @@ PATH
   remote: decidim-process-extended
   specs:
     decidim-process-extended (0.1.0)
+      decidim-core
       rails (>= 5.2, < 6.0.x)
 
 PATH
