@@ -1,4 +1,9 @@
+$primary: #C00000;
 $secondary: #D04040 !default;
+
+$success: #71A137 !default;
+$warning: #FEBF00 !default;
+$alert: #ec5840 !default;
 
 @import "./decidim";
 @import "./vendor/*";
