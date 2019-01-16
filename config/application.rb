@@ -10,13 +10,13 @@ module Participa
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-    config.i18n.available_locales = %w(en ca es)
-
+    config.i18n.available_locales = %w(en ca es oc)
+    
     # Processes group ids used to determine whether a process is a regulation or a process
     config.process    = 1
     config.regulation = 3
 
-    config.photos = ['image1.png', 
+    config.photos = ['image1.png',
           'image2.png',
           'image3.png',
           'image4.png',

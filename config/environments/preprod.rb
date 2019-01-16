@@ -72,7 +72,11 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = [:ca]
+  config.i18n.fallbacks = {
+    ca: [:ca, :es, :oc],
+    es: [:es, :ca, :oc],
+    oc: [:oc, :es, :ca],
+  }
 
   # Keeps the Last 5 log files which are rotated at every 10MB
   config.logger = Logger.new("./log/preprod.log", 5, 50.megabytes)
