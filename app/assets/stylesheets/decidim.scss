@@ -94,8 +94,16 @@ h5 {
 	}
 }
 
+h1.section-heading{
+	font-size: 35px;
+	font-weight: 300;
+	// text-transform: uppercase !important;
+}
+
 h2.section-heading{
-	text-transform: uppercase !important;
+	font-weight: 300;
+	font-size: 28px;
+	// text-transform: uppercase !important;
 }
 
 h3.section-heading{
@@ -680,7 +688,7 @@ h3.section-heading{
 	background-color: $RedGenCat !important;
 	color: $white !important;
 	text-transform: inherit;
-  border: none;
+  border: 1px solid $RedGenCat;
 }
 
 .subhero-cta{
