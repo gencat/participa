@@ -37,3 +37,8 @@ oc:
         email: Bústia de suggeriments
       participatory_process_step:
         title: Nom de la fase
+  layouts:
+    decidim:
+      participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No hi ha resultats

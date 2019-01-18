@@ -327,6 +327,10 @@ oc:
           not_found: 'El consell de participació no s''ha trobada a la base de dades (ID: %{id})'
     menu:
       assemblies: Consells de participació
+    pages:
+      home:
+        statistics:
+          assemblies_count: Consells de participació
   errors:
     messages:
       cannot_be_blank: no es pot deixar en blanc
