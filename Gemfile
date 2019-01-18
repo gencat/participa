@@ -20,6 +20,7 @@ gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifciations block end ####
 
+gem 'decidim-idcat_mobil', git: "https://github.com/gencat/decidim-idcat_mobil.git", branch: "master"
 gem 'omniauth-idcat_mobil', git: "https://github.com/gencat/omniauth-idcat_mobil.git", branch: "master"
 
 gem "puma", "~> 3.0"
