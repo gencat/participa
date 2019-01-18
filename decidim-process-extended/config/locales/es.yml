@@ -39,3 +39,8 @@ es:
         email: Buzón de sugerencias
       participatory_process_step:
         title: Nombre de la fase
+  layouts:
+    decidim:
+      participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No hay resultados

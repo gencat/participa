@@ -313,6 +313,10 @@ es:
           not_found: 'No se encontró el consejo de participación en la base de datos (ID: %{id})'
     menu:
       assemblies: Consejos de participación
+    pages:
+      home:
+        statistics:
+          assemblies_count: Consejos de participación
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco
