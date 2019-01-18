@@ -8,12 +8,22 @@ es:
     regulations_static: Participación en normativa
   decidim:
     regulations:
+      pages:
+        home:
+          highlighted_regulations:
+            active_processes: Participació en normativa
+            active_step: Pas actiu
+            see_all_processes: Veure totes les participacions
       regulation:
         show:
           email: Buzón de soporte
           categories: Ejes de debate
         index:
           loading: Cargando
+    pages:
+      home:
+        statistics:
+          regulations_count: Participaciones en normativa
     participatory_processes:
       order_by_processes:
         opened: Abiertas
