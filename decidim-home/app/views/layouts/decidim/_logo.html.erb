@@ -1,10 +1,10 @@
 <%
 if organization
-  if organization.logo.present? 
-      %><%= image_tag organization.logo.medium.url %><% 
-  else 
+  if organization.logo.present?
+      %><%= image_tag organization.logo.medium.url %><%
+  else
     # small devices
-    %>    
+    %>
       <!-- Only for small devices -->
       <div class="fwk-row part-show-sm">
         <div class="fwk-col-xs-2">
@@ -15,9 +15,9 @@ if organization
           </div>
         </div>
         <div class="fwk-col-xs-8">
-         <!-- <div class="part-gencat-cat-img" onclick="window.open('http://web.gencat.cat/ca/inici/','_blank');"></div> -->
+         <!-- <div class="part-gencat-cat-img" onclick="window.open('https://web.gencat.cat/ca/inici/','_blank');"></div> -->
           <div class="title-sm show-for-small">
-                            
+
                                 <%= link_to  "/", class: "part-a-white" do %>
                                   Participa
                                 <% end %>
@@ -27,11 +27,11 @@ if organization
       </div>
       <% # large devices %>
       <div class="part-hide-sm">
-        <div class="part-gencat-logo-nomargin" onclick="window.open('http://web.gencat.cat/ca/inici/','_blank');"></div>
+        <div class="part-gencat-logo-nomargin" onclick="window.open('https://web.gencat.cat/ca/inici/','_blank');"></div>
       </div>
 <%  end
-else 
-  %><%= Decidim.application_name %><% 
+else
+  %><%= Decidim.application_name %><%
 end %>
 <style>
   .logo-wrapper span{

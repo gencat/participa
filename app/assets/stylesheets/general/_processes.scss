@@ -1,23 +1,26 @@
 @import "../settings.scss";
 
 .process-nav__link {
+    text-transform: inherit !important;
     &:hover {
-        color: $RedGenCat;
+        color: $RedGenCat !important;
+        text-decoration: underline;
         .external-icon {
-            color: $RedGenCat;
-            fill: $RedGenCat;
+            color: $RedGenCat !important;
+            fill: $RedGenCat !important;
         }
     }
 }
 
 .process-nav__content {
     .is-active {
-        color: $RedGenCat;
-        .external-icon {
-            color: $RedGenCat;
-            fill: $RedGenCat;
-        }
-    }
+      color: $RedGenCat !important;
+      text-decoration: underline;
+      .external-icon {
+          color: $RedGenCat !important;
+          fill: $RedGenCat !important;
+      }
+  }
 }
 
   .phase-item--past{
@@ -183,19 +186,17 @@
 }
 
 .card--result .card__link:hover, .card--result .card__link:focus {
-    color: #3D393C;
+    color: $RedGenCat !important;
 }
 
 .card--meeting .card__link:hover, .card--meeting .card__link:focus {
-    color: #3D393C;
+    color: $RedGenCat !important;
 }
 
 .card--proposal {
-
     .card__header {
         a {
-            color: #3D393C !important;
-
+            color: $RedGenCat !important;
             &:hover {
                 text-decoration: underline !important;
                 color: $colorText !important;
@@ -217,8 +218,8 @@
     color: $RedGenCat !important;
 }
 
-.section-heading:before {
-    background-color: $RedGenCat;
+.process-header__phase .button, .process-phase .button{
+  border: none;
 }
 
 .card--list {
@@ -227,7 +228,7 @@
             div:hover {
                 .card--list__heading {
                     text-decoration: underline !important;
-                    color: #3D393C;
+                    // color: #3D393C;
                 }
             }
         }
@@ -272,13 +273,13 @@
 }
 .process-nav__link:hover, .process-nav__link:focus {
     color: $RedGenCat;
+    text-decoration: underline !important;
     svg{
         fill:  $RedGenCat;
     }
 }
 
 #new_proposal_ {
-
     button {
         background: $RedGenCat;
     }
