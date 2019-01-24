@@ -114,6 +114,7 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "app/views/decidim/proposals/proposals/index.js.erb" -> Change the layout of index proposals adding categories.
       * "app/views/decidim/proposals/proposals/show.html.erb" -> Change the layout of show proposals adding best comments.
       * "app/views/decidim/proposals/proposals/most_voted_comments.html.erb" -> Add the layout of most voted comments.
+      * "app/views/decidim/debates/debats/show.html.erb" -> Change the simple_format method to decidim_sanitize
       * "app/views/layouts/decidim/mailer.html.erb" -> Overwrite the layout of the mailer
       * "config/locales/" -> Add custom locales and :oc locales.
 
