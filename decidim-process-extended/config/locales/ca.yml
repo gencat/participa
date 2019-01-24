@@ -13,6 +13,9 @@ ca:
       filters:
         category: Eixos de debat
         select_category: Selecciona
+    show:
+      participatory_scope: Què es decideix
+      participatory_structure: Com es decideix
     application:
       attachments:
         meetings_available: Hi ha trobades programades actualment
@@ -27,6 +30,8 @@ ca:
   activemodel:
     attributes:
       participatory_process:
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
         theme_id: Tema
         type_id: Tipus
         department_id: Departament
@@ -34,3 +39,8 @@ ca:
         email: Bústia de suggeriments
       participatory_process_step:
         title: Nom de la fase
+  layouts:
+    decidim:
+      participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No hi ha resultats

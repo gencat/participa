@@ -32,8 +32,8 @@ es:
         local_area: Áreas municipales
         meta_scope: 'Metadatos: ámbito'
         participatory_processes_ids: Procesos participativos relacionados
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        participatory_scope: Qué se decide
+        participatory_structure: Como se decide
         private_space: Espacio privado
         promoted: Destacado
         published_at: Publicado
@@ -276,8 +276,8 @@ es:
           'false': opaco
           'true': transparente
         local_area: Áreas municipales
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        participatory_scope: Qué se decide
+        participatory_structure: Como se decide
         private_space: Este es un consejo de participación privada
         purpose_of_action: Propósito de la acción
         read_less: Leer menos
@@ -313,6 +313,10 @@ es:
           not_found: 'No se encontró el consejo de participación en la base de datos (ID: %{id})'
     menu:
       assemblies: Consejos de participación
+    pages:
+      home:
+        statistics:
+          assemblies_count: Consejos de participación
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco

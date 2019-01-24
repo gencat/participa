@@ -32,8 +32,8 @@ ca:
         local_area: Àrea municipal
         meta_scope: Metadades d'àmbit
         participatory_processes_ids: Processos participatius relacionats
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
         private_space: Espai privat
         promoted: Destacat
         published_at: Publicat el
@@ -276,8 +276,8 @@ ca:
           'false': opaca
           'true': transparent
         local_area: Àrea municipal
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
         private_space: Aquest és un consell de participació privat
         purpose_of_action: Propòsit de l'acció
         read_less: Llegir menys
@@ -313,6 +313,10 @@ ca:
           not_found: 'El consell de participació no s''ha trobada a la base de dades (ID: %{id})'
     menu:
       assemblies: Consells de participació
+    pages:
+      home:
+        statistics:
+          assemblies_count: Consells de participació
   errors:
     messages:
       cannot_be_blank: no es pot deixar en blanc

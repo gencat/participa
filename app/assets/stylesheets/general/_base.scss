@@ -6,7 +6,8 @@ body{
 
         &:hover,
         &:focus{
-            color: $RedGenCat
+            color: $RedGenCat;
+            text-decoration: underline;
         }
     }
     .opinion-toggle--meh{

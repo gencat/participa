@@ -15,6 +15,9 @@ oc:
             active_processes: Procèssi actius
             active_step: Fasa activa
             see_all_processes: Vedetz toti es procèssi
+      show:
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
     projects:
       filters:
         category: Eixos de debat
@@ -25,6 +28,8 @@ oc:
   activemodel:
     attributes:
       participatory_process:
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
         theme_id: Tema
         type_id: Tipus
         department_id: Departament
@@ -32,3 +37,8 @@ oc:
         email: Bústia de suggeriments
       participatory_process_step:
         title: Nom de la fase
+  layouts:
+    decidim:
+      participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No hi ha resultats
