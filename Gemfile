@@ -20,10 +20,12 @@ gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifciations block end ####
 
+gem 'decidim-idcat_mobil', git: "https://github.com/gencat/decidim-idcat_mobil.git", branch: "master"
+gem 'omniauth-idcat_mobil', git: "https://github.com/gencat/omniauth-idcat_mobil.git", branch: "master"
+
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.0.0"
 
-gem "faker", "~> 1.8.4"
 gem 'figaro', '>= 1.1.1'
 
 ## Start force versions Gem
@@ -32,6 +34,7 @@ gem 'graphql', '1.8.10'
 ## End force versions Gem
 
 group :development, :test do
+  gem "faker", ">= 1.8.4"
   gem "byebug", platform: :mri
 
   gem "decidim-dev", DECIDIM_VERSION
