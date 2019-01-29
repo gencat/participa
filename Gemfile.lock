@@ -1,22 +1,3 @@
-GIT
-  remote: https://github.com/gencat/decidim-idcat_mobil.git
-  revision: 6ab8670970c2bc39c48bbdc539ebc607dc50484e
-  branch: master
-  specs:
-    decidim-idcat_mobil (0.0.1)
-      decidim (>= 0.13.1)
-      decidim-core (>= 0.13.1)
-      omniauth-idcat_mobil (>= 0.1.1)
-
-GIT
-  remote: https://github.com/gencat/omniauth-idcat_mobil.git
-  revision: 38e38409d63b246f3bfaf7e22b649e723c6c6270
-  branch: master
-  specs:
-    omniauth-idcat_mobil (0.1.1)
-      omniauth (~> 1.5)
-      omniauth-oauth2 (>= 1.4.0, < 2.0)
-
 PATH
   remote: decidim-admin-extended
   specs:
@@ -341,6 +322,10 @@ GEM
       wisper-rspec (~> 1.0)
     decidim-generators (0.13.1)
       decidim-core (= 0.13.1)
+    decidim-idcat_mobil (0.0.1)
+      decidim (>= 0.13.1)
+      decidim-core (>= 0.13.1)
+      omniauth-idcat_mobil (~> 0.1.1)
     decidim-meetings (0.13.1)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
@@ -551,6 +536,9 @@ GEM
       jwt (>= 1.5)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.5)
+    omniauth-idcat_mobil (0.1.1)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
     omniauth-oauth (1.1.0)
       oauth
       omniauth (~> 1.0)
@@ -789,7 +777,7 @@ DEPENDENCIES
   decidim-dev (~> 0.13.1)
   decidim-espais-estables!
   decidim-home!
-  decidim-idcat_mobil!
+  decidim-idcat_mobil (~> 0.0.1)
   decidim-meetings-extended!
   decidim-process-extended!
   decidim-regulations!
@@ -802,7 +790,6 @@ DEPENDENCIES
   graphql (= 1.8.10)
   letter_opener_web (~> 1.3.0)
   listen (~> 3.1.0)
-  omniauth-idcat_mobil!
   puma (~> 3.0)
   rails (= 5.2.0)
   spring

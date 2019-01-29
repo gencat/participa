@@ -5,7 +5,9 @@ DECIDIM_VERSION = "~> 0.13.1"
 
 gem "decidim", DECIDIM_VERSION
 
+# TODO: remember to remove this forcing of rails
 gem "rails", "5.2.0"
+
 #### Custom gems and modifciations block start ####
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-department', path: 'decidim-department'
@@ -20,8 +22,7 @@ gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifciations block end ####
 
-gem 'decidim-idcat_mobil', git: "https://github.com/gencat/decidim-idcat_mobil.git", branch: "master"
-gem 'omniauth-idcat_mobil', git: "https://github.com/gencat/omniauth-idcat_mobil.git", branch: "master"
+gem 'decidim-idcat_mobil', "~> 0.0.1"
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.0.0"
