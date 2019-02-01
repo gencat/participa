@@ -85,35 +85,6 @@ h5 {
 		}
 	}
 }
-.section-heading{
-	text-transform: inherit !important;
-	&::before{
-		// background-color: $RedGenCat !important;
-		background-color: transparent !important;
-		display: none !important;
-	}
-}
-
-h1.section-heading{
-	font-size: 35px;
-	font-weight: 300;
-	// text-transform: uppercase !important;
-}
-
-h2.section-heading{
-	font-weight: 300;
-	font-size: 28px;
-	// text-transform: uppercase !important;
-}
-
-h3.section-heading{
-	font-size: 22px;
-	font-weight: 300;
-	@include breakpoint(medium){
-    font-size: 24px;
-		font-weight: 600;
-	}
-}
 // Hide hollow button on lists
 .card--process{
 	.button.secondary.small.hollow.card__button{
@@ -687,8 +658,7 @@ h3.section-heading{
 .button--sc.expanded:not(.success){
 	background-color: $RedGenCat !important;
 	color: $white !important;
-	text-transform: inherit;
-  border: 1px solid $RedGenCat;
+	border: 1px solid $RedGenCat;
 }
 
 .subhero-cta{
@@ -1064,10 +1034,6 @@ h1.part-primary-font{
 
 .button.disabled, .button[disabled]{
 	opacity: 0.5 !important;
-}
-
-.button--sc{
-	text-transform: inherit !important;
 }
 
 .filters__search .input-group > :last-child > *, .filters__section .input-group > :last-child > *{
