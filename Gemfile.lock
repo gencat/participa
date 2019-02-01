@@ -322,7 +322,7 @@ GEM
       wisper-rspec (~> 1.0)
     decidim-generators (0.13.1)
       decidim-core (= 0.13.1)
-    decidim-idcat_mobil (0.0.1)
+    decidim-idcat_mobil (0.0.2)
       decidim (>= 0.13.1)
       decidim-core (>= 0.13.1)
       omniauth-idcat_mobil (~> 0.1.1)
@@ -777,7 +777,7 @@ DEPENDENCIES
   decidim-dev (~> 0.13.1)
   decidim-espais-estables!
   decidim-home!
-  decidim-idcat_mobil (~> 0.0.1)
+  decidim-idcat_mobil (~> 0.0.2)
   decidim-meetings-extended!
   decidim-process-extended!
   decidim-regulations!
