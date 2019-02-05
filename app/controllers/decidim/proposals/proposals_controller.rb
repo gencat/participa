@@ -67,7 +67,7 @@ module Decidim
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path + "/preview"
+            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path + "/compare"
           end
 
           on(:invalid) do
@@ -80,12 +80,12 @@ module Decidim
       def compare
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_component, params[:proposal])
+                               .for(current_component, @proposal)
                                .all
 
         if @similar_proposals.blank?
           flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
-          redirect_to complete_proposals_path(proposal: { title: @form.title, body: @form.body })
+          redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path + "/complete"
         end
       end
 
@@ -240,7 +240,7 @@ module Decidim
         @form.attachment = form_attachment_model
         @form
       end
-      
+
       def most_voted_positive_comment
         @most_voted_positive_comment = Decidim::Comments::Comment.where(decidim_commentable_type: "Decidim::Proposals::Proposal", decidim_commentable_id: params[:id], alignment: 1)
       end
