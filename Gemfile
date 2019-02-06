@@ -5,7 +5,6 @@ DECIDIM_VERSION = "~> 0.14.4"
 
 gem "decidim", DECIDIM_VERSION
 
-
 #### Custom gems and modifciations block start ####
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-department', path: 'decidim-department'
