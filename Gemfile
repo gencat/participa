@@ -5,8 +5,6 @@ DECIDIM_VERSION = "~> 0.14.4"
 
 gem "decidim", DECIDIM_VERSION
 
-# TODO: remember to remove this forcing of rails
-gem "rails", "5.2.1.1"
 
 #### Custom gems and modifciations block start ####
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
