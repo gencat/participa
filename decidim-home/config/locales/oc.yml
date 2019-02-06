@@ -216,6 +216,8 @@ oc:
             dummy_step_attribute_2: Atribut de fase de prova 2
     contact: Contacte
     content_blocks:
+      feder:
+        name: Feder
       slider:
         name: Slider home
     core:
@@ -429,6 +431,8 @@ oc:
         verified: Verificada
     pages:
       home:
+        feder:
+          description: Aguesta equipa a estat cofinançat pes Hons Europèus de Desvolopament Regionau dera Union Europèa n'eth marc deth Programa operatiu FEDER de Catalonha 2014-2020
         regulatory_inquiries:
           active_step: Procés actiu
         extended:
