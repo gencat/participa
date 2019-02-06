@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "decidim/selectable/news/engine"
 
 module Decidim

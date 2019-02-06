@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "decidim/process/extended/engine"
 
 module Decidim

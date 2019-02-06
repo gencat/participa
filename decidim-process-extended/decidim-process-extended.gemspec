@@ -17,6 +17,4 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 5.2", "< 6.0.x"
   s.add_dependency "decidim-core"
-
-  s.add_development_dependency "sqlite3"
 end
