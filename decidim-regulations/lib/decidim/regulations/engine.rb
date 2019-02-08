@@ -35,7 +35,7 @@ module Decidim
           mount Decidim::Regulations::Engine => "/"
         end
       end
-      
+
       initializer "decidim.stats" do
         Decidim.stats.register :regulations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::ParticipatoryProcess.where(organization: organization, decidim_participatory_process_group_id: Rails.application.config.regulation).where('DATE(published_at) > \'1990/01/01\'' ).public_spaces.count
@@ -44,12 +44,18 @@ module Decidim
 
       initializer "decidim_regulations.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Regulations::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Regulations::Engine.root}/app/views") # for partials
       end
 
       initializer "decidim_regulations.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_regulations) do |content_block|
           content_block.cell = "decidim/regulations/content_blocks/highlighted_regulations"
           content_block.public_name_key = "decidim.regulations.content_blocks.highlighted_regulations.name"
+          content_block.settings_form_cell = "decidim/regulations/content_blocks/highlighted_regulations_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 4
+          end
         end
       end
     end

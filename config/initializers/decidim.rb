@@ -28,5 +28,9 @@ Decidim.configure do |config|
   # config.max_reports_before_hiding = 3
 end
 
+Decidim.menu :menu do |menu|
+  menu.item I18n.t("menu.meetings_static"), "/meetings", position: 3, active: :inclusive
+end
+
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
