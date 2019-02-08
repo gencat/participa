@@ -61,7 +61,7 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "config/locales/" -> You need to add the new locales added in Decidim.
 
       Custom files:
-      * "cells/" -> Creating the new content_block cell for FEDER. 
+      * "cells/" -> Creating the new content_block cell for FEDER.
 
   3. Decidim Process Extended ("decidim-participatory-processes")
       This module adds the new fields to the "ParticipatoryProcess": Theme, Type, Department, email, and "show_home", so the next files are necessary to overwrite.
