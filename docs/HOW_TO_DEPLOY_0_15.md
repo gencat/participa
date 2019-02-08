@@ -11,6 +11,7 @@ Posar el nom de les rake tasks a executar.
 
 
 - Afegir DelayedJOB, per exectuar les metriques.
+- S'ha d'inicialitzar 'bin/delayed_job start'
 - Afegir Whenever
 - Afegir al crontab, la rake tasks d'eliminació de dades del DataPortability, (pendent de la versió 13.)
 - Afegir al crontab, la rake task de metriques. (v0.15.0)

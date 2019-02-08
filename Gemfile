@@ -31,6 +31,9 @@ gem 'graphiql-rails', '1.4.11'
 gem 'graphql', '1.8.10'
 ## End force versions Gem
 
+gem 'delayed_job_active_record'
+gem 'daemons'
+
 group :development, :test do
   gem "faker", ">= 1.8.4"
   gem "byebug", platform: :mri
