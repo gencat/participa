@@ -15,6 +15,6 @@ Posar el nom de les rake tasks a executar.
 - [x] Afegir Whenever
 - [x] Afegir al crontab, la rake tasks d'eliminació de dades del DataPortability, (pendent de la versió 13.)
 - [x] Afegir al crontab, la rake task de metriques. (v0.15.0)
-- S'ha d'actualitzar el crontab `whenever --update-crontab
+- S'ha d'actualitzar el crontab `whenever --update-crontab`
 
 No entenc com s'envien els mails si no hi ha un Job activat...
