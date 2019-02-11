@@ -11,10 +11,10 @@ Posar el nom de les rake tasks a executar.
 
 
 - [x] Afegir DelayedJOB, per exectuar les metriques.
-- S'ha d'inicialitzar 'bin/delayed_job start'
-- Afegir Whenever
-- Afegir al crontab, la rake tasks d'eliminació de dades del DataPortability, (pendent de la versió 13.)
-- Afegir al crontab, la rake task de metriques. (v0.15.0)
-
+- S'ha d'inicialitzar `bin/delayed_job start`
+- [x] Afegir Whenever
+- [x] Afegir al crontab, la rake tasks d'eliminació de dades del DataPortability, (pendent de la versió 13.)
+- [x] Afegir al crontab, la rake task de metriques. (v0.15.0)
+- S'ha d'actualitzar el crontab `whenever --update-crontab
 
 No entenc com s'envien els mails si no hi ha un Job activat...

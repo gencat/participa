@@ -36,6 +36,8 @@ gem 'graphql', '1.8.10'
 gem 'delayed_job_active_record'
 gem 'daemons'
 
+gem 'whenever', require: false
+
 group :development, :test do
   gem "faker", ">= 1.8.4"
   gem "byebug", platform: :mri
