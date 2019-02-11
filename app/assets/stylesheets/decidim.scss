@@ -604,12 +604,13 @@ h5 {
 .card__button{
 	&.hollow{
 		border-color: $RedGenCat !important;
-		color: $RedGenCat !important;
+		// color: $RedGenCat !important;
+		color: $white !important;
 	}
 }
 .button{
 	&.hollow{
-		color: $white;
+		color: $white !important;;
 		&:hover{
 			border-color: $RedGenCat !important;
 			background-color: $RedGenCat !important;
