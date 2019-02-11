@@ -15,6 +15,9 @@ ca:
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
     proposals:
+      application_helper:
+          filter_type_values:
+            amendments: Esmenes
       proposals:
         show:
           proposal_in_evaluation_reason: 'Aquesta proposta està en avaluació perquè:'

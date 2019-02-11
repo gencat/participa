@@ -6,41 +6,49 @@ module Decidim
     class ProposalsController < Decidim::Proposals::ApplicationController
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
+      helper ParticipatoryTextsHelper
+      include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
       include Orderable
       include Paginable
 
-      helper_method :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment, :process_categories, :has_categories, :get_id, :process_name, :my_category
+      helper_method :form_presenter, :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment, :process_categories, :has_categories, :get_id, :process_name, :my_category
+
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
 
+      before_action :set_participatory_text
+
       def index
-        @proposals = search
-                     .results
-                     .published
-                     .not_hidden
-                     .includes(:category)
-                     .includes(:scope)
-
-        @voted_proposals = if current_user
-                             ProposalVote.where(
-                               author: current_user,
-                               proposal: @proposals.pluck(:id)
-                             ).pluck(:decidim_proposal_id)
-                           else
-                             []
-                           end
-
-        @proposals = paginate(@proposals)
-        @proposals = reorder(@proposals)
-
-        if params.has_key?(:filter)
-          @category_id = params[:filter][:category_id]
+        if component_settings.participatory_texts_enabled?
+          @proposals = Decidim::Proposals::Proposal
+          .where(component: current_component)
+          .published
+          .not_hidden
+          .includes(:category, :scope)
+          .order(position: :asc)
+          render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
-          @category_id = ""
+          @proposals = search
+          .results
+          .published
+          .not_hidden
+          .includes(:category)
+          .includes(:scope)
+
+          @voted_proposals = if current_user
+            ProposalVote.where(
+              author: current_user,
+              proposal: @proposals.pluck(:id)
+            ).pluck(:decidim_proposal_id)
+          else
+            []
+          end
+          @proposals = paginate(@proposals)
+          @proposals = reorder(@proposals)
         end
       end
 
@@ -54,7 +62,7 @@ module Decidim
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
-          @form = form(ProposalForm).from_params(params)
+          @form = form(ProposalWizardCreateStepForm).from_params({})
         end
       end
 
@@ -80,8 +88,8 @@ module Decidim
       def compare
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_component, @proposal)
-                               .all
+        .for(current_component, @proposal)
+        .all
 
         if @similar_proposals.blank?
           flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
@@ -142,6 +150,7 @@ module Decidim
 
       def destroy_draft
         enforce_permission_to :edit, :proposal, proposal: @proposal
+
         DestroyProposal.call(@proposal, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("proposals.destroy_draft.success", scope: "decidim")
@@ -178,15 +187,27 @@ module Decidim
 
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
-
-        WithdrawProposal.call(@proposal, current_user) do
-          on(:ok) do |_proposal|
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        if @proposal.emendation?
+          Decidim::Amendable::Withdraw.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
+            end
           end
-          on(:invalid) do
-            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+        else
+          WithdrawProposal.call(@proposal, current_user) do
+            on(:ok) do |_proposal|
+              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+            end
           end
         end
       end
@@ -205,7 +226,8 @@ module Decidim
           category_id: "",
           state: "except_rejected",
           scope_id: nil,
-          related_to: ""
+          related_to: "",
+          type: "all"
         }
       end
 
@@ -230,6 +252,10 @@ module Decidim
         form(ProposalForm).from_model(@proposal)
       end
 
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
+      end
+
       def form_attachment_new
         form(AttachmentForm).from_params({})
       end
@@ -239,6 +265,10 @@ module Decidim
         @form = form_proposal_model
         @form.attachment = form_attachment_model
         @form
+      end
+
+      def set_participatory_text
+        @participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
       end
 
       def most_voted_positive_comment
