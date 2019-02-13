@@ -1,6 +1,13 @@
 <%
   components = participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
 
+  def is_regulation(process_id)
+    @is_regulation = (Decidim::ParticipatoryProcess
+    	.where(id: process_id)
+    	.pluck(:decidim_participatory_process_group_id)
+    	.first() == Rails.application.config.regulation)
+  end
+
   name = if is_regulation(current_participatory_space.id)
            t(".regulation_menu_item")
          else

@@ -8,3 +8,7 @@ es:
       shared:
         share_modal:
           share: Comparte
+  layouts:
+    decidim:
+      process_navigation:
+        regulation_menu_item: Participación

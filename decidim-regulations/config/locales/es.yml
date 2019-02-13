@@ -51,8 +51,6 @@ es:
       regulation_header:
         unfold: Despliega
         process_menu_item: Participación
-      process_header:
-        regulation_menu_item: Participación
       participatory_processes:
         order_by_processes:
           regulations: "%{count} Participaciones"
