@@ -139,13 +139,3 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "app/views/decidim/regulations/"
       * "app/views/layouts/"
       * "config/locales/"
-
-TO DELETEEEE - WAITING CONFIRMATION
-
-  6. Decidim Meetings Extended ("decidim-meetings"): Adds a new functionality of "Global Agenda".
-
-      The next files needs to be upgraded according with the upgrades of  "Meetings" module. If the files change to "decidim-meetings" module, you must also change them to "decidim-meetings-extended"
-      * "app/controllers/decidim/meetings/extended/meetings_extended_controller.rb"
-      * "app/views/decidim/meetings/extended/meetings_extended/meetings.html.erb"
-      * "app/views/layouts/pages/meetings/"
-      * "config/locales/"
