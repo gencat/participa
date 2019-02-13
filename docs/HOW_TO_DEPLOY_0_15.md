@@ -1,14 +1,10 @@
+# KEEP IN MIND WHEN DEPLOYING 0.15
+
+Take a look to the Changelog https://github.com/decidim/decidim/blob/0.15-stable/CHANGELOG.md to specific actions. Instead of run the "Upgrade notes" on Changelog 0.15, execute next queries to prevent some crashes"
+
 ## Notes.
-- Comentar les diferencies entre el Meeting Directory de Decidim i el que té Gencat. El millor seria quedar-se el de Decidim i afegir només l'enllaç al menú
-- Comentar com funciona el sistema de blocks de la home. S'ha d'activar slider, 0.14, el FEDER.
-- A la 0.15 es pot dir quants espais participatius surten a cada block de la home. Per defecte són 4.
+- Comment how the block system of home works. Slider must be activated and FEDER, 0.14
+- At 0.15 we can say how many participatory spaces come out in each block of the home. By default they are 4.
 
-
-- [x] Afegir DelayedJOB, per exectuar les metriques.
-- S'ha d'inicialitzar `bin/delayed_job start`
-- [x] Afegir Whenever
-- [x] Afegir al crontab, la rake tasks d'eliminació de dades del DataPortability, (pendent de la versió 13.)
-- [x] Afegir al crontab, la rake task de metriques. (v0.15.0)
-- S'ha d'actualitzar el crontab `whenever --update-crontab`
-
-No entenc com s'envien els mails si no hi ha un Job activat...
+- DelayedJOB has been installed, to run metrics. `bin/delayed_job start` must be executed on production
+- Whenever has been installed. therefore you must update the crontab by running `whenever --update-crontab`

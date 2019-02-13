@@ -354,6 +354,7 @@ oc:
       expired_session: La sessió de suplantació actual ha caducat.
     menu:
       home: Inici
+      meetings_static: Agenda
       more_information: Mès informacion
     messaging:
       conversation_mailer:

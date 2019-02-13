@@ -29,7 +29,7 @@ Decidim.configure do |config|
 end
 
 Decidim.menu :menu do |menu|
-  menu.item I18n.t("menu.meetings_static"), "/meetings", position: 3, active: :inclusive
+  menu.item I18n.t("decidim.menu.meetings_static"), "/meetings", position: 3, active: :inclusive
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
