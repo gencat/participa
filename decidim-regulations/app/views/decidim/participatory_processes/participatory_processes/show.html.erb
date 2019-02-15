@@ -5,6 +5,14 @@
   url: participatory_process_url(current_participatory_space),
   twitter_handler: current_organization.twitter_handler
 }) %>
+<%
+edit_link(
+  resource_locator(current_participatory_space).edit,
+  :update,
+  :process,
+  process: current_participatory_space
+)
+%>
 
 <% current_participatory_process_theme = '';
     if(current_participatory_space.decidim_theme_id != '')

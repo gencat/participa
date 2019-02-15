@@ -31,6 +31,7 @@ es:
         is_transparent: Es transparente
         local_area: Áreas municipales
         meta_scope: 'Metadatos: ámbito'
+        parent_id: Consejo de participación principal
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Qué se decide
         participatory_structure: Como se decide
@@ -215,6 +216,7 @@ es:
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de consejo de participación
+            select_parent_assembly: Selecciona un consejo de participacion principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este consejo de participación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
         assembly_copies:

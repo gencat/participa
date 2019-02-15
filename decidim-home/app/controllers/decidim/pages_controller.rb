@@ -17,10 +17,12 @@ module Decidim
 
     def show
       enforce_permission_to :read, :public_page, page: page
-			if params[:id] == "home"
-				render :home
-      else
+      if params[:id] == "home"
+        render :home
+      elsif page
         render :decidim_page
+      else
+        raise ActionController::RoutingError, "Not Found"
       end
     end
 

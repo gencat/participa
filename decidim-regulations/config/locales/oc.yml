@@ -8,12 +8,15 @@ oc:
     regulations_static: Participació normativa
   decidim:
     regulations:
+      content_blocks:
+        highlighted_regulations:
+          active_step: Pas actiu
+          name: Participació en normativa destacades
       pages:
         home:
           highlighted_regulations:
-            active_processes: Processos actius
-            active_step: Pas actiu
-            see_all_processes: Veure tots els processos
+            active_processes: Participacions actives
+            see_all_processes: Veure totes les participacions
       regulation:
         show:
           email: Bústia de suport
@@ -25,14 +28,14 @@ oc:
         statistics:
           regulations_count: Participacions en normativa
     participatory_processes:
-      order_by_processes:
-        opened: Obertes
-        closed : Tancades
-        select_type: Selecciona tipus
-        select_department: Selecciona departament
-        select_tema: Selecciona tema
-        all: Totes
       participatory_processes:
+        order_by_processes:
+          opened: Obertes
+          closed : Tancades
+          select_type: Selecciona tipus
+          select_department: Selecciona departament
+          select_tema: Selecciona tema
+          all: Totes
         show:
           email: Bústia de suport
           categories: Eixos de debat

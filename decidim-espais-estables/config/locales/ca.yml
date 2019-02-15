@@ -31,6 +31,7 @@ ca:
         is_transparent: És transparent
         local_area: Àrea municipal
         meta_scope: Metadades d'àmbit
+        parent_id: Consell de participació principal
         participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
@@ -215,6 +216,7 @@ ca:
             select_a_created_by: Selecciona un creador
             select_an_area: Selecciona una àrea
             select_an_assembly_type: Seleccioneu un tipus de consell de participació
+            select_parent_assembly: Seleccioneu un consell de participació principal
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
         assembly_copies:

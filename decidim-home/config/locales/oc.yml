@@ -168,6 +168,31 @@ oc:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    authorization_modals:
+      show:
+        expired:
+          authorize: Torna a autoritzar amb "%{authorization}"
+          explanation: La teva autorització ha caducat. Per realitzar aquesta acció, has de tornar a autoritzar-vos amb "%{authorization}".
+          title: L'autorització ha caducat
+        incomplete:
+          cancel: Cancel·lar
+          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
+          invalid_field: "%{field}"
+          reauthorize: Reautoritzar-se
+          title: Si us plau, reautoritza't
+        missing:
+          authorize: Autoritzar amb "%{authorization}"
+          explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
+          title: Es requereix autorització
+        pending:
+          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
+          resume: Comprova el progrés de l'autorització "%{authorization}"
+          title: L'autorització encara està en progrés
+        unauthorized:
+          explanation: No es pot realitzar aquesta acció ja que alguna de les teves dades d'autorització no coincideixen amb les requerides.
+          invalid_field: "El valor %{field} %{value} no és vàlid."
+          ok: D'acord
+          title: Acció no autoritzada
     collapsible_list:
       hidden_elements_count:
         one: i 1 més
@@ -190,6 +215,9 @@ oc:
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
     contact: Contacte
+    content_blocks:
+      slider:
+        name: Slider home
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
@@ -509,30 +537,6 @@ oc:
         filter_by: Filtra per
         unfold: Desplegar
     shared:
-      action_authorization_modal:
-        expired:
-          authorize: Torna a autoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
-          title: L'autorització ha caducat
-        incomplete:
-          cancel: Cancel·lar
-          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
-          invalid_field: "%{field}"
-          reauthorize: Reautoritzar-se
-          title: Si us plau, reautoritza't
-        missing:
-          authorize: Autoritzar amb "%{authorization}"
-          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
-          title: Es requereix autorització
-        pending:
-          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
-          resume: Comprova el progrés de l'autorització "%{authorization}"
-          title: L'autorització encara està en progrés
-        unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid_field: "El valor %{field} %{value} no és vàlid."
-          ok: D'acord
-          title: Acció no autoritzada
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina

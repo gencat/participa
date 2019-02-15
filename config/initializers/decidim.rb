@@ -28,6 +28,5 @@ Decidim.configure do |config|
   # config.max_reports_before_hiding = 3
 end
 
-
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
