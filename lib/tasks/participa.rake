@@ -10,13 +10,13 @@
 # there may be problems with some migrations, and they will fail.
 namespace :participa do
   # Components ------
-  #
-  # Find the Organization.
-  # Find or Create an unpublished participatory process
-  # Takes all the components that don't have a participatory space related.
-  # Assign the created participatory process to the components
-  # without participatory space .
-  desc 'Fix Orphan Component records'
+  desc <<EODESC
+Fix Orphan Component records:
+- Find the Organization.
+- Find or Create an unpublished participatory process
+- Takes all the components that don't have a participatory space related.
+- Assign the created participatory process to the components without participatory space.
+EODESC
   task fix_orphan_component_records: [:environment] do
     organization = Decidim::Organization.first
     participatory_space = Decidim::ParticipatoryProcess.find_or_create_by(
@@ -37,14 +37,14 @@ namespace :participa do
   end
 
   # Proposals ------
-  #
-  # Find the Organization.
-  # Find or Create an unpublished participatory process
-  # Find or Create a proposal component related to the previous participatory process
-  # Takes all the proposals that don't have a component related.
-  # Assign the created component to the proposals
-  # without component
-  desc 'Fix Orphan proposals records'
+  desc <<EODESC
+Fix Orphan proposals records:
+- Find the Organization.
+- Find or Create an unpublished participatory process
+- Find or Create a proposal component related to the previous participatory process
+- Takes all the proposals that don't have a component related.
+- Assign the created component to the proposals without component.
+EODESC
   task fix_orphan_proposal_records: [:environment] do
     organization = Decidim::Organization.first
     participatory_space = Decidim::ParticipatoryProcess.find_or_create_by(
@@ -70,14 +70,14 @@ namespace :participa do
   end
 
   # Meetings ------
-  #
-  # Find the Organization.
-  # Find or Create an unpublished participatory process
-  # Find or Create a meeting component related to the previous participatory process
-  # Takes all the meetings that don't have a component related.
-  # Assign the created component to the meetings
-  # without component
-  desc 'Fix Orphan meetings records'
+  desc <<EODESC
+Fix Orphan meetings records:
+- Find the Organization.
+- Find or Create an unpublished participatory process
+- Find or Create a meeting component related to the previous participatory process
+- Takes all the meetings that don't have a component related.
+- Assign the created component to the meetings without component
+EODESC
   task fix_orphan_meetings_records: [:environment] do
     organization = Decidim::Organization.first
     participatory_space = Decidim::ParticipatoryProcess.find_or_create_by(
