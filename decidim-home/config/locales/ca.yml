@@ -9,6 +9,8 @@ ca:
       datepicker_info: esto es para arreglar un bug que persiste en la 0.6.5. cuando lo arreglen podemos borrar el date y time
   decidim:
     content_blocks:
+      feder:
+        name: Feder
       slider:
         name: Slider home
     menu:
@@ -18,6 +20,8 @@ ca:
       proces_static: Processos actius
     pages:
       home:
+        feder:
+          description: Aquest equip ha estat cofinançat pel Fons Europeus de Desenvolupament Regional de la Unió Europea en el marc del Programa operatiu FEDER de Catalunya 2014-2020
         regulatory_inquiries:
           active_step: Fase activa
         extended:

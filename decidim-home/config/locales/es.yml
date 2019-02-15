@@ -1,6 +1,8 @@
 es:
   decidim:
     content_blocks:
+      feder:
+        name: Feder
       slider:
         name: Slider home
     menu:
@@ -10,6 +12,8 @@ es:
       proces_static: Procesos activos
     pages:
       home:
+        feder:
+          description: Este equipo ha sido cofinanciado por Fondos Europeos de Desarrollo Regional de la Unión Europea en el marco del Programa Operativo FEDER de Catalunya 2014-2020
         regulatory_inquiries:
           active_step: Proceso activo
         extended:
