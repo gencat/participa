@@ -18,7 +18,7 @@ gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifciations block end ####
 
-gem 'decidim-idcat_mobil', "~> 0.0.2"
+gem 'decidim-idcat_mobil', "~> 0.0.3"
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.0.0"
