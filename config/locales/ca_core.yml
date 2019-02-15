@@ -5,3 +5,7 @@ ca:
     notifications_settings:
       show:
         newsletter_notifications: Vull rebre informació sobre l'activitat rellevant i les novetats del portal.
+  layouts:
+    decidim:
+      process_navigation:
+        regulation_menu_item: Participació

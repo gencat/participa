@@ -2,9 +2,9 @@
 <% provide :meta_title, t("participatory_processes.index.title", scope: "decidim") %>
 
 <main class="wrapper">
-  <section class="section row collapse">
-    <%= raw t("regulations_info", scope: "layouts.decidim") %>
-  </section>
+  <div class="section row collapse">
+    <%= render partial: "decidim/shared/floating_help", locals: { content: t("regulations_info", scope: "layouts.decidim").html_safe, id: 1 }  %>
+  </div>
   <% if promoted_participatory_processes.any? %>
     <section id ="highlighted-processes" class="row section">
       <h1 class="section-heading"><%= t("participatory_processes.index.promoted_regulation", scope: "layouts.decidim") %></h1>

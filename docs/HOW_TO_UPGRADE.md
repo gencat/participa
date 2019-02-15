@@ -61,7 +61,7 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "config/locales/" -> You need to add the new locales added in Decidim.
 
       Custom files:
-      * "cells/" -> Creating the new content_block cell for FEDER. 
+      * "cells/" -> Creating the new content_block cell for FEDER.
 
   3. Decidim Process Extended ("decidim-participatory-processes")
       This module adds the new fields to the "ParticipatoryProcess": Theme, Type, Department, email, and "show_home", so the next files are necessary to overwrite.
@@ -107,9 +107,6 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "app/controllers/decidim/proposals/proposals_controller.rb"-> overwrite decidim file and add the custom functionality of best-comments
       * "app/controllers/decidim_controller.rb"
       * "app/helpers/decidim/participatory_processes/admin/" -> add helpers for departments, themes, and types
-      * "app/views/decidim/assemblies/assemblies/index.html.erb" -> add custom messages for assemblies.
-      * "app/views/decidim/assemblies/order_by_assemblies.html.erb" -> custom order by assemblies
-      * "app/views/decidim/pages/index.html.erb" -> Change the layout of index pages.
       * "app/views/decidim/proposals/proposals/index.html.erb" -> Change the layout of index proposals adding categories.
       * "app/views/decidim/proposals/proposals/index.js.erb" -> Change the layout of index proposals adding categories.
       * "app/views/decidim/proposals/proposals/show.html.erb" -> Change the layout of show proposals adding best comments.

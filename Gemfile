@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = "~> 0.15.2"
+DECIDIM_VERSION = "~> 0.16.0"
 
 gem "decidim", DECIDIM_VERSION
 
@@ -18,17 +18,12 @@ gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifciations block end ####
 
-gem 'decidim-idcat_mobil', "~> 0.0.2"
+gem 'decidim-idcat_mobil', "~> 0.0.3"
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.0.0"
 
 gem 'figaro', '>= 1.1.1'
-
-## Start force versions Gem
-gem 'graphiql-rails', '1.4.11'
-gem 'graphql', '1.8.10'
-## End force versions Gem
 
 gem 'delayed_job_active_record'
 gem 'daemons'

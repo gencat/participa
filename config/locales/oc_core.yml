@@ -574,6 +574,8 @@ oc:
         close_session: Tanca la sessió
         description_html: Esteu suplantant l'usuari <b>%{user_name}</b>.
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
+      process_navigation:
+        regulation_menu_item: Participació
       notifications_dashboard:
         mark_all_as_read: Marca tots com a llegits
         no_notifications: Encara no hi ha notificacions.
