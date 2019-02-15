@@ -49,7 +49,6 @@ These are custom modules  and this is what you have to keep in mind when updatin
       This module changes "Assembly" translation for "Governing council". In catalan, "Assamblea" for "Consell rector". and overwrite the file "highlighted_assemblies".
 
       Modified files are:
-      * "app/views/decidim/assemblies/pages/home/highlihted_assemblies.html.erb" -> In this file, copy and paste the original file, and limit the number of assemblies to show. (This is necessary to do so until content_blocks are limited to 4 elements.)
       * "config/locales/" -> You need to add the new locales added in Decidim, and change the string "Assembly" to the "Governing council"
 
 
@@ -57,9 +56,8 @@ These are custom modules  and this is what you have to keep in mind when updatin
       This module, changes some appareance to the home, header and footer of Decidim.
 
       Modified files are:
-      * "app/controllers/decidim/pages_controller.rb" -> overwrite existing file with home_participatory_processes method to show in hero.html.erb
       * "app/views/layouts/" -> overwrite existing decidim layouts, these needs to be upgraded if there are some changes or new functionalities are added.
-      * "app/views/pages/home/hero.html.erb" -> overwrite the hero.html.erb with an slider instead of fixed image.
+      * "app/cells/" -> create new cells content_blocks for hero slider.
       * "config/locales/" -> You need to add the new locales added in Decidim.
 
       Custom files:
@@ -140,13 +138,4 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "app/views/decidim/participatory_processes/"
       * "app/views/decidim/regulations/"
       * "app/views/layouts/"
-      * "config/locales/"
-
-
-  6. Decidim Meetings Extended ("decidim-meetings"): Adds a new functionality of "Global Agenda".
-
-      The next files needs to be upgraded according with the upgrades of  "Meetings" module. If the files change to "decidim-meetings" module, you must also change them to "decidim-meetings-extended"
-      * "app/controllers/decidim/meetings/extended/meetings_extended_controller.rb"
-      * "app/views/decidim/meetings/extended/meetings_extended/meetings.html.erb"
-      * "app/views/layouts/pages/meetings/"
       * "config/locales/"

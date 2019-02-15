@@ -1,12 +1,9 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = "~> 0.14.4"
+DECIDIM_VERSION = "~> 0.15.2"
 
 gem "decidim", DECIDIM_VERSION
-
-# TODO: remember to remove this forcing of rails
-gem "rails", "5.2.1.1"
 
 #### Custom gems and modifciations block start ####
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
@@ -14,7 +11,6 @@ gem 'decidim-department', path: 'decidim-department'
 gem 'decidim-type', path: 'decidim-type'
 gem 'decidim-theme', path: 'decidim-theme'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
-gem 'decidim-meetings-extended', path: 'decidim-meetings-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
@@ -33,6 +29,11 @@ gem 'figaro', '>= 1.1.1'
 gem 'graphiql-rails', '1.4.11'
 gem 'graphql', '1.8.10'
 ## End force versions Gem
+
+gem 'delayed_job_active_record'
+gem 'daemons'
+
+gem 'whenever', require: false
 
 group :development, :test do
   gem "faker", ">= 1.8.4"
