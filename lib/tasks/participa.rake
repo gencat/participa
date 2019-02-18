@@ -28,10 +28,10 @@ EODESC
       organization: organization
     )
 
-    orphan_components = Decidim::Component.where(participatory_space: nil)
+    orphan_components = Decidim::Component.all.find_all{|c| c.participatory_space.blank? }
 
     orphan_components.each do |component|
-      puts "----- Upgrade #{component.manifest_name} ---#{component.id}"
+      puts "----- Upgrade #{component.manifest_name} --- #{component.id}"
       component.update(participatory_space: participatory_space)
     end
   end
@@ -60,7 +60,7 @@ EODESC
       manifest_name: 'proposals',
       participatory_space: participatory_space
     )
-    orphan_proposals = Decidim::Proposals::Proposal.where(component: nil)
+    orphan_proposals = Decidim::Proposals::Proposal.all.find_all{|p| p.component.blank? }
 
     orphan_proposals.each do |proposal|
       puts "--------------- Upgrade #{proposal.title} -- #{proposal.id}"
@@ -93,7 +93,7 @@ EODESC
       manifest_name: 'meetings',
       participatory_space: participatory_space
     )
-    orphan_meetings = Decidim::Meetings::Meeting.where(component: nil)
+    orphan_meetings = Decidim::Meetings::Meeting.all.find_all{|p| p.component.blank? }
 
     orphan_meetings.each do |meeting|
       puts "--------------- Upgrade #{meeting.title} -- #{meeting.id}"
