@@ -8,7 +8,7 @@ class AddOrganizationAsAuthor < ActiveRecord::Migration[5.2]
     end
 
     official_proposals.each do |proposal|
-      proposal.add_coauthor(proposal.organization)
+      proposal.add_coauthor(proposal.organization || Decidim::Organization.first)
     end
   end
 end
