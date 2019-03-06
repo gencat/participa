@@ -15,7 +15,6 @@
 .process-nav__content {
     .is-active {
       color: $RedGenCat !important;
-      text-decoration: underline;
       .external-icon {
           color: $RedGenCat !important;
           fill: $RedGenCat !important;
@@ -238,6 +237,27 @@
             }
         }
     }
+}
+
+.row.attachments{
+  .card--list {
+      .card--list__item {
+          .card--list__text {
+              div:hover {
+                  .card--list__heading {
+                      text-decoration: none !important;
+                      // color: #3D393C;
+                  }
+              }
+          }
+          .icon-cloud-download:hover {
+              use {
+                  fill: #3D393C;
+              }
+          }
+      }
+  }
+
 }
 
 .pagination {

@@ -626,7 +626,14 @@ h5 {
 		color: $RedGenCat !important;
 	}
 }
-
+.row.attachments{
+	.card__link {
+		&:hover,
+		&:focus{
+			text-decoration: none !important;
+		}
+	}
+}
 .part-a:active {
 	color: $RedGenCat !important;
 	@include breakpoint(small down){
@@ -1041,4 +1048,24 @@ h1.part-primary-font{
 }
 .home-pam__lowlight:last-child{
 	clear: both;
+}
+
+.process-nav__more{
+	color: $white !important;
+	&.hover{
+		color: $RedGenCat !important;
+	}
+}
+.process-nav__hidden-content__more{
+	color: $RedGenCat !important;
+}
+.process-nav__more i{
+	background-color: $white !important;
+}
+.process-nav__hidden-content__more i{
+	background-color: $RedGenCat !important;
+}
+
+.feder-section{
+	font-size: 11px;
 }
