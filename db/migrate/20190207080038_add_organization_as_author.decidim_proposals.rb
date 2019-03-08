@@ -3,12 +3,10 @@
 
 class AddOrganizationAsAuthor < ActiveRecord::Migration[5.2]
   def change
-    official_proposals = Decidim::Proposals::Proposal.find_each.select do |proposal|
-      proposal.coauthorships.count.zero?
-    end
-
-    official_proposals.each do |proposal|
-      proposal.add_coauthor(proposal.organization)
+    Decidim::Proposals::Proposal.find_each do |proposal|
+      if proposal.coauthorships.count.zero?
+        proposal.add_coauthor(Decidim::Organization.first)
+      end
     end
   end
 end
