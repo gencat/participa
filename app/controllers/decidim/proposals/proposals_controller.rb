@@ -13,7 +13,7 @@ module Decidim
       include Orderable
       include Paginable
 
-      helper_method :form_presenter, :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment, :process_categories, :has_categories, :get_id, :process_name, :my_category
+      helper_method :form_presenter, :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -301,26 +301,6 @@ module Decidim
 
       def get_negative_count_comment(comment_id)
         @get_negative_count_comment = ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+comment_id.to_s+" AND weight = -1").count
-      end
-
-      def process_categories(my_slug)
-        @process_categories ||= Decidim::Category.where(decidim_participatory_space_id: get_id(my_slug), decidim_participatory_space_type: "Decidim::ParticipatoryProcess")
-      end
-
-      def has_categories(my_slug)
-        @has_categories = Decidim::Category.where(decidim_participatory_space_id: get_id(my_slug), decidim_participatory_space_type: "Decidim::ParticipatoryProcess").any?
-      end
-
-      def my_category(category_id)
-        @my_category = Decidim::Category.where(id: category_id)
-      end
-
-      def get_id(my_slug)
-        @get_id = Decidim::ParticipatoryProcess.where(slug: my_slug)
-      end
-
-      def process_name(my_slug)
-        @process_name ||= Decidim::ParticipatoryProcess.where(slug: my_slug)
       end
     end
   end
