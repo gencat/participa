@@ -30,6 +30,7 @@ module Decidim
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
         attribute :scope_id, Integer
+        attribute :area_id, Integer
         attribute :hero_image
         attribute :remove_hero_image
         attribute :banner_image
@@ -55,6 +56,8 @@ module Decidim
         validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
 
+        validates :area, presence: true, if: proc { |object| object.area_id.present? }
+
         # after_save :example_function
         def map_model(model)
           self.scope_id = model.decidim_scope_id
@@ -68,6 +71,10 @@ module Decidim
 
         def scope
           @scope ||= current_organization.scopes.where(id: scope_id).first
+        end
+
+        def area
+          @area ||= current_organization.areas.find_by(id: area_id)
         end
 
         def participatory_process_group

@@ -78,6 +78,10 @@
     </div>
 
     <div class="row column">
+      <%= form.select :area_id, option_groups_from_collection_for_select(current_organization.area_types, :areas, :translated_name, :id, :translated_name, current_participatory_process.try(:decidim_area_id)), include_blank: t(".select_an_area") %>
+    </div>
+
+    <div class="row column">
       <%= form.translated :text_field, :participatory_scope %>
     </div>
 
@@ -91,31 +95,31 @@
           <%= form.select :participatory_process_group_id, process_groups_for_select, prompt: I18n.t("decidim.participatory_processes.participatory_process_groups.none") %>
         <% end %>
       </div>
-      <div class="columns xlarge-6">
-        <% if departments_for_select %>
-          <%= form.select :department_id, departments_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
-      </div>
+      <!-- <div class="columns xlarge-6">
+        <%# if departments_for_select %>
+          <%#= form.select :department_id, departments_for_select, include_blank: I18n.t("decidim.themes.none") %>
+        <%# end %>
+      </div> -->
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="columns xlarge-6">
-        <% if themes_for_select %>
-          <%= form.select :theme_id, themes_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
+        <%# if themes_for_select %>
+          <%#= form.select :theme_id, themes_for_select, include_blank: I18n.t("decidim.themes.none") %>
+        <%# end %>
       </div>
 
       <div class="columns xlarge-6">
-        <% if types_for_select %>
-          <%= form.select :type_id, types_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
+        <%# if types_for_select %>
+          <%#= form.select :type_id, types_for_select, include_blank: I18n.t("decidim.themes.none") %>
+        <%# end %>
       </div>
-    </div>
+    </div> -->
 
     <div class="row column">
       <%= form.check_box :private_space %>
     </div>
-    
+
     <div class="row column">
       <%= form.check_box :show_statistics %>
     </div>

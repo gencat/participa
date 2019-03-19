@@ -1,0 +1,12 @@
+ca:
+  area_type:
+    departments:
+      name: Departament
+      plural: Departaments
+  scope_parent:
+    themes:
+      name: Temes
+  scope_type:
+    regulations:
+      name: Participació normativa
+      plural: Participació normatives

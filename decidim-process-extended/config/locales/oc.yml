@@ -9,6 +9,7 @@ oc:
         participatory_processes:
           form:
             appear_home: Sortir al home (imatge)
+            select_an_area: Selecciona una àrea
       pages:
         home:
           highlighted_processes:
