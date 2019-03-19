@@ -1,0 +1,12 @@
+es:
+  area_type:
+    departments:
+      name: Departamento
+      plural: Departamentos
+  scope_parent:
+    themes:
+      name: Temas
+  scope_type:
+    regulations:
+      name: Participación en normativa
+      plural: Participación en normativas

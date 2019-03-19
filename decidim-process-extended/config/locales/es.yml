@@ -9,6 +9,7 @@ es:
         participatory_processes:
           form:
             appear_home: Aparecer en home (imagen)
+            select_an_area: Selecciona una area
     projects:
       filters:
         category: Ejes de debate

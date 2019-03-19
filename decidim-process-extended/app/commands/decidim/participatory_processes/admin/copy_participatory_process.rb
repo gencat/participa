@@ -64,9 +64,10 @@ module Decidim
             # Participa added attributes
             show_home: @participatory_process.show_home,
             email: @participatory_process.email,
-            decidim_department_id: @participatory_process.decidim_department_id,
-            decidim_type_id: @participatory_process.decidim_type_id,
-            decidim_theme_id: @participatory_process.decidim_theme_id
+            area: @participatory_process.area,
+            # decidim_department_id: @participatory_process.decidim_department_id,
+            # decidim_type_id: @participatory_process.decidim_type_id,
+            # decidim_theme_id: @participatory_process.decidim_theme_id
           )
         end
 
