@@ -4,6 +4,7 @@
 # because there are some custom categorizations to be removed
 # and leave it as Decidim standards
 namespace :move_custom_categorizations do
+
   desc "Move Deparments to Areas"
   task departments_to_areas: [:environment] do
     class DecidimDepartment < ApplicationRecord
@@ -102,14 +103,6 @@ namespace :move_custom_categorizations do
         end
       end
     end
-
-    # Move decidim_theme_id to Decidim::Scope Selector
-    # Decidim::ParticipatoryProcess.find_each do |process|
-    #   next unless process.decidim_theme_id.present?
-    #   scope = Decidim::Scope.find_by(code: DecidimTheme.find_by(id: process.decidim_theme_id).name[Decidim.default_locale.to_s].parameterize)
-    #   process.update_attributes(scopes_enabled: true, scope: scope)
-    #   puts "--- Process #{process.id} - Scope_id Updated #{scope.id}"
-    # end
   end
 
   desc "Assign scopes to ParticipatoryProcesses"
@@ -139,6 +132,27 @@ namespace :move_custom_categorizations do
       end
     end
   end
+
+  desc "Assign Areas to ParticipatoryProcesses"
+  task assign_areas_to_participatory_processes: [:environment] do
+    class DecidimDepartment < ApplicationRecord
+      self.table_name = :decidim_departments
+    end
+
+    ActiveRecord::Base.transaction do
+      Decidim::Organization.find_each do |organization|
+        Decidim::ParticipatoryProcess.where(organization: organization).find_each do |process|
+          next unless process.decidim_department_id.present?
+          area = Decidim::Area.find_by(name: DecidimDepartment.find_by(id: process.decidim_department_id).name)
+          process.update_attributes(area: area)
+          puts "--- Process #{process.id} - Area id Updated #{area.id}"
+        end
+      end
+    end
+  end
+
+  desc 'Move all custom categorizations and assign the new relations'
+  task all: [:departments_to_areas, :types_to_scopes, :themes_to_scopes, :assign_scopes_to_participatory_processes, :assign_areas_to_participatory_processes ]
 
   def localized locales, key
     locales.inject({}) do |result, locale|
