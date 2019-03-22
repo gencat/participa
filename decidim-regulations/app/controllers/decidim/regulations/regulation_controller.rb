@@ -13,7 +13,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :types, :departments, :categories, :has_debats, :is_subcategory
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :types, :departments
       helper_method :current_participatory_process
 
       def index
@@ -103,18 +103,6 @@ module Decidim
         else
           @status = 0
         end
-      end
-
-      def categories
-        @categories ||= Decidim::Category.where(decidim_participatory_space_id: current_participatory_process.id, decidim_participatory_space_type: "Decidim::ParticipatoryProcess")
-      end
-
-      def has_debats(process_id)
-        @has_debats ||= Decidim::Component.where(participatory_space_id: process_id, manifest_name: "proposals").where.not(published_at: nil)
-      end
-
-      def is_subcategory(category_id)
-        @is_subcategory = Decidim::Category.all.where(id: category_id).where.not(parent_id: nil).exists?
       end
     end
   end
