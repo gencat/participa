@@ -16,8 +16,7 @@ module Decidim
 
       helper ParticipatoryProcessHelper
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :categories, :has_debats, :is_subcategory
-      helper_method :process_count_by_filter
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter
 
       def index
         redirect_to "/404" if published_processes.none?
