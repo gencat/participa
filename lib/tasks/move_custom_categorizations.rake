@@ -4,7 +4,10 @@
 # because there are some custom categorizations to be removed
 # and leave it as Decidim standards
 namespace :move_custom_categorizations do
+<<<<<<< HEAD
 
+=======
+>>>>>>> bbd249451c0af74d1c9d8bfab2ebb7aa5d21dc72
   desc "Move Deparments to Areas"
   task departments_to_areas: [:environment] do
     class DecidimDepartment < ApplicationRecord
@@ -103,6 +106,17 @@ namespace :move_custom_categorizations do
         end
       end
     end
+<<<<<<< HEAD
+=======
+
+    # Move decidim_theme_id to Decidim::Scope Selector
+    # Decidim::ParticipatoryProcess.find_each do |process|
+    #   next unless process.decidim_theme_id.present?
+    #   scope = Decidim::Scope.find_by(code: DecidimTheme.find_by(id: process.decidim_theme_id).name[Decidim.default_locale.to_s].parameterize)
+    #   process.update_attributes(scopes_enabled: true, scope: scope)
+    #   puts "--- Process #{process.id} - Scope_id Updated #{scope.id}"
+    # end
+>>>>>>> bbd249451c0af74d1c9d8bfab2ebb7aa5d21dc72
   end
 
   desc "Assign scopes to ParticipatoryProcesses"
@@ -133,6 +147,7 @@ namespace :move_custom_categorizations do
     end
   end
 
+<<<<<<< HEAD
   desc "Assign Areas to ParticipatoryProcesses"
   task assign_areas_to_participatory_processes: [:environment] do
     class DecidimDepartment < ApplicationRecord
@@ -154,6 +169,8 @@ namespace :move_custom_categorizations do
   desc 'Move all custom categorizations and assign the new relations'
   task all: [:departments_to_areas, :types_to_scopes, :themes_to_scopes, :assign_scopes_to_participatory_processes, :assign_areas_to_participatory_processes ]
 
+=======
+>>>>>>> bbd249451c0af74d1c9d8bfab2ebb7aa5d21dc72
   def localized locales, key
     locales.inject({}) do |result, locale|
       I18n.locale = locale
