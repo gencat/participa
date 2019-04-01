@@ -8,6 +8,7 @@ gem "decidim", DECIDIM_VERSION
 #### Custom gems and modifciations block start ####
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-department', path: 'decidim-department'
+gem 'decidim-department_admin', path: '../decidim-department_admin'
 gem 'decidim-type', path: 'decidim-type'
 gem 'decidim-theme', path: 'decidim-theme'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
