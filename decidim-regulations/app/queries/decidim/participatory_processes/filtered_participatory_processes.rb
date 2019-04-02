@@ -51,14 +51,16 @@ module Decidim
                 end
             end
         else
-            case @filter
-            when "past"
-                processes.where("decidim_participatory_processes.end_date <= ?  AND decidim_participatory_processes.decidim_participatory_process_group_id = ?", Time.current, Rails.application.config.process)
-            when "upcoming"
-                processes.where("decidim_participatory_processes.start_date > ?  AND decidim_participatory_processes.decidim_participatory_process_group_id = ?", Time.current, Rails.application.config.process)
-            else
-                processes.where("decidim_participatory_processes.decidim_participatory_process_group_id = 1 and decidim_participatory_processes.end_date >= ?", DateTime.now.to_date)
-            end
+          case @filter
+          when "all"
+            processes.where("decidim_participatory_processes.decidim_participatory_process_group_id = ?",  Rails.application.config.process)
+          when "past"
+            processes.past.where("decidim_participatory_processes.decidim_participatory_process_group_id = ?",  Rails.application.config.process)
+          when "upcoming"
+            processes.upcoming.where("decidim_participatory_processes.decidim_participatory_process_group_id = ?",  Rails.application.config.process)
+          else
+            processes.active.where("decidim_participatory_processes.decidim_participatory_process_group_id = ?",  Rails.application.config.process)
+          end
         end
       end
     end
