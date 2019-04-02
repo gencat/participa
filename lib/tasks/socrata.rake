@@ -6,13 +6,26 @@ namespace :decidim do
     task publish_processes: :environment do
       org= Decidim::Organization.first
       Rails.logger.info "Publishing processes to Socrata: "
-      puts "["
+      # puts "["
+      rows= []
       Decidim::ParticipatoryProcess.where(organization: org).find_each do |process|
         Rails.logger.info "- [#{process.id}] #{process.title[:ca]}"
         row= produce_row_from_process(process)
-        puts "#{row},"
+        # puts "#{row},"
+        rows << row
       end
-      puts "]"
+      # puts "]"
+
+      puts "----------------------------------------------"
+      csv= CSV.generate(headers: true) do |csv|
+        csv << rows.first.keys
+
+        rows.each do |row|
+          csv << row.values
+        end
+      end
+      puts csv
+
       Rails.logger.info "\ndone."
     end
 
