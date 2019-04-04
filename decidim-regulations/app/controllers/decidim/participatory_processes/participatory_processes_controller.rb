@@ -15,7 +15,7 @@ module Decidim
       helper Decidim::ResourceReferenceHelper
 
       helper ParticipatoryProcessHelper
-  
+
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :filter, :categories, :has_debats, :is_subcategory
       helper_method :process_count_by_filter
 
@@ -39,7 +39,7 @@ module Decidim
       def organization_participatory_processes
         @organization_participatory_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
       end
-         
+
       def current_participatory_space
         return unless params["slug"]
 
@@ -63,7 +63,7 @@ module Decidim
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_participatory_processes(filter).query.where(decidim_participatory_process_group_id: nil)
+        @participatory_processes ||= filtered_participatory_processes(filter).query
       end
 
       def promoted_participatory_processes
