@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: :show
+      participatory_space_layout only: [:show, :statistics]
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
@@ -15,8 +15,8 @@ module Decidim
       helper Decidim::ResourceReferenceHelper
 
       helper ParticipatoryProcessHelper
-
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter, :categories, :has_debats, :is_subcategory
+  
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :filter, :categories, :has_debats, :is_subcategory
       helper_method :process_count_by_filter
 
       def index
@@ -27,7 +27,11 @@ module Decidim
       end
 
       def show
-        check_current_user_can_visit_space
+        enforce_permission_to :read, :process, process: current_participatory_space
+      end
+
+      def statistics
+        enforce_permission_to :read, :process, process: current_participatory_space
       end
 
       private
@@ -35,7 +39,7 @@ module Decidim
       def organization_participatory_processes
         @organization_participatory_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
       end
-
+         
       def current_participatory_space
         return unless params["slug"]
 
@@ -59,11 +63,11 @@ module Decidim
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_participatory_processes(filter)
+        @participatory_processes ||= filtered_participatory_processes(filter).query.where(decidim_participatory_process_group_id: nil)
       end
 
       def promoted_participatory_processes
-        @promoted_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= filtered_participatory_processes("all") | PromotedParticipatoryProcesses.new
       end
 
       def filtered_participatory_process_groups(filter_name = filter)
@@ -71,15 +75,20 @@ module Decidim
       end
 
       def participatory_process_groups
-        @process_groups ||= filtered_participatory_process_groups(filter)
+        @participatory_process_groups ||= filtered_participatory_process_groups(filter)
       end
 
       def stats
         @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
       end
 
+      def metrics
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
+      end
+
       def filter
-        @filter = params[:filter] || default_filter
+        return default_filter unless ProcessFiltersCell::ALL_FILTERS.include?(params[:filter])
+        @filter ||= params[:filter] || default_filter
       end
 
       def default_filter
