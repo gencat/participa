@@ -2,11 +2,11 @@
 
 $( document ).ready(function() {
     if ( isNaN($("#status_id").val()))
-        $("#status_0").attr("class", "order-by__tab is-active part-regulation-tab");
+        $("#status_2").attr("class", "order-by__tab is-active part-regulation-tab");
     else
         $("#status_"+$("#status_id").val()).attr("class", "order-by__tab is-active part-regulation-tab");
-    
-    $('[data-open="processEmbed"]').hide(); 
+
+    $('[data-open="processEmbed"]').hide();
 
     //hoome section correction - meetings count
     var meetings_home = $(".home-pam__lowlight").find(".home-pam__data").first();
