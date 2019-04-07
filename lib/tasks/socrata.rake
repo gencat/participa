@@ -52,7 +52,7 @@ namespace :decidim do
         facilitators: "The name of the facilitators",
         num_participants: 10000,
         num_entities: 75,
-        num_proposals: 500,
+        num_proposals: num_proposals(process),
         accepted_proposals_ratio: 30,
         process_type: "TODO",
         num_meetings: 130,
@@ -60,9 +60,9 @@ namespace :decidim do
         meetings_num_entities: 25,
         meetings_num_contributions: 12345,
         num_debates: 200,
-        debates_num_participants: 9999,
-        debates_num_entities: 50,
-        debates_num_contributions:1234567890,
+        proposals_num_participants: 9999,
+        proposals_num_entities: 50,
+        proposals_num_contributions:1234567890,
         has_record: true,
         has_assembly: true,
         assembly_name_ca: "Consell republicà",
@@ -70,5 +70,14 @@ namespace :decidim do
 
       h
     end
+
+    #------------------------------------
+    private
+    #------------------------------------
+
+    def num_proposals(process)
+      Decidim::Proposals::Proposal.joins(:component).where('decidim_components.participatory_space_id' => process.id).count
+    end
+
   end
 end
