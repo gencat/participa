@@ -101,7 +101,7 @@ module Decidim
         if params.has_key?(:status)
           @status = params[:status]
         else
-          @status = 0
+          @status = 2
         end
       end
 
