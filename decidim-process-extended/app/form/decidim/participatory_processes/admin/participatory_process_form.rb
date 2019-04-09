@@ -33,11 +33,18 @@ module Decidim
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
+<<<<<<< HEAD
         attribute :show_statistics, Boolean
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
 
+=======
+        attribute :scope_id, Integer
+        attribute :area_id, Integer
+        attribute :hero_image
+        attribute :remove_hero_image
+>>>>>>> working on upgrade
         attribute :banner_image
         attribute :hero_image
         attribute :remove_banner_image
