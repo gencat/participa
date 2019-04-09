@@ -80,8 +80,12 @@ module Decidim
           end
         end
 
+        def copy
+          enforce_permission_to :create, Decidim::ParticipatoryProcess
+        end
+
         private
-        
+
         def participatory_processes
           @participatory_processes ||= Rectify::Query.merge(
             ParticipatoryProcessesWithUserRole.for(current_user),
@@ -96,7 +100,6 @@ module Decidim
         def collection
           @collection ||= paginate(query.result)
         end
-
 
         def current_participatory_process
           @current_participatory_process ||= collection.where(slug: params[:slug]).or(
