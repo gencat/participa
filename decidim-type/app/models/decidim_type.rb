@@ -1,2 +1,0 @@
-class DecidimType < ApplicationRecord
-end

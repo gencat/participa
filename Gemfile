@@ -6,10 +6,6 @@ DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim' }.freeze
 gem "decidim", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
-# gem 'decidim-admin-extended', path: 'decidim-admin-extended'
-# gem 'decidim-department', path: 'decidim-department'
-# gem 'decidim-type', path: 'decidim-type'
-# gem 'decidim-theme', path: 'decidim-theme'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
