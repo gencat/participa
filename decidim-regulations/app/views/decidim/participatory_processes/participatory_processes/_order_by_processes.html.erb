@@ -1,8 +1,8 @@
 <% is_process = request.original_fullpath.include? "/processes" %>
 
-<% if is_process %>
+<%# if is_process %>
   <%= cell "decidim/participatory_processes/process_filters", default_filter: default_date_filter %>
-<% end %>
+<%# end %>
 
 <% if !is_process %>
   <%= form_tag("/regulations", method: "get") do %>

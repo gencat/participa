@@ -82,20 +82,20 @@ namespace :move_custom_categorizations do
 
     ActiveRecord::Base.transaction do
       Decidim::Organization.find_each do |organization|
-        scope_parent = Decidim::Scope.find_or_create_by(
-          name: localized(organization.available_locales, "scope_parent.themes.name"),
+        parent_scope = Decidim::Scope.find_or_create_by(
+          name: localized(organization.available_locales, "parent_scope.themes.name"),
           code: "temes",
           organization: organization
         )
 
-        puts "+++++ ScopeParent Created #{scope_parent.id} - #{scope_parent.name}"
+        puts "+++++ ScopeParent Created #{parent_scope.id} - #{parent_scope.name}"
 
         DecidimTheme.where(decidim_organization_id: organization.id).each do |t|
           scope = Decidim::Scope.find_or_create_by(
             name: t.name,
             code: "tema-#{t.name[organization.default_locale].parameterize}",
             organization: organization,
-            parent_id: scope_parent.id,
+            parent_id: parent_scope.id,
           )
 
           puts "ScopeChild created #{scope.id} - #{scope.name}"
@@ -118,8 +118,8 @@ namespace :move_custom_categorizations do
       Decidim::ParticipatoryProcess.where(organization: organization).find_each do |process|
         if process.decidim_type_id.present?
           next unless process.decidim_theme_id.present?
-          scope_parent = Decidim::Scope.find_by(code: "#{DecidimType.find_by(id: process.decidim_type_id).name[organization.default_locale].parameterize}")
-          scope_child = scope_parent.children.find_by(code: "#{scope_parent.code}-#{DecidimTheme.find_by(id: process.decidim_theme_id).name[organization.default_locale].parameterize}")
+          parent_scope = Decidim::Scope.find_by(code: "#{DecidimType.find_by(id: process.decidim_type_id).name[organization.default_locale].parameterize}")
+          scope_child = parent_scope.children.find_by(code: "#{parent_scope.code}-#{DecidimTheme.find_by(id: process.decidim_theme_id).name[organization.default_locale].parameterize}")
           process.update_attributes(scopes_enabled: true, scope: scope_child)
           puts "--- Process #{process.id} - Scope_id Updated #{scope_child.id}"
         else

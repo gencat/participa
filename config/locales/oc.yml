@@ -3,7 +3,7 @@ oc:
     departments:
       name: Departament
       plural: Departaments
-  scope_parent:
+  parent_scope:
     themes:
       name: Temes
   scope_type:

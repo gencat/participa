@@ -3,7 +3,7 @@ es:
     departments:
       name: Departamento
       plural: Departamentos
-  scope_parent:
+  parent_scope:
     themes:
       name: Temas
   scope_type:
