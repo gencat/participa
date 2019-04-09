@@ -103,10 +103,6 @@
     <div class="row column">
       <%= form.translated :text_field, :participatory_structure %>
     </div>
-
-    <div class="row column">
-      <%= form.email_field :email %>
-    </div>
   </div>
 
   <div class="card-divider">
@@ -136,42 +132,18 @@
 
   <div class="card-section">
     <div class="row column">
-      <div class="columns xlarge-6">
-        <% if process_groups_for_select %>
-          <%= form.select :participatory_process_group_id,
-                          process_groups_for_select,
-                          include_blank: t(".select_process_group") %>
-        <% end %>
-      </div>
-      <div class="columns xlarge-6">
-        <% if departments_for_select %>
-          <%= form.select :department_id, departments_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="columns xlarge-6">
-        <% if themes_for_select %>
-          <%= form.select :theme_id, themes_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
-      </div>
-
-      <div class="columns xlarge-6">
-        <% if types_for_select %>
-          <%= form.select :type_id, types_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
-      </div>
+      <% if process_groups_for_select %>
+        <%= form.select :participatory_process_group_id,
+                        process_groups_for_select,
+                        include_blank: t(".select_process_group") %>
+      <% end %>
     </div>
 
     <div class="row column">
       <%= form.check_box :private_space %>
     </div>
-    <div class="row column">
+        <div class="row column">
       <%= form.check_box :promoted %>
-    </div>
-    <div class="row column">
-      <%= form.check_box :show_home, label: t(".appear_home") %>
     </div>
   </div>
 

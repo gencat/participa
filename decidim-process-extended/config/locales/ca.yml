@@ -13,6 +13,14 @@ ca:
       admin:
         participatory_processes:
           form:
+            duration: Durada
+            filters: Filtres
+            images: Imatges
+            metadata: Metadata
+            other: Altres
+            select_process_group: Selecciona un grup de processos
+            title: Informació General
+            visbility: Visibilitat
             appear_home: Sortir al home (imatge)
     projects:
       filters:
