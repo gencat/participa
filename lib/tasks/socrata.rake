@@ -35,14 +35,14 @@ namespace :decidim do
         id: process.id,
         title_ca: process.title['ca'],
         slug: process.slug,
-        # TODO aclarir si promoting unit és l'scope per tema amb gencat
-        promoting_unit_id: 0,# TODO dao.promoting_unit_id, 
-        promoting_unit_name_ca: 'TODO promoting_unit_name_ca',
+        scope_id: 0,
+        scope_name_ca: 'TODO nom en ca',
+        promoting_unit: 'TODO promoting_unit_name',
         # TODO we need to be upgraded to 0.18 in order for processes to have areas
         department_id: 0, # area id
         department_name_ca: 'TODO department_name_ca', # area name
+        participatory_space: :process, # ENUM: one of :process, :normative, :assembly
         # TODO depends upon "Migració de categoritzacions a estàndards Decidim"
-        is_normative: true, # TODO
         normative_type_id: 0,
         normative_type_name_ca: 'TODO normative_type_name_ca',
         short_description_ca: process.description['ca'],
@@ -51,17 +51,20 @@ namespace :decidim do
         end_date: process.end_date,
         cost: 100000, # TODO create new field in participa
         facilitators: "The name of the facilitators", # TODO create new field in participa
-        num_participants: 10000, # TODO
+        total_num_participants: 10000, # meetings_num_participants + proposals_num_participants
         total_num_entities: 75, # meetings_num_entities + proposals_num_entities
         total_num_proposals: num_proposals(process),
-        accepted_proposals_ratio: 30, # TODO READY*****
+        total_accepted_proposals: 0,
+        total_refused_proposals: 0,
+        total_in_evaluation_proposals: 0,
         process_type: process_type(process),
-        num_meetings: num_meetings(process),
+        total_num_meetings: num_meetings(process),
         meetings_num_participants: 999, # TODO READY*****
         meetings_num_entities: 25, # TODO READY*****
         meetings_num_proposals: 12345, # TODO READY*****
-        proposals_num_participants: 9999, # TODO READY*****
-        proposals_num_entities: 50, # TODO READY*****
+        debates_num_debates: 22, 
+        proposals_num_authors: 9999, # TODO READY*****
+        proposals_num_author_entities: 50, # TODO READY*****
         proposals_num_proposals: 1234567890, # TODO READY*****
         has_record: true,
         has_assembly: true,
@@ -83,9 +86,13 @@ namespace :decidim do
     end
     def process_type(process)
       types= []
-      types << :virtual if num_proposals(process) > 0
+      types << :virtual if has_proposals?(process) || has_debates?(process)
       types << :presencial if num_meetings(process) > 0
       (types.size > 1) ? :ambdos : types.first
+    end
+
+    def has_proposals?(process)
+      num_proposals(process) > 0
     end
   end
 end
