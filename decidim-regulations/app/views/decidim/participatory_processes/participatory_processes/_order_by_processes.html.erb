@@ -1,7 +1,7 @@
 <% is_process = request.original_fullpath.include? "/processes" %>
 
 <% if is_process %>
-  <%= cell "decidim/participatory_processes/process_filters", process_count_by_filter, current_filter: filter %>
+  <%= cell "decidim/participatory_processes/process_filters", default_filter: default_date_filter %>
 <% end %>
 
 <% if !is_process %>

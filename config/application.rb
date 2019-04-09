@@ -11,7 +11,7 @@ module Participa
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.available_locales = %w(en ca es oc)
-    
+
     # Processes group ids used to determine whether a process is a regulation or a process
     config.process    = 1
     config.regulation = 3
