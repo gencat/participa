@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_111355) do
+ActiveRecord::Schema.define(version: 2019_04_08_110804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -758,6 +758,7 @@ ActiveRecord::Schema.define(version: 2019_04_03_111355) do
     t.string "id_documents_methods", default: ["online"], array: true
     t.jsonb "id_documents_explanation_text", default: {}
     t.boolean "user_groups_enabled", default: false, null: false
+    t.jsonb "colors", default: {}
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
@@ -841,8 +842,6 @@ ActiveRecord::Schema.define(version: 2019_04_03_111355) do
     t.integer "decidim_type_id"
     t.string "reference"
     t.boolean "private_space", default: false
-    t.bigint "decidim_area_id"
-    t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
   end
@@ -1259,6 +1258,14 @@ ActiveRecord::Schema.define(version: 2019_04_03_111355) do
     t.index ["reset_password_token"], name: "index_decidim_users_on_reset_password_token", unique: true
   end
 
+  create_table "decidim_verifications_csv_data", force: :cascade do |t|
+    t.string "email"
+    t.bigint "decidim_organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -1350,6 +1357,7 @@ ActiveRecord::Schema.define(version: 2019_04_03_111355) do
   add_foreign_key "decidim_themes", "decidim_organizations"
   add_foreign_key "decidim_types", "decidim_organizations"
   add_foreign_key "decidim_users", "decidim_organizations"
+  add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"

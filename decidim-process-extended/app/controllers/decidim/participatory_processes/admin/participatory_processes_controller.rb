@@ -11,7 +11,7 @@ module Decidim
 
         helper ProcessGroupsForSelectHelper
 
-        helper_method :current_participatory_process
+        helper_method :current_participatory_process, :current_participatory_space
 
         layout "decidim/admin/participatory_processes"
 
@@ -55,7 +55,6 @@ module Decidim
             process_id: current_participatory_process.id
           )
 
-          #puts @form
           UpdateParticipatoryProcess.call(current_participatory_process, @form) do
             on(:ok) do |participatory_process|
 
@@ -76,14 +75,14 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to :destroy, :process, process: current_participatory_process
-          current_participatory_process.destroy!
-
-          flash[:notice] = I18n.t("participatory_processes.destroy.success", scope: "decidim.admin")
-
-          redirect_to participatory_processes_path
-        end
+        # def destroy
+        #   enforce_permission_to :destroy, :process, process: current_participatory_process
+        #   current_participatory_process.destroy!
+        #
+        #   flash[:notice] = I18n.t("participatory_processes.destroy.success", scope: "decidim.admin")
+        #
+        #   redirect_to participatory_processes_path
+        # end
 
         def copy
           enforce_permission_to :create, Decidim::ParticipatoryProcess
