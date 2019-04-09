@@ -187,22 +187,9 @@ GIT
       decidim-core (= 0.18.0.dev)
 
 PATH
-  remote: decidim-admin-extended
-  specs:
-    decidim-admin-extended (0.1.0)
-      decidim-admin (>= 0.9.3)
-      decidim-core (>= 0.9.3)
-
-PATH
   remote: decidim-admin-search_user
   specs:
     decidim-admin-search_user (0.1.0)
-      rails (>= 5.2, < 6.0.x)
-
-PATH
-  remote: decidim-department
-  specs:
-    decidim-department (0.1.0)
       rails (>= 5.2, < 6.0.x)
 
 PATH
@@ -236,18 +223,6 @@ PATH
   remote: decidim-selectable-news
   specs:
     decidim-selectable-news (0.1.0)
-      rails (>= 5.2, < 6.0.x)
-
-PATH
-  remote: decidim-theme
-  specs:
-    decidim-theme (0.1.0)
-      rails (>= 5.2, < 6.0.x)
-
-PATH
-  remote: decidim-type
-  specs:
-    decidim-type (0.1.0)
       rails (>= 5.2, < 6.0.x)
 
 GEM
@@ -818,9 +793,7 @@ DEPENDENCIES
   byebug
   daemons
   decidim!
-  decidim-admin-extended!
   decidim-admin-search_user!
-  decidim-department!
   decidim-dev!
   decidim-espais-estables!
   decidim-home!
@@ -828,8 +801,6 @@ DEPENDENCIES
   decidim-process-extended!
   decidim-regulations!
   decidim-selectable-news!
-  decidim-theme!
-  decidim-type!
   delayed_job_active_record
   faker (>= 1.8.4)
   figaro (>= 1.1.1)

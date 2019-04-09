@@ -157,25 +157,6 @@
                           include_blank: t(".select_process_group") %>
         <% end %>
       </div>
-      <div class="columns xlarge-6">
-        <% if departments_for_select %>
-          <%= form.select :department_id, departments_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="columns xlarge-6">
-        <% if themes_for_select %>
-          <%= form.select :theme_id, themes_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
-      </div>
-
-      <div class="columns xlarge-6">
-        <% if types_for_select %>
-          <%= form.select :type_id, types_for_select, include_blank: I18n.t("decidim.themes.none") %>
-        <% end %>
-      </div>
     </div>
 
     <div class="row column">
