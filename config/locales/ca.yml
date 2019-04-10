@@ -12,3 +12,6 @@ ca:
     regulations:
       name: Participació en normativa
       plural: Participació en normatives
+    themes:
+      name: Tema
+      plural: Temes

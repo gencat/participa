@@ -12,3 +12,6 @@ oc:
     regulations:
       name: Participació normativa
       plural: Participació normatives
+    themes:
+      name: Tema
+      plural: Temes

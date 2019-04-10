@@ -12,3 +12,6 @@ es:
     regulations:
       name: Participación en normativa
       plural: Participación en normativas
+    themes:
+      name: Tema
+      plural: Temas

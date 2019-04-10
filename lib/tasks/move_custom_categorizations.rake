@@ -66,11 +66,19 @@ namespace :move_custom_categorizations do
           )
           puts "---Scope created - #{scope.id} - #{scope.name}"
 
+          scope_type = Decidim::ScopeType.find_or_create_by(
+            name: localized(organization.available_locales, type.name),
+            plural: localized(organization.available_locales, type.name),
+            organization: organization
+          )
+          puts "---ScopeType created - #{scope_type.id} - #{scope_type.name}"
+
           DecidimTheme.where(decidim_organization_id: organization.id).each do |t|
             scope_child = Decidim::Scope.find_or_create_by(
               name: t.name,
               code: "#{type.name[organization.default_locale].parameterize}-#{t.name[organization.default_locale].parameterize}",
               organization: organization,
+              scope_type: scope_type,
               parent_id: scope.id,
             )
 
@@ -89,6 +97,13 @@ namespace :move_custom_categorizations do
 
     ActiveRecord::Base.transaction do
       Decidim::Organization.find_each do |organization|
+        scope_type = Decidim::ScopeType.find_or_create_by(
+          name: localized(organization.available_locales, "scope_type.themes.name"),
+          plural: localized(organization.available_locales, "scope_type.themes.plural"),
+          organization: organization
+        )
+        puts "---ScopeType created - #{scope_type.id} - #{scope_type.name}"
+
         parent_scope = Decidim::Scope.find_or_create_by(
           name: localized(organization.available_locales, "parent_scope.themes.name"),
           code: "temes",
@@ -102,6 +117,7 @@ namespace :move_custom_categorizations do
             name: t.name,
             code: "tema-#{t.name[organization.default_locale].parameterize}",
             organization: organization,
+            scope_type: scope_type,
             parent_id: parent_scope.id,
           )
 
@@ -149,6 +165,10 @@ namespace :move_custom_categorizations do
       Decidim::Organization.find_each do |organization|
         Decidim::ParticipatoryProcess.where(organization: organization).find_each do |process|
           next unless process.decidim_department_id.present?
+          puts "-------------"
+          puts "#{process.as_json}"
+          puts "#{process.decidim_department_id}"
+          puts "-------------"
           area = Decidim::Area.find_by("name->>'ca' = ?", "#{DecidimDepartment.find_by(id: process.decidim_department_id).name}")
           process.update_attributes(area: area)
           puts "--- Process #{process.id} - Area id Updated #{area.id}"
