@@ -1,8 +1,4 @@
 es:
-  area_type:
-    departments:
-      name: Departamento
-      plural: Departamentos
   parent_scope:
     themes:
       name: Temas

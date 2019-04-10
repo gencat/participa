@@ -12,17 +12,9 @@ namespace :move_custom_categorizations do
 
     ActiveRecord::Base.transaction do
       Decidim::Organization.find_each do |organization|
-        area_type = Decidim::AreaType.find_or_create_by(
-          name: localized(organization.available_locales, "area_type.departments.name"),
-          plural: localized(organization.available_locales, "area_type.departments.plural"),
-          organization: organization
-        )
-        puts "---AreaType created - #{area_type.id} - #{area_type.name}"
-
         DecidimDepartment.where(decidim_organization_id: organization.id).each do |department|
           area = Decidim::Area.find_or_create_by(
             name: organization.available_locales.map { |l| [l, "#{department.name}"] }.to_h,
-            area_type: area_type,
             organization: organization,
           )
           puts "---Area created - #{area.id} - #{area.name}"
@@ -57,6 +49,13 @@ namespace :move_custom_categorizations do
         )
 
         DecidimType.where(decidim_organization_id: organization.id).each do |type|
+          scope_type_child = Decidim::ScopeType.find_or_create_by(
+            name: localized(organization.available_locales, type.name),
+            plural: localized(organization.available_locales, type.name),
+            organization: organization
+          )
+          puts "---ScopeType created - #{scope_type.id} - #{scope_type.name}"
+
           scope = Decidim::Scope.find_or_create_by(
             name: type.name,
             code: type.name[organization.default_locale].parameterize,
@@ -66,19 +65,12 @@ namespace :move_custom_categorizations do
           )
           puts "---Scope created - #{scope.id} - #{scope.name}"
 
-          scope_type = Decidim::ScopeType.find_or_create_by(
-            name: localized(organization.available_locales, type.name),
-            plural: localized(organization.available_locales, type.name),
-            organization: organization
-          )
-          puts "---ScopeType created - #{scope_type.id} - #{scope_type.name}"
-
           DecidimTheme.where(decidim_organization_id: organization.id).each do |t|
             scope_child = Decidim::Scope.find_or_create_by(
               name: t.name,
               code: "#{type.name[organization.default_locale].parameterize}-#{t.name[organization.default_locale].parameterize}",
               organization: organization,
-              scope_type: scope_type,
+              scope_type: scope_type_child,
               parent_id: scope.id,
             )
 

@@ -54,11 +54,11 @@ module Decidim
       end
 
       def published_processes
-        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user)
+        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user).query.where(decidim_participatory_process_group_id: Rails.application.config.process)
       end
 
       def promoted_participatory_processes
-        @promoted_participatory_processes ||= published_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= published_processes.promoted
       end
 
       # This is customized because GENCAT don't Processes Groups on Index Page

@@ -5,7 +5,7 @@
 The logic from decidim-department, decidim-theme, decidim-type and decidim-admin-extended has been removed to the Decidim Standards, so you need to migrate the data to the new database tables:
 
 ```ruby
-bundle exec rake decidim_surveys:migrate_data_to_decidim_forms
+bundle exec rake move_custom_categorizations:all
 ```
 Once you are sure that the data is migrated, you can create a migration in your app to remove the old decidim_departments, decidim_themes, decidim_types tables, and their relations:
 

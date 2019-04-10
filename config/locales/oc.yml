@@ -1,8 +1,4 @@
 oc:
-  area_type:
-    departments:
-      name: Departament
-      plural: Departaments
   parent_scope:
     themes:
       name: Temes
