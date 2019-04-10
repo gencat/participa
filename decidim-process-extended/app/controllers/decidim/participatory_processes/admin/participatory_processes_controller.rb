@@ -12,11 +12,7 @@ module Decidim
 
         helper ProcessGroupsForSelectHelper
 
-<<<<<<< HEAD
         helper_method :current_participatory_process, :current_participatory_space, :query
-=======
-        helper_method :current_participatory_process, :current_participatory_space
->>>>>>> upgrade to 0.17.0
 
         layout "decidim/admin/participatory_processes"
 
@@ -85,6 +81,10 @@ module Decidim
         end
 
         private
+
+        def process_group
+          @process_group ||= ParticipatoryProcessGroup.find_by(id: params[:group_id])
+        end
 
         def participatory_processes
           @participatory_processes ||= Rectify::Query.merge(

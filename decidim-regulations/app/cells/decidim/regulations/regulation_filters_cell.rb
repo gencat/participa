@@ -3,13 +3,13 @@
 module Decidim
   module Regulations
     class RegulationFiltersCell < Decidim::ViewModel
-      ALL_FILTERS = %w(active past upcoming all).freeze
+      ALL_FILTERS = %w(opened closed upcoming all).freeze
 
       def filter_link(filter)
-        Decidim::ParticipatoryProcesses::Engine
+        Decidim::Regulations::Engine
           .routes
           .url_helpers
-          .participatory_processes_path(
+          .regulation_index_path(
             filter: {
               scope_id: get_filter(:scope_id),
               area_id: get_filter(:area_id),
@@ -41,11 +41,13 @@ module Decidim
       def process_count_by_filter
         return @process_count_by_filter if @process_count_by_filter
 
-        @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
+        @process_count_by_filter = %w(opened closed upcoming).inject({}) do |collection_by_filter, filter_name|
           filtered_processes = filtered_processes(filter_name).results
-          processes = filtered_processes.groupless
-          groups = Decidim::ParticipatoryProcessGroup.where(id: filtered_processes.grouped.group_ids)
-          collection_by_filter.merge(filter_name => processes.count + groups.count)
+          # processes = filtered_processes.groupless
+          processes = filtered_processes
+          # groups = Decidim::ParticipatoryProcessGroup.where(id: filtered_processes.grouped.group_ids)
+          # collection_by_filter.merge(filter_name => processes.count + groups.count)
+          collection_by_filter.merge(filter_name => processes.count)
         end
         @process_count_by_filter["all"] = @process_count_by_filter.values.sum
         @process_count_by_filter
@@ -66,18 +68,18 @@ module Decidim
       end
 
       def title
-        I18n.t(current_filter, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: process_count_by_filter[current_filter])
+        I18n.t(current_filter, scope: "decidim.regulations.regulation.filters.counters", count: process_count_by_filter[current_filter])
       end
 
       def filter_name(filter)
-        I18n.t(filter, scope: "decidim.participatory_processes.participatory_processes.filters.names")
+        I18n.t(filter, scope: "decidim.regulations.regulation.filters.names")
       end
 
       def explanation
-        return if process_count_by_filter["active"].positive?
+        return if process_count_by_filter["opened"].positive?
         content_tag(
           :span,
-          I18n.t(explanation_text, scope: "decidim.participatory_processes.participatory_processes.filters.explanations"),
+          I18n.t(explanation_text, scope: "decidim.regulations.regulation.filters.explanations"),
           class: "muted mr-s ml-s"
         )
       end

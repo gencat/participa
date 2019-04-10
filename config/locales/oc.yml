@@ -6,6 +6,8 @@ oc:
   parent_scope:
     themes:
       name: Temes
+    types:
+      name: Tipus
   scope_type:
     regulations:
       name: Participació normativa

@@ -11,7 +11,7 @@ module Decidim
       include FilterResource
 
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :metrics, :default_date_filter
-      helper_method :current_participatory_process
+      # helper_method :current_participatory_process
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -31,7 +31,7 @@ module Decidim
       private
 
       def search_klass
-        Decidim::ParticipatoryProcesses::ParticipatoryProcessSearch
+        RegulationSearch
       end
 
       def default_filter_params
@@ -43,7 +43,7 @@ module Decidim
       end
 
       def organization_participatory_processes
-        @organization_participatory_processes ||= Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization).query
+        @organization_participatory_processes ||= Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization).query.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
       end
 
       def current_participatory_space
@@ -55,11 +55,11 @@ module Decidim
       end
 
       def published_processes
-        @published_processes ||= Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user)
+        @published_processes ||= Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user).query.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
       end
 
       def promoted_participatory_processes
-        @promoted_participatory_processes ||= published_processes | Decidim::ParticipatoryProcesses::PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= published_processes.promoted
       end
 
       # This is customized because GENCAT don't Processes Groups on Index Page
@@ -92,11 +92,12 @@ module Decidim
       end
 
       def default_date_filter
-        return "active" if published_processes.any?(&:active?)
+        return "opened" if published_processes.where("start_date < ? AND end_date > date(?)", DateTime.now.to_date, DateTime.now.to_date).order(start_date: :desc).any?(&:active?)
+        return "closed" if published_processes.any?(&:past?)
         return "upcoming" if published_processes.any?(&:upcoming?)
-        return "past" if published_processes.any?(&:past?)
         "all"
       end
+
       # def filtered_participatory_processes(filter = default_filter, filter_type_filter = 0, department_type_filter = 0, status_filter = 0)
       #   Decidim::ParticipatoryProcesses::OrganizationPrioritizedRegulations.new(current_organization, filter, current_user, regulation, filter_type_filter, department_type_filter, status_filter)
       # end

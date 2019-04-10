@@ -18,6 +18,33 @@ ca:
             active_processes: Participació en normativa
             see_all_processes: Veure totes les participacions
       regulation:
+        filters:
+          counters:
+            all:
+              one: 1 regulation
+              other: "%{count} regulations"
+            closed:
+              one: 1 closed regulation
+              other: "%{count} past regulations"
+            opened:
+              one: 1 opened regulation
+              other: "%{count} opened regulations"
+            upcoming:
+              one: 1 upcoming regulation
+              other: "%{count} upcoming regulations"
+          explanations:
+            no_active: No active regulations
+            no_active_nor_upcoming: No active nor upcoming regulations
+            no_active_nor_upcoming_callout: There are no active nor upcoming regulations. Here is a list of the past ones.
+          names:
+            active: Active
+            all: All
+            closed: Closed
+            opened: Opened
+            upcoming: Upcoming
+          see: See
+        index:
+          loading: Loading results...
         show:
           email: Bústia de suport
           categories: Eixos de debat

@@ -50,11 +50,18 @@ namespace :move_custom_categorizations do
         )
         puts "---ScopeType created - #{scope_type.id} - #{scope_type.name}"
 
+        parent_scope = Decidim::Scope.find_or_create_by(
+          name: localized(organization.available_locales, "parent_scope.types.name"),
+          code: "tipus",
+          organization: organization
+        )
+
         DecidimType.where(decidim_organization_id: organization.id).each do |type|
           scope = Decidim::Scope.find_or_create_by(
             name: type.name,
             code: type.name[organization.default_locale].parameterize,
             scope_type: scope_type,
+            parent_id: parent_scope.id,
             organization: organization,
           )
           puts "---Scope created - #{scope.id} - #{scope.name}"
