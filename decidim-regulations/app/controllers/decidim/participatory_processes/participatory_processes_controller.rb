@@ -63,9 +63,11 @@ module Decidim
         OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter_name, current_user)
       end
 
+      # This is customized because GENCAT
       def participatory_processes
         @participatory_processes ||= filtered_participatory_processes(filter)
       end
+      # This is customized because GENCAT
 
       def promoted_participatory_processes
         @promoted_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new

@@ -46,7 +46,6 @@ module Decidim
         attribute :theme_id, Integer
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
-        # validates :email, :slug, presence: true
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
 
@@ -71,7 +70,7 @@ module Decidim
         end
 
         def participatory_process_group
-          Decidim::ParticipatoryProcessGroup.where(id: participatory_process_group_id).first
+          Decidim::ParticipatoryProcessGroup.find_by(id: participatory_process_group_id)
         end
 
         private
