@@ -841,8 +841,6 @@ ActiveRecord::Schema.define(version: 2019_04_03_111355) do
     t.integer "decidim_type_id"
     t.string "reference"
     t.boolean "private_space", default: false
-    t.bigint "decidim_area_id"
-    t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
   end
@@ -1246,6 +1244,7 @@ ActiveRecord::Schema.define(version: 2019_04_03_111355) do
     t.string "type", null: false
     t.jsonb "extended_data", default: {}
     t.integer "following_count", default: 0, null: false
+    t.integer "following_users_count", default: 0, null: false
     t.integer "followers_count", default: 0, null: false
     t.string "notification_types", default: "all", null: false
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
