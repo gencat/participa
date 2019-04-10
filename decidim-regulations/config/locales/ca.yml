@@ -21,35 +21,43 @@ ca:
         filters:
           counters:
             all:
-              one: 1 regulation
-              other: "%{count} regulations"
+              one: 1 participació en normativa
+              other: "%{count} participacions"
             closed:
-              one: 1 closed regulation
-              other: "%{count} past regulations"
+              one: 1 participació tancada
+              other: "%{count} participacions tancades"
             opened:
-              one: 1 opened regulation
-              other: "%{count} opened regulations"
+              one: 1 participació oberta
+              other: "%{count} participacions obertes"
             upcoming:
-              one: 1 upcoming regulation
-              other: "%{count} upcoming regulations"
+              one: 1 participació propera
+              other: "%{count} participacions properes"
           explanations:
-            no_active: No active regulations
-            no_active_nor_upcoming: No active nor upcoming regulations
-            no_active_nor_upcoming_callout: There are no active nor upcoming regulations. Here is a list of the past ones.
+            no_active: No hi ha participacions actives
+            no_active_nor_upcoming: No hi ha participacions actives o pròximes
+            no_active_nor_upcoming_callout: No hi ha participacions actives o pròximes. Aquí hi ha un llistat de les tancades.
           names:
-            active: Active
-            all: All
-            closed: Closed
-            opened: Opened
-            upcoming: Upcoming
-          see: See
+            active: Actives
+            all: Totes
+            closed: Tancades
+            opened: Obertes
+            upcoming: Pròximes
+          see: Veure
         index:
-          loading: Loading results...
+          loading: Carregant...
         show:
           email: Bústia de suport
           categories: Eixos de debat
         index:
           loading: Carregant
+      scopes:
+        global: Tots els tipus
+        picker:
+          cancel: Cancel·lar
+          choose: Selecciona
+          title: Seleccioneu %{field}
+        prompt: Seleccioneu un tipus
+        types: Tipus
     pages:
       home:
         statistics:
@@ -72,6 +80,19 @@ ca:
       proposals:
         index:
           see_proposals: Veure Propostes
+    scopes:
+      global: Tots els temes
+      picker:
+        cancel: Cancel·lar
+        choose: Selecciona
+        title: Seleccioneu %{field}
+      prompt: Seleccioneu un tema
+      scopes: Temes
+    shared:
+      participatory_space_filters:
+        filters:
+          areas: Departaments
+          select_an_area: Seleccioneu un departament
   layouts:
     decidim:
       regulation_header:
