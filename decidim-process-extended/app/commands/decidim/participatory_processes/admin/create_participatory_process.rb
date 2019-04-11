@@ -64,6 +64,10 @@ module Decidim
             participatory_process_group: form.participatory_process_group,
 
             # Participa added attributes
+            cost: form.cost,
+            has_summary_record: form.has_summary_record,
+            promoting_unit: form.promoting_unit,
+            facilitators: form.facilitators,
             email: form.email.downcase,
             show_home: form.show_home,
             decidim_department_id: form.department_id,
