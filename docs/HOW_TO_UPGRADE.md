@@ -73,7 +73,6 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "app/controllers/decidim/participatory_procces/admin/participatory_procces_controller.rb"-> overwrite decidim file and add default images for hero.
       * "app/form/decidim/participatory_procceses/admin/participatory_procces_form.rb"-> overwrite decidim file and add new fields in the form.
       * "app/views/decidim/participatory_procceses/admin/participatory_processes/form.html.erb"-> overwrite decidim file and add new fields in the form.
-      * "app/decidim/participatory_processes/pages/home/highlihted_processes.html.erb"> In this file, copy and paste the original file, and limit the number of assemblies to show. (This is necessary to do so until content_blocks are limited to 4 elements.)
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
 
 
@@ -93,7 +92,6 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "app/commands/decidim/admin/deliver_newsletter.rb"-> overwrite decidim file with the process id selected
       * "app/controllers/decidim/admin/newsletters_controller.rb"-> overwrite decidim file with the necessary methods to select processes
       * "app/jobs/decidim/admin/newsletter_job.rb"-> overwrite decidim file with the modifications
-      * "app/views/decidim/admin/newsletters/index.html.erb"-> overwrite decidim file with the process selected.
       * "app/views/decidim/admin/newsletters/show.html.erb"-> overwrite decidim file with the process selected.
       * "app/views/decidim/admin/newsletters/processes_div.html.erb" -> Add file with the div of processes to select.
       * "config/locales/" -> Add missing locales for search form.
@@ -107,8 +105,6 @@ These are custom modules  and this is what you have to keep in mind when updatin
       * "app/controllers/decidim/proposals/proposals_controller.rb"-> overwrite decidim file and add the custom functionality of best-comments
       * "app/controllers/decidim_controller.rb"
       * "app/helpers/decidim/participatory_processes/admin/" -> add helpers for departments, themes, and types
-      * "app/views/decidim/proposals/proposals/index.html.erb" -> Change the layout of index proposals adding categories.
-      * "app/views/decidim/proposals/proposals/index.js.erb" -> Change the layout of index proposals adding categories.
       * "app/views/decidim/proposals/proposals/show.html.erb" -> Change the layout of show proposals adding best comments.
       * "app/views/decidim/proposals/proposals/most_voted_comments.html.erb" -> Add the layout of most voted comments.
       * "app/views/decidim/debates/debats/show.html.erb" -> Change the simple_format method to decidim_sanitize

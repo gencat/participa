@@ -1,7 +1,7 @@
 <% is_process = request.original_fullpath.include? "/processes" %>
 
 <% if is_process %>
-  <%= cell "decidim/participatory_processes/process_filters", process_count_by_filter, current_filter: filter %>
+  <%= cell "decidim/participatory_processes/process_filters", default_filter: default_date_filter %>
 <% end %>
 
 <% if !is_process %>
@@ -12,7 +12,7 @@
         <h2 class="order-by__text section-heading part-regulation-top-margin">
           <%= t("participatory_processes.order_by_processes.regulations", scope: "layouts.decidim", count: collection.count) %>
             <span class="order-by__tabs">
-              <button type="submit" name="status" class="order-by__tab part-regulation-tab" value="2" id="status_2"><%= t(".opened") %></button>
+              <button type="submit" name="status" class="order-by__tab part-regulation-tab <%= "is-active" unless params[:status].present? %>" value="2" id="status_2"><%= t(".opened") %></button>
               <button type="submit" name="status" class="order-by__tab part-regulation-tab" value="1" id="status_1"><%= t(".closed") %></button>
               <button type="submit" name="status" class="order-by__tab part-regulation-tab" value="0" id="status_0"><%= t(".all") %></button>
             </span>

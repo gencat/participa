@@ -3,7 +3,6 @@
 module Decidim
   module Admin
     # Controller that allows managing newsletters.
-    #
     class NewslettersController < Decidim::Admin::ApplicationController
       include Decidim::NewslettersHelper
 
@@ -139,7 +138,7 @@ module Decidim
         @get_all_processes ||= Decidim::ParticipatoryProcess.all
       end
 
-      def get_process_component_id (process_id)
+      def get_process_component_id(process_id)
         @get_process_proposal_id = Decidim::Component.where(participatory_space_id: process_id, manifest_name: "proposals")
       end
 
@@ -147,11 +146,11 @@ module Decidim
         @get_process_proposal_ids = Decidim::Proposals::Proposal.where(decidim_component_id: component_id)
       end
 
-      def get_users_from_proposals (proposal_id)
+      def get_users_from_proposals(proposal_id)
         @get_users_from_proposals = Decidim::Follow.where(decidim_followable_id: proposal_id, decidim_followable_type: "Decidim::Proposals::Proposal")
       end
 
-      def get_mails_from_users (user_id)
+      def get_mails_from_users(user_id)
         @get_mails_from_proposals = Decidim::User.where(id: user_id)
       end
 

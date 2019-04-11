@@ -25,13 +25,13 @@ module Decidim
       private
 
       def send_newsletter!
-        NewsletterJob.perform_later(@newsletter, params[:process_id])
-
-        Decidim::ActionLogger.log(
+        Decidim.traceability.perform_action!(
           "deliver",
-          @user,
-          @newsletter
-        )
+          @newsletter,
+          @user
+        ) do
+          NewsletterJob.perform_later(@newsletter, params[:process_id])
+        end
       end
     end
   end

@@ -11,7 +11,7 @@ module Participa
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.available_locales = %w(en ca es oc)
-    
+
     # Processes group ids used to determine whether a process is a regulation or a process
     config.process    = 1
     config.regulation = 3
@@ -22,6 +22,16 @@ module Participa
           'image4.png',
           'image5.png']
 
+    # Custom I18n fallbacks
+    config.after_initialize do
+      I18n.fallbacks = I18n::Locale::Fallbacks.new(
+        {
+          ca: [:ca, :es, :en],
+          es: [:es, :ca, :en],
+          oc: [:oc, :ca, :es, :en]
+        }
+      )
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -28,6 +28,7 @@ module Decidim
           .where(component: current_component)
           .published
           .not_hidden
+          .only_amendables
           .includes(:category, :scope)
           .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
@@ -53,6 +54,7 @@ module Decidim
       end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless set_proposal
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -88,8 +90,8 @@ module Decidim
       def compare
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-        .for(current_component, @proposal)
-        .all
+                               .for(current_component, @proposal)
+                               .all
 
         if @similar_proposals.blank?
           flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
@@ -204,8 +206,8 @@ module Decidim
               flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
               redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
             end
-            on(:invalid) do
-              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            on(:has_supports) do
+              flash[:alert] =I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
               redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
             end
           end

@@ -684,7 +684,9 @@ h5 {
 .button {
 	background-color: $RedGenCat !important;
 }
-
+.button.clear {
+	background-color: transparent !important;
+}
 .button:hover {
 	background-color: $RedGenCat !important;
 }
