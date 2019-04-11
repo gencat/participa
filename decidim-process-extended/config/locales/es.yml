@@ -9,6 +9,9 @@ es:
         participatory_processes:
           form:
             appear_home: Aparecer en home (imagen)
+            select_an_area: Selecciona un departamento
+      show:
+        area: Departamento
     projects:
       filters:
         category: Ejes de debate
@@ -30,11 +33,9 @@ es:
   activemodel:
     attributes:
       participatory_process:
+        area_id: Departamento
         participatory_scope: Qué se decide
         participatory_structure: Como se decide
-        theme_id: Tema
-        type_id: Tipo
-        department_id: Departamento
         title: Título
         email: Buzón de sugerencias
       participatory_process_step:

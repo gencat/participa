@@ -2,7 +2,7 @@ oc:
   activemodel:
     attributes:
       assembly:
-        area_id: Àrea
+        area_id: Departament
         assembly_type: Tipus de consell de participació
         assembly_type_other: Altre tipus de consell de participació
         banner_image: Imatge de bàner
@@ -228,7 +228,7 @@ oc:
             duration_help: Si la durada d'aquest consell de participació és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
             included_at_help: Selecciona la data en què es va afegir aquest consell de participació a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
             select_a_created_by: Selecciona un creador
-            select_an_area: Selecciona una àrea
+            select_an_area: Selecciona un department
             select_an_assembly_type: Seleccioneu un tipus de consell de participació
             select_parent_assembly: Seleccioneu un consell de participació principal
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -265,6 +265,9 @@ oc:
         city_council: Ajuntament
         others: Altres
         public: Públic
+      filter:
+        all: Tots els tipus
+        help: 'Mostrar:'
       index:
         title: Consells de participació
       pages:
@@ -276,7 +279,7 @@ oc:
           member_of:
             member_of: Membre de
       show:
-        area: Àrea
+        area: Departament
         assembly_type: Tipus de consell de participació
         children: Consells de participació
         closing_date: Data de finalització
