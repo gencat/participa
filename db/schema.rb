@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_084346) do
+ActiveRecord::Schema.define(version: 2019_04_10_142826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -843,6 +843,10 @@ ActiveRecord::Schema.define(version: 2019_04_09_084346) do
     t.string "reference"
     t.boolean "private_space", default: false
     t.bigint "decidim_area_id"
+    t.decimal "cost"
+    t.boolean "has_summary_record"
+    t.string "facilitators"
+    t.string "promoting_unit"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
