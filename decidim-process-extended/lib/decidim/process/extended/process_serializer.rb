@@ -81,8 +81,12 @@ module Decidim
         def proposals
           @proposals ||= Decidim::Proposals::Proposal
                          .where(component: component('proposals'))
-                         .published
-                         .not_hidden
+                         .joins(:coauthorships)
+                         .where.not(
+                           decidim_coauthorships: {
+                             decidim_author_type: 'Decidim::Organization'
+                           }
+                         ).published.not_hidden
         end
 
         def meetings
