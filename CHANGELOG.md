@@ -1,5 +1,6 @@
 # Change Log
 
+**Added**: Socrata participatory_processes metadata exporter. [#68](https://github.com/gencat/participa/pull/68)
 **Upgraded**: Upgrade PARTICIPA to Decidim 0.18.0-master. [#66](https://github.com/gencat/participa/pull/66)
 **Upgraded**: Upgrade PARTICIPA to Decidim 0.17.0. [#65](https://github.com/gencat/participa/pull/65)
 **Removed**: Removed custom categories files in ParticipatorySpace and Proposal Component and and leave it as Decidim.  [\#45](https://github.com/gencat/participa/issues/45)
