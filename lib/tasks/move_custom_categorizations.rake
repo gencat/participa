@@ -50,8 +50,8 @@ namespace :move_custom_categorizations do
 
         DecidimType.where(decidim_organization_id: organization.id).each do |type|
           scope_type_child = Decidim::ScopeType.find_or_create_by(
-            name: localized(organization.available_locales, type.name),
-            plural: localized(organization.available_locales, type.name),
+            name: type.name,
+            plural: type.name,
             organization: organization
           )
           puts "---ScopeType created - #{scope_type.id} - #{scope_type.name}"
