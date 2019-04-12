@@ -133,12 +133,14 @@ namespace :move_custom_categorizations do
       Decidim::ParticipatoryProcess.where(organization: organization).find_each do |process|
         if process.decidim_type_id.present?
           next unless process.decidim_theme_id.present?
+          next unless DecidimType.any?
           parent_scope = Decidim::Scope.find_by(code: "#{DecidimType.find_by(id: process.decidim_type_id).name[organization.default_locale].parameterize}")
           scope_child = parent_scope.children.find_by(code: "#{parent_scope.code}-#{DecidimTheme.find_by(id: process.decidim_theme_id).name[organization.default_locale].parameterize}")
           process.update_attributes(scopes_enabled: true, scope: scope_child)
           puts "--- Process #{process.id} - Scope_id Updated #{scope_child.id}"
         else
           next unless process.decidim_theme_id.present?
+          next unless DecidimTheme.any?
           scope = Decidim::Scope.find_by(code: "tema-#{DecidimTheme.find_by(id: process.decidim_theme_id).name[organization.default_locale].parameterize}")
           process.update_attributes(scopes_enabled: true, scope: scope)
           puts "--- Process #{process.id} - Scope_id Updated #{scope.id}"
@@ -157,10 +159,7 @@ namespace :move_custom_categorizations do
       Decidim::Organization.find_each do |organization|
         Decidim::ParticipatoryProcess.where(organization: organization).find_each do |process|
           next unless process.decidim_department_id.present?
-          puts "-------------"
-          puts "#{process.as_json}"
-          puts "#{process.decidim_department_id}"
-          puts "-------------"
+          next unless DecidimDepartment.any?
           area = Decidim::Area.find_by("name->>'ca' = ?", "#{DecidimDepartment.find_by(id: process.decidim_department_id).name}")
           process.update_attributes(area: area)
           puts "--- Process #{process.id} - Area id Updated #{area.id}"
