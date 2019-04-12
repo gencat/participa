@@ -31,7 +31,7 @@ module Decidim
             start_date: process.start_date,
             end_date: process.end_date,
             cost: process.cost,
-            has_record: process.has_summary_record,
+            has_record: process.has_summary_record?,
             facilitators: process.facilitators,
             promoting_unit: process.promoting_unit,
             total_num_participants: meetings_num_participants + proposals_num_authors,
@@ -43,7 +43,7 @@ module Decidim
             total_accepted_proposals: proposals.accepted.count,
             total_rejected_proposals: proposals.rejected.count,
             total_evaluating_proposals: proposals.evaluating.count,
-            proposals_num_proposals: proposals_no_meeting.except_withdrawn.count,
+            proposals_num_proposals: proposals_no_meeting.count,
             # Related Resources: Meetings
             meetings_num_participants: meetings_num_participants,
             meetings_num_entities: meetings_num_entities,
@@ -52,8 +52,8 @@ module Decidim
             # Related Resources: Debates
             debates_num_debates: debates.count,
             # Related Resources: Assemblies
-            has_related_assembly: assembly.present?,
-            related_assembly_name_ca: assembly&.title.try(:[], 'ca')
+            has_related_assembly: related_assembly.present?,
+            related_assembly_name_ca: related_assembly&.title.try(:[], 'ca')
           }
         end
 
@@ -63,7 +63,7 @@ module Decidim
 
         def process_type
           types = []
-          types << :virtual if proposals.count.positive?
+          types << :virtual if proposals.count.positive? || debates.count.positive?
           types << :presencial if meetings.count.positive?
           types.size > 1 ? :ambdos : types.first
         end
@@ -71,7 +71,7 @@ module Decidim
         def duration_days
           return unless process.start_date.present? && process.end_date.present?
 
-          (process.start_date...process.end_date).count
+          (process.end_date - process.start_date).to_i
         end
 
         def component(component_name)
@@ -86,7 +86,7 @@ module Decidim
                            decidim_coauthorships: {
                              decidim_author_type: 'Decidim::Organization'
                            }
-                         ).published.not_hidden
+                         ).published.not_hidden.except_withdrawn
         end
 
         def meetings
@@ -112,7 +112,7 @@ module Decidim
         def meetings_num_entities
           return 0 if closed_meetings.blank?
 
-          delimiters = [',', ' i ', "\r\n", "\r", "\n"]
+          delimiters = [',', ';', ' i ', "\r\n", "\r", "\n"]
           regex = Regexp.union(delimiters)
           split_string = proc { |m| m.attending_organizations.split(regex) }
           @meetings_num_entities ||= closed_meetings
@@ -145,8 +145,8 @@ module Decidim
                                       .flatten.uniq.count
         end
 
-        def assembly
-          @assembly ||= process.linked_participatory_space_resources(
+        def related_assembly
+          @related_assembly ||= process.linked_participatory_space_resources(
             :assemblies,
             'included_participatory_processes'
           ).first
