@@ -11,7 +11,7 @@ module Decidim
       def search_date
         case date
         when "opened"
-          query.active.where("decidim_participatory_processes.start_date < ? AND decidim_participatory_processes.end_date > date(?)", Date.current, Date.current).order(start_date: :desc)
+          query.active.order(start_date: :desc)
         when "closed"
           query.past.order(end_date: :desc)
         when "upcoming"

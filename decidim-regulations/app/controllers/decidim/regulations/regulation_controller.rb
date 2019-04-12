@@ -91,7 +91,7 @@ module Decidim
       end
 
       def default_date_filter
-        return "opened" if published_processes.where("start_date < ? AND end_date > date(?)", Date.current, Date.current).order(start_date: :desc).any?(&:active?)
+        return "opened" if published_processes.any?(&:active?)
         return "closed" if published_processes.any?(&:past?)
         return "upcoming" if published_processes.any?(&:upcoming?)
         "all"
