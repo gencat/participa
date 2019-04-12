@@ -43,10 +43,7 @@ module Decidim
 
         @process_count_by_filter = %w(opened closed upcoming).inject({}) do |collection_by_filter, filter_name|
           filtered_processes = filtered_processes(filter_name).results
-          # processes = filtered_processes.groupless
           processes = filtered_processes
-          # groups = Decidim::ParticipatoryProcessGroup.where(id: filtered_processes.grouped.group_ids)
-          # collection_by_filter.merge(filter_name => processes.count + groups.count)
           collection_by_filter.merge(filter_name => processes.count)
         end
         @process_count_by_filter["all"] = @process_count_by_filter.values.sum
@@ -68,18 +65,18 @@ module Decidim
       end
 
       def title
-        I18n.t(current_filter, scope: "decidim.regulations.regulation.filters.counters", count: process_count_by_filter[current_filter])
+        t(current_filter, scope: "decidim.regulations.regulation.filters.counters", count: process_count_by_filter[current_filter])
       end
 
       def filter_name(filter)
-        I18n.t(filter, scope: "decidim.regulations.regulation.filters.names")
+        t(filter, scope: "decidim.regulations.regulation.filters.names")
       end
 
       def explanation
         return if process_count_by_filter["opened"].positive?
         content_tag(
           :span,
-          I18n.t(explanation_text, scope: "decidim.regulations.regulation.filters.explanations"),
+          t(explanation_text, scope: "decidim.regulations.regulation.filters.explanations"),
           class: "muted mr-s ml-s"
         )
       end
