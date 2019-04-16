@@ -12,9 +12,10 @@ gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
-#### Custom gems and modifciations block end ####
+#### Custom gems and modifications block end ####
 
 gem 'decidim-idcat_mobil', "~> 0.0.3"
+gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git', tag: '0.0.2'
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.0.0"
