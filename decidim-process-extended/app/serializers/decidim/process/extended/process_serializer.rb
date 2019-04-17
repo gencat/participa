@@ -18,7 +18,7 @@ module Decidim
             id: process.id,
             title_ca: process.title['ca'],
             slug: process.slug,
-            short_description_ca: process.short_description['ca'],
+            short_description_ca: short_description_ca,
             process_type: process_type,
             scope_id: process.scope&.id,
             scope_name_ca: process.scope&.name.try(:[], 'ca'),
@@ -60,6 +60,10 @@ module Decidim
         private
 
         attr_reader :process
+
+        def short_description_ca
+          ActionController::Base.helpers.strip_tags(process.short_description['ca'])
+        end
 
         def process_type
           types = []
