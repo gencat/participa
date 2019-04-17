@@ -29,8 +29,8 @@ You're good to go!
 
 Run `rake decidim:generate_external_test_app` to generate a dummy application to test your module.
 
-Add factories in `./spec/factories.rb`
+Require missing factories in `./spec/factories.rb`
 
 Add `require "rails_helper"` to your specs and execute them from the root directory, i.e.:
 
->rspec ./decidim-process-extended/spec/serializers/decidim/process/extended/process_serializer_spec.rb
+`rspec ./decidim-process-extended/spec/serializers/decidim/process/extended/process_serializer_spec.rb`
