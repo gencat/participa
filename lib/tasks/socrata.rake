@@ -9,7 +9,9 @@ namespace :socrata do
   # Examples (no space between arguments):
   # - rake socrata:export_processes_metadata["JSON"]
   # - rake socrata:export_processes_metadata["JSON","this_is_my_filename"]
-  task :export_processes_metadata, [:format, :name] => :environment do |_task, args|
+  task :export_processes, [:format, :name] => :environment do |_task, args|
+    log_start_message
+
     file_format = args[:format] || default_format
     file_name = args[:name] || default_name
 
@@ -17,6 +19,8 @@ namespace :socrata do
     file_name = export_data.filename(file_name)
 
     File.write(file_name, export_data.read)
+
+    log_finished_message(file_name)
   end
 
   private
@@ -26,7 +30,7 @@ namespace :socrata do
   end
 
   def default_name
-    "socrata_processes_metadata"
+    "socrata_processes_dataset"
   end
 
   def collection
@@ -37,5 +41,15 @@ namespace :socrata do
 
   def serializer
     Decidim::Process::Extended::ProcessSerializer
+  end
+
+  def log_start_message
+    puts "-- Exporting dataset to current directory... "
+    Rails.logger.info "\n[SOCRATA] [#{Time.current}] Exporting dataset..."
+  end
+
+  def log_finished_message(file_name)
+    puts "-- File created: #{file_name}"
+    Rails.logger.info "[SOCRATA] [#{Time.current}] File created: #{file_name}\n"
   end
 end
