@@ -33,7 +33,7 @@ gem 'whenever', require: false
 group :development, :test do
   gem "faker", ">= 1.8.4"
   gem "byebug", platform: :mri
-
+  gem "bootsnap"
   gem "decidim-dev", DECIDIM_VERSION
 end
 
