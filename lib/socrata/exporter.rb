@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Socrata
-  class Exporter < OpenData
+  class Exporter
     class << self
       def export(format)
         file_format = format || default_format

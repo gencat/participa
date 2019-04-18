@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 module Socrata
-  class OpenData
+  class Log
     class << self
-      def logger
-        @logger ||= Logger.new("#{Rails.root}/log/socrata.log")
-      end
-
       def log(string)
         puts string
         logger.info("\n#{string}\n")
+      end
+
+      private
+
+      def logger
+        @logger ||= Logger.new("#{Rails.root}/log/socrata.log")
       end
     end
   end

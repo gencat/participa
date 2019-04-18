@@ -3,7 +3,7 @@
 require 'soda/client'
 
 module Socrata
-  class Publisher < OpenData
+  class Publisher
     class << self
       def publish
         client.post(identifier, data)
