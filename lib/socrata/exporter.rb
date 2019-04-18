@@ -3,6 +3,7 @@
 module Socrata
   class Exporter
     class << self
+      # Returns the file name and the data as a String.
       def export(format)
         file_format = format || default_format
 

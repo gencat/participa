@@ -15,8 +15,7 @@ namespace :socrata do
   end
 
   desc 'Updates Socrata dataset via POST method with soda-ruby'
-  # Returns a Hashie::Mash that represents the body of the response.
-  task :publish, [:file] => :environment do |_task, _args|
+  task publish: :environment do
     Socrata::Log.log('Pushing data to soda.demo.socrata.com...')
 
     response = Socrata::Publisher.publish

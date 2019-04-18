@@ -5,6 +5,7 @@ require 'soda/client'
 module Socrata
   class Publisher
     class << self
+      # Returns a Hashie::Mash that represents the body of the response.
       def publish
         client.post(identifier, data)
       end
