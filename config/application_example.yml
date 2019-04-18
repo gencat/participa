@@ -12,6 +12,11 @@ default: &default
   # GeoCoder configuration (developer.here.com)
   GEOCODER_LOOKUP_APP_ID: "here_app_id"
   GEOCODER_LOOKUP_APP_CODE: "here_app_code"
+  # Socrata Open Data API, or SODA configuration.
+  SODA_DOMAIN: "soda.demo.socrata.com"
+  SODA_USERNAME: "demouser@example.com"
+  SODA_PASSWORD: "my_demo_user_password"
+  SODA_APP_TOKEN: "my_demo_app_token"
 
 development:
   <<: *default
@@ -24,7 +29,7 @@ test:
   TEST_DB_DATABASE: "participa_gencat_test"
   TEST_DB_USERNAME: "admin"
   TEST_DB_PASSWORD: "admin"
-  
+
 integration:
   <<: *default
   # secrets
