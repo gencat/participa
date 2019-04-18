@@ -19,6 +19,7 @@ gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifciations block end ####
 
 gem 'decidim-idcat_mobil', "~> 0.0.3"
+gem 'soda-ruby', :require => 'soda'
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.0.0"
@@ -33,7 +34,7 @@ gem 'whenever', require: false
 group :development, :test do
   gem "faker", ">= 1.8.4"
   gem "byebug", platform: :mri
-
+  gem "bootsnap"
   gem "decidim-dev", DECIDIM_VERSION
 end
 

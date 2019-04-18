@@ -23,3 +23,7 @@
 
 # Ignore public uploads
 public/uploads
+
+# Ignore test app
+spec/decidim_dummy_app/
+.rspec-failures
