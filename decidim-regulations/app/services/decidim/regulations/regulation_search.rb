@@ -5,11 +5,7 @@ module Decidim
     # Service that encapsulates all logic related to filtering participatory processes.
     class RegulationSearch < ParticipatorySpaceSearch
       def initialize(options = {})
-        super(ParticipatoryProcess.all, options)
-      end
-
-      def base_query
-        super.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
+        super(ParticipatoryProcess.where(decidim_participatory_process_group_id: Rails.application.config.regulation), options)
       end
 
       def search_date
