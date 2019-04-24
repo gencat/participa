@@ -1,6 +1,6 @@
 # Change Log
 **Upgrade notes:**
-- **Decidim::Verifications::MembersPicker** After installing and activating the verification module, review the [README](https://github.com/gencat/decidim-verifications-members_picker) to execute the necessary actions
+- **Decidim::Verifications::MembersPicker** After installing and activating the verification module, review the [README usage section](https://github.com/gencat/decidim-verifications-members_picker/blob/0.0.2/README.md#usage) to execute the necessary actions
 - **DecidimDepartment, DecidimTheme, DecidimType:** Only for upgrades from 0.18 or earlier versions
 
 The logic from decidim-department, decidim-theme, decidim-type and decidim-admin-extended has been removed to the Decidim Standards, so you need to migrate the data to the new database tables:
