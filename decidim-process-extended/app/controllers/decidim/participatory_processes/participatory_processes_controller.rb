@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Regulations
+  module ParticipatoryProcesses
     # A controller that holds the logic to show ParticipatoryProcesses in a
     # public layout.
-    class RegulationController < Decidim::ParticipatoryProcesses::ApplicationController
+    class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: [:show, :statistics]
 
@@ -20,7 +20,7 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :read, :process, process: current_participatory_process
+        enforce_permission_to :read, :process, process: current_participatory_space
       end
 
       def statistics
@@ -30,7 +30,7 @@ module Decidim
       private
 
       def search_klass
-        RegulationSearch
+        ParticipatoryProcessSearch
       end
 
       def default_filter_params
@@ -42,7 +42,7 @@ module Decidim
       end
 
       def organization_participatory_processes
-        @organization_participatory_processes ||= Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization).query.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
+        @organization_participatory_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
       end
 
       def current_participatory_space
@@ -54,7 +54,7 @@ module Decidim
       end
 
       def published_processes
-        @published_processes ||= Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user).query.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
+        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user).query.where(decidim_participatory_process_group_id: Rails.application.config.process)
       end
 
       def promoted_participatory_processes
@@ -68,7 +68,7 @@ module Decidim
       # This is customized because GENCAT don't Processes Groups on Index Page
 
       def filtered_processes
-        search.results.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
+        search.results.where(decidim_participatory_process_group_id: Rails.application.config.process)
       end
 
       # This is customized because GENCAT
@@ -91,9 +91,9 @@ module Decidim
       end
 
       def default_date_filter
-        return "opened" if published_processes.any?(&:active?)
-        return "closed" if published_processes.any?(&:past?)
+        return "active" if published_processes.any?(&:active?)
         return "upcoming" if published_processes.any?(&:upcoming?)
+        return "past" if published_processes.any?(&:past?)
         "all"
       end
     end

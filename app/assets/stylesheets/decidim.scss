@@ -1071,3 +1071,7 @@ h1.part-primary-font{
 .feder-section{
 	font-size: 11px;
 }
+
+.inline-filters button[data-toggle], .inline-filters .dropdown-pane{
+	width: 16rem !important;
+}
