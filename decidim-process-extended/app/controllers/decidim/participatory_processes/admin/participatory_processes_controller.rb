@@ -101,7 +101,6 @@ module Decidim
           @collection ||= paginate(query.result)
         end
 
-
         def current_participatory_process
           @current_participatory_process ||= collection.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])

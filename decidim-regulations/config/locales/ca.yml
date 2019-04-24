@@ -18,11 +18,46 @@ ca:
             active_processes: Participació en normativa
             see_all_processes: Veure totes les participacions
       regulation:
+        filters:
+          counters:
+            all:
+              one: 1 participació en normativa
+              other: "%{count} participacions"
+            closed:
+              one: 1 participació tancada
+              other: "%{count} participacions tancades"
+            opened:
+              one: 1 participació oberta
+              other: "%{count} participacions obertes"
+            upcoming:
+              one: 1 participació propera
+              other: "%{count} participacions properes"
+          explanations:
+            no_active: No hi ha participacions actives
+            no_active_nor_upcoming: No hi ha participacions actives o pròximes
+            no_active_nor_upcoming_callout: No hi ha participacions actives o pròximes. Aquí hi ha un llistat de les tancades.
+          names:
+            active: Actives
+            all: Totes
+            closed: Tancades
+            opened: Obertes
+            upcoming: Pròximes
+          see: Veure
+        index:
+          loading: Carregant...
         show:
           email: Bústia de suport
           categories: Eixos de debat
         index:
           loading: Carregant
+      scopes:
+        global: Tots els tipus
+        picker:
+          cancel: Cancel·lar
+          choose: Selecciona
+          title: Seleccioneu %{field}
+        prompt: Seleccioneu un tipus
+        types: Tipus
     pages:
       home:
         statistics:
@@ -45,6 +80,19 @@ ca:
       proposals:
         index:
           see_proposals: Veure Propostes
+    scopes:
+      global: Tots els temes
+      picker:
+        cancel: Cancel·lar
+        choose: Selecciona
+        title: Seleccioneu %{field}
+      prompt: Seleccioneu un tema
+      scopes: Temes
+    shared:
+      participatory_space_filters:
+        filters:
+          areas: Departaments
+          select_an_area: Seleccioneu un departament
   layouts:
     decidim:
       regulation_header:

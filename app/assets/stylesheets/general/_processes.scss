@@ -407,3 +407,10 @@
         text-decoration: underline;
     }
 }
+
+#participatory-space-filters{
+  .picker-prompt,
+  select{
+    width: 70%;
+  }
+}

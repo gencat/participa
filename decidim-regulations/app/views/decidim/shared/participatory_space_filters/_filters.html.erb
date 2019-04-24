@@ -1,0 +1,32 @@
+<%= filter_form_for filter do |form| %>
+  <div class="columns mediumlarge-6 large-5">
+    <%=
+    options = {
+        multiple: true,
+        legend_title: I18n.t("decidim.scopes.scopes"),
+        label: false,
+        checkboxes_on_top: checkboxes_on_top
+      }
+
+      form.scopes_picker :scope_id, options do |scope|
+        {
+          url: decidim.scopes_picker_path(
+            root: Decidim::Scope.find_by(organization: current_organization, code: "temes"),
+            current: scope&.id,
+            title: I18n.t("decidim.scopes.prompt"),
+            global_value: "global"
+          ),
+          text: scope_name_for_picker(scope, I18n.t("decidim.scopes.prompt"))
+        }
+      end
+    %>
+  </div>
+  <div class="columns mediumlarge-6 large-6">
+    <%= form.areas_select :area_id,
+                          areas_for_select(current_organization),
+                          legend_title: t(".areas"),
+                          label: false,
+                          selected: filter.area_id,
+                          include_blank: t(".select_an_area") %>
+  </div>
+<% end %>

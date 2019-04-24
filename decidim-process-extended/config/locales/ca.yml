@@ -24,6 +24,7 @@ ca:
             title: Informació general
             visbility: Visibilitat
       show:
+        area: Departament
         cost: Cost
         facilitators: Entitats facilitadores
         has_summary_record: Disposa d'acta
@@ -48,11 +49,9 @@ ca:
   activemodel:
     attributes:
       participatory_process:
+        area_id: Departament
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
-        theme_id: Tema
-        type_id: Tipus
-        department_id: Departament
         title: Títol
         email: Bústia de suggeriments
       participatory_process_step:

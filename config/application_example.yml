@@ -4,11 +4,11 @@ default: &default
   DB_POOL: <%= ENV.fetch("RAILS_MAX_THREADS") { "5" } %>
   DB_HOST: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
   # Mailer configuration
-  MAILER_SMTP_ADDRESS: "smtp email address"
-  MAILER_SMTP_DOMAIN: "smtp email domain"
-  MAILER_SMTP_PORT: "587"
-  MAILER_SMTP_USER_NAME: "smtp email username"
-  MAILER_SMTP_PASSWORD: "smtp email password"
+  SMTP_ADDRESS: "smtp email address"
+  SMTP_DOMAIN: "smtp email domain"
+  SMTP_PORT: "587"
+  SMTP_USERNAME: "smtp email username"
+  SMTP_PASSWORD: "smtp email password"
   # GeoCoder configuration (developer.here.com)
   GEOCODER_LOOKUP_APP_ID: "here_app_id"
   GEOCODER_LOOKUP_APP_CODE: "here_app_code"

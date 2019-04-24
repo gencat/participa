@@ -24,6 +24,7 @@ es:
             title: Información general
             visbility: Visibilidad
       show:
+        area: Departamento
         cost: Coste
         facilitators: Entidades facilitadoras
         has_summary_record: Dispone de acta
@@ -48,11 +49,9 @@ es:
   activemodel:
     attributes:
       participatory_process:
+        area_id: Departamento
         participatory_scope: Qué se decide
         participatory_structure: Como se decide
-        theme_id: Tema
-        type_id: Tipo
-        department_id: Departamento
         title: Título
         email: Buzón de sugerencias
       participatory_process_step:
