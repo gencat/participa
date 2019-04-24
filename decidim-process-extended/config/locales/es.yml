@@ -9,16 +9,32 @@ es:
         participatory_processes:
           form:
             appear_home: Aparecer en home (imagen)
+            cost: Coste
+            duration: Duración
+            facilitators: Entidades facilitadoras
+            filters: Filtrado
+            has_summary_record: Dispone de acta
+            images: Imágenes
+            metadata: Metadatos
+            other: Otros
+            private_space: Espacio privado
+            promoting_unit: Unidad promotora
             select_an_area: Selecciona un departamento
+            select_process_group: Selecciona un ámbito
+            title: Información general
+            visbility: Visibilidad
       show:
         area: Departamento
+        cost: Coste
+        facilitators: Entidades facilitadoras
+        has_summary_record: Dispone de acta
+        'no': 'No'
+        promoting_unit: Unidad promotora
+        'yes': 'Sí'
     projects:
       filters:
         category: Ejes de debate
         select_category: Selecciona
-    show:
-      participatory_scope: Qué se decide
-      participatory_structure: Como se decide
     application:
       attachments:
         meetings_available: Hay encuentros programados actualmente

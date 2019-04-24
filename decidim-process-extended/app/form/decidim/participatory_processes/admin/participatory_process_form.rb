@@ -23,13 +23,17 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :target, String
 
+        attribute :facilitators, String
         attribute :hashtag, String
+        attribute :promoting_unit, String
         attribute :slug, String
 
         attribute :area_id, Integer
+        attribute :cost, Float
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
 
+        attribute :has_summary_record, Boolean
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean

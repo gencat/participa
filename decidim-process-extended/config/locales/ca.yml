@@ -9,16 +9,32 @@ ca:
         participatory_processes:
           form:
             appear_home: Sortir al home (imatge)
+            cost: Cost
+            duration: Durada
+            facilitators: Entitats facilitadores
+            filters: Filtratge
+            has_summary_record: Disposa d'acta
+            images: Imatges
+            metadata: Metadades
+            other: Altres
+            private_space: Espai privat
+            promoting_unit: Unitat promotora
             select_an_area: Selecciona un departament
+            select_process_group: Selecciona un àmbit
+            title: Informació general
+            visbility: Visibilitat
       show:
         area: Departament
+        cost: Cost
+        facilitators: Entitats facilitadores
+        has_summary_record: Disposa d'acta
+        'no': 'No'
+        promoting_unit: Unitat promotora
+        'yes': 'Sí'
     projects:
       filters:
         category: Eixos de debat
         select_category: Selecciona
-    show:
-      participatory_scope: Què es decideix
-      participatory_structure: Com es decideix
     application:
       attachments:
         meetings_available: Hi ha trobades programades actualment

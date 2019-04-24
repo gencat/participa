@@ -79,8 +79,12 @@ module Decidim
             announcement: form.announcement,
 
             # Participa added attributes
+            cost: form.cost,
+            has_summary_record: form.has_summary_record,
+            promoting_unit: form.promoting_unit,
+            facilitators: form.facilitators,
             email: form.email,
-            show_home: form.show_home,
+            show_home: form.show_home
           }
         end
       end

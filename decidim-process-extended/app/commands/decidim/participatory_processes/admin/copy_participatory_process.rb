@@ -63,8 +63,12 @@ module Decidim
             participatory_process_group: @participatory_process.participatory_process_group,
 
             # Participa added attributes
+            cost: @participatory_process.cost,
+            has_summary_record: @participatory_process.has_summary_record,
+            promoting_unit: @participatory_process.promoting_unit,
+            facilitators: @participatory_process.facilitators,
             show_home: @participatory_process.show_home,
-            email: @participatory_process.email,
+            email: @participatory_process.email
           )
         end
 
