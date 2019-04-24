@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim' }.freeze
+DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'selective_newsletter' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
@@ -10,7 +10,6 @@ gem 'decidim-process-extended', path: 'decidim-process-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
-gem 'decidim-selectable-news', path: 'decidim-selectable-news'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifications block end ####
 

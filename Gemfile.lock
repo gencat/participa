@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/gencat/decidim
-  revision: a29846eb785401a54bde989f270b306fe4b6f733
+  revision: b28d123c6d7738af979b705a98b585ea5e5d85ec
+  branch: selective_newsletter
   specs:
     decidim (0.18.0.dev)
       decidim-accountability (= 0.18.0.dev)
@@ -226,12 +227,6 @@ PATH
   remote: decidim-regulations
   specs:
     decidim-regulations (0.1.0)
-      rails (>= 5.2, < 6.0.x)
-
-PATH
-  remote: decidim-selectable-news
-  specs:
-    decidim-selectable-news (0.1.0)
       rails (>= 5.2, < 6.0.x)
 
 GEM
@@ -809,7 +804,6 @@ DEPENDENCIES
   decidim-idcat_mobil (~> 0.0.3)
   decidim-process-extended!
   decidim-regulations!
-  decidim-selectable-news!
   decidim-verifications-members_picker!
   delayed_job_active_record
   faker (>= 1.8.4)
