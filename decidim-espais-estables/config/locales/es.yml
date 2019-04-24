@@ -2,7 +2,7 @@ es:
   activemodel:
     attributes:
       assembly:
-        area_id: Área
+        area_id: Departamento
         assembly_type: Tipo de consejo de participación
         assembly_type_other: Tipo de consejo de participación otro
         banner_image: Imagen de banner
@@ -214,7 +214,7 @@ es:
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
             included_at_help: Selecciona la fecha en que se agregó este ensamblaje a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
             select_a_created_by: Selecciona creada por
-            select_an_area: Seleccione un Área
+            select_an_area: Seleccione un Departamento
             select_an_assembly_type: Selecciona tipo de consejo de participación
             select_parent_assembly: Selecciona un consejo de participacion principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este consejo de participación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -251,6 +251,8 @@ es:
         city_council: Ayuntamiento
         others: Otros
         public: Público
+      filter:
+        all: Todos los tipos
       index:
         title: Consejos de participación
       pages:
@@ -262,7 +264,7 @@ es:
           member_of:
             member_of: Miembro de
       show:
-        area: Área
+        area: Departamento
         assembly_type: Tipo de consejos de participación
         children: Consejos de participación
         closing_date: Fecha de cierre

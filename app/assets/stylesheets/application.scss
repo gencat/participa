@@ -9,6 +9,11 @@ $alert: #ec5840 !default;
 @import "./vendor/*";
 @import "./general/*";
 
-.button.secondary{
-  color: #fff !important;
+.check-newsletter.button.clear.secondary {
+  background-color: $white;
+  color: $primary;
+  &:hover, &:focus {
+    background-color: $primary;
+    color: $white;
+  }
 }

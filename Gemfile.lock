@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/gencat/decidim
-  revision: d914637499ab661daf6d7087883eb3432a1c854b
+  revision: 51a9d8e1457c093a3cbfb326b7740232ee35ca63
+  branch: selective_newsletter
   specs:
     decidim (0.18.0.dev)
       decidim-accountability (= 0.18.0.dev)
@@ -186,6 +187,15 @@ GIT
     decidim-verifications (0.18.0.dev)
       decidim-core (= 0.18.0.dev)
 
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
+  tag: 0.0.2
+  specs:
+    decidim-verifications-members_picker (0.0.2)
+      decidim-core (>= 0.16.0)
+      decidim-verifications (>= 0.16.0)
+
 PATH
   remote: ../decidim-department_admin
   specs:
@@ -193,22 +203,9 @@ PATH
       decidim-core (>= 0.16.1)
 
 PATH
-  remote: decidim-admin-extended
-  specs:
-    decidim-admin-extended (0.1.0)
-      decidim-admin (>= 0.9.3)
-      decidim-core (>= 0.9.3)
-
-PATH
   remote: decidim-admin-search_user
   specs:
     decidim-admin-search_user (0.1.0)
-      rails (>= 5.2, < 6.0.x)
-
-PATH
-  remote: decidim-department
-  specs:
-    decidim-department (0.1.0)
       rails (>= 5.2, < 6.0.x)
 
 PATH
@@ -236,24 +233,6 @@ PATH
   remote: decidim-regulations
   specs:
     decidim-regulations (0.1.0)
-      rails (>= 5.2, < 6.0.x)
-
-PATH
-  remote: decidim-selectable-news
-  specs:
-    decidim-selectable-news (0.1.0)
-      rails (>= 5.2, < 6.0.x)
-
-PATH
-  remote: decidim-theme
-  specs:
-    decidim-theme (0.1.0)
-      rails (>= 5.2, < 6.0.x)
-
-PATH
-  remote: decidim-type
-  specs:
-    decidim-type (0.1.0)
       rails (>= 5.2, < 6.0.x)
 
 GEM
@@ -333,12 +312,12 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
-    bindex (0.5.0)
+    bindex (0.7.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (10.0.2)
-    capybara (3.16.1)
+    capybara (3.18.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -362,15 +341,15 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.6)
-    childprocess (0.9.0)
-      ffi (~> 1.0, >= 1.0.11)
+    childprocess (1.0.1)
+      rake (< 13.0)
     chronic (0.10.2)
     coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
-    coffee-rails (4.2.2)
+    coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
+      railties (>= 5.2.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -389,7 +368,7 @@ GEM
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
     debug_inspector (0.0.3)
-    decidim-idcat_mobil (0.0.3)
+    decidim-idcat_mobil (0.0.4)
       decidim (>= 0.13.1)
       decidim-core (>= 0.13.1)
       omniauth-idcat_mobil (~> 0.1.1)
@@ -470,7 +449,7 @@ GEM
       railties
       sprockets-rails
     graphql (1.8.10)
-    hashdiff (0.3.8)
+    hashdiff (0.3.9)
     hashie (3.6.0)
     highline (2.0.2)
     html_tokenizer (0.0.7)
@@ -562,7 +541,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.3.1)
     nobspw (0.4.0)
-    nokogiri (1.10.2)
+    nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     oauth2 (1.4.1)
@@ -602,7 +581,7 @@ GEM
     parser (2.6.2.1)
       ast (~> 2.4.0)
     pg (1.1.4)
-    pg_search (2.1.5)
+    pg_search (2.1.7)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
     powerpack (0.1.2)
@@ -689,7 +668,7 @@ GEM
       rspec-rails (~> 3.2)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.2)
+    rspec-expectations (3.8.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-html-matchers (0.9.1)
@@ -736,8 +715,8 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
-    selenium-webdriver (3.141.0)
-      childprocess (~> 0.5)
+    selenium-webdriver (3.142.0)
+      childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
     simplecov (0.16.1)
       docile (~> 1.1)
@@ -784,7 +763,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.5)
+    unf_ext (0.0.7.6)
     unicode-display_width (1.5.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
@@ -808,7 +787,7 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    whenever (0.10.0)
+    whenever (0.11.0)
       chronic (>= 0.6.3)
     wisper (2.0.0)
     wisper-rspec (1.1.0)
@@ -824,9 +803,7 @@ DEPENDENCIES
   byebug
   daemons
   decidim!
-  decidim-admin-extended!
   decidim-admin-search_user!
-  decidim-department!
   decidim-department_admin!
   decidim-dev!
   decidim-espais-estables!
@@ -834,9 +811,7 @@ DEPENDENCIES
   decidim-idcat_mobil (~> 0.0.3)
   decidim-process-extended!
   decidim-regulations!
-  decidim-selectable-news!
-  decidim-theme!
-  decidim-type!
+  decidim-verifications-members_picker!
   delayed_job_active_record
   faker (>= 1.8.4)
   figaro (>= 1.1.1)

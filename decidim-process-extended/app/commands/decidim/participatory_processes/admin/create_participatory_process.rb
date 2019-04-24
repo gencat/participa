@@ -64,11 +64,12 @@ module Decidim
             participatory_process_group: form.participatory_process_group,
 
             # Participa added attributes
+            cost: form.cost,
+            has_summary_record: form.has_summary_record,
+            promoting_unit: form.promoting_unit,
+            facilitators: form.facilitators,
             email: form.email.downcase,
-            show_home: form.show_home,
-            decidim_department_id: form.department_id,
-            decidim_type_id: form.type_id,
-            decidim_theme_id: form.theme_id
+            show_home: form.show_home
           )
 
           return process unless process.valid?

@@ -1,0 +1,13 @@
+es:
+  parent_scope:
+    themes:
+      name: Temas
+    types:
+      name: Tipos
+  scope_type:
+    regulations:
+      name: Participación en normativa
+      plural: Participación en normativas
+    themes:
+      name: Tema
+      plural: Temas

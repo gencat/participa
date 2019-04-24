@@ -23,13 +23,17 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :target, String
 
+        attribute :facilitators, String
         attribute :hashtag, String
+        attribute :promoting_unit, String
         attribute :slug, String
 
         attribute :area_id, Integer
+        attribute :cost, Float
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
 
+        attribute :has_summary_record, Boolean
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
@@ -44,11 +48,8 @@ module Decidim
         attribute :remove_hero_image
 
         # Participa added attributes
-        attribute :department_id, Integer
-        attribute :type_id, Integer
         attribute :email, String
         attribute :show_home, Boolean
-        attribute :theme_id, Integer
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
@@ -69,11 +70,6 @@ module Decidim
         def map_model(model)
           self.scope_id = model.decidim_scope_id
           self.participatory_process_group_id = model.decidim_participatory_process_group_id
-
-          # Participa added attributes
-          self.department_id = model.decidim_department_id
-          self.theme_id = model.decidim_theme_id
-          self.type_id = model.decidim_type_id
         end
 
         def scope
