@@ -56,12 +56,8 @@ There are two rake tasks available to interact with this data:
 - `rake socrata:export` to export the data to a file
 - `rake socrata:publish` to update the remote Socrata dataset
 
-These tasks use the following classes:
+These tasks use the following module and class:
 
-Found at `decidim-process-extended/app/serializers/`
-- `Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer`
+- `Socrata` found at `lib/`
+- `Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer` found at `decidim-process-extended/app/serializers/`
 
-Found at `lib/`
-- `Socrata::OpenData`
-- `Socrata::Exporter`
-- `Socrata::Publisher`
