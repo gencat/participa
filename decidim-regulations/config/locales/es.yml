@@ -19,11 +19,44 @@ es:
             active_step: Pas actiu
             see_all_processes: Veure totes les participacions
       regulation:
+        filters:
+          counters:
+            all:
+              one: 1 participación en normativa
+              other: "%{count} participaciones"
+            closed:
+              one: 1 participación cerrada
+              other: "%{count} participaciones cerradas"
+            opened:
+              one: 1 participación abierta
+              other: "%{count} participaciones abiertas"
+            upcoming:
+              one: 1 participación próxima
+              other: "%{count} participaciones próximas"
+          explanations:
+            no_active: No hay participaciones activas
+            no_active_nor_upcoming: No hay participaciones activas o próximas
+            no_active_nor_upcoming_callout: No hay participaciones activas o próximas. Aquí hay un listado de las cerradas.
+          names:
+            active: Activas
+            all: Todas
+            closed: Cerradas
+            opened: Abiertas
+            upcoming: Próximas
+          see: Ver
         show:
           email: Buzón de soporte
           categories: Ejes de debate
         index:
           loading: Cargando
+      scopes:
+        global: Todos los tipos
+        picker:
+          cancel: Cancelar
+          choose: Selecciona
+          title: Selecciona %{field}
+        prompt: Selecciona un tipo
+        types: Tipos
     pages:
       home:
         statistics:
@@ -46,6 +79,19 @@ es:
       proposals:
         index:
           see_proposals: Ver Propuestas
+    scopes:
+      global: Todos los temas
+      picker:
+        cancel: Cancelar
+        choose: Selecciona
+        title: Selecciona %{field}
+      prompt: Selecciona un tema
+      scopes: Temas
+    shared:
+      participatory_space_filters:
+        filters:
+          areas: Departamentos
+          select_an_area: Selecciona un departamento
   layouts:
     decidim:
       regulation_header:

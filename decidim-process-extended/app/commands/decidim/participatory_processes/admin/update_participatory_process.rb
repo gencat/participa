@@ -81,9 +81,6 @@ module Decidim
             # Participa added attributes
             email: form.email,
             show_home: form.show_home,
-            decidim_department_id: form.department_id,
-            decidim_type_id: form.type_id,
-            decidim_theme_id: form.theme_id
           }
         end
       end

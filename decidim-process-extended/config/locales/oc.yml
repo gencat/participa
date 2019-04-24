@@ -9,6 +9,9 @@ oc:
         participatory_processes:
           form:
             appear_home: Sortir al home (imatge)
+            select_an_area: Selecciona una departament
+      show:
+        area: Departament
       pages:
         home:
           highlighted_processes:
@@ -28,11 +31,9 @@ oc:
   activemodel:
     attributes:
       participatory_process:
+        area_id: Departament
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
-        theme_id: Tema
-        type_id: Tipus
-        department_id: Departament
         title: Títol
         email: Bústia de suggeriments
       participatory_process_step:

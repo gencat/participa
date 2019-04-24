@@ -1,0 +1,24 @@
+<%= filter_form_for filter do |form| %>
+  <div class="columns">
+    <%=
+    options = {
+        multiple: true,
+        legend_title: I18n.t("decidim.regulations.scopes.types"),
+        label: false,
+        checkboxes_on_top: checkboxes_on_top
+      }
+
+      form.scopes_picker :scope_id, options do |scope|
+        {
+          url: decidim.scopes_picker_path(
+            root: Decidim::Scope.find_by(organization: current_organization, code: "tipus"),
+            current: scope&.id,
+            title: I18n.t("decidim.regulations.scopes.prompt"),
+            global_value: "global"
+          ),
+          text: scope_name_for_picker(scope, I18n.t("decidim.regulations.scopes.prompt"))
+        }
+      end
+    %>
+  </div>
+<% end %>
