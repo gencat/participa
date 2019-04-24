@@ -68,7 +68,7 @@ module Decidim
             promoting_unit: @participatory_process.promoting_unit,
             facilitators: @participatory_process.facilitators,
             show_home: @participatory_process.show_home,
-            email: @participatory_process.email,
+            email: @participatory_process.email
           )
         end
 

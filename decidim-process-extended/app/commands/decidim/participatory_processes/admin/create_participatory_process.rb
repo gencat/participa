@@ -69,7 +69,7 @@ module Decidim
             promoting_unit: form.promoting_unit,
             facilitators: form.facilitators,
             email: form.email.downcase,
-            show_home: form.show_home,
+            show_home: form.show_home
           )
 
           return process unless process.valid?
