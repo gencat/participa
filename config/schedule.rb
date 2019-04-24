@@ -11,3 +11,7 @@ end
 every 1.day, at: '2:00 am' do
   rake "decidim:metrics:all"
 end
+
+every :sunday, at: '11:59 pm' do
+  rake "socrata:publish"
+end
