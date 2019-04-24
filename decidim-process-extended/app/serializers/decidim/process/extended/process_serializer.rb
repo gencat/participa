@@ -16,6 +16,7 @@ module Decidim
           {
             # Process Information
             id: process.id,
+            socrata_published_at: Date.current,
             title_ca: process.title['ca'],
             slug: process.slug,
             short_description_ca: short_description_ca,

@@ -14,9 +14,10 @@ default: &default
   GEOCODER_LOOKUP_APP_CODE: "here_app_code"
   # Socrata Open Data API, or SODA configuration.
   SODA_DOMAIN: "soda.demo.socrata.com"
-  SODA_USERNAME: "demouser@example.com"
-  SODA_PASSWORD: "my_demo_user_password"
-  SODA_APP_TOKEN: "my_demo_app_token"
+  SODA_USERNAME: "user@example.com"
+  SODA_PASSWORD: "password"
+  SODA_APP_TOKEN: "app_token"
+  SODA_DATASET_IDENTIFIER: "dataset_identifier"
 
 development:
   <<: *default
