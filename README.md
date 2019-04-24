@@ -29,11 +29,11 @@ You're good to go!
 
 Run `rake decidim:generate_external_test_app` to generate a dummy application.
 
-Require missing factories in `./spec/factories.rb`
+Require missing factories in `spec/factories.rb`
 
 Add `require "rails_helper"` to your specs and execute them from the **root directory**, i.e.:
 
-`rspec ./decidim-process-extended/spec/serializers/decidim/participatory_processes/participatory_process_serializer_spec.rb`
+`rspec decidim-process-extended/spec/serializers/decidim/participatory_processes/participatory_process_serializer_spec.rb`
 
 ## Open Data
 
@@ -56,8 +56,12 @@ There are two rake tasks available to interact with this data:
 - `rake socrata:export` to export the data to a file
 - `rake socrata:publish` to update the remote Socrata dataset
 
-These tasks use the following classes
+These tasks use the following classes:
+
+Found at `decidim-process-extended/app/serializers/`
 - `Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer`
+
+Found at `lib/`
 - `Socrata::OpenData`
 - `Socrata::Exporter`
 - `Socrata::Publisher`
