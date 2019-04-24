@@ -36,9 +36,9 @@ module Socrata
     private
 
     def log(level, message)
-      puts message
       logger = Logger.new("#{Rails.root}/log/socrata.log")
       logger.send(level, message)
+      puts message
     end
 
     def collection
