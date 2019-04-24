@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-module Decidim::Process::Extended
-  describe ProcessSerializer do
+module Decidim::ParticipatoryProcesses
+  describe ParticipatoryProcessSerializer do
     describe "#serialize" do
       let(:participatory_process) { create(:participatory_process) }
       let(:subject) { described_class.new(participatory_process) }

@@ -26,7 +26,7 @@ module Socrata
       end
 
       def serializer
-        Decidim::Process::Extended::ProcessSerializer
+        Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
       end
     end
   end

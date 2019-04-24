@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Process
-    module Extended
+  module ParticipatoryProcesses
       # This class serializes a ParticipatoryProcess so can be exported
       # to CSV, JSON or other formats (check Decidim::Exporters)
-      class ProcessSerializer < Decidim::Exporters::Serializer
+      class ParticipatoryProcessSerializer < Decidim::Exporters::Serializer
         # Public: Initializes the serializer with a ParticipatoryProcess.
         def initialize(process)
           @process = process
@@ -159,4 +158,3 @@ module Decidim
       end
     end
   end
-end
