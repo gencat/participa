@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_24_101235) do
+ActiveRecord::Schema.define(version: 2019_04_24_112001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -699,6 +699,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_101235) do
     t.datetime "sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "extended_data", default: {}
     t.index ["author_id"], name: "index_decidim_newsletters_on_author_id"
     t.index ["organization_id"], name: "index_decidim_newsletters_on_organization_id"
   end
