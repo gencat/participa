@@ -22,16 +22,14 @@ module Socrata
     end
 
     # Updates the remote Socrata dataset.
-    # Logs and Outputs the HTTP responses.
+    # Logs and Outputs the HTTP response.
     # Returns nothing.
     def publish
       log(:info, 'Pushing data to Socrata...')
 
-      update_response = client.post(dataset_identifier, update_payload)
-      delete_response = client.post(dataset_identifier, delete_payload)
+      response = client.post(dataset_identifier, payload)
 
-      log(:info, "Update response: #{update_response.body}")
-      log(:info, "Update response: #{delete_response.body}")
+      log(:info, response.body)
     rescue StandardError => error
       log(:error, error)
     end
@@ -77,6 +75,11 @@ module Socrata
     # https://soda.demo.socrata.com/dataset/Example-Dataset/identifier
     def dataset_identifier
       Rails.application.secrets.soda[:dataset_identifier]
+    end
+
+    # Payload body of the HTTP POST Request
+    def payload
+      update_payload + delete_payload
     end
 
     # Payload to CREATE new rows and to UPDATE existing ones.
