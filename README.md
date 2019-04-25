@@ -37,7 +37,7 @@ Add `require "rails_helper"` to your specs and execute them from the **root dire
 
 ## Open Data
 
-Public information from Processes and Normative consultations can be accessed at [https://analisi.transparenciacatalunya.cat/](https://analisi.transparenciacatalunya.cat/dataset/Participa-Gencat/dazj-skq4), which is powered by [Socrata](https://socrata.com/).
+Public information from Participatory processes can be accessed at [https://analisi.transparenciacatalunya.cat/](https://analisi.transparenciacatalunya.cat/dataset/Participa-Gencat/dazj-skq4), which is powered by [Socrata](https://socrata.com/).
 
 The data is periodically updated using the [`soda-ruby gem`](https://github.com/socrata/soda-ruby) to access the [Socrata Open Data API](https://dev.socrata.com/).
 
