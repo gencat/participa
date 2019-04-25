@@ -27,8 +27,8 @@ module Socrata
     def publish
       log(:info, 'Pushing data to Socrata...')
 
-      update_response = client.post(database_identifier, update_payload)
-      delete_response = client.post(database_identifier, delete_payload)
+      update_response = client.post(dataset_identifier, update_payload)
+      delete_response = client.post(dataset_identifier, delete_payload)
 
       log(:info, "Update response: #{update_response.body}")
       log(:info, "Update response: #{delete_response.body}")
@@ -67,21 +67,16 @@ module Socrata
       Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
     end
 
-    # Returns a SODA::Client instance.
+    # Returns a SODA::Client instance. Needs to be authenticated.
     # https://www.rubydoc.info/github/socrata/soda-ruby/SODA/Client
     def client
-      @client ||= SODA::Client.new(
-        domain: ENV['SODA_DOMAIN'],
-        username: ENV['SODA_USERNAME'],
-        password: ENV['SODA_PASSWORD'],
-        app_token: ENV['SODA_APP_TOKEN']
-      )
+      @client ||= SODA::Client.new(Rails.application.secrets.soda)
     end
 
     # Identifier for the dataset we want to access, as in:
     # https://soda.demo.socrata.com/dataset/Example-Dataset/identifier
-    def database_identifier
-      ENV['SODA_DATASET_IDENTIFIER']
+    def dataset_identifier
+      Rails.application.secrets.soda[:dataset_identifier]
     end
 
     # Payload to CREATE new rows and to UPDATE existing ones.
@@ -95,7 +90,7 @@ module Socrata
     # Payload to DELETE data of processes that are no longer public.
     # Check existing rows first, as only rows that can be found can be deleted.
     def delete_payload
-      ids = client.get(database_identifier, '$select' => 'id').body.pluck(:id)
+      ids = client.get(dataset_identifier, '$select' => 'id').body.pluck(:id)
       private_processes.pluck(:id).each_with_object([]) do |id, arr|
         next unless ids.include?(id.to_s)
 
