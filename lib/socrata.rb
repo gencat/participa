@@ -36,8 +36,8 @@ module Socrata
     private
 
     def log(level, message)
-      logger = Logger.new("#{Rails.root}/log/socrata.log")
-      logger.send(level, message)
+      @logger ||= Logger.new("#{Rails.root}/log/socrata.log")
+      @logger.send(level, message)
       puts message
     end
 
