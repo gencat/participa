@@ -5,59 +5,102 @@ require 'soda/client'
 # This module holds the logic used in lib/tasks/socrata.rake
 module Socrata
   class << self
-    # Returns both the file name (with timestamp) and the exported data as a String.
-    def export(format)
+    # Creates a file in the current directory.
+    # Logs and Outputs the name of the file (timestamped).
+    # Returns nothing.
+    def export(file_format)
       log(:info, 'Exporting dataset...')
 
-      file_format = format || 'CSV'
-      export_data = Decidim::Exporters.find_exporter(file_format).new(collection, serializer).export
+      exporter = Decidim::Exporters.find_exporter(file_format || 'CSV')
+      export_data = exporter.new(public_processes, serializer).export
       file_name = export_data.filename('socrata_open_data')
+      File.write(file_name, export_data)
 
       log(:info, "File created: #{file_name}")
-
-      [file_name, export_data.read]
     rescue StandardError => error
       log(:error, error)
     end
 
-    # Returns a Hashie::Mash that represents the body of the HTTP response.
+    # Updates the remote Socrata dataset.
+    # Logs and Outputs the HTTP responses.
+    # Returns nothing.
     def publish
       log(:info, 'Pushing data to Socrata...')
 
-      client = SODA::Client.new(credentials)
-      payload = collection.map { |resource| serializer.new(resource).serialize.compact }
-      response = client.post(ENV['SODA_DATASET_IDENTIFIER'], payload)
+      update_response = client.post(database_identifier, update_payload)
+      delete_response = client.post(database_identifier, delete_payload)
 
-      log(:info, response.body)
+      log(:info, "Update response: #{update_response.body}")
+      log(:info, "Update response: #{delete_response.body}")
     rescue StandardError => error
       log(:error, error)
     end
 
     private
 
+    # Logs to a custom file.
     def log(level, message)
       @logger ||= Logger.new("#{Rails.root}/log/socrata.log")
       @logger.send(level, message)
       puts message
     end
 
-    def collection
-      Decidim::ParticipatoryProcess.where(
-        organization: Decidim::Organization.first
-      ).published.public_spaces
+    # ParticipatoryProcesses that are published AND not private.
+    def public_processes
+      collection.published.public_spaces
     end
 
+    # ParticipatoryProcesses that are unpublished OR private.
+    def private_processes
+      collection.unpublished.or(collection.private_spaces)
+    end
+
+    # ParticipatoryProcesses of the organization.
+    def collection
+      @collection ||= Decidim::ParticipatoryProcess.where(
+        organization: Decidim::Organization.first
+      )
+    end
+
+    # Class used to transform ParticipatoryProcesses into data.
     def serializer
       Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
     end
 
-    def credentials
-      {
+    # Returns a SODA::Client instance.
+    # https://www.rubydoc.info/github/socrata/soda-ruby/SODA/Client
+    def client
+      @client ||= SODA::Client.new(
         domain: ENV['SODA_DOMAIN'],
         username: ENV['SODA_USERNAME'],
         password: ENV['SODA_PASSWORD'],
         app_token: ENV['SODA_APP_TOKEN']
-      }
+      )
+    end
+
+    # Identifier for the dataset we want to access, as in:
+    # https://soda.demo.socrata.com/dataset/Example-Dataset/identifier
+    def database_identifier
+      ENV['SODA_DATASET_IDENTIFIER']
+    end
+
+    # Payload to CREATE new rows and to UPDATE existing ones.
+    # Does not accept null values, so we remove them with Hash.compact().
+    def update_payload
+      public_processes.map do |process|
+        serializer.new(process).serialize.compact
+      end
+    end
+
+    # Payload to DELETE data of processes that are no longer public.
+    # Check existing rows first, as only rows that can be found can be deleted.
+    def delete_payload
+      ids = client.get(database_identifier, '$select' => 'id').body.pluck(:id)
+      private_processes.pluck(:id).each_with_object([]) do |id, arr|
+        next unless ids.include?(id.to_s)
+
+        arr << { 'id' => id, ':deleted' => true }
+      end
     end
   end
 end

@@ -6,8 +6,7 @@ namespace :socrata do
   # - format - The exporter format as a string. Defaults to "CSV"
   # - i.e. rake socrata:export["JSON"]
   task :export, [:format] => :environment do |_task, args|
-    file_name, export_data = Socrata.export(args.format)
-    File.write(file_name, export_data)
+    Socrata.export(args[:format])
   end
 
   desc 'Updates the Socrata dataset via HTTP POST request'
