@@ -2,7 +2,15 @@
 
 Citizen Participation and Open Government application.
 
-This is the open-source repository for participa, based on [Decidim](https://github.com/decidim/decidim).
+This is the open-source repository for "participa", based on [Decidim](https://github.com/decidim/decidim).
+
+## Customizations
+
+- `Decidim::Home`, customizes the main page of Decidim.
+- `Decidim::Admin::SearchUser`, adds a search bar to Admin/users dashboard.
+- `Decidim::Espais::Estables`, customizes Decidim Assemblies.
+- `Decidim::Process::Extended`, customizes Decidim Participatory processes.
+- `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
 
 ## Deploying the app
 
@@ -37,7 +45,7 @@ Add `require "rails_helper"` to your specs and execute them from the **root dire
 
 ## Open Data
 
-Public information from Participatory processes can be accessed at [https://analisi.transparenciacatalunya.cat/](https://analisi.transparenciacatalunya.cat/dataset/Participa-Gencat/dazj-skq4), which is powered by [Socrata](https://socrata.com/).
+Public information from _Participatory processes_ can be accessed at [https://analisi.transparenciacatalunya.cat/](https://analisi.transparenciacatalunya.cat/dataset/Participa-Gencat/dazj-skq4), which is powered by [Socrata](https://socrata.com/).
 
 The data is periodically updated using the [`soda-ruby gem`](https://github.com/socrata/soda-ruby) to access the [Socrata Open Data API](https://dev.socrata.com/).
 
