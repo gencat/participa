@@ -14,7 +14,7 @@ module Socrata
       exporter = Decidim::Exporters.find_exporter(file_format || 'CSV')
       export_data = exporter.new(public_processes, serializer).export
       file_name = export_data.filename('socrata_open_data')
-      File.write(file_name, export_data)
+      File.write(file_name, export_data.read)
 
       log(:info, "File created: #{file_name}")
     rescue StandardError => error
