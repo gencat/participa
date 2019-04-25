@@ -43,7 +43,6 @@ The data is periodically updated using the [`soda-ruby gem`](https://github.com/
 
 The necessary credentials are:
 ```
-# Socrata Open Data API, or SODA configuration.
 SODA_DOMAIN: "soda.demo.socrata.com"
 SODA_USERNAME: "user@example.com"
 SODA_PASSWORD: "password"
@@ -53,11 +52,7 @@ SODA_DATASET_IDENTIFIER: "dataset_identifier"
 
 There are two rake tasks available to interact with this data:
 
-- `rake socrata:export` to export the data to a file
-- `rake socrata:publish` to update the remote Socrata dataset
+- `rake socrata:export` to **export** the data to a file
+- `rake socrata:publish` to **update** the remote Socrata dataset
 
-These tasks use the following module and class:
-
-- `Socrata` found at `lib/`
-- `Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer` found at `decidim-process-extended/app/serializers/`
-
+The logic of these rake tasks has been extracted to a `Module` in `lib/socrata.rb`, and `ParticipatoryProcessSerializer`, located at `decidim-process-extended/app/serializers/decidim/participatory_processes`, is the `Class` responsible for transforming the objects into data for the Socrata dataset.
