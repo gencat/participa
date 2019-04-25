@@ -13,7 +13,7 @@ module Socrata
 
       exporter = Decidim::Exporters.find_exporter(file_format || 'CSV')
       export_data = exporter.new(collection, serializer).export
-      file_name = export_data.filename('socrata_open_data')
+      file_name = export_data.filename(collection.first.model_name.plural)
       File.write(file_name, export_data.read)
 
       log(:info, "File created: #{file_name}")
