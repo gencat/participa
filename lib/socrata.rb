@@ -42,7 +42,9 @@ module Socrata
     end
 
     def collection
-      Decidim::ParticipatoryProcess.where(organization: Decidim::Organization.first)
+      Decidim::ParticipatoryProcess.where(
+        organization: Decidim::Organization.first
+      ).published.public_spaces
     end
 
     def serializer
