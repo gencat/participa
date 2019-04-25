@@ -14,7 +14,7 @@ gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifications block end ####
 
 gem 'decidim-idcat_mobil', "~> 0.0.3"
-gem 'soda-ruby', :require => 'soda'
+gem 'soda-ruby', require: false
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git', tag: '0.0.2'
 
 gem "puma", "~> 3.0"
