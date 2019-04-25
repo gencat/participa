@@ -44,20 +44,10 @@ module Socrata
     end
 
     # ParticipatoryProcesses that are published AND not private.
-    def public_processes
-      collection.published.public_spaces
-    end
-
-    # ParticipatoryProcesses that are unpublished OR private.
-    def private_processes
-      collection.unpublished.or(collection.private_spaces)
-    end
-
-    # ParticipatoryProcesses of the organization.
     def collection
-      @collection ||= Decidim::ParticipatoryProcess.where(
+      Decidim::ParticipatoryProcess.where(
         organization: Decidim::Organization.first
-      )
+      ).published.public_spaces
     end
 
     # Class used to transform ParticipatoryProcesses into data.
@@ -78,27 +68,9 @@ module Socrata
     end
 
     # Payload body of the HTTP POST Request
-    def payload
-      update_payload + delete_payload
-    end
-
-    # Payload to CREATE new rows and to UPDATE existing ones.
     # Does not accept null values, so we remove them with Hash.compact().
-    def update_payload
-      public_processes.map do |process|
-        serializer.new(process).serialize.compact
-      end
-    end
-
-    # Payload to DELETE data of processes that are no longer public.
-    # Check existing rows first, as only rows that can be found can be deleted.
-    def delete_payload
-      ids = client.get(dataset_identifier, '$select' => 'id').body.pluck(:id)
-      private_processes.pluck(:id).each_with_object([]) do |id, arr|
-        next unless ids.include?(id.to_s)
-
-        arr << { 'id' => id, ':deleted' => true }
-      end
+    def payload
+      collection.map { |process| serializer.new(process).serialize.compact }
     end
   end
 end
