@@ -28,11 +28,11 @@ module OpenData
 
     # Public: increments the remote Socrata dataset.
     #
-    # collection - The collection to extract the data from.
+    # collection - The collection of objects to extract the data from.
     # serializer - The class used to transform the collection into data.
     # client     - A SODA::Client instance. Needs to be authenticated.
     #              https://www.rubydoc.info/github/socrata/soda-ruby/SODA/Client
-    # identifier - identifier for the dataset we want to access, i.e.
+    # identifier - The Identifier for the dataset we want to access, i.e.
     #              https://soda.demo.socrata.com/dataset/Example-Dataset/identifier
     # payload    - The body of the HTTP POST Request
     #              Does not accept null values, so we remove them with #compact.
