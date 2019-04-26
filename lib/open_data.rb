@@ -32,10 +32,9 @@ module OpenData
     # serializer - The class used to transform the collection into data.
     # client     - A SODA::Client instance. Needs to be authenticated.
     #              https://www.rubydoc.info/github/socrata/soda-ruby/SODA/Client
-    # identifier - The Identifier for the dataset we want to access, i.e.
+    # identifier - The identifier for the dataset we want to access, i.e.
     #              https://soda.demo.socrata.com/dataset/Example-Dataset/identifier
-    # payload    - The body of the HTTP POST Request
-    #              Does not accept null values, so we remove them with #compact.
+    # payload    - The body of the HTTP POST Request. Doesn't accept null values.
     #
     # Logs and Outputs the HTTP response.
     def publish_to_socrata(collection, serializer)
