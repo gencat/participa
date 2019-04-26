@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "csv"
+require 'csv'
 
 module Decidim
   module Exporters
@@ -16,12 +16,12 @@ module Decidim
       #
       # Returns an ExportData instance.
       def export
-        data = ::CSV.generate(headers: headers, write_headers: true, col_sep: ",") do |csv|
+        data = ::CSV.generate(headers: headers, write_headers: true, col_sep: ',') do |csv|
           processed_collection.each do |resource|
             csv << headers.map { |header| resource[header] }
           end
         end
-        ExportData.new(data, "csv")
+        ExportData.new(data, 'csv')
       end
 
       private
@@ -31,10 +31,13 @@ module Decidim
         processed_collection.first.keys
       end
 
+      # Serializes the collection in batches to avoid server memory problems.
       def processed_collection
-        @processed_collection ||= collection.map do |resource|
-          flatten(@serializer.new(resource).serialize)
-        end
+        @processed_collection ||= collection
+                                  .find_in_batches(batch_size: 50)
+                                  .each_with_object([]) do |batch, arr|
+          arr << batch.map { |resource| flatten(@serializer.new(resource).serialize) }
+        end.flatten
       end
 
       def flatten(object, key = nil)
@@ -44,7 +47,7 @@ module Decidim
             result.merge(flatten(value, new_key))
           end
         elsif object.is_a?(Array)
-          { key.to_s => object.map(&:to_s).join(", ") }
+          { key.to_s => object.map(&:to_s).join(', ') }
         else
           { key.to_s => object }
         end
