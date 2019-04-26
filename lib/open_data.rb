@@ -9,8 +9,6 @@ module OpenData
     #
     # collection  - The collection of objects to extract the data from.
     # serializer  - The class used to transform the collection into data.
-    # exporter    - The class used to export the data into a readable CSV.
-    # file_name   - A filename based on the object model name and creation date.
     #
     # Logs and Outputs the name of the file (timestamped).
     def export(collection, serializer)
@@ -30,11 +28,6 @@ module OpenData
     #
     # collection - The collection of objects to extract the data from.
     # serializer - The class used to transform the collection into data.
-    # client     - A SODA::Client instance. Needs to be authenticated.
-    #              https://www.rubydoc.info/github/socrata/soda-ruby/SODA/Client
-    # identifier - The identifier for the dataset we want to access, i.e.
-    #              https://soda.demo.socrata.com/dataset/Example-Dataset/identifier
-    # payload    - The body of the HTTP POST Request. Doesn't accept null values.
     #
     # Logs and Outputs the HTTP response.
     def publish_to_socrata(collection, serializer)
@@ -60,6 +53,7 @@ module OpenData
     end
 
     # Serializes the collection in batches to avoid server memory problems.
+    # Keep in mind the body of the HTTP POST Request doesn't accept null values.
     def serialize_in_batches(collection, serializer)
       collection.find_in_batches(batch_size: 50).each_with_object([]) do |batch, arr|
         arr << batch.map { |resource| serializer.new(resource).serialize.compact }
