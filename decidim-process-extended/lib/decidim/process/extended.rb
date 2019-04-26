@@ -5,7 +5,7 @@ require "decidim/process/extended/engine"
 module Decidim
   module Process
     module Extended
-      # Your code goes here...
+      autoload :ParticipatoryProcessSerializer, "decidim/participatory_processes/participatory_process_serializer"
     end
   end
 end
