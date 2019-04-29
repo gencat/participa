@@ -2,7 +2,15 @@
 
 Citizen Participation and Open Government application.
 
-This is the open-source repository for participa, based on [Decidim](https://github.com/decidim/decidim).
+This is the open-source repository for "participa", based on [Decidim](https://github.com/decidim/decidim).
+
+## Customizations
+
+- `Decidim::Home`, customizes the main page of Decidim.
+- `Decidim::Admin::SearchUser`, adds a search bar to Admin/users dashboard.
+- `Decidim::Espais::Estables`, customizes Decidim Assemblies.
+- `Decidim::Process::Extended`, customizes Decidim Participatory processes.
+- `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
 
 ## Deploying the app
 
@@ -24,3 +32,35 @@ user.save!
 6. Fill the rest of the form and submit it.
 
 You're good to go!
+
+## Testing
+
+Run `rake decidim:generate_external_test_app` to generate a dummy application to test both the application and the modules.
+
+Require missing factories in `spec/factories.rb`
+
+Add `require "rails_helper"` to your specs and execute them from the **root directory**, i.e.:
+
+`rspec decidim-process-extended/spec/serializers/decidim/participatory_processes/participatory_process_serializer_spec.rb`
+
+## Open Data
+
+Public information from _Participatory processes_ can be accessed at [https://analisi.transparenciacatalunya.cat/](https://analisi.transparenciacatalunya.cat/dataset/Participa-Gencat/dazj-skq4), which is powered by [Socrata](https://socrata.com/).
+
+The data is periodically updated using the [`soda-ruby gem`](https://github.com/socrata/soda-ruby) to access the [Socrata Open Data API](https://dev.socrata.com/).
+
+The necessary credentials are:
+```
+SODA_DOMAIN: "soda.demo.socrata.com"
+SODA_USERNAME: "user@example.com"
+SODA_PASSWORD: "password"
+SODA_APP_TOKEN: "app_token"
+SODA_DATASET_IDENTIFIER: "dataset_identifier"
+```
+
+There are two rake tasks available to interact with this data:
+
+- `rake open_data:participatory_processes:export` to **export** the data to a CSV file
+- `rake open_data:participatory_processes:publish_to_socrata` to **update** the remote Socrata dataset
+
+The logic of these rake tasks has been extracted to a `Module` in `lib/open_data.rb`, and `ParticipatoryProcessSerializer`, located at `decidim-process-extended/app/serializers/decidim/participatory_processes`, is the `Class` responsible for transforming the objects into data for the Socrata dataset.

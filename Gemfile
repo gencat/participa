@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'selective_newsletter' }.freeze
+DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', tag: 'v0.18-dev-selective-newsletter' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
@@ -15,6 +15,7 @@ gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifications block end ####
 
 gem 'decidim-idcat_mobil', "~> 0.0.3"
+gem 'soda-ruby', require: false
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git', tag: '0.0.2'
 
 gem "puma", "~> 3.0"
@@ -30,7 +31,7 @@ gem 'whenever', require: false
 group :development, :test do
   gem "faker", ">= 1.8.4"
   gem "byebug", platform: :mri
-
+  gem "bootsnap"
   gem "decidim-dev", DECIDIM_VERSION
 end
 
