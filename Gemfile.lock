@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/gencat/decidim
-  revision: b28d123c6d7738af979b705a98b585ea5e5d85ec
-  branch: selective_newsletter
+  revision: b56ee57f6fb714e5eda9f916be372ca2ca1fe9bc
+  tag: v0.18-dev-selective-newsletter
   specs:
     decidim (0.18.0.dev)
       decidim-accountability (= 0.18.0.dev)
@@ -575,7 +575,7 @@ GEM
       request_store (~> 1.1)
     paper_trail-association_tracking (1.1.1)
     parallel (1.17.0)
-    parser (2.6.2.1)
+    parser (2.6.3.0)
       ast (~> 2.4.0)
     pg (1.1.4)
     pg_search (2.1.7)
