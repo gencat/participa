@@ -1,7 +1,10 @@
 # Change Log
 **Upgrade notes:**
+- **Added**: Feat socrata open data. [#70](https://github.com/gencat/participa/pull/70)
+Review the [README#open-data](https://github.com/gencat/participa/blob/master/README.md#open-data) section to find out the required actions to perform
+- **Added**: Add new metadata fields to ParticipatoryProcesses. [#69](https://github.com/gencat/participa/pull/69)
 - **Decidim::Verifications::MembersPicker** After installing and activating the verification module, review the [README usage section](https://github.com/gencat/decidim-verifications-members_picker/blob/0.0.2/README.md#usage) to execute the necessary actions
-- **DecidimDepartment, DecidimTheme, DecidimType:** Only for upgrades from 0.18 or earlier versions
+- **DecidimDepartment, DecidimTheme, DecidimType:** Only for upgrades from 0.18 or earlier versions [#67](https://github.com/gencat/participa/pull/67)
 
 The logic from decidim-department, decidim-theme, decidim-type and decidim-admin-extended has been removed to the Decidim Standards, so you need to migrate the data to the new database tables:
 
@@ -25,8 +28,6 @@ class RemoveDecidimCustomCategorizationTablesAfterMigrateToDecidimStandards < Ac
   end
 end
 ```
-- **Added**: Feat socrata open data. [#70](https://github.com/gencat/participa/pull/70)
-- **Added**: Add new metadata fields to ParticipatoryProcesses. [#69](https://github.com/gencat/participa/pull/69)
 - **Upgraded**: Upgrade PARTICIPA to Decidim 0.18.0-master. [#66](https://github.com/gencat/participa/pull/66)
 - **Upgraded**: Upgrade PARTICIPA to Decidim 0.17.0. [#65](https://github.com/gencat/participa/pull/65)
 - **Removed**: Removed custom categories files in ParticipatorySpace and Proposal Component and and leave it as Decidim.  [\#45](https://github.com/gencat/participa/issues/45)
