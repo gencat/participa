@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', tag: 'v0.18-dev-selective-newsletter' }.freeze
+DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'selective_newsletter_and_5063_extend_modules_permissions' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
