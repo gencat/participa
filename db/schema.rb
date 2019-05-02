@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_24_112001) do
+ActiveRecord::Schema.define(version: 2019_05_02_064440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -762,6 +762,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_112001) do
     t.jsonb "id_documents_explanation_text", default: {}
     t.boolean "user_groups_enabled", default: false, null: false
     t.jsonb "colors", default: {}
+    t.jsonb "smtp_settings"
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
     t.index ["name"], name: "index_decidim_organizations_on_name", unique: true
   end
