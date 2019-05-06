@@ -13,6 +13,13 @@
   <style> body,table tr,table td,a, span,table.MsoNormalTable {  font-family:Arial, Helvetica, sans-serif !important;  }</style>
 <!--<![endif]-->
 <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#fff">
+<% if content_for?(:see_on_website) %>
+  <table class="container">
+    <th class="small-12 first columns headnote float-right">
+      <%= yield(:see_on_website) %>
+    </th>
+  </table>
+<% end %>
 <tbody>
 	<tr>
 		<td>
@@ -39,7 +46,7 @@
                           </td>
                         </tr>
                         <tr>
-                          <td style="font-family: sans-serif, 'Open Sans'; font-size: 35px; padding-top: 15px; color: #fff;"><% 
+                          <td style="font-family: sans-serif, 'Open Sans'; font-size: 35px; padding-top: 15px; color: #fff;"><%
                             if (@organization)
                               %><%= @organization.name%><%
                             else
@@ -91,7 +98,7 @@
                             <table style="margin-top: 10px;" class="pl-15" align="left">
                             <tbody>
                               <tr>
-                                <td style="margin-top:15px;">                                 
+                                <td style="margin-top:15px;">
                                   <a target="_self" href="<%=currentUrl%>" title="logotip" style="cursor:pointer">
                                     <img src="<%=footerLogo%>" style="padding-left: 15px" />
                                   </a>
@@ -139,4 +146,21 @@
 		</td>
 	</tr>
 </tbody>
+<% if content_for?(:note) or content_for?(:unsubscribe) %>
+  <table class="container">
+    <tr>
+      <td>
+        <table class="row">
+          <th class="expander"></th>
+          <th class="small-12 first last columns footnote">
+            <center>
+              <%= yield(:note) if content_for?(:note) %>
+              <%= yield(:unsubscribe) if content_for?(:unsubscribe) %>
+            </center>
+          </th>
+        </table>
+      </td>
+    </tr>
+  </table>
+<% end %>
 </table>
