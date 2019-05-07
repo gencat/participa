@@ -645,7 +645,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.4.0)
-    redis (4.1.0)
+    redis (4.1.1)
     regexp_parser (1.4.0)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -712,7 +712,7 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
-    selenium-webdriver (3.142.0)
+    selenium-webdriver (3.142.1)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
     simplecov (0.16.1)
