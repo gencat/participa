@@ -1,5 +1,26 @@
 ca:
   decidim:
+    admin:
+      newsletters:
+        select_recipients_to_deliver:
+          alert: "ALERTA !!: Tingueu en compte que només s'enviarà el butlletí a aquells usuaris que hagin acceptat rebre butlletins"
+          all_spaces: Tots
+          confirm_deliver: Estàs segur que vols publicar aquest butlletí? Aquesta acció no es pot desfer.
+          deliver: Envia el butlletí
+          none: Cap
+          select_scopes: Seleccioneu àmbits per segmentar el butlletí de notícies
+          select_spaces: Seleccioneu els espais per segmentar el butlletí
+          select_users: Seleccioneu quins usuaris voleu enviar el butlletí de notícies
+          send_to_all_users: Envia a tots els usuaris
+          send_to_followers: Envia als seguidors
+          send_to_participants: Envia als participants
+          title: Seleccioneu els destinataris a lliurar
+        send:
+          no_recipients: No hi ha destinataris per a aquesta selecció
+        show:
+          preview: Vista prèvia
+          select_recipients_to_deliver: Seleccioneu els destinataris a lliurar
+          subject: Assumpte
     menu:
       meetings_static: Agenda
     notifications_settings:
