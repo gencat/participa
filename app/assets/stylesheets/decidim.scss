@@ -539,6 +539,40 @@ h5 {
 		color: $RedGenCat !important;
 	}
 }
+
+#assemblies-filter{
+	li{
+		color: #D04040 !important;
+		padding: 0.5em;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+}
+
+#participatory-space-filters{
+	 .picker-prompt{
+			a{
+				color: #D04040;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+  .picker-values{
+    div{
+      margin: 0.3em;
+    }
+  }
+
+  select {
+		color: #D04040;
+  }
+}
+
 /* Tables */
 .part-table {
 	border-collapse: collapse;
