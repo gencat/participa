@@ -14,7 +14,7 @@
 <!--<![endif]-->
 <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#fff">
 <% if content_for?(:see_on_website) %>
-  <table class="container">
+  <table class="container" style="width:100%;max-width:600px;font-family: Open Sans, sans-serif; font-size: 12px; padding: 1em; color: #666;" align="center">
     <th class="small-12 first columns headnote float-right">
       <%= yield(:see_on_website) %>
     </th>
@@ -147,20 +147,11 @@
 	</tr>
 </tbody>
 <% if content_for?(:note) or content_for?(:unsubscribe) %>
-  <table class="container">
-    <tr>
-      <td>
-        <table class="row">
-          <th class="expander"></th>
-          <th class="small-12 first last columns footnote">
-            <center>
-              <%= yield(:note) if content_for?(:note) %>
-              <%= yield(:unsubscribe) if content_for?(:unsubscribe) %>
-            </center>
-          </th>
-        </table>
-      </td>
-    </tr>
+  <table class="container" style="width:100%;max-width:600px;font-family: Open Sans, sans-serif; font-size: 12px; padding: 1em; color: #666;" align="center">
+    <th class="small-12 columns">
+      <p><%= yield(:note) if content_for?(:note) %></p>
+      <p><%= yield(:unsubscribe) if content_for?(:unsubscribe) %></p>
+    </th>
   </table>
 <% end %>
 </table>
