@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_064440) do
+ActiveRecord::Schema.define(version: 2019_05_07_151030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1294,6 +1294,13 @@ ActiveRecord::Schema.define(version: 2019_05_02_064440) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "department_admin_areas", force: :cascade do |t|
+    t.bigint "decidim_user_id"
+    t.bigint "decidim_area_id"
+    t.index ["decidim_area_id"], name: "index_department_admin_areas_on_decidim_area_id"
+    t.index ["decidim_user_id"], name: "index_department_admin_areas_on_decidim_user_id"
+  end
+
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer "resource_owner_id", null: false
     t.bigint "application_id", null: false
@@ -1372,6 +1379,8 @@ ActiveRecord::Schema.define(version: 2019_05_02_064440) do
   add_foreign_key "decidim_types", "decidim_organizations"
   add_foreign_key "decidim_users", "decidim_organizations"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
+  add_foreign_key "department_admin_areas", "decidim_areas"
+  add_foreign_key "department_admin_areas", "decidim_users"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
