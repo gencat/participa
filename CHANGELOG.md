@@ -1,5 +1,6 @@
 # Change Log
 **Upgrade notes:**
+- **Changed**: Hide `assembly_type` filter from `Assembly` index page as per request of Product Owner [#87](https://github.com/gencat/participa/pull/87)
 - **Added**: Admin Department Module [#84](https://github.com/gencat/participa/pull/84)
 - **Added**: Feat socrata open data. [#70](https://github.com/gencat/participa/pull/70)
 Review the [README#open-data](https://github.com/gencat/participa/blob/master/README.md#open-data) section to find out the required actions to perform
