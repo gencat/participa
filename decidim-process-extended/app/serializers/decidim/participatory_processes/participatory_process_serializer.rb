@@ -62,7 +62,7 @@ module Decidim
       attr_reader :process
 
       def url
-        Decidim::ResourceLocatorPresenter.new(process).url.split('?').first
+        Decidim::ResourceLocatorPresenter.new(process).url&.split('?')&.first
       end
 
       def short_description_ca
