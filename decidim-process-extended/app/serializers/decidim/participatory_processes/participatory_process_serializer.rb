@@ -17,6 +17,7 @@ module Decidim
           id: process.id,
           socrata_published_at: Date.current,
           title_ca: process.title['ca'],
+          url: url,
           slug: process.slug,
           short_description_ca: short_description_ca,
           process_type: process_type,
@@ -60,6 +61,10 @@ module Decidim
       private
 
       attr_reader :process
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(process).url&.split('?')&.first
+      end
 
       def short_description_ca
         ActionController::Base.helpers.strip_tags(process.short_description['ca'])
