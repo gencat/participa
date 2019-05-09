@@ -1,22 +1,7 @@
 GIT
-  remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 11f7bbe64a04135df17c1f1708b925bf9789a3d1
-  tag: v0.0.2
-  specs:
-    decidim-department_admin (0.0.1)
-      decidim-core (>= 0.16.1)
-
-GIT
-  remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
-  tag: 0.0.2
-  specs:
-    decidim-verifications-members_picker (0.0.2)
-      decidim-core (>= 0.16.0)
-      decidim-verifications (>= 0.16.0)
-
-PATH
-  remote: ../decidim-fork
+  remote: https://github.com/gencat/decidim
+  revision: d7ff93d06ff8c15c0c0db5524f74ed33a5cba3ca
+  tag: v0.18-dev-gencat-features
   specs:
     decidim (0.18.0.dev)
       decidim-accountability (= 0.18.0.dev)
@@ -201,6 +186,23 @@ PATH
       sassc-rails (~> 1.3)
     decidim-verifications (0.18.0.dev)
       decidim-core (= 0.18.0.dev)
+
+GIT
+  remote: https://github.com/gencat/decidim-department-admin.git
+  revision: 11f7bbe64a04135df17c1f1708b925bf9789a3d1
+  tag: v0.0.2
+  specs:
+    decidim-department_admin (0.0.1)
+      decidim-core (>= 0.16.1)
+
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
+  tag: 0.0.2
+  specs:
+    decidim-verifications-members_picker (0.0.2)
+      decidim-core (>= 0.16.0)
+      decidim-verifications (>= 0.16.0)
 
 PATH
   remote: decidim-admin-search_user

@@ -1,8 +1,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-# DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', tag: 'v0.18-dev-gencat-features' }.freeze
-DECIDIM_VERSION = { path: '../decidim-fork' }.freeze
+DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', tag: 'v0.18-dev-gencat-features' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
