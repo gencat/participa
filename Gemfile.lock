@@ -189,8 +189,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 6ff8f1a6c294498e0d44f20d2d73bca023294ee9
-  tag: v0.0.1
+  revision: 11f7bbe64a04135df17c1f1708b925bf9789a3d1
+  tag: v0.0.2
   specs:
     decidim-department_admin (0.0.1)
       decidim-core (>= 0.16.1)
@@ -775,7 +775,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
-    unicode-display_width (1.5.0)
+    unicode-display_width (1.6.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
