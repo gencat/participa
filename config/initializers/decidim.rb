@@ -15,6 +15,9 @@ Decidim.configure do |config|
     here_app_code: Rails.application.secrets.geocoder[:here_app_code]
   }
 
+  # Decidim::Exporters::CSV's default column separator
+  config.default_csv_col_sep = ","
+
   # Custom resource reference generator method
   # config.reference_generator = lambda do |resource, feature|
   #   # Implement your custom method to generate resources references
