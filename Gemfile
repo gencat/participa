@@ -1,12 +1,13 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', tag: 'v0.18-dev-gencat-features' }.freeze
+# DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', tag: 'v0.18-dev-gencat-features' }.freeze
+DECIDIM_VERSION = { path: '../decidim-fork' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
-gem 'decidim-department_admin', git: 'https://github.com/gencat/decidim-department-admin.git', tag: 'v0.0.1'
+gem 'decidim-department_admin', git: 'https://github.com/gencat/decidim-department-admin.git', tag: 'v0.0.2'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
