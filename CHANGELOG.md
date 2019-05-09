@@ -1,6 +1,6 @@
 # Change Log
 **Upgrade notes:**
-- **Added**: Separate participatory_processes by process_group in select_recipients_to_deliver in the admin's newsletter page. [#89](https://github.com/gencat/participa/pull/89)
+- **Added**: Separate `participatory_processes` by `process_group` in `select_recipients_to_deliver` in the admin's newsletter page. [#89](https://github.com/gencat/participa/pull/89)
 - **Changed**: Hide `assembly_type` filter from `Assembly` index page as per request of Product Owner [#87](https://github.com/gencat/participa/pull/87)
 - **Added**: Admin Department Module [#84](https://github.com/gencat/participa/pull/84)
 - **Added**: Feat socrata open data. [#70](https://github.com/gencat/participa/pull/70)
