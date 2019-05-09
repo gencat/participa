@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/gencat/decidim
-  revision: d7ff93d06ff8c15c0c0db5524f74ed33a5cba3ca
-  tag: v0.18-dev-gencat-features
+  revision: e207fd0e5e306bb9743a4a74c39bff8e005de031
+  tag: v0.18-dev-gencat-features-fix
   specs:
     decidim (0.18.0.dev)
       decidim-accountability (= 0.18.0.dev)
@@ -775,7 +775,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
-    unicode-display_width (1.5.0)
+    unicode-display_width (1.6.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
