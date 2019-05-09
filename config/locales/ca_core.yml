@@ -3,11 +3,14 @@ ca:
     admin:
       newsletters:
         select_recipients_to_deliver:
-          alert: "ALERTA !!: Tingueu en compte que només s'enviarà el butlletí a aquells usuaris que hagin acceptat rebre butlletins"
+          all_users_help: Envia el bulletí a tots els usuaris que hagin confirmat el seu correu electrònic.
           all_spaces: Tots
           confirm_deliver: Estàs segur que vols publicar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Envia el butlletí
+          followers_help: Envia el bulletí als usuaris que segueixin algun dels espais participatius seleccionats a la llista.
           none: Cap
+          participants_help: Envia el bulletí als usuaris que hagin participat en algun dels espais participatius seleccionats a la llista.
+          scopes_help: Envia el bulletí als usuaris que hagin activat algun dels temes seleccionats en la configuració del seu compte "Els meus interessos".
           select_scopes: Seleccioneu àmbits per segmentar el butlletí de notícies
           select_spaces: Seleccioneu els espais per segmentar el butlletí
           select_users: Seleccioneu quins usuaris voleu enviar el butlletí de notícies
@@ -15,6 +18,7 @@ ca:
           send_to_followers: Envia als seguidors
           send_to_participants: Envia als participants
           title: Seleccioneu els destinataris a lliurar
+          warning: "<strong>Atenció:</strong> Aquest bulletí només s'enviarà a aquells usuaris que hagin activat els <em>Butlletins informatius</em> en la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinataris per a aquesta selecció
         show:
