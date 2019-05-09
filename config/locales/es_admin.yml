@@ -1,0 +1,10 @@
+es:
+  decidim:
+    admin:
+      newsletters:
+        select_recipients_to_deliver:
+          all_users_help: Envía el boletín a todos los usuarios que hayan confirmado su correo electrònico.
+          followers_help: Envía el boletín a los usuarios que sigan algun espacio participativo seleccionado de la lista.
+          participants_help: Envía el boletín a los usuarios que hayan participado en algun espacio participativo seleccionado de la lista.
+          scopes_help: Envía el boletín a los usuarios que hayan activado alguno de los temas seleccionados en la configuración de su cuenta "Mis intereses".
+          warning: "<strong>Atención:</strong> Este boletín solo se enviará a aquellos usuarios que hayan activado los <em>Boletines de noticias</em> en la configuración de notificaciones."

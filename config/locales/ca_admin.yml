@@ -3,3 +3,12 @@ ca:
     attributes:
       attachment_collection:
         weight: Pes
+  decidim:
+    admin:
+      newsletters:
+        select_recipients_to_deliver:
+          all_users_help: Envia el bulletí a tots els usuaris que hagin confirmat el seu correu electrònic.
+          followers_help: Envia el bulletí als usuaris que segueixin algun dels espais participatius seleccionats a la llista.
+          participants_help: Envia el bulletí als usuaris que hagin participat en algun dels espais participatius seleccionats a la llista.
+          scopes_help: Envia el bulletí als usuaris que hagin activat algun dels temes seleccionats en la configuració del seu compte "Els meus interessos".
+          warning: "<strong>Atenció:</strong> Aquest bulletí només s'enviarà a aquells usuaris que hagin activat els <em>Butlletins informatius</em> en la configuració de les notificacions."
