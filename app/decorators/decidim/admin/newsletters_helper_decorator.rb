@@ -42,7 +42,7 @@ Decidim::Admin::NewslettersHelper.class_eval do
     manifest_name = space_type.manifest_name.to_sym
     return spaces_user_can_admin[manifest_name] unless manifest_name == :participatory_processes
 
-    grouped_processes_id = Decidim::ParticipatoryProcessGroup.find(space_type.process_group_id).participatory_processes.ids
-    spaces_user_can_admin[manifest_name].select { |arr| arr[1].in? grouped_processes_id }
+    processes_ids = Decidim::ParticipatoryProcessGroup.find(space_type.process_group_id).participatory_processes.ids
+    spaces_user_can_admin[manifest_name].select { |arr| arr[1].in? processes_ids }
   end
 end

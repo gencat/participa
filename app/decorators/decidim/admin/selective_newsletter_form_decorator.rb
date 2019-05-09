@@ -11,12 +11,12 @@ Decidim::Admin::SelectiveNewsletterForm.class_eval do
 
   def additional_participatory_space_manifest
     Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.from_model(
-      manifest: Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first,
-      process_group_id: regulations_group_id
+      manifest: Decidim.participatory_space_manifests.find { |m| m.name == :participatory_processes },
+      process_group_id: process_group_id
     )
   end
 
-  def regulations_group_id
-    Rails.application.config.regulation
+  def process_group_id
+    Rails.application.config.process
   end
 end

@@ -5,7 +5,8 @@ Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.class_eval do
 
   def map_model(model_hash)
     manifest = model_hash[:manifest]
-    process_group_id = model_hash[:process_group_id] || processes_group_id if manifest.name == :participatory_processes
+    process_group_id = model_hash[:process_group_id]
+    process_group_id ||= regulations_group_id if manifest.name == :participatory_processes
 
     self.manifest_name = manifest.name.to_s
     self.process_group_id = process_group_id
@@ -13,7 +14,7 @@ Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.class_eval do
 
   private
 
-  def processes_group_id
-    Rails.application.config.process
+  def regulations_group_id
+    Rails.application.config.regulation
   end
 end
