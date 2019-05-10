@@ -3,11 +3,14 @@ es:
     admin:
       newsletters:
         select_recipients_to_deliver:
-          alerta: "¡ALERTA !!: Tenga en cuenta que solo se enviará el boletín a los usuarios que hayan aceptado recibir boletines"
+          all_users_help: Envía el boletín a todos los usuarios que hayan confirmado su correo electrònico.
           all_spaces: Todos
           confirm_deliver: ¿Está seguro de que desea enviar este boletín? Esta acción no se puede deshacer.
           deliver: Entregar boletín
+          followers_help: Envía el boletín a los usuarios que sigan algun espacio participativo seleccionado de la lista.
           none: Ninguno
+          participants_help: Envía el boletín a los usuarios que hayan participado en algun espacio participativo seleccionado de la lista.
+          scopes_help: Envía el boletín a los usuarios que hayan activado alguno de los temas seleccionados en la configuración de su cuenta "Mis intereses".
           select_scopes: Seleccione ámbitos para segmentar el boletín
           select_spaces: Seleccione espacios para segmentar el boletín
           select_users: Seleccione a qué usuarios desea enviar el boletín
@@ -15,6 +18,7 @@ es:
           send_to_followers: Enviar a los seguidores
           send_to_participants: Enviar a los participantes
           title: Seleccionar destinatarios para entregar
+          warning: "<strong>Atención:</strong> Este boletín solo se enviará a aquellos usuarios que hayan activado los <em>Boletines de noticias</em> en la configuración de notificaciones."
         send:
           no_recipients: No hay destinatarios para esta selección
         show:
