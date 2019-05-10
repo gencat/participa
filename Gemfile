@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', tag: 'v0.18-dev-gencat-features' }.freeze
+DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'newsletter_fix_and_admin_department_refactor' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
