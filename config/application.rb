@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Participa
   class Application < Rails::Application
+    config.railties_order = [:main_app, Decidim::DepartmentAdmin::Engine, :all]
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.available_locales = %w(en ca es oc)
