@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Participa
   class Application < Rails::Application
     config.railties_order = [:main_app, Decidim::DepartmentAdmin::Engine, :all]
+    config.time_zone = 'Madrid'
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
