@@ -6,7 +6,7 @@ DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'newslette
 gem "decidim", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
-gem 'decidim-department_admin', git: 'https://github.com/gencat/decidim-department-admin.git', tag: 'v0.0.3'
+gem 'decidim-department_admin', git: 'https://github.com/gencat/decidim-department-admin.git', tag: 'v0.0.4'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
