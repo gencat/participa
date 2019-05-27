@@ -1,0 +1,2 @@
+class DecidimType < ApplicationRecord
+end

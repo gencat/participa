@@ -84,7 +84,8 @@ module Decidim
             promoting_unit: form.promoting_unit,
             facilitators: form.facilitators,
             email: form.email,
-            show_home: form.show_home
+            show_home: form.show_home,
+            decidim_type_id: form.type_id
           }
         end
       end

@@ -1,0 +1,28 @@
+ca:
+  decidim:
+    admin:
+      menu:
+        departments: Departaments
+        themes: Temes
+        types: Tipus normativa
+      types:
+        new:
+          title: Nou tipus de normativa
+          create: Crear tipus de normativa
+        edit:
+          title: Títol
+          update: Actualitza
+        destroy:
+          success: Tipus de normativa eliminat correctament
+        create:
+          error: Error al crear el tipus de normativa 
+          success: Tipus de normativa creat correctament
+          exists: Ja existeix un tipus de normativa amb el nom introduit
+        fields:
+          updated_at: Data d'actualització
+          created_at: Data de creació
+        update:
+          success: Tipus de normativa actualitzat correctament
+          error: Error en l'actualització del tipus
+      titles:
+        types: Tipus de normativa

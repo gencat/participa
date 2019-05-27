@@ -205,6 +205,13 @@ GIT
       decidim-verifications (>= 0.16.0)
 
 PATH
+  remote: decidim-admin-extended
+  specs:
+    decidim-admin-extended (0.1.0)
+      decidim-admin (>= 0.9.3)
+      decidim-core (>= 0.9.3)
+
+PATH
   remote: decidim-admin-search_user
   specs:
     decidim-admin-search_user (0.1.0)
@@ -235,6 +242,12 @@ PATH
   remote: decidim-regulations
   specs:
     decidim-regulations (0.1.0)
+      rails (>= 5.2, < 6.0.x)
+
+PATH
+  remote: decidim-type
+  specs:
+    decidim-type (0.1.0)
       rails (>= 5.2, < 6.0.x)
 
 GEM
@@ -815,6 +828,7 @@ DEPENDENCIES
   byebug
   daemons
   decidim!
+  decidim-admin-extended!
   decidim-admin-search_user!
   decidim-department_admin!
   decidim-dev!
@@ -823,6 +837,7 @@ DEPENDENCIES
   decidim-idcat_mobil (~> 0.0.3)
   decidim-process-extended!
   decidim-regulations!
+  decidim-type!
   decidim-verifications-members_picker!
   delayed_job_active_record
   faker (>= 1.8.4)

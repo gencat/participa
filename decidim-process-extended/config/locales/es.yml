@@ -53,6 +53,7 @@ es:
         participatory_scope: Qué se decide
         participatory_structure: Como se decide
         title: Título
+        type_id: Tipo
         email: Buzón de sugerencias
       participatory_process_step:
         title: Nombre de la fase
