@@ -11,6 +11,8 @@ This is the open-source repository for "participa", based on [Decidim](https://g
 - `Decidim::Espais::Estables`, customizes Decidim Assemblies.
 - `Decidim::Process::Extended`, customizes Decidim Participatory processes.
 - `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
+- `Decidim::Type`, adds Types, for Participatory process.
+- `Decidim::Admin::Extended`, customize admin menu adding custom configurations.
 
 ## Deploying the app
 
