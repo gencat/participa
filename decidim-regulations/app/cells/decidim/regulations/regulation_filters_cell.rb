@@ -12,7 +12,8 @@ module Decidim
           .regulation_index_path(
             filter: {
               scope_id: get_filter(:scope_id),
-              area_id: get_filter(:area_id),
+              # area_id: get_filter(:area_id),
+              type_id: get_filter(:type_id),
               date: filter
             }
           )
@@ -32,7 +33,8 @@ module Decidim
         Decidim::Regulations::RegulationSearch.new(
           date: date_filter,
           scope_id: get_filter(:scope_id),
-          area_id: get_filter(:area_id),
+          # area_id: get_filter(:area_id),
+          type_id: get_filter(:type_id),
           current_user: current_user,
           organization: current_organization
         )

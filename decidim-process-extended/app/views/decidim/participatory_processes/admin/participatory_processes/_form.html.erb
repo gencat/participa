@@ -146,9 +146,10 @@
     </div>
 
     <div class="columns xlarge-6">
-      <% if types_for_select %>
-        <%= form.select :type_id, types_for_select, include_blank: I18n.t("decidim.themes.none") %>
-      <% end %>
+      <%= form.types_select :type_id,
+                            types_for_select(current_organization),
+                            selected: current_participatory_process.try(:decidim_type_id),
+                            include_blank: t("decidim.themes.none") %>
     </div>
   </div>
 
