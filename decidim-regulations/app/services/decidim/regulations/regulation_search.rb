@@ -23,7 +23,7 @@ module Decidim
       end
 
       def search_type_id
-        query.where(decidim_type_id: type_id)
+        query.includes(:decidim_type).where(decidim_type_id: type_id)
       end
     end
   end
