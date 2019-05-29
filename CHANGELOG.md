@@ -1,7 +1,7 @@
 # Change Log
 **Upgrade notes:**
 
-- **Changed**: Dynamic scopes refactor [#96](https://github.com/gencat/participa/pull/96)
+- **Changed**: Dynamic scopes refactor and undo removal of Type customization. [#96](https://github.com/gencat/participa/pull/96)
 - **Changed**: In order to get the feature "admin list has an area column" this PR upgrades `decidim-department_admin` module. [#95](https://github.com/gencat/participa/pull/95)
 - **Added**: Separate `participatory_processes` by `process_group` in `select_recipients_to_deliver` in the admin's newsletter page. [#89](https://github.com/gencat/participa/pull/89)
 - **Changed**: Stop department_admin from being displayed as a component. [#88](https://github.com/gencat/participa/pull/88)
