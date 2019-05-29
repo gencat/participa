@@ -21,6 +21,10 @@ module Decidim
           query.order(Arel.sql("ABS(start_date - (CURRENT_DATE at time zone '#{current_zone}')::date)"))
         end
       end
+
+      def search_type_id
+        query.includes(:decidim_type).where(decidim_type_id: type_id)
+      end
     end
   end
 end

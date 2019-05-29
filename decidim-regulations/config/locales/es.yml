@@ -57,6 +57,11 @@ es:
           title: Selecciona %{field}
         prompt: Selecciona un tipo
         types: Tipos
+      shared:
+        participatory_space_filters:
+          filters:
+            select_a_type: Selecciona un tipo
+            types: Tipo
     pages:
       home:
         statistics:

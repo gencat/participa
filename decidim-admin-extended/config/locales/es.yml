@@ -1,0 +1,12 @@
+es:
+  decidim:
+    admin:
+      extended:
+        menu:
+          custom_configuration: Configuración customizada
+  layouts:
+    decidim:
+      admin:
+        extended:
+          settings:
+            title: Configuración customizada

@@ -48,6 +48,7 @@ module Decidim
         attribute :remove_hero_image
 
         # Participa added attributes
+        attribute :type_id, Integer
         attribute :email, String
         attribute :show_home, Boolean
 
@@ -70,6 +71,7 @@ module Decidim
         def map_model(model)
           self.scope_id = model.decidim_scope_id
           self.participatory_process_group_id = model.decidim_participatory_process_group_id
+          self.type_id = model.decidim_type_id
         end
 
         def scope

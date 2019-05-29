@@ -11,6 +11,8 @@ gem 'decidim-process-extended', path: 'decidim-process-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
+gem 'decidim-admin-extended', path: 'decidim-admin-extended'
+gem 'decidim-type', path: 'decidim-type'
 gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifications block end ####
 

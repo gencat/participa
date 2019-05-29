@@ -35,6 +35,7 @@ oc:
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
         title: Títol
+        type_id: Tipus
         email: Bústia de suggeriments
       participatory_process_step:
         title: Nom de la fase

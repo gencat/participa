@@ -1,0 +1,14 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav">
+    <div class="secondary-nav__title">
+      <%= t ".title" %>
+    </div>
+    <ul>
+      <%= render "layouts/decidim/admin/type_link" rescue nil %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>

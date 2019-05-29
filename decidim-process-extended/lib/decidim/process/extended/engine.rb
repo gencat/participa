@@ -5,12 +5,12 @@ module Decidim
         isolate_namespace Decidim::Process::Extended
         # make decorators autoload in development env
         config.autoload_paths << File.join(
-          Decidim::Process::Extended::Engine.root, 'app', 'services', 'decorators', '{**}'
+          Decidim::Process::Extended::Engine.root, 'app', 'decorators', '{**}'
         )
 
-          # make decorators available to applications that use this Engine
+        # make decorators available to applications that use this Engine
         config.to_prepare do
-          Dir.glob(Decidim::Process::Extended::Engine.root + 'app/services/decorators/**/*_decorator*.rb').each do |c|
+          Dir.glob(Decidim::Process::Extended::Engine.root + 'app/decorators/**/*_decorator*.rb').each do |c|
             require_dependency(c)
           end
         end

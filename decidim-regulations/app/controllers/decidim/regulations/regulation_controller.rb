@@ -36,7 +36,7 @@ module Decidim
       def default_filter_params
         {
           scope_id: nil,
-          area_id: nil,
+          type_id: nil,
           date: default_date_filter
         }
       end
