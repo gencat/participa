@@ -39,6 +39,7 @@ module Decidim
         attr_reader :form, :participatory_process
 
         def update_participatory_process
+
           @participatory_process.assign_attributes(attributes)
           if @participatory_process.valid?
             @participatory_process.save!
@@ -85,7 +86,7 @@ module Decidim
             facilitators: form.facilitators,
             email: form.email,
             show_home: form.show_home,
-            decidim_type_id: form.type_id
+            decidim_type: form.type
           }
         end
       end

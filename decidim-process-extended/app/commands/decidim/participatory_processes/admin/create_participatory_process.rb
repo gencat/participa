@@ -70,7 +70,7 @@ module Decidim
             facilitators: form.facilitators,
             email: form.email.downcase,
             show_home: form.show_home,
-            decidim_type_id: form.type_id
+            decidim_type: form.type
           )
 
           return process unless process.valid?

@@ -54,6 +54,7 @@ module Decidim
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
+        validates :type, presence: true, if: proc { |object| object.type_id.present? }
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
 
         validate :slug_uniqueness
@@ -80,6 +81,10 @@ module Decidim
 
         def area
           @area ||= current_organization.areas.find_by(id: area_id)
+        end
+
+        def type
+          @type ||= current_organization.types.find_by(id: type_id)
         end
 
         def participatory_process_group
