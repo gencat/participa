@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'master' }.freeze
+DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim', branch: 'master' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
