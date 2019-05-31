@@ -1,19 +1,20 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'newsletter_fix_and_admin_department_refactor' }.freeze
+DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'master' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
-gem 'decidim-department_admin', git: 'https://github.com/gencat/decidim-department-admin.git', tag: 'v0.0.4'
+gem 'decidim-department_admin', git: 'https://github.com/gencat/decidim-department-admin.git', tag: 'v0.0.6'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-type', path: 'decidim-type'
-gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
+# Below gem is commented because the funcionalitiy is in 'decidim-department_admin' gem
+# gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifications block end ####
 
 gem 'decidim-idcat_mobil', "~> 0.0.3"
