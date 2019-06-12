@@ -34,7 +34,8 @@ module Decidim
                       "/admin/types",
                       icon_name: "wrench",
                       position: 9,
-                      active: [%w(decidim/admin/themes decidim/admin/types decidim/admin/departments), []]
+                      active: [%w(decidim/admin/types), []],
+                      if: allowed_to?(:update, :organization, organization: current_organization)
           end
         end
       end
