@@ -3,19 +3,21 @@ module Decidim
     module Admin
       class Permissions < Decidim::DefaultPermissions
         def permissions
+          unless user&.admin?
+            disallow!
+            return permission_action
+          end
+
           return permission_action if permission_action.scope != :admin
           return permission_action if permission_action.subject != :type
 
-          case permission_action.action
-          when :read
-            permission_action.allow!
-          when :create
-            permission_action.allow!
-          when :update, :destroy
-            permission_action.allow! if type.present?
-          end
+          
 
-          permission_action
+          if user.admin?
+            allow!
+          end
+          
+          return permission_action
         end
 
         private

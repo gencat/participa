@@ -1,6 +1,9 @@
 # Change Log
 **Upgrade notes:**
 
+- **Fixed**: Fix color share-link button on /meetings path[#101](https://github.com/gencat/participa/pull/101)
+- **Changed**: Use branch decidim 0.18-stable. [#101](https://github.com/gencat/participa/pull/101)
+- **Fixed**: Fix permissions on decidim-type, just admin can access[#101](https://github.com/gencat/participa/pull/101)
 - **Changed**: Dynamic scopes refactor and undo removal of Type customization. [#96](https://github.com/gencat/participa/pull/96)
 - **Changed**: In order to get the feature "admin list has an area column" this PR upgrades `decidim-department_admin` module. [#95](https://github.com/gencat/participa/pull/95)
 - **Added**: Separate `participatory_processes` by `process_group` in `select_recipients_to_deliver` in the admin's newsletter page. [#89](https://github.com/gencat/participa/pull/89)
