@@ -69,7 +69,7 @@ module Decidim
             facilitators: @participatory_process.facilitators,
             show_home: @participatory_process.show_home,
             email: @participatory_process.email,
-            decidim_type: @participatory_process.type
+            decidim_type_id: @participatory_process.decidim_type_id
           )
         end
 
