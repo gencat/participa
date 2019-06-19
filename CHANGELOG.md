@@ -1,6 +1,7 @@
 # Change Log
 **Upgrade notes:**
 
+- **Fixed**: Fix assignation of type when copying ParticipatoryProcess [#102](https://github.com/gencat/participa/pull/102)
 - **Fixed**: Fix color share-link button on /meetings path[#101](https://github.com/gencat/participa/pull/101)
 - **Changed**: Use branch decidim 0.18-stable. [#101](https://github.com/gencat/participa/pull/101)
 - **Fixed**: Fix permissions on decidim-type, just admin can access[#101](https://github.com/gencat/participa/pull/101)
