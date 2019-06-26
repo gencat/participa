@@ -1,6 +1,7 @@
 # Change Log
 **Upgrade notes:**
 
+- **Changed**: Upgrade Decidim::DepartmentAdmin module version[#103](https://github.com/gencat/participa/pull/103)
 - **Fixed**: Fix assignation of type when copying ParticipatoryProcess [#102](https://github.com/gencat/participa/pull/102)
 - **Fixed**: Fix color share-link button on /meetings path[#101](https://github.com/gencat/participa/pull/101)
 - **Changed**: Use branch decidim 0.18-stable. [#101](https://github.com/gencat/participa/pull/101)
