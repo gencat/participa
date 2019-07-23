@@ -1,7 +1,10 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim', branch: '0.18-stable' }.freeze
+# DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim', branch: '0.18-stable' }.freeze
+# WHEN https://github.com/decidim/decidim/pull/5277 is merged to decidim 0.18-stable, 
+# it will no longer be necessary to pull from this branch 
+DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'backport/5267_to_0_18_stable' }.freeze
 
 gem "decidim", DECIDIM_VERSION
 
