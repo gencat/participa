@@ -23,6 +23,12 @@ gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/deci
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.0.0"
+# due to this alert: https://github.com/gencat/participa/network/alert/Gemfile.lock/devise/open
+gem "devise", ">= 4.7.1"
+# due to this alert: https://github.com/gencat/participa/network/alert/decidim-type/Gemfile.lock/nokogiri/open
+gem "nokogiri", ">= 1.10.4"
+# gem sprockets in version 4.0 breaks Decidim.Temporal fix at 10/10/2019
+gem "sprockets", "~> 3.7.2"
 
 gem 'figaro', '>= 1.1.1'
 
