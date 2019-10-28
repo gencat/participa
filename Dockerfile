@@ -1,4 +1,4 @@
-FROM ruby:2.4.1
+FROM ruby:2.5.7
 MAINTAINER david.morcillo@codegram.com
 
 ARG rails_env=production
@@ -13,14 +13,11 @@ RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get install -y nodejs
 
-ADD Gemfile /tmp/Gemfile
-ADD Gemfile.lock /tmp/Gemfile.lock
-RUN cd /tmp && bundle install
-
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 ADD . $APP_HOME
 
-RUN bundle exec rake DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname assets:precompile
+RUN gem install bundler -v 2.0.2
+RUN bundle install
 
-CMD ["bundle", "exec", "rails", "s", "-b0.0.0.0"]
+RUN bundle exec rake assets:precompile

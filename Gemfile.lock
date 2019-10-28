@@ -815,6 +815,8 @@ GEM
     websocket-extensions (0.1.4)
     whenever (1.0.0)
       chronic (>= 0.6.3)
+    wicked_pdf (1.4.0)
+      activesupport
     wisper (2.0.0)
     wisper-rspec (1.1.0)
     xpath (3.2.0)
@@ -855,9 +857,10 @@ DEPENDENCIES
   uglifier (~> 4.0.0)
   web-console
   whenever
+  wicked_pdf
 
 RUBY VERSION
-   ruby 2.5.3p105
+   ruby 2.5.7p206
 
 BUNDLED WITH
    2.0.2

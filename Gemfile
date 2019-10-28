@@ -29,6 +29,8 @@ gem "devise", ">= 4.7.1"
 gem "nokogiri", ">= 1.10.4"
 # gem sprockets in version 4.0 breaks Decidim.Temporal fix at 10/10/2019
 gem "sprockets", "~> 3.7.2"
+# Temporal fix for: https://github.com/decidim/decidim/issues/5257
+gem "wicked_pdf"
 
 gem 'figaro', '>= 1.1.1'
 
