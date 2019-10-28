@@ -5,6 +5,10 @@
 $SoftGrey : #efefef;
 $Grey     : #666;
 
+$DarkGrey   : #2c2930;
+$MediumGrey : #828282;
+$LightGrey  : #e8e8e8;
+
 .off-canvas-wrapper{
     .mini-footer {
         background-color: $SoftGrey !important;
@@ -15,12 +19,13 @@ $Grey     : #666;
     }
 }
 .main-footer {
-    background-color: $SoftGrey !important;
-    padding-bottom: 0px;
+  padding: 1rem 0;
+  color: $LightGrey;
+  background-color: $DarkGrey;
 }
 
 .main-footer a {
-    color: $Grey !important;
+    color: $MediumGrey !important;
 }
 
 .mini-footer a {
