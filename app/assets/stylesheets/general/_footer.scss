@@ -10,7 +10,7 @@ $MediumGrey : #828282;
 $LightGrey  : #e8e8e8;
 
 .off-canvas-wrapper{
-    .mini-footer {
+    .main-footer {
         background-color: $SoftGrey !important;
 
         @include mq($until: large_phone){
@@ -18,18 +18,19 @@ $LightGrey  : #e8e8e8;
         }
     }
 }
-.main-footer {
+
+.main-footer a {
+  color: $Grey;
+}
+
+.mini-footer {
   padding: 1rem 0;
   color: $LightGrey;
   background-color: $DarkGrey;
 }
 
-.main-footer a {
-    color: $MediumGrey !important;
-}
-
 .mini-footer a {
-    color: $Grey;
+    color: $MediumGrey !important;
 }
 
 .part-footer-hr{
