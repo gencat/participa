@@ -62,6 +62,8 @@ These are custom modules  and this is what you have to keep in mind when updatin
 
       Custom files:
       * "cells/" -> Creating the new content_block cell for FEDER.
+      * "_main_footer.html.erb" -> Customized footer for Generalitat de Catalunya.
+      * "_mini_footer.html.erb" -> Standard Decidim footer.
 
   3. Decidim Process Extended ("decidim-participatory-processes")
       This module adds the new fields to the "ParticipatoryProcess": Theme, Type, Department, email, and "show_home", so the next files are necessary to overwrite.
