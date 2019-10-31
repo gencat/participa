@@ -7,7 +7,6 @@ bundle install
 
 echo "\e[33mTrying to execute migrations..."
 if bin/rails db:migrate; then
-    bin/rails runner db/dev-user.rb
     echo "\e[32mDatabase already created. No need for seeding."
 else
     echo "\e[31mMigration failed. Installing database"
