@@ -8,21 +8,24 @@ services:
     volumes:
       - .:/code
     environment:
-      - DATABASE_HOST=pg
-      - DATABASE_USERNAME=postgres
+      - DB_HOST=pg
+      - DB_USERNAME=postgres
     ports:
       - 3000:3000
     links:
       - pg
       - redis
+    command: sh entrypoint.sh
   pg:
     image: postgres
     volumes:
       - pg-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
   redis:
     image: redis
     volumes:
       - redis-data:/data
 volumes:
-  pg-data: {}
-  redis-data: {}
+  pg-data:
+  redis-data:

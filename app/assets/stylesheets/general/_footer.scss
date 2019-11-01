@@ -5,8 +5,12 @@
 $SoftGrey : #efefef;
 $Grey     : #666;
 
+$DarkGrey   : #2c2930;
+$MediumGrey : #828282;
+$LightGrey  : #e8e8e8;
+
 .off-canvas-wrapper{
-    .mini-footer {
+    .main-footer {
         background-color: $SoftGrey !important;
 
         @include mq($until: large_phone){
@@ -14,17 +18,19 @@ $Grey     : #666;
         }
     }
 }
-.main-footer {
-    background-color: $SoftGrey !important;
-    padding-bottom: 0px;
-}
 
 .main-footer a {
-    color: $Grey !important;
+  color: $Grey;
+}
+
+.mini-footer {
+  padding: 1rem 0;
+  color: $LightGrey;
+  background-color: $DarkGrey;
 }
 
 .mini-footer a {
-    color: $Grey;
+    color: $MediumGrey !important;
 }
 
 .part-footer-hr{
