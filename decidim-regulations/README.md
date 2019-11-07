@@ -1,7 +1,4 @@
 # Decidim::Regulations
-Short description and motivation.
-
-## Usage
 This module produces a "Regulations" participatory space. This participatory space is just like the Participatory Processes space.
 
 The way to add ParticipatoryProcesses to Regulations is to group them into a Process Group and then configure the application with this Process Group's ID. Then this module takes the ParticipatoryProcesses from this group by filtering rows based on the following query:
@@ -27,8 +24,9 @@ Or install it yourself as:
 $ gem install decidim-regulations
 ```
 
-## Contributing
-Contribution directions go here.
+## Overrides
+To avoid admin users to accidentally delete the process group that defines which Processes should appear into Regulations, there's a decorator for the ParticipatoryProcessGroupsController#destroy method. The decorator is delared at `decidim-regulations/app/decorators/decidim/regulations/admin/avoid_deletion_of_regulations_group.rb` and is prepended to the controller in this module's engine `to_prepare` declaration.
+
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
