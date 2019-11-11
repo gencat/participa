@@ -1,6 +1,7 @@
 # Change Log
 **Upgrade notes:**
 
+- **Added**: Decorator for the ParticipatoryProcessGroupsController#destroy method to avoid admin users to accidentally delete the process group that defines regulations. [#110](https://github.com/gencat/participa/pull/110)
 - **Changed**: Upgrade Decidim::DepartmentAdmin module version[#103](https://github.com/gencat/participa/pull/103)
 - **Fixed**: Fix assignation of type when copying ParticipatoryProcess [#102](https://github.com/gencat/participa/pull/102)
 - **Fixed**: Fix color share-link button on /meetings path[#101](https://github.com/gencat/participa/pull/101)
