@@ -1,6 +1,10 @@
 # Change Log
 **Upgrade notes:**
 
+
+- **Changed**: Resort participatory process cost field. [#113](https://github.com/gencat/participa/pull/113)
+- **Changed**: Rename translation for participatory process custom fields. [#113](https://github.com/gencat/participa/pull/113)
+- **Changed**: Clarify registration nickname help (remove '@sobrenom'). [#113](https://github.com/gencat/participa/pull/113)
 - **Added**: Decorator for the ParticipatoryProcessGroupsController#destroy method to avoid admin users to accidentally delete the process group that defines regulations. [#110](https://github.com/gencat/participa/pull/110)
 - **Changed**: Upgrade Decidim::DepartmentAdmin module version[#103](https://github.com/gencat/participa/pull/103)
 - **Fixed**: Fix assignation of type when copying ParticipatoryProcess [#102](https://github.com/gencat/participa/pull/102)
