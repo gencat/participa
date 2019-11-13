@@ -25,6 +25,13 @@ ca:
           preview: Vista prèvia
           select_recipients_to_deliver: Seleccioneu els destinataris a lliurar
           subject: Assumpte
+    devise:
+      omniauth_registrations:
+        new:
+          nickname_help: El teu àlies a %{organization}, sense @.
+      registrations:
+        new:
+          nickname_help: El teu àlies a %{organization}, sense @.
     menu:
       meetings_static: Agenda
     notifications_settings:
