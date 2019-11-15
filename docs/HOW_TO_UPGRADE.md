@@ -42,6 +42,8 @@ https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-y
 
 ## Customizations
 
+In sign in and sing up views, omniauth buttons are below form.
+
 ### Temporal fixes
 
 Meetings with associated proposals (e.g. with proposals originated in the meeting) crash to be rendered. This is because of the presenter used.
