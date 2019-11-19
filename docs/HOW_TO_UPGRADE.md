@@ -42,6 +42,14 @@ https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-y
 
 ## Customizations
 
+  1. In sign in and sing up views, omniauth buttons are below form.
+
+    Modified files are:
+    *  app/views/decidim/devise/registrations/new.html.erb: Move omniauth buttons render below sign up form.
+    *  app/views/decidim/devise/sessions/new.html.erb: Move omniauth buttons render below sign in form.
+    *  app/views/decidim/devise/shared/_omniauth_buttons.html.erb: Move 'or' separator above social register button.
+
+
 ### Temporal fixes
 
 Meetings with associated proposals (e.g. with proposals originated in the meeting) crash to be rendered. This is because of the presenter used.
