@@ -52,6 +52,15 @@ https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-y
 
 ### Temporal fixes
 
+#### Temporal fix: remove the "(@sobrenom)" from registration nickname help
+This fix has already been applied to decidim/decidim:v0.19, but we have a backport for gencat.
+When updating to v0.19, remove the keys:
+- decidim/devise/omniauth_registrations/new/nickname_help
+- decidim/devise/registrations/new/nickname_help
+
+from `config/locales/??_core.yml` files.
+
+#### Temporal fix: proposals originated in meetings
 Meetings with associated proposals (e.g. with proposals originated in the meeting) crash to be rendered. This is because of the presenter used.
 
 There is a bugfix in current master (06/11/2019) but this bugfix has a mispelling bug itself: https://github.com/decidim/decidim/pull/5383/commits/35b69c9cb80fba850109ca9fce0edb97b5280856
@@ -62,7 +71,7 @@ So, we're overriding the proposalPresenter with the correct fix. When participa 
 - decidim-core/app/cells/decidim/coauthorships_cell.rb
 
 ### Existing modules
-These are custom modules  and this is what you have to keep in mind when updating the version of Decidim.
+These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
 
   1. Decidim Espais Estables ("decidim-assemblies")
       This module changes "Assembly" translation for "Governing council". In catalan, "Assamblea" for "Consell rector". and overwrite the file "highlighted_assemblies".

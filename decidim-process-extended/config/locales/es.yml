@@ -11,9 +11,9 @@ es:
             appear_home: Aparecer en home (imagen)
             cost: Coste
             duration: Duración
-            facilitators: Entidades facilitadoras
+            facilitators: Entidades dinamizadoras
             filters: Filtrado
-            has_summary_record: Dispone de acta
+            has_summary_record: Dispone de retorno
             images: Imágenes
             metadata: Metadatos
             other: Otros
@@ -26,8 +26,8 @@ es:
       show:
         area: Departamento
         cost: Coste
-        facilitators: Entidades facilitadoras
-        has_summary_record: Dispone de acta
+        facilitators: Entidades dinamizadoras
+        has_summary_record: Dispone de retorno
         'no': 'No'
         promoting_unit: Unidad promotora
         'yes': 'Sí'

@@ -11,9 +11,9 @@ ca:
             appear_home: Sortir al home (imatge)
             cost: Cost
             duration: Durada
-            facilitators: Entitats facilitadores
+            facilitators: Entitats dinamitzadores
             filters: Filtratge
-            has_summary_record: Disposa d'acta
+            has_summary_record: Disposa de retorn
             images: Imatges
             metadata: Metadades
             other: Altres
@@ -26,8 +26,8 @@ ca:
       show:
         area: Departament
         cost: Cost
-        facilitators: Entitats facilitadores
-        has_summary_record: Disposa d'acta
+        facilitators: Entitats dinamitzadores
+        has_summary_record: Disposa de retorn
         'no': 'No'
         promoting_unit: Unitat promotora
         'yes': 'Sí'
