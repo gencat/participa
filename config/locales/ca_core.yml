@@ -28,10 +28,10 @@ ca:
     devise:
       omniauth_registrations:
         new:
-          nickname_help: El teu àlies a %{organization}, sense @.
+          nickname_help: El teu àlies a %{organization}.
       registrations:
         new:
-          nickname_help: El teu àlies a %{organization}, sense @.
+          nickname_help: El teu àlies a %{organization}.
     menu:
       meetings_static: Agenda
     notifications_settings:

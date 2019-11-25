@@ -28,10 +28,10 @@ es:
     devise:
       omniauth_registrations:
         new:
-          nickname_help: Tu alias (@nickname) en %{organization}, sin @.
+          nickname_help: Tu alias en %{organization}.
       registrations:
         new:
-          nickname_help: Tu alias en %{organization}, sin @.
+          nickname_help: Tu alias en %{organization}.
     menu:
       meetings_static: Agenda
     notifications_settings:
