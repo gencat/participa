@@ -1,7 +1,7 @@
 # Change Log
 **Upgrade notes:**
 
-
+- **Changed**: Disable custom loggers. [#121](https://github.com/gencat/participa/pull/121)
 - **Changed**: Resort participatory process cost field. [#113](https://github.com/gencat/participa/pull/113)
 - **Changed**: Rename translation for participatory process custom fields. [#113](https://github.com/gencat/participa/pull/113)
 - **Changed**: Clarify registration nickname help (remove '@sobrenom'). [#113](https://github.com/gencat/participa/pull/113)

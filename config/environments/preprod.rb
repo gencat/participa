@@ -121,6 +121,6 @@ Rails.application.configure do
   # Participa: let's see SMTP data on server startup
   mail_values = config.action_mailer.smtp_settings.dup
   mail_values.delete(:password)
-  puts '=> Development Mail Server: ' + mail_values.to_s
+  puts '=> Mail Server configuration: ' + mail_values.to_s
 
 end
