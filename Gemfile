@@ -21,7 +21,7 @@ gem 'decidim-idcat_mobil', "~> 0.0.3"
 gem 'soda-ruby', require: false
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git', tag: '0.0.2'
 
-gem "puma", "~> 3.0"
+gem "puma", "~> 3.12"
 gem "uglifier", "~> 4.0.0"
 # due to this alert: https://github.com/gencat/participa/network/alert/Gemfile.lock/devise/open
 gem "devise", ">= 4.7.1"
