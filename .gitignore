@@ -14,6 +14,8 @@
 !/tmp/.keep
 
 /node_modules
+
+yarn.lock
 /yarn-error.log
 
 .byebug_history
@@ -21,8 +23,11 @@
 /config/application.yml
 /config/puma.rb
 
-# Ignore public uploads
+# Ignore public uploaded files
 public/uploads
+
+# Ignore public/assets as assets are generated in each server when deploying
+public/assets
 
 # Ignore test app
 spec/decidim_dummy_app/
