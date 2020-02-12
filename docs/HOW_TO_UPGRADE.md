@@ -40,6 +40,9 @@ Be aware that this task might not be able to detect everything, and does not che
 Documentation to this doc:
 https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-your-app-up-to-date
 
+## WARNING
+decidim-department-admin module should be fixed due to changes in app/controllers/decidim/assemblies/admin/assemblies_controller.rb which has its `organization_assemblies` method removed. Probably we should override `collection` instead.
+
 ## Customizations
 
   1. In sign in and sing up views, omniauth buttons are below form.

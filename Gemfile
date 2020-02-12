@@ -6,7 +6,7 @@ DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim', branch: '0.18-sta
 gem "decidim", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
-gem 'decidim-department_admin', git: 'https://github.com/gencat/decidim-department-admin.git', tag: 'v0.0.7'
+gem 'decidim-department_admin', git: 'https://github.com/gencat/decidim-department-admin.git'#, tag: 'v0.0.8'
 gem 'decidim-process-extended', path: 'decidim-process-extended'
 gem 'decidim-espais-estables', path: 'decidim-espais-estables'
 gem 'decidim-regulations', path: 'decidim-regulations'
@@ -22,6 +22,8 @@ gem 'soda-ruby', require: false
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git', tag: '0.0.2'
 
 gem "puma", "~> 3.12"
+# force geocoder version until incompatibilities with Here are resolved in Decidim
+gem "geocoder", "~> 1.5.2"
 gem "uglifier", "~> 4.0.0"
 # due to this alert: https://github.com/gencat/participa/network/alert/Gemfile.lock/devise/open
 gem "devise", ">= 4.7.1"
