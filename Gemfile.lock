@@ -192,10 +192,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 1015f317cf109237b3cd55bb34b01bb709d81fb1
-  tag: v0.0.10
+  revision: f53df60eb109d3d3a99d66e5836d902a26aa0903
+  tag: v0.0.11
   specs:
-    decidim-department_admin (0.0.10)
+    decidim-department_admin (0.0.11)
       decidim-core (>= 0.16.1)
 
 GIT
