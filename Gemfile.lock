@@ -191,6 +191,14 @@ GIT
       decidim-core (= 0.18.0)
 
 GIT
+  remote: https://github.com/gencat/decidim-department-admin.git
+  revision: 1015f317cf109237b3cd55bb34b01bb709d81fb1
+  tag: v0.0.10
+  specs:
+    decidim-department_admin (0.0.10)
+      decidim-core (>= 0.16.1)
+
+GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
   tag: 0.0.2
@@ -198,12 +206,6 @@ GIT
     decidim-verifications-members_picker (0.0.2)
       decidim-core (>= 0.16.0)
       decidim-verifications (>= 0.16.0)
-
-PATH
-  remote: ../decidim-department_admin
-  specs:
-    decidim-department_admin (0.0.10)
-      decidim-core (>= 0.16.1)
 
 PATH
   remote: decidim-admin-extended
