@@ -192,10 +192,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 28faf8d32d9c06bc0265eae9ae6d28136b77983e
-  tag: v0.0.9
+  revision: f53df60eb109d3d3a99d66e5836d902a26aa0903
+  tag: v0.0.11
   specs:
-    decidim-department_admin (0.0.9)
+    decidim-department_admin (0.0.11)
       decidim-core (>= 0.16.1)
 
 GIT
@@ -613,7 +613,7 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.3)
-    puma (3.12.2)
+    puma (3.12.4)
     rack (2.2.2)
     rack-attack (5.4.2)
       rack (>= 1.0, < 3)
