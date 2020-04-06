@@ -420,6 +420,18 @@ ActiveRecord::Schema.define(version: 2020_04_03_154823) do
     t.index ["decidim_organization_id"], name: "index_decidim_departments_on_decidim_organization_id"
   end
 
+  create_table "decidim_features", id: :serial, force: :cascade do |t|
+    t.string "manifest_name"
+    t.jsonb "name"
+    t.integer "participatory_space_id", null: false
+    t.jsonb "settings", default: {}
+    t.integer "weight", default: 0
+    t.jsonb "permissions"
+    t.datetime "published_at"
+    t.string "participatory_space_type", null: false
+    t.index ["participatory_space_id", "participatory_space_type"], name: "index_decidim_features_on_decidim_participatory_space"
+  end
+
   create_table "decidim_follows", force: :cascade do |t|
     t.bigint "decidim_user_id", null: false
     t.string "decidim_followable_type"
@@ -1023,6 +1035,19 @@ ActiveRecord::Schema.define(version: 2020_04_03_154823) do
     t.index ["resource_type", "resource_id"], name: "index_decidim_resource_permissions_on_r_type_and_r_id", unique: true
   end
 
+  create_table "decidim_results_results", id: :serial, force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.integer "decidim_feature_id"
+    t.integer "decidim_scope_id"
+    t.integer "decidim_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_category_id"], name: "index_decidim_results_results_on_decidim_category_id"
+    t.index ["decidim_feature_id"], name: "index_decidim_results_results_on_decidim_feature_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_results_results_on_decidim_scope_id"
+  end
+
   create_table "decidim_scope_types", id: :serial, force: :cascade do |t|
     t.integer "decidim_organization_id"
     t.jsonb "name", null: false
@@ -1210,6 +1235,20 @@ ActiveRecord::Schema.define(version: 2020_04_03_154823) do
     t.index ["decidim_user_id", "decidim_user_group_id"], name: "decidim_user_group_memberships_unique_user_and_group_ids", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_user_group_memberships_on_decidim_user_id"
     t.index ["role", "decidim_user_group_id"], name: "decidim_group_membership_one_creator_per_group", unique: true, where: "((role)::text = 'creator'::text)"
+  end
+
+  create_table "decidim_user_groups", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "document_number", null: false
+    t.string "phone", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avatar"
+    t.datetime "rejected_at"
+    t.integer "decidim_organization_id", null: false
+    t.datetime "verified_at"
+    t.index ["decidim_organization_id", "document_number"], name: "index_decidim_user_groups_document_number_on_organization_id", unique: true
+    t.index ["decidim_organization_id", "name"], name: "index_decidim_user_groups_names_on_organization_id", unique: true
   end
 
   create_table "decidim_users", id: :serial, force: :cascade do |t|
