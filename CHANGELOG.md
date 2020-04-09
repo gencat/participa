@@ -1,6 +1,7 @@
 # Change Log
 **Upgrade notes:**
 
+- **Upgraded**: Upgrade PARTICIPA to Decidim 0.19-stable. [#137](https://github.com/gencat/participa/pull/137)
 - **Fixed**: Set default timezone to Europe/Madrid [#124](https://github.com/gencat/participa/pull/124)
 - **Changed**: Disable custom loggers. [#121](https://github.com/gencat/participa/pull/121)
 - **Changed**: Resort participatory process cost field. [#113](https://github.com/gencat/participa/pull/113)
