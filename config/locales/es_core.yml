@@ -25,13 +25,6 @@ es:
           preview: Vista previa
           select_recipients_to_deliver: Seleccionar destinatarios para entregar
           subject: Asunto
-    devise:
-      omniauth_registrations:
-        new:
-          nickname_help: Tu alias en %{organization}.
-      registrations:
-        new:
-          nickname_help: Tu alias en %{organization}.
     menu:
       meetings_static: Agenda
     notifications_settings:
