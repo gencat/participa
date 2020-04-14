@@ -1,7 +1,7 @@
 <%
 if organization
   if organization.logo.present?
-      %><%= image_tag organization.logo.medium.url %><%
+      %><%= image_tag organization.logo.medium.url, alt: organization.name %><%
   else
     # small devices
     %>
