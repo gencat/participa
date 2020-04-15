@@ -9,10 +9,9 @@ module Decidim
         enforce_permission_to :read, :admin_user
 
         if params.has_key?(:user_search)
-            @users = search_collection.page(params[:page]).per(15)
-            puts @users
+          @users = search_collection.page(params[:page]).per(15)
         else
-            @users = collection.page(params[:page]).per(15)
+          @users = collection.page(params[:page]).per(15)
         end
       end
 
