@@ -1,6 +1,0 @@
-es:
-  decidim:
-    admin:
-      users:
-        index:
-          fill_search: Busca usuario

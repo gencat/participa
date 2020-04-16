@@ -109,15 +109,6 @@ These are custom modules and this is what you have to keep in mind when updating
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
 
 
-  4. Decidim Admin Search User ("decidim-admin")
-      This module adds a search user in admin site in http://participa.gencat.cat/admin/users.
-
-      Modified files are:
-      * "app/controllers/decidim/admin/users_controller.rb" -> overwrite decidim file and add new functionality for search.
-      * "app/views/decidim/admin/users/index.html.erb" -> overwrite decidim file and add the search form necessary.
-      * "config/locales/" -> Add missing locales for search form.
-
-
 ### New modules
   1. Decidim Admin Extended ("decidim-admin"):
   adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Department, Theme or Type.

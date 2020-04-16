@@ -13,8 +13,6 @@ gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-type', path: 'decidim-type'
-# Below gem is commented because the funcionalitiy is in 'decidim-department_admin' gem
-# gem 'decidim-admin-search_user', path: 'decidim-admin-search_user'
 #### Custom gems and modifications block end ####
 
 gem 'rails', '< 6'
