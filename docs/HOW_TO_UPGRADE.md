@@ -118,32 +118,6 @@ These are custom modules and this is what you have to keep in mind when updating
       * "config/locales/" -> Add missing locales for search form.
 
 
-  5. Decidim Selectable News ("decidim-core")
-      This module adds a functionallity to specify the participatory process followers to send the newsletter
-
-      Modified files are:
-      * "app/commands/decidim/admin/deliver_newsletter.rb"-> overwrite decidim file with the process id selected
-      * "app/controllers/decidim/admin/newsletters_controller.rb"-> overwrite decidim file with the necessary methods to select processes
-      * "app/jobs/decidim/admin/newsletter_job.rb"-> overwrite decidim file with the modifications
-      * "app/views/decidim/admin/newsletters/show.html.erb"-> overwrite decidim file with the process selected.
-      * "app/views/decidim/admin/newsletters/processes_div.html.erb" -> Add file with the div of processes to select.
-      * "config/locales/" -> Add missing locales for search form.
-
-
-  6. Also there, are custom files in the application "participa.gencat.cat".
-
-      Modified files are:
-      * "app/assets/fonts/" -> Custom fonts added
-      * "app/assets/stylesheets/"-> Custom fonts and styles added
-      * "app/controllers/decidim/proposals/proposals_controller.rb"-> overwrite decidim file and add the custom functionality of best-comments
-      * "app/controllers/decidim_controller.rb"
-      * "app/helpers/decidim/participatory_processes/admin/" -> add helpers for departments, themes, and types
-      * "app/views/decidim/proposals/proposals/show.html.erb" -> Change the layout of show proposals adding best comments.
-      * "app/views/decidim/proposals/proposals/most_voted_comments.html.erb" -> Add the layout of most voted comments.
-      * "app/views/decidim/debates/debats/show.html.erb" -> Change the simple_format method to decidim_sanitize
-      * "app/views/layouts/decidim/mailer.html.erb" -> Overwrite the layout of the mailer
-      * "config/locales/" -> Add custom locales and :oc locales.
-
 ### New modules
   1. Decidim Admin Extended ("decidim-admin"):
   adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Department, Theme or Type.
