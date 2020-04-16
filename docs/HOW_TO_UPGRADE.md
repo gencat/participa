@@ -23,8 +23,6 @@ bin/rails db:migrate
 ```
 
   Custom modules with migrations.
-  * Decidim::Department ("decidim-department")
-  * Decidim::Theme ("decidim-theme")
   * Decidim::Type ("decidim-type")
   * Decidim::Process::Extended ("decidim-process-extended")
 
@@ -54,14 +52,6 @@ decidim-department-admin module should be fixed due to changes in app/controller
 
 
 ### Temporal fixes
-
-#### Temporal fix: remove the "(@sobrenom)" from registration nickname help
-This fix has already been applied to decidim/decidim:v0.19, but we have a backport for gencat.
-When updating to v0.19, remove the keys:
-- decidim/devise/omniauth_registrations/new/nickname_help
-- decidim/devise/registrations/new/nickname_help
-
-from `config/locales/??_core.yml` files.
 
 #### Temporal fix: proposals originated in meetings
 Meetings with associated proposals (e.g. with proposals originated in the meeting) crash to be rendered. This is because of the presenter used.
@@ -111,16 +101,15 @@ These are custom modules and this is what you have to keep in mind when updating
 
 ### New modules
   1. Decidim Admin Extended ("decidim-admin"):
-  adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Department, Theme or Type.
+  adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Type.
 
   2. Decidim Type ("decidim-type"): Adds a CRUD engine to create new Type
 
   3. Decidim Regulations ("decidim-regulations"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
 
-      The next files needs to be upgraded according with the upgrades of "ParticipatoryProcesses" module. If the files change to participatory processes module, you must also change them to regulations
+      The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
       * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
       * "app/controllers/decidim/regulations/"
-      * "app/queries/decidim/participatory_processes/"
       * "app/views/decidim/participatory_process_groups/"
       * "app/views/decidim/participatory_processes/"
       * "app/views/decidim/regulations/"
