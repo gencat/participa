@@ -20,7 +20,7 @@ gem 'decidim-idcat_mobil', "~> 0.0.3"
 gem 'soda-ruby', require: false
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git', tag: '0.0.2'
 
-gem "puma", "~> 3.12"
+gem "puma"
 # force geocoder version until incompatibilities with Here are resolved in Decidim
 gem "geocoder", "~> 1.5.2"
 gem "uglifier", "~> 4.1"
