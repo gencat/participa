@@ -113,13 +113,9 @@ These are custom modules and this is what you have to keep in mind when updating
   1. Decidim Admin Extended ("decidim-admin"):
   adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Department, Theme or Type.
 
-  2. Decidim Department ("decidim-department"): Adds a CRUD engine to create new Departments
+  2. Decidim Type ("decidim-type"): Adds a CRUD engine to create new Type
 
-  3. Decidim Theme ("decidim-theme"): Adds a CRUD engine to create new Theme
-
-  4. Decidim Type ("decidim-type"): Adds a CRUD engine to create new Type
-
-  5. Decidim Regulations ("decidim-regulations"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
+  3. Decidim Regulations ("decidim-regulations"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
 
       The next files needs to be upgraded according with the upgrades of "ParticipatoryProcesses" module. If the files change to participatory processes module, you must also change them to regulations
       * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
