@@ -464,7 +464,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.10.6)
+    graphql (1.10.7)
     hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
@@ -863,7 +863,7 @@ DEPENDENCIES
   wicked_pdf
 
 RUBY VERSION
-   ruby 2.5.3p105
+   ruby 2.6.3p62
 
 BUNDLED WITH
    2.1.2
