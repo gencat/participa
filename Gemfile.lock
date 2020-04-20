@@ -1,7 +1,22 @@
 GIT
-  remote: https://github.com/decidim/decidim
-  revision: 951b2558d683c4758f1b0d6fbc2b42b02e2ea244
-  branch: master
+  remote: https://github.com/gencat/decidim-department-admin.git
+  revision: 3a6d780de99c708f078c4640126493a05e24d8df
+  tag: v0.0.12
+  specs:
+    decidim-department_admin (0.0.11)
+      decidim-core (>= 0.16.1)
+
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
+  tag: 0.0.2
+  specs:
+    decidim-verifications-members_picker (0.0.2)
+      decidim-core (>= 0.16.0)
+      decidim-verifications (>= 0.16.0)
+
+PATH
+  remote: ../../decidim
   specs:
     decidim (0.21.0)
       decidim-accountability (= 0.21.0)
@@ -197,21 +212,6 @@ GIT
     decidim-verifications (0.21.0)
       decidim-core (= 0.21.0)
 
-GIT
-  remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
-  tag: 0.0.2
-  specs:
-    decidim-verifications-members_picker (0.0.2)
-      decidim-core (>= 0.16.0)
-      decidim-verifications (>= 0.16.0)
-
-PATH
-  remote: ..
-  specs:
-    decidim-department_admin (0.0.11)
-      decidim-core (>= 0.16.1)
-
 PATH
   remote: decidim-admin-extended
   specs:
@@ -388,10 +388,6 @@ GEM
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
     debug_inspector (0.0.3)
-    decidim-idcat_mobil (0.0.4)
-      decidim (>= 0.13.1)
-      decidim-core (>= 0.13.1)
-      omniauth-idcat_mobil (~> 0.1.1)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -581,9 +577,6 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.6)
-    omniauth-idcat_mobil (0.1.1)
-      omniauth (~> 1.5)
-      omniauth-oauth2 (>= 1.4.0, < 2.0)
     omniauth-oauth (1.1.0)
       oauth
       omniauth (~> 1.0)
@@ -847,7 +840,6 @@ DEPENDENCIES
   decidim-dev!
   decidim-espais-estables!
   decidim-home!
-  decidim-idcat_mobil (~> 0.0.3)
   decidim-process-extended!
   decidim-regulations!
   decidim-type!
