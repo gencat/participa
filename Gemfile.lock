@@ -7,6 +7,16 @@ GIT
       decidim-core (>= 0.16.1)
 
 GIT
+  remote: https://github.com/gencat/decidim-idcat_mobil.git
+  revision: 60e16fcce5787724ea770309f5265c890f04ecb3
+  branch: bugfix/omniauth-idcat-mobil
+  specs:
+    decidim-idcat_mobil (0.0.4)
+      decidim (>= 0.13.1)
+      decidim-core (>= 0.13.1)
+      omniauth-idcat_mobil (~> 0.2.0)
+
+GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
   tag: 0.0.2
@@ -577,6 +587,9 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.6)
+    omniauth-idcat_mobil (0.2.0)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
     omniauth-oauth (1.1.0)
       oauth
       omniauth (~> 1.0)
@@ -840,6 +853,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-espais-estables!
   decidim-home!
+  decidim-idcat_mobil!
   decidim-process-extended!
   decidim-regulations!
   decidim-type!
