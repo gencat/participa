@@ -83,11 +83,13 @@ These are custom modules and this is what you have to keep in mind when updating
 
       Modified files are:
       * "app/commands/decidim/participatory_processes/admin/copy_participatory_process.rb" -> overwrite decidim file and add new fields in the command.
-      * "app/commands/decidim/participatory_processes/admin/create_participatory_process.rb"-> overwrite decidim file and add new fields in the command.
-      * "app/commands/decidim/participatory_processes/admin/update_participatory_process.rb"-> overwrite decidim file and add new fields in the command.
-      * "app/controllers/decidim/participatory_processes/admin/participatory_processes_controller.rb"-> overwrite decidim file and add default images for hero.
-      * "app/form/decidim/participatory_processes/admin/participatory_process_form.rb"-> overwrite decidim file and add new fields in the form.
-      * "app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb"-> overwrite decidim file and add new fields in the form.
+      * "app/commands/decidim/participatory_processes/admin/create_participatory_process.rb" -> overwrite decidim file and add new fields in the command.
+      * "app/commands/decidim/participatory_processes/admin/update_participatory_process.rb" -> overwrite decidim file and add new fields in the command.
+      * "app/controllers/decidim/participatory_processes/admin/participatory_processes_controller.rb" -> overwrite decidim file and add default images for hero.
+      * "app/controllers/decidim/participatory_processes/participatory_processes_controller.rb" -> overwrite decidim file
+      * "app/form/decidim/participatory_processes/admin/participatory_process_form.rb" -> overwrite decidim file and add new fields in the form.
+      * "app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb" -> overwrite decidim file and add new fields in the form.
+      * "app/views/decidim/participatory_processes/participatory_processes/show.html.erb" -> overwrite decidim file and add new fields.
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
 
 
