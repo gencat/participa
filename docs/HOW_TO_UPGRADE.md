@@ -102,6 +102,7 @@ These are custom modules and this is what you have to keep in mind when updating
       The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
       * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
       * "app/controllers/decidim/regulations/"
+      * "app/decorators/lib/decidim/filter_form_builder_decorator.rb"
       * "app/views/decidim/participatory_processes/"
       * "app/views/decidim/regulations/"
       * "app/views/layouts/"
