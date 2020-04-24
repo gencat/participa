@@ -199,11 +199,11 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 3a6d780de99c708f078c4640126493a05e24d8df
+  revision: 23235b02c1202cc734aadcad202917894fe7d52a
   tag: v0.0.12
   specs:
-    decidim-department_admin (0.0.11)
-      decidim-core (>= 0.16.1)
+    decidim-department_admin (0.0.12)
+      decidim-core (>= 0.21.0)
 
 GIT
   remote: https://github.com/gencat/decidim-idcat_mobil.git
