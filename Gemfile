@@ -16,7 +16,7 @@ gem 'decidim-type', path: 'decidim-type'
 #### Custom gems and modifications block end ####
 
 gem 'rails', '< 6'
-gem 'decidim-idcat_mobil', { git: 'https://github.com/gencat/decidim-idcat_mobil.git', branch: 'bugfix/omniauth-idcat-mobil' }
+gem 'decidim-idcat_mobil', { git: 'https://github.com/gencat/decidim-idcat_mobil.git', branch: 'master' }
 gem 'soda-ruby', require: false
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git', tag: '0.0.2'
 
