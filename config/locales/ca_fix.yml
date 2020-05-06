@@ -7,6 +7,10 @@ ca:
       categories:
         index:
           categories_title: Eixos de debat
+      filters:
+        state_eq:
+          # TODO remove this label after decidim-proposas includes this translation
+          label: Estat
       models:
         assembly:
           fields:

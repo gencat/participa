@@ -7,6 +7,10 @@ es:
       categories:
         index:
           categories_title: Ejes de debate
+      filters:
+        state_eq:
+          # TODO remove this label after decidim-proposas includes this translation
+          label: Estado
   activemodel:
     attributes:
       assembly:
