@@ -393,6 +393,7 @@ GEM
     css_parser (1.7.1)
       addressable
     daemons (1.3.1)
+    database_cleaner (1.8.4)
     date_validator (0.9.0)
       activemodel
       activesupport
@@ -849,6 +850,7 @@ DEPENDENCIES
   bootsnap
   byebug
   daemons
+  database_cleaner
   decidim!
   decidim-admin-extended!
   decidim-department_admin!
@@ -870,6 +872,7 @@ DEPENDENCIES
   nokogiri (>= 1.10.4)
   puma
   rails (< 6)
+  rspec-rails
   soda-ruby
   spring
   spring-watcher-listen (~> 2.0.0)

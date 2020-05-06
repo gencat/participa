@@ -223,10 +223,10 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          origin: "all",
+          origin: ["all"],
           activity: "",
           category_id: "",
-          state: "except_rejected",
+          state: ["except_rejected"],
           scope_id: nil,
           related_to: "",
           type: "all"

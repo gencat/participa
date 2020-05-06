@@ -38,6 +38,9 @@ Be aware that this task might not be able to detect everything, and does not che
 Documentation to this doc:
 https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-your-app-up-to-date
 
+Participa has some `config/locales/*_fix.yml` you should try to get rid of the locales that were aded here and are not necessary anymore.
+Also, if you need to add locales there, add a comment with the why it was added and when we will be able to remove them.
+
 ## WARNING
 
   1. decidim-department-admin module was fixed due to changes in app/controllers/decidim/assemblies/admin/assemblies_controller.rb which has its `organization_assemblies` method renamed to `collection` in decidim v0.21.
