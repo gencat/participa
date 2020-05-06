@@ -32,11 +32,14 @@ module Decidim
         attribute :cost, Float
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
+        attribute :related_process_ids, Array[Integer]
+        attribute :scope_type_max_depth_id, Integer
 
         attribute :has_summary_record, Boolean
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
+        attribute :show_metrics, Boolean
         attribute :show_statistics, Boolean
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
@@ -73,22 +76,32 @@ module Decidim
           self.scope_id = model.decidim_scope_id
           self.participatory_process_group_id = model.decidim_participatory_process_group_id
           self.type_id = model.decidim_type_id
+          self.related_process_ids = model.linked_participatory_space_resources(:participatory_process, "related_processes").pluck(:id)
+          @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
 
         def scope
           @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
 
+        def scope_type_max_depth
+          @scope_type_max_depth ||= current_organization.scope_types.find_by(id: scope_type_max_depth_id)
+        end
+
         def area
           @area ||= current_organization.areas.find_by(id: area_id)
         end
 
-        def type
-          @type ||= current_organization.types.find_by(id: type_id)
-        end
-
         def participatory_process_group
           Decidim::ParticipatoryProcessGroup.find_by(id: participatory_process_group_id)
+        end
+
+        def processes
+          @processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)
+        end
+
+        def type
+          @type ||= current_organization.types.find_by(id: type_id)
         end
 
         private

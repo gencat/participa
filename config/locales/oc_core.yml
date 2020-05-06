@@ -178,7 +178,6 @@ oc:
           email_already_exists: Un aute compde utilize era madeisha adreça de corrèu electronic
         new:
           complete_profile: Completatz eth perfil
-          nickname_help: El teu àlies a %{organization}.
           sign_up: Se vos platz, completatz eth vòste perfil
           subtitle: Se vos platz, ramplitz eth formulari següent entà completar era vòsta inscripcion
           username_help: Nòm public qu'apareish en es vòsti messatges. Damb er objectiu de garantir er anonimat, pòt èster quin nòm que sigue.
@@ -186,7 +185,6 @@ oc:
         new:
           already_have_an_account?: Ja auetz un compde?
           newsletter: Voi arrecéber informacion sus activitat considerabla
-          nickname_help: El teu àlies a %{organization}.
           sign_in: Entratz
           sign_up: Enregistratz-vos
           sign_up_as:
