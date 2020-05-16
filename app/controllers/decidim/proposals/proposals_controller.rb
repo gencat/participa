@@ -26,21 +26,21 @@ module Decidim
       def index
         if component_settings.participatory_texts_enabled?
           @proposals = Decidim::Proposals::Proposal
-                      .where(component: current_component)
-                      .published
-                      .not_hidden
-                      .only_amendables
-                      .includes(:category, :scope)
-                      .order(position: :asc)
+                       .where(component: current_component)
+                       .published
+                       .not_hidden
+                       .only_amendables
+                       .includes(:category, :scope)
+                       .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           byebug
           @proposals = search
-                      .results
-                      .published
-                      .not_hidden
-                      .includes(:category)
-                      .includes(:scope)
+                       .results
+                       .published
+                       .not_hidden
+                       .includes(:category)
+                       .includes(:scope)
 
           @voted_proposals = if current_user
                                ProposalVote.where(
@@ -259,6 +259,19 @@ module Decidim
 
       def set_proposal
         @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+      end
+
+      # Returns true if the proposal is NOT an emendation or the user IS an admin.
+      # Returns false if the proposal is not found or the proposal IS an emendation
+      # and is NOT visible to the user based on the component's amendments settings.
+      def can_show_proposal?
+        return true if @proposal&.amendable? || current_user&.admin?
+
+        Proposal.only_visible_emendations_for(current_user, current_component).published.include?(@proposal)
+      end
+
+      def proposal_presenter
+        @proposal_presenter ||= present(@proposal)
       end
 
       # Returns true if the proposal is NOT an emendation or the user IS an admin.

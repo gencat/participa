@@ -38,6 +38,9 @@ Be aware that this task might not be able to detect everything, and does not che
 Documentation to this doc:
 https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-your-app-up-to-date
 
+Participa has some `config/locales/*_fix.yml` you should try to get rid of the locales that were aded here and are not necessary anymore.
+Also, if you need to add locales there, add a comment with the why it was added and when we will be able to remove them.
+
 ## WARNING
 
   1. decidim-department-admin module was fixed due to changes in app/controllers/decidim/assemblies/admin/assemblies_controller.rb which has its `organization_assemblies` method renamed to `collection` in decidim v0.21.
@@ -91,6 +94,21 @@ These are custom modules and this is what you have to keep in mind when updating
       * "app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb" -> overwrite decidim file and add new fields in the form.
       * "app/views/decidim/participatory_processes/participatory_processes/show.html.erb" -> overwrite decidim file and add new fields.
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
+
+  4. Also, there are custom files in the application "participa.gencat.cat".
+
+     Modified files are:
+
+      * "app/assets/fonts/" -> Custom fonts added
+      * "app/assets/stylesheets/"-> Custom fonts and styles added
+      * "app/controllers/decidim/proposals/proposals_controller.rb"-> overwrite decidim file and add the custom * functionality of best-comments
+      * "app/controllers/decidim_controller.rb"
+      * "app/helpers/decidim/participatory_processes/admin/" -> add helpers for departments, themes, and types
+      * "app/views/decidim/proposals/proposals/show.html.erb" -> Change the layout of show proposals adding best comments.
+      * "app/views/decidim/proposals/proposals/most_voted_comments.html.erb" -> Add the layout of most voted comments.
+      * "app/views/decidim/debates/debats/show.html.erb" -> Change the simple_format method to decidim_sanitize
+      * "app/views/layouts/decidim/mailer.html.erb" -> Overwrite the layout of the mailer
+      * "config/locales/" -> Add custom locales and :oc locales.
 
 
 ### New modules
