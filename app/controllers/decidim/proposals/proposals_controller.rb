@@ -34,7 +34,6 @@ module Decidim
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
-          byebug
           @proposals = search
                        .results
                        .published
