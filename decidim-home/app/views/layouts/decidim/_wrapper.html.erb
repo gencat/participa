@@ -102,11 +102,12 @@ end
           </nav>
         </div>
 
-        <main>
+        <main>  
           <%= display_flash_messages %>
           <%= yield %>
         </main>
       </div><!-- /.footer-separator -->
+      <%= render partial: "layouts/decidim/main_feder_footer" %>
       <%= render partial: "layouts/decidim/main_footer" %>
       <%= render partial: "layouts/decidim/mini_footer" %>
     </div><!--/.off-canvas-content-->
