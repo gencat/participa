@@ -34,7 +34,7 @@ ca:
           proposals: Consulta els resultats
           proposals_explanation: Revisa els informes de les sessions, accedeix a la valoració dels participants i coneix la resposta de l'Administració
         footer_sub_hero:
-          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa. Uneix-te i participa
+          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa. Uneix-t'hi i participa
           footer_sub_hero_headline: Et donem la benvinguda al portal %{organization}
           register: Registra't
         sub_hero:
