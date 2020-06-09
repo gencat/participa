@@ -1,4 +1,5 @@
-<section class="footer__subhero extended subhero home-section feder-section">
+<!-- insert_before ".main-footer" -->
+<section class="footer__subhero extended subhero home-section">
   <div class="row">
 		<div class="columns small-12 large-9">
 			<div class="row">

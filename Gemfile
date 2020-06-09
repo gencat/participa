@@ -37,6 +37,7 @@ gem 'figaro', '>= 1.1.1'
 
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'deface'
 
 gem 'whenever', require: false
 
