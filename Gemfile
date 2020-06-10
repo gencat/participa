@@ -23,7 +23,7 @@ gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/deci
 
 gem "puma", "~> 3.12"
 # force geocoder version until incompatibilities with Here are resolved in Decidim
-gem "geocoder", "~> 1.5.2"
+gem "geocoder", "~> 1.6.3"
 gem "uglifier", "~> 4.0.0"
 # due to this alert: https://github.com/gencat/participa/network/alert/Gemfile.lock/devise/open
 gem "devise", ">= 4.7.1"
