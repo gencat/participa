@@ -60,16 +60,17 @@ Also, if you need to add locales there, add a comment with the why it was added 
 ### Temporal fixes
 
 #### Temporal fix: added & in case role_name check.
-This fix has already been applied to `decidim/decidim:v0.22`, but we have a backport for gencat.
-When updating to `v0.22`, remove the keys:
-- decidim-core/lib/decidim/participatory_space_resourceable.rb
 
 Currently, in the file:
-- decidim-core/lib/decidim/participatory_space_resourceable.rb
+- lib/decidim/participatory_space_resourceable.rb
 we have overrided `user_role_config_for` method, in role_name case check.
+
 The reason for this, is that this method is called from `user_role_config` in `Decidim::Admin::UserRolesHelper` file, with second param `role_name` that can be nil as it is called as `role&.role`.
 This happens only when logged in user is Departmental Admin type and this can be possible because this module is only available in this repo.
 So, to avoid error when role_name passed is nil, we override this param check with a simple `role_name&.to_sym`
+
+In next versions, this issue will be patched in `decidim/decidim`, so this override could be removed:
+- lib/decidim/participatory_space_resourceable.rb
 
 
 ### Existing modules
