@@ -17,7 +17,7 @@ module Decidim
   # `Component` but rather that they depend to the `Organization`.
 
   # NOTES
-  # Overrided method def user_role_config_for(user, role_name)
+  # Overridden method def user_role_config_for(user, role_name)
   # to avoy .to_sym error when logged in user is Depart Admin
   # Override affects only line `case role_name&.to_sym`
 
@@ -121,7 +121,7 @@ module Decidim
       end
 
       # NOTE
-      # Overrided method to avoy .to_sym error when logged in user is Depart Admin
+      # Overridden method to avoy .to_sym error when logged in user is Depart Admin
       # Override affects only line `case role_name&.to_sym`
       def user_role_config_for(user, role_name)
         case role_name&.to_sym
