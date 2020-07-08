@@ -2,7 +2,7 @@
 
 # NOTES
 # Overrided method def map_model(model)
-# to form start_time and end_time date fields
+# to format start_time and end_time date fields
 
 module Decidim
   module Debates
@@ -27,6 +27,8 @@ module Decidim
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
+        # Overrided method def map_model(model)
+        # to format start_time and end_time date fields
         def map_model(model)
           self.decidim_category_id = model.category.try(:id)
           self.start_time = model.start_time.strftime('%d/%m/%Y %H:%M') if model.start_time.present?
