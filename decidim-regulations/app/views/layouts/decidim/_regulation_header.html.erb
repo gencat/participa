@@ -12,7 +12,7 @@
           <h2 class="text-highlight heading-small">
             <% if current_participatory_process.hashtag.present? %>
               <span class="process-header__hashtag">
-                <%= link_to "##{current_participatory_process.hashtag}", "https://twitter.com/hashtag/#{current_participatory_process.hashtag}" %>
+                <%= link_to "##{decidim_html_escape(current_participatory_process.hashtag)}", "https://twitter.com/hashtag/#{decidim_html_escape(current_participatory_process.hashtag)}" %>
               </span>
             <% end %>
             <%= translated_attribute(current_participatory_process.subtitle) %>
