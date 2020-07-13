@@ -51,7 +51,9 @@
         </div>
       </div>
     <% end %>
-    <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <% cache current_organization do %>
+      <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <% end %>
     
   </div>
 </div>
