@@ -41,6 +41,7 @@ gem 'daemons'
 gem 'deface'
 
 gem 'whenever', require: false
+gem "letter_opener_web", "~> 1.3.0"
 
 group :development, :test do
   gem "faker", ">= 1.8.4"
@@ -56,8 +57,7 @@ group :development do
   gem "web-console"
   gem "listen", "~> 3.1.0"
   gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
-  gem "letter_opener_web", "~> 1.3.0"
+  gem "spring-watcher-listen", "~> 2.0.0"  
 end
 
 group :test do

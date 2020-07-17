@@ -21,7 +21,6 @@ yarn.lock
 .byebug_history
 
 /config/application.yml
-/config/puma.rb
 
 # Ignore public uploaded files
 public/uploads
