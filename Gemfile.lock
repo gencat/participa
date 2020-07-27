@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 70427fa54e51f753790c7d6230815aa0f3201e18
+  revision: 1446bcd56cfb83693d8d76507c2dd23a71da9142
   branch: publish_duplicated_questionnaires
   specs:
     decidim (0.23.0.dev)
@@ -101,7 +101,7 @@ GIT
       pg (~> 1.1.4, < 2)
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
-      rack (>= 2.0.8)
+      rack (>= 2.2.3)
       rack-attack (~> 6.0)
       rails (>= 5.2.4.3, < 6.0.x)
       rails-i18n (~> 5.0)
@@ -629,7 +629,7 @@ GEM
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     polyglot (0.3.5)
-    premailer (1.11.1)
+    premailer (1.12.1)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
