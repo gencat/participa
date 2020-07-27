@@ -872,6 +872,7 @@ DEPENDENCIES
   decidim-idcat_mobil!
   decidim-process-extended!
   decidim-regulations!
+  decidim-templates!
   decidim-type!
   decidim-verifications-members_picker!
   deface

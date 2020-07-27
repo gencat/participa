@@ -16,6 +16,7 @@ gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-type', path: 'decidim-type'
 #### Custom gems and modifications block end ####
 
+gem 'decidim-templates', DECIDIM_VERSION
 gem 'rails', '< 6'
 gem 'decidim-idcat_mobil', { git: 'https://github.com/gencat/decidim-idcat_mobil.git', branch: 'master' }
 gem 'soda-ruby', require: false
