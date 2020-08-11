@@ -73,6 +73,21 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
 - lib/decidim/participatory_space_resourceable.rb
 
 
+
+#### Temporal fix: format debate's start_time / end_time in debate_form.rb map_model method
+
+Currently, in the file:
+- app/forms/decidim/debates/admin/debate_form.rb
+we have overrided `def map_model(model)` method to format start_time and end_time fields
+
+The reason for this, is that a wrong format arrived to from_params method on Rectify form
+This happened only when after having created a debate with start_time / end_time, we wanted to edit it and change only one date field, this is only start_time or end_time.
+In that moment, de form date's validation fields threw an error because the other date field was in wrong format, so form_builder wasn't able to assign to form.
+
+In next versions, this issue will be patched in `decidim/decidim`, so this override could be removed:
+- app/forms/decidim/debates/admin/debate_form.rb
+
+
 ### Existing modules
 These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
 
