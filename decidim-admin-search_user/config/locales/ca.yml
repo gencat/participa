@@ -1,6 +1,0 @@
-ca:
-  decidim:
-    admin:
-      users:
-        index:
-          fill_search: Cerca usuari

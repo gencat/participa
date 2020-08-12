@@ -7,6 +7,16 @@ es:
       categories:
         index:
           categories_title: Ejes de debate
+      filters:
+        state_eq:
+          # TODO remove these translations (label and values)
+          # after decidim-proposals includes them.
+          label: Estado
+          values:
+            accepted: Aceptadas
+            evaluating: En evaluación
+            rejected: Rechazada
+            withdrawn: Retirada
   activemodel:
     attributes:
       assembly:

@@ -7,18 +7,19 @@ module Decidim
       #
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
+        include Decidim::ParticipatoryProcesses::Admin::Filterable
         participatory_space_admin_layout only: [:edit]
-        include Decidim::Paginable
 
         helper ProcessGroupsForSelectHelper
+        helper Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessHelper
 
-        helper_method :current_participatory_process, :current_participatory_space, :query
+        helper_method :current_participatory_process, :current_participatory_space, :process_group
 
         layout "decidim/admin/participatory_processes"
 
         def index
           enforce_permission_to :read, :process_list
-          @participatory_processes = collection
+          @participatory_processes = filtered_collection
         end
 
         def new
@@ -83,22 +84,11 @@ module Decidim
         private
 
         def process_group
-          @process_group ||= ParticipatoryProcessGroup.find_by(id: params[:group_id])
-        end
-
-        def participatory_processes
-          @participatory_processes ||= Rectify::Query.merge(
-            ParticipatoryProcessesWithUserRole.for(current_user),
-            ParticipatoryProcessesByGroup.for(process_group)
-          )
-        end
-
-        def query
-          @query ||= participatory_processes.ransack(params[:q])
+          @process_group ||= ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq])
         end
 
         def collection
-          @collection ||= paginate(query.result)
+          @collection ||= ParticipatoryProcessesWithUserRole.for(current_user)
         end
 
         def current_participatory_process
@@ -109,10 +99,6 @@ module Decidim
 
         alias current_participatory_space current_participatory_process
 
-        def ability_context
-          super.merge(current_participatory_space: current_participatory_process)
-        end
-
         def participatory_process_params
           {
             id: params[:id],
@@ -121,8 +107,11 @@ module Decidim
           }.merge(params[:participatory_process].to_unsafe_h)
         end
 
-        def add_default_image_hero(id)
+        def ability_context
+          super.merge(current_participatory_space: current_participatory_process)
+        end
 
+        def add_default_image_hero(id)
           base_name = "image"
 
           # setting path variables to get number of files inside
@@ -160,17 +149,10 @@ module Decidim
           image_path = File.join Rails.root, 'decidim-process-extended', 'app', 'assets', 'images', 'default_images', last_image
 
           FileUtils.mkdir_p(path) unless File.exist?(path)
-
-          if File.exist?(path)
-            FileUtils.cp image_path, path, :verbose => true
-          else
-
-          end
-
+          FileUtils.cp image_path, path, verbose: true if File.exist?(path)
         end
 
         def add_default_image_banner(id)
-
           base_name = "image"
 
           # setting path variables to get number of files inside
@@ -210,13 +192,7 @@ module Decidim
           image_path_banner = File.join Rails.root, 'decidim-process-extended', 'app', 'assets', 'images', 'default_images_b', last_image
 
           FileUtils.mkdir_p(path_banner) unless File.exist?(path_banner)
-
-          if File.exist?(path_banner)
-            FileUtils.cp image_path_banner, path_banner, :verbose => true
-          else
-
-          end
-
+          FileUtils.cp image_path_banner, path_banner, verbose: true if File.exist?(path_banner)
         end
       end
     end

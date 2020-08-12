@@ -10,10 +10,11 @@ module Decidim
       include Decidim::ApplicationHelper
       include FormFactory
       include FilterResource
-      include Orderable
+      include Decidim::Proposals::Orderable
       include Paginable
+      include ::Decidim::Proposals::PositiveNegativeComments
 
-      helper_method :form_presenter, :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment
+      helper_method :proposal_presenter, :form_presenter
 
       before_action :authenticate_user!, only: [:new, :create, :complete]
       before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
@@ -25,36 +26,37 @@ module Decidim
       def index
         if component_settings.participatory_texts_enabled?
           @proposals = Decidim::Proposals::Proposal
-          .where(component: current_component)
-          .published
-          .not_hidden
-          .only_amendables
-          .includes(:category, :scope)
-          .order(position: :asc)
+                       .where(component: current_component)
+                       .published
+                       .not_hidden
+                       .only_amendables
+                       .includes(:category, :scope)
+                       .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @proposals = search
-          .results
-          .published
-          .not_hidden
-          .includes(:category)
-          .includes(:scope)
+                       .results
+                       .published
+                       .not_hidden
+                       .includes(:category)
+                       .includes(:scope)
 
           @voted_proposals = if current_user
-            ProposalVote.where(
-              author: current_user,
-              proposal: @proposals.pluck(:id)
-            ).pluck(:decidim_proposal_id)
-          else
-            []
-          end
+                               ProposalVote.where(
+                                 author: current_user,
+                                 proposal: @proposals.pluck(:id)
+                               ).pluck(:decidim_proposal_id)
+                             else
+                               []
+                             end
           @proposals = paginate(@proposals)
           @proposals = reorder(@proposals)
         end
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless set_proposal
+        raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
+
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -64,14 +66,14 @@ module Decidim
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
-          @form = form(ProposalWizardCreateStepForm).from_params({})
+          @form = form(ProposalWizardCreateStepForm).from_params(body: translated_proposal_body_template)
         end
       end
 
       def create
         enforce_permission_to :create, :proposal
         @step = :step_1
-        @form = form(ProposalWizardCreateStepForm).from_params(params)
+        @form = form(ProposalWizardCreateStepForm).from_params(proposal_creation_params)
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
@@ -189,27 +191,15 @@ module Decidim
 
       def withdraw
         enforce_permission_to :withdraw, :proposal, proposal: @proposal
-        if @proposal.emendation?
-          Decidim::Amendable::Withdraw.call(@proposal, current_user) do
-            on(:ok) do |_proposal|
-              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
-            end
-            on(:invalid) do
-              flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@emendation).path
-            end
+
+        WithdrawProposal.call(@proposal, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
-        else
-          WithdrawProposal.call(@proposal, current_user) do
-            on(:ok) do |_proposal|
-              flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-            end
-            on(:has_supports) do
-              flash[:alert] =I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
-              redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
-            end
+          on(:has_supports) do
+            flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
         end
       end
@@ -223,18 +213,42 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          origin: "all",
-          activity: "",
-          category_id: "",
-          state: "except_rejected",
-          scope_id: nil,
+          origin: default_filter_origin_params,
+          activity: "all",
+          category_id: default_filter_category_params,
+          state: %w(accepted evaluating not_answered),
+          scope_id: default_filter_scope_params,
           related_to: "",
           type: "all"
         }
       end
 
+      def default_filter_origin_params
+        filter_origin_params = %w(citizens meeting)
+        filter_origin_params << "official" if component_settings.official_proposals_enabled
+        filter_origin_params << "user_group" if current_organization.user_groups_enabled?
+        filter_origin_params
+      end
+
+      def default_filter_category_params
+        return "all" unless current_component.participatory_space.categories.any?
+
+        ["all"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
+      end
+
+      def default_filter_scope_params
+        return "all" unless current_component.participatory_space.scopes.any?
+
+        if current_component.participatory_space.scope
+          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
+        else
+          %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
+        end
+      end
+
       def proposal_draft
-        Proposal.from_all_author_identities(current_user).not_hidden.where(component: current_component).find_by(published_at: nil)
+        Proposal.from_all_author_identities(current_user).not_hidden.only_amendables
+                .where(component: current_component).find_by(published_at: nil)
       end
 
       def ensure_is_draft
@@ -243,7 +257,33 @@ module Decidim
       end
 
       def set_proposal
-        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find_by(id: params[:id])
+      end
+
+      # Returns true if the proposal is NOT an emendation or the user IS an admin.
+      # Returns false if the proposal is not found or the proposal IS an emendation
+      # and is NOT visible to the user based on the component's amendments settings.
+      def can_show_proposal?
+        return true if @proposal&.amendable? || current_user&.admin?
+
+        Proposal.only_visible_emendations_for(current_user, current_component).published.include?(@proposal)
+      end
+
+      def proposal_presenter
+        @proposal_presenter ||= present(@proposal)
+      end
+
+      # Returns true if the proposal is NOT an emendation or the user IS an admin.
+      # Returns false if the proposal is not found or the proposal IS an emendation
+      # and is NOT visible to the user based on the component's amendments settings.
+      def can_show_proposal?
+        return true if @proposal&.amendable? || current_user&.admin?
+
+        Proposal.only_visible_emendations_for(current_user, current_component).published.include?(@proposal)
+      end
+
+      def proposal_presenter
+        @proposal_presenter ||= present(@proposal)
       end
 
       def form_proposal_params
@@ -273,36 +313,12 @@ module Decidim
         @participatory_text = Decidim::Proposals::ParticipatoryText.find_by(component: current_component)
       end
 
-      def most_voted_positive_comment
-        @most_voted_positive_comment = Decidim::Comments::Comment.where(decidim_commentable_type: "Decidim::Proposals::Proposal", decidim_commentable_id: params[:id], alignment: 1)
+      def translated_proposal_body_template
+        translated_attribute component_settings.new_proposal_body_template
       end
 
-      def more_positive_comment(comment_id, auxID)
-        @more_positive_comment = (ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+comment_id.to_s+" AND weight = 1").count < ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+auxID.to_s+" AND weight = 1").count)
-      end
-
-      def get_comment(comment_id)
-        Decidim::Comments::Comment.where(id: comment_id)
-      end
-
-      def most_voted_negative_comment
-        @most_voted_negative_comment = Decidim::Comments::Comment.where(decidim_commentable_type: "Decidim::Proposals::Proposal", decidim_commentable_id: params[:id], alignment: -1)
-      end
-
-      def comment_author(author_id)
-        @comment_author = Decidim::User.where(id: author_id).pluck(:name).first
-      end
-
-      def comment_author_avatar(author_id)
-        @comment_author_avatar = Decidim::User.where(id: author_id).pluck(:avatar).first
-      end
-
-      def get_positive_count_comment(comment_id)
-        @get_positive_count_comment = ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+comment_id.to_s+" AND weight = 1").count
-      end
-
-      def get_negative_count_comment(comment_id)
-        @get_negative_count_comment = ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+comment_id.to_s+" AND weight = -1").count
+      def proposal_creation_params
+        params[:proposal].merge(body_template: translated_proposal_body_template)
       end
     end
   end
