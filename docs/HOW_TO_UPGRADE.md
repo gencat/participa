@@ -133,20 +133,31 @@ These are custom modules and this is what you have to keep in mind when updating
       IMPORTANT: note that some ParticipatoryProcesses classes are already modified in the point 3, and the classes in this module inherits from them, so
       you need to check the changes done in the parent classes.
 
-  6. Also, there are custom files in the application "participa.gencat.cat".
+#### 6. Also, there are custom files in the application "participa.gencat.cat".
 
-     Modified files are:
+  ##### 	Modified files:
 
-      * "app/assets/fonts/" -> Custom fonts added
-      * "app/assets/stylesheets/"-> Custom fonts and styles added
-      * "app/controllers/decidim/proposals/proposals_controller.rb"-> overwrite decidim file and add the custom * functionality of best-comments
-      * "app/controllers/decidim_controller.rb"
-      * "app/helpers/decidim/participatory_processes/admin/" -> add helpers for departments, themes, and types
-      * "app/views/decidim/proposals/proposals/show.html.erb" -> Change the layout of show proposals adding best comments.
-      * "app/views/decidim/proposals/proposals/most_voted_comments.html.erb" -> Add the layout of most voted comments.
-      * "app/views/decidim/debates/debats/show.html.erb" -> Change the simple_format method to decidim_sanitize
-      * "app/views/layouts/decidim/mailer.html.erb" -> Overwrite the layout of the mailer
-      * "config/locales/" -> Add custom locales and :oc locales.
+  * `app/controllers/decidim/proposals/proposals_controller.rb`
+    * overwrite decidim file and add the custom * functionality of best-comments
+  * `app/helpers/decidim/participatory_processes/admin/`
+    * add helpers for departments, themes, and types
+  * `app/views/decidim/proposals/proposals/show.html.erb (decidim-proposals)`
+    * Add most voted comments block rendering custom partial `proposals/proposals/most_voted_comments.html.erb` (L136-145)
+  * `app/views/layouts/decidim/mailer.html.erb (decidim-core)`
+    * Full rewrite
+  * `config/locales/`
+    * Add custom locales and :oc locales.
+
+  ##### 	Custom files:
+
+  * `app/assets/fonts/`
+    * Added custom font: OpenSans
+  * `app/assets/stylesheets/`
+    * Custom fonts and styles added
+  * `app/controllers/decidim_controller.rb`
+    * This controller is needed in all Decidim installations (empty at the moment)
+  * `app/views/decidim/proposals/proposals/most_voted_comments.html.erb`
+    * Custom partial to render most voted comments on `proposals/proposals/show.html.erb`
 
 ### New modules
 
