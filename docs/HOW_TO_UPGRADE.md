@@ -69,19 +69,38 @@ These are custom modules and this is what you have to keep in mind when updating
         * ES: "Asamblea" for "Consejo de participación"
 
       Modified files are:
+      
       * "config/locales/" -> You need to add the new locales added in Decidim, and change the string "Assembly" to the correct translation
 
+#### 2. decidim-home (aka. decidim-core)
 
-  2. Decidim Home ("decidim-core")
-      This module, changes some appareance to the home, header and footer of Decidim.
+  This module, changes some appareance to the home, header and footer of Decidim.
 
-      Modified files are:
-      * "app/views/layouts/*" -> overwrite existing decidim layouts, these needs to be upgraded if there are some changes or new functionalities are added.
-        * "_main_footer.html.erb" -> Customized footer for Generalitat de Catalunya.
-      * "config/locales/" -> You need to add the new locales added in Decidim.
+  ##### 	Modified files:
 
-      Custom files:
-      * "app/cells/" -> create new cells content_blocks for hero slider.
+  * `decidim-home/app/views/layouts/decidim/_head.html.erb`
+    * Include favicon_link_tag
+  * `decidim-home/app/views/layouts/decidim/_language_chooser.html.erb`
+    * Full rewrite, basically check for changes on the locales loop
+  * `decidim-home/app/views/layouts/decidim/_logo.html.erb`
+    * Remove outer link wrapping the logo
+    * Custom logo
+  * `decidim-home/app/views/layouts/decidim/_main_footer.html.erb`
+    * Full rewrite
+  * `decidim-home/app/views/layouts/decidim/_wrapper.html.erb`
+    * Add class `part-background-gray` to menu
+    * Render custom partial `_top_navbar.html.erb`
+    * Remove render for partial `topbar_search.html.erb`
+    * Add custom link to home page (`.site-title`)
+  * `config/locales/`
+    * You need to add the new locales added in Decidim.
+
+  ##### 	Custom files:
+
+  * `decidim-home/app/views/layouts/decidim/_top_navbar.html.erb`
+    * Implement the a top navbar rendered in `_wrapper.html.erb`
+  * `app/cells/decidim/home/content_blocks*`
+    * New content block cell for hero slider
 
   3. Decidim Process Extended ("decidim-participatory-processes")
       This module adds the new fields to the "ParticipatoryProcess": Type, email, and "show_home", so the next files are necessary to overwrite.
@@ -98,7 +117,7 @@ These are custom modules and this is what you have to keep in mind when updating
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
 
   4. Decidim Admin Extended ("decidim-admin"):
-  adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Type.
+    adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Type.
 
   5. Decidim Regulations ("decidim-participatory-processes"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
 
