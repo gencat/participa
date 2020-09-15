@@ -43,10 +43,6 @@ Also, if you need to add locales there, add a comment with the why it was added 
 
 ## WARNING
 
-  1. decidim-department-admin module was fixed due to changes in app/controllers/decidim/assemblies/admin/assemblies_controller.rb which has its `organization_assemblies` method renamed to `collection` in decidim v0.21.
-
-  2. decidim-idcat_mobil was fixed due to an error about a duplicated route. The :idcat_mobil omniauth provider was being added manually, causing an error in decidim v0.21. Currently, participa is using the branch 'bugfix/omniauth-idcat-mobil' until it's merged.
-
 ## Customizations
 
   1. In sign in and sing up views, omniauth buttons are below form.
