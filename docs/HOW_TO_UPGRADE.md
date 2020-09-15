@@ -19,6 +19,7 @@ bundle update decidim
 3. Make sure you get all the latest migrations:
 ```console
 bin/rails decidim:upgrade
+bin/rails railties:install:migrations
 bin/rails db:migrate
 ```
 
