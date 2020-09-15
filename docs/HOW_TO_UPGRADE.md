@@ -60,23 +60,24 @@ Also, if you need to add locales there, add a comment with the why it was added 
 These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
 
   1. Decidim Espais Estables ("decidim-assemblies")
-      This module changes "Assembly" translation for "Governing council". In catalan, "Assamblea" for "Consell rector". and overwrite the file "highlighted_assemblies".
+      This module changes "Assembly" translation:
+        * CA: "Assemblea" for "Consell de participació"
+        * ES: "Asamblea" for "Consejo de participación"
 
       Modified files are:
-      * "config/locales/" -> You need to add the new locales added in Decidim, and change the string "Assembly" to the "Governing council"
+      * "config/locales/" -> You need to add the new locales added in Decidim, and change the string "Assembly" to the correct translation
 
 
   2. Decidim Home ("decidim-core")
       This module, changes some appareance to the home, header and footer of Decidim.
 
       Modified files are:
-      * "app/views/layouts/" -> overwrite existing decidim layouts, these needs to be upgraded if there are some changes or new functionalities are added.
-      * "app/cells/" -> create new cells content_blocks for hero slider.
+      * "app/views/layouts/*" -> overwrite existing decidim layouts, these needs to be upgraded if there are some changes or new functionalities are added.
+        * "_main_footer.html.erb" -> Customized footer for Generalitat de Catalunya.
       * "config/locales/" -> You need to add the new locales added in Decidim.
 
       Custom files:
-      * "cells/" -> Creating the new content_block cell for FEDER.
-      * "_main_footer.html.erb" -> Customized footer for Generalitat de Catalunya.
+      * "app/cells/" -> create new cells content_blocks for hero slider.
 
   3. Decidim Process Extended ("decidim-participatory-processes")
       This module adds the new fields to the "ParticipatoryProcess": Type, email, and "show_home", so the next files are necessary to overwrite.
@@ -92,7 +93,24 @@ These are custom modules and this is what you have to keep in mind when updating
       * "app/views/decidim/participatory_processes/participatory_processes/show.html.erb" -> overwrite decidim file and add new fields.
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
 
-  4. Also, there are custom files in the application "participa.gencat.cat".
+  4. Decidim Admin Extended ("decidim-admin"):
+  adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Type.
+
+  5. Decidim Regulations ("decidim-participatory-processes"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
+
+      The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
+      * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
+      * "app/controllers/decidim/regulations/"
+      * "app/decorators/lib/decidim/filter_form_builder_decorator.rb"
+      * "app/views/decidim/participatory_processes/"
+      * "app/views/decidim/regulations/"
+      * "app/views/layouts/"
+      * "config/locales/"
+
+      IMPORTANT: note that some ParticipatoryProcesses classes are already modified in the point 3, and the classes in this module inherits from them, so
+      you need to check the changes done in the parent classes.
+
+  6. Also, there are custom files in the application "participa.gencat.cat".
 
      Modified files are:
 
@@ -107,20 +125,6 @@ These are custom modules and this is what you have to keep in mind when updating
       * "app/views/layouts/decidim/mailer.html.erb" -> Overwrite the layout of the mailer
       * "config/locales/" -> Add custom locales and :oc locales.
 
-
 ### New modules
-  1. Decidim Admin Extended ("decidim-admin"):
-  adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Type.
 
-  2. Decidim Type ("decidim-type"): Adds a CRUD engine to create new Type
-
-  3. Decidim Regulations ("decidim-regulations"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
-
-      The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
-      * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
-      * "app/controllers/decidim/regulations/"
-      * "app/decorators/lib/decidim/filter_form_builder_decorator.rb"
-      * "app/views/decidim/participatory_processes/"
-      * "app/views/decidim/regulations/"
-      * "app/views/layouts/"
-      * "config/locales/"
+  1. Decidim Type ("decidim-type"): Adds a CRUD engine to create new Type
