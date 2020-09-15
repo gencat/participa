@@ -46,12 +46,16 @@ Also, if you need to add locales there, add a comment with the why it was added 
 
 ## Customizations
 
-  1. In sign in and sing up views, omniauth buttons are below form.
+#### 1. In sign in and sing up views, omniauth buttons are below form
 
-    Modified files are:
-    *  app/views/decidim/devise/registrations/new.html.erb: Move omniauth buttons render below sign up form.
-    *  app/views/decidim/devise/sessions/new.html.erb: Move omniauth buttons render below sign in form.
-    *  app/views/decidim/devise/shared/_omniauth_buttons.html.erb: Move 'or' separator above social register button.
+  ##### 	Modified files:
+
+  * `app/views/decidim/devise/registrations/new.html.erb (decidim-core)`
+    * Move omniauth buttons render below sign up form.
+  * `app/views/decidim/devise/sessions/new.html.erb (decidim-core)`
+    * Move omniauth buttons render below sign in form.
+  * `app/views/decidim/devise/shared/_omniauth_buttons.html.erb (decidim-core)`
+    * Move 'or' separator above social register button.
 
 ### Temporal fixes
 

@@ -22,10 +22,12 @@
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
 
-      <%= decidim_form_for(@form, as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user", id: "register-form" }) do |f| %>
+      <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user", id: "register-form" }) do |f| %>
         <%= invisible_captcha %>
         <div class="card">
           <div class="card__content">
+            <%= form_required_explanation %>
+
             <div class="user-person">
               <div class="field">
                 <%= f.text_field :name, help_text: t(".username_help") %>
@@ -69,9 +71,9 @@
         <div class="card" id="card__newsletter">
           <div class="card__content">
             <h3><%= t(".newsletter_title") %></h3>
-            <div class="field">
-              <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
-            </div>
+              <div class="field">
+                <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
+              </div>
           </div>
         </div>
 
@@ -87,7 +89,6 @@
     </div>
   </div>
   <%= render "decidim/devise/shared/omniauth_buttons" %>
-    
 </div>
 </div>
 <%= render "decidim/devise/shared/newsletter_modal" %>
