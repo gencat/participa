@@ -116,9 +116,6 @@ These are custom modules and this is what you have to keep in mind when updating
       * "app/views/decidim/participatory_processes/participatory_processes/show.html.erb" -> overwrite decidim file and add new fields.
       * "config/locales/"-> You need to add the new locales added in Decidim for :oc
 
-  4. Decidim Admin Extended ("decidim-admin"):
-    adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Type.
-
   5. Decidim Regulations ("decidim-participatory-processes"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
 
       The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
@@ -161,4 +158,10 @@ These are custom modules and this is what you have to keep in mind when updating
 
 ### New modules
 
-  1. Decidim Type ("decidim-type"): Adds a CRUD engine to create new Type
+  #### 1. Decidim Type ("decidim-type")
+
+  This new module adds a CRUD to create new Type
+
+  #### 2. Decidim Admin Extended ("decidim-admin-extended"):
+  
+  This module adds the necessary routes, menus and views to show the Type module inside the admin area
