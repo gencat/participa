@@ -1,10 +1,18 @@
 oc:
-  activemodel:
-    attributes:
-      participatory_process:
-        announcement: Avís
   decidim:
     admin:
       dashboard:
         show:
           welcome: Benvingut al nou panell d'administració de Participa.
+      categories:
+        index:
+          categories_title: Eixos de debat
+      models:
+        assembly:
+          fields:
+            title: Nom del consell de participació
+          name: Consell de participació
+  activemodel:
+    attributes:
+      assembly:
+        title: Nom del consell de participació
