@@ -6,7 +6,7 @@
     <%= form.types_select :type_id,
                           types_for_select(current_organization),
                           legend_title: t(".types"),
-                          label: false,
+                          label: "",
                           selected: filter.type_id,
                           include_blank: t(".select_a_type") %>
   </div>

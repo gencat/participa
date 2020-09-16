@@ -149,19 +149,61 @@ These are custom modules and this is what you have to keep in mind when updating
   * `config/locales/`
     * You need to add the new locales added in Decidim for :oc
 
-  5. Decidim Regulations ("decidim-participatory-processes"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
+#### 5. Decidim Regulations ("decidim-participatory-processes"):
 
-      The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
-      * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
-      * "app/controllers/decidim/regulations/"
-      * "app/decorators/lib/decidim/filter_form_builder_decorator.rb"
-      * "app/views/decidim/participatory_processes/"
-      * "app/views/decidim/regulations/"
-      * "app/views/layouts/"
-      * "config/locales/"
+  This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup.
+  The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
 
-      IMPORTANT: note that some ParticipatoryProcesses classes are already modified in the point 3, and the classes in this module inherits from them, so
-      you need to check the changes done in the parent classes.
+  The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
+
+  _IMPORTANT:_ note that some ParticipatoryProcesses classes are already modified in the point 3, and the classes in this module inherits from them, so
+  you need to check the changes done in the parent classes.
+      
+  ##### 	Modified files:
+
+  * `app/controllers/decidim/regulations/`
+  * `app/decorators/lib/decidim/filter_form_builder_decorator.rb`
+  * `app/views/decidim/regulations/regulation/_order_by_regulations.html (order_by_processes)`
+    * Change the rendered cell
+  * `app/views/decidim/regulations/regulation/_promoted_process.html`
+    * Access `participatory_process_path` url helper via `decidim_participatory_processes.`
+  * `app/views/decidim/regulations/regulation/index.html`
+    * Add section to show floating help (L:12-14)
+    * Change traslations from *_processes to *_regulation
+    * Change the render for "order_by_processes" partial
+    * Change the render for "filters" partial
+  * `app/views/decidim/regulations/regulation/index.js`
+    * Change the render for "filters" partial
+  * `app/views/decidim/regulations/shared/participatory_space_filters/_filters.html (decidim-core)`
+    * Duplicated from the original and changed to be a type select
+  * `app/views/decidim/regulations/shared/participatory_space_filters/_filters_small_view.html (decidim-core)`
+    * Duplicated from the original and changed the render for "filters" partial
+  * `app/views/decidim/regulations/shared/participatory_space_filters/_show.html (decidim-core)`
+    * Duplicated from the original and changed the render for "filters" partial (x2)
+  * `app/views/layouts/decidim/_process_navigation.html.erb`
+    * Add method to check if participatory_space is a regulation one (L:4-9)
+    * Take into account if participatory_space is a regulation one to show the name (L:15)
+    * Add custom script participatory_space is a regulation one  (L:29-34)
+  * `app/views/layouts/decidim/_regulation_header.html.erb (_process_header.html.erb)`
+    * We are not sure but seems that we are replacing the `process_navigation` partial with custom code and
+      using `participatory_process` instead of `participatory_space`
+  * `app/views/layouts/decidim/regulation.html.erb (participatory_process.html.erb)`
+    * Any change, only the file name
+  * "config/locales/"
+
+  ##### 	Other files:
+  
+  Check point 3 for changes on:
+
+  * `decidim-process-extended/app/views/decidim/participatory_processes/*`
+  * `decidim-process-extended/app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb`
+  
+  ##### 	Custom files:
+
+  * `app/views/layouts/decidim/regulations/application.html.erb`
+    * Not sure if this is needed
+    
+
 
 #### 6. Also, there are custom files in the application "participa.gencat.cat".
 
