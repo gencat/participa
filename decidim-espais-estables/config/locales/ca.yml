@@ -7,15 +7,16 @@ ca:
         assembly_type_other: Altre tipus de consell de participació
         banner_image: Imatge de bàner
         closing_date: Data de finalització
-        closing_date_reason: Raó de la data de tancament
+        closing_date_reason: Motiu de la data de tancament
         composition: Composició
-        copy_categories: Copiar categories
-        copy_components: Copiar components
-        copy_features: Copiar funcionalitats
+        copy_categories: Copia categories
+        copy_components: Copia components
+        copy_features: Copia funcionalitats
         created_by: Creat per
-        created_by_other: Creat per un altre
+        created_by_other: Creat per una altre
         creation_date: Data de creació
         decidim_area_id: Àrea
+        decidim_assemblies_type_id: Tipus de consell de participació
         decidim_scope_id: Abast
         description: Descripció
         developer_group: Grup promotor
@@ -40,7 +41,7 @@ ca:
         published_at: Publicat el
         purpose_of_action: Propòsit de l'acció
         scope_id: Àmbit
-        scopes_enabled: Àmbit habilitat
+        scopes_enabled: Àmbits habilitats
         short_description: Descripció breu
         show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
@@ -62,7 +63,7 @@ ca:
       assembly_user_role:
         email: Correu electrònic
         name: Nom
-        role: Rol
+        role: Rol de participant
   activerecord:
     models:
       decidim/assembly:
@@ -76,23 +77,22 @@ ca:
         other: Rol dels usuaris del consell de participació
   decidim:
     admin:
+      actions:
+        new_assembly: Nou consell de participació
+        new_assembly_type: Nou tipus de consell de participació
       assemblies:
         create:
           error: S'ha produït un error en crear un nou consell de participació.
           success: Consell de participació creat correctament.
-        destroy:
-          success: El consell de participació s'ha eliminat amb èxit.
         edit:
           update: Actualitzar
-        form:
-          title: Informació general
         index:
           not_published: No publicada
           private: Privat
           public: Públic
           published: Publicat
         new:
-          create: Crear
+          create: Crea
           title: Nou consell de participació
         update:
           error: S'ha produït un error en actualitzar aquest consell de participació.
@@ -101,6 +101,22 @@ ca:
         create:
           error: S'ha produït un error en duplicar aquest consell de participació.
           success: El consell de participació s'ha duplicat correctament.
+      assemblies_settings:
+        update:
+          error: Hi ha hagut un problema actualitzant la configuració.
+          success: Configuració actualitzada amb èxit.
+      assemblies_types:
+        create:
+          error: S'ha produït un error en crear un nou tipus de consell de participació.
+          success: Tipus de consell de participació creat correctament.
+        destroy:
+          success: Tipus de consell de participació esborrat amb èxit.
+        new:
+          create: Crea
+          title: Nou tipus de consell de participació
+        update:
+          error: S'ha produït un error a l'actualitzar el tipus de consell de participació.
+          success: Tipus de consell de participació esborrat amb èxit.
       assembly_copies:
         new:
           copy: Còpia
@@ -109,20 +125,20 @@ ca:
       assembly_members:
         create:
           error: S'ha produït un error en afegir un membre per a aquest consell de participació.
-          success: Membre creat amb èxit per a aquest consell de participació.
+          success: El membre d'aquest consell de participació s'ha creat correctament.
         destroy:
-          success: Membre destruït amb èxit per a aquesta assemblea.
+          success: El membre per a aquest consell de participació s'ha eliminat correctament.
         edit:
           title: Actualitza el membre del consell de participació.
           update: Actualitza
         index:
           assembly_members_title: Membres del consell de participació
         new:
-          create: Crear
+          create: Crea
           title: Nou membre del consell de participació.
         update:
           error: S'ha produït un error en actualitzar el membre d'aquest consell de participació.
-          success: Membre actualitzat amb èxit per a aquest consell de participació.
+          success: Membre actualitzat correctament per a aquest consell de participació.
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquest consell de participació.
@@ -135,32 +151,38 @@ ca:
           error: S'ha produït un error en afegir un usuari per a aquest consell de participació.
           success: L'usuari s'ha creat correctament per a aquest consell de participació.
         destroy:
-          success: S'ha destruït l'usuari amb èxit per a aquest consell de participació.
+          success: L'administradora s'ha eliminat correctament per a aquest consell de participació.
         edit:
-          title: Actualitza l'usuari del consell de participació.
+          title: Actualitza l'administradora del consell de participació.
           update: Actualitza
         index:
-          assembly_admins_title: Usuaris del consell de participació
+          assembly_admins_title: Administradores del consell de participació
         new:
           create: Crea
-          title: Nou usuari del consell de participació.
+          title: Nova administradora del consell de participació.
         update:
           error: S'ha produït un error en l'actualització d'un usuari per a aquest consell de participació.
           success: L'usuari s'ha actualitzat correctament per a aquest consell de participació.
       menu:
         assemblies: Consells de participació
+        assemblies_settings: Configuració
         assemblies_submenu:
-          assembly_admins: Usuaris del consell de participació
+          assembly_admins: Administradores del consell de participació
           assembly_members: Membres
-          attachment_collections: Col·leccions
+          attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
           components: Components
           info: Informació
           moderations: Moderacions
-          private_users: Usuaris privats
+          private_users: Participants privades
+        assemblies_types: Tipus de consell de participació
       models:
+        assemblies_types:
+          fields:
+            created_at: Data de creació
+            title: Títol
         assembly:
           fields:
             created_at: Data de creació
@@ -177,22 +199,24 @@ ca:
             position: Posició
           name: Membre
           positions:
-            other: Un altre
-            president: President
-            secretary: Secretari
-            vice_president: Vicepresident
+            other: Altre
+            president: Presidenta
+            secretary: Secretària
+            vice_president: Vicepresidenta
         assembly_user_role:
           fields:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Usuari del consell de participació
+          name: Administradora del consell de participació
           roles:
-            admin: Administrador
-            collaborator: Col·laborador
-            moderator: Moderador
+            admin: Administradora
+            collaborator: Col·laboradora
+            moderator: Moderadora
+            valuator: Avaluadora
       titles:
         assemblies: Consells de participació
+        assemblies_types: Tipus de consells de participació
     admin_log:
       assembly:
         create: "%{user_name} ha creat el consell de participació %{resource_name}"
@@ -203,6 +227,14 @@ ca:
         create: "%{user_name} ha afegit el membre %{resource_name} al consell de participació %{space_name}"
         delete: "%{user_name} esborrat el membre %{resource_name} del consell de participació %{space_name}"
         update: "%{user_name} ha actualitzat el membre %{resource_name} del consell de participació %{space_name}"
+      assembly_setting:
+        update: "%{user_name} ha actualitzat la configuració dels consells de participació"
+      assembly_type:
+        create: "%{user_name} ha creat el tipus de consell de participació %{resource_name}"
+        delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
+        publish: "%{user_name} ha publicat el tipus de consell de participació %{resource_name}"
+        unpublish: "%{user_name} ha despublicat el tipus de consell de participació %{resource_name}"
+        update: "%{user_name} ha actualitzat el tipus de consell de participació %{resource_name}"
       assembly_user_role:
         create: "%{user_name} ha convidat %{resource_name} al consell de participació %{space_name}"
         delete: "%{user_name} ha eliminat l'usuari %{resource_name} del consell de participació %{space_name}"
@@ -211,55 +243,86 @@ ca:
       admin:
         assemblies:
           form:
-            duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
-            included_at_help: Selecciona la data en què es va afegir aquest assemblea a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
+            duration: Durada
+            duration_help: Si la durada d'aquest consell de participació és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
+            filters: Filtres
+            images: Imatges
+            included_at_help: Selecciona la data en què es va afegir aquest consell de participació a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
+            metadata: Metadades
+            other: Altre
             select_a_created_by: Selecciona un creador
             select_an_area: Selecciona un departament
             select_an_assembly_type: Seleccioneu un tipus de consell de participació
             select_parent_assembly: Seleccioneu un consell de participació principal
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
+            title: Informació general
+            visbility: Visibilitat
+        assemblies_settings:
+          edit:
+            update: Actualitzar
+          form:
+            title: Configuració dels consells de participació
+        assemblies_types:
+          form:
+            title: Títol
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
-      assembly_members:
+        assembly_members:
           form:
-            existing_user: Usuari existent
-            non_user: No usuari
+            existing_user: Participant existent
+            non_user: No participant
             select_a_position: Selecciona una posició
-            select_user: Selecciona un usuari
-            user_type: Tipus d'usuari
+            select_user: Selecciona una participant
+            user_type: Tipus de participant
           index:
             filter:
-              all: Tots
-              ceased: Cessat
-              not_ceased: No cessat
+              all: Totes
+              ceased: Cessada
+              not_ceased: No cessada
             filter_by: Filtra per
             search: Cerca
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Quantitat màxima d'elements que es mostraran
       assembly_members:
         index:
           members: Membres
       assembly_types:
         commission: Comissió
-        consultative_advisory: Consultiva / assessora
+        consultative_advisory: Consultiva / Assessora
         executive: Executiva
         government: Govern
         others: Altres
         participatory: Participativa
         working_group: Grup de treball
+      content_blocks:
+        highlighted_assemblies:
+          name: Asemblees destacades
       created_by:
         city_council: Ajuntament
         others: Altres
         public: Públic
       filter:
         all: Tots els tipus
+        commission: Comissió
+        consultative_advisory: Consultiva / Assessora
+        executive: Executiu
+        government: Govern
         help: 'Mostrar:'
+        others: Altres
+        participatory: Participatiu
+        working_group: Grup de treball
       index:
         title: Consells de participació
+      last_activity:
+        new_assembly: Nou consell de participació
       pages:
         home:
           highlighted_assemblies:
             active_assemblies: Consells de participació actius
+            assemblies_button_title: Enllaç a la pàgina de consells de participación mostrant tots els consells de participació
             see_all_assemblies: Veure tots els consells de participació
         user_profile:
           member_of:
@@ -290,7 +353,8 @@ ca:
         related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         social_networks: Xarxes socials
-        target: A qui va dirigit
+        social_networks_title: Compartir aquest consell de participació a
+        target: Qui participa
       statistics:
         answers_count: Respostes
         assemblies_count: Consells de participació
@@ -298,9 +362,10 @@ ca:
         debates_count: Debats
         endorsements_count: Adhesions
         headline: Activitat
-        meetings_count: Trobades presencials
-        orders_count: Vots
+        meetings_count: Trobades
+        orders_count: Suports
         pages_count: Pàgines
+        posts_count: Publicacions
         projects_count: Projectes
         proposals_count: Propostes
         results_count: Resultats
@@ -312,26 +377,70 @@ ca:
         designated_on: Designat a
       index:
         title: Membres
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Enllaç a la pàgina de Jornades mostrant totes les jornades
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Una administradora del consell de participació <a href="%{resource_url}">%{resource_name}</a> t'ha afegit com a un dels seus membres.
+          email_outro: Reps aquesta notificació perquè t'han convidat a un consell de participació. Entra en <a href="%{resource_path}">assembly page</a> per a contribuir-hi!
+          email_subject: T'han convidat a ser membre del consell de participació %{resource_name}!
+          notification_title: T'han registrat com a membre del consell de participació <a href="%{resource_path}">%{resource_name}</a>. Entra a <a href="%{resource_path}">assembly page</a> per a contribuir-hi!
+      assembly:
+        role_assigned:
+          email_intro: T'han assignat el rol de %{role} al consell de participació "%{resource_title}".
+          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} al consell de participació "%{resource_title}".
+          email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
+          notification_title: Se t'ha assignat el rol de %{role} al consell de participació <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Un <strong>consell de participació</strong> és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Els consells de participació realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Un consell de participació general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples de consells de participació.</p>\n"
+          page: "<p>Un <strong>consell de participació</strong> és un grup format per membres d'una organització que es reuneixen periòdicament per prendre decisions sobre un àmbit o àrea específica de la mateixa.</p> <p>Els consells de participació  realitzen trobades, algunes són privades i altres són obertes. Si són obertes s’hi pot participar (per exemple: assistint si l'aforament ho permet, afegint punts a l'ordre del dia, o comentant les propostes i decisions preses per aquest òrgan).</p> <p>Exemples: Un consell de participació general (que es reuneix un cop l'any per definir les línies principals d'acció de l'organització així com als seus òrgans executius per votació), una consell assessor d'igualtat (que es reuneix cada dos mesos per fer propostes de com millorar les relacions de gènere en l'organització), una comissió d'avaluació (que es reuneix cada mes per fer el seguiment d'un procés) o una òrgan de garanties (que recull les incidències, abusos o propostes de millora dels procediments de presa de decisions) són tot exemples de consells de participació.</p>\n"
+          title: Què són els consells de participació?
     log:
       value_types:
         assembly_presenter:
           not_found: 'El consell de participació no s''ha trobada a la base de dades (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'El tipus de consell de participació no s''ha trobat a la base de dades (ID: %{id})'
     menu:
       assemblies: Consells de participació
+    metrics:
+      assemblies:
+        description: Nombre de consell de participació creats
+        object: consells de participació
+        title: Consells de participació
     pages:
       home:
-        statistics:
-          assemblies_count: Consells de participació
+        hero:
+          participate_title: Participa als processos de la plataforma
+        sub_hero:
+          register_title: Registra't per crear un compte a la plataforma
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
+      show:
+        related_assemblies: Consells de participació relacionats
   errors:
     messages:
-      cannot_be_blank: no es pot deixar en blanc
+      cannot_be_blank: no es pot estar en blanc
   layouts:
     decidim:
       assemblies:
         assembly:
+          more_info: Més informació
           take_part: Participa
         index:
+          children: 'Consell de participació: '
+          organizational_chart: Organigrama
           promoted_assemblies: Consells de participació destacats
+          reset_chart: Restablir
         order_by_assemblies:
           assemblies:
             one: "%{count} consell de participació"
@@ -339,24 +448,9 @@ ca:
         promoted_assembly:
           more_info: Més informació
           take_part: Participa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: El consell de participació
-        unfold: Desplega
+        assembly_menu_item:El consell de participació
       assembly_widgets:
         show:
           take_part: Participa
-  time:
-    formats:
-      day_of_month: "%b %d"
-      day_of_week: "%a"
-      day_of_year: "%d/%m/%y"
-      decidim_short: "%d/%m/%Y %H:%M"
-      time_of_day: "%H:%M"
-  views:
-    pagination:
-      first: "&laquo; Primera"
-      last: Última &raquo;
-      next: Següent &rsaquo;
-      previous: "&lsaquo; Anterior"
-      truncate: "&hellip;"

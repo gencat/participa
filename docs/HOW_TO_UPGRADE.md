@@ -84,7 +84,8 @@ These are custom modules and this is what you have to keep in mind when updating
 
       Modified files are:
 
-      * "config/locales/" -> You need to add the new locales added in Decidim, and change the string "Assembly" to the correct translation
+      * `config/locales/`
+        * Copy the locale files from Decidim (decidim-assemblies), and change the string "Assembly" to the correct one
 
 #### 2. decidim-home (aka. decidim-core)
 
@@ -107,7 +108,7 @@ These are custom modules and this is what you have to keep in mind when updating
     * Remove render for partial `topbar_search.html.erb`
     * Add custom link to home page (`.site-title`)
   * `config/locales/`
-    * You need to add the new locales added in Decidim.
+    * You need to add the new locales added in Decidim. (TODO: this translations are also in the general files)
 
   ##### 	Custom files:
 
@@ -149,7 +150,7 @@ These are custom modules and this is what you have to keep in mind when updating
     * Show new field: has_summary_record
     * Show new field: email
   * `config/locales/`
-    * You need to add the new locales added in Decidim for :oc
+    * You need to add the new locales added in Decidim for :oc (TODO: reword this, the full translation file is in the general files)
 
 #### 5. Decidim Regulations ("decidim-participatory-processes"):
 
