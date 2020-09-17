@@ -2,8 +2,7 @@
 
 Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
   def copy_participatory_process
-    byebug
-    @copied_process = ParticipatoryProcess.create!(
+    @copied_process = Decidim::ParticipatoryProcess.create!(
       organization: @participatory_process.organization,
       title: form.title,
       subtitle: @participatory_process.subtitle,
