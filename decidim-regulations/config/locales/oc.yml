@@ -1,9 +1,25 @@
 oc:
   layouts:
     decidim:
+      regulation_header:
+        unfold: Desplega
+        process_menu_item: Participació
       participatory_processes:
         no_processes_yet:
           no_processes_yet: No hi ha resultats
+        order_by_processes:
+          processes:
+            one: "%{count} procés"
+            other: "%{count} processos"
+          regulations: "%{count} Participacions"
+        index:
+          promoted_regulation: Participacions destacades
+      regulations_info: |+
+        <p>Pendent eth procès de creacion d'ua nòrma, i a dus moments que i pòdes participar:</p>
+        <p>Enes <strong>consultes publiques</strong>: eth Govèrn, abans d'iniciar era elaboracion dera nòrma, consulta ara ciutadania sus era oportunitat e es aspèctes mès considerables a regular dera matèria en qüestion.</p>
+        <p>En aguesta fasa iniciau, pòdes avalorar eth besonh de regular ua matèria, e hèr aportacions sus quini aspèctes cau tier en compde ara ora de hè'c.</p>
+        <p>Un còp ja i a un <strong>borrolhon de nòrma</strong>: quan eth Govèrn a ja redigit un prumèr tèxte, l'òbri ara ciutadania entà melhorar-ne eth redigit e eth contengut.</p>
+        <p>En aguesta part deth procès, pòdes hèr aportacions e comentaris sus eth borrolhon de nòrma abans dera sua aprobacion definitiva.</p>
   menu:
     regulations_static: Participació normativa
   decidim:
@@ -45,24 +61,3 @@ oc:
       proposals:
         index:
           see_proposals: Veure Propostes
-  layouts:
-    decidim:
-      regulation_header:
-        unfold: Desplega
-        process_menu_item: Participació
-      participatory_processes:
-        no_processes_yet:
-          no_processes_yet: No hi ha Participacions
-        order_by_processes:
-          processes:
-            one: "%{count} procés"
-            other: "%{count} processos"
-          regulations: "%{count} Participacions"
-        index:
-          promoted_regulation: Participacions destacades
-      regulations_info: |+
-        <p>Pendent eth procès de creacion d'ua nòrma, i a dus moments que i pòdes participar:</p>
-        <p>Enes <strong>consultes publiques</strong>: eth Govèrn, abans d'iniciar era elaboracion dera nòrma, consulta ara ciutadania sus era oportunitat e es aspèctes mès considerables a regular dera matèria en qüestion.</p>
-        <p>En aguesta fasa iniciau, pòdes avalorar eth besonh de regular ua matèria, e hèr aportacions sus quini aspèctes cau tier en compde ara ora de hè'c.</p>
-        <p>Un còp ja i a un <strong>borrolhon de nòrma</strong>: quan eth Govèrn a ja redigit un prumèr tèxte, l'òbri ara ciutadania entà melhorar-ne eth redigit e eth contengut.</p>
-        <p>En aguesta part deth procès, pòdes hèr aportacions e comentaris sus eth borrolhon de nòrma abans dera sua aprobacion definitiva.</p>

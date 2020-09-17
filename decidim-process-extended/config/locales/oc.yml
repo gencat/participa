@@ -10,8 +10,6 @@ oc:
           form:
             appear_home: Sortir al home (imatge)
             select_an_area: Selecciona una departament
-      show:
-        area: Departament
       pages:
         home:
           highlighted_processes:
@@ -19,6 +17,7 @@ oc:
             active_step: Fasa activa
             see_all_processes: Vedetz toti es procèssi
       show:
+        area: Departament
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
     projects:

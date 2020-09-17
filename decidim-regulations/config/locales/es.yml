@@ -1,9 +1,22 @@
 es:
   layouts:
     decidim:
+      regulation_header:
+        unfold: Despliega
+        process_menu_item: Participación
       participatory_processes:
         no_processes_yet:
           no_processes_yet: No hay resultados
+        order_by_processes:
+          regulations: "%{count} Participaciones"
+        index:
+          promoted_regulation: Participaciones destacadas
+      regulations_info: |+
+        <p>Durante el proceso de creación de una norma, hay dos momentos en los que puedes participar:</p>
+        <p>En las <strong>consultas públicas</strong>: el Gobierno, antes de iniciar la elaboración de la norma, consulta a la ciudadanía sobre la oportunidad y los aspectos más relevantes a regular de la materia en cuestión.</p>
+        <p>En esta fase inicial, puedes valorar la necesidad de regular una materia y hacer aportaciones sobre que aspectos hay que tener en cuenta a la hora de hacerlo.</p>
+        <p>Una vez ya hay un <strong>borrador de norma</strong>: cuando el Gobierno ya ha redactado un primer texto, lo abre a la ciudadanía para mejorar el redactado y el contenido.</p>
+        <p>En esta parte del proceso, puedes hacer aportaciones y comentarios sobre el borrador de norma antes de su aprobación definitiva.</p>
   menu:
     regulations_static: Participación en normativa
   decidim:
@@ -97,19 +110,3 @@ es:
         filters:
           areas: Departamentos
           select_an_area: Selecciona un departamento
-  layouts:
-    decidim:
-      regulation_header:
-        unfold: Despliega
-        process_menu_item: Participación
-      participatory_processes:
-        order_by_processes:
-          regulations: "%{count} Participaciones"
-        index:
-          promoted_regulation: Participaciones destacadas
-      regulations_info: |+
-        <p>Durante el proceso de creación de una norma, hay dos momentos en los que puedes participar:</p>
-        <p>En las <strong>consultas públicas</strong>: el Gobierno, antes de iniciar la elaboración de la norma, consulta a la ciudadanía sobre la oportunidad y los aspectos más relevantes a regular de la materia en cuestión.</p>
-        <p>En esta fase inicial, puedes valorar la necesidad de regular una materia y hacer aportaciones sobre que aspectos hay que tener en cuenta a la hora de hacerlo.</p>
-        <p>Una vez ya hay un <strong>borrador de norma</strong>: cuando el Gobierno ya ha redactado un primer texto, lo abre a la ciudadanía para mejorar el redactado y el contenido.</p>
-        <p>En esta parte del proceso, puedes hacer aportaciones y comentarios sobre el borrador de norma antes de su aprobación definitiva.</p>
