@@ -2,7 +2,6 @@
 
 Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_eval do
   def update
-    byebug
     enforce_permission_to :update, :process, process: current_participatory_process
     @form = form(Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessForm).from_params(
       participatory_process_params,
