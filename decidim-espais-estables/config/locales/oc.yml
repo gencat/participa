@@ -450,7 +450,7 @@ oc:
           take_part: Participa
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item:El consell de participació
+        assembly_menu_item: El consell de participació
       assembly_widgets:
         show:
           take_part: Participa
