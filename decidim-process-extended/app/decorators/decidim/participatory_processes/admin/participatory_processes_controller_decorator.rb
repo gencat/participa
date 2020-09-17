@@ -4,12 +4,12 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
   def update
     byebug
     enforce_permission_to :update, :process, process: current_participatory_process
-    @form = form(ParticipatoryProcessForm).from_params(
+    @form = form(Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessForm).from_params(
       participatory_process_params,
       process_id: current_participatory_process.id
     )
 
-    UpdateParticipatoryProcess.call(current_participatory_process, @form) do
+    Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.call(current_participatory_process, @form) do
       on(:ok) do |participatory_process|
 
         # add "default" hero / banner image code
