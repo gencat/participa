@@ -4,7 +4,6 @@ Decidim::Proposals::ProposalsController.class_eval do
   include ::Decidim::Proposals::PositiveNegativeComments
 
   def index
-    byebug
     if component_settings.participatory_texts_enabled?
       @proposals = Decidim::Proposals::Proposal
                    .where(component: current_component)
@@ -23,7 +22,7 @@ Decidim::Proposals::ProposalsController.class_eval do
                    .includes(:scope)
 
       @voted_proposals = if current_user
-                           ProposalVote.where(
+                           Decidim::Proposals::ProposalVote.where(
                              author: current_user,
                              proposal: @proposals.pluck(:id)
                            ).pluck(:decidim_proposal_id)
@@ -49,6 +48,6 @@ Decidim::Proposals::ProposalsController.class_eval do
   def can_show_proposal?
     return true if @proposal&.amendable? || current_user&.admin?
 
-    Proposal.only_visible_emendations_for(current_user, current_component).published.include?(@proposal)
+    Decidim::Proposals::Proposal.only_visible_emendations_for(current_user, current_component).published.include?(@proposal)
   end
 end
