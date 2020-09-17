@@ -28,7 +28,7 @@ bin/rails db:migrate
   * Decidim::Process::Extended ("decidim-process-extended")
 
 
-4. Go to the changelog of the specific branch you are updating. For example, https://github.com/decidim/decidim/blob/master/CHANGELOG.md. And review each of the new developments introduced, and apply the new changes. 
+4. Go to the changelog of the specific branch you are updating. For example, https://github.com/decidim/decidim/blob/master/CHANGELOG.md. And review each of the new developments introduced, and apply the new changes.
    If there are some new locales added or changed, take in mind, that until the locale :oc is added to the Decidim, you must add the new Occitan translations to the application.
    * decidim-assemblies translations goes to decidim-espais-estables
 
@@ -105,7 +105,6 @@ These are custom modules and this is what you have to keep in mind when updating
   * `decidim-home/app/views/layouts/decidim/_wrapper.html.erb`
     * Add class `part-background-gray` to menu
     * Render custom partial `_top_navbar.html.erb`
-    * Remove render for partial `topbar_search.html.erb`
     * Add custom link to home page (`.site-title`)
   * `config/locales/`
     * You need to add the new locales added in Decidim. (TODO: this translations are also in the general files)
@@ -161,7 +160,7 @@ These are custom modules and this is what you have to keep in mind when updating
 
   _IMPORTANT:_ note that some ParticipatoryProcesses classes are already modified in the point 3, and the classes in this module inherits from them, so
   you need to check the changes done in the parent classes.
-      
+
   ##### 	Modified files:
 
   * `app/controllers/decidim/regulations/`
@@ -195,17 +194,17 @@ These are custom modules and this is what you have to keep in mind when updating
   * "config/locales/"
 
   ##### 	Other files:
-  
+
   Check point 3 for changes on:
 
   * `decidim-process-extended/app/views/decidim/participatory_processes/*`
   * `decidim-process-extended/app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb`
-  
+
   ##### 	Custom files:
 
   * `app/views/layouts/decidim/regulations/application.html.erb`
     * Not sure if this is needed
-    
+
 
 
 #### 6. Also, there are custom files in the application "participa.gencat.cat".
