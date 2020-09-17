@@ -150,7 +150,7 @@ These are custom modules and this is what you have to keep in mind when updating
     * Show new field: has_summary_record
     * Show new field: email
   * `config/locales/`
-    * You need to add the new locales added in Decidim for :oc (TODO: reword this, the full translation file is in the general files)
+    * Overrides some translations keys (the full oc source is inside the application locales)
 
 #### 5. Decidim Regulations ("decidim-participatory-processes"):
 
@@ -159,8 +159,7 @@ These are custom modules and this is what you have to keep in mind when updating
 
   The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
 
-  _IMPORTANT:_ note that some ParticipatoryProcesses classes are already modified in the point 3, and the classes in this module inherits from them, so
-  you need to check the changes done in the parent classes.
+  _IMPORTANT:_ note that some ParticipatoryProcesses classes are already modified in the point 3, so check if you need to replicate the changes here.
       
   ##### 	Modified files:
 
@@ -192,7 +191,8 @@ These are custom modules and this is what you have to keep in mind when updating
       using `participatory_process` instead of `participatory_space`
   * `app/views/layouts/decidim/regulation.html.erb (participatory_process.html.erb)`
     * Any change, only the file name
-  * "config/locales/"
+  * `config/locales/`
+    * Translations for `regulations` namespace
 
   ##### 	Other files:
   
@@ -221,7 +221,9 @@ These are custom modules and this is what you have to keep in mind when updating
   * `app/views/layouts/decidim/mailer.html.erb (decidim-core)`
     * Full rewrite
   * `config/locales/`
-    * Add custom locales and :oc locales.
+    * Add :oc locales (except for `decidim-assemblies`, that are inside `decidim-espais-estables`)
+    * Overrides some translations keys
+    * Fixes some Decidim translations in `*_fix.yml` files
 
   ##### 	Custom files:
 
