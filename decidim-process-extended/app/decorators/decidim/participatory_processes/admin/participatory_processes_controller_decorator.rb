@@ -30,10 +30,6 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
 
   private
 
-  def ability_context
-    super.merge(current_participatory_space: current_participatory_process)
-  end
-
   def add_default_image_hero(id)
     base_name = "image"
 
