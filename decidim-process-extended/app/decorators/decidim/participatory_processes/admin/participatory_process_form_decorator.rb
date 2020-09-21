@@ -7,12 +7,12 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessForm.class_eval do
 
   attribute :cost, Float
 
-  attribute :has_summary_record, Boolean
+  attribute :has_summary_record, Virtus::Attribute::Boolean
 
   # Participa added attributes
   attribute :type_id, Integer
   attribute :email, String
-  attribute :show_home, Boolean
+  attribute :show_home, Virtus::Attribute::Boolean
 
   validates :type, presence: true, if: proc { |object| object.type_id.present? }
 
