@@ -18,7 +18,6 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessForm.class_eval do
 
   # after_save :example_function
   def map_model(model)
-    byebug
     self.scope_id = model.decidim_scope_id
     self.participatory_process_group_id = model.decidim_participatory_process_group_id
     self.type_id = model.decidim_type_id
