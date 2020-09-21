@@ -8,7 +8,7 @@ edit_link(
 )
 %>
 
-<%= participatory_space_wrapper do %>
+<main class="wrapper">
   <div class="section row collapse">
     <%= render partial: "decidim/shared/floating_help", locals: { content: t("regulations_info", scope: "layouts.decidim").html_safe, id: 1 }  %>
   </div>
@@ -29,6 +29,6 @@ edit_link(
       <%= render(collection) %>
     </div>
   </section>
-<% end %>
+</main>
 <%= javascript_include_tag "decidim/participatory_processes/filters" %>
 <%= javascript_include_tag "decidim/filters" %>

@@ -28,9 +28,11 @@ es:
       pages:
         home:
           highlighted_regulations:
-            active_processes: Participació en normativa
-            active_step: Pas actiu
-            see_all_processes: Veure totes les participacions
+            active_processes: Participación en normativa
+            active_step: Paso activo
+            more_information: Más información
+            participate: Participa
+            see_all_processes: Ver todas las participaciones
       regulation:
         filters:
           counters:
