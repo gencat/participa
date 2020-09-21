@@ -275,7 +275,7 @@ These are custom modules and this is what you have to keep in mind when updating
 
   All that overrides have been resolved with corresponding decorator pattern as follows:
 
-  #### Decidim Process Extended ("decidim-participatory-processes") decorators
+  #### Decidim Process Extended ("decidim-participatory-processes") module decorators
     * `decorators/decidim/participatory_processes/admin/copy_participatory_process_decorator.rb`
       * override to add new fields in the command.
     * `decorators/decidim/participatory_processes/admin/create_participatory_process_decorator.rb`
