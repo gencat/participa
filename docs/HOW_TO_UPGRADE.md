@@ -63,9 +63,10 @@ Also, if you need to add locales there, add a comment with the why it was added 
 
 #### Temporal fix: format debate's start_time / end_time in debate_form.rb map_model method
 
-Currently, in the file:
-- app/forms/decidim/debates/admin/debate_form.rb
-we have overrided `def map_model(model)` method to format start_time and end_time fields
+Currently, has been applied decorator pattern, in file:
+
+* `decorators/decidim/debates/admin/debate_form_decorator.rb`
+  * Override format debate's start_time / end_time in map_model method
 
 The reason for this, is that a wrong format arrived to from_params method on Rectify form
 This happened only when after having created a debate with start_time / end_time, we wanted to edit it and change only one date field, this is only start_time or end_time.
@@ -122,18 +123,22 @@ These are custom modules and this is what you have to keep in mind when updating
 
   ##### 	Modified files:
 
-  * `app/commands/decidim/participatory_processes/admin/copy_participatory_process.rb`
-    * overwrite decidim file and add new fields in the command.
-  * `app/commands/decidim/participatory_processes/admin/create_participatory_process.rb`
-    * overwrite decidim file and add new fields in the command.
-  * `app/commands/decidim/participatory_processes/admin/update_participatory_process.rb`
-    * overwrite decidim file and add new fields in the command.
-  * `app/controllers/decidim/participatory_processes/admin/participatory_processes_controller.rb`
-    * overwrite decidim file and add default images for hero.
-  * `app/controllers/decidim/participatory_processes/participatory_processes_controller.rb`
-    * overwrite decidim file
-  * `app/form/decidim/participatory_processes/admin/participatory_process_form.rb`
-    * overwrite decidim file and add new fields in the form.
+  Following overrides have been resolved with corresponding decorator pattern as follows:
+
+  * `decorators/decidim/participatory_processes/admin/copy_participatory_process_decorator.rb`
+    * Override to add new fields in the command.
+  * `decorators/decidim/participatory_processes/admin/create_participatory_process_decorator.rb`
+    * Override to add new fields in the command.
+  * `decorators/decidim/participatory_processes/admin/update_participatory_process_decorator.rb`
+    * Override to add new fields in the command.
+  * `app/controllers/decidim/participatory_processes/admin/participatory_processes_controller_decorator.rb`
+    * Override to add default images for hero.
+  * `app/controllers/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
+    * Override to filter by participatory process specific type
+  * `app/form/decidim/participatory_processes/admin/participatory_process_form_decorator.rb`
+    * Override to add new fields in the form.
+
+  Following ones, are same new fields in template:
   * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`
     * Add new field: promoting_unit
     * Add new field: facilitators
@@ -211,8 +216,13 @@ These are custom modules and this is what you have to keep in mind when updating
 
   ##### 	Modified files:
 
-  * `app/controllers/decidim/proposals/proposals_controller.rb`
-    * overwrite decidim file and add the custom * functionality of best-comments
+  With decorator pattern:
+
+  * `decorators/decidim/proposals/proposals_controller_decorator.rb`
+    * Override to add the custom * functionality of best-comments
+
+  Following ones, for some addings or template overrides:
+
   * `app/helpers/decidim/participatory_processes/admin/`
     * add helpers for departments, themes, and types
   * `app/views/decidim/proposals/proposals/show.html.erb (decidim-proposals)`
@@ -243,56 +253,4 @@ These are custom modules and this is what you have to keep in mind when updating
 
   #### 2. Decidim Admin Extended ("decidim-admin-extended"):
 
-  This module adds the necessary routes, menus and views to show the Type module inside the admin area
-
-### Overrides
-
-  There has been some overrides that must be taken in care:
-
-  * As described in point 3, in module Decidim Process Extended ("decidim-participatory-processes"), there are following overrides:
-    * `app/commands/decidim/participatory_processes/admin/copy_participatory_process.rb`
-      * overwrite decidim file and add new fields in the command.
-    * `app/commands/decidim/participatory_processes/admin/create_participatory_process.rb`
-      * overwrite decidim file and add new fields in the command.
-    * `app/commands/decidim/participatory_processes/admin/update_participatory_process.rb`
-      * overwrite decidim file and add new fields in the command.
-    * `app/controllers/decidim/participatory_processes/admin/participatory_processes_controller.rb`
-      * overwrite decidim file and add default images for hero.
-    * `app/controllers/decidim/participatory_processes/participatory_processes_controller.rb`
-      * overwrite decidim file
-    * `app/form/decidim/participatory_processes/admin/participatory_process_form.rb`
-      * overwrite decidim file and add new fields in the form.
-
-  * As described in point 6, there's following app file overriden controller:
-    * `app/controllers/decidim/proposals/proposals_controller.rb`
-      * overwrite decidim file and add the custom * functionality of best-comments
-
-  * Finally, there's one more override, a Temporal Fixing related to debate's start/end dates
-    * `app/forms/decidim/debates/admin/debate_form.rb`
-      * overwrite format debate's start_time / end_time in map_model method      
-
-  #### Decorators
-
-  All that overrides have been resolved with corresponding decorator pattern as follows:
-
-  #### Decidim Process Extended ("decidim-participatory-processes") module decorators
-    * `decorators/decidim/participatory_processes/admin/copy_participatory_process_decorator.rb`
-      * override to add new fields in the command.
-    * `decorators/decidim/participatory_processes/admin/create_participatory_process_decorator.rb`
-      * override to add new fields in the command.
-    * `decorators/decidim/participatory_processes/admin/update_participatory_process_decorator.rb`
-      * override to add new fields in the command.
-    * `app/controllers/decidim/participatory_processes/admin/participatory_processes_controller_decorator.rb`
-      * override to add default images for hero.
-    * `app/controllers/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
-      * override to filter by participatory process specific type
-    * `app/form/decidim/participatory_processes/admin/participatory_process_form_decorator.rb`
-      * override to add new fields in the form.
-
-  #### Custom files in application "participa.gencat.cat" decorator
-    * `decorators/decidim/proposals/proposals_controller_decorator.rb`
-      * override to add the custom * functionality of best-comments
-
-  #### Finally, a Temporal Fixing in application, related to debate's start/end dates
-    * `decorators/decidim/debates/admin/debate_form.rb`
-      * override format debate's start_time / end_time in map_model method
+  This module adds the necessary routes, menus and views to show the Type module inside the admin area.
