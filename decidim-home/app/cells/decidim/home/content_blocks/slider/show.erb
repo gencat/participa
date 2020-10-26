@@ -20,22 +20,4 @@
 			</figure>
 		</div>
 	<% end %>
-	<% home_assemblies.each do |assembly| %>
-		<div class="slick-slide">
-			<figure>
-				<img src="<%= assembly.hero_image %>" alt="" />
-				<figcaption>
-					<h2>
-						<%= link_to decidim_assemblies.assembly_path(assembly) do %>
-							<%= translated_attribute assembly.title %>
-						<% end %>
-					</h2>
-					<p><%= translated_attribute assembly.subtitle %></p>
-					<%= link_to decidim_assemblies.assembly_path(assembly), class: "button part-btn" do %>
-						Participa
-					<% end %>
-				</figcaption>
-			</figure>
-		</div>
-	<% end %>
 </div>
