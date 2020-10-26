@@ -1,0 +1,7 @@
+ca:
+  decidim:
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            appear_home: Aparecer en home (imagen)

@@ -17,6 +17,15 @@ module Decidim
         def home_participatory_processes
     			@home_participatory_processes ||= ParticipatoryProcess.where(organization: current_organization, show_home: true).published
     		end
+
+        # Needed so that the `CtaButtonHelper` can work.
+        def decidim_assemblies
+          Decidim::Assemblies::Engine.routes.url_helpers
+        end
+
+        def home_assemblies
+    			@home_assemblies ||= Assembly.where(organization: current_organization, show_home: true).published
+    		end
       end
     end
   end
