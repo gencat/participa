@@ -23,13 +23,14 @@
         }
     }
     .logo-wrapper{
+        display: inline-block;
         span{
             display: inline-block;
             position: relative;
 
             padding: 0;
             line-height: 1;
-            
+
             color: white;
             font-weight: 600;
             font-size: 1.4em;
