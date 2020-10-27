@@ -16,6 +16,7 @@ es:
         created_by_other: Creado por otro
         creation_date: Fecha de creacion
         decidim_area_id: Área
+        decidim_assemblies_type_id: Tipo de consejo de participación
         decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
@@ -29,15 +30,15 @@ es:
         instagram: Instagram
         internal_organisation: Organización interna
         is_transparent: Es transparente
-        local_area: Áreas municipales
-        meta_scope: 'Metadatos: ámbito'
+        local_area: Área de organización
+        meta_scope: Metadatos de ámbito
         parent_id: Consejo de participación principal
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Qué se decide
-        participatory_structure: Como se decide
+        participatory_structure: Cómo se decide
         private_space: Espacio privado
         promoted: Destacado
-        published_at: Publicado
+        published_at: Publicado el
         purpose_of_action: Propósito de la acción
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
@@ -46,23 +47,23 @@ es:
         slug: Texto corto de URL
         special_features: Características especiales
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
+        target: Quién participa
         title: Título
         twitter: Twitter
-        youtube: Youtube
+        youtube: YouTube
       assembly_member:
         birthday: Cumpleaños
         birthplace: Lugar de nacimiento
-        ceased_date: Fecha de vencimiento
+        ceased_date: Fecha de cese
         designation_date: Fecha de designación
         designation_mode: Modo de designación
         full_name: Nombre completo
         gender: Género
         position: Posición
       assembly_user_role:
-        email: Email
+        email: Correo electrónico
         name: Nombre
-        role: Rol de usuario
+        role: Rol de participante
   activerecord:
     models:
       decidim/assembly:
@@ -72,22 +73,21 @@ es:
         one: Miembro del consejo de participación
         other: Miembros del consejo de participación
       decidim/assembly_user_role:
-        one: Rol de usuario del consejo de participación
-        other: Roles de usuario del consejo de participación
+        one: Rol de participante del consejo de participación
+        other: Roles de participante del consejo de participación
   decidim:
     admin:
+      actions:
+        new_assembly: Nuevo consejo de participación
+        new_assembly_type: Nuevo tipo de consejo de participación
       assemblies:
         create:
-          error: Se produjo un error al crear un nuevo consejo de participación.
+          error: Se ha producido un error al crear un nuevo consejo de participación.
           success: Consejo de participación creado correctamente.
-        destroy:
-          success: Consejo de participación destruido correctamente.
         edit:
           update: Actualizar
-        form:
-          title: Información general
         index:
-          not_published: No publicado
+          not_published: No publicada
           private: Privado
           public: Público
           published: Publicado
@@ -99,19 +99,35 @@ es:
           success: El consejo de participación se ha actualizado correctamente.
       assemblies_copies:
         create:
-          error: Se produjo un error al duplicar este consejo de participación.
-          success: Consejo de participación duplicada correctamente.
+          error: Se ha producido un error al duplicar este consejo de participación.
+          success: Consejo de participación duplicado correctamente.
+      assemblies_settings:
+        update:
+          error: Ha habido un problema actualizando la configuración.
+          success: Configuración actualizada con éxito.
+      assemblies_types:
+        create:
+          error: Se ha producido un error al crear un nuevo tipo de consejo de participación.
+          success: Tipo de consejo de participación creado correctamente.
+        destroy:
+          success: Tipo de consejo de participación eliminado correctamente.
+        new:
+          create: Crear
+          title: Nuevo tipo de consejo de participación
+        update:
+          error: Hubo un problema al actualizar este tipo de consejo de participación.
+          success: Tipo de consejo de participación actualizado correctamente.
       assembly_copies:
         new:
           copy: Copiar
-          select: Seleccione los datos que desea duplicar
+          select: Selecciona qué datos quieres duplicar
           title: Duplicar consejo de participación
       assembly_members:
         create:
-          error: Se produjo un error al agregar un miembro para este consejo de participación.
-          success: Miembro creado con éxito para este consejo de participación.
+          error: Se ha producido un error al agregar un miembro para este consejo de participación.
+          success: Miembro creado correctamene para este consejo de participación.
         destroy:
-          success: Miembro destruido con éxito para este consejo de participación.
+          success: Miembro eliminado correctamente para este consejo de participación.
         edit:
           title: Actualizar miembro del consejo de participación.
           update: Actualizar
@@ -121,78 +137,86 @@ es:
           create: Crear
           title: Nuevo miembro del consejo de participación.
         update:
-          error: Se produjo un error al actualizar el miembro para este consejo de participación.
-          success: Miembro actualizado con éxito para este consejo de participación.
+          error: Se ha producido un error al actualizar el miembro para este consejo de participación.
+          success: Miembro actualizado correctamente para este consejo de participación.
       assembly_publications:
         create:
-          error: Se produjo un error al publicar este consejo de participación.
-          success: Consejo de participación publicado con éxito.
+          error: Se ha producido un error al publicar este consejo de participación.
+          success: Consejo de participación publicado correctamente.
         destroy:
-          error: Se produjo un error al despublicar este consejo de participación.
-          success: Consejo de participación despublicado con éxito.
+          error: Se ha producido un error al despublicar este consejo de participación.
+          success: Consejo de participación despublicado correctamente.
       assembly_user_roles:
         create:
-          error: Se ha producido un error al agregar un usuario para este consejo de participación.
-          success: Usuario creado con éxito para este consejo de participación.
+          error: Se ha producido un error al añadir una administradora para este consejo de participación.
+          success: Administradora añadida correctamente a este consejo de participación.
         destroy:
-          success: Usuario destruido con éxito para este consejo de participación.
+          success: Administradora eliminada correctamente de este consejo de participación.
         edit:
-          title: Actualizar el usuario del consejo de participación.
+          title: Actualizar administradora del consejo de participación.
           update: Actualizar
         index:
-          assembly_admins_title: Usuarios del Consejo de participación
+          assembly_admins_title: Administradoras del consejo de participación
         new:
           create: Crear
-          title: Nuevo usuario del consejo de participación.
+          title: Nueva administradora del consejo de participación.
         update:
-          error: Ha habido un error al actualizar un usuario para este consejo de participación.
-          success: Usuario actualizado con éxito para este consejo de participación.
+          error: Se ha producido un error al actualizar una administradora para este consejo de participación.
+          success: Administradora actualizada correctamente para este consejo de participación.
       menu:
         assemblies: Consejos de participación
+        assemblies_settings: Configuración
         assemblies_submenu:
-          assembly_admins: Usuarios del consejo de participación
+          assembly_admins: Administradoras del consejo de participación
           assembly_members: Miembros
-          attachment_collections: Colecciones
+          attachment_collections: Carpetas
           attachment_files: Archivos
-          attachments: Archivos adjuntos
+          attachments: Adjuntos
           categories: Categorías
           components: Componentes
           info: Información
           moderations: Moderaciones
-          private_users: Usuarios privados
+          private_users: Participantes privadas
+        assemblies_types: Tipos de consejos de participación
       models:
+        assemblies_types:
+          fields:
+            created_at: Fecha de creación
+            title: Título
         assembly:
           fields:
             created_at: Fecha de creación
             private: Privada
-            promoted: Destacado
+            promoted: Destacada
             published: Publicada
             title: Título
           name: Consejo de participación
         assembly_member:
           fields:
-            ceased_date: Fecha de vencimiento
+            ceased_date: Fecha de cese
             designation_date: Fecha de designación
             full_name: Nombre
             position: Posición
           name: Miembro
           positions:
             other: Otro
-            president: Presidente
-            secretary: Secretario
-            vice_president: Vicepresidente
+            president: Presidenta
+            secretary: Secretaria
+            vice_president: Vicepresidenta
         assembly_user_role:
           fields:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Usuario del consejo de participación
+          name: Administradora del consejo de participación
           roles:
-            admin: Administrador
-            collaborator: Colaborador
-            moderator: Moderador
+            admin: Administradora
+            collaborator: Colaboradora
+            moderator: Moderadora
+            valuator: Evaluadora
       titles:
         assemblies: Consejos de participación
+        assemblies_types: Tipo de consejo de participación
     admin_log:
       assembly:
         create: "%{user_name} creó el consejo de participación %{resource_name}"
@@ -203,93 +227,134 @@ es:
         create: "%{user_name} creó el miembro %{resource_name} en el consejo de participación %{space_name}"
         delete: "%{user_name} eliminó %{resource_name} del consejo de participación %{space_name}"
         update: "%{user_name} actualizó el miembro %{resource_name} del consejo de participación %{space_name}"
+      assembly_setting:
+        update: "%{user_name} ha actualizado la configuración de los consejos de participación"
+      assembly_type:
+        create: "%{user_name} creó el tipo de consejo de participación %{resource_name}"
+        delete: "%{user_name} eliminó al miembro %{resource_name} del tipo de consejo de participación %{space_name}"
+        publish: "%{user_name} publicó el tipo de consejo de participación %{resource_name}"
+        unpublish: "%{user_name} despublicó el tipo de consejo de participación %{resource_name}"
+        update: "%{user_name} actualizó el tipo de consejo de participación %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invitó %{resource_name} al consejo de participación %{space_name}"
-        delete: "%{user_name} eliminó al usuario %{resource_name} del consejo de participación %{space_name}"
+        delete: "%{user_name} eliminó a la participante %{resource_name} del consejo de participación %{space_name}"
         update: "%{user_name} cambió el rol de %{resource_name} en el consejo de participación %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
-            included_at_help: Selecciona la fecha en que se agregó este ensamblaje a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
-            select_a_created_by: Selecciona creada por
-            select_an_area: Seleccione un Departamento
-            select_an_assembly_type: Selecciona tipo de consejo de participación
-            select_parent_assembly: Selecciona un consejo de participacion principal
+            duration: Duración
+            duration_help: Si la duración de este consejo de participación es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
+            filters: Filtros
+            images: Imágenes
+            included_at_help: Selecciona la fecha en que se agregó este consejo de participación a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
+            metadata: Metadatos
+            other: Otro
+            select_a_created_by: Selecciona una creadora
+            select_an_area: Seleccione un Área
+            select_an_assembly_type: Selecciona un tipo de consejo de participación
+            select_parent_assembly: Selecciona un consejo de participación principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este consejo de participación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
+            title: Información general
+            visbility: Visibilidad
+        assemblies_settings:
+          edit:
+            update: Actualizar
+          form:
+            title: Configuración de los consejos de participación
+        assemblies_types:
+          form:
+            title: Título
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este consejo de participación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Usuario existente
-            non_user: No usuario
+            existing_user: Participante existente
+            non_user: No participante
             select_a_position: Selecciona una posición
-            select_user: Selecciona un usuario
-            user_type: Tipo de usuario
+            select_user: Selecciona una participante
+            user_type: Tipo de participante
           index:
             filter:
               all: Todas
-              ceased: Cesado
-              not_ceased: No cesado
-            filter_by: Filtrado por
+              ceased: Cesada
+              not_ceased: No cesada
+            filter_by: Filtra por
             search: Buscar
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Cantidad máxima de elementos para mostrar
       assembly_members:
         index:
           members: Miembros
       assembly_types:
         commission: Comisión
-        consultative_advisory: Consultivo / Asesor
-        executive: Ejecutivo
+        consultative_advisory: Consultiva / Asesora
+        executive: Ejecutiva
         government: Gobierno
         others: Otros
-        participatory: Participativo
+        participatory: Participativa
         working_group: Grupo de trabajo
+      content_blocks:
+        highlighted_assemblies:
+          name: Consejos de participación destacados
       created_by:
         city_council: Ayuntamiento
         others: Otros
         public: Público
       filter:
         all: Todos los tipos
+        commission: Comisión
+        consultative_advisory: Consultiva / Asesora
+        executive: Ejecutivo
+        government: Gobierno
+        help: 'Muestra:'
+        others: Otros
+        participatory: Participativo
+        working_group: Grupo de trabajo
       index:
         title: Consejos de participación
+      last_activity:
+        new_assembly: Nuevo consejo de participación
       pages:
         home:
           highlighted_assemblies:
             active_assemblies: Consejos de participación activos
+            assemblies_button_title: Enlace a la página de consejo de participación que muestra todos los consejos de participación
             see_all_assemblies: Ver todos los consejos de participación
         user_profile:
           member_of:
             member_of: Miembro de
       show:
-        area: Departamento
+        area: Área
         assembly_type: Tipo de consejos de participación
         children: Consejos de participación
-        closing_date: Fecha de cierre
+        closing_date: Fecha de finalización
         composition: Composición
         created_by: Creado por
         creation_date: Fecha de creación
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluido en
-        indefinite_duration: Indefinido
+        indefinite_duration: Indefinida
         internal_organisation: Organización interna
         is_transparent:
-          'false': opaco
+          'false': opaca
           'true': transparente
-        local_area: Áreas municipales
+        local_area: Área de organización
         participatory_scope: Qué se decide
-        participatory_structure: Como se decide
+        participatory_structure: Cómo se decide
         private_space: Este es un consejo de participación privada
         purpose_of_action: Propósito de la acción
         read_less: Leer menos
-        read_more: Lee más
+        read_more: Leer más
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        target: '¿A quién va dirigida?'
+        social_networks_title: Compartir este consejo de participación en
+        target: Quién participa
       statistics:
         answers_count: Respuestas
         assemblies_count: Consejos de participación
@@ -298,29 +363,70 @@ es:
         endorsements_count: Adhesiones
         headline: Actividad
         meetings_count: Encuentros
-        orders_count: Votos
+        orders_count: Apoyos
         pages_count: Páginas
+        posts_count: Publicaciones
         projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
         surveys_count: Encuestas
         users_count: Participantes
-        votes_count: Soportes
+        votes_count: Apoyos
     assembly_members:
       assembly_member:
         designated_on: Designado en
       index:
         title: Miembros
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Una administradora del consejo de participación <a href="%{resource_url}">%{resource_name}</a> te ha añadido como uno de sus miembros.
+          email_outro: Recibes esta notificación porque te han invitado a un consejo de participación. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
+          email_subject: '¡Te han invitado a ser miembro del consejo de participación %{resource_name}!'
+          notification_title: Te han registrado como miembro del consejo de participación<a href="%{resource_path}">%{resource_name}</a>. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
+      assembly:
+        role_assigned:
+          email_intro: Te han asignado el rol de %{role} en el consejo de participación "%{resource_title}".
+          email_outro: Recibes esta notifiación porque se te ha asignado el rol de %{role} en el consejo de participación "%{resource_title}".
+          email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
+          notification_title: Se te ha asignado el rol de %{role} en el consejo de participación <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Un <strong>consejo de participación</strong> es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p><p>Los consejos de participación realizan encuentros, algunos son privados y otros son abiertos. Si son abiertos se puede participar en ellos (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Un consejo de participación general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como para escojer a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o un órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de consejos de participación.</p>\n"
+          page: "<p>Un <strong>consejo de participación</strong> es un grupo formado por miembros de una organización que se reúnen periódicamente para tomar decisiones sobre un ámbito o área específica de la misma.</p><p>Los consejos de participación realizan encuentros, algunos son privados y otros son abiertos. Si son abiertos se puede participar en ellos (por ejemplo: asistiendo si el aforo lo permite, añadiendo puntos al orden del día, o comentando las propuestas y decisiones tomadas por dicho órgano).</p> <p>Ejemplos: Un consejo de participación general (que se reúne una vez al año para definir las líneas principales de acción de la organización así como para escojer a sus órganos ejecutivos por votación), una consejo asesor de igualdad (que se reúne cada dos meses para realizar propuestas de cómo mejorar las relaciones de género en la organización), una comisión de evaluación (que se reúne cada mes para realizar el seguimiento de un proceso) o un órgano de garantías (que recoge las incidencias, abusos o propuestas de mejora de los procedimientos de toma de decisiones) son todo ejemplos de consejos de participación.</p>\n"
+          title: '¿Qué son los consejos de participación?'
     log:
       value_types:
         assembly_presenter:
           not_found: 'No se encontró el consejo de participación en la base de datos (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'El tipo de consejo de participación no se encontró en la base de datos (ID: %{id})'
     menu:
       assemblies: Consejos de participación
+    metrics:
+      assemblies:
+        description: Número de consejos de participación creados
+        object: consejos de participación
+        title: Consejos de participación
     pages:
       home:
-        statistics:
-          assemblies_count: Consejos de participación
+        hero:
+          participate_title: Participar en los procesos de la plataforma
+        sub_hero:
+          register_title: Regístrate para crear una cuenta en la plataforma
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
+      show:
+        related_assemblies: Consejos de participación relacionados
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco
@@ -328,9 +434,13 @@ es:
     decidim:
       assemblies:
         assembly:
+          more_info: Más información
           take_part: Participa
         index:
+          children: 'Consejos de participación: '
+          organizational_chart: Organigrama
           promoted_assemblies: Consejos de participación destacados
+          reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
             one: "%{count} consejo de participación"
@@ -338,10 +448,9 @@ es:
         promoted_assembly:
           more_info: Más información
           take_part: Participa
-      assembly_header:
+      assembly_navigation:
         assembly_member_menu_item: Miembros
-        assembly_menu_item: La consejo de participación
-        unfold: Desplegar
+        assembly_menu_item: El consejo de participación
       assembly_widgets:
         show:
           take_part: Participa

@@ -23,6 +23,7 @@ oc:
         entry_date: Data
     models:
       decidim/accountability/proposal_linked_event: Proposta inclosa en un resultat
+      decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
   activerecord:
     models:
       decidim/accountability/result:
@@ -32,8 +33,9 @@ oc:
     accountability:
       actions:
         confirm_destroy: Estàs segur que vols suprimir aquest %{name}?
-        destroy: Esborra
-        edit: Edita
+        destroy: Esborrar
+        edit: Editar
+        import_csv: Importa CSV
         new: Nou/va %{name}
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
@@ -41,6 +43,15 @@ oc:
       admin:
         exports:
           results: Resultats
+        import_results:
+          new:
+            import: Importar
+            info: "<p>Et recomanem que segueixis les passes següents:</p><ol><li>Crea els estats per als resultats que vulguis afegir (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Crea com a mínim un resultat manualment a través del taulell d'administració (<a href='%{link_new_result}' target='_blank'>link</a>) abans d'importar, per a entendre millor el format i com cal omplir-ho.</li><li>Descarrega l'arxiu en format CSV(%{link_export_csv})</li><li>Fes els canvis en local. Només pots modificar les següents columnes del CSV:</li></ol><ul><li><b>id category/id:</b> ID per la categoria</li><li><b>scope/id:</b> ID per a l'àmbit</li><li><b>parent/id:</b> ID per al pare (per a resultats relacionats). Opcional</li><li><b>title/I18N:</b> Title en la llengua X</li><li><b>description/I18N:</b> Descripció en la lleguna X </li><li><b>start_date:</b> date en la que s'inicia l'execució del resultat (format YYYY-MM-DD)</li><li><b>end_date:</b> data en la que finalitza l'execució del resultat (format YYYY-MM-DD)</li><li><b>status/id:</b> ID de l'estat per a aquest resultat</li><li><b>progress:</b> Tant per cent (de 0 a 100) d'execució</li><li><b>proposals_ids:</b> ID intern de les propostes relacionades (separades per comes). Es convertirà automàticament en <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: enllaç
+            title: Importa resultats via CSV
+        imports:
+          create:
+            success: S'està important el fitxer. Rebràs un email en els propers minuts amb el resultat de la importació
         models:
           result:
             name: Resultat
@@ -50,64 +61,58 @@ oc:
             name: Element
         results:
           create:
-            invalid: Hi ha hagut un problema en crear aquest resultat
+            invalid: S'ha produït un error en crear aquest resultat
             success: El resultat ha estat creat correctament
           destroy:
             success: El resultat ha estat eliminat correctament
           edit:
-            title: Edita resultat
+            title: Editar resultat
             update: Actualitza resultat
-          form:
-            add_proposal: Afegir proposta
           index:
             title: Resultats
           new:
-            create: Crea resultat
+            create: Crear resultat
             title: Nou resultat
-          proposals:
-            close: Tanca
-            current_selection: Selecció actual
-            select: Selecciona
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest resultat
+            invalid: S'ha produït un error en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament
         shared:
           subnav:
             statuses: Estats
         statuses:
           create:
-            invalid: Hi ha hagut un problema en crear aquest estat
-            success: El estat ha estat creat correctament
+            invalid: S'ha produït un error en crear aquest estat
+            success: L'estat ha estat creat correctament
           destroy:
-            success: El estat ha estat eliminat correctament
+            success: L'estat ha estat eliminat correctament
           edit:
-            title: Edita estat
-            update: Actualitza estat
+            title: Editar estat
+            update: Actualitzar estat
           index:
             title: Estats
           new:
-            create: Crea estat
+            create: Crear estat
             title: Nou estat
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest estat
-            success: El estat ha estat actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest estat
+            success: L'estat ha estat actualitzat correctament
         timeline_entries:
           create:
-            invalid: Hi ha hagut un problema en crear aquest element
-            success: El element ha estat creat correctament
+            invalid: S'ha produït un error en crear aquest element
+            success: L'element ha estat creat correctament
           destroy:
-            success: El element ha estat eliminat correctament
+            success: L'element ha estat eliminat correctament
           edit:
-            title: Edita element
-            update: Actualitza element
+            title: Editar element
+            update: Actualitzar element
           index:
             title: Evolució del projecte
           new:
-            create: Crea element
+            create: Crear element
             title: Nou element
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquest element
-            success: El element ha estat actualitzat correctament
+            invalid: S'ha produït un error en actualitzar aquest element
+            success: L'element ha estat actualitzat correctament
       admin_log:
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
@@ -116,6 +121,15 @@ oc:
         value_types:
           parent_presenter:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Errors
+          errors_present: Hi ha hagut un problema important els resultats
+          row_number: Fila
+          subject: Els resultats s'han importat correctament
+          success: Els resultats s'han important correctament. Pots revisar els resultats a través del panell d'administració.
+      last_activity:
+        new_result_at_html: "<span>Nou resultat a %{link}</span>"
       models:
         result:
           fields:
@@ -137,7 +151,7 @@ oc:
       results:
         count:
           results_count:
-            one: 1 resultat
+            one: Un resultat
             other: "%{count} resultats"
         filters:
           all: Tots
@@ -150,34 +164,20 @@ oc:
         nav_breadcrumb:
           global: Execució global
         search:
-          search: Cerca actuacions
+          search: Cercar actuacions
         show:
           stats:
             attendees: Assistents
-            back_to_result: Torna al resultat
+            back_to_resource: Tornar al resultat
             comments: Comentaris
             contributions: Aportacions
             last_edited_by: Editat per última vegada per
             last_updated_at: Darrera actualització el
             meetings: Trobades
-            number_of_versions: Versions
             proposals: Propostes
-            show_all_versions: Mostra totes les versions
-            version_author: Autor de la versió
-            version_created_at: Versió creada el
-            version_number: Número de versió
-            version_number_out_of_total: "%{current_version} de %{total_count}"
             votes: Suports
         timeline:
           title: Evolució del projecte
-      versions:
-        index:
-          changes_at_title: Canvis a "%{title}"
-          title: Versions
-        show:
-          changes_at_title: Canvis a "%{title}"
-        version:
-          version_index: Versió %{index}
     components:
       accountability:
         name: Seguiment
@@ -185,7 +185,7 @@ oc:
           global:
             categories_label: Nom per a "Categories"
             comments_enabled: Comentaris habilitats
-            display_progress_enabled: Mostra el progrés
+            display_progress_enabled: Mostrar el progrés
             heading_leaf_level_results: Nom per a "Projectes"
             heading_parent_level_results: Nom per a "Resultats"
             intro: Introducció
@@ -199,16 +199,25 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{proposal_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{proposal_title}
           notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al resultat <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'El resultat "%{resource_title}", que inclou la proposta "%{proposal_title}", s''ha completat en un %{progress}%. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{proposal_title}", i aquesta proposta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització sobre el progrés de %{resource_title}
+          notification_title: El resultat <a href="%{resource_path}">%{resource_title}</a>, que inclou la proposta <a href="%{proposal_path}">%{proposal_title}</a>, s'ha completat en un %{progress}%.
+    metrics:
+      results:
+        description: Nombre de resultats generats
+        object: resultats
+        title: Resultats
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
           results: Resultats
     participatory_spaces:
       highlighted_results:
-        results: Resultats
-        see_all_results: Veure tots els resultats
+        see_all: Veure tots els resultats (%{count})
     resource_links:
       included_projects:
-        result_projects: Projectes inclosos en aquest resultat
+        result_project: Projectes inclosos en aquest resultat
       included_proposals:
-        result_proposals: Propostes incloses en aquest resultat
+        result_proposal: Propostes incloses en aquest resultat

@@ -7,18 +7,12 @@
     	.pluck(:decidim_participatory_process_group_id)
     	.first() == Rails.application.config.regulation)
   end
-
-  name = if is_regulation(current_participatory_space.id)
-           t(".regulation_menu_item")
-         else
-           t(".process_menu_item")
-         end
 %>
 
 <%=
   extended_navigation_bar([
     {
-      name: name,
+      name: is_regulation(current_participatory_space.id) ? t(".regulation_menu_item") : t(".process_menu_item"),
       url: decidim_participatory_processes.participatory_process_path(participatory_space),
       active: is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive) ||
               is_active_link?(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_space), :exclusive)

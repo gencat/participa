@@ -13,7 +13,7 @@ edit_link(
     <%= render partial: "decidim/shared/floating_help", locals: { content: t("regulations_info", scope: "layouts.decidim").html_safe, id: 1 }  %>
   </div>
   <% if promoted_participatory_processes.any? %>
-    <section id ="highlighted-processes" class="row section">
+    <section id="highlighted-processes" class="row section">
       <h1 class="section-heading"><%= t("participatory_processes.index.promoted_regulation", scope: "layouts.decidim") %></h1>
       <%= render partial: "promoted_process", collection: promoted_participatory_processes, as: :promoted_process %>
     </section>
@@ -24,12 +24,11 @@ edit_link(
       <%= render partial: "order_by_regulations" %>
     </div>
     <%= render partial: "decidim/regulations/shared/participatory_space_filters/show" %>
-    <p class="loading"><%= t('.loading') %></p>
+    <p class="loading"><%= t(".loading") %></p>
     <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
       <%= render(collection) %>
     </div>
   </section>
 </main>
-
 <%= javascript_include_tag "decidim/participatory_processes/filters" %>
 <%= javascript_include_tag "decidim/filters" %>

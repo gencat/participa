@@ -13,7 +13,7 @@ oc:
         user_group_id: Crea un debat com
     models:
       decidim/debates/create_debate_event: Debat
-      decidim/debates/creation_disabled_event: Debats desactivats
+      decidim/debates/creation_disabled_event: Debats deshabilitats
       decidim/debates/creation_enabled_event: Debats habilitats
   activerecord:
     models:
@@ -21,9 +21,22 @@ oc:
         one: Debat
         other: Debats
   decidim:
+    components:
+      debates:
+        actions:
+          create: Crear
+        name: Debats
+        settings:
+          global:
+            announcement: Avís
+            comments_enabled: Comentaris habilitats
+          step:
+            announcement: Avís
+            comments_blocked: Comentaris bloquejats
+            creation_enabled: Creació de debats per part de les participants habilitada
     debates:
       actions:
-        confirm_destroy: N'estàs segur?
+        confirm_destroy: N'estàs segura?
         destroy: Suprimeix
         edit: Edita
         new: Nou %{name}
@@ -31,10 +44,10 @@ oc:
       admin:
         debates:
           create:
-            invalid: Hi ha hagut un problema en crear el debat.
+            invalid: S'ha produït un error en crear el debat.
             success: Debat creat correctament.
           destroy:
-            success: Debat suprimit correctament.
+            success: Debat eliminat correctament.
           edit:
             title: Editar debat
             update: Actualitzar debat
@@ -44,27 +57,24 @@ oc:
             create: Crea un debat
             title: Nou debat
           update:
-            invalid: Hi ha hagut un problema mentre s'actualitza aquest debat.
-            success: El debat s'ha actualitzat correctament.
+            invalid: S'ha produït un error en actualitzar aquest debat.
+            success: Debate actualizado correctament.
         models:
           debate:
             name: Debat
       admin_log:
         debate:
-          create: "L'usuari %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
-          update: "L'usuari %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
+          create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
+          update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
       debates:
         count:
           debates_count:
             one: "%{count} debat"
             other: "%{count} debats"
         create:
-          invalid: Hi ha hagut un problema en crear el debat.
+          invalid: S'ha produït un error en crear el debat.
           success: Debat creat correctament.
         debate:
-          comments:
-            one: Comentari
-            other: Comentaris
           participate: Participa
         filters:
           all: Tots
@@ -82,17 +92,15 @@ oc:
         index:
           new_debate: Nou debat
         new:
-          back: Enrere
+          back: Torna
           create: Crear
           select_a_category: Si us plau, selecciona una categoria
           title: Nou debat
-        share:
-          close_window: Tanca la finestra
-          share: Compartir
-          share_link: Comparteix l'enllaç
         show:
-          comments: Comentaris
-          report: Denuncia
+          back: Torna al llistat
+          date: Data
+      last_activity:
+        new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:
         debate:
           fields:
@@ -105,36 +113,42 @@ oc:
         create_debate_event:
           space_followers:
             email_intro: |-
-              S'ha creat un nou debat a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
+              Hola,
+              S'ha creat un nou debat "%{resource_title}" a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat a %{space_title}
+            email_subject: Nou debat "%{resource_title}" el dia %{space_title}
             notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha creat a <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat. Revisa'l i contribueix:
+              Hola,
+              %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat "%{resource_title}". Consulta i contribueix:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat d'en/na %{author_nickname}
-            notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat ha estat creat per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            email_subject: Nou debat "%{resource_title}" de %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
-          email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts d''aquesta pàgina:'
+          email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha desactivat la creació de debats a %{participatory_space_title}
-          notification_title: La creació de debats està desactivada a l'espai <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: La creació de debats està deshabilitada a l'espai <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Ja pots començar nous debats a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
+          email_intro: 'Ja pots crear nous debats a %{participatory_space_title}! Comença a participar en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Els debats ja estan disponibles a %{participatory_space_title}
           notification_title: Ja pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    components:
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Tria un debat obert per participar
+          description: Aquest distintiu es desbloqueja quan participes activament en els diferents debats deixant els teus comentaris.
+          description_another: Aquesta participant ha pres part en %{score} debats.
+          description_own: Has participat en %{score} debats.
+          name: Debats
+          next_level_in: Participa en %{score} debats més per arribar al següent nivell!
+          unearned_another: Aquesta participant encara no ha participat en cap debat.
+          unearned_own: Encara no has participat a cap debat.
+    metrics:
       debates:
-        actions:
-          create: Crear
-        name: Debats
-        settings:
-          global:
-            announcement: Avís
-            comments_enabled: Comentaris habilitats
-          step:
-            announcement: Avís
-            comments_blocked: Comentaris bloquejats
-            creation_enabled: Habilitar la creació de debats pels usuaris
+        description: Nombre de debats creats
+        object: debats
+        title: Debats
