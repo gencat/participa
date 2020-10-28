@@ -231,6 +231,13 @@ PATH
       decidim-admin (>= 0.9.3)
       decidim-core (>= 0.9.3)
 
++PATH
+  remote: decidim-assemblies-extended
+  specs:
+    decidim-assemblies-extended (0.22.0)
+      decidim-core (= 0.22.0)
+
+
 PATH
   remote: decidim-espais-estables
   specs:
@@ -870,6 +877,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-admin-extended!
+  decidim-assemblies-extended!
   decidim-department_admin!
   decidim-dev!
   decidim-espais-estables!
