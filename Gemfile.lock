@@ -1,34 +1,7 @@
 GIT
-  remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 4c4c4690a18d4c29bd7c7ef41e50c007a1af0c5a
-  tag: v0.0.15
-  specs:
-    decidim-department_admin (0.0.15)
-      decidim-core (>= 0.21.0)
-
-GIT
-  remote: https://github.com/gencat/decidim-idcat_mobil.git
-  revision: 740449be8b344031e0f7641bac45de6a0fbced3a
-  branch: master
-  specs:
-    decidim-idcat_mobil (0.0.5)
-      decidim (>= 0.20.0)
-      decidim-core (>= 0.20.0)
-      omniauth-idcat_mobil (~> 0.2.0)
-
-GIT
-  remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
-  tag: 0.0.2
-  specs:
-    decidim-verifications-members_picker (0.0.2)
-      decidim-core (>= 0.16.0)
-      decidim-verifications (>= 0.16.0)
-
-GIT
-  remote: https://github.com/gencat/decidim.git
-  revision: 507c8d7c3b1fdf15e43668da3debe0ea601e506f
-  branch: backport/0.22/fix/meetings_titles
+  remote: https://github.com/decidim/decidim
+  revision: 661369a894f3d955c21db84013ad95584a2333da
+  branch: release/0.22-stable
   specs:
     decidim (0.22.0)
       decidim-accountability (= 0.22.0)
@@ -223,6 +196,33 @@ GIT
       sassc-rails (~> 2.1.2)
     decidim-verifications (0.22.0)
       decidim-core (= 0.22.0)
+
+GIT
+  remote: https://github.com/gencat/decidim-department-admin.git
+  revision: 4c4c4690a18d4c29bd7c7ef41e50c007a1af0c5a
+  tag: v0.0.15
+  specs:
+    decidim-department_admin (0.0.15)
+      decidim-core (>= 0.21.0)
+
+GIT
+  remote: https://github.com/gencat/decidim-idcat_mobil.git
+  revision: 740449be8b344031e0f7641bac45de6a0fbced3a
+  branch: master
+  specs:
+    decidim-idcat_mobil (0.0.5)
+      decidim (>= 0.20.0)
+      decidim-core (>= 0.20.0)
+      omniauth-idcat_mobil (~> 0.2.0)
+
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
+  tag: 0.0.2
+  specs:
+    decidim-verifications-members_picker (0.0.2)
+      decidim-core (>= 0.16.0)
+      decidim-verifications (>= 0.16.0)
 
 PATH
   remote: decidim-admin-extended
