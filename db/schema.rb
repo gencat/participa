@@ -486,10 +486,10 @@ ActiveRecord::Schema.define(version: 2020_09_15_110526) do
   end
 
   create_table "decidim_forms_answers", id: :serial, force: :cascade do |t|
+    t.text "body"
     t.integer "decidim_user_id"
     t.integer "decidim_questionnaire_id"
     t.integer "decidim_question_id"
-    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "session_token", default: "", null: false
