@@ -9,6 +9,7 @@ Decidim.configure do |config|
   config.available_locales = [:en, :ca, :es, :oc]
 
   # Geocoder configuration
+  # NOTE: to reenable the maps a new geocoder api token must be generated and replaced here and the `geocoder` gem must be upgraded
   # config.geocoder = {
   #   static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",
   #   here_app_id: Rails.application.secrets.geocoder[:here_app_id],
