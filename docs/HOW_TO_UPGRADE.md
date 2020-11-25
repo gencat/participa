@@ -233,6 +233,12 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
   * `decorators/decidim/proposals/proposals_controller_decorator.rb`
     * Override to add the custom * functionality of best-comments
 
+  * `decorators/decidim/participatory_processes/permissions_decorator.rb`
+    * Override to allow private space users to acces public view
+
+  * `decorators/decidim/participatory_space_context_decorator.rb`
+    * Override to allow private space users to acces public view
+
   Following ones, for some addings or template overrides:
 
   * `app/helpers/decidim/participatory_processes/admin/`
