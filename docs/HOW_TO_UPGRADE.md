@@ -235,9 +235,17 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
 
   * `decorators/decidim/participatory_processes/permissions_decorator.rb`
     * Override to allow private space users to acces public view
+    * probably removable from Decidim v0.24
 
   * `decorators/decidim/participatory_space_context_decorator.rb`
     * Override to allow private space users to acces public view
+    * probably removable from Decidim v0.24
+
+  * `lib/decidim/has_private_users.rb`
+    * Override to allow private space users to acces public view
+    * Could not use a decorator so the whole class has been copied
+    * Only the `#can_participate?(user)` has been modified
+    * probably removable from Decidim v0.24
 
   Following ones, for some addings or template overrides:
 
