@@ -10,8 +10,7 @@ default: &default
   SMTP_USERNAME: "smtp email username"
   SMTP_PASSWORD: "smtp email password"
   # GeoCoder configuration (developer.here.com)
-  GEOCODER_LOOKUP_APP_ID: "here_app_id"
-  GEOCODER_LOOKUP_APP_CODE: "here_app_code"
+  HERE_API_KEY: "here_apy_key"
   # Socrata Open Data API, or SODA configuration.
   SODA_DOMAIN: "soda.demo.socrata.com"
   SODA_USERNAME: "user@example.com"
