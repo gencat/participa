@@ -13,6 +13,7 @@ gem 'decidim-regulations', path: 'decidim-regulations'
 gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-type', path: 'decidim-type'
+gem 'decidim-challenges', git: 'https://github.com/gencat/decidim-challenges.git'
 #### Custom gems and modifications block end ####
 
 gem 'rails', '< 6'

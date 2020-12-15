@@ -198,6 +198,13 @@ GIT
       decidim-core (= 0.22.0)
 
 GIT
+  remote: https://github.com/gencat/decidim-challenges.git
+  revision: bb8c9a4e72ae11967f9c6a28a789f786ddd4728a
+  specs:
+    decidim-challenges (0.0.1)
+      decidim-core (~> 0.22.0)
+
+GIT
   remote: https://github.com/gencat/decidim-department-admin.git
   revision: d66839837163a8045c5c9f9c56fa9d6fe7d810c4
   tag: v0.0.16
@@ -871,6 +878,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-admin-extended!
+  decidim-challenges!
   decidim-department_admin!
   decidim-dev!
   decidim-espais-estables!
@@ -901,7 +909,7 @@ DEPENDENCIES
   wicked_pdf
 
 RUBY VERSION
-   ruby 2.5.3p105
+   ruby 2.6.6p146
 
 BUNDLED WITH
    2.1.4
