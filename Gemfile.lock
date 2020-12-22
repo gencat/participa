@@ -199,7 +199,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-challenges.git
-  revision: 20b30f8dd1f6046ee4761a35ce0115e991f4bcaf
+  revision: 2d1c67806a5b9334eceb43939614fe878a2a0efe
   specs:
     decidim-challenges (0.0.1)
       decidim-core (~> 0.22.0)
