@@ -19,6 +19,7 @@ bundle update decidim
 3. Make sure you get all the latest migrations:
 ```console
 bin/rails decidim:upgrade
+bin/rails railties:install:migrations
 bin/rails db:migrate
 ```
 
@@ -27,7 +28,9 @@ bin/rails db:migrate
   * Decidim::Process::Extended ("decidim-process-extended")
 
 
-4. Go to the changelog of the specific branch you are updating. For example, https://github.com/decidim/decidim/blob/master/CHANGELOG.md. And review each of the new developments introduced, and apply the new changes. If there are some new locales added or changed, take in mind, that until the locale :oc is added to the Decidim, you must add the new Occitan translations to the application.
+4. Go to the changelog of the specific branch you are updating. For example, https://github.com/decidim/decidim/blob/master/CHANGELOG.md. And review each of the new developments introduced, and apply the new changes.
+   If there are some new locales added or changed, take in mind, that until the locale :oc is added to the Decidim, you must add the new Occitan translations to the application.
+   * decidim-assemblies translations goes to decidim-espais-estables
 
 5. also, you can make sure new translations are complete for all languages in your application doing this:
 ```console
@@ -43,84 +46,237 @@ Also, if you need to add locales there, add a comment with the why it was added 
 
 ## WARNING
 
-  1. decidim-department-admin module was fixed due to changes in app/controllers/decidim/assemblies/admin/assemblies_controller.rb which has its `organization_assemblies` method renamed to `collection` in decidim v0.21.
-
-  2. decidim-idcat_mobil was fixed due to an error about a duplicated route. The :idcat_mobil omniauth provider was being added manually, causing an error in decidim v0.21. Currently, participa is using the branch 'bugfix/omniauth-idcat-mobil' until it's merged.
-
 ## Customizations
 
-  1. In sign in and sing up views, omniauth buttons are below form.
+#### 1. In sign in and sing up views, omniauth buttons are below form
 
-    Modified files are:
-    *  app/views/decidim/devise/registrations/new.html.erb: Move omniauth buttons render below sign up form.
-    *  app/views/decidim/devise/sessions/new.html.erb: Move omniauth buttons render below sign in form.
-    *  app/views/decidim/devise/shared/_omniauth_buttons.html.erb: Move 'or' separator above social register button.
+  ##### 	Modified files:
+
+  * `app/views/decidim/devise/registrations/new.html.erb (decidim-core)`
+    * Move omniauth buttons render below sign up form.
+  * `app/views/decidim/devise/sessions/new.html.erb (decidim-core)`
+    * Move omniauth buttons render below sign in form.
+  * `app/views/decidim/devise/shared/_omniauth_buttons.html.erb (decidim-core)`
+    * Move 'or' separator above social register button.
+
+### Temporal fixes
+
+#### Temporal fix: format debate's start_time / end_time in debate_form.rb map_model method
+
+Currently, has been applied decorator pattern, in file:
+
+* `decorators/decidim/debates/admin/debate_form_decorator.rb`
+  * Override format debate's start_time / end_time in map_model method
+
+The reason for this, is that a wrong format arrived to from_params method on Rectify form
+This happened only when after having created a debate with start_time / end_time, we wanted to edit it and change only one date field, this is only start_time or end_time.
+In that moment, de form date's validation fields threw an error because the other date field was in wrong format, so form_builder wasn't able to assign to form.
+
+In next versions, this issue will be patched in `decidim/decidim`, so this override could be removed:
+- app/forms/decidim/debates/admin/debate_form.rb
 
 ### Existing modules
 These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
 
   1. Decidim Espais Estables ("decidim-assemblies")
-      This module changes "Assembly" translation for "Governing council". In catalan, "Assamblea" for "Consell rector". and overwrite the file "highlighted_assemblies".
+      This module changes "Assembly" translation:
+        * CA: "Assemblea" for "Consell de participació"
+        * ES: "Asamblea" for "Consejo de participación"
 
       Modified files are:
-      * "config/locales/" -> You need to add the new locales added in Decidim, and change the string "Assembly" to the "Governing council"
+#### Temporal fix: format meetings's start_time / end_time in meeting_form.rb map_model method
+
+Currently, in the file:
+- app/forms/decorators/decidim/meetings/admin/meeting_form_decorator.rb
+we have overrided `def map_model(model)` method to format start_time and end_time fields
+
+The reason for this, is that a wrong format arrived to from_params method on Rectify form
+This happened only when after having created a meeting with start_time / end_time, we wanted to edit it and change only one date field, this is only start_time or end_time.
+In that moment, de form date's validation fields threw an error because the other date field was in wrong format, so form_builder wasn't able to assign to form.
+
+In next versions, this issue will be patched in `decidim/decidim`, so this override could be removed:
+- app/forms/decorators/decidim/meetings/admin/meeting_form_decorator.rb
+
+      * `config/locales/`
+        * Copy the locale files from Decidim (decidim-assemblies), and change the string "Assembly" to the correct one
+
+#### 2. decidim-home (aka. decidim-core)
+
+  This module, changes some appareance to the home, header and footer of Decidim.
+
+  ##### 	Modified files:
+
+  * `decidim-home/app/views/layouts/decidim/_head.html.erb`
+    * Include favicon_link_tag
+  * `decidim-home/app/views/layouts/decidim/_language_chooser.html.erb`
+    * Full rewrite, basically check for changes on the locales loop
+  * `decidim-home/app/views/layouts/decidim/_logo.html.erb`
+    * Remove outer link wrapping the logo
+    * Custom logo
+  * `decidim-home/app/views/layouts/decidim/_main_footer.html.erb`
+    * Full rewrite
+  * `decidim-home/app/views/layouts/decidim/_wrapper.html.erb`
+    * Add class `part-background-gray` to menu
+    * Render custom partial `_top_navbar.html.erb`
+    * Add custom link to home page (`.site-title`)
+  * `config/locales/`
+    * You need to add the new locales added in Decidim. (TODO: this translations are also in the general files)
+
+  ##### 	Custom files:
+
+  * `decidim-home/app/views/layouts/decidim/_top_navbar.html.erb`
+    * Implement the a top navbar rendered in `_wrapper.html.erb`
+  * `app/cells/decidim/home/content_blocks*`
+    * New content block cell for hero slider
+
+#### 3. Decidim Process Extended ("decidim-participatory-processes")
+
+  This module adds new fields to the "ParticipatoryProcess": `email`, `promoting_unit`, `facilitators`, `cost`, `has_summary_record`, `type_id`, `show_home`
+
+  ##### 	Modified files:
+
+  Following overrides have been resolved with corresponding decorator pattern as follows:
+
+  * `decorators/decidim/participatory_processes/admin/copy_participatory_process_decorator.rb`
+    * Override to add new fields in the command.
+  * `decorators/decidim/participatory_processes/admin/create_participatory_process_decorator.rb`
+    * Override to add new fields in the command.
+  * `decorators/decidim/participatory_processes/admin/update_participatory_process_decorator.rb`
+    * Override to add new fields in the command.
+  * `app/controllers/decidim/participatory_processes/admin/participatory_processes_controller_decorator.rb`
+    * Override to add default images for hero.
+  * `app/controllers/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
+    * Override to filter by participatory process specific type
+  * `app/form/decidim/participatory_processes/admin/participatory_process_form_decorator.rb`
+    * Override to add new fields in the form.
+
+  Following ones, are same new fields in template:
+  * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`
+    * Add new field: promoting_unit
+    * Add new field: facilitators
+    * Add new field: cost
+    * Add new field: email
+    * Add new field: has_summary_record
+    * Add new field: type_id
+    * Add new field: show_home
+  * `app/views/decidim/participatory_processes/participatory_processes/show.html.erb`
+    * Show new field: promoting_unit
+    * Show new field: facilitators
+    * Show new field: cost
+    * Show new field: has_summary_record
+    * Show new field: email
+  * `config/locales/`
+    * Overrides some translations keys (the full oc source is inside the application locales)
+
+#### 5. Decidim Regulations ("decidim-participatory-processes"):
+
+  This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup.
+  The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
+
+  The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
+
+  _IMPORTANT:_ note that some ParticipatoryProcesses classes are already modified in the point 3, so check if you need to replicate the changes here.
+
+  ##### 	Modified files:
+
+  * `app/controllers/decidim/regulations/`
+  * `app/decorators/lib/decidim/filter_form_builder_decorator.rb`
+  * `app/views/decidim/regulations/regulation/_order_by_regulations.html (order_by_processes)`
+    * Change the rendered cell
+  * `app/views/decidim/regulations/regulation/_promoted_process.html`
+    * Access `participatory_process_path` url helper via `decidim_participatory_processes.`
+  * `app/views/decidim/regulations/regulation/index.html`
+    * Add section to show floating help (L:12-14)
+    * Change traslations from *_processes to *_regulation
+    * Change the render for "order_by_processes" partial
+    * Change the render for "filters" partial
+  * `app/views/decidim/regulations/regulation/index.js`
+    * Change the render for "filters" partial
+  * `app/views/decidim/regulations/shared/participatory_space_filters/_filters.html (decidim-core)`
+    * Duplicated from the original and changed to be a type select
+  * `app/views/decidim/regulations/shared/participatory_space_filters/_filters_small_view.html (decidim-core)`
+    * Duplicated from the original and changed the render for "filters" partial
+  * `app/views/decidim/regulations/shared/participatory_space_filters/_show.html (decidim-core)`
+    * Duplicated from the original and changed the render for "filters" partial (x2)
+  * `app/views/layouts/decidim/_process_navigation.html.erb`
+    * Add method to check if participatory_space is a regulation one (L:4-9)
+    * Take into account if participatory_space is a regulation one to show the name (L:15)
+    * Add custom script participatory_space is a regulation one  (L:29-34)
+  * `app/views/layouts/decidim/_regulation_header.html.erb (_process_header.html.erb)`
+    * We are not sure but seems that we are replacing the `process_navigation` partial with custom code and
+      using `participatory_process` instead of `participatory_space`
+  * `app/views/layouts/decidim/regulation.html.erb (participatory_process.html.erb)`
+    * Any change, only the file name
+  * `config/locales/`
+    * Translations for `regulations` namespace
+
+  ##### 	Other files:
+
+  Check point 3 for changes on:
+
+  * `decidim-process-extended/app/views/decidim/participatory_processes/*`
+  * `decidim-process-extended/app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb`
+
+  ##### 	Custom files:
+
+  * `app/views/layouts/decidim/regulations/application.html.erb`
+    * Not sure if this is needed
 
 
-  2. Decidim Home ("decidim-core")
-      This module, changes some appareance to the home, header and footer of Decidim.
 
-      Modified files are:
-      * "app/views/layouts/" -> overwrite existing decidim layouts, these needs to be upgraded if there are some changes or new functionalities are added.
-      * "app/cells/" -> create new cells content_blocks for hero slider.
-      * "config/locales/" -> You need to add the new locales added in Decidim.
+#### 6. Also, there are custom files in the application "participa.gencat.cat".
 
-      Custom files:
-      * "cells/" -> Creating the new content_block cell for FEDER.
-      * "_main_footer.html.erb" -> Customized footer for Generalitat de Catalunya.
+  ##### 	Modified files:
 
-  3. Decidim Process Extended ("decidim-participatory-processes")
-      This module adds the new fields to the "ParticipatoryProcess": Type, email, and "show_home", so the next files are necessary to overwrite.
+  With decorator pattern:
 
-      Modified files are:
-      * "app/commands/decidim/participatory_processes/admin/copy_participatory_process.rb" -> overwrite decidim file and add new fields in the command.
-      * "app/commands/decidim/participatory_processes/admin/create_participatory_process.rb" -> overwrite decidim file and add new fields in the command.
-      * "app/commands/decidim/participatory_processes/admin/update_participatory_process.rb" -> overwrite decidim file and add new fields in the command.
-      * "app/controllers/decidim/participatory_processes/admin/participatory_processes_controller.rb" -> overwrite decidim file and add default images for hero.
-      * "app/controllers/decidim/participatory_processes/participatory_processes_controller.rb" -> overwrite decidim file
-      * "app/form/decidim/participatory_processes/admin/participatory_process_form.rb" -> overwrite decidim file and add new fields in the form.
-      * "app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb" -> overwrite decidim file and add new fields in the form.
-      * "app/views/decidim/participatory_processes/participatory_processes/show.html.erb" -> overwrite decidim file and add new fields.
-      * "config/locales/"-> You need to add the new locales added in Decidim for :oc
+  * `decorators/decidim/proposals/proposals_controller_decorator.rb`
+    * Override to add the custom * functionality of best-comments
 
-  4. Also, there are custom files in the application "participa.gencat.cat".
+  * `decorators/decidim/participatory_processes/permissions_decorator.rb`
+    * Override to allow private space users to acces public view
+    * probably removable from Decidim v0.24
 
-     Modified files are:
+  * `decorators/decidim/participatory_space_context_decorator.rb`
+    * Override to allow private space users to acces public view
+    * probably removable from Decidim v0.24
 
-      * "app/assets/fonts/" -> Custom fonts added
-      * "app/assets/stylesheets/"-> Custom fonts and styles added
-      * "app/controllers/decidim/proposals/proposals_controller.rb"-> overwrite decidim file and add the custom * functionality of best-comments
-      * "app/controllers/decidim_controller.rb"
-      * "app/helpers/decidim/participatory_processes/admin/" -> add helpers for departments, themes, and types
-      * "app/views/decidim/proposals/proposals/show.html.erb" -> Change the layout of show proposals adding best comments.
-      * "app/views/decidim/proposals/proposals/most_voted_comments.html.erb" -> Add the layout of most voted comments.
-      * "app/views/decidim/debates/debats/show.html.erb" -> Change the simple_format method to decidim_sanitize
-      * "app/views/layouts/decidim/mailer.html.erb" -> Overwrite the layout of the mailer
-      * "config/locales/" -> Add custom locales and :oc locales.
+  * `lib/decidim/has_private_users.rb`
+    * Override to allow private space users to acces public view
+    * Could not use a decorator so the whole class has been copied
+    * Only the `#can_participate?(user)` has been modified
+    * probably removable from Decidim v0.24
 
+  Following ones, for some addings or template overrides:
+
+  * `app/helpers/decidim/participatory_processes/admin/`
+    * add helpers for departments, themes, and types
+  * `app/views/decidim/proposals/proposals/show.html.erb (decidim-proposals)`
+    * Add most voted comments block rendering custom partial `proposals/proposals/most_voted_comments.html.erb` (L136-145)
+  * `app/views/layouts/decidim/mailer.html.erb (decidim-core)`
+    * Full rewrite
+  * `config/locales/`
+    * Add :oc locales (except for `decidim-assemblies`, that are inside `decidim-espais-estables`)
+    * Overrides some translations keys
+    * Fixes some Decidim translations in `*_fix.yml` files
+
+  ##### 	Custom files:
+
+  * `app/assets/fonts/`
+    * Added custom font: OpenSans
+  * `app/assets/stylesheets/`
+    * Custom fonts and styles added
+  * `app/controllers/decidim_controller.rb`
+    * This controller is needed in all Decidim installations (empty at the moment)
+  * `app/views/decidim/proposals/proposals/most_voted_comments.html.erb`
+    * Custom partial to render most voted comments on `proposals/proposals/show.html.erb`
 
 ### New modules
-  1. Decidim Admin Extended ("decidim-admin"):
-  adds the necessary layouts to avoid breaking future features of Decidim with the applied customizations of other modules, like Type.
 
-  2. Decidim Type ("decidim-type"): Adds a CRUD engine to create new Type
+  #### 1. Decidim Type ("decidim-type")
 
-  3. Decidim Regulations ("decidim-regulations"): This module generates a clone of the Participatory::Process index page and shows those processes that are grouped into a ParticipatoryProcessGroup. The ParticipatoryProcessGroup to show, is created at the backoffice and then the id of this group must be insert in the file: "config/application.rb" with "config.regulation = 3".
+  This new module adds a CRUD to create new Type
 
-      The next files need to be upgraded according to the upgrades of "ParticipatoryProcesses" module. If the files change on participatory processes module, you must also change them on regulations
-      * "app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb"
-      * "app/controllers/decidim/regulations/"
-      * "app/decorators/lib/decidim/filter_form_builder_decorator.rb"
-      * "app/views/decidim/participatory_processes/"
-      * "app/views/decidim/regulations/"
-      * "app/views/layouts/"
-      * "config/locales/"
+  #### 2. Decidim Admin Extended ("decidim-admin-extended"):
+
+  This module adds the necessary routes, menus and views to show the Type module inside the admin area.

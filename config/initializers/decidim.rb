@@ -9,11 +9,12 @@ Decidim.configure do |config|
   config.available_locales = [:en, :ca, :es, :oc]
 
   # Geocoder configuration
-  config.geocoder = {
-    static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",
-    here_app_id: Rails.application.secrets.geocoder[:here_app_id],
-    here_app_code: Rails.application.secrets.geocoder[:here_app_code]
-  }
+  # NOTE: to reenable the maps a new geocoder api token must be generated and replaced here. The `geocoder` gem has already been upgraded
+  # config.geocoder = {
+  #   static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",
+  #   here_app_id: Rails.application.secrets.geocoder[:here_app_id],
+  #   here_app_code: Rails.application.secrets.geocoder[:here_app_code]
+  # }
 
   # Decidim::Exporters::CSV's default column separator
   config.default_csv_col_sep = ","
