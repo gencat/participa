@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
-  revision: 6bb12628310dc009355c7795b9ec0ba3dbcc2f82
+  revision: 4c77c5d74707a0d1f6f04a2df252c88519bd3b97
   branch: fix/participatory_space_not_being_retrieved_properly
   specs:
     decidim-term_customizer (0.22.0)
