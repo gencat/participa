@@ -1,6 +1,15 @@
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
+  revision: 4c77c5d74707a0d1f6f04a2df252c88519bd3b97
+  branch: fix/participatory_space_not_being_retrieved_properly
+  specs:
+    decidim-term_customizer (0.22.0)
+      decidim-admin (~> 0.22.0)
+      decidim-core (~> 0.22.0)
+
+GIT
   remote: https://github.com/gencat/decidim
-  revision: ad30551b165288a0cc7416640fd81a90a30412a4
+  revision: 4d151061e4cd418392235b214641bb1a471b8606
   branch: release/0.22-stable
   specs:
     decidim (0.22.0)
@@ -889,6 +898,7 @@ DEPENDENCIES
   decidim-idcat_mobil!
   decidim-process-extended!
   decidim-regulations!
+  decidim-term_customizer!
   decidim-type!
   decidim-verifications-members_picker!
   deface

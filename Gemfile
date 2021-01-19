@@ -14,6 +14,7 @@ gem 'decidim-home', path: 'decidim-home'
 gem 'decidim-admin-extended', path: 'decidim-admin-extended'
 gem 'decidim-type', path: 'decidim-type'
 gem 'decidim-challenges', git: 'https://github.com/gencat/decidim-challenges.git'
+gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer", branch: "fix/participatory_space_not_being_retrieved_properly"
 #### Custom gems and modifications block end ####
 
 gem 'rails', '< 6'
