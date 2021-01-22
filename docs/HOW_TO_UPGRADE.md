@@ -46,6 +46,8 @@ Also, if you need to add locales there, add a comment with the why it was added 
 
 ## WARNING
 
+- NOTE!!!!!: When upgrading to Decidim v0.23, the templates module should be enabled.
+
 ## Customizations
 
 #### 1. In sign in and sing up views, omniauth buttons are below form
