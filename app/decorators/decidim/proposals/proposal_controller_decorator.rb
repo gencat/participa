@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Decidim::Proposals::ProposalsController.class_eval do
-  include ::Decidim::Proposals::PositiveNegativeComments
-
   def index
     if component_settings.participatory_texts_enabled?
       @proposals = Decidim::Proposals::Proposal
