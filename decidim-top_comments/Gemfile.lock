@@ -282,7 +282,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     bindex (0.8.1)
-    bootsnap (1.7.0)
+    bootsnap (1.7.1)
       msgpack (~> 1.0)
     browser (2.7.1)
     builder (3.2.4)
@@ -787,6 +787,7 @@ DEPENDENCIES
   decidim!
   decidim-dev!
   decidim-top_comments!
+  deface
   faker (~> 1.9)
   letter_opener_web (~> 1.3)
   listen (~> 3.1)

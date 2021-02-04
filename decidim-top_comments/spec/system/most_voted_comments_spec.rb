@@ -62,7 +62,7 @@ describe "Most Voted Comments", type: :system do
         visit resource_path
         expect(page).to have_selector(".comment-in-favor")
         comment= find(".comment-in-favor")
-        expect(comment).to have_text(comment_for.body)
+        expect(comment).to have_text(comment_for.body['en'])
         expect(page).to_not have_selector(".comment-against")
       end
     end
@@ -75,7 +75,7 @@ describe "Most Voted Comments", type: :system do
         expect(page).to_not have_selector(".comment-in-favor")
         expect(page).to have_selector(".comment-against")
         comment= find(".comment-against")
-        expect(comment).to have_text(comment_against.body)
+        expect(comment).to have_text(comment_against.body['en'])
       end
     end
 
@@ -87,10 +87,10 @@ describe "Most Voted Comments", type: :system do
         visit resource_path
         expect(page).to have_selector(".comment-in-favor")
         comment= find(".comment-in-favor")
-        expect(comment).to have_text(comment_for.body)
+        expect(comment).to have_text(comment_for.body['en'])
         expect(page).to have_selector(".comment-against")
         comment= find(".comment-against")
-        expect(comment).to have_text(comment_against.body)
+        expect(comment).to have_text(comment_against.body['en'])
       end
     end
   end
