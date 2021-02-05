@@ -12,13 +12,13 @@ Space.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-top_comments"
+gem 'decidim-top_comments'
 ```
 
 And then execute:
 
 ```bash
-bundle
+bundle install
 ```
 
 ## Testing
