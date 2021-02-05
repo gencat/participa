@@ -9,11 +9,10 @@ Space.
 
 ## Installation
 
-Add this lines to your application's Gemfile:
+Add this line to your application's Gemfile:
 
 ```ruby
 gem 'decidim-top_comments'
-gem 'deface', require: true
 ```
 
 And then execute:
