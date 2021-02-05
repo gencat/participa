@@ -1,0 +1,17 @@
+---
+en:
+  decidim:
+    components:
+      top_comments:
+        name: Top Comments
+    proposals:
+      proposals:
+        show:
+          most_voted_comments: Most voted comments
+        most_voted_comment:
+          actually_positive: In favor
+          actually_negattive: Against
+        most_voted_comments:
+          positive: In favor
+          negative: Against
+          no_results: No results found
