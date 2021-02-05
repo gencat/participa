@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    components:
+      top_comments:
+        name: TopComments

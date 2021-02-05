@@ -1,0 +1,12 @@
+<!-- insert_after 'erb[loud]:root:last-child'
+  virtual_path 'decidim/proposals/proposals/show'
+  original '56b8c50ba61c309780878dbc4d00c9c6f004f119'
+-->
+<div id="most-voted-comments" class="expanded">
+  <div class="wrapper wrapper--inner">
+    <div class="row">
+      <h2 class="order-by__text section-heading"><%= t(".most_voted_comments")%></h2>
+      <%= render partial: "most_voted_comments"%>
+    </div>
+  </div>
+</div>

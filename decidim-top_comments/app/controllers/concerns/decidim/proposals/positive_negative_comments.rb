@@ -7,10 +7,10 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :most_voted_positive_comment, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :get_positive_count_comment, :get_negative_count_comment
+        helper_method :in_favor_comments, :most_voted_negative_comment, :comment_author, :more_positive_comment, :get_comment, :comment_author_avatar, :count_positive_votes_for_comment, :count_negative_votes_for_comment
 
-        def most_voted_positive_comment
-          @most_voted_positive_comment = Decidim::Comments::Comment.where(decidim_commentable_type: "Decidim::Proposals::Proposal", decidim_commentable_id: params[:id], alignment: 1)
+        def in_favor_comments
+          @in_favor_comments||= Decidim::Comments::Comment.where(decidim_commentable_type: "Decidim::Proposals::Proposal", decidim_commentable_id: params[:id], alignment: 1)
         end
 
         def more_positive_comment(comment_id, auxID)
@@ -33,12 +33,12 @@ module Decidim
           @comment_author_avatar = Decidim::User.where(id: author_id).pluck(:avatar).first
         end
 
-        def get_positive_count_comment(comment_id)
-          @get_positive_count_comment = ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+comment_id.to_s+" AND weight = 1").count
+        def count_positive_votes_for_comment(comment_id)
+          Decidim::Comments::CommentVote.where(decidim_comment_id: comment_id, weight: 1).count
         end
 
-        def get_negative_count_comment(comment_id)
-          @get_negative_count_comment = ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+comment_id.to_s+" AND weight = -1").count
+        def count_negative_votes_for_comment(comment_id)
+          Decidim::Comments::CommentVote.where(decidim_comment_id: comment_id, weight: -1).count
         end
       end
     end

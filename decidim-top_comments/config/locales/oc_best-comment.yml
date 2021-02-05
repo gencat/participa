@@ -1,4 +1,4 @@
-es:
+oc:
   decidim:
     proposals:
       proposals:
@@ -20,10 +20,11 @@ es:
           state: Estat
           voted: Votat
         show:
-          most_voted_comments: Comentarios más votados
+          most_voted_comments: Comentaris més votats
+        most_voted_comment:
+          actually_positive: A favor
+          actually_negattive: En contra
         most_voted_comments:
           positive: A favor
           negative: En contra
-          no_results: No se han encontrado resultados
-          actually_positive: A favor
-          actually_negattive: En contra
+          no_results: No s'han trobat resultats
