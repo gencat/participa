@@ -24,7 +24,8 @@
   <div class="comment__content">
     <p>
       <span><span class="label alignment <%= alignment == :positive ? 'success' : 'alert' %>"><%= alignment == :positive ? t(".actually_positive") : t(".actually_negattive") %></span><!-- react-text: 161 -->&nbsp;<!-- /react-text --></span>
-        <%= comment.body.to_s %>
+        <%# coditional to transition from non localized body (v0.22) to translated body (v0.23 and up) %>
+        <%= comment.body.is_a?(Hash) ? translated_attribute(comment.body) : comment.body %>
       </p>
   </div>
   <div class="comment__footer">
