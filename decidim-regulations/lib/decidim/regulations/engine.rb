@@ -61,7 +61,9 @@ module Decidim
 
       # make decorators available to applications that use this Engine
       config.to_prepare do
-        require 'decidim/regulations/admin/avoid_deletion_of_regulations_group'
+        Dir.glob(Decidim::Regulations::Engine.root + 'app/decorators/**/*_decorator*.rb').each do |c|
+          require_dependency(c)
+        end
         ::Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsController.prepend(Decidim::Regulations::Admin::AvoidDeletionOfRegulationsGroup)
       end
 
