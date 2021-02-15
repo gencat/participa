@@ -1,27 +1,18 @@
 <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-2 large-up-2 card-grid">
 	<div id="most-voted-comments-favor" class="column">
 		<p class="part-paragraf">
-				<svg class="icon  icon-thumb-up">
+				<svg class="icon icon-thumb-up">
 					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('decidim/icons.svg#icon-thumb-up') %>"></use>
 				</svg>
-				<%= t(".positive") %>
+				<span id="num-in-favor-comments"><%= in_favor_comments.size %></span>
+			  <%= t(".positive").downcase %>
+			  <span id="percent-in-favor-comments">(<%= percentage_of_comments(in_favor_comments.size) %>%)</span>
 		</p>
-		<% auxCommentId = 0 %>
-		<% if in_favor_comments.any? %>
-			<% in_favor_comments.each do |comment| %>
-				<% if (more_positive_comment(comment.id, auxCommentId) == false) %>
-					<% auxCommentId = comment.id %>
-				<% end %>
-			<% end %>
-			<% get_comment(auxCommentId).each do |comment| %>
-			<% if count_positive_votes_for_comment(comment.id) > 0 %>
-					<div class="comment-thread comment-in-favor">
-						<%= render partial: "most_voted_comment", locals: {comment: comment, alignment: :positive} %>
-					</div>
-				<% else %>
-					<p class="part-cont-5"><%= t(".no_results") %></p>
-				<% end %>
-			<% end %>
+		<% if most_voted_in_favor_comments.any? %>
+			<% comment= most_voted_in_favor_comments.first %>
+			<div class="comment-thread comment-in-favor">
+				<%= render partial: "most_voted_comment", locals: {comment: comment, alignment: :positive} %>
+			</div>
 		<% else %>
 			<p class="part-cont-5"><%= t(".no_results") %></p>
 		<% end %>
@@ -29,26 +20,19 @@
 	<% auxCommentId = 0 %>
 	<div id="most-voted-comments-against" class="column">
 		<p class="part-paragraf">
-			<svg class="icon  icon-thumb-down">
+			<svg class="icon icon-thumb-down">
 					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('decidim/icons.svg#icon-thumb-down') %>"></use>
 			</svg>
-			<%= t(".negative") %>
+				<span id="num-against-comments"><%= against_comments.size %></span>
+				<%= t(".negative").downcase %>
+			  <span id="percent-against-comments">(<%= percentage_of_comments(against_comments.size) %>%)</span>
+
 		</p>
-		<% if most_voted_negative_comment.any? %>
-			<% most_voted_negative_comment.each do |comments| %>
-				<% if (more_positive_comment(comments.id, auxCommentId) == false) %>
-					<% auxCommentId = comments.id %>
-				<% end %>
-			<% end %>
-				<% get_comment(auxCommentId).each do |comment| %>
-					<% if count_positive_votes_for_comment(comment.id) > 0 %>
-						<div class="comment-thread comment-against">
-							<%= render partial: "most_voted_comment", locals: {comment: comment, alignment: :negative} %>
-						</div>
-				<% else %>
-					<p class="part-cont-5"><%= t(".no_results") %></p>
-				<% end %>
-			<% end %>
+		<% if most_voted_against_comments.any? %>
+			<% comment= most_voted_against_comments.first %>
+			<div class="comment-thread comment-against">
+				<%= render partial: "most_voted_comment", locals: {comment: comment, alignment: :negative} %>
+			</div>
 		<% else %>
 			<p class="part-cont-5"><%= t(".no_results") %></p>
 		<% end %>

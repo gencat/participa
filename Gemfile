@@ -29,7 +29,7 @@ gem "devise", ">= 4.7.1"
 # due to this alert: https://github.com/gencat/participa/network/alert/decidim-type/Gemfile.lock/nokogiri/open
 gem "nokogiri", ">= 1.10.4"
 # gem sprockets in version 4.0 breaks Decidim.Temporal fix at 10/10/2019
-gem "sprockets", "~> 3.7.2"
+gem "sprockets", "< 4.0.0"
 # Temporal fix for: https://github.com/decidim/decidim/issues/5257 (Solved in v0.19)
 gem "wicked_pdf"
 

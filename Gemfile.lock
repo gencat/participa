@@ -920,7 +920,7 @@ DEPENDENCIES
   soda-ruby
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets (~> 3.7.2)
+  sprockets (< 4.0.0)
   uglifier (~> 4.1)
   web-console
   whenever
