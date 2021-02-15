@@ -10,4 +10,4 @@ oc:
         most_voted_comments:
           positive: A favor
           negative: En contra
-          no_results: No s'han trobat resultats
+          no_results: Cap comentari amb vots
