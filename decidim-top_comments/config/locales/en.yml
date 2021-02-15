@@ -14,4 +14,4 @@ en:
         most_voted_comments:
           positive: In favor
           negative: Against
-          no_results: No results found
+          no_results: No comments with votes found
