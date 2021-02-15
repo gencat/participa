@@ -34,18 +34,11 @@ module Decidim
           @total_number_of_comments ||= proposal_comments(params[:id]).size
         end
 
-        # def more_positive_comment(comment_id, auxID)
-        #   @more_positive_comment = (ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+comment_id.to_s+" AND weight = 1").count < ActiveRecord::Base.connection.execute("SELECT * FROM decidim_comments_comment_votes where decidim_comment_id = "+auxID.to_s+" AND weight = 1").count)
-        # end
-
-        # def get_comment(comment_id)
-        #   Decidim::Comments::Comment.where(id: comment_id)
-        # end
-
         def against_comments
           @against_comments||= proposal_comments(params[:id]).where(alignment: -1)
         end
 
+        # Ordered from more votes to less
         def most_voted_against_comments
           @most_voted_negative_comments = against_comments.joins(:up_votes).select('decidim_comments_comments.*, SUM(decidim_comments_comment_votes.weight) AS vote_sum').group('decidim_comments_comments.*, decidim_comments_comments.id').order(Arel.sql('vote_sum DESC'))
         end
@@ -57,10 +50,6 @@ module Decidim
         def comment_author_avatar(author_id)
           @comment_author_avatar = Decidim::User.where(id: author_id).pluck(:avatar).first
         end
-
-        # def count_positive_votes_for_comment(comment_id)
-        #   Decidim::Comments::CommentVote.where(decidim_comment_id: comment_id, weight: 1).count
-        # end
 
         def count_negative_votes_for_comment(comment_id)
           Decidim::Comments::CommentVote.where(decidim_comment_id: comment_id, weight: -1).count
