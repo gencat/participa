@@ -30,6 +30,20 @@ describe "Most Voted Comments", type: :system do
         expect(page).to have_content("MOST VOTED COMMENTS")
         expect(page).to_not have_selector(".comment-in-favor")
         expect(page).to_not have_selector(".comment-against")
+
+        expect(page).to have_selector("#num-in-favor-comments")
+        counter= find("#num-in-favor-comments")
+        expect(counter).to have_text("0")
+        expect(page).to have_selector("#percent-in-favor-comments")
+        counter= find("#percent-in-favor-comments")
+        expect(counter).to have_text("(0%)")
+
+        expect(page).to have_selector("#num-against-comments")
+        counter= find("#num-against-comments")
+        expect(counter).to have_text("0")
+        expect(page).to have_selector("#percent-against-comments")
+        counter= find("#percent-against-comments")
+        expect(counter).to have_text("(0%)")
       end
     end
 

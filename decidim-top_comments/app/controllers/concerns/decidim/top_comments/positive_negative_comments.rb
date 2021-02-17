@@ -24,6 +24,8 @@ module Decidim
       end
 
       def percentage_of_comments(num_comments_part)
+        return 0 if total_number_of_comments <= 0
+
         tant_per_one= num_comments_part / total_number_of_comments.to_f
         (tant_per_one * 100).round(1)
       end
