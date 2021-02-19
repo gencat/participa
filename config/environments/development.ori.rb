@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -13,12 +15,12 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
+  if Rails.root.join("tmp/caching-dev.txt").exist?
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+      "Cache-Control" => "public, max-age=#{2.days.seconds.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -29,7 +31,6 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :letter_opener_web
-
 
   config.action_mailer.perform_caching = false
 
@@ -56,15 +57,15 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => ENV["SMTP_ADDRESS"],
-      :port => 587,
-      :user_name => ENV["SMTP_USERNAME"],
-      :password => ENV["SMTP_PASSWORD"],
-      :authentication => :login, #to work with office365 otherwise can be :plain
-      :enable_starttls_auto => true
+    address: ENV["SMTP_ADDRESS"],
+    port: 587,
+    user_name: ENV["SMTP_USERNAME"],
+    password: ENV["SMTP_PASSWORD"],
+    authentication: :login, # to work with office365 otherwise can be :plain
+    enable_starttls_auto: true
   }
 
   mailValues = config.action_mailer.smtp_settings.dup
   mailValues.delete(:password)
-  puts '=> Development Mail Server: ' + mailValues.to_s
+  puts "=> Development Mail Server: " + mailValues.to_s
 end

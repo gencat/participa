@@ -2,12 +2,12 @@
 
 namespace :open_data do
   namespace :participatory_processes do
-    desc 'Generates a CSV file with the partipatory_processes open data.'
+    desc "Generates a CSV file with the partipatory_processes open data."
     task export: :environment do
       OpenData.export(collection, serializer)
     end
 
-    desc 'Updates the Socrata dataset via HTTP POST request'
+    desc "Updates the Socrata dataset via HTTP POST request"
     task publish_to_socrata: :environment do
       OpenData.publish_to_socrata(collection, serializer)
     end

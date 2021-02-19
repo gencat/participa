@@ -15,8 +15,8 @@ module Decidim
         end
 
         def home_participatory_processes
-    			@home_participatory_processes ||= ParticipatoryProcess.where(organization: current_organization, show_home: true).published
-    		end
+          @home_participatory_processes ||= ParticipatoryProcess.where(organization: current_organization, show_home: true).published
+        end
       end
     end
   end

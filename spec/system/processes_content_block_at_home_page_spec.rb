@@ -10,8 +10,8 @@ describe "Processes ContentBlock at home page" do
   end
 
   describe "with highlighted processes content block active" do
-    let!(:process) { create(:participatory_process, :promoted, :active, slug: 'process', organization: organization) }
-    let!(:regulation) { create(:participatory_process, :promoted, :active, slug: 'regulation', organization: organization, decidim_participatory_process_group_id: Rails.application.config.regulation) }
+    let!(:process) { create(:participatory_process, :promoted, :active, slug: "process", organization: organization) }
+    let!(:regulation) { create(:participatory_process, :promoted, :active, slug: "regulation", organization: organization, decidim_participatory_process_group_id: Rails.application.config.regulation) }
     # let!(:highlighted_content_block) { create(:content_block, manifest_name: :highlighted_processes, organization: organization, scope_name: :homepage) }
 
     before do

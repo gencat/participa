@@ -22,7 +22,7 @@ module Decidim
         end
 
         def highlighted_regulations
-          Decidim::ParticipatoryProcess.where(organization: current_organization, decidim_participatory_process_group_id: Rails.application.config.regulation).visible_for(current_user).where('DATE(published_at) > \'1990/01/01\'' ).order(published_at: :desc).limit(8)    
+          Decidim::ParticipatoryProcess.where(organization: current_organization, decidim_participatory_process_group_id: Rails.application.config.regulation).visible_for(current_user).where("DATE(published_at) > '1990/01/01'").order(published_at: :desc).limit(8)
         end
 
         def i18n_scope

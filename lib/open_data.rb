@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'soda/client'
+require "soda/client"
 
 # This module holds the logic used in lib/tasks/open_data/*.rake
 module OpenData
@@ -12,7 +12,7 @@ module OpenData
     #
     # Logs and Outputs the name of the file (timestamped).
     def export(collection, serializer)
-      log(:info, 'Exporting dataset...')
+      log(:info, "Exporting dataset...")
 
       exporter = Decidim::Exporters::CSV
       export_data = exporter.new(collection, serializer).export
@@ -20,8 +20,8 @@ module OpenData
       File.write(file_name, export_data.read)
 
       log(:info, "File created: #{file_name}")
-    rescue StandardError => error
-      log(:error, error)
+    rescue StandardError => e
+      log(:error, e)
     end
 
     # Public: increments the remote Socrata dataset.
@@ -31,7 +31,7 @@ module OpenData
     #
     # Logs and Outputs the HTTP response.
     def publish_to_socrata(collection, serializer)
-      log(:info, 'Pushing data to Socrata...')
+      log(:info, "Pushing data to Socrata...")
 
       client = SODA::Client.new(Rails.application.secrets.soda)
       identifier = Rails.application.secrets.soda[:dataset_identifier]
@@ -39,8 +39,8 @@ module OpenData
       response = client.post(identifier, payload)
 
       log(:info, response.body)
-    rescue StandardError => error
-      log(:error, error)
+    rescue StandardError => e
+      log(:error, e)
     end
 
     private
