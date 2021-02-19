@@ -119,7 +119,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Participa: let's see SMTP data on server startup
-  mailValues = config.action_mailer.smtp_settings.dup
-  mailValues.delete(:password)
-  puts "=> Development Mail Server: " + mailValues.to_s
+  mail_values = config.action_mailer.smtp_settings.dup
+  mail_values.delete(:password)
+  puts "=> Integration Mail Server: " + mail_values.to_s
 end

@@ -40,7 +40,11 @@ module Decidim
 
       initializer "decidim.stats" do
         Decidim.stats.register :regulations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
-          Decidim::ParticipatoryProcess.where(organization: organization, decidim_participatory_process_group_id: Rails.application.config.regulation).where("DATE(published_at) > '1990/01/01'").public_spaces.count
+          Decidim::ParticipatoryProcess
+            .where(organization: organization, decidim_participatory_process_group_id: Rails.application.config.regulation)
+            .where("DATE(published_at) > '1990/01/01'")
+            .public_spaces
+            .count
         end
       end
 

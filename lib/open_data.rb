@@ -47,7 +47,7 @@ module OpenData
 
     # Logs to a custom file.
     def log(level, message)
-      @logger ||= Logger.new("#{Rails.root}/log/open_data.log")
+      @logger ||= Logger.new(Rails.root.join("log", "open_data.log"))
       @logger.send(level, message)
       puts message
     end

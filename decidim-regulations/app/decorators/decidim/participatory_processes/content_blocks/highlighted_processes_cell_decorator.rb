@@ -16,7 +16,12 @@ Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCell.class_e
                                  ).query
 
                                  # the only change from the original is the conditional to ignore regulations
-                                 query.where.not(decidim_participatory_process_group_id: Rails.application.config.regulation).or(query.where(decidim_participatory_process_group_id: nil)).includes([:organization]).limit(max_results)
+                                 query
+                                   .where
+                                   .not(decidim_participatory_process_group_id: Rails.application.config.regulation)
+                                   .or(query.where(decidim_participatory_process_group_id: nil))
+                                   .includes([:organization])
+                                   .limit(max_results)
                                end
   end
 end

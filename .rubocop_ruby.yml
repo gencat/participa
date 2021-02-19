@@ -11,10 +11,14 @@ AllCops:
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
+    - bin/*
     - "**/vendor/**/*"
     - db/schema.rb
-    - "spec/decidim_dummy_app/**/*"
+    - db/migrate/*
     - "node_modules/**/*"
+    - "spec/decidim_dummy_app/**/*"
+    - "decidim-top_comments/spec/decidim_dummy_app/**/*"
+    - "decidim-home/spec/decidim_dummy_app/**/*"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -64,7 +68,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
 
   RSpec:
     Patterns:
@@ -1206,6 +1210,8 @@ RSpec/ContextWording:
 RSpec/DescribeClass:
   Exclude:
     - spec/gemfiles_spec.rb
+    - spec/system/**/*.rb
+    - spec/features/**/*.rb
     - spec/js_bundles_spec.rb
     - spec/i18n_spec.rb
     - "**/*/spec/**/*_badge_spec.rb"

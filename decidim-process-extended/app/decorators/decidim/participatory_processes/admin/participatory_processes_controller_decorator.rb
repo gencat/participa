@@ -33,7 +33,7 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
     base_name = "image"
 
     # setting path variables to get number of files inside
-    default_images_path = File.join Rails.root, "decidim-process-extended", "app", "assets", "images", "default_images"
+    default_images_path = Rails.root.join("decidim-process-extended", "app", "assets", "images", "default_images")
 
     # getting number of files (hero image folder)
     number_of_files_hero = Dir.glob(File.join(default_images_path, "**", "*")).select { |file| File.file?(file) }.count
@@ -62,9 +62,9 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
 
     ActiveRecord::Base.connection.execute("update decidim_participatory_processes SET hero_image = '" + last_image + "' where id = " + id.to_s)
 
-    path = File.join Rails.root, "public", "uploads", "decidim", "participatory_process", "hero_image", id.to_s
+    path = Rails.root.join("public", "uploads", "decidim", "participatory_process", "hero_image", id.to_s)
 
-    image_path = File.join Rails.root, "decidim-process-extended", "app", "assets", "images", "default_images", last_image
+    image_path = Rails.root.join("decidim-process-extended", "app", "assets", "images", "default_images", last_image)
 
     FileUtils.mkdir_p(path) unless File.exist?(path)
     FileUtils.cp image_path, path, verbose: true if File.exist?(path)
@@ -74,7 +74,7 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
     base_name = "image"
 
     # setting path variables to get number of files inside
-    default_images_path_b = File.join Rails.root, "decidim-process-extended", "app", "assets", "images", "default_images_b"
+    default_images_path_b = Rails.root.join("decidim-process-extended", "app", "assets", "images", "default_images_b")
 
     # getting number of files (banner image folder)
     number_of_files_banner = Dir.glob(File.join(default_images_path_b, "**", "*")).select { |file| File.file?(file) }.count
@@ -105,11 +105,10 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
 
     ActiveRecord::Base.connection.execute("update decidim_participatory_processes SET banner_image = '" + last_image + "' where id = " + id.to_s)
 
-    path_banner = File.join Rails.root, "public", "uploads", "decidim", "participatory_process", "banner_image", id.to_s
-
-    image_path_banner = File.join Rails.root, "decidim-process-extended", "app", "assets", "images", "default_images_b", last_image
-
+    path_banner = Rails.root.join("public", "uploads", "decidim", "participatory_process", "banner_image", id.to_s)
     FileUtils.mkdir_p(path_banner) unless File.exist?(path_banner)
+
+    image_path_banner = Rails.root.join("decidim-process-extended", "app", "assets", "images", "default_images_b", last_image)
     FileUtils.cp image_path_banner, path_banner, verbose: true if File.exist?(path_banner)
   end
 end
