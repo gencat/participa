@@ -1,4 +1,4 @@
-name: "[CI] Main Test"
+name: "[CI] Top Comments"
 
 on:
   push:
@@ -58,19 +58,14 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: bundle install --jobs 4 --retry 3 
+          command: cd decidim-top_comments && bundle install --jobs 4 --retry 3 
 
-      - name: Generate test_app
+      - name: Generate top_comments test_app
         run: |
+          cd decidim-top_comments
           bundle exec rake decidim:generate_external_test_app
           cd spec/decidim_dummy_app/
           RAILS_ENV=test bundle exec rails db:migrate
-
-      - name: Setup Code Climate test-reporter
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
 
       - name: Run RSpec
         uses: nick-invision/retry@v2
@@ -78,12 +73,7 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
+          command: cd decidim-top_comments && CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
 
-      - name: Publish code coverage
-        run: |
-          cp coverage/coverage.xml cobertura.xml
-          export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
-          ./cc-test-reporter after-build -r "$CC_TEST_REPORTER_ID" -t cobertura
-        env:
-          CC_TEST_REPORTER_ID: 5841e84a171da0a7a56f23599f328444c88d7cb05cff9c78fc86c6404f2a1765
+      -  name: Upload coverage
+         run: ./.github/upload_coverage.sh decidim-top_comments $GITHUB_EVENT_PATH

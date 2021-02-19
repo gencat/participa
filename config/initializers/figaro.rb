@@ -7,7 +7,7 @@ if env.development?
     "DB_PASSWORD",
     "DB_USERNAME"
   )
-elsif env.test?
+elsif env.test? && !ENV["CI"]
   Figaro.require_keys(
     "TEST_DB_DATABASE",
     "TEST_DB_PASSWORD",
