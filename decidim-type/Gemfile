@@ -1,5 +1,17 @@
 source 'https://rubygems.org'
 
+DECIDIM_VERSION = { git: 'https://github.com/gencat/decidim', branch: 'release/0.22-stable' }.freeze
+
+gem "decidim", DECIDIM_VERSION
+
+group :development, :test do
+  gem "faker", ">= 1.8.4"
+  gem "byebug", platform: :mri
+  gem "bootsnap"
+  gem "decidim-dev", DECIDIM_VERSION
+  gem "rspec-rails"
+  gem "listen"
+end
 # Declare your gem's dependencies in decidim-type.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
