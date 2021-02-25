@@ -279,7 +279,7 @@ PATH
   remote: decidim-type
   specs:
     decidim-type (0.1.0)
-      rails (>= 5.2, < 6.0.x)
+      decidim-core (>= 0.22)
 
 GEM
   remote: https://rubygems.org/

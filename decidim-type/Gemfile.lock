@@ -201,7 +201,7 @@ PATH
   remote: .
   specs:
     decidim-type (0.1.0)
-      rails (>= 5.2, < 6.0.x)
+      decidim-core (>= 0.22)
 
 GEM
   remote: https://rubygems.org/
@@ -482,7 +482,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
-    minitest (5.14.3)
+    minitest (5.14.4)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
@@ -705,7 +705,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     ssrf_filter (1.0.7)
     system_test_html_screenshots (0.1.2)
       actionpack (>= 5.2, < 6.0.a)
@@ -762,7 +761,6 @@ DEPENDENCIES
   faker (>= 1.8.4)
   listen
   rspec-rails
-  sqlite3
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
