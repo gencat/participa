@@ -10,4 +10,4 @@ es:
         most_voted_comments:
           positive: A favor
           negative: En contra
-          no_results: No se han encontrado resultados
+          no_results: No se han encontrado comentarios con votos

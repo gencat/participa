@@ -7,8 +7,8 @@ describe "Most Voted Comments", type: :system do
     create(
       :organization,
       name: "Participa Gencat",
-      default_locale: :ca,
-      available_locales: [:ca],
+      default_locale: :en,
+      available_locales: [:ca, :en],
     )
   end
   # forcing nickname and slug as they are randomly failing in Decidim v0.22, remove them after upgrading to v0.23
@@ -28,7 +28,7 @@ describe "Most Voted Comments", type: :system do
     it "renders the block empty" do
       visit resource_path
       expect(page).to have_selector("#most-voted-comments")
-      expect(page).to have_content("COMENTARIS MÉS VOTATS")
+      expect(page).to have_content("MOST VOTED COMMENTS")
       expect(page).to_not have_selector(".comment-in-favor")
       expect(page).to_not have_selector(".comment-against")
     end
@@ -43,6 +43,24 @@ describe "Most Voted Comments", type: :system do
       visit resource_path
       expect(page).to_not have_selector(".comment-in-favor")
       expect(page).to_not have_selector(".comment-against")
+    end
+
+    it "shows the number of each kind of comments" do
+      visit resource_path
+
+      expect(page).to have_selector("#num-in-favor-comments")
+      counter= find("#num-in-favor-comments")
+      expect(counter).to have_text("1")
+      expect(page).to have_selector("#percent-in-favor-comments")
+      counter= find("#percent-in-favor-comments")
+      expect(counter).to have_text("(33.3%)")
+
+      expect(page).to have_selector("#num-against-comments")
+      counter= find("#num-against-comments")
+      expect(counter).to have_text("1")
+      expect(page).to have_selector("#percent-against-comments")
+      counter= find("#percent-against-comments")
+      expect(counter).to have_text("(33.3%)")
     end
 
     context "when votes go to the neutral comment" do
