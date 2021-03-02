@@ -12,7 +12,7 @@ env:
   RUBY_VERSION: 2.6.6
 
 jobs:
-  test-report:
+  test-app:
     runs-on: ubuntu-latest
 
     services:
@@ -27,9 +27,10 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     env:
-      DATABASE_USERNAME: postgres
-      DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      TEST_DB_DATABASE: participa_gencat_test
+      TEST_DB_USERNAME: postgres
+      TEST_DB_PASSWORD: postgres
     steps:
       - uses: actions/checkout@v2.0.0
         with:
@@ -60,10 +61,9 @@ jobs:
           retry_on: error
           command: bundle install --jobs 4 --retry 3 
 
-      - name: Generate test_app
+      - name: Create test database
         run: |
-          bundle exec rake decidim:generate_external_test_app
-          cd spec/decidim_dummy_app/
+          RAILS_ENV=test bundle exec rails db:create
           RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Setup Code Climate test-reporter

@@ -14,7 +14,12 @@ gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-regulations", path: "decidim-regulations"
-gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer", branch: "fix/participatory_space_not_being_retrieved_properly"
+
+group :development, :production, :integration, :preprod do
+  # having the gem enabled on :test env makes CI crash while trying to connect to DDBB before Rails boot is complete
+  gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer", branch: "fix/participatory_space_not_being_retrieved_properly"
+end
+
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 #### Custom gems and modifications block end ####
