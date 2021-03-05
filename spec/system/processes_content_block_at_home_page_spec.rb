@@ -6,7 +6,6 @@ describe "Processes ContentBlock at home page" do
   let(:organization) { create :organization }
 
   before do
-    I18n.locale= "en"
     switch_to_host(organization.host)
   end
 
