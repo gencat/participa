@@ -27,7 +27,9 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     env:
-      DATABASE_HOST: localhost
+      DB_HOST: localhost
+      DB_PORT: "5432"
+      DB_POOL: 5
       TEST_DB_DATABASE: participa_gencat_test
       TEST_DB_USERNAME: postgres
       TEST_DB_PASSWORD: postgres
