@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessForm.class_eval do
-
   attribute :facilitators, String
   attribute :promoting_unit, String
 
