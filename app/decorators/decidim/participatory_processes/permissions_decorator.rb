@@ -7,7 +7,7 @@ Decidim::ParticipatoryProcesses::Permissions.class_eval do
     return false unless user
 
     user.admin ||
-    process.users.include?(user) ||
-    process.participatory_space_private_users.where(decidim_user_id: user.id).exists?
+      process.users.include?(user) ||
+      process.participatory_space_private_users.where(decidim_user_id: user.id).exists?
   end
 end

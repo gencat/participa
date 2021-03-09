@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   module Types
     module Admin
@@ -11,13 +13,9 @@ module Decidim
           return permission_action if permission_action.scope != :admin
           return permission_action if permission_action.subject != :type
 
-          
+          allow! if user.admin?
 
-          if user.admin?
-            allow!
-          end
-          
-          return permission_action
+          permission_action
         end
 
         private

@@ -1,6 +1,8 @@
-require_relative 'boot'
+# frozen_string_literal: true
 
-require 'rails/all'
+require_relative "boot"
+
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -13,26 +15,24 @@ module Participa
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.i18n.available_locales = %w(en ca es oc)
-    config.time_zone = 'Madrid'
+    config.time_zone = "Madrid"
 
     # Processes group ids used to determine whether a process is a regulation or a process
-    config.process    = 1
+    config.process = 1
     config.regulation = 3
 
-    config.photos = ['image1.png',
-          'image2.png',
-          'image3.png',
-          'image4.png',
-          'image5.png']
+    config.photos = ["image1.png",
+                     "image2.png",
+                     "image3.png",
+                     "image4.png",
+                     "image5.png"]
 
     # Custom I18n fallbacks
     config.after_initialize do
       I18n.fallbacks = I18n::Locale::Fallbacks.new(
-        {
-          ca: [:ca, :es, :en],
-          es: [:es, :ca, :en],
-          oc: [:oc, :ca, :es, :en]
-        }
+        ca: [:ca, :es, :en],
+        es: [:es, :ca, :en],
+        oc: [:oc, :ca, :es, :en]
       )
     end
     # Settings in config/environments/* take precedence over those specified here.
@@ -42,7 +42,7 @@ module Participa
 
     # Make decorators available
     config.to_prepare do
-      Dir.glob(Rails.root + 'app/decorators/**/*_decorator*.rb').each do |c|
+      Dir.glob(Rails.root + "app/decorators/**/*_decorator*.rb").each do |c|
         require_dependency(c)
       end
     end

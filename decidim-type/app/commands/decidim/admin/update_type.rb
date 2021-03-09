@@ -32,7 +32,7 @@ module Decidim
       attr_reader :form
 
       def update_type
-        @type.update_attributes!(attributes)
+        @type.update!(attributes)
       end
 
       def attributes
@@ -42,7 +42,7 @@ module Decidim
       end
 
       def type_exists
-        @type_exists ||= ::DecidimType.exists?(:name => form.name, decidim_organization_id: current_organization.id)
+        @type_exists ||= ::DecidimType.exists?(name: form.name, decidim_organization_id: current_organization.id)
       end
     end
   end

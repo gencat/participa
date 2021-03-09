@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from decidim_process_extended (originally 20170720094212)
 class RenameThemeIdColumnInParticipatoryProcesses < ActiveRecord::Migration[5.1]
   def change

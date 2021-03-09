@@ -18,7 +18,7 @@ module Decidim
           resource :more_configuration, only: :show
         end
 
-        initializer "decidim_admin_extended.append_routes", before: :load_config_initializers do |app|
+        initializer "decidim_admin_extended.append_routes", before: :load_config_initializers do |_app|
           Rails.application.routes.append do
             mount Decidim::Admin::Extended::Engine => "/"
           end
