@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from decidim_process_extended (originally 20190408133659)
 class AddMetadataFieldsToParticipatoryProcesses < ActiveRecord::Migration[5.2]
   def change

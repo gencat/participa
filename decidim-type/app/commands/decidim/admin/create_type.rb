@@ -20,6 +20,7 @@ module Decidim
       def call
         return broadcast(:exists) if type_exists
         return broadcast(:invalid) if form.invalid?
+
         create_department
         broadcast(:ok)
       end
@@ -36,7 +37,7 @@ module Decidim
       end
 
       def type_exists
-        @type_exists ||= ::DecidimType.exists?(:name => form.name, decidim_organization_id: current_organization.id)
+        @type_exists ||= ::DecidimType.exists?(name: form.name, decidim_organization_id: current_organization.id)
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from decidim_theme (originally 20170908103356)
 class CreateDecidimThemes < ActiveRecord::Migration[5.1]
   def change

@@ -8,7 +8,7 @@ describe "Most Voted Comments", type: :system do
       :organization,
       name: "Participa Gencat",
       default_locale: :en,
-      available_locales: [:ca, :en],
+      available_locales: [:ca, :en]
     )
   end
   # forcing nickname and slug as they are randomly failing in Decidim v0.22, remove them after upgrading to v0.23
@@ -28,8 +28,8 @@ describe "Most Voted Comments", type: :system do
         visit resource_path
         expect(page).to have_selector("#most-voted-comments")
         expect(page).to have_content("MOST VOTED COMMENTS")
-        expect(page).to_not have_selector(".comment-in-favor")
-        expect(page).to_not have_selector(".comment-against")
+        expect(page).not_to have_selector(".comment-in-favor")
+        expect(page).not_to have_selector(".comment-against")
 
         expect(page).to have_selector("#num-in-favor-comments")
         counter= find("#num-in-favor-comments")
@@ -54,8 +54,8 @@ describe "Most Voted Comments", type: :system do
 
       it "when the comments don't have votes most voted comments should be empty" do
         visit resource_path
-        expect(page).to_not have_selector(".comment-in-favor")
-        expect(page).to_not have_selector(".comment-against")
+        expect(page).not_to have_selector(".comment-in-favor")
+        expect(page).not_to have_selector(".comment-against")
       end
 
       it "shows the number of each kind of comments" do
@@ -77,51 +77,51 @@ describe "Most Voted Comments", type: :system do
       end
 
       context "when votes go to the neutral comment" do
-        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_neutral)}
+        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_neutral) }
 
         it "most voted comments should be empty" do
           visit resource_path
-          expect(page).to_not have_selector(".comment-in-favor")
-          expect(page).to_not have_selector(".comment-against")
+          expect(page).not_to have_selector(".comment-in-favor")
+          expect(page).not_to have_selector(".comment-against")
         end
       end
 
       context "when there is a voted comment which is in Favor" do
-        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_for)}
+        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_for) }
 
         it "most voted comments should render the comment in favor" do
           visit resource_path
           expect(page).to have_selector(".comment-in-favor")
           comment= find(".comment-in-favor")
-          expect(comment).to have_text(comment_for.body['en'])
-          expect(page).to_not have_selector(".comment-against")
+          expect(comment).to have_text(comment_for.body["en"])
+          expect(page).not_to have_selector(".comment-against")
         end
       end
 
       context "when there is a voted comment which is Against" do
-        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_against)}
+        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_against) }
 
         it "most voted comments should render the comment against" do
           visit resource_path
-          expect(page).to_not have_selector(".comment-in-favor")
+          expect(page).not_to have_selector(".comment-in-favor")
           expect(page).to have_selector(".comment-against")
           comment= find(".comment-against")
-          expect(comment).to have_text(comment_against.body['en'])
+          expect(comment).to have_text(comment_against.body["en"])
         end
       end
 
       context "when there are voted comments in Favor and Against" do
-        let!(:vote_1) { create(:comment_vote, :up_vote, author: author, comment: comment_for)}
-        let!(:vote_2) { create(:comment_vote, :up_vote, author: author, comment: comment_against)}
+        let!(:vote_1) { create(:comment_vote, :up_vote, author: author, comment: comment_for) }
+        let!(:vote_2) { create(:comment_vote, :up_vote, author: author, comment: comment_against) }
 
         it "most voted comments should render both comments" do
           visit resource_path
           expect(page).to have_selector(".comment-in-favor")
           comment= find(".comment-in-favor")
-          expect(comment).to have_text(comment_for.body['en'])
+          expect(comment).to have_text(comment_for.body["en"])
           expect(page).to have_selector(".comment-against")
           comment= find(".comment-against")
-          expect(comment).to have_text(comment_against.body['en'])
+          expect(comment).to have_text(comment_against.body["en"])
         end
       end
     end
