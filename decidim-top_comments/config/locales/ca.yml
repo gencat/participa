@@ -1,13 +1,12 @@
 ca:
   decidim:
-    proposals:
-      proposals:
-        show:
-          most_voted_comments: Comentaris més votats
-        most_voted_comment:
-          actually_positive: A favor
-          actually_negattive: En contra
-        most_voted_comments:
-          positive: A favor
-          negative: En contra
-          no_results: Cap comentari amb vots
+    top_comments:
+      show:
+        most_voted_comments: Comentaris més votats
+      most_voted_comment:
+        actually_positive: A favor
+        actually_negattive: En contra
+      most_voted_comments:
+        positive: A favor
+        negative: En contra
+        no_results: Cap comentari amb vots
