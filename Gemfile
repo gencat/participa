@@ -53,8 +53,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
   gem "letter_opener_web", "~> 1.3.0"
   gem "listen", "~> 3.1.0"
   gem "spring"
