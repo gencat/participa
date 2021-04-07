@@ -1,5 +1,5 @@
 # Decidim::Type
-Short description and motivation.
+  This module adds a CRUD to create new Type records which will be associated from other Decidim models.
 
 ## Usage
 How to use my plugin.

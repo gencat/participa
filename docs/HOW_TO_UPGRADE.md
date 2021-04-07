@@ -46,6 +46,8 @@ Also, if you need to add locales there, add a comment with the why it was added 
 
 ## WARNING
 
+- NOTE!!!!!: When upgrading to Decidim v0.23, the templates module should be enabled.
+
 ## Customizations
 
 #### 1. In sign in and sing up views, omniauth buttons are below form
@@ -230,9 +232,6 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
 
   With decorator pattern:
 
-  * `decorators/decidim/proposals/proposals_controller_decorator.rb`
-    * Override to add the custom * functionality of best-comments
-
   * `decorators/decidim/participatory_processes/permissions_decorator.rb`
     * Override to allow private space users to acces public view
     * probably removable from Decidim v0.24
@@ -251,8 +250,6 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
 
   * `app/helpers/decidim/participatory_processes/admin/`
     * add helpers for departments, themes, and types
-  * `app/views/decidim/proposals/proposals/show.html.erb (decidim-proposals)`
-    * Add most voted comments block rendering custom partial `proposals/proposals/most_voted_comments.html.erb` (L136-145)
   * `app/views/layouts/decidim/mailer.html.erb (decidim-core)`
     * Full rewrite
   * `config/locales/`
@@ -268,14 +265,12 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
     * Custom fonts and styles added
   * `app/controllers/decidim_controller.rb`
     * This controller is needed in all Decidim installations (empty at the moment)
-  * `app/views/decidim/proposals/proposals/most_voted_comments.html.erb`
-    * Custom partial to render most voted comments on `proposals/proposals/show.html.erb`
 
 ### New modules
 
   #### 1. Decidim Type ("decidim-type")
 
-  This new module adds a CRUD to create new Type
+  This module adds a CRUD to create new Type records
 
   #### 2. Decidim Admin Extended ("decidim-admin-extended"):
 

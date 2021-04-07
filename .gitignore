@@ -36,3 +36,5 @@ spec/decidim_dummy_app/
 # Ignore idea config files
 .idea
 *.iml
+
+coverage/

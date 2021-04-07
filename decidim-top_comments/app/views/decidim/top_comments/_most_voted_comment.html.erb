@@ -1,0 +1,47 @@
+<%# <%= render partial: "most_voted_comment", locals: {comment: comment, alignment: :positive} %>
+<article class="comment">
+  <div class="comment__header">
+    <div class="author-data">
+      <div class="author-data__main">
+        <div class="author author--inline">
+          <a class="author__avatar">
+            <% if comment_author_avatar(comment.decidim_author_id).nil? %>
+              <%= image_tag asset_path("decidim/default-avatar.svg"), alt: "member-avatar" %>
+            <% else %>
+              <img src="/uploads/decidim/user/avatar/<%= comment.decidim_author_id %>/<%= comment_author_avatar(comment.decidim_author_id) %>" alt="author-avatar">
+            <% end %>
+          </a>
+          <a class="author__name" href="#comment_<%= comment.id %>">
+            <%= comment_author(comment.decidim_author_id) %>
+          </a>
+          <time> 
+            <%= comment.created_at.strftime("%d-%m-%Y") %>
+          </time>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="comment__content">
+    <p>
+      <span><span class="label alignment <%= alignment == :positive ? 'success' : 'alert' %>"><%= alignment == :positive ? t(".actually_positive") : t(".actually_negattive") %></span><!-- react-text: 161 -->&nbsp;<!-- /react-text --></span>
+        <%# coditional to transition from non localized body (v0.22) to translated body (v0.23 and up) %>
+        <%= comment.body.is_a?(Hash) ? translated_attribute(comment.body) : comment.body %>
+      </p>
+  </div>
+  <div class="comment__footer">
+    <div class="comment__votes">
+      <button class="" disabled="">
+        <svg class="icon icon--small icon-chevron-top">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('decidim/icons.svg#icon-chevron-top') %>"></use>
+        </svg>
+        <%= comment.vote_sum %>
+      </button>
+      <button class="" disabled="">
+        <svg class="icon icon--small icon-chevron-bottom">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('decidim/icons.svg#icon-chevron-bottom') %>"></use>
+        </svg>
+        <%= count_negative_votes_for_comment(comment.id) %>
+      </button>
+    </div>
+  </div>
+</article>

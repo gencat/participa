@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails"
 require "active_support/all"
 
@@ -10,8 +12,8 @@ module Decidim
       # isolate_namespace Decidim::ParticipatoryProcesses
 
       routes do
-          resources :participatory_process_groups, only: :show, path: "regulations_groups"
-          resources :regulation, only: [:index], path: "regulations" do
+        resources :participatory_process_groups, only: :show, path: "regulations_groups"
+        resources :regulation, only: [:index], path: "regulations" do
           resources :participatory_process_steps, only: [:index], path: "steps"
           resource :participatory_process_widget, only: :show, path: "embed"
 
@@ -30,7 +32,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_regulations.append_routes", before: :load_config_initializers do |app|
+      initializer "decidim_regulations.append_routes", before: :load_config_initializers do |_app|
         Rails.application.routes.append do
           mount Decidim::Regulations::Engine => "/"
         end
@@ -38,7 +40,11 @@ module Decidim
 
       initializer "decidim.stats" do
         Decidim.stats.register :regulations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
-          Decidim::ParticipatoryProcess.where(organization: organization, decidim_participatory_process_group_id: Rails.application.config.regulation).where('DATE(published_at) > \'1990/01/01\'' ).public_spaces.count
+          Decidim::ParticipatoryProcess
+            .where(organization: organization, decidim_participatory_process_group_id: Rails.application.config.regulation)
+            .where("DATE(published_at) > '1990/01/01'")
+            .public_spaces
+            .count
         end
       end
 
@@ -61,10 +67,11 @@ module Decidim
 
       # make decorators available to applications that use this Engine
       config.to_prepare do
-        require 'decidim/regulations/admin/avoid_deletion_of_regulations_group'
+        Dir.glob(Decidim::Regulations::Engine.root + "app/decorators/**/*_decorator*.rb").each do |c|
+          require_dependency(c)
+        end
         ::Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsController.prepend(Decidim::Regulations::Admin::AvoidDeletionOfRegulationsGroup)
       end
-
     end
   end
 end
