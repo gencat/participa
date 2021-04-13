@@ -9,10 +9,10 @@ Decidim.configure do |config|
   config.available_locales = [:en, :ca, :es, :oc]
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config.throttling_max_requests = 30
+  # config.throttling_max_requests = 30
 
   # Time window in which the throttling is applied.
-  config.throttling_period = 1.minute
+  # config.throttling_period = 1.minute
 
   # Geocoder configuration
   # NOTE: to reenable the maps a new geocoder api token must be generated and replaced here. The `geocoder` gem has already been upgraded
