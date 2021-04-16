@@ -1,18 +1,21 @@
 # frozen_string_literal: true
 
 # unless %W[development test].include? Rails.env
-Rack::Attack.throttle("requests by (forwarded) ip", limit: 30, period: 60) do |request|
-  # x_forwarded_for= request.get_header('X-Forwarded-For')
-  x_forwarded_for= request.get_header("HTTP_X_FORWARDED_FOR")
-  Rails.logger.warn ">>>>>>>>>>>>>>>>>>>> X-Forwarded-For: #{x_forwarded_for}"
-  if x_forwarded_for.present?
-    ip= x_forwarded_for.split(":").first
-    Rails.logger.warn ">>>>>>>>>>>>>>>>>>>> X-Forwarded-For IP: #{ip}"
-    ip
-  else
-    request.ip
+  limit= ENV['RACK_ATTACK_THROTTLE_LIMIT'] || 30
+  period= ENV['RACK_ATTACK_THROTTLE_PERIOD'] || 60
+  Rails.logger.info("Configuring Rack::Attack.throttle with limit: #{limit}, period: #{period}")
+  Rack::Attack.throttle("requests by (forwarded) ip", limit: limit.to_i, period: period.to_i) do |request|
+    # x_forwarded_for= request.get_header('X-Forwarded-For')
+    x_forwarded_for= request.get_header("HTTP_X_FORWARDED_FOR")
+    Rails.logger.debug {">>>>>>>>>>>>>>>>>>>> X-Forwarded-For: #{x_forwarded_for}"}
+    if x_forwarded_for.present?
+      ip= x_forwarded_for.split(":").first
+      Rails.logger.debug {">>>>>>>>>>>>>>>>>>>> X-Forwarded-For IP: #{ip}"}
+      ip
+    else
+      request.ip
+    end
   end
-end
 # end
 
 __END__
