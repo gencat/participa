@@ -9,6 +9,7 @@ gem "decidim", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
 gem "decidim-admin-extended", path: "decidim-admin-extended"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-challenges.git"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-department-admin.git", tag: "v0.0.16"
 gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
