@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_175121) do
+ActiveRecord::Schema.define(version: 2021_04_20_084112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -345,8 +345,19 @@ ActiveRecord::Schema.define(version: 2020_12_15_175121) do
     t.string "collaborating_entities"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "survey_enabled", default: false, null: false
     t.index ["decidim_component_id"], name: "index_decidim_challenges_challenges_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_challenges_challenges_on_decidim_scope_id"
+  end
+
+  create_table "decidim_challenges_surveys", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.bigint "decidim_challenge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_challenge_id"], name: "index_decidim_challenges_surveys_on_decidim_challenge_id"
+    t.index ["decidim_user_id", "decidim_challenge_id"], name: "decidim_challenges_surveys_user_challenge_unique", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_challenges_surveys_on_decidim_user_id"
   end
 
   create_table "decidim_coauthorships", force: :cascade do |t|
