@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_084112) do
+ActiveRecord::Schema.define(version: 2021_04_27_092828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1199,7 +1199,7 @@ ActiveRecord::Schema.define(version: 2021_04_20_084112) do
     t.jsonb "title"
     t.jsonb "description"
     t.bigint "decidim_component_id", null: false
-    t.bigint "decidim_problems_problem_id", null: false
+    t.bigint "decidim_problems_problem_id"
     t.jsonb "tags"
     t.jsonb "indicators"
     t.jsonb "beneficiaries"
@@ -1209,6 +1209,8 @@ ActiveRecord::Schema.define(version: 2021_04_20_084112) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "decidim_challenges_challenge_id"
+    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
     t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
     t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
   end

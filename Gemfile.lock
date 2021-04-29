@@ -208,7 +208,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-challenges.git
-  revision: e7e2c3f3dea5b302f78fdda75d3292440af51528
+  revision: 4faca9b87f3c765f3d22371bf6ae5543c3375668
   specs:
     decidim-challenges (0.0.1)
       decidim-core (~> 0.22.0)
@@ -598,7 +598,7 @@ GEM
     mime-types-data (3.2021.0225)
     mini_magick (4.11.0)
     mini_mime (1.1.0)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.5.1)
     minitest (5.14.4)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
