@@ -208,7 +208,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-challenges.git
-  revision: 4faca9b87f3c765f3d22371bf6ae5543c3375668
+  revision: bd885e5ed4af7d841b8f1e64a46adb3e580b875b
   specs:
     decidim-challenges (0.0.1)
       decidim-core (~> 0.22.0)
@@ -439,7 +439,7 @@ GEM
       delayed_job (>= 3.0, < 5)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    devise (4.7.3)
+    devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
