@@ -6,6 +6,7 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/gencat/decidim", branch: "release/0.23-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
+gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
 gem "decidim-admin-extended", path: "decidim-admin-extended"
