@@ -16,18 +16,18 @@ module Decidim
           # Process Information
           id: process.id,
           socrata_published_at: Date.current,
-          title_ca: process.title['ca'],
+          title_ca: process.title["ca"],
           url: url,
           slug: process.slug,
           short_description_ca: short_description_ca,
           process_type: process_type,
           scope_id: process.scope&.id,
-          scope_name_ca: process.scope&.name.try(:[], 'ca'),
+          scope_name_ca: process.scope&.name.try(:[], "ca"),
           department_id: process.area&.id,
-          department_name_ca: process.area&.name.try(:[], 'ca'),
-          participatory_space: process.participatory_process_group&.name.try(:[], 'ca')&.downcase,
+          department_name_ca: process.area&.name.try(:[], "ca"),
+          participatory_space: process.participatory_process_group&.name.try(:[], "ca")&.downcase,
           normative_type_id: process.decidim_type&.id,
-          normative_type_name_ca: process.decidim_type&.name.try(:[], 'ca'),
+          normative_type_name_ca: process.decidim_type&.name.try(:[], "ca"),
           duration_days: duration_days,
           start_date: process.start_date,
           end_date: process.end_date,
@@ -54,7 +54,7 @@ module Decidim
           debates_num_debates: debates.count,
           # Related Resources: Assemblies
           has_related_assembly: related_assembly.present?,
-          related_assembly_name_ca: related_assembly&.title.try(:[], 'ca')
+          related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
         }
       end
 
@@ -63,11 +63,11 @@ module Decidim
       attr_reader :process
 
       def url
-        Decidim::ResourceLocatorPresenter.new(process).url&.split('?')&.first
+        Decidim::ResourceLocatorPresenter.new(process).url&.split("?")&.first
       end
 
       def short_description_ca
-        ActionController::Base.helpers.strip_tags(process.short_description['ca'])
+        ActionController::Base.helpers.strip_tags(process.short_description["ca"])
       end
 
       def process_type
@@ -89,21 +89,21 @@ module Decidim
 
       def proposals
         @proposals ||= Decidim::Proposals::Proposal
-                       .where(component: component('proposals'))
+                       .where(component: component("proposals"))
                        .joins(:coauthorships)
                        .where.not(
                          decidim_coauthorships: {
-                           decidim_author_type: 'Decidim::Organization'
+                           decidim_author_type: "Decidim::Organization"
                          }
                        ).published.not_hidden.except_withdrawn
       end
 
       def meetings
-        @meetings ||= Decidim::Meetings::Meeting.where(component: component('meetings'))
+        @meetings ||= Decidim::Meetings::Meeting.where(component: component("meetings"))
       end
 
       def debates
-        @debates ||= Decidim::Debates::Debate.where(component: component('debates'))
+        @debates ||= Decidim::Debates::Debate.where(component: component("debates"))
       end
 
       def closed_meetings
@@ -121,7 +121,7 @@ module Decidim
       def meetings_num_entities
         return 0 if closed_meetings.blank?
 
-        delimiters = [',', ';', ' i ', "\r\n", "\r", "\n"]
+        delimiters = [",", ";", " i ", "\r\n", "\r", "\n"]
         regex = Regexp.union(delimiters)
         split_string = proc { |m| m.attending_organizations.split(regex) }
         @meetings_num_entities ||= closed_meetings
@@ -157,7 +157,7 @@ module Decidim
       def related_assembly
         @related_assembly ||= process.linked_participatory_space_resources(
           :assemblies,
-          'included_participatory_processes'
+          "included_participatory_processes"
         ).first
       end
     end

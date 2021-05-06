@@ -5,8 +5,8 @@
 <div id="most-voted-comments" class="expanded">
   <div class="wrapper wrapper--inner">
     <div class="row">
-      <h2 class="order-by__text section-heading"><%= t(".most_voted_comments")%></h2>
-      <%= render partial: "most_voted_comments"%>
+      <h2 class="order-by__text section-heading"><%= t("decidim.top_comments.show.most_voted_comments")%></h2>
+      <%= render partial: "decidim/top_comments/most_voted_comments", locals: {model_type: 'Decidim::Proposals::Proposal'} %>
     </div>
   </div>
 </div>

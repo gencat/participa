@@ -52,7 +52,10 @@ module Decidim
       end
 
       def organization_participatory_processes
-        @organization_participatory_processes ||= Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization).query.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
+        @organization_participatory_processes ||= Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses
+                                                  .new(current_organization)
+                                                  .query
+                                                  .where(decidim_participatory_process_group_id: Rails.application.config.regulation)
       end
 
       def current_participatory_space
@@ -64,7 +67,10 @@ module Decidim
       end
 
       def published_processes
-        @published_processes ||= Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user).query.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
+        @published_processes ||= Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses
+                                 .new(current_organization, current_user)
+                                 .query
+                                 .where(decidim_participatory_process_group_id: Rails.application.config.regulation)
       end
 
       def promoted_participatory_processes

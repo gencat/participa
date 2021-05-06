@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_department_admin (originally 20190328130102)
 
 class CreateDepartmentAdminAreas < ActiveRecord::Migration[5.2]

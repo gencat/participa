@@ -270,7 +270,7 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
 
   #### 1. Decidim Type ("decidim-type")
 
-  This new module adds a CRUD to create new Type
+  This module adds a CRUD to create new Type records
 
   #### 2. Decidim Admin Extended ("decidim-admin-extended"):
 
