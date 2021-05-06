@@ -1,6 +1,8 @@
 es:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Departamento
         assembly_type: Tipo de consejo de participación
@@ -60,10 +62,17 @@ es:
         full_name: Nombre completo
         gender: Género
         position: Posición
+        user_id: Usuaria
       assembly_user_role:
         email: Correo electrónico
         name: Nombre
         role: Rol de participante
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento inválido. Los formatos que se aceptan son: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +87,7 @@ es:
   decidim:
     admin:
       actions:
+        import_assembly: Importar
         new_assembly: Nuevo consejo de participación
         new_assembly_type: Nuevo tipo de consejo de participación
       assemblies:
@@ -122,6 +132,14 @@ es:
           copy: Copiar
           select: Selecciona qué datos quieres duplicar
           title: Duplicar consejo de participación
+      assembly_imports:
+        create:
+          error: Ha habido un problema importando este consejo de participación.
+          success: Consejo de participación importado con éxito.
+        new:
+          import: Importar
+          select: Selecciona qué datos quieres importar
+          title: Importar consejo de participación
       assembly_members:
         create:
           error: Se ha producido un error al agregar un miembro para este consejo de participación.
@@ -269,6 +287,10 @@ es:
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este consejo de participación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Añadir un documento
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este consejo de participación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
             existing_user: Participante existente
@@ -286,6 +308,9 @@ es:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Miembros

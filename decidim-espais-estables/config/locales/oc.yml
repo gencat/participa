@@ -1,6 +1,8 @@
 oc:
   activemodel:
     attributes:
+       assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Departament
         assembly_type: Tipus de consell de participació
@@ -60,10 +62,17 @@ oc:
         full_name: Nom complet
         gender: Gènere
         position: Posició
+        user_id: Usuària
       assembly_user_role:
         email: Correu electrònic
         name: Nom
         role: Rol de participant
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipus de document invàlid. Els formats que s''accepten són: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +87,7 @@ oc:
   decidim:
     admin:
       actions:
+        import_assembly: Importar consell de participació
         new_assembly: Nou consell de participació
         new_assembly_type: Nou tipus de consell de participació
       assemblies:
@@ -122,6 +132,14 @@ oc:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Consell de participació duplicat
+      assembly_imports:
+        create:
+          error: Hi ha hagut un problema important aquest consell de participació.
+          success: Consell de participació importat amb èxit.
+        new:
+          import: Importar
+          select: Selecciona quines dades vols importar
+          title: Importar consell de participació
       assembly_members:
         create:
           error: S'ha produït un error en afegir un membre per a aquest consell de participació.
@@ -269,6 +287,10 @@ oc:
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Afegir un document
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest consell de participació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
@@ -286,6 +308,9 @@ oc:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membres
