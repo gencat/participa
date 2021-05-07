@@ -231,7 +231,7 @@ GIT
       decidim-verifications (>= 0.16.0)
 
 GIT
-  remote: https://github.com/mainio/decidim-module-term_customizer
+  remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: c3fdec9f863351cc2e236cb03e2ab57ff7380ed7
   branch: 0.23-stable
   specs:
@@ -514,7 +514,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.8)
+    graphql (1.12.9)
     hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
@@ -716,7 +716,7 @@ GEM
       activerecord (>= 5.0)
       activesupport (>= 5.0)
       i18n
-    rb-fsevent (0.10.4)
+    rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rectify (0.13.0)

@@ -16,7 +16,7 @@ gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-regulations", path: "decidim-regulations"
 # having the gem enabled on :test env makes CI crash while trying to connect to DDBB before Rails boot is complete
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "0.23-stable"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "0.23-stable"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 #### Custom gems and modifications block end ####
