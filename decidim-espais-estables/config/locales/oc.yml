@@ -1,7 +1,7 @@
 oc:
   activemodel:
     attributes:
-       assemblies_setting:
+      assemblies_setting:
         enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Departament
