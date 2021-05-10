@@ -3,20 +3,21 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.23-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.24-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
 gem "decidim-admin-extended", path: "decidim-admin-extended"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-department-admin.git"
+# gem "decidim-department_admin", git: "https://github.com/gencat/decidim-department-admin.git"
+gem "decidim-department_admin", path: "/home/laurajaime/Documents/decidim-department-admin"
 gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-regulations", path: "decidim-regulations"
 # having the gem enabled on :test env makes CI crash while trying to connect to DDBB before Rails boot is complete
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "0.23-stable"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 #### Custom gems and modifications block end ####
@@ -26,7 +27,7 @@ gem "decidim-verifications-members_picker", git: "https://github.com/gencat/deci
 gem "rails", "5.2.6"
 gem "soda-ruby", require: false
 
-gem "puma", "< 5"
+gem "puma", "~> 5.0"
 gem "uglifier", "~> 4.1"
 # due to this alert: https://github.com/gencat/participa/network/alert/Gemfile.lock/devise/open
 gem "devise", ">= 4.7.1"
