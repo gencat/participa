@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 766407a75db9f46864d8abccd51b44b1ef94cc39
+  revision: 70444b6147580a79789c93bf2ed1e32e06d659d1
   branch: release/0.23-stable
   specs:
     decidim (0.23.5)
@@ -205,11 +205,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: d66839837163a8045c5c9f9c56fa9d6fe7d810c4
-  tag: v0.0.16
+  revision: 1ac132b0a5063c7c72e9eb1b5e8d1081b27704db
   specs:
-    decidim-department_admin (0.0.16)
-      decidim-core (>= 0.21.0)
+    decidim-department_admin (0.2.0)
+      decidim-core (< 0.24)
 
 GIT
   remote: https://github.com/gencat/decidim-idcat_mobil.git
@@ -934,7 +933,7 @@ DEPENDENCIES
   wicked_pdf
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.7.2p137
 
 BUNDLED WITH
-   2.1.4
+   2.2.16
