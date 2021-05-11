@@ -208,7 +208,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-challenges.git
-  revision: 7a6dd19b9dc3de7fc082cf1d859666a660168aa6
+  revision: d1ace5cba347e7e5c785047a5de7f8cab3dda603
   specs:
     decidim-challenges (0.0.2)
       decidim-core (~> 0.22.0)
@@ -445,7 +445,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.3)
+    devise-i18n (1.9.4)
       devise (>= 4.7.1)
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
@@ -475,7 +475,7 @@ GEM
     erubi (1.10.0)
     etherpad-lite (0.3.0)
       rest-client (>= 1.6)
-    execjs (2.7.0)
+    execjs (2.8.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
     factory_bot_rails (4.11.1)
@@ -514,7 +514,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.8)
+    graphql (1.12.9)
     hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
@@ -716,7 +716,7 @@ GEM
       activerecord (>= 5.0)
       activesupport (>= 5.0)
       i18n
-    rb-fsevent (0.10.4)
+    rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rectify (0.13.0)
