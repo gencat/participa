@@ -15,14 +15,13 @@ gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-regulations", path: "decidim-regulations"
-gem 'decidim-challenges', git: 'https://github.com/gencat/decidim-challenges.git'
 # having the gem enabled on :test env makes CI crash while trying to connect to DDBB before Rails boot is complete
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer", branch: "fix/participatory_space_not_being_retrieved_properly"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 #### Custom gems and modifications block end ####
 
-gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-idcat_mobil.git", branch: "master"
+gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-idcat_mobil.git", branch: "rework"
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.2"
 gem "rails", "< 6"
 gem "soda-ruby", require: false

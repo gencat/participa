@@ -223,10 +223,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-idcat_mobil.git
-  revision: 740449be8b344031e0f7641bac45de6a0fbced3a
-  branch: master
+  revision: 9c3f92cec925ce62db9f22bcf22eb38171a70c53
+  branch: rework
   specs:
-    decidim-idcat_mobil (0.0.5)
+    decidim-idcat_mobil (0.0.6)
       decidim (>= 0.20.0)
       decidim-core (>= 0.20.0)
       omniauth-idcat_mobil (~> 0.2.0)
