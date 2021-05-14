@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 89333a520c06fbc4aacd753c737a2f92db990b00
+  revision: e8b392a4b1f09d80622e731fddfe3e0229ef47ef
   branch: release/0.24-stable
   specs:
     decidim (0.24.2)
@@ -207,11 +207,17 @@ GIT
       decidim-core (= 0.24.2)
 
 GIT
-  remote: https://github.com/gencat/decidim-idcat_mobil.git
-  revision: 740449be8b344031e0f7641bac45de6a0fbced3a
-  branch: master
+  remote: https://github.com/gencat/decidim-department-admin.git
+  revision: 421cfcb238b08a8d846ab9fea3d6eebc5a46dc03
   specs:
-    decidim-idcat_mobil (0.0.5)
+    decidim-department_admin (0.3.0)
+      decidim-core (~> 0.24.2)
+
+GIT
+  remote: https://github.com/gencat/decidim-idcat_mobil.git
+  revision: 7e202d5d59f9ce9c0c231819e2297599e8939a5c
+  specs:
+    decidim-idcat_mobil (0.0.6)
       decidim (>= 0.20.0)
       decidim-core (>= 0.20.0)
       omniauth-idcat_mobil (~> 0.2.0)
@@ -232,12 +238,6 @@ GIT
     decidim-term_customizer (0.24.0)
       decidim-admin (~> 0.24.0)
       decidim-core (~> 0.24.0)
-
-PATH
-  remote: /home/laurajaime/Documents/decidim-department-admin
-  specs:
-    decidim-department_admin (0.2.0)
-      decidim-core (<= 0.24.2)
 
 PATH
   remote: decidim-admin-extended
@@ -395,7 +395,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (17.0.242)
+    chef-utils (17.1.35)
       concurrent-ruby
     childprocess (3.0.0)
     chronic (0.10.2)
@@ -459,7 +459,7 @@ GEM
     doc2text (0.4.3)
       nokogiri (~> 1.11.1)
       rubyzip (~> 2.3.0)
-    docile (1.3.5)
+    docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     doorkeeper (5.5.1)
@@ -685,7 +685,7 @@ GEM
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     polyglot (0.3.5)
-    premailer (1.14.3)
+    premailer (1.15.0)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
@@ -701,7 +701,7 @@ GEM
       eventmachine_httpserver
       http_parser.rb (~> 0.6.0)
       multi_json
-    puma (5.3.0)
+    puma (5.3.1)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -882,8 +882,8 @@ GEM
     system_test_html_screenshots (0.1.2)
       actionpack (>= 5.2, < 6.0.a)
     temple (0.8.2)
-    terminal-table (3.0.0)
-      unicode-display_width (~> 1.1, >= 1.1.1)
+    terminal-table (3.0.1)
+      unicode-display_width (>= 1.1.1, < 3)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -947,7 +947,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-espais-estables!
   decidim-home!
-  decidim-idcat_mobil!
+  decidim-idcat_mobil (= 0.0.6)!
   decidim-process-extended!
   decidim-regulations!
   decidim-templates!

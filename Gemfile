@@ -10,8 +10,7 @@ gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
 gem "decidim-admin-extended", path: "decidim-admin-extended"
-# gem "decidim-department_admin", git: "https://github.com/gencat/decidim-department-admin.git"
-gem "decidim-department_admin", path: "/home/laurajaime/Documents/decidim-department-admin"
+gem "decidim-department_admin", git: "https://github.com/gencat/decidim-department-admin.git"
 gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
@@ -22,7 +21,7 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 #### Custom gems and modifications block end ####
 
-gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-idcat_mobil.git", branch: "master"
+gem "decidim-idcat_mobil", "0.0.6", git: "https://github.com/gencat/decidim-idcat_mobil.git"
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.2"
 gem "rails", "5.2.6"
 gem "soda-ruby", require: false
