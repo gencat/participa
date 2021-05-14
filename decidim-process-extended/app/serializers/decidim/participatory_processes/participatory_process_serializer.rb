@@ -11,6 +11,7 @@ module Decidim
       end
 
       # Public: Returns a hash with the serialized data.
+      # rubocop:disable Metrics/CyclomaticComplexity
       def serialize
         {
           # Process Information
@@ -57,6 +58,7 @@ module Decidim
           related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
         }
       end
+      # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 

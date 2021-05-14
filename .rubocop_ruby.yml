@@ -75,6 +75,9 @@ AllCops:
       - "(?:^|/)spec/"
       - "(?:^|/)test/"
 
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
   EnforcedStyle: indent
@@ -1247,5 +1250,11 @@ RSpec/LeakyConstantDeclaration:
 
 RSpec/DescribedClass:
   Enabled: false
+
+RSpec/StubbedMock:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
 
 inherit_from: .rubocop_rails.yml
