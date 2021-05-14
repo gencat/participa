@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 unless %w(development test).include? Rails.env
+  require "rack/attack"
+
   limit= ENV["RACK_ATTACK_THROTTLE_LIMIT"] || 30
   period= ENV["RACK_ATTACK_THROTTLE_PERIOD"] || 60
   Rails.logger.info("Configuring Rack::Attack.throttle with limit: #{limit}, period: #{period}")
