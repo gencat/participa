@@ -51,6 +51,7 @@ group :development, :test do
   gem "decidim-dev", DECIDIM_VERSION
   gem "faker", ">= 1.8.4"
   gem "rspec-rails"
+  gem "rubocop-faker"
 end
 
 group :development do
