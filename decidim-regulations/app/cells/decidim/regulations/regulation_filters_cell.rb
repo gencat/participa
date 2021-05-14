@@ -75,11 +75,7 @@ module Decidim
       def explanation
         return if process_count_by_filter["opened"].positive?
 
-        content_tag(
-          :span,
-          t(explanation_text, scope: "decidim.regulations.regulation.filters.explanations"),
-          class: "muted mr-s ml-s"
-        )
+        tag.span(t(explanation_text, scope: "decidim.regulations.regulation.filters.explanations"), class: "muted mr-s ml-s")
       end
 
       def explanation_text

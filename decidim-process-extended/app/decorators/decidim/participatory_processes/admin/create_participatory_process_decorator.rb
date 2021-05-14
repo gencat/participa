@@ -6,6 +6,7 @@ Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.class_eval do
       organization: form.current_organization,
       title: form.title,
       subtitle: form.subtitle,
+      weight: form.weight,
       slug: form.slug,
       hashtag: form.hashtag,
       description: form.description,

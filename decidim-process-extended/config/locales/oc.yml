@@ -36,6 +36,7 @@ oc:
         title: Títol
         type_id: Tipus
         email: Bústia de suggeriments
+        weight: Pes
       participatory_process_step:
         title: Nom de la fase
   layouts:

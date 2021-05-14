@@ -44,10 +44,6 @@ https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-y
 Participa has some `config/locales/*_fix.yml` you should try to get rid of the locales that were aded here and are not necessary anymore.
 Also, if you need to add locales there, add a comment with the why it was added and when we will be able to remove them.
 
-## WARNING
-
-- NOTE!!!!!: When upgrading to Decidim v0.23, the templates module should be enabled.
-
 ## Customizations
 
 #### 1. In sign in and sing up views, omniauth buttons are below form
@@ -60,23 +56,6 @@ Also, if you need to add locales there, add a comment with the why it was added 
     * Move omniauth buttons render below sign in form.
   * `app/views/decidim/devise/shared/_omniauth_buttons.html.erb (decidim-core)`
     * Move 'or' separator above social register button.
-
-### Temporal fixes
-
-#### Temporal fix: format debate's start_time / end_time in debate_form.rb map_model method
-
-Currently, has been applied decorator pattern, in file:
-
-* `decorators/decidim/debates/admin/debate_form_decorator.rb`
-  * Override format debate's start_time / end_time in map_model method
-
-The reason for this, is that a wrong format arrived to from_params method on Rectify form
-This happened only when after having created a debate with start_time / end_time, we wanted to edit it and change only one date field, this is only start_time or end_time.
-In that moment, de form date's validation fields threw an error because the other date field was in wrong format, so form_builder wasn't able to assign to form.
-
-In next versions, this issue will be patched in `decidim/decidim`, so this override could be removed:
-- app/forms/decidim/debates/admin/debate_form.rb
-
 ### Existing modules
 These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
 
@@ -86,18 +65,6 @@ These are custom modules and this is what you have to keep in mind when updating
         * ES: "Asamblea" for "Consejo de participación"
 
       Modified files are:
-#### Temporal fix: format meetings's start_time / end_time in meeting_form.rb map_model method
-
-Currently, in the file:
-- app/forms/decorators/decidim/meetings/admin/meeting_form_decorator.rb
-we have overrided `def map_model(model)` method to format start_time and end_time fields
-
-The reason for this, is that a wrong format arrived to from_params method on Rectify form
-This happened only when after having created a meeting with start_time / end_time, we wanted to edit it and change only one date field, this is only start_time or end_time.
-In that moment, de form date's validation fields threw an error because the other date field was in wrong format, so form_builder wasn't able to assign to form.
-
-In next versions, this issue will be patched in `decidim/decidim`, so this override could be removed:
-- app/forms/decorators/decidim/meetings/admin/meeting_form_decorator.rb
 
       * `config/locales/`
         * Copy the locale files from Decidim (decidim-assemblies), and change the string "Assembly" to the correct one
@@ -145,12 +112,14 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
     * Override to add new fields in the command.
   * `decorators/decidim/participatory_processes/admin/update_participatory_process_decorator.rb`
     * Override to add new fields in the command.
-  * `app/controllers/decidim/participatory_processes/admin/participatory_processes_controller_decorator.rb`
+  * `decorators/decidim/participatory_processes/admin/participatory_processes_controller_decorator.rb`
     * Override to add default images for hero.
-  * `app/controllers/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
-    * Override to filter by participatory process specific type
-  * `app/form/decidim/participatory_processes/admin/participatory_process_form_decorator.rb`
+  * `decorators/decidim/participatory_processes/admin/participatory_process_form_decorator.rb`
     * Override to add new fields in the form.
+  * `decorators/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
+    * Override to filter by participatory process specific type.
+  * `decorators/decidim/participatory_processes/participatory_process_search_decorator.rb`
+    * Override to change initialize.
 
   Following ones, are same new fields in template:
   * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`
@@ -180,13 +149,14 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
   _IMPORTANT:_ note that some ParticipatoryProcesses classes are already modified in the point 3, so check if you need to replicate the changes here.
 
   ##### 	Modified files:
-
   * `app/controllers/decidim/regulations/`
   * `app/decorators/lib/decidim/filter_form_builder_decorator.rb`
   * `app/views/decidim/regulations/regulation/_order_by_regulations.html (order_by_processes)`
     * Change the rendered cell
   * `app/views/decidim/regulations/regulation/_promoted_process.html`
-    * Access `participatory_process_path` url helper via `decidim_participatory_processes.`
+    * Access `participatory_process_path` url helper via `decidim_participatory_processes`
+  *`app/decorators/decidim/participatory_processes/helpers/participatory_process_helper_decorator.rb`
+    * Override participatory_process_cta_path in order to use it via `decidim_participatory_processes`
   * `app/views/decidim/regulations/regulation/index.html`
     * Add section to show floating help (L:12-14)
     * Change traslations from *_processes to *_regulation
@@ -217,14 +187,6 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
   Check point 3 for changes on:
 
   * `decidim-process-extended/app/views/decidim/participatory_processes/*`
-  * `decidim-process-extended/app/controllers/decidim/participatory_procceses/participatory_processes_controller.rb`
-
-  ##### 	Custom files:
-
-  * `app/views/layouts/decidim/regulations/application.html.erb`
-    * Not sure if this is needed
-
-
 
 #### 6. Also, there are custom files in the application "participa.gencat.cat".
 
@@ -248,8 +210,6 @@ In next versions, this issue will be patched in `decidim/decidim`, so this overr
 
   Following ones, for some addings or template overrides:
 
-  * `app/helpers/decidim/participatory_processes/admin/`
-    * add helpers for departments, themes, and types
   * `app/views/layouts/decidim/mailer.html.erb (decidim-core)`
     * Full rewrite
   * `config/locales/`

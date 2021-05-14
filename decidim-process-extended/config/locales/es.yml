@@ -55,6 +55,7 @@ es:
         title: Título
         type_id: Tipo
         email: Buzón de sugerencias
+        weight: Peso
       participatory_process_step:
         title: Nombre de la fase
   layouts:

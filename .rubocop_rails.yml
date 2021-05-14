@@ -22,6 +22,9 @@ Rails/Exit:
   Exclude:
     - decidim-*/lib/**/*.rake
 
+Rails/FilePath:
+  Enabled: false
+
 Rails/FindBy:
   Include:
     - "**/*.rb"
