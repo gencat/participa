@@ -207,6 +207,13 @@ GIT
       decidim-core (= 0.24.2)
 
 GIT
+  remote: https://github.com/gencat/decidim-challenges.git
+  revision: 2fe03ab68e1d426911dba13a3430bb6e12c53b9f
+  specs:
+    decidim-challenges (0.0.3)
+      decidim-core (~> 0.24.2)
+
+GIT
   remote: https://github.com/gencat/decidim-department-admin.git
   revision: 421cfcb238b08a8d846ab9fea3d6eebc5a46dc03
   specs:
@@ -492,7 +499,7 @@ GEM
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
     excon (0.81.0)
-    execjs (2.7.0)
+    execjs (2.8.1)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
     factory_bot_rails (4.11.1)
@@ -638,7 +645,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.7)
     nobspw (0.6.2)
-    nokogiri (1.11.3)
+    nokogiri (1.11.4)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     oauth (0.5.6)
@@ -946,6 +953,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-admin-extended!
+  decidim-challenges!
   decidim-department_admin!
   decidim-dev!
   decidim-espais-estables!
