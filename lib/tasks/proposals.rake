@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 namespace :proposals do
-
   # This tasks is necessary because migration "20210506071778_move_proposals_fields_to_i18n.decidim_proposals.rb" provokes out of memory errors.
   desc "Move proposals fields to i18n: [:start_id, :end_id]"
   task :tmp_title, [:start_id, :end_id] => :environment do |_task, args|
@@ -30,7 +29,7 @@ namespace :proposals do
 
       proposal.save(validate: false)
       print(".")
-      puts "\n#{proposal.id}" if proposal.id % 500 == 0
+      puts "\n#{proposal.id}" if (proposal.id % 500).zero?
     end
     puts "\nApplying Garbage Collector"
     GC.start
