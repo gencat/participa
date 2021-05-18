@@ -9,7 +9,7 @@ class FixProposalsDataToEnsureTitleAndBodyAreHashes < ActiveRecord::Migration[5.
       Decidim::Proposals::Proposal.find_each do |proposal|
         next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
 
-        author = proposal.coauthorships.first.author
+        author = proposal.coauthorships.first&.author
 
         locale = author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
 
