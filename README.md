@@ -37,7 +37,7 @@ You're good to go!
 
 ## Testing
 
-Run `rake decidim:generate_external_test_app` to generate a dummy application to test both the application and the modules.
+Run `bin/rake decidim:generate_external_test_app` to generate a dummy application to test both the application and the modules.
 
 Require missing factories in `spec/factories.rb`
 
