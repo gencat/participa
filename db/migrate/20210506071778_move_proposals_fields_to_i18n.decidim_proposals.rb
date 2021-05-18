@@ -6,8 +6,7 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
     add_column :decidim_proposals_proposals, :new_title, :jsonb
     add_column :decidim_proposals_proposals, :new_body, :jsonb
 
-    # Moved to IndexProposalsBeforeMoveFieldsToI18n migration and lib/tasks/proposals.rake
-    # reset_column_information
+    reset_column_information
 
     # PaperTrail.request(enabled: false) do
     #   Decidim::Proposals::Proposal.find_each do |proposal|
@@ -32,16 +31,22 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
     #   end
     # end
 
-    # remove_indexs
+    # We're replacing the previous code with the invokation of a rake task as performing data migration from inside migrations (paradoxically)
+    # ends up with out of memory crashes in large datasets
+    success = Rake::Task['proposals:tmp_title'].invoke(0,70000)
+    puts "exit status is: #{$?}"
+    raise "couldn't move title to new tmp columns" unless success
 
-    # remove_column :decidim_proposals_proposals, :title
-    # rename_column :decidim_proposals_proposals, :new_title, :title
-    # remove_column :decidim_proposals_proposals, :body
-    # rename_column :decidim_proposals_proposals, :new_body, :body
+    remove_indexs
 
-    # create_indexs
+    remove_column :decidim_proposals_proposals, :title
+    rename_column :decidim_proposals_proposals, :new_title, :title
+    remove_column :decidim_proposals_proposals, :body
+    rename_column :decidim_proposals_proposals, :new_body, :body
 
-    # reset_column_information
+    create_indexs
+
+    reset_column_information
   end
 
   def down

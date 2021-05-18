@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-# This tasks are necessary to be executed on production
-# because in a migration, the memory was owned.
 namespace :proposals do
+
+  # This tasks is necessary because migration "20210506071778_move_proposals_fields_to_i18n.decidim_proposals.rb" provokes out of memory errors.
   desc "Move proposals fields to i18n: [:start_id, :end_id]"
   task :tmp_title, [:start_id, :end_id] => :environment do |_task, args|
     puts "processing [#{args.start_id}..#{args.end_id}["
 
     query = Decidim::Proposals::Proposal
-    query = query.where("id <= ?", args.start_id.to_i) if args.start_id != "nil"
+    query = query.where("id >= ?", args.start_id.to_i) if args.start_id != "nil"
     query = query.where("id < ?", args.end_id.to_i)
     query.find_each do |proposal|
       author = proposal.coauthorships.first&.author
@@ -30,6 +30,7 @@ namespace :proposals do
 
       proposal.save(validate: false)
       print(".")
+      puts "\n#{proposal.id}" if proposal.id % 500 == 0
     end
     puts "\nApplying Garbage Collector"
     GC.start
