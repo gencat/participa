@@ -10,7 +10,10 @@ class EncryptAuthorizationMetadatas < ActiveRecord::Migration[5.2]
         metadata: auth.metadata,
         verification_metadata: auth.verification_metadata
       )
+      print '.'
+      puts "\n#{auth.id}" if auth.id % 200 == 0
     end
+    puts "\nMigration done."
   end
 
   def down
