@@ -208,7 +208,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-challenges.git
-  revision: 1986cdd24927b990554d581c84e3dc6d163e3d04
+  revision: d58e98494f74099b5a21dbcac8b7d991f0560143
   specs:
     decidim-challenges (0.0.3)
       decidim-core (~> 0.24.2)
@@ -546,7 +546,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.9)
+    graphql (1.12.10)
     hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
