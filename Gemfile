@@ -25,7 +25,7 @@ gem "decidim-verifications-members_picker", git: "https://github.com/gencat/deci
 gem "rails", "< 6"
 gem "soda-ruby", require: false
 
-gem "puma", "< 5"
+gem "puma", "< 6"
 gem "uglifier", "~> 4.1"
 # due to this alert: https://github.com/gencat/participa/network/alert/Gemfile.lock/devise/open
 gem "devise", ">= 4.7.1"
