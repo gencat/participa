@@ -5,6 +5,7 @@ Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
     {
       title: form.title,
       subtitle: form.subtitle,
+      weight: form.weight,
       slug: form.slug,
       hashtag: form.hashtag,
       hero_image: form.hero_image,
@@ -40,6 +41,6 @@ Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
       email: form.email,
       show_home: form.show_home,
       decidim_type: form.type
-    }
+    }.merge(uploader_attributes)
   end
 end
