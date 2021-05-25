@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_072746) do
+ActiveRecord::Schema.define(version: 2021_05_14_090631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_072746) do
     t.string "facebook_handler"
     t.string "youtube_handler"
     t.string "github_handler"
+    t.boolean "destacat", default: false
     t.bigint "decidim_assemblies_type_id"
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
@@ -370,37 +371,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_072746) do
     t.index ["decidim_category_id"], name: "index_decidim_categorizations_on_decidim_category_id"
   end
 
-  create_table "decidim_challenges_challenges", force: :cascade do |t|
-    t.jsonb "title"
-    t.jsonb "local_description"
-    t.jsonb "global_description"
-    t.bigint "decidim_component_id", null: false
-    t.jsonb "tags"
-    t.string "sdg_code"
-    t.bigint "decidim_scope_id"
-    t.integer "state", default: 0, null: false
-    t.date "start_date"
-    t.date "end_date"
-    t.datetime "published_at"
-    t.string "coordinating_entities"
-    t.string "collaborating_entities"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "survey_enabled", default: false, null: false
-    t.index ["decidim_component_id"], name: "index_decidim_challenges_challenges_on_decidim_component_id"
-    t.index ["decidim_scope_id"], name: "index_decidim_challenges_challenges_on_decidim_scope_id"
-  end
-
-  create_table "decidim_challenges_surveys", force: :cascade do |t|
-    t.bigint "decidim_user_id", null: false
-    t.bigint "decidim_challenge_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_challenge_id"], name: "index_decidim_challenges_surveys_on_decidim_challenge_id"
-    t.index ["decidim_user_id", "decidim_challenge_id"], name: "decidim_challenges_surveys_user_challenge_unique", unique: true
-    t.index ["decidim_user_id"], name: "index_decidim_challenges_surveys_on_decidim_user_id"
-  end
-
   create_table "decidim_coauthorships", force: :cascade do |t|
     t.bigint "decidim_author_id", null: false
     t.bigint "decidim_user_group_id"
@@ -571,10 +541,10 @@ ActiveRecord::Schema.define(version: 2021_05_17_072746) do
   end
 
   create_table "decidim_forms_answers", id: :serial, force: :cascade do |t|
+    t.text "body"
     t.integer "decidim_user_id"
     t.integer "decidim_questionnaire_id"
     t.integer "decidim_question_id"
-    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "session_token", default: "", null: false
@@ -1072,28 +1042,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_072746) do
     t.index ["privatable_to_type", "privatable_to_id"], name: "space_privatable_to_privatable_id"
   end
 
-  create_table "decidim_problems_problems", force: :cascade do |t|
-    t.jsonb "title"
-    t.jsonb "description"
-    t.bigint "decidim_component_id", null: false
-    t.bigint "decidim_challenges_challenge_id", null: false
-    t.bigint "decidim_sectorial_scope_id"
-    t.bigint "decidim_technological_scope_id"
-    t.jsonb "tags"
-    t.string "causes"
-    t.string "groups_affected"
-    t.integer "state", default: 0, null: false
-    t.date "start_date"
-    t.date "end_date"
-    t.datetime "published_at"
-    t.string "proposing_entities"
-    t.string "collaborating_entities"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_challenges_problems"
-    t.index ["decidim_component_id"], name: "index_decidim_problems_problems_on_decidim_component_id"
-  end
-
   create_table "decidim_proposals_collaborative_draft_collaborator_requests", force: :cascade do |t|
     t.bigint "decidim_proposals_collaborative_draft_id", null: false
     t.bigint "decidim_user_id", null: false
@@ -1299,26 +1247,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_072746) do
     t.index ["decidim_organization_id"], name: "index_decidim_share_tokens_on_decidim_organization_id"
     t.index ["decidim_user_id"], name: "index_decidim_share_tokens_on_decidim_user_id"
     t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
-  end
-
-  create_table "decidim_solutions_solutions", force: :cascade do |t|
-    t.jsonb "title"
-    t.jsonb "description"
-    t.bigint "decidim_component_id", null: false
-    t.bigint "decidim_problems_problem_id"
-    t.jsonb "tags"
-    t.jsonb "indicators"
-    t.jsonb "beneficiaries"
-    t.jsonb "requirements"
-    t.jsonb "financing_type"
-    t.jsonb "objectives"
-    t.datetime "published_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "decidim_challenges_challenge_id"
-    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
-    t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
-    t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
   end
 
   create_table "decidim_sortitions_sortitions", force: :cascade do |t|

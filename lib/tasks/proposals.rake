@@ -9,7 +9,10 @@ namespace :proposals do
     query = Decidim::Proposals::Proposal
     query = query.where("id >= ?", args.start_id.to_i) if args.start_id != "nil"
     query = query.where("id < ?", args.end_id.to_i)
+
+    puts "Affected proposals: #{query.count}"
     query.find_each do |proposal|
+      # byebug
       author = proposal.coauthorships.first&.author
 
       locale = if author
@@ -20,14 +23,15 @@ namespace :proposals do
                  I18n.default_locale.to_s
                end
 
-      proposal.new_title = {
-        locale => proposal.title
-      }
-      proposal.new_body = {
-        locale => proposal.body
-      }
+      # proposal.new_title = {
+      #   locale => proposal.title
+      # }
+      # proposal.new_body = {
+      #   locale => proposal.body
+      # }
 
-      proposal.save(validate: false)
+      proposal.update_columns(:new_title => {locale => proposal.title}, :new_body => {locale => proposal.body})
+      # proposal.save(validate: false)
       print(".")
       puts "\n#{proposal.id}" if (proposal.id % 500).zero?
     end
