@@ -30,7 +30,10 @@ namespace :proposals do
       #   locale => proposal.body
       # }
 
-      proposal.update_columns(:new_title => {locale => proposal.title}, :new_body => {locale => proposal.body})
+      # rubocop:disable Rails/SkipsModelValidations
+      proposal.update_columns(new_title: { locale => proposal.title }, new_body: { locale => proposal.body })
+      # rubocop:enable Rails/SkipsModelValidations
+
       # proposal.save(validate: false)
       print(".")
       puts "\n#{proposal.id}" if (proposal.id % 500).zero?
