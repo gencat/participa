@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: e8b392a4b1f09d80622e731fddfe3e0229ef47ef
+  revision: 9ceb157b1c48eea346044e09cbd64eecec79fe76
   branch: release/0.24-stable
   specs:
     decidim (0.24.2)
@@ -134,7 +134,7 @@ GIT
       factory_bot_rails (~> 4.8)
       i18n-tasks (~> 0.9.18)
       mdl (~> 0.5)
-      nokogiri (~> 1.11, >= 1.11.1)
+      nokogiri (~> 1.11, >= 1.11.4)
       puffing-billy (~> 2.4.0)
       puma (~> 5.0)
       rails-controller-testing (~> 1.0)
@@ -208,9 +208,9 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 421cfcb238b08a8d846ab9fea3d6eebc5a46dc03
+  revision: ca2ebd42f06d366b661bc2dc4e157e70a9157c78
   specs:
-    decidim-department_admin (0.3.0)
+    decidim-department_admin (0.3.1)
       decidim-core (~> 0.24.2)
 
 GIT
@@ -375,7 +375,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    carrierwave (2.2.1)
+    carrierwave (2.2.2)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
       addressable (~> 2.6)
@@ -491,25 +491,29 @@ GEM
       rest-client (>= 1.6)
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
-    excon (0.81.0)
+    excon (0.82.0)
     execjs (2.8.1)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (2.17.0)
+    faker (2.18.0)
       i18n (>= 1.6, < 2)
-    faraday (1.4.1)
+    faraday (1.4.2)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
-    ffi (1.15.0)
+    ffi (1.15.1)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     file_validators (2.3.0)
@@ -539,7 +543,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.9)
+    graphql (1.12.11)
     hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
@@ -570,6 +574,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
+    io-wait (0.1.0)
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -623,7 +628,8 @@ GEM
     mime-types-data (3.2021.0225)
     mini_magick (4.11.0)
     mini_mime (1.1.0)
-    mini_portile2 (2.5.1)
+    mini_portile2 (2.5.2)
+      net-ftp (~> 0.1)
     minitest (5.14.4)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
@@ -635,10 +641,16 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     mustache (1.1.1)
+    net-ftp (0.1.2)
+      net-protocol
+      time
+    net-protocol (0.1.1)
+      io-wait
+      timeout
     netrc (0.11.0)
     nio4r (2.5.7)
     nobspw (0.6.2)
-    nokogiri (1.11.4)
+    nokogiri (1.11.6)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     oauth (0.5.6)
@@ -701,7 +713,7 @@ GEM
       eventmachine_httpserver
       http_parser.rb (~> 0.6.0)
       multi_json
-    puma (5.3.1)
+    puma (5.3.2)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -812,7 +824,7 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.5.0)
+    rubocop-ast (1.7.0)
       parser (>= 3.0.1.1)
     rubocop-faker (1.1.0)
       faker (>= 2.12.0)
@@ -862,7 +874,7 @@ GEM
       hashie (~> 3.5)
       multipart-post (~> 2.0.0)
       sys-uname (~> 1.0.2)
-    spreadsheet (1.2.8)
+    spreadsheet (1.2.9)
       ruby-ole
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
@@ -890,6 +902,8 @@ GEM
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    time (0.1.0)
+    timeout (0.1.1)
     tomlrb (2.0.1)
     truncato (0.7.11)
       htmlentities (~> 4.3.1)
@@ -919,11 +933,11 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.12.2)
+    webmock (3.13.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    websocket-driver (0.7.3)
+    websocket-driver (0.7.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     whenever (1.0.0)
@@ -946,7 +960,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-admin-extended!
-  decidim-department_admin!
+  decidim-department_admin (~> 0.3.1)!
   decidim-dev!
   decidim-espais-estables!
   decidim-home!
@@ -966,7 +980,7 @@ DEPENDENCIES
   letter_opener_web (~> 1.3.0)
   listen (~> 3.1.0)
   nokogiri (>= 1.10.4)
-  puma (< 5)
+  puma (< 6)
   rack-attack
   rails (= 5.2.6)
   rspec-rails
