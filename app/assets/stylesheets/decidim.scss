@@ -722,6 +722,12 @@ h5 {
   background-color: $RedGenCat !important;
 }
 
+.ql-toolbar {
+  button {
+    background-color: #fff;    
+  }
+}
+
 .part-btn-bars {
   background: image-url("bars_red.png") no-repeat 0 0;
   width: 33px;

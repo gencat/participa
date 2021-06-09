@@ -1,1 +1,43 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+
+User-agent: SemrushBot
+Disallow: /
+
+# To block SEMrushBot from crawling your site for different SEO and technical issues:
+User-agent: SemrushBot-SA
+Disallow: /
+
+# To block SEMrushBot from crawling your site for Backlink Audit tool:
+User-agent: SemrushBot-BA
+Disallow: /
+
+# To block SEMrushBot from crawling your site for On Page SEO Checker tool and similar tools:
+User-agent: SemrushBot-SI
+Disallow: /
+
+# To block SEMrushBot from checking URLs on your site for SWA tool:
+User-agent: SemrushBot-SWA
+Disallow: /
+
+# To block SEMrushBot from crawling your site for Content Analyzer and Post Tracking tools:
+User-agent: SemrushBot-CT
+Disallow: /
+
+# To block SEMrushBot from crawling your site for Brand Monitoring:
+User-agent: SemrushBot-BM
+Disallow: /
+
+# To block SEMrushBot from crawling your site for SEO A/B Testing tool:
+User-agent: SemrushBot-SEOAB
+Disallow: /
+
+# msnbot-13-66-139-20.search.msn.com.
+User-agent: search.msn.com
+Disallow: /
+
+#User-agent: bingbot
+#Disallow: /
+
+User-agent: msnbot
+Disallow: /
+

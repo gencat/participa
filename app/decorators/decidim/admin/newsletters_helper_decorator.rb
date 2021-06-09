@@ -15,7 +15,7 @@ Decidim::Admin::NewslettersHelper.class_eval do
   def select_tag_participatory_spaces(space_type, spaces, child_form)
     return unless spaces
 
-    content_tag :div, class: "#{space_type.manifest_name}-block spaces-block-tag cell small-12 medium-6" do
+    tag.div(class: "#{space_type.manifest_name}-block spaces-block-tag cell small-12 medium-6") do
       child_form.select :ids, options_for_select(spaces),
                         { prompt: t("select_recipients_to_deliver.none", scope: "decidim.admin.newsletters"),
                           label: label_text_for(space_type),
