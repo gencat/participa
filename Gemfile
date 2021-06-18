@@ -10,8 +10,8 @@ gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
 gem "decidim-admin-extended", path: "decidim-admin-extended"
-gem "decidim-challenges", git: "https://github.com/gencat/decidim-challenges.git"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-department-admin.git"
+gem "decidim-challenges", "0.0.5", git: "https://github.com/gencat/decidim-challenges.git"
+gem "decidim-department_admin", "~> 0.3.1", git: "https://github.com/gencat/decidim-department-admin.git"
 gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
@@ -27,7 +27,9 @@ gem "decidim-verifications-members_picker", git: "https://github.com/gencat/deci
 gem "rails", "5.2.6"
 gem "soda-ruby", require: false
 
-gem "puma", "~> 5.0"
+gem "puma", "< 6"
+gem "rack-attack"
+
 gem "uglifier", "~> 4.1"
 # due to this alert: https://github.com/gencat/participa/network/alert/Gemfile.lock/devise/open
 gem "devise", ">= 4.7.1"

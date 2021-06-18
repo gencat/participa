@@ -12,7 +12,7 @@ unless %w(development test).include? Rails.env
     Rails.logger.debug { ">>>>>>>>>>>>>>>>>>>> X-Forwarded-For: #{x_forwarded_for}" }
     if x_forwarded_for.present?
       ip= x_forwarded_for.split(":").first
-      Rails.logger.debug { ">>>>>>>>>>>>>>>>>>>> X-Forwarded-For IP: #{ip}" }
+      Rails.logger.info { ">>>>>>>>>>>>>>>>>>>> X-Forwarded-For IP: #{ip}" }
       ip
     else
       request.ip

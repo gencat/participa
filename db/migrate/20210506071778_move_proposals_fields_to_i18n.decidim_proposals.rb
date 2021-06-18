@@ -33,7 +33,7 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
 
     # We're replacing the previous code with the invokation of a rake task as performing data migration from inside migrations (paradoxically)
     # ends up with out of memory crashes in large datasets
-    success = Rake::Task['proposals:tmp_title'].invoke(0,70000)
+    success = Rake::Task['proposals:tmp_title'].invoke(0,90_000)
     puts "exit status is: #{$?}"
     raise "couldn't move title to new tmp columns" unless success
 

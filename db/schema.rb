@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_072746) do
+ActiveRecord::Schema.define(version: 2021_05_14_090631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_072746) do
     t.string "facebook_handler"
     t.string "youtube_handler"
     t.string "github_handler"
+    t.boolean "destacat", default: false
     t.bigint "decidim_assemblies_type_id"
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
@@ -1319,6 +1320,21 @@ ActiveRecord::Schema.define(version: 2021_05_17_072746) do
     t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
     t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
     t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
+  end
+
+  create_table "decidim_share_tokens", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.bigint "decidim_user_id", null: false
+    t.string "token_for_type", null: false
+    t.bigint "token_for_id", null: false
+    t.string "token", null: false
+    t.integer "times_used", default: 0
+    t.datetime "created_at"
+    t.datetime "last_used_at"
+    t.datetime "expires_at"
+    t.index ["decidim_organization_id"], name: "index_decidim_share_tokens_on_decidim_organization_id"
+    t.index ["decidim_user_id"], name: "index_decidim_share_tokens_on_decidim_user_id"
+    t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
   end
 
   create_table "decidim_sortitions_sortitions", force: :cascade do |t|
