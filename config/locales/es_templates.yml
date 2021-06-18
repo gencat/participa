@@ -1,0 +1,8 @@
+es:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Título
+      template:
+        description: Descripción
+        name: Nombre
