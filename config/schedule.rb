@@ -17,3 +17,7 @@ end
 every :sunday, at: "11:59 pm" do
   rake "open_data:participatory_processes:publish_to_socrata"
 end
+
+every 1.day, at: "3:00 am" do
+  rake "tmp:clear"
+end
