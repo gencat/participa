@@ -10,7 +10,7 @@ gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
 gem "decidim-admin-extended", path: "decidim-admin-extended"
-gem "decidim-department_admin", "~> 0.3.1", git: "https://github.com/gencat/decidim-department-admin.git"
+gem "decidim-department_admin", "~> 0.3.2", git: "https://github.com/gencat/decidim-department-admin.git"
 gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
