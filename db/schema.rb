@@ -370,6 +370,37 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.index ["decidim_category_id"], name: "index_decidim_categorizations_on_decidim_category_id"
   end
 
+  create_table "decidim_challenges_challenges", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "local_description"
+    t.jsonb "global_description"
+    t.bigint "decidim_component_id", null: false
+    t.jsonb "tags"
+    t.string "sdg_code"
+    t.bigint "decidim_scope_id"
+    t.integer "state", default: 0, null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "published_at"
+    t.string "coordinating_entities"
+    t.string "collaborating_entities"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "survey_enabled", default: false, null: false
+    t.index ["decidim_component_id"], name: "index_decidim_challenges_challenges_on_decidim_component_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_challenges_challenges_on_decidim_scope_id"
+  end
+
+  create_table "decidim_challenges_surveys", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.bigint "decidim_challenge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_challenge_id"], name: "index_decidim_challenges_surveys_on_decidim_challenge_id"
+    t.index ["decidim_user_id", "decidim_challenge_id"], name: "decidim_challenges_surveys_user_challenge_unique", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_challenges_surveys_on_decidim_user_id"
+  end
+
   create_table "decidim_coauthorships", force: :cascade do |t|
     t.bigint "decidim_author_id", null: false
     t.bigint "decidim_user_group_id"
@@ -1041,6 +1072,28 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.index ["privatable_to_type", "privatable_to_id"], name: "space_privatable_to_privatable_id"
   end
 
+  create_table "decidim_problems_problems", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.bigint "decidim_component_id", null: false
+    t.bigint "decidim_challenges_challenge_id", null: false
+    t.bigint "decidim_sectorial_scope_id"
+    t.bigint "decidim_technological_scope_id"
+    t.jsonb "tags"
+    t.string "causes"
+    t.string "groups_affected"
+    t.integer "state", default: 0, null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "published_at"
+    t.string "proposing_entities"
+    t.string "collaborating_entities"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_challenges_problems"
+    t.index ["decidim_component_id"], name: "index_decidim_problems_problems_on_decidim_component_id"
+  end
+
   create_table "decidim_proposals_collaborative_draft_collaborator_requests", force: :cascade do |t|
     t.bigint "decidim_proposals_collaborative_draft_id", null: false
     t.bigint "decidim_user_id", null: false
@@ -1231,6 +1284,26 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.index ["decidim_participatory_space_type", "decidim_participatory_space_id"], name: "index_decidim_searchable_resource_on_pspace_type_and_pspace_id"
     t.index ["decidim_scope_id"], name: "index_decidim_searchable_resources_on_decidim_scope_id"
     t.index ["resource_type", "resource_id"], name: "index_decidim_searchable_rsrcs_on_s_type_and_s_id"
+  end
+
+  create_table "decidim_solutions_solutions", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.bigint "decidim_component_id", null: false
+    t.bigint "decidim_problems_problem_id"
+    t.jsonb "tags"
+    t.jsonb "indicators"
+    t.jsonb "beneficiaries"
+    t.jsonb "requirements"
+    t.jsonb "financing_type"
+    t.jsonb "objectives"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "decidim_challenges_challenge_id"
+    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
+    t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
+    t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
   end
 
   create_table "decidim_share_tokens", force: :cascade do |t|

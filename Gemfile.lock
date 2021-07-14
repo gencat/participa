@@ -207,6 +207,13 @@ GIT
       decidim-core (= 0.24.3)
 
 GIT
+  remote: https://github.com/gencat/decidim-challenges.git
+  revision: 15cc685a013f5434e513422ec4a986ad99f6d2e5
+  specs:
+    decidim-challenges (0.0.5)
+      decidim-core (~> 0.24.2)
+
+GIT
   remote: https://github.com/gencat/decidim-department-admin.git
   revision: e6d271c404447ef8d71a41cb88ea119830646bdd
   specs:
@@ -950,6 +957,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-admin-extended!
+  decidim-challenges (= 0.0.5)!
   decidim-department_admin (~> 0.3.2)!
   decidim-dev!
   decidim-espais-estables!
