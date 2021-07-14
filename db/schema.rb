@@ -1286,6 +1286,26 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.index ["resource_type", "resource_id"], name: "index_decidim_searchable_rsrcs_on_s_type_and_s_id"
   end
 
+  create_table "decidim_solutions_solutions", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.bigint "decidim_component_id", null: false
+    t.bigint "decidim_problems_problem_id"
+    t.jsonb "tags"
+    t.jsonb "indicators"
+    t.jsonb "beneficiaries"
+    t.jsonb "requirements"
+    t.jsonb "financing_type"
+    t.jsonb "objectives"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "decidim_challenges_challenge_id"
+    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
+    t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
+    t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
+  end
+
   create_table "decidim_share_tokens", force: :cascade do |t|
     t.bigint "decidim_organization_id", null: false
     t.bigint "decidim_user_id", null: false
