@@ -215,7 +215,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: e6d271c404447ef8d71a41cb88ea119830646bdd
+  revision: 1525b959838568fa2dd3aecae945a3cf3f901cdf
   specs:
     decidim-department_admin (0.3.2)
       decidim-core (~> 0.24.2)
