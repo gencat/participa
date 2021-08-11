@@ -541,3 +541,64 @@ nav {
   letter-spacing: .05em;
 
 }
+
+.logo-wrapper img {
+  height: 2rem;
+}
+
+.row.column.topbar {
+  padding-left: 0;
+}
+
+// Menu customization in navbar
+.navbar.js-append {
+  background-color: #fff;
+}
+
+.navbar .main-nav__link:not(.main-nav__link--active) a {
+  color: #000;
+
+  &:hover {
+    background-color: #fff;
+  }
+}
+
+.main-nav {
+  a {
+    color: #333;
+  }
+
+  li {
+    border-right: 1px solid #ddd;
+  }
+
+  li:last-child {
+    border: none;
+  }
+
+  a:hover {
+    background-color: #fff;
+    box-shadow: 0px 4px 0px 0px #C00000;
+  }
+}
+
+.navbar .main-nav__link {
+  a:hover {
+    background-color: #fff;
+    box-shadow: 0px 4px 0px 0px #C00000;
+  }
+}
+
+.navbar .main-nav__link--active {
+  a {
+    box-shadow: 0px 4px 0px 0px #df7f7f;
+    
+    &:hover {
+    box-shadow: 0px 4px 0px 0px #C00000;
+    }
+  }
+}
+
+.navbar {
+  height: 48px;
+}
