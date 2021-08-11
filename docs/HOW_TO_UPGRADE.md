@@ -95,9 +95,6 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decidim-home/app/views/layouts/decidim/_top_navbar.html.erb`
     * Implement the a top navbar rendered in `_wrapper.html.erb`
-  * `app/cells/decidim/home/content_blocks*`
-    * New content block cell for hero slider
-
 #### 3. Decidim Process Extended ("decidim-participatory-processes")
 
   This module adds new fields to the "ParticipatoryProcess": `email`, `promoting_unit`, `facilitators`, `cost`, `has_summary_record`, `type_id`, `show_home`

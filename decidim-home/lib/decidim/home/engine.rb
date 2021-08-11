@@ -23,11 +23,6 @@ module Decidim
       end
 
       initializer "decidim_home.content_blocks" do
-        Decidim.content_blocks.register(:homepage, :slider) do |content_block|
-          content_block.cell = "decidim/home/content_blocks/slider"
-          content_block.public_name_key = "decidim.content_blocks.slider.name"
-        end
-
         Decidim.content_blocks.register(:homepage, :feder) do |content_block|
           content_block.cell = "decidim/home/content_blocks/feder"
           content_block.public_name_key = "decidim.content_blocks.feder.name"
