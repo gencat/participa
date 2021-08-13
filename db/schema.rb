@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_085018) do
+ActiveRecord::Schema.define(version: 2021_08_13_071800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1028,7 +1028,6 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.date "start_date"
     t.integer "decidim_theme_id"
     t.string "email"
-    t.boolean "show_home", default: false
     t.integer "decidim_department_id"
     t.integer "decidim_type_id"
     t.string "reference"
@@ -1286,6 +1285,21 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.index ["resource_type", "resource_id"], name: "index_decidim_searchable_rsrcs_on_s_type_and_s_id"
   end
 
+  create_table "decidim_share_tokens", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.bigint "decidim_user_id", null: false
+    t.string "token_for_type", null: false
+    t.bigint "token_for_id", null: false
+    t.string "token", null: false
+    t.integer "times_used", default: 0
+    t.datetime "created_at"
+    t.datetime "last_used_at"
+    t.datetime "expires_at"
+    t.index ["decidim_organization_id"], name: "index_decidim_share_tokens_on_decidim_organization_id"
+    t.index ["decidim_user_id"], name: "index_decidim_share_tokens_on_decidim_user_id"
+    t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
+  end
+
   create_table "decidim_solutions_solutions", force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "description"
@@ -1304,21 +1318,6 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
     t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
     t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
-  end
-
-  create_table "decidim_share_tokens", force: :cascade do |t|
-    t.bigint "decidim_organization_id", null: false
-    t.bigint "decidim_user_id", null: false
-    t.string "token_for_type", null: false
-    t.bigint "token_for_id", null: false
-    t.string "token", null: false
-    t.integer "times_used", default: 0
-    t.datetime "created_at"
-    t.datetime "last_used_at"
-    t.datetime "expires_at"
-    t.index ["decidim_organization_id"], name: "index_decidim_share_tokens_on_decidim_organization_id"
-    t.index ["decidim_user_id"], name: "index_decidim_share_tokens_on_decidim_user_id"
-    t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
   end
 
   create_table "decidim_sortitions_sortitions", force: :cascade do |t|

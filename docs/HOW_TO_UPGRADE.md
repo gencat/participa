@@ -97,7 +97,7 @@ These are custom modules and this is what you have to keep in mind when updating
     * Implement the a top navbar rendered in `_wrapper.html.erb`
 #### 3. Decidim Process Extended ("decidim-participatory-processes")
 
-  This module adds new fields to the "ParticipatoryProcess": `email`, `promoting_unit`, `facilitators`, `cost`, `has_summary_record`, `type_id`, `show_home`
+  This module adds new fields to the "ParticipatoryProcess": `email`, `promoting_unit`, `facilitators`, `cost`, `has_summary_record`, `type_id`
 
   ##### 	Modified files:
 
@@ -126,7 +126,6 @@ These are custom modules and this is what you have to keep in mind when updating
     * Add new field: email
     * Add new field: has_summary_record
     * Add new field: type_id
-    * Add new field: show_home
   * `app/views/decidim/participatory_processes/participatory_processes/show.html.erb`
     * Show new field: promoting_unit
     * Show new field: facilitators

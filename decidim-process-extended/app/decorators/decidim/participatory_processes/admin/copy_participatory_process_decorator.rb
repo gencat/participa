@@ -31,7 +31,6 @@ Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
       has_summary_record: @participatory_process.has_summary_record,
       promoting_unit: @participatory_process.promoting_unit,
       facilitators: @participatory_process.facilitators,
-      show_home: @participatory_process.show_home,
       email: @participatory_process.email,
       decidim_type_id: @participatory_process.decidim_type_id
     )
