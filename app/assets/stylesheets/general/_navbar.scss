@@ -41,11 +41,9 @@
     cursor:pointer;
 }
 .part-main-title {
-    margin-bottom: 0;
-    margin-left: -2px;
-
-    font-size: 28px;
-    font-weight: bold;
+  margin-left: -2px;
+  font-size: 20px;
+  font-weight: bold;
 }
 .site-title{
     padding: 0;
@@ -499,7 +497,11 @@ nav {
 }
 
 .title-bar {
-    background: #333;
+  background: #333;
+
+  .site-title {
+    background-color: #404040;
+  }
 }
 
 .navbar.js-append .row.column  {
@@ -548,6 +550,7 @@ nav {
 
 .row.column.topbar {
   padding-left: 0;
+  margin-bottom: 10px;
 }
 
 // Menu customization in navbar
