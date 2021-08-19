@@ -13,7 +13,7 @@ describe "Homepage", type: :system do
       available_locales: [:ca, :en, :es]
     )
   end
-  let!(:hero) { create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero, settings: {"welcome_text_ca"=>"Benvinguda a Participa Gencat"} }
+  let!(:hero) { create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero, settings: { "welcome_text_ca"=>"Benvinguda a Participa Gencat" } }
   let!(:sub_hero) { create :content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero }
 
   before do
