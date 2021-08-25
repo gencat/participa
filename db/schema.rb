@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.string "facebook_handler"
     t.string "youtube_handler"
     t.string "github_handler"
+    t.boolean "destacat", default: false
     t.bigint "decidim_assemblies_type_id"
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
@@ -1286,6 +1287,21 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.index ["resource_type", "resource_id"], name: "index_decidim_searchable_rsrcs_on_s_type_and_s_id"
   end
 
+  create_table "decidim_share_tokens", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.bigint "decidim_user_id", null: false
+    t.string "token_for_type", null: false
+    t.bigint "token_for_id", null: false
+    t.string "token", null: false
+    t.integer "times_used", default: 0
+    t.datetime "created_at"
+    t.datetime "last_used_at"
+    t.datetime "expires_at"
+    t.index ["decidim_organization_id"], name: "index_decidim_share_tokens_on_decidim_organization_id"
+    t.index ["decidim_user_id"], name: "index_decidim_share_tokens_on_decidim_user_id"
+    t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
+  end
+
   create_table "decidim_solutions_solutions", force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "description"
@@ -1304,21 +1320,6 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
     t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
     t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
-  end
-
-  create_table "decidim_share_tokens", force: :cascade do |t|
-    t.bigint "decidim_organization_id", null: false
-    t.bigint "decidim_user_id", null: false
-    t.string "token_for_type", null: false
-    t.bigint "token_for_id", null: false
-    t.string "token", null: false
-    t.integer "times_used", default: 0
-    t.datetime "created_at"
-    t.datetime "last_used_at"
-    t.datetime "expires_at"
-    t.index ["decidim_organization_id"], name: "index_decidim_share_tokens_on_decidim_organization_id"
-    t.index ["decidim_user_id"], name: "index_decidim_share_tokens_on_decidim_user_id"
-    t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
   end
 
   create_table "decidim_sortitions_sortitions", force: :cascade do |t|
@@ -1370,48 +1371,6 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.boolean "allow_public_access", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_static_pages_on_decidim_organization_id"
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
-  end
-
-  create_table "decidim_surveys_survey_answer_choices", force: :cascade do |t|
-    t.bigint "decidim_survey_answer_id"
-    t.bigint "decidim_survey_answer_option_id"
-    t.jsonb "body"
-    t.text "custom_body"
-    t.integer "position"
-    t.index ["decidim_survey_answer_id"], name: "index_decidim_surveys_answer_choices_answer_id"
-    t.index ["decidim_survey_answer_option_id"], name: "index_decidim_surveys_answer_choices_answer_option_id"
-  end
-
-  create_table "decidim_surveys_survey_answer_options", force: :cascade do |t|
-    t.bigint "decidim_survey_question_id"
-    t.jsonb "body"
-    t.boolean "free_text"
-    t.index ["decidim_survey_question_id"], name: "index_decidim_surveys_answer_options_question_id"
-  end
-
-  create_table "decidim_surveys_survey_answers", id: :serial, force: :cascade do |t|
-    t.integer "decidim_user_id"
-    t.integer "decidim_survey_id"
-    t.integer "decidim_survey_question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "body"
-    t.index ["decidim_survey_id"], name: "index_decidim_surveys_survey_answers_on_decidim_survey_id"
-    t.index ["decidim_survey_question_id"], name: "index_decidim_surveys_answers_question_id"
-    t.index ["decidim_user_id"], name: "index_decidim_surveys_survey_answers_on_decidim_user_id"
-  end
-
-  create_table "decidim_surveys_survey_questions", id: :serial, force: :cascade do |t|
-    t.jsonb "body"
-    t.integer "decidim_survey_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "position"
-    t.boolean "mandatory"
-    t.string "question_type"
-    t.integer "max_choices"
-    t.jsonb "description"
-    t.index ["decidim_survey_id"], name: "index_decidim_surveys_survey_questions_on_decidim_survey_id"
   end
 
   create_table "decidim_surveys_surveys", id: :serial, force: :cascade do |t|
