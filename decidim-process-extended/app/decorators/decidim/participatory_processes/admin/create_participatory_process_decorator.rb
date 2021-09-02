@@ -35,7 +35,6 @@ Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.class_eval do
       promoting_unit: form.promoting_unit,
       facilitators: form.facilitators,
       email: form.email.downcase,
-      show_home: form.show_home,
       decidim_type: form.type
     )
 

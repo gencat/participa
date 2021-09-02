@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_085018) do
+ActiveRecord::Schema.define(version: 2021_08_13_071800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1029,7 +1029,6 @@ ActiveRecord::Schema.define(version: 2021_06_18_085018) do
     t.date "start_date"
     t.integer "decidim_theme_id"
     t.string "email"
-    t.boolean "show_home", default: false
     t.integer "decidim_department_id"
     t.integer "decidim_type_id"
     t.string "reference"
