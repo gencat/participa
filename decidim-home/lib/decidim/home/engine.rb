@@ -11,7 +11,7 @@ module Decidim
       isolate_namespace Decidim::Home
 
       initializer "decidim_home.assets" do |app|
-        app.config.assets.precompile += %w(logo_generalitat_gris.png logo_generalitat_white.png feder.png)
+        app.config.assets.precompile += %w(logo_generalitat_white.png feder.png)
       end
 
       initializer "decidim_home.add_cells_view_paths" do
