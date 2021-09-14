@@ -15,6 +15,20 @@ module Decidim::ParticipatoryProcesses
       let(:user) { create :user, organization: organization }
       let(:user_group) { create(:user_group, :verified, organization: organization, users: [user]) }
 
+      context "when there is a process_group" do
+        let!(:process_group) { create :participatory_process_group, organization: organization }
+
+        before do
+          participatory_process.participatory_process_group= process_group
+        end
+
+        describe "#participatory_space" do
+          it "contains the title of the process_group" do
+            expect(subject.serialize).to include(participatory_space: process_group.title["ca"].downcase)
+          end
+        end
+      end
+
       context "when there are proposals" do
         let!(:proposal) { create(:proposal, component: proposals_component) }
 

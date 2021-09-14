@@ -26,7 +26,7 @@ module Decidim
           scope_name_ca: process.scope&.name.try(:[], "ca"),
           department_id: process.area&.id,
           department_name_ca: process.area&.name.try(:[], "ca"),
-          participatory_space: process.participatory_process_group&.name.try(:[], "ca")&.downcase,
+          participatory_space: process.participatory_process_group&.title.try(:[], "ca")&.downcase,
           normative_type_id: process.decidim_type&.id,
           normative_type_name_ca: process.decidim_type&.name.try(:[], "ca"),
           duration_days: duration_days,
