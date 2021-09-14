@@ -118,3 +118,9 @@ body{
         font-weight: bold;
     }
 }
+
+// Decidim use max-height and min-height, but with narrow images,
+// image container snaps to height and show different.
+.card__image {
+  height: 10rem !important;
+}
