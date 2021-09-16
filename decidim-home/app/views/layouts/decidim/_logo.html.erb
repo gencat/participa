@@ -1,6 +1,8 @@
 <% if organization %>
   <% if organization.logo.present? %>
-    <%= image_tag organization.logo.medium.url, alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
+    <%= link_to "https://web.gencat.cat/ca/inici/", target: "_blank" do %>
+      <%= image_tag organization.logo.medium.url, alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
+    <% end %>
   <% else %>
       <!-- Only for small devices -->
       <div class="fwk-row part-show-sm">

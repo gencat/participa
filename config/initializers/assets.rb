@@ -26,7 +26,6 @@ Rails.application.config.assets.precompile += %w(default_images_b/image3.png)
 Rails.application.config.assets.precompile += %w(default_images_b/image4.png)
 Rails.application.config.assets.precompile += %w(default_images_b/image5.png)
 
-Rails.application.config.assets.precompile += %w(logo_generalitat_gris.png)
 Rails.application.config.assets.precompile += %w(logo_generalitat_white.png)
 Rails.application.config.assets.precompile += %w(datepicker-locales/foundation-datepicker.oc.js)
 Rails.application.config.assets.precompile += %w(favicon.ico)
