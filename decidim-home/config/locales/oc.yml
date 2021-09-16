@@ -203,8 +203,6 @@ oc:
     content_blocks:
       feder:
         name: Feder
-      slider:
-        name: Slider home
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció

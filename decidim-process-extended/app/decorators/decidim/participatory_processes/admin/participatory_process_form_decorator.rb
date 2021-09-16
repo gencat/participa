@@ -11,7 +11,6 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessForm.class_eval do
   # Participa added attributes
   attribute :type_id, Integer
   attribute :email, String
-  attribute :show_home, Virtus::Attribute::Boolean
 
   validates :type, presence: true, if: proc { |object| object.type_id.present? }
 
