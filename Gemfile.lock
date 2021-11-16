@@ -207,21 +207,21 @@ GIT
       decidim-core (= 0.24.3)
 
 GIT
-  remote: https://github.com/gencat/decidim-challenges.git
+  remote: https://github.com/gencat/decidim-module-challenges.git
   revision: 1dc599d12eefd0bb678c1c83ccd55d15970b3494
   specs:
     decidim-challenges (0.0.9)
       decidim-core (~> 0.24.2)
 
 GIT
-  remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 82287c70b69d5450e8048de0c35a04bfee76249a
+  remote: https://github.com/gencat/decidim-module-department_admin.git
+  revision: a0f576e459b03710794f7e6264c48a03ae67baaf
   specs:
-    decidim-department_admin (0.3.4)
+    decidim-department_admin (0.4.0)
       decidim-core (~> 0.24.2)
 
 GIT
-  remote: https://github.com/gencat/decidim-idcat_mobil.git
+  remote: https://github.com/gencat/decidim-module-idcat_mobil.git
   revision: 7e202d5d59f9ce9c0c231819e2297599e8939a5c
   specs:
     decidim-idcat_mobil (0.0.6)
@@ -675,7 +675,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.1)
       omniauth-oauth2 (>= 1.6)
-    omniauth-idcat_mobil (0.2.0)
+    omniauth-idcat_mobil (0.2.1)
       omniauth (~> 1.5)
       omniauth-oauth2 (>= 1.4.0, < 2.0)
     omniauth-oauth (1.2.0)
@@ -964,7 +964,7 @@ DEPENDENCIES
   decidim!
   decidim-admin-extended!
   decidim-challenges (= 0.0.9)!
-  decidim-department_admin (~> 0.3.4)!
+  decidim-department_admin (~> 0.4.0)!
   decidim-dev!
   decidim-espais-estables!
   decidim-home!
