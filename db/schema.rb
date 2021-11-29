@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_071800) do
+ActiveRecord::Schema.define(version: 2021_11_29_174157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -520,14 +520,6 @@ ActiveRecord::Schema.define(version: 2021_08_13_071800) do
     t.index ["endorsements_count"], name: "idx_decidim_debates_debates_on_endorsemnts_count"
   end
 
-  create_table "decidim_departments", force: :cascade do |t|
-    t.string "name"
-    t.bigint "decidim_organization_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_organization_id"], name: "index_decidim_departments_on_decidim_organization_id"
-  end
-
   create_table "decidim_endorsements", force: :cascade do |t|
     t.string "resource_type"
     t.bigint "resource_id"
@@ -1027,9 +1019,7 @@ ActiveRecord::Schema.define(version: 2021_08_13_071800) do
     t.jsonb "announcement"
     t.boolean "scopes_enabled", default: true, null: false
     t.date "start_date"
-    t.integer "decidim_theme_id"
     t.string "email"
-    t.integer "decidim_department_id"
     t.integer "decidim_type_id"
     t.string "reference"
     t.boolean "private_space", default: false
@@ -1428,14 +1418,6 @@ ActiveRecord::Schema.define(version: 2021_08_13_071800) do
     t.index ["translation_set_id"], name: "decidim_term_customizer_translation_translation_set"
   end
 
-  create_table "decidim_themes", force: :cascade do |t|
-    t.jsonb "name"
-    t.bigint "decidim_organization_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_organization_id"], name: "index_decidim_themes_on_decidim_organization_id"
-  end
-
   create_table "decidim_types", force: :cascade do |t|
     t.jsonb "name"
     t.bigint "decidim_organization_id"
@@ -1671,7 +1653,6 @@ ActiveRecord::Schema.define(version: 2021_08_13_071800) do
   add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
   add_foreign_key "decidim_categorizations", "decidim_categories"
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
-  add_foreign_key "decidim_departments", "decidim_organizations"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
@@ -1685,7 +1666,6 @@ ActiveRecord::Schema.define(version: 2021_08_13_071800) do
   add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
-  add_foreign_key "decidim_themes", "decidim_organizations"
   add_foreign_key "decidim_types", "decidim_organizations"
   add_foreign_key "decidim_user_blocks", "decidim_users"
   add_foreign_key "decidim_user_blocks", "decidim_users", column: "blocking_user_id"
