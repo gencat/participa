@@ -8,7 +8,7 @@ $( document ).ready(function() {
 
     $('[data-open="processEmbed"]').hide();
 
-    //hoome section correction - meetings count
+    // home section correction - meetings count
     var meetings_home = $(".home-pam__lowlight").find(".home-pam__data").first();
     var last_home = $(".home-pam__highlight").last();
     $(meetings_home).appendTo(last_home);
