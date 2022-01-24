@@ -284,8 +284,8 @@ PATH
   remote: decidim-top_comments
   specs:
     decidim-top_comments (0.23.1)
-      decidim-core (>= 0.22)
-      decidim-proposals (>= 0.22)
+      decidim-core (>= 0.24)
+      decidim-proposals (>= 0.24)
       deface (~> 1.5.3)
 
 PATH
