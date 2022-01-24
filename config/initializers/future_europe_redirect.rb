@@ -1,2 +1,3 @@
+# frozen_string_literal: true
+
 Rails.application.config.middleware.use Middlewares::RedirectMiddleware
-  # config.middleware.insert_before Warden::Manager, Middlewares::RedirectMiddleware

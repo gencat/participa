@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Middlewares
   class RedirectMiddleware
@@ -8,7 +9,7 @@ module Middlewares
     def call(env)
       request = Rack::Request.new(env)
       if request.path.starts_with?("/futur-europa")
-        [301, {"Location" => request.url.sub("/futur-europa", "/processes/FuturEuropa")}, []]
+        [301, { "Location" => request.url.sub("/futur-europa", "/processes/FuturEuropa") }, []]
       else
         @app.call(env)
       end
