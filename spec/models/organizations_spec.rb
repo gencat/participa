@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Organizations", type: :system do
+describe "Organizations" do
   let(:organization) { create(:organization) }
 
   context "with backoffice admins" do
