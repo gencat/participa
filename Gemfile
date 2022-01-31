@@ -22,7 +22,7 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 #### Custom gems and modifications block end ####
 
-gem "decidim-idcat_mobil", "0.0.6", git: "https://github.com/gencat/decidim-module-idcat_mobil.git"
+gem "decidim-idcat_mobil", "0.0.7"
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.2"
 gem "rails", "5.2.6"
 gem "soda-ruby", require: false
