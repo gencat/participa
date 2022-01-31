@@ -1,0 +1,22 @@
+<%
+  def proposal_component_published?
+    proposal_component = nil
+
+    if defined?(current_participatory_process)
+      @group = Decidim::ParticipatoryProcessGroup.find(current_participatory_process.decidim_participatory_process_group_id)
+      proposal_component = current_participatory_process.components.find_by(manifest_name: 'proposals')
+    end
+
+    proposal_component.nil? || !proposal_component.published?
+  end
+%>
+
+<% unless request.path.include?('components') %>
+  <% if proposal_component_published? %>
+    <div class="callout alert">
+      <% if translated_attribute(@group.title) == 'Normativa' %>
+        <%= t('decidim.participatory_processes.admin.participatory_processes.proposal_component_alert') %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

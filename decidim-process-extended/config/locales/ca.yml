@@ -23,6 +23,7 @@ ca:
             select_process_group: Selecciona un àmbit
             title: Informació general
             visbility: Visibilitat
+          proposal_component_alert: Recordeu que heu d'activar el component propostes.
       show:
         area: Departament
         cost: Cost
