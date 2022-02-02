@@ -8,6 +8,6 @@ Decidim::ParticipatoryProcesses::Permissions.class_eval do
 
     user.admin ||
       process.users.include?(user) ||
-      process.participatory_space_private_users.where(decidim_user_id: user.id).exists?
+      process.participatory_space_private_users.exists?(decidim_user_id: user.id)
   end
 end

@@ -9,6 +9,6 @@ Decidim::ParticipatorySpaceContext.class_eval do
 
     current_user.admin ||
       current_participatory_space.users.include?(current_user) ||
-      current_participatory_space.participatory_space_private_users.where(decidim_user_id: current_user.id).exists?
+      current_participatory_space.participatory_space_private_users.exists?(decidim_user_id: current_user.id)
   end
 end

@@ -26,7 +26,7 @@ Decidim::Admin::NewslettersHelper.class_eval do
 
   def label_text_for(space_type)
     if space_type.process_group_id
-      Decidim::ParticipatoryProcessGroup.find(space_type.process_group_id).name[current_locale]
+      Decidim::ParticipatoryProcessGroup.find(space_type.process_group_id).title[current_locale]
     else
       t("activerecord.models.decidim/#{space_type.manifest_name.singularize}.other")
     end
