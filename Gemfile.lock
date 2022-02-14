@@ -208,9 +208,9 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges.git
-  revision: 1dc599d12eefd0bb678c1c83ccd55d15970b3494
+  revision: a6daea1a3128df80c6c430fc4dbe821bbbf70a6b
   specs:
-    decidim-challenges (0.0.9)
+    decidim-challenges (0.0.11)
       decidim-core (~> 0.24.2)
 
 GIT
@@ -231,7 +231,8 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
-  revision: c9f127e78bd52b29ee02bc62f252db2634f9a1f0
+  revision: 4b385c55996e390406ac68a8b5ab68b9da2c8817
+  branch: 0.24-stable
   specs:
     decidim-term_customizer (0.24.0)
       decidim-admin (~> 0.24.0)
@@ -494,7 +495,7 @@ GEM
       rest-client (>= 1.6)
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
-    excon (0.90.0)
+    excon (0.91.0)
     execjs (2.8.1)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -556,7 +557,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.13.7)
+    graphql (1.13.9)
     hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
@@ -566,7 +567,7 @@ GEM
     http-cookie (1.0.4)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
-    i18n (1.8.11)
+    i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.35)
       activesupport (>= 4.0.2)
@@ -723,7 +724,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
-    rack-attack (6.5.0)
+    rack-attack (6.6.0)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -767,7 +768,7 @@ GEM
       activerecord (>= 5.0)
       activesupport (>= 5.0)
       i18n
-    rb-fsevent (0.11.0)
+    rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rectify (0.13.0)
@@ -777,7 +778,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
-    redis (4.5.1)
+    redis (4.6.0)
     regexp_parser (2.2.0)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -964,7 +965,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-admin-extended!
-  decidim-challenges (= 0.0.9)!
+  decidim-challenges (= 0.0.11)!
   decidim-department_admin (~> 0.4.0)!
   decidim-dev!
   decidim-espais-estables!
