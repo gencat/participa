@@ -10,14 +10,14 @@ gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifciations block start ####
 gem "decidim-admin-extended", path: "decidim-admin-extended"
-gem "decidim-challenges", "0.0.9", git: "https://github.com/gencat/decidim-module-challenges.git"
+gem "decidim-challenges", "0.0.11", git: "https://github.com/gencat/decidim-module-challenges.git"
 gem "decidim-department_admin", "~> 0.4.0", git: "https://github.com/gencat/decidim-module-department_admin.git"
 gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-regulations", path: "decidim-regulations"
 # having the gem enabled on :test env makes CI crash while trying to connect to DDBB before Rails boot is complete
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "0.24-stable"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 #### Custom gems and modifications block end ####
