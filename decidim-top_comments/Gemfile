@@ -4,9 +4,9 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.24-stable" }.freeze
+TOP_COMMENTS_DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.24-stable" }.freeze
 
-gem "decidim", DECIDIM_VERSION
+gem "decidim", TOP_COMMENTS_DECIDIM_VERSION
 gem "decidim-top_comments", path: "."
 
 gem "bootsnap", "~> 1.4"
@@ -16,7 +16,7 @@ gem "uglifier", "~> 4.1"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-dev", TOP_COMMENTS_DECIDIM_VERSION
 end
 
 group :development do
