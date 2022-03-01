@@ -215,9 +215,9 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: a0f576e459b03710794f7e6264c48a03ae67baaf
+  revision: d13460de8d564f91c3a2d29efbcd6a3fcad1a899
   specs:
-    decidim-department_admin (0.4.0)
+    decidim-department_admin (0.4.2)
       decidim-core (~> 0.24.2)
 
 GIT
@@ -966,7 +966,7 @@ DEPENDENCIES
   decidim!
   decidim-admin-extended!
   decidim-challenges (= 0.0.11)!
-  decidim-department_admin (~> 0.4.0)!
+  decidim-department_admin (~> 0.4.2)!
   decidim-dev!
   decidim-espais-estables!
   decidim-home!
