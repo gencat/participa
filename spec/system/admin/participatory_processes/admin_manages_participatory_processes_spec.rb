@@ -20,6 +20,7 @@ describe "Admin manages participatory processes", type: :system do
       it "show proposal component alert" do
         visit decidim_admin_participatory_processes.participatory_processes_path
         click_link translated(participatory_process.title)
+        expect(page).to have_css(".alert")
         expect(page).to have_text("Recordeu que heu d'activar el component propostes.")
       end
     end
@@ -32,6 +33,7 @@ describe "Admin manages participatory processes", type: :system do
       it "not show proposal component alert" do
         visit decidim_admin_participatory_processes.participatory_processes_path
         click_link translated(participatory_process.title)
+        expect(page).not_to have_css(".alert")
         expect(page).not_to have_text("Recordeu que heu d'activar el component propostes.")
       end
     end

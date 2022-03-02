@@ -11,12 +11,10 @@
   end
 %>
 
-<% unless request.path.include?('components') %>
-  <% if proposal_component_published? %>
+<% if proposal_component_published? %>
+  <% if translated_attribute(@group.title) == 'Normativa' %>
     <div class="callout alert">
-      <% if translated_attribute(@group.title) == 'Normativa' %>
-        <%= t('decidim.participatory_processes.admin.participatory_processes.proposal_component_alert') %>
-      <% end %>
+      <%= t('decidim.participatory_processes.admin.participatory_processes.proposal_component_alert') %>
     </div>
   <% end %>
 <% end %>
