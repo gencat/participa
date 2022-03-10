@@ -3,7 +3,8 @@
     proposal_component = nil
 
     if defined?(current_participatory_process)
-      @group = Decidim::ParticipatoryProcessGroup.find(current_participatory_process.decidim_participatory_process_group_id)
+      @group = Decidim::ParticipatoryProcessGroup.find(current_participatory_process.decidim_participatory_process_group_id) if current_participatory_process.decidim_participatory_process_group_id
+
       proposal_component = current_participatory_process.components.find_by(manifest_name: 'proposals')
     end
 
