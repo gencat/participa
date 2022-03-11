@@ -13,13 +13,9 @@ gem 'decidim-process-extended'
 
 And then execute:
 ```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install decidim-process-extended
-$ bin/rails decidim_process_extended:install:migrations
+bundle install
+bin/rails decidim_process_extended:install:migrations
+bin/rails db:migrate
 ```
 
 ## Testing
