@@ -1,0 +1,81 @@
+name: "[CI] Process Extended"
+
+on:
+  push:
+    branches:
+      - master
+      - release/*
+      - "*-stable"
+  pull_request:
+
+env:
+  RUBY_VERSION: 2.7.2
+
+jobs:
+  test-report:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+    steps:
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+
+      - uses: ruby/setup-ruby@master
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-rubydeps-
+            ${{ runner.OS }}-
+
+      - name: Set bundle local config configvendor/bundle path
+        run: bundle config set --local path 'vendor/bundle'
+
+      - name: Install Ruby deps
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          retry_on: error
+          command: cd decidim-process-extended && bundle install --jobs 4 --retry 3 
+
+      - name: Generate process_extended test_app
+        run: |
+          cd decidim-process-extended
+          bundle exec rake decidim:generate_external_test_app
+          cd spec/decidim_dummy_app/
+          bundle exec rake decidim_type:install:migrations
+          bundle exec rake decidim_process_extended:install:migrations
+          RAILS_ENV=test bundle exec rails db:migrate
+
+      - name: Run RSpec
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          retry_on: error
+          command: cd decidim-process-extended && CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
+
+      -  name: Upload coverage
+         run: ./.github/upload_coverage.sh cd decidim-process-extended $GITHUB_EVENT_PATH
