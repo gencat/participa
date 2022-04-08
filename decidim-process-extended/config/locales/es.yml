@@ -23,6 +23,7 @@ es:
             select_process_group: Selecciona un ámbito
             title: Información general
             visbility: Visibilidad
+          proposal_component_alert: Recuerda que tienes que activar el componente propuestas.
       show:
         area: Departamento
         cost: Coste

@@ -24,7 +24,7 @@ gem "decidim-type", path: "decidim-type"
 
 gem "decidim-idcat_mobil", "0.1.0"
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.2"
-gem "rails", "5.2.6"
+gem "rails", "~> 5.2.6"
 gem "soda-ruby", require: false
 
 gem "puma", "< 6"
