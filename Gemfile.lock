@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 8f0d2521a1191d007627af02bad5af2db3645e1a
+  revision: cae4b1e2716ff4c4af6befffec06c36f927538db
   branch: release/0.24-stable
   specs:
     decidim (0.24.3)
@@ -215,9 +215,9 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: a0f576e459b03710794f7e6264c48a03ae67baaf
+  revision: d13460de8d564f91c3a2d29efbcd6a3fcad1a899
   specs:
-    decidim-department_admin (0.4.0)
+    decidim-department_admin (0.4.2)
       decidim-core (~> 0.24.2)
 
 GIT
@@ -397,7 +397,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (17.9.52)
+    chef-utils (17.10.0)
       concurrent-ruby
     childprocess (3.0.0)
     chronic (0.10.2)
@@ -497,7 +497,7 @@ GEM
       rest-client (>= 1.6)
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
-    excon (0.91.0)
+    excon (0.92.2)
     execjs (2.8.1)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -516,14 +516,14 @@ GEM
     file_validators (2.3.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
-    fog-core (2.2.4)
+    fog-core (2.3.0)
       builder
       excon (~> 0.71)
-      formatador (~> 0.2)
+      formatador (>= 0.2, < 2.0)
       mime-types
     fog-local (0.8.0)
       fog-core (>= 1.27, < 3.0)
-    formatador (0.3.0)
+    formatador (1.1.0)
     foundation-rails (6.6.2.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0)
@@ -534,13 +534,13 @@ GEM
       activesupport (>= 4.1, < 6.0)
       railties (>= 4.1, < 6.0)
       tzinfo (~> 1.2, >= 1.2.2)
-    geocoder (1.7.3)
+    geocoder (1.7.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.13.10)
+    graphql (1.13.11)
     hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
@@ -590,7 +590,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    kramdown (2.3.1)
+    kramdown (2.3.2)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
@@ -630,7 +630,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-shellout (3.2.5)
+    mixlib-shellout (3.2.7)
       chef-utils
     msgpack (1.4.2)
     multi_json (1.15.0)
@@ -903,12 +903,12 @@ GEM
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8)
+    unf_ext (0.0.8.1)
     unicode-display_width (1.7.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
-    vcr (6.0.0)
+    vcr (6.1.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -949,7 +949,7 @@ DEPENDENCIES
   decidim!
   decidim-admin-extended!
   decidim-challenges (= 0.0.11)!
-  decidim-department_admin (~> 0.4.0)!
+  decidim-department_admin (~> 0.4.2)!
   decidim-dev!
   decidim-espais-estables!
   decidim-home!
