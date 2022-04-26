@@ -21,3 +21,7 @@ end
 every 1.day, at: "3:00 am" do
   rake "tmp:clear"
 end
+
+every 5.minutes do
+  rake "decidim_participatory_processes:enqueue_change_active_step"
+end

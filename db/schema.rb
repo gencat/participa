@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_174157) do
+ActiveRecord::Schema.define(version: 2022_04_26_095422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -190,7 +190,6 @@ ActiveRecord::Schema.define(version: 2021_11_29_174157) do
     t.string "facebook_handler"
     t.string "youtube_handler"
     t.string "github_handler"
-    t.boolean "destacat", default: false
     t.bigint "decidim_assemblies_type_id"
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
@@ -564,10 +563,10 @@ ActiveRecord::Schema.define(version: 2021_11_29_174157) do
   end
 
   create_table "decidim_forms_answers", id: :serial, force: :cascade do |t|
-    t.text "body"
     t.integer "decidim_user_id"
     t.integer "decidim_questionnaire_id"
     t.integer "decidim_question_id"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "session_token", default: "", null: false
@@ -967,8 +966,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_174157) do
   create_table "decidim_participatory_process_steps", id: :serial, force: :cascade do |t|
     t.jsonb "title", null: false
     t.jsonb "description"
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer "decidim_participatory_process_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

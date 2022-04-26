@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: cae4b1e2716ff4c4af6befffec06c36f927538db
+  revision: aaafae3dd52d59b5d675c7aed9c92b5b096cb168
   branch: release/0.24-stable
   specs:
     decidim (0.24.3)
@@ -540,7 +540,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.13.11)
+    graphql (1.13.12)
     hashdiff (1.0.1)
     hashie (3.6.0)
     highline (2.0.3)
@@ -590,7 +590,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    kramdown (2.3.2)
+    kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
