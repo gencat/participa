@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: dd12dfa48779e10e8eca1708956058a5a65e8996
-  branch: release/0.24-stable
+  revision: c243575bead3cb48fc62149f4caf5d1af46824bd
+  branch: backport/9026_to_release/0.24-stable
   specs:
     decidim (0.24.3)
       decidim-accountability (= 0.24.3)
@@ -497,7 +497,7 @@ GEM
       rest-client (>= 1.6)
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
-    excon (0.92.2)
+    excon (0.92.3)
     execjs (2.8.1)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
