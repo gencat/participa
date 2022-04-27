@@ -23,5 +23,5 @@ every 1.day, at: "3:00 am" do
 end
 
 every 5.minutes do
-  rake "phases_participatory_processes:enqueue_change_active_step"
+  rake "participatory_processes_phases:enqueue_change_active_step"
 end
