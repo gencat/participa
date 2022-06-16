@@ -10,6 +10,8 @@ module Middlewares
       request = Rack::Request.new(env)
       if request.path.starts_with?("/futur-europa")
         [301, { "Location" => request.url.sub("/futur-europa", "/processes/FuturEuropa") }, []]
+      elsif request.path.starts_with?("/participacooperacio")
+        [301, { "Location" => request.url.sub("/participacooperacio", "/processes/pladirectorcooperacio") }, []]
       else
         @app.call(env)
       end
