@@ -12,7 +12,6 @@ gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-admin-extended", path: "decidim-admin-extended"
 gem "decidim-challenges", "0.0.11", git: "https://github.com/gencat/decidim-module-challenges.git"
 gem "decidim-department_admin", "~> 0.4.2", git: "https://github.com/gencat/decidim-module-department_admin.git"
-gem "decidim-espais-estables", path: "decidim-espais-estables"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-regulations", path: "decidim-regulations"

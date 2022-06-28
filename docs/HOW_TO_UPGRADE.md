@@ -30,7 +30,6 @@ bin/rails db:migrate
 
 4. Go to the changelog of the specific branch you are updating. For example, https://github.com/decidim/decidim/blob/master/CHANGELOG.md. And review each of the new developments introduced, and apply the new changes.
    If there are some new locales added or changed, take in mind, that until the locale :oc is added to the Decidim, you must add the new Occitan translations to the application.
-   * decidim-assemblies translations goes to decidim-espais-estables
 
 5. also, you can make sure new translations are complete for all languages in your application doing this:
 ```console
@@ -209,7 +208,6 @@ These are custom modules and this is what you have to keep in mind when updating
   * `app/views/layouts/decidim/mailer.html.erb (decidim-core)`
     * Full rewrite
   * `config/locales/`
-    * Add :oc locales (except for `decidim-assemblies`, that are inside `decidim-espais-estables`)
     * Overrides some translations keys
     * Fixes some Decidim translations in `*_fix.yml` files
 
