@@ -38,3 +38,11 @@ spec/decidim_dummy_app/
 *.iml
 
 coverage/
+storage/
+
+/public/packs
+/public/packs-test
+public/decidim-packs/
+
+yarn-debug.log*
+.yarn-integrity
