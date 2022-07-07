@@ -21,9 +21,10 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 #### Custom gems and modifications block end ####
 
-gem "decidim-idcat_mobil", "0.1.0"
-gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.2"
-gem "rails", "~> 5.2.6"
+gem "decidim-idcat_mobil", "~> 0.2.1"
+# Although `omniauth-rails_csrf_protection` is already a Decidim dependency, it is not working unless declared here.
+# In meta.decidim.org, which is at Decidim v0.26, this declaration is not required. Try to remove it after upgrading to Decidim v0.26
+gem "omniauth-rails_csrf_protection"
 gem "soda-ruby", require: false
 
 gem "puma", "< 6"
