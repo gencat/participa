@@ -1,5 +1,3 @@
-@import "../settings.scss";
-
 .process-nav__link {
     text-transform: inherit !important;
     &:hover {
@@ -64,10 +62,6 @@
 
 .definition-data__item {
     color: $colorText;
-}
-
-.definition-data__title {
-
 }
 
 .is-dropdown-submenu-parent {

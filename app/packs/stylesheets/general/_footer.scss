@@ -1,22 +1,11 @@
-@import "decidim/application";
-@import "../settings";
-@import "../vendor/mq";
-
-$SoftGrey : #efefef;
-$Grey     : #666;
-
-$DarkGrey   : #2c2930;
-$MediumGrey : #828282;
-$LightGrey  : #e8e8e8;
-
 .off-canvas-wrapper{
-    .main-footer {
-        background-color: $SoftGrey !important;
+  .main-footer {
+    background-color: $SoftGrey !important;
 
-        @include mq($until: large_phone){
-            padding: 16px 10px;
-        }
+    @include mq($until: large_phone){
+      padding: 16px 10px;
     }
+  }
 }
 
 .main-footer a:hover, .mini-footer a:hover {
@@ -101,17 +90,6 @@ $LightGrey  : #e8e8e8;
 .part-no-padding-left {
   padding-left: 0px;
 }
-
-.part-subFooter-logo {
-    background: image-url("logo_generalitat_dark.png") no-repeat 0 0;
-    text-indent: -555em;
-    margin: .5em 0;
-    margin-left: 15px;
-    margin-right: 15px;
-    width: 125px;
-    height: 25px;
-}
-
 
 .part-footer-sm-hide {
     @include breakpoint( 768 down){

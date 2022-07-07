@@ -1,7 +1,3 @@
-@import "./decidim/application";
-@import "../settings";
-@import "../vendor/mq";
-
 .navbar{
     padding-top: 8px;
     background-color: #333;
@@ -122,7 +118,7 @@ nav {
     text-decoration: none;
 
     @include breakpoint(640 down){
-      background-image: image-url("nav-bar-actiu.jpg"),
+      background-image: url("images/nav-bar-actiu.jpg"),
         -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) );
             color: $navbar-color-hover;
 
@@ -153,13 +149,13 @@ nav {
 
   @include breakpoint(640 down){
     height: 46px;
-    background-image: image-url("nav-bar-actiu.jpg"), linear-gradient(to bottom, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100% );
+    background-image: url("images/nav-bar-actiu.jpg"), linear-gradient(to bottom, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100% );
     color: $White !important;
     background-repeat: no-repeat;
     background-position: left center;
     box-shadow: 0px !important;
       &:hover {
-        background-image: image-url("nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
+        background-image: url("images/nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
         background-repeat: no-repeat !important;
         background-position: left center !important;
         color: $White !important;
@@ -167,13 +163,6 @@ nav {
         background: linear-gradient(to bottom,rgba(135, 135, 135, 1),rgba(162, 162, 162, 1) ) !important; /* IE ? */
         background: -ms-linear-gradient(top, rgba(135, 135, 135, 1), rgba(162, 162, 162, 1) ) !important; /* IE 11 */
       }
-  }
-}
-
-.main-nav__link {
-  box-shadow: $navbar-active-shadow-small;
-  @include breakpoint(640 down){
-    box-shadow: $navbar-active-shadow-none;
   }
 }
 
@@ -222,7 +211,7 @@ nav {
     @include breakpoint(640 down){
 
       &:hover{
-        background-image: image-url("nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
+        background-image: url("images/nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
         text-decoration: none !important;
         color: $navbar-color-hover;
         background-size: auto 100%;
@@ -288,7 +277,7 @@ nav {
     padding-right: 32px;
 
     &:hover{
-      background-image: image-url("nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
+      background-image: url("images/nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
       color: $navbar-active-color !important;
       text-decoration: none !important;
     }
@@ -335,7 +324,7 @@ nav {
 }
 
 .part-gencat-cat-img {
-  background-image: image-url("gencat_cat_navbar.png");
+  background-image: url("images/gencat_cat_navbar.png");
   height: 1.688em;
   margin: 1em auto 0;
   width: 8.063em;
@@ -344,89 +333,10 @@ nav {
   cursor:pointer;
 }
 
-.part-gencat-logo-nomargin {
-  background: image-url("logo_generalitat_white.png") no-repeat 0 0;
-  height: 1.688em;
-  display: block;
-  color: transparent;
-  cursor:pointer;
-  margin-left: -14px;
-}
-
-.part-upArrow-white {
-    background: image-url("upArrow_white.png") no-repeat 0 0;
-    width: 30px;
-    height: 36px;
-}
-
-.part-downArrow-white {
-    background: image-url("downArrow_white.png") no-repeat 0 0;
-    width: 30px;
-    height: 36px;
-}
-
-.part-leftArrow-white {
-    background: image-url("leftArrow_white.png") no-repeat 0 0;
-    width: 30px;
-    height: 36px;
-}
-
-
-.part-rightArrow-white {
-    background: image-url("rightArrow_white.png") no-repeat 0 0;
-    width: 30px;
-    height: 36px;
-}
-
-.part-uparrow-circle-red {
-    background: image-url("uparrow_red_circle.png") no-repeat 0 0;
-    width: 30px;
-    height: 36px;
-}
-
-.part-downarrow-circle-red {
-    background: image-url("downarrow_red_circle.png") no-repeat 0 0;
-    width: 30px;
-    height: 36px;
-}
-
-.part-leftarrow-circle-red {
-    background: image-url("leftarrow_red_circle.png") no-repeat 0 0;
-    width: 30px;
-    height: 36px;
-}
-
-.part-rightarrow-circle-red {
-    background: image-url("rightarrow_red_circle.png") no-repeat 0 0;
-    width: 30px;
-    height: 36px;
-}
-
-
 /* Zona logo navbar (Gencat y cerrar, dispositivos móviles) */
-
-.part-topNavbar-logo {
-    background: image-url("logo_generalitat_white.png") no-repeat 0 0;
-    height: 2em;
-    text-indent: -555em;
-    margin: .5em 0;
-    margin-left: 15px;
-    margin-right: 15px;
-    cursor:pointer;
-}
 
 .part-background-grey-navbar {
     background: $grayLogoNavbar;
-}
-
-.part-close-button {
-  background-image: image-url("tancar_menu.png");
-  background-repeat: no-repeat;
-  background-position: left center;
-
-  width: 20px;
-  height: 25px;
-  margin-top: 3px;
 }
 
 .close-button {

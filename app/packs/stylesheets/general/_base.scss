@@ -1,0 +1,16 @@
+body{
+  a{
+    color: $basicLink;
+
+    &:hover,
+    &:focus{
+      color: $RedGenCat;
+      text-decoration: underline;
+    }
+  }
+  .opinion-toggle--meh{
+    &.is-active{
+      background-color: $RedGenCat;
+    }
+  }
+}

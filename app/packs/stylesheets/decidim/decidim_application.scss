@@ -1,8 +1,30 @@
-@import "decidim/application";
-@import "./settings";
+// This is a file that can be overridden by the application in order to override styles
+// Notice that this file is included at the very end of the stylesheets packs to have
+// more priority
+//
+// To override CSS variables or Foundation settings use _decidim-settings.scss
+//
+// By default this is empty.
+
+@import "stylesheets/vendor/bootstrap.scss";
+@import "stylesheets/vendor/mq.scss";
+
+@import "stylesheets/general/alerts.scss";
+@import "stylesheets/general/axis.scss";
+@import "stylesheets/general/base.scss";
+@import "stylesheets/general/card.scss";
+@import "stylesheets/general/dropdown.scss";
+@import "stylesheets/general/fixes.scss";
+@import "stylesheets/general/footer.scss";
+@import "stylesheets/general/header.scss";
+@import "stylesheets/general/main.scss";
+@import "stylesheets/general/navbar.scss";
+@import "stylesheets/general/processes.scss";
+@import "stylesheets/general/tabs.scss";
+@import "stylesheets/general/timeline.scss";
 
 button:focus{
-outline: 0;
+  outline: 0;
 }
 .title-bar {
   @include breakpoint(640 down){
@@ -438,7 +460,6 @@ h5 {
   font-size: 14px ;
 }
 
-
 .part-search {
   width: 100%;
   display: inline-block;
@@ -510,7 +531,6 @@ h5 {
   &:hover {
     text-decoration: underline;
   }
-
 }
 
 .datepicker-days {
@@ -596,7 +616,6 @@ h5 {
     background: #f5f5f5;
   }
 }
-
 
 /* buttons, links */
 
@@ -728,36 +747,6 @@ h5 {
   }
 }
 
-.part-btn-bars {
-  background: image-url("bars_red.png") no-repeat 0 0;
-  width: 33px;
-  height: 33px;
-  border-radius: 0%;
-  float: left;
-  margin-left: -0.188em;
-  margin-right: 0.438em;
-
-  @include breakpoint(450 up){
-    margin-top: 0.6em;
-  }
-
-}
-
-.part-btn-cross {
-  background: image-url("cross_red.png") no-repeat 0 0;
-  width: 33px;
-  height: 33px;
-  border-radius: 0%;
-  float: left;
-  margin-left: -0.188em;
-  margin-right: 0.438em;
-
-  @include breakpoint(450 up){
-    margin-top: 0.6em;
-  }
-
-}
-
 .part-btn-tiny {
   padding: 5px 10px !important;
   font-size: 14px !important;
@@ -782,6 +771,14 @@ h5 {
   }
 }
 
+.check-newsletter.button.clear.secondary {
+  background-color: $white;
+  color: $primary;
+  &:hover, &:focus {
+    background-color: $primary;
+    color: $white;
+  }
+}
 
 /* */
 
@@ -875,7 +872,6 @@ h5 {
   @include breakpoint(600 down){
     font-size: 15px;
   }
-
 }
 
 /* process phases */
