@@ -6,6 +6,10 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::TopComments
 
+      initializer "decidim_top_comments.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
       # make decorators autoload in development env
       config.autoload_paths << File.join(
         Decidim::TopComments::Engine.root, "app", "decorators", "{**}"

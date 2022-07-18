@@ -64,11 +64,11 @@ module Decidim
         end
 
         def comment_author(author_id)
-          @comment_author = Decidim::User.where(id: author_id).pluck(:name).first
+          @comment_author = Decidim::User.where(id: author_id).pick(:name)
         end
 
         def comment_author_avatar(author_id)
-          @comment_author_avatar = Decidim::User.where(id: author_id).pluck(:avatar).first
+          @comment_author_avatar = Decidim::User.where(id: author_id).pick(:avatar)
         end
 
         def count_negative_votes_for_comment(comment_id)
