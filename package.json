@@ -6,7 +6,8 @@
     "@decidim/core": "file:packages/core",
     "@decidim/elections": "file:packages/elections",
     "@decidim/webpacker": "file:packages/webpacker",
-    "@rails/webpacker": "^5.4.3"
+    "@rails/webpacker": "^6.0.0-rc.6",
+    "graphql-ws": "^5.9.1"
   },
   "version": "0.1.0",
   "engines": {
@@ -14,7 +15,7 @@
   },
   "babel": {
     "presets": [
-      "@babel/preset-env"
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
     ]
   },
   "browserslist": [
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
-    "@decidim/stylelint-config": "file:packages/stylelint-config"
+    "@decidim/stylelint-config": "file:packages/stylelint-config",
+    "@webpack-cli/serve": "^1.6.1"
   }
 }
