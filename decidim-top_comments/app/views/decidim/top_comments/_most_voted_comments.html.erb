@@ -3,7 +3,7 @@
 	<div id="most-voted-comments-favor" class="column">
 		<p class="part-paragraf">
 				<svg class="icon icon-thumb-up">
-					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('decidim/icons.svg#icon-thumb-up') %>"></use>
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= icon "thumb-up", role: "img", "aria-hidden": true %>"></use>
 				</svg>
 				<span id="num-in-favor-comments"><%= @tc_presenter.in_favor_comments.size %></span>
 			  <%= t(".positive").downcase %>
@@ -21,7 +21,7 @@
 	<div id="most-voted-comments-against" class="column">
 		<p class="part-paragraf">
 			<svg class="icon icon-thumb-down">
-					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('decidim/icons.svg#icon-thumb-down') %>"></use>
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= icon "thumb-down", role: "img", "aria-hidden": true %>"></use>
 			</svg>
 				<span id="num-against-comments"><%= @tc_presenter.against_comments.size %></span>
 				<%= t(".negative").downcase %>

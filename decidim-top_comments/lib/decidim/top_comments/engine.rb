@@ -18,7 +18,7 @@ module Decidim
       # make decorators available to applications that use this Engine
       config.to_prepare do
         Dir.glob(Decidim::TopComments::Engine.root + "app/decorators/**/*_decorator*.rb").each do |c|
-          require_dependency(c)
+          load c
         end
       end
     end

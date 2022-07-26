@@ -32,13 +32,13 @@
     <div class="comment__votes">
       <button class="" disabled="">
         <svg class="icon icon--small icon-chevron-top">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_pack_path("media/images/icons.svg#icon-chevron-top") %>"></use>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= icon "chevron-top", class: "icon--small", role: "img", "aria-hidden": true %>"></use>
         </svg>
         <%= comment.vote_sum %>
       </button>
       <button class="" disabled="">
         <svg class="icon icon--small icon-chevron-bottom">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_pack_path("media/images/icons.svg#icon-chevron-bottom") %>"></use>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= icon "chevron-bottom", class: "icon--small", role: "img", "aria-hidden": true %>"></use>
         </svg>
         <%= count_negative_votes_for_comment(comment.id) %>
       </button>
