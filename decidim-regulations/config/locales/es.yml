@@ -77,10 +77,8 @@ es:
           filters:
             select_a_type: Selecciona un tipo
             types: Tipo
-    pages:
-      home:
-        statistics:
-          regulations_count: Participaciones en normativa
+    statistics:
+      regulations_count: Participaciones en normativa
     participatory_processes:
       participatory_processes:
         order_by_processes:
