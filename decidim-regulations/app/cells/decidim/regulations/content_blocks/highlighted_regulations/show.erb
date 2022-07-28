@@ -9,7 +9,7 @@
             <article class="card card--process card--mini">
               <%= link_to decidim_participatory_processes.participatory_process_path(regulation), class: "card__link" do %>
                 <div class="card__image-top"
-                  style="background-image:url(<%= regulation.hero_image.url %>)"></div>
+                  style="background-image:url(<%= regulation.attached_uploader(:hero_image).path %>)"></div>
               <% end %>
               <div class="card__content">
                 <%= link_to decidim_participatory_processes.participatory_process_path(regulation), class: "card__link" do %>
