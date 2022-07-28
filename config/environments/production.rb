@@ -112,4 +112,7 @@ Rails.application.configure do
   mail_values = config.action_mailer.smtp_settings.dup
   mail_values.delete(:password)
   puts "=> Mail Server configuration: " + mail_values.to_s
+
+  # Store files locally.
+  config.active_storage.service = :local
 end
