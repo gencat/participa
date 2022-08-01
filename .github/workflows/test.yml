@@ -28,12 +28,9 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     env:
-      DB_HOST: localhost
-      DB_PORT: "5432"
-      DB_POOL: 5
-      TEST_DB_DATABASE: participa_gencat_test
-      TEST_DB_USERNAME: postgres
-      TEST_DB_PASSWORD: postgres
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
     steps:
       - uses: actions/checkout@v2.0.0
         with:
@@ -69,10 +66,8 @@ jobs:
           retry_on: error
           command: bundle install --jobs 4 --retry 3 
 
-      - name: Create test database
-        run: |
-          RAILS_ENV=test bundle exec rails db:create
-          RAILS_ENV=test bundle exec rails db:migrate
+      - name: Setup database
+        run: bundle exec rake db:test:prepare
 
       - name: Setup Code Climate test-reporter
         run: |
