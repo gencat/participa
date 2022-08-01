@@ -183,6 +183,24 @@ GIT
       decidim-core (~> 0.25.2)
 
 GIT
+  remote: https://github.com/gencat/decidim-module-department_admin.git
+  revision: 9017bedba4a49df3b15449877f1fca1b8f5cf870
+  branch: compatibility_decidim_0.25
+  specs:
+    decidim-department_admin (0.4.3)
+      decidim-admin (~> 0.25.2)
+      decidim-core (~> 0.25.2)
+
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: 8826eda825a9ac83c23dc6c78478c56b145fbdc8
+  branch: compatibility_decidim_0.25
+  specs:
+    decidim-verifications-members_picker (0.0.3)
+      decidim-core (~> 0.25.2)
+      decidim-verifications (~> 0.25.2)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: 1d20451c56b7809cf0d509bbb4d0ac63d4791c8c
   branch: release/0.25-stable
@@ -877,6 +895,7 @@ DEPENDENCIES
   decidim!
   decidim-admin-extended!
   decidim-challenges (= 0.1.0)!
+  decidim-department_admin!
   decidim-dev!
   decidim-home!
   decidim-idcat_mobil (~> 0.2.1)
@@ -886,6 +905,7 @@ DEPENDENCIES
   decidim-term_customizer!
   decidim-top_comments!
   decidim-type!
+  decidim-verifications-members_picker!
   deface
   delayed_job_active_record
   faker
