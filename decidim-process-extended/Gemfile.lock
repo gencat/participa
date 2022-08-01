@@ -184,7 +184,7 @@ PATH
 PATH
   remote: .
   specs:
-    decidim-process-extended (0.1.0)
+    decidim-process-extended (0.2.0)
       decidim-core (>= 0.25)
       decidim-type (= 0.2.1)
       rails (>= 5.2, < 7.0.x)

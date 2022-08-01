@@ -91,6 +91,16 @@
   padding-left: 0px;
 }
 
+// .part-subFooter-logo {
+//     background: image-url("logo_generalitat_dark.png") no-repeat 0 0;
+//     text-indent: -555em;
+//     margin: .5em 0;
+//     margin-left: 15px;
+//     margin-right: 15px;
+//     width: 125px;
+//     height: 25px;
+// }
+
 .part-footer-sm-hide {
     @include breakpoint( 768 down){
         display: none;

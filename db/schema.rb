@@ -190,7 +190,6 @@ ActiveRecord::Schema.define(version: 2022_07_07_090972) do
     t.string "facebook_handler"
     t.string "youtube_handler"
     t.string "github_handler"
-    t.boolean "destacat", default: false
     t.bigint "decidim_assemblies_type_id"
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false

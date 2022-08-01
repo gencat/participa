@@ -166,6 +166,13 @@ nav {
   }
 }
 
+// .main-nav__link {
+//   box-shadow: $navbar-active-shadow-small;
+//   @include breakpoint(640 down){
+//     box-shadow: $navbar-active-shadow-none;
+//   }
+// }
+
 .participa-left-bar li{
   //font-weight: bold;
   font-weight: normal !important;
@@ -333,10 +340,89 @@ nav {
   cursor:pointer;
 }
 
+.part-gencat-logo-nomargin {
+  background: url("images/logo_generalitat_white.png") no-repeat 0 0;
+  height: 1.688em;
+  display: block;
+  color: transparent;
+  cursor:pointer;
+  margin-left: -14px;
+}
+
+// .part-upArrow-white {
+//     background: image-url("upArrow_white.png") no-repeat 0 0;
+//     width: 30px;
+//     height: 36px;
+// }
+
+// .part-downArrow-white {
+//     background: image-url("downArrow_white.png") no-repeat 0 0;
+//     width: 30px;
+//     height: 36px;
+// }
+
+// .part-leftArrow-white {
+//     background: image-url("leftArrow_white.png") no-repeat 0 0;
+//     width: 30px;
+//     height: 36px;
+// }
+
+
+// .part-rightArrow-white {
+//     background: image-url("rightArrow_white.png") no-repeat 0 0;
+//     width: 30px;
+//     height: 36px;
+// }
+
+// .part-uparrow-circle-red {
+//     background: image-url("uparrow_red_circle.png") no-repeat 0 0;
+//     width: 30px;
+//     height: 36px;
+// }
+
+// .part-downarrow-circle-red {
+//     background: image-url("downarrow_red_circle.png") no-repeat 0 0;
+//     width: 30px;
+//     height: 36px;
+// }
+
+// .part-leftarrow-circle-red {
+//     background: image-url("leftarrow_red_circle.png") no-repeat 0 0;
+//     width: 30px;
+//     height: 36px;
+// }
+
+// .part-rightarrow-circle-red {
+//     background: image-url("rightarrow_red_circle.png") no-repeat 0 0;
+//     width: 30px;
+//     height: 36px;
+// }
+
+
 /* Zona logo navbar (Gencat y cerrar, dispositivos móviles) */
+
+.part-topNavbar-logo {
+    background: url("images/logo_generalitat_white.png") no-repeat 0 0;
+    height: 2em;
+    text-indent: -555em;
+    margin: .5em 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor:pointer;
+}
 
 .part-background-grey-navbar {
     background: $grayLogoNavbar;
+}
+
+.part-close-button {
+  background-image: url("images/tancar_menu.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  width: 20px;
+  height: 25px;
+  margin-top: 3px;
 }
 
 .close-button {
