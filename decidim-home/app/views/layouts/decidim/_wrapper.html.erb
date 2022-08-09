@@ -94,6 +94,16 @@ end
               <%= render partial: "layouts/decidim/admin_links" %>
             </div>
           </div>
+          <div class="site-title title-bar show-for-medium">
+            <div class="row column">
+              <p class="part-main-title">
+                <%= link_to  "/", class: "part-a-white" do %>
+                  <%= current_organization.name %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
           <div class="show-for-medium" data-set="nav-holder">
             <div class="navbar js-append">
               <div class="row column">

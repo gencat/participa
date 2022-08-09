@@ -17,6 +17,11 @@ module Decidim
           end
         end
 
+        # activate Decidim LayoutHelper for the overriden views
+        initializer "decidim_process_extended.helpers" do
+          ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
+        end
+
         initializer "decidim_process_extended.webpacker.assets_path" do
           Decidim.register_assets_path File.expand_path("app/packs", root)
         end
