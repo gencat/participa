@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-admin version.
   module Admin
     module Extended
-      VERSION = "0.1.1"
+      VERSION = "0.2.0"
     end
   end
 end

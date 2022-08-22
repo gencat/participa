@@ -193,8 +193,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: 8826eda825a9ac83c23dc6c78478c56b145fbdc8
-  branch: compatibility_decidim_0.25
+  revision: 1e06a3ab74a1cbc758834b170b6fd63d6c6fd915
+  tag: 0.0.3
   specs:
     decidim-verifications-members_picker (0.0.3)
       decidim-core (~> 0.25.2)
@@ -212,7 +212,7 @@ GIT
 PATH
   remote: decidim-admin-extended
   specs:
-    decidim-admin-extended (0.1.1)
+    decidim-admin-extended (0.2.0)
       decidim-admin (>= 0.9.3)
       decidim-core (>= 0.9.3)
 

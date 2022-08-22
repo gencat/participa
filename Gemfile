@@ -26,7 +26,7 @@ gem "decidim-idcat_mobil", "~> 0.2.1"
 # In meta.decidim.org, which is at Decidim v0.26, this declaration is not required. Try to remove it after upgrading to Decidim v0.26
 gem "omniauth-rails_csrf_protection"
 
-gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", branch: "compatibility_decidim_0.25"
+gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.3"
 gem "soda-ruby", require: false
 
 gem "puma", "< 6"

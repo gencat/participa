@@ -13,7 +13,7 @@ env:
   NODE_VERSION: 16.9.1
 
 jobs:
-  test-report:
+  test-app:
     runs-on: ubuntu-latest
 
     services:
