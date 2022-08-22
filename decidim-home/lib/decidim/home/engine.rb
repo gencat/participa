@@ -10,11 +10,10 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Home
 
-      config.to_prepare do
+      initializer "decidim_home.helpers" do
         # activate Decidim LayoutHelper for the overriden views
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::LayoutHelper if respond_to?(:helper)
-        end
+        ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
+        ::Decidim::ApplicationController.helper ::Decidim::LayoutHelper
       end
 
       initializer "decidim_home.add_cells_view_paths" do

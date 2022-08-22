@@ -36,6 +36,8 @@ Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
       facilitators: form.facilitators,
       email: form.email,
       decidim_type: form.type
-    }.merge(uploader_attributes)
+    }.merge(
+      attachment_attributes(:hero_image, :banner_image)
+    )
   end
 end
