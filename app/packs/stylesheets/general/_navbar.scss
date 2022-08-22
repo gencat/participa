@@ -166,34 +166,23 @@ nav {
   }
 }
 
-// .main-nav__link {
-//   box-shadow: $navbar-active-shadow-small;
-//   @include breakpoint(640 down){
-//     box-shadow: $navbar-active-shadow-none;
-//   }
-// }
-
 .participa-left-bar li{
-  //font-weight: bold;
   font-weight: normal !important;
   font-family: 'Open Sans Semibold';
   box-shadow: $navbar-active-shadow-small;
 
   @include breakpoint(640 down){
     box-shadow: $navbar-active-shadow-none;
-    // background: linear-gradient(top,rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* Standard syntax */
     background: linear-gradient(to bottom,rgba(109, 109, 109, 1),rgba(94, 94, 94, 1) ) ; /* IE ? */
     background: -ms-linear-gradient(top, rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* IE 11 */
 
     &:hover {
-      // background: linear-gradient(top,rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* Standard syntax */
       background: linear-gradient(to bottom,rgba(162, 162, 162, 1),rgba(135, 135, 135, 1) ) ; /* IE ? */
       background: -ms-linear-gradient(top, rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* IE 11 */
     }
   }
 
   a {
-    //height: 46px;
     vertical-align: 50%;
     padding-top: 12px !important;
     padding-left: 15px !important;
@@ -245,12 +234,10 @@ nav {
 
 .topbar__user__login {
     @include breakpoint(640 down){
-    // background: linear-gradient(top,rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* Standard syntax */
     background: linear-gradient(to bottom,rgba(109, 109, 109, 1),rgba(94, 94, 94, 1) ) ; /* IE ? */
     background: -ms-linear-gradient(top, rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* IE 11 */
 
       &:hover {
-      // background: linear-gradient(top,rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* Standard syntax */
       background: linear-gradient(to bottom,rgba(162, 162, 162, 1),rgba(135, 135, 135, 1) ) ; /* IE ? */
       background: -ms-linear-gradient(top, rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* IE 11 */
       }
