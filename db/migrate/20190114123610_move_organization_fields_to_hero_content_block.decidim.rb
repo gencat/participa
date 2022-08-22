@@ -3,10 +3,6 @@
 # This migration comes from decidim (originally 20180810092428)
 
 class MoveOrganizationFieldsToHeroContentBlock < ActiveRecord::Migration[5.2]
-  class ::Decidim::Organization < Decidim::ApplicationRecord
-    mount_uploader :homepage_image, ::Decidim::HomepageImageUploader
-  end
-
   def change
     Decidim::ContentBlock.reset_column_information
     Decidim::Organization.find_each do |organization|
