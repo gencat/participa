@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.class_eval do
-  def create_participatory_process
-    @process = Decidim::ParticipatoryProcess.new(
+  def attributes
+    {
       organization: form.current_organization,
       title: form.title,
       subtitle: form.subtitle,
@@ -28,6 +28,9 @@ Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.class_eval do
       start_date: form.start_date,
       end_date: form.end_date,
       participatory_process_group: form.participatory_process_group,
+      show_metrics: form.show_metrics,
+      show_statistics: form.show_statistics,
+      announcement: form.announcement,
 
       # Participa added attributes
       cost: form.cost,
@@ -36,24 +39,6 @@ Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.class_eval do
       facilitators: form.facilitators,
       email: form.email.downcase,
       decidim_type: form.type
-    )
-
-    return process unless process.valid?
-
-    transaction do
-      process.save!
-
-      log_process_creation(process)
-
-      process.steps.create!(
-        title: Decidim::TranslationsHelper.multi_translation(
-          "decidim.admin.participatory_process_steps.default_title",
-          form.current_organization.available_locales
-        ),
-        active: true
-      )
-
-      process
-    end
+    }
   end
 end

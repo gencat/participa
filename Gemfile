@@ -23,7 +23,7 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 
 gem "decidim-idcat_mobil", "~> 0.2.1"
 
-gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", branch: 'upgrade/0.26-stable'
+gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", branch: "upgrade/0.26-stable"
 gem "soda-ruby", require: false
 
 gem "puma", "< 6"
