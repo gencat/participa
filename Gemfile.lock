@@ -174,18 +174,18 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges.git
-  revision: 936ff63a1f840a3c1b96c5d57f9ac002194e79e1
+  revision: 218691c77d5f8e1d90ac926876f80623948c3135
   branch: upgrade/0.26-stable
   specs:
-    decidim-challenges (0.1.0)
+    decidim-challenges (0.2.0)
       decidim-core (~> 0.26.2)
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: 01817831f5ca3648fd383c5c57d42b81b9839684
+  revision: c0a81a211e9ed30f6ad07cf5888c8ac80d4d6ca9
   branch: upgrade/0.26-stable
   specs:
-    decidim-department_admin (0.4.3)
+    decidim-department_admin (0.5.0)
       decidim-admin (~> 0.26.2)
       decidim-core (~> 0.26.2)
 
@@ -216,23 +216,23 @@ PATH
 PATH
   remote: decidim-home
   specs:
-    decidim-home (0.2.1)
+    decidim-home (0.3.0)
       decidim-core
       rails (>= 5.2, < 7.0.x)
 
 PATH
   remote: decidim-process-extended
   specs:
-    decidim-process-extended (0.2.1)
+    decidim-process-extended (0.3.0)
       decidim-core (>= 0.26)
-      decidim-type (= 0.2.2)
+      decidim-type (= 0.3.0)
       rails (>= 5.2, < 7.0.x)
 
 PATH
   remote: decidim-regulations
   specs:
     decidim-regulations (0.1.2)
-      decidim-type (= 0.2.2)
+      decidim-type (= 0.3.0)
       rails (>= 5.2, < 7.0.x)
 
 PATH
@@ -246,7 +246,7 @@ PATH
 PATH
   remote: decidim-type
   specs:
-    decidim-type (0.2.2)
+    decidim-type (0.3.0)
       decidim-core (>= 0.26)
 
 GEM
@@ -584,7 +584,8 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    oauth (0.5.10)
+    oauth (1.0.0)
+      version_gem (~> 1.1)
     oauth2 (1.4.10)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -700,7 +701,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
-    redis (4.7.1)
+    redis (4.8.0)
     regexp_parser (2.5.0)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -817,6 +818,7 @@ GEM
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
+    version_gem (1.1.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -870,7 +872,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-admin-extended!
-  decidim-challenges (= 0.1.0)!
+  decidim-challenges!
   decidim-department_admin!
   decidim-dev!
   decidim-home!

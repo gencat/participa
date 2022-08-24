@@ -16,7 +16,7 @@ gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 
-gem "decidim-challenges", "0.1.0", git: "https://github.com/gencat/decidim-module-challenges.git", branch: "upgrade/0.26-stable"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", branch: "upgrade/0.26-stable"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", branch: "upgrade/0.26-stable"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
 #### Custom gems and modifications block end ####
