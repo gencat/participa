@@ -8,7 +8,8 @@
     "@decidim/core": "file:packages/core",
     "@decidim/elections": "file:packages/elections",
     "@decidim/webpacker": "file:packages/webpacker",
-    "@rails/webpacker": "^5.4.3"
+    "@rails/webpacker": "^5.4.3",
+    "graphql": "^16.6.0"
   },
   "version": "0.1.0",
   "engines": {
