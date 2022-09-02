@@ -174,7 +174,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges.git
-  revision: 218691c77d5f8e1d90ac926876f80623948c3135
+  revision: b694066141dc1f38098396d8a9270db77ec5c13d
   branch: upgrade/0.26-stable
   specs:
     decidim-challenges (0.2.0)
