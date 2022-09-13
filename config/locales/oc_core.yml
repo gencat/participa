@@ -1016,7 +1016,6 @@ oc:
           answers_count: Enquestes realitzades
           assemblies_count: Assemblees
           comments_count: Comentaris
-          conferences_count: Jornades
           debates_count: Debats
           endorsements_count: Adhesions
           headline: Estat actual de %{organization}
