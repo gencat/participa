@@ -2,12 +2,10 @@
 <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-2 large-up-2 card-grid">
 	<div id="most-voted-comments-favor" class="column">
 		<p class="part-paragraf">
-				<svg class="icon icon-thumb-up">
-					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('decidim/icons.svg#icon-thumb-up') %>"></use>
-				</svg>
-				<span id="num-in-favor-comments"><%= @tc_presenter.in_favor_comments.size %></span>
-			  <%= t(".positive").downcase %>
-			  <span id="percent-in-favor-comments">(<%= @tc_presenter.percentage_of_comments(@tc_presenter.in_favor_comments.size) %>%)</span>
+			<%= icon "thumb-up", role: "img", "aria-hidden": true %>
+			<span id="num-in-favor-comments"><%= @tc_presenter.in_favor_comments.size %></span>
+		  <%= t(".positive").downcase %>
+		  <span id="percent-in-favor-comments">(<%= @tc_presenter.percentage_of_comments(@tc_presenter.in_favor_comments.size) %>%)</span>
 		</p>
 		<% if @tc_presenter.most_voted_in_favor_comments.any? %>
 			<% comment= @tc_presenter.most_voted_in_favor_comments.first %>
@@ -20,13 +18,10 @@
 	</div>
 	<div id="most-voted-comments-against" class="column">
 		<p class="part-paragraf">
-			<svg class="icon icon-thumb-down">
-					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('decidim/icons.svg#icon-thumb-down') %>"></use>
-			</svg>
-				<span id="num-against-comments"><%= @tc_presenter.against_comments.size %></span>
-				<%= t(".negative").downcase %>
-			  <span id="percent-against-comments">(<%= @tc_presenter.percentage_of_comments(@tc_presenter.against_comments.size) %>%)</span>
-
+			<%= icon "thumb-down", role: "img", "aria-hidden": true %>
+			<span id="num-against-comments"><%= @tc_presenter.against_comments.size %></span>
+			<%= t(".negative").downcase %>
+		  <span id="percent-against-comments">(<%= @tc_presenter.percentage_of_comments(@tc_presenter.against_comments.size) %>%)</span>
 		</p>
 		<% if @tc_presenter.most_voted_against_comments.any? %>
 			<% comment= @tc_presenter.most_voted_against_comments.first %>

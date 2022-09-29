@@ -1,0 +1,125 @@
+body{
+    .card--list__icon{
+        fill: $RedGenCat;
+    }
+}
+
+.part-card {
+    border-radius: 0px !important;
+    .card__title {
+        font-family:'Open Sans';
+    }
+    .card--process__small {
+        font-family:'Open Sans';
+        font-size: 14px;
+    }
+}
+
+.part-card-default {
+    background-color: $cardDefault !important;
+    color: $textDefault !important;
+}
+
+.part-card-info {
+    background-color: $cardinfo !important;
+    color: $textinfo !important;
+}
+
+.part-card-warning {
+    background-color: $cardWarning !important;
+    color: $textWarning !important;
+}
+
+.part-card-danger{
+    background-color : $cardDanger !important;
+    color: $textDanger !important;
+}
+
+.part-card-success{
+    background-color : $cardSuccess !important;
+    color: $textSuccess !important;
+}
+
+.part-card-notice {
+    background-color : $cardNotice !important;
+    color: $textNotice !important;
+}
+
+.part-card-purple {
+    background-color : $cardPurple !important;
+    color: $white !important;
+}
+
+.part-card-primary{
+    background-color : $cardPrimary !important;
+}
+
+.part-card-dropdown {
+    border-radius: 5px !important;
+    background: -webkit-linear-gradient(#666, #888) !important; /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#666, #888) !important; /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#666, #888) !important; /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#666, #888) !important; /* Standard syntax */
+    margin-bottom: 0px !important;
+    color: white !important;
+
+    .part-dropdown-title {
+        margin-bottom: 0px;
+        font-family:'Open Sans Semibold';
+        font-size: 16px;
+    }
+
+    .card__content {
+        padding-top : 10px;
+        padding-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 0px;
+    }
+}
+
+.part-card-dropdown-displayed {
+    border-radius: 5px !important;
+    background: -webkit-linear-gradient(#666, #333) !important; /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#666, #333) !important; /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#666, #333) !important; /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#666, #333) !important; /* Standard syntax */
+    color: white !important;
+
+    .part-dropdown-title {
+        margin-bottom: 0px;
+        font-family:'Open Sans Semibold';
+        font-size: 16px;
+    }
+
+    .card__content {
+        padding-top : 10px;
+        padding-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 0px;
+    }
+}
+
+.part-card-content {
+    .part-card-title:hover {
+        text-decoration: underline !important;
+        color: $cardNotice !important;
+    }
+    .part-card-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+// Decidim use max-height and min-height, but with narrow images,
+// image container snaps to height and show different.
+.card__image {
+  height: 10rem !important;
+}
+
+.badge-container .badge__logo--small {
+  height: auto !important;
+}

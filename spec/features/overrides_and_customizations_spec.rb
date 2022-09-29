@@ -3,10 +3,8 @@
 require "rails_helper"
 
 describe "Overrides and customizations" do
-  it "remove templates translations when Decidim v0.25" do
-    # remove tmp override lib/decidim/has_private_users.rb? https://github.com/gencat/participa/pull/195
-    # remove config/locales/ca_templates.yml and config/locales/es_templates.yml
-    # when this translations are in Decidim 0.25
-    expect(Decidim.version).to be < "0.25"
+  it "remove config/initializers/doorkeeper.rb after Decidim v0.28" do
+    # remove config/initializers/doorkeeper.rb after Decidim v0.28 as it is already configured in that version
+    expect(Decidim.version).to be < "0.28"
   end
 end

@@ -8,7 +8,6 @@ This is the open-source repository for "participa", based on [Decidim](https://g
 
 - `Decidim::Home`, customizes the main page of Decidim.
 - `Decidim::Admin::SearchUser`, adds a search bar to Admin/users dashboard.
-- `Decidim::Espais::Estables`, customizes Decidim Assemblies.
 - `Decidim::Process::Extended`, customizes Decidim Participatory processes.
 - `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
 - `Decidim::Type`, adds Types, for Participatory process.

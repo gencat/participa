@@ -42,10 +42,8 @@ oc:
           categories: Eixos de debat
         index:
           loading: Carregant
-    pages:
-      home:
-        statistics:
-          regulations_count: Participacions en normativa
+    statistics:
+      regulations_count: Participacions en normativa
     participatory_processes:
       participatory_processes:
         order_by_processes:

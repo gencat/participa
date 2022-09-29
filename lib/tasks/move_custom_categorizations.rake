@@ -14,7 +14,7 @@ namespace :move_custom_categorizations do
       Decidim::Organization.find_each do |organization|
         DecidimDepartment.where(decidim_organization_id: organization.id).each do |department|
           area = Decidim::Area.find_or_create_by(
-            name: organization.available_locales.map { |l| [l, department.name.to_s] }.to_h,
+            name: organization.available_locales.index_with { |_l| department.name.to_s },
             organization: organization
           )
           puts "---Area created - #{area.id} - #{area.name}"

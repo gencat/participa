@@ -10,12 +10,10 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Home
 
-      initializer "decidim_home.assets" do |app|
-        app.config.assets.precompile += %w(logo_generalitat_white.png feder.png)
-      end
-
-      initializer "decidim_home.add_cells_view_paths" do
-        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Home::Engine.root}/app/cells")
+      initializer "decidim_home.helpers" do
+        # activate Decidim LayoutHelper for the overriden views
+        ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
+        ::Decidim::ApplicationController.helper ::Decidim::LayoutHelper
       end
 
       initializer "decidim_home.add_cells_view_paths" do
@@ -27,6 +25,10 @@ module Decidim
           content_block.cell = "decidim/home/content_blocks/feder"
           content_block.public_name_key = "decidim.content_blocks.feder.name"
         end
+      end
+
+      initializer "decidim_home.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

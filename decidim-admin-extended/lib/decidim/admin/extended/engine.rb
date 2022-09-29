@@ -24,10 +24,6 @@ module Decidim
           end
         end
 
-        initializer "decidim_admin_extended.assets" do |app|
-          app.config.assets.precompile += %w(decidim_admin_extended_manifest.js)
-        end
-
         initializer "decidim_admin_extended.menu" do
           Decidim.menu :admin_menu do |menu|
             menu.item I18n.t("menu.custom_configuration", scope: "decidim.admin.extended"),

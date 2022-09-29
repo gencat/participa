@@ -1,7 +1,7 @@
 <div class="process-header">
   <div class="process-header__inner">
     <div class="row column process-header__main"
-         style="background-image:url(<%= current_participatory_process.banner_image.url %>);">
+        style="background-image:url(<%= current_participatory_process.attached_uploader(:banner_image).path %>);">
     </div>
     <div class="process-header__container row collapse column">
       <div class="columns mediumlarge-8 process-header__info">
@@ -11,19 +11,21 @@
           </h1>
         </div>
         <div>
-          <h2 class="text-highlight heading-small">
+          <p class="text-highlight heading-small">
             <% if current_participatory_process.hashtag.present? %>
               <span class="process-header__hashtag">
-                <%= link_to "##{decidim_html_escape(current_participatory_process.hashtag)}", "https://twitter.com/hashtag/#{decidim_html_escape(current_participatory_process.hashtag)}" %>
+                <%= link_to "##{decidim_html_escape(current_participatory_process.hashtag)}", twitter_hashtag_url(decidim_html_escape(current_participatory_space.hashtag)), target: "_blank" %>
               </span>
             <% end %>
             <%= translated_attribute(current_participatory_process.subtitle) %>
-          </h2>
+          </p>
         </div>
       </div>
       <%= render partial: "layouts/decidim/process_header_steps", locals: { participatory_process: current_participatory_process } %>
     </div>
   </div>
+  <%= render partial: "layouts/decidim/process_navigation", locals: { participatory_space: current_participatory_space } %>
+
   <% if current_participatory_process.components.any? %>
     <div class="row column">
       <div class="process-nav">

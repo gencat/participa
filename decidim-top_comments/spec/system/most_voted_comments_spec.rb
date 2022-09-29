@@ -11,7 +11,6 @@ describe "Most Voted Comments", type: :system do
       available_locales: [:ca, :en]
     )
   end
-  # forcing nickname and slug as they are randomly failing in Decidim v0.22, remove them after upgrading to v0.23
   let!(:process) { create(:participatory_process, :with_steps, organization: organization) }
   let!(:author) { create(:user, :confirmed, organization: organization) }
 

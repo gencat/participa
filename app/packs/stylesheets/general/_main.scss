@@ -1,0 +1,5 @@
+@include mq($until: large_phone){
+    main{
+        padding-top: 56px;
+    }
+}

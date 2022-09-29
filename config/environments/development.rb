@@ -14,9 +14,6 @@ Rails.application.configure do
   # fatal, error, warn, info, debug
   config.log_level = :debug
 
-  # Compress JavaScripts and CSS.
-  config.assets.js_compressor = Uglifier.new(harmony: true)
-
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -47,19 +44,13 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
-  # Debug mode disables concatenation and preprocessing of assets.
-  # This option may cause significant delays in view rendering with a large
-  # number of complex assets.
-  config.assets.debug = true
-  # config.active_job.queue_adapter     = :delayed_job
-
-  # Suppress logger output for asset requests.
-  config.assets.quiet = true
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.i18n.fallbacks = true
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Store files locally.
+  config.active_storage.service = :local
 end

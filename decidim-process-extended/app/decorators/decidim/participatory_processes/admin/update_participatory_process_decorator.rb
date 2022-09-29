@@ -8,10 +8,6 @@ Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
       weight: form.weight,
       slug: form.slug,
       hashtag: form.hashtag,
-      hero_image: form.hero_image,
-      remove_hero_image: form.remove_hero_image,
-      banner_image: form.banner_image,
-      remove_banner_image: form.remove_banner_image,
       promoted: form.promoted,
       description: form.description,
       short_description: form.short_description,
@@ -40,6 +36,8 @@ Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
       facilitators: form.facilitators,
       email: form.email,
       decidim_type: form.type
-    }.merge(uploader_attributes)
+    }.merge(
+      attachment_attributes(:hero_image, :banner_image)
+    )
   end
 end

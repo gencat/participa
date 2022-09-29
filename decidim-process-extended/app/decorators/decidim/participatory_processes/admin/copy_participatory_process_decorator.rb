@@ -10,8 +10,6 @@ Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
       hashtag: @participatory_process.hashtag,
       description: @participatory_process.description,
       short_description: @participatory_process.short_description,
-      hero_image: @participatory_process.hero_image,
-      banner_image: @participatory_process.banner_image,
       promoted: @participatory_process.promoted,
       scope: @participatory_process.scope,
       developer_group: @participatory_process.developer_group,

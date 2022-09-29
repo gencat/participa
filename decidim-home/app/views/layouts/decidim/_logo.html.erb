@@ -1,7 +1,7 @@
 <% if organization %>
-  <% if organization.logo.present? %>
+  <% if organization.logo.attached? %>
     <%= link_to "https://web.gencat.cat/ca/inici/", target: "_blank" do %>
-      <%= image_tag organization.logo.medium.url, alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
+      <%= image_tag organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
     <% end %>
   <% else %>
       <!-- Only for small devices -->
@@ -9,7 +9,7 @@
         <div class="fwk-col-xs-2">
           <div class="part-topNavbar-content">
             <svg aria-label="Navegació" role="img" class="icon--menu icon part-icon-bars" data-toggle="offCanvas">
-              <use xlink:href="<%= asset_path('decidim/icons.svg#icon-menu') %>" class="part-icon-bars"></use>
+              <use xlink:href="<%= icon "icon-menu", class: "icon--small", role: "img", "aria-hidden": true %>" class="part-icon-bars"></use>
             </svg>
           </div>
         </div>

@@ -1,0 +1,35 @@
+.tabs{
+    .tabs-title{
+        &.is-active{
+            a{
+                box-shadow: inset 4px 0 0 $RedGenCat;
+
+                color: $RedGenCat;
+            }
+        }
+        a{
+            &:hover{
+                color: $RedGenCat;
+            }
+        }
+    }
+}
+
+.tabs-content{
+    button,
+    .button{
+        background-color: $RedGenCat;
+    }
+    .change-password {
+        background-color: #fff;
+        color: $RedGenCat;
+    }
+}
+
+#profile-tabs {
+  .tabs-title {
+    a {
+      color: $RedGenCat !important;
+    }
+  }
+}

@@ -9,7 +9,8 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 2.7.2
+  RUBY_VERSION: 2.7.5
+  NODE_VERSION: 16.9.1
 
 jobs:
   test-app:
@@ -27,12 +28,10 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     env:
-      DB_HOST: localhost
-      DB_PORT: "5432"
-      DB_POOL: 5
-      TEST_DB_DATABASE: participa_gencat_test
+      TEST_DB_DATABASE: participa_app_test
       TEST_DB_USERNAME: postgres
       TEST_DB_PASSWORD: postgres
+      DB_HOST: localhost
     steps:
       - uses: actions/checkout@v2.0.0
         with:
@@ -41,6 +40,12 @@ jobs:
       - uses: ruby/setup-ruby@master
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm install
 
       - name: Recover Ruby dependency cache
         uses: actions/cache@v1
@@ -61,18 +66,12 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: bundle install --jobs 4 --retry 3 
+          command: bundle install --jobs 4 --retry 3
 
-      - name: Create test database
+      - name: Setup database
         run: |
-          RAILS_ENV=test bundle exec rails db:create
-          RAILS_ENV=test bundle exec rails db:migrate
-
-      - name: Setup Code Climate test-reporter
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
+          RAILS_ENV=test bundle exec rake db:create
+          RAILS_ENV=test bundle exec rake db:migrate
 
       - name: Run RSpec
         uses: nick-invision/retry@v2
@@ -80,12 +79,4 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
-
-      - name: Publish code coverage
-        run: |
-          cp coverage/coverage.xml cobertura.xml
-          export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
-          ./cc-test-reporter after-build -r "$CC_TEST_REPORTER_ID" -t cobertura
-        env:
-          CC_TEST_REPORTER_ID: 5841e84a171da0a7a56f23599f328444c88d7cb05cff9c78fc86c6404f2a1765
+          command: CI=1 RAILS_ENV=test bundle exec rspec --backtrace
