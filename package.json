@@ -2,12 +2,14 @@
   "name": "participa",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",
     "@decidim/elections": "file:packages/elections",
     "@decidim/webpacker": "file:packages/webpacker",
-    "@rails/webpacker": "^6.0.0-rc.6",
-    "graphql-ws": "^5.9.1"
+    "@rails/webpacker": "^5.4.3",
+    "graphql": "^16.6.0"
   },
   "version": "0.1.0",
   "engines": {
@@ -15,7 +17,7 @@
   },
   "babel": {
     "presets": [
-      "./node_modules/@rails/webpacker/package/babel/preset.js"
+      "@babel/preset-env"
     ]
   },
   "browserslist": [
@@ -24,7 +26,6 @@
   "devDependencies": {
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
-    "@decidim/stylelint-config": "file:packages/stylelint-config",
-    "@webpack-cli/serve": "^1.6.1"
+    "@decidim/stylelint-config": "file:packages/stylelint-config"
   }
 }

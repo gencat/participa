@@ -20,9 +20,9 @@ module Decidim
 
       # Ordered from more votes to less
       def most_voted_in_favor_comments
-        # rubocop: disable Metrics/LineLength
+        # rubocop: disable Layout/LineLength
         @most_voted_in_favor_comments = in_favor_comments.joins(:up_votes).select("decidim_comments_comments.*, SUM(decidim_comments_comment_votes.weight) AS vote_sum").group("decidim_comments_comments.*, decidim_comments_comments.id").order(Arel.sql("vote_sum DESC"))
-        # rubocop: enable Metrics/LineLength
+        # rubocop: enable Layout/LineLength
       end
 
       def percentage_of_comments(num_comments_part)
@@ -42,9 +42,9 @@ module Decidim
 
       # Ordered from more votes to less
       def most_voted_against_comments
-        # rubocop: disable Metrics/LineLength
+        # rubocop: disable Layout/LineLength
         @most_voted_negative_comments = against_comments.joins(:up_votes).select("decidim_comments_comments.*, SUM(decidim_comments_comment_votes.weight) AS vote_sum").group("decidim_comments_comments.*, decidim_comments_comments.id").order(Arel.sql("vote_sum DESC"))
-        # rubocop: enable Metrics/LineLength
+        # rubocop: enable Layout/LineLength
       end
 
       private

@@ -21,7 +21,7 @@ Decidim::ParticipatoryProcesses::ParticipatoryProcessesController.class_eval do
 
   # This is customized because GENCAT
   def participatory_processes
-    @participatory_processes ||= filtered_processes
+    @participatory_processes ||= filtered_processes.includes(attachments: :file_attachment)
   end
   # This is customized because GENCAT
 end

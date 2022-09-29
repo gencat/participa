@@ -408,11 +408,6 @@ ca:
         designated_on: Designat a
       index:
         title: Membres
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Enllaç a la pàgina de Jornades mostrant totes les jornades
     events:
       assemblies:
         create_assembly_member:
