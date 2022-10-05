@@ -174,16 +174,16 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges.git
-  revision: b694066141dc1f38098396d8a9270db77ec5c13d
-  branch: upgrade/0.26-stable
+  revision: 7934d646352fab324d7ff1d20b7c258ac2900fb1
+  tag: v0.2.0
   specs:
     decidim-challenges (0.2.0)
       decidim-core (~> 0.26.2)
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: 58f80424f897df49edfd8148a902711d49bc2187
-  branch: upgrade/0.26-stable
+  revision: f15a8eb65df866337b06ab4491ddb2eecf937cf1
+  tag: v5.0.0
   specs:
     decidim-department_admin (0.5.0)
       decidim-admin (~> 0.26.2)
@@ -191,8 +191,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: 9f847922d4beefe5f120c8a2bc420b7d896a07f2
-  branch: upgrade/0.26-stable
+  revision: 8b74010b96f20c2d1e9ce487788a2a6d1af3e69a
+  tag: 0.0.4
   specs:
     decidim-verifications-members_picker (0.0.4)
       decidim-core (~> 0.26.2)
