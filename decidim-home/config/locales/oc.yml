@@ -600,9 +600,6 @@ oc:
       too_short: és massa curt
   forms:
     required: Obligatori
-  invisible_captcha:
-    sentence_for_humans: Si ets un humà, pots ignorar aquest camp
-    timestamp_error_message: Ho sentim, has estat massa ràpid! Torna a enviar-ho.
   layouts:
     decidim:
       cookie_warning:
