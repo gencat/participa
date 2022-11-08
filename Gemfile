@@ -12,6 +12,7 @@ gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-admin-extended", path: "decidim-admin-extended"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
+gem "decidim-recaptcha", path: "decidim-recaptcha"
 gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
@@ -36,6 +37,8 @@ gem "deface"
 gem "delayed_job_active_record"
 
 gem "whenever", require: false
+
+gem "recaptcha"
 
 group :development, :test do
   gem "bootsnap"

@@ -1,0 +1,5 @@
+oc:
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA incorrecte, si us plau, torna-ho a intentar.'
+      recaptcha_unreachable: 'Error del servidor a reCAPTCHA, si us plau, torna-ho a intentar.'
