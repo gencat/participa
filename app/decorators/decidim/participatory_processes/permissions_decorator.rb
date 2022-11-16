@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 
-Decidim::ParticipatoryProcesses::Permissions.class_eval do
-  # To allow invited private space users to acces public view
-  def can_view_private_space?
-    return true unless process.private_space
-    return false unless user
+module Decidim::ParticipatoryProcesses::PermissionsDecorator
+  def self.decorate
+    Decidim::ParticipatoryProcesses::Permissions.class_eval do
+      # To allow invited private space users to acces public view
+      def can_view_private_space?
+        return true unless process.private_space
+        return false unless user
 
-    user.admin ||
-      process.users.include?(user) ||
-      process.participatory_space_private_users.exists?(decidim_user_id: user.id)
+        user.admin ||
+          process.users.include?(user) ||
+          process.participatory_space_private_users.exists?(decidim_user_id: user.id)
+      end
+    end
   end
 end
+
+::Decidim::ParticipatoryProcesses::PermissionsDecorator.decorate
