@@ -17,6 +17,9 @@ default: &default
   SODA_PASSWORD: "password"
   SODA_APP_TOKEN: "app_token"
   SODA_DATASET_IDENTIFIER: "dataset_identifier"
+  # Recaptcha keys
+  RECAPTCHA_SITE_KEY: 'site key'
+  RECAPTCHA_SECRET_KEY: 'secret key'
 
 development:
   <<: *default
