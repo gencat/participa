@@ -24,7 +24,9 @@ $ gem install decidim-recaptcha
 Create a dummy app in your application (if not present):
 
 ```bash
-bin/rails decidim:generate_external_test_app
+cd decidim-recaptcha
+bundle
+bundle exec rake test_app
 ```
 
 And run tests:

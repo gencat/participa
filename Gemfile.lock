@@ -182,10 +182,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: f15a8eb65df866337b06ab4491ddb2eecf937cf1
-  tag: v5.0.0
+  revision: f6faea1902faef171be9408990f622948581ad10
+  tag: v6.0.0
   specs:
-    decidim-department_admin (0.5.0)
+    decidim-department_admin (0.6.0)
       decidim-admin (~> 0.26.2)
       decidim-core (~> 0.26.2)
 
@@ -233,7 +233,6 @@ PATH
   specs:
     decidim-recaptcha (0.1.0)
       decidim-core (>= 0.26)
-      rails (>= 5.2, < 7.0.x)
 
 PATH
   remote: decidim-regulations

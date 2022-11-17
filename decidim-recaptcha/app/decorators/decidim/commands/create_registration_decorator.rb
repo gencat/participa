@@ -19,6 +19,7 @@ Decidim::CreateRegistration.class_eval do
         broadcast(:invalid)
       end
     else
+      @form.errors.add(:recaptcha, t("recaptcha.errors.recaptcha_unreachable"))
       broadcast(:invalid)
     end
     # Recaptcha

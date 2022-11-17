@@ -18,7 +18,7 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.2.0"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v5.0.0"
+gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v6.0.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
 #### Custom gems and modifications block end ####
 

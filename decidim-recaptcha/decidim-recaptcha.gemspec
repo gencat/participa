@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  DECIDIM_VERSION = ">= 0.26"
-  s.add_dependency "decidim-core", DECIDIM_VERSION
-  s.add_dependency "rails", ">= 5.2", "< 7.0.x"
-  s.add_development_dependency "decidim-dev", DECIDIM_VERSION
+  DECIDIM_VER = ">= 0.26"
+  s.add_dependency "decidim-core", DECIDIM_VER
+  s.add_development_dependency "decidim", DECIDIM_VER
+  s.add_development_dependency "decidim-dev", DECIDIM_VER
 end

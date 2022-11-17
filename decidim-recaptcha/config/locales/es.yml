@@ -1,5 +1,4 @@
 es:
   recaptcha:
     errors:
-      verification_failed: 'reCAPTCHA incorrecto, por favor, inténtalo de nuevo.'
-      recaptcha_unreachable: 'Error del servidor en reCAPTCHA, por favor, inténtalo de nuevo.'
+      recaptcha_unreachable: 'Error al verificar en reCAPTCHA, por favor, inténtalo de nuevo.'
