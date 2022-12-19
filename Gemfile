@@ -12,12 +12,13 @@ gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-admin-extended", path: "decidim-admin-extended"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
+gem "decidim-recaptcha", path: "decidim-recaptcha"
 gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.2.0"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v5.0.0"
+gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v6.0.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
 #### Custom gems and modifications block end ####
 
@@ -36,6 +37,8 @@ gem "deface"
 gem "delayed_job_active_record"
 
 gem "whenever", require: false
+
+gem "recaptcha"
 
 group :development, :test do
   gem "bootsnap"

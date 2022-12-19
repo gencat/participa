@@ -12,6 +12,7 @@ This is the open-source repository for "participa", based on [Decidim](https://g
 - `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
 - `Decidim::Type`, adds Types, for Participatory process.
 - `Decidim::Admin::Extended`, customize admin menu adding custom configurations.
+- `Decidim::Recaptcha`, use recaptcha instead invisible captcha.
 
 ## Deploying the app
 

@@ -1,0 +1,4 @@
+ca:
+  recaptcha:
+    errors:
+      recaptcha_unreachable: 'Error al verificar amb reCAPTCHA, si us plau, torna-ho a intentar.'

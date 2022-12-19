@@ -1,4 +1,4 @@
-name: "[CI] Main Test"
+name: "[CI] Recaptcha"
 
 on:
   push:
@@ -10,10 +10,9 @@ on:
 
 env:
   RUBY_VERSION: 2.7.5
-  NODE_VERSION: 16.9.1
 
 jobs:
-  test-app:
+  test-report:
     runs-on: ubuntu-latest
 
     services:
@@ -28,12 +27,9 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     env:
-      TEST_DB_DATABASE: participa_app_test
-      TEST_DB_USERNAME: postgres
-      TEST_DB_PASSWORD: postgres
-      DB_HOST: localhost
-      RECAPTCHA_SITE_KEY: 'recaptcha_site_key'
-      RECAPTCHA_SECRET_KEY: 'recaptcha_secret_key'
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
     steps:
       - uses: actions/checkout@v2.0.0
         with:
@@ -42,12 +38,6 @@ jobs:
       - uses: ruby/setup-ruby@master
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-      - run: npm install
 
       - name: Recover Ruby dependency cache
         uses: actions/cache@v1
@@ -68,12 +58,14 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: bundle install --jobs 4 --retry 3
+          command: cd decidim-recaptcha && bundle install --jobs 4 --retry 3 
 
-      - name: Setup database
+      - name: Generate recaptcha test_app
         run: |
-          RAILS_ENV=test bundle exec rake db:create
-          RAILS_ENV=test bundle exec rake db:migrate
+          cd decidim-recaptcha
+          bundle exec rake decidim:generate_external_test_app
+          cd spec/decidim_dummy_app/
+          RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Run RSpec
         uses: nick-invision/retry@v2
@@ -81,4 +73,7 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: CI=1 RAILS_ENV=test bundle exec rspec --backtrace
+          command: cd decidim-recaptcha && CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
+
+      -  name: Upload coverage
+         run: ./.github/upload_coverage.sh decidim-recaptcha $GITHUB_EVENT_PATH
