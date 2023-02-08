@@ -524,6 +524,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
+    ipaddr (1.2.3)
     json (2.6.2)
     jwt (2.5.0)
     kaminari (1.2.2)
@@ -904,6 +905,7 @@ DEPENDENCIES
   delayed_job_active_record
   faker
   figaro (>= 1.1.1)
+  ipaddr
   letter_opener_web
   listen (~> 3.1.0)
   puma (< 6)
