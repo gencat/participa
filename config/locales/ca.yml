@@ -4,6 +4,29 @@ ca:
       name: Temes
     types:
       name: Tipus
+  participagencat:
+    menu:
+      decidims_finder: Cercador de processos participatius
+    decidims_finder_page:
+      helper_html: >
+          En aquest espai podràs cercar els processos participatius impulsats per diferents administracions de Catalunya en els seus portals de participació ciutadana que es basen en la plataforma digital de participació Decidim.<br/> 
+          El cercador recull processos participatius i pressupostos participatius.
+      description: Cercador de processos participatius dels Decidims catalans
+      clear: Netejar filtres
+      txt: Cerca per text
+      query_title: Introduïu les paraules a cercar
+      query_placeholder: Cercar...
+      territory: Àmbit territorial
+      start_date: Data d’inici
+      end_date: Data de fi
+      from: "De:"
+      to: "Fins a:"
+      results: S'han trobat <strong>{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}</strong> resultats
+      no_results: No s'han trobat resultats per a la cerca <em>"{{query}}"</em>.
+      previous: anterior
+      next: següent
+      first: primera
+      last: última
   scope_type:
     regulations:
       name: Participació en normativa
