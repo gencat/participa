@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-unless %w(development test).include? Rails.env
+unless %w(development).include?(Rails.env)
   require "rack/attack"
 
-  limit= ENV["RACK_ATTACK_THROTTLE_LIMIT"] || 30
-  period= ENV["RACK_ATTACK_THROTTLE_PERIOD"] || 60
-  Rails.logger.info("Configuring Rack::Attack.throttle with limit: #{limit}, period: #{period}")
-  Rack::Attack.throttle("requests by (forwarded) ip", limit: limit.to_i, period: period.to_i) do |request|
+  limit= ENV["DECIDIM_THROTTLING_MAX_REQUESTS"] || 150
+  period= ENV["DECIDIM_THROTTLING_PERIOD"] || 1
+  Rails.logger.info("Configuring Rack::Attack.throttle with limit: #{limit}, period: #{period} minutes")
+  Rack::Attack.throttle("requests by (forwarded) ip", limit: limit.to_i, period: period.to_i.minute) do |request|
     # x_forwarded_for= request.get_header('X-Forwarded-For')
     x_forwarded_for= request.get_header("HTTP_X_FORWARDED_FOR")
     Rails.logger.debug { ">>>>>>>>>>>>>>>>>>>> X-Forwarded-For: #{x_forwarded_for}" }
