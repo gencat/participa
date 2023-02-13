@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "Rack::Attack", type: :request do
@@ -6,7 +8,6 @@ RSpec.describe "Rack::Attack", type: :request do
   include ActiveSupport::Testing::TimeHelpers
   before do
     # Enable Rack::Attack for this test
-    ENV["RACK_ATTACK"] = "true"
     Rack::Attack.enabled = true
     Rack::Attack.reset!
   end

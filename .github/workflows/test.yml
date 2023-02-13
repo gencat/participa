@@ -34,6 +34,7 @@ jobs:
       DB_HOST: localhost
       RECAPTCHA_SITE_KEY: 'recaptcha_site_key'
       RECAPTCHA_SECRET_KEY: 'recaptcha_secret_key'
+      DECIDIM_THROTTLING_MAX_REQUESTS: "30"
     steps:
       - uses: actions/checkout@v2.0.0
         with:
