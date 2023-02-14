@@ -6,24 +6,24 @@
 //
 // By default this is empty.
 
-@import "stylesheets/vendor/bootstrap.scss";
-@import "stylesheets/vendor/mq.scss";
+@import "stylesheets/vendor/bootstrap";
+@import "stylesheets/vendor/mq";
 
-@import "stylesheets/general/alerts.scss";
-@import "stylesheets/general/axis.scss";
-@import "stylesheets/general/base.scss";
-@import "stylesheets/general/card.scss";
-@import "stylesheets/general/dropdown.scss";
-@import "stylesheets/general/fixes.scss";
-@import "stylesheets/general/footer.scss";
-@import "stylesheets/general/header.scss";
-@import "stylesheets/general/main.scss";
-@import "stylesheets/general/navbar.scss";
-@import "stylesheets/general/processes.scss";
-@import "stylesheets/general/tabs.scss";
-@import "stylesheets/general/timeline.scss";
+@import "stylesheets/general/alerts";
+@import "stylesheets/general/axis";
+@import "stylesheets/general/base";
+@import "stylesheets/general/card";
+@import "stylesheets/general/dropdown";
+@import "stylesheets/general/fixes";
+@import "stylesheets/general/footer";
+@import "stylesheets/general/header";
+@import "stylesheets/general/main";
+@import "stylesheets/general/navbar";
+@import "stylesheets/general/processes";
+@import "stylesheets/general/tabs";
+@import "stylesheets/general/timeline";
 
-@import "stylesheets/decidims_finder.scss";
+@import "stylesheets/decidims_finder";
 
 button:focus{
   outline: 0;
