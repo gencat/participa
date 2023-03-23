@@ -36,10 +36,10 @@ Decidim.configure do |config|
   # config.max_reports_before_hiding = 3
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config.throttling_max_requests = Rails.application.secrets.decidim[:throttling_max_requests].to_i
+  config.throttling_max_requests = (Rails.application.secrets.decidim[:throttling_max_requests] || 200).to_i
 
   # Time window in which the throttling is applied.
-  config.throttling_period = Rails.application.secrets.decidim[:throttling_period].to_i.minutes
+  config.throttling_period = (Rails.application.secrets.decidim[:throttling_period] || 1).to_i.minutes
 end
 
 Decidim.menu :menu do |menu|
