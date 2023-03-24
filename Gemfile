@@ -27,9 +27,6 @@ gem "decidim-idcat_mobil", "~> 0.2.1"
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.4"
 gem "soda-ruby", require: false
 
-gem "puma", "< 6"
-gem "rack-attack"
-
 gem "figaro", ">= 1.1.1"
 
 gem "daemons"
