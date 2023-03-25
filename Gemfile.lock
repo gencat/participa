@@ -651,12 +651,12 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.4)
+    rack (2.2.6.4)
     rack-attack (6.6.1)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
-    rack-protection (2.2.2)
+    rack-protection (3.0.5)
       rack
     rack-proxy (0.7.4)
       rack
@@ -907,7 +907,6 @@ DEPENDENCIES
   letter_opener_web
   listen (~> 3.1.0)
   puma (< 6)
-  rack-attack
   recaptcha
   rspec-rails
   rubocop-faker

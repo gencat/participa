@@ -28,7 +28,6 @@ gem "decidim-verifications-members_picker", git: "https://github.com/gencat/deci
 gem "soda-ruby", require: false
 
 gem "puma", "< 6"
-gem "rack-attack"
 
 gem "figaro", ">= 1.1.1"
 
