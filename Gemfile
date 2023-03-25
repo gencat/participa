@@ -39,6 +39,12 @@ gem "whenever", require: false
 
 gem "recaptcha"
 
+# Remove when 2.x series are compatible with idcat mobil service
+# This is, when error
+# "Authentication failure! SSL_connect returned=1 errno=0 state=error: dh key too small: Faraday::SSLError, SSL_connect returned=1 errno=0 state=error: dh key too small"
+# is solved
+gem "faraday", "1.10.0"
+
 group :development, :test do
   gem "bootsnap"
   gem "byebug", platform: :mri
