@@ -409,10 +409,10 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-idcat_mobil (0.2.1)
+    decidim-idcat_mobil (0.3.0)
       decidim (>= 0.25.2)
       decidim-core (>= 0.25.2)
-      omniauth-idcat_mobil (~> 0.4.0)
+      omniauth-idcat_mobil (~> 0.5.0)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -632,7 +632,7 @@ GEM
       oauth2 (~> 2.0.6)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8.0)
-    omniauth-idcat_mobil (0.4.0)
+    omniauth-idcat_mobil (0.5.0)
       omniauth (~> 2.0.4)
       omniauth-oauth2 (>= 1.7.2, < 2.0)
     omniauth-oauth (1.2.0)
@@ -910,7 +910,7 @@ DEPENDENCIES
   decidim-department_admin!
   decidim-dev!
   decidim-home!
-  decidim-idcat_mobil (~> 0.2.1)
+  decidim-idcat_mobil (~> 0.3.0)
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
