@@ -79,7 +79,9 @@ module Decidim
       end
 
       def promoted_participatory_process_groups
-        @promoted_participatory_process_groups ||= Decidim::ParticipatoryProcesses::OrganizationPromotedParticipatoryProcessGroups.new(current_organization)
+        @promoted_participatory_process_groups ||=
+          Decidim::ParticipatoryProcesses::OrganizationPromotedParticipatoryProcessGroups.new(current_organization)
+                                                                                         .query.where(id: [Rails.application.config.regulation])
       end
 
       def promoted_collection
