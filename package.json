@@ -9,7 +9,9 @@
     "@decidim/elections": "file:packages/elections",
     "@decidim/webpacker": "file:packages/webpacker",
     "@rails/webpacker": "^5.4.3",
-    "graphql": "^16.6.0"
+    "algoliasearch": "^4.14.3",
+    "graphql": "^16.6.0",
+    "instantsearch.js": "^4.50.3"
   },
   "version": "0.1.0",
   "engines": {

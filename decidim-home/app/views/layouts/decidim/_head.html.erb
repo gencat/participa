@@ -26,6 +26,8 @@
 <%= organization_colors %>
 <%= javascript_pack_tag "decidim_core", defer: false %>
 
+<%= javascript_pack_tag "application", defer: false %>
+
 <%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>
 <%= favicon_pack_tag "media/images/favicon.ico" %>

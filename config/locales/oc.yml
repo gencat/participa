@@ -4,6 +4,29 @@ oc:
       name: Temes
     types:
       name: Tipus
+  participagencat:
+    menu:
+      decidims_finder: Cercador de procèssi participatius
+    decidims_finder_page:
+      helper_html: >
+          En aguest espaci poderàs cercar es procèssi participatius impulsats per diferentes administracions de Catalonha enes sòns portaus de participacion ciutadana que se basen ena plataforma digitau de participacion Decidim. <br/>
+          Eth cercador remasse procèssi participatius e pressupòsti participatius.
+      description: Cercador de processos participatius dels Decidims catalans
+      clear: Neteja filtres
+      txt: Cerca per tèxte
+      query_title: Introduïu les paraules a cercar
+      query_placeholder: Cercar...
+      territory: Ámbit territoriau
+      start_date: Data d’inici
+      end_date: Data de fin
+      from: "De:"
+      to: "Enquia:"
+      results: S'han trobat <strong>{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}</strong> resultats
+      no_results: No s'han trobat resultats per a la cerca <em>"{{query}}"</em>.
+      previous: anterior
+      next: següent
+      first: primera
+      last: última
   scope_type:
     regulations:
       name: Participació normativa
