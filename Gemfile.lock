@@ -219,14 +219,14 @@ PATH
   remote: decidim-admin-extended
   specs:
     decidim-admin-extended (0.2.0)
-      decidim-admin (>= 0.9.3)
-      decidim-core (>= 0.9.3)
+      decidim-admin (>= 0.26)
+      decidim-core (>= 0.26)
 
 PATH
   remote: decidim-home
   specs:
     decidim-home (0.3.0)
-      decidim-core
+      decidim-core (>= 0.26)
       rails (>= 5.2, < 7.0.x)
 
 PATH
