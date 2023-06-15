@@ -17,7 +17,7 @@ gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-type", path: "decidim-type"
 
-gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git"
+gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "main"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.2.0"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v6.0.0"
 gem "decidim-idcat_mobil", "~> 0.3.0"

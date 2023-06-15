@@ -62,12 +62,11 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
 
     ActiveRecord::Base.connection.execute("update decidim_participatory_processes SET hero_image = '" + last_image + "' where id = " + id.to_s)
 
-    path = Rails.root.join("public", "uploads", "decidim", "participatory_process", "hero_image", id.to_s)
-
-    image_path = Rails.root.join(default_images_path, last_image)
-
-    FileUtils.mkdir_p(path) unless File.exist?(path)
-    FileUtils.cp image_path, path, verbose: true if File.exist?(path)
+    Decidim::ParticipatoryProcess.find(id).hero_image.attach(
+      io: File.open("decidim-process-extended/app/packs/images/default_images/#{last_image}"),
+      filename: last_image,
+      content_type: "image/png"
+    )
   end
 
   def add_default_image_banner(id)
@@ -105,10 +104,10 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
 
     ActiveRecord::Base.connection.execute("update decidim_participatory_processes SET banner_image = '" + last_image + "' where id = " + id.to_s)
 
-    path_banner = Rails.root.join("public", "uploads", "decidim", "participatory_process", "banner_image", id.to_s)
-    FileUtils.mkdir_p(path_banner) unless File.exist?(path_banner)
-
-    image_path_banner = Rails.root.join(default_images_path_b, last_image)
-    FileUtils.cp image_path_banner, path_banner, verbose: true if File.exist?(path_banner)
+    Decidim::ParticipatoryProcess.find(id).banner_image.attach(
+      io: File.open("decidim-process-extended/app/packs/images/default_images_b/#{last_image}"),
+      filename: last_image,
+      content_type: "image/png"
+    )
   end
 end
