@@ -13,6 +13,9 @@ ca:
     components:
       surveys:
         name: Qüestionari
+        settings:
+          global:
+            send_confirmation_email: Enviar correu amb les respostes quan es respongui al qüestionari
     surveys:
       admin:
         surveys:
@@ -25,6 +28,10 @@ ca:
         answer:
           invalid: Hi ha hagut errors en respondre al qüestionari.
           success: Qüestionari respost correctament.
+        confirmation_email:
+          export_name: Respuestas
+          body: Has respondido correctamente la encuesta %{questionnaire_title} que se encuentra dentro de %{participatory_space}. 
+          subject: Confirmación de respuesta en el cuestionario %{questionnarie_title}
         show:
           answer_survey:
             title: Respon al qüestionari

@@ -20,6 +20,7 @@ oc:
         settings:
           global:
             announcement: Avís
+            send_confirmation_email: Enviar correu amb les respostes quan es respongui al qüestionari
           step:
             allow_answers: Permetre respostes
             allow_unregistered: Permet a usuàries no registrades contestar l'enquesta

@@ -10,3 +10,9 @@ es:
           attributes:
             choices:
               missing: no estan completas
+  decidim:
+    components:
+      surveys:
+        settings:
+          global:
+            send_confirmation_email: Enviar correo con las respuestas cuando se responda al cuestionario
