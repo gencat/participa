@@ -1,0 +1,7 @@
+es:
+  # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
+  decidim:
+    admin:
+      components:
+        component:
+          answers_alert: Si publicas el componente todos los resultados serán eliminados. 
