@@ -40,7 +40,7 @@ ca:
             title: Qüestionari tancat
           tos_agreement: En participar en aquest qüestionari acceptes els Termes de Servei
       # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
-      survey_confirmation_email:
+      survey_confirmation_mailer:
         confirmation:
           body: Has respost correctament el qüestionari %{questionnaire_title} dins de %{participatory_space}
           subject: Confirmació de resposta al qüestionari %{questionnaire_title}
