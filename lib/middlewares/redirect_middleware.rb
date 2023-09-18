@@ -12,6 +12,8 @@ module Middlewares
         [301, { "Location" => request.url.sub("/futur-europa", "/processes/FuturEuropa") }, []]
       elsif request.path.starts_with?("/participacooperacio")
         [301, { "Location" => request.url.sub("/participacooperacio", "/processes/pladirectorcooperacio") }, []]
+      elsif request.path.starts_with?("/assembleaclima")
+        [301, { "Location" => request.url.sub("/assembleaclima", "/processes/assembleaclima") }, []]
       else
         @app.call(env)
       end
