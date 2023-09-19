@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: ec6dd7c5ab8b06ed6dde7cf4fc854851d48dec1d
-  branch: backport/0.26/fix-filter-hidden-moderations-11588
+  revision: 9204816fa76841ce8866cf1d652c4f03072adc21
+  branch: release/0.26-stable
   specs:
     decidim (0.26.8)
       decidim-accountability (= 0.26.8)
