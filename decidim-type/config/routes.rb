@@ -9,4 +9,6 @@ Decidim::Type::Engine.routes.draw do
   put "/admin/types/new", to: "/decidim/admin/types#create"
 
   delete "/admin/types/:id", to: "/decidim/admin/types#destroy"
+
+  get "/assembleaclima/inscripcions", to: "/decidim/participatory_processes#show"
 end

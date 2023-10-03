@@ -39,4 +39,25 @@ describe "Redirect Middleware", type: :system do
       expect(page).to have_content(title_ca)
     end
   end
+
+  describe "Assemblea clima inscripcions" do
+    before do
+      Capybara.raise_server_errors = false
+    end
+
+    # rubocop:disable RSpec/BeforeAfterAll
+    after(:all) do
+      Capybara.raise_server_errors = true
+    end
+    # rubocop:enable RSpec/BeforeAfterAll
+
+    let(:title_ca) { "Assemblea clima inscripcions" }
+    let(:slug) { "assembleaclima" }
+
+    it "redirects to the specified ID when /assembleaclima/inscripcions is visited" do
+      visit "/assembleaclima/inscripcions"
+
+      expect(page).to have_current_path("/processes/assembleaclima/f/3825")
+    end
+  end
 end
