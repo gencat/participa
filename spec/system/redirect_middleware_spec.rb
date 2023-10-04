@@ -39,4 +39,22 @@ describe "Redirect Middleware", type: :system do
       expect(page).to have_content(title_ca)
     end
   end
+
+  describe "Assemblea clima inscripcions" do
+    let(:title_ca) { "Assemblea clima inscripcions" }
+    let(:slug) { "assembleaclima" }
+    let!(:component) do
+      create :component,
+             id: 3825,
+             manifest_name: :meetings,
+             published_at: Time.zone.now,
+             participatory_space: process
+    end
+
+    it "redirects to registrations when /assembleaclima/inscripcions is visited" do
+      visit "/assembleaclima/inscripcions"
+
+      expect(page).to have_current_path("/processes/assembleaclima/f/3825")
+    end
+  end
 end
