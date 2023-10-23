@@ -1,0 +1,7 @@
+---
+en:
+  decidim:
+    proposals:
+      proposals:
+        show:
+          proposal_in_evaluation_reason: 'This proposal is under evaluation because:'

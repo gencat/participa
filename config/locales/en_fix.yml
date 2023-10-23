@@ -1,0 +1,18 @@
+en:
+  decidim:
+    admin:
+      dashboard:
+        show:
+          welcome: Welcome to the new Participa administration panel.
+      categories:
+        index:
+          categories_title: Categories
+      models:
+        assembly:
+          fields:
+            title: Assembly name
+          name: Assembly
+  activemodel:
+    attributes:
+      assembly:
+        title: Assembly name

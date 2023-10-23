@@ -1,0 +1,15 @@
+en:
+  decidim:
+    devise:
+      registrations:
+        new:
+          sign_up_as:
+            user_group: Organization/Collective/Entity
+  activemodel:
+    attributes:
+      user:
+        user_group_document_number: CIF of the organization
+  activerecord:
+    attributes:
+      decidim/user:
+        user_group_document_number: CIF of the organization
