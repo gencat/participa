@@ -86,7 +86,7 @@ en:
           closed : Closed
           all : All
           select_type: Select type
-          select_department: Select department
+          select_department: Select area
           select_tema: Select scope
         show:
           email: Support mailbox
@@ -108,5 +108,5 @@ en:
     shared:
       participatory_space_filters:
         filters:
-          areas: Departments
-          select_an_area: Select department
+          areas: Areas
+          select_an_area: Select area

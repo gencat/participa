@@ -4,4 +4,4 @@ en:
     admin:
       components:
         component:
-          answers_alert: If you publish the component all answers will be deleted.
+          answers_alert: If you publish the component, all answers will be deleted.

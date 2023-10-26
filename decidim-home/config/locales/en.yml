@@ -31,8 +31,8 @@ en:
     queries:
       meta_tags:
         see_all_processes: All processses
-        see_all_assemblies: All assemblies
-        see_all_stableareas: Todos los consejos de participación
+        see_all_assemblies: All participations
+        see_all_stableareas: All assemblies
     stableareas:
       meta_tags:
         active_step: Active process

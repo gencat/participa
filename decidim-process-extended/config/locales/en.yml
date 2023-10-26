@@ -19,13 +19,13 @@ en:
             other: Others
             private_space: Private space
             promoting_unit: Promoting unit
-            select_an_area: Select a department
+            select_an_area: Select an area
             select_process_group: Select a process group
             title: General information
             visbility: Visibility
           proposal_component_alert: Remember that you have to activate the proposals component.
       show:
-        area: Department
+        area: Area
         cost: Cost
         facilitators: Facilitators
         has_summary_record: Has summary unit

@@ -462,7 +462,7 @@ en:
           more_info: More information
           take_part: Take part
         index:
-          children: 'Assembly: '
+          children: 'Assemblies: '
           organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
           reset_chart: Reset
