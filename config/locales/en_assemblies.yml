@@ -4,9 +4,9 @@ en:
       assemblies_setting:
         enable_organization_chart: Enable organization chart
       assembly:
-        area_id: Area
-        assembly_type: Assembly type
-        assembly_type_other: Assembly type other
+        area_id: Department
+        assembly_type: Participation council type
+        assembly_type_other: Participation council type other
         banner_image: Banner image
         closing_date: Closing date
         closing_date_reason: Closing date reason
@@ -18,7 +18,7 @@ en:
         created_by_other: Created by other
         creation_date: Date created
         decidim_area_id: Area
-        decidim_assemblies_type_id: Assembly type
+        decidim_assemblies_type_id: Participation council type
         decidim_scope_id: Scope
         description: Description
         developer_group: Promoter group
@@ -34,7 +34,7 @@ en:
         is_transparent: Is transparent
         local_area: Organization area
         meta_scope: Scope metadata
-        parent_id: Parent assembly
+        parent_id: Parent participation council
         participatory_processes_ids: Related participatory processes
         participatory_scope: What is decided
         participatory_structure: How is decided
@@ -76,24 +76,24 @@ en:
   activerecord:
     models:
       decidim/assembly:
-        one: Assembly
-        other: Assemblies
+        one: Participation council
+        other: Participation councils
       decidim/assembly_member:
-        one: Assembly member
-        other: Assembly members
+        one: Participation council member
+        other: Participation council members
       decidim/assembly_user_role:
-        one: Assembly user role
-        other: Assembly user roles
+        one: Participation council user role
+        other: Participation council user roles
   decidim:
     admin:
       actions:
         import_assembly: Import
-        new_assembly: New assembly
-        new_assembly_type: New assembly type
+        new_assembly: New participation council
+        new_assembly_type: New participation council type
       assemblies:
         create:
-          error: There was a problem creating a new assembly.
-          success: Assembly created successfully.
+          error: There was a problem creating a new participation council.
+          success: Participation council created successfully.
         edit:
           update: Update
         index:
@@ -103,89 +103,89 @@ en:
           published: Published
         new:
           create: Create
-          title: New assembly
+          title: New participation council
         update:
-          error: There was a problem updating this assembly.
-          success: Assembly successfully updated.
+          error: There was a problem updating this participation council.
+          success: Participation council successfully updated.
       assemblies_copies:
         create:
-          error: There was a problem duplicating this assembly.
-          success: Assembly successfully duplicated.
+          error: There was a problem duplicating this participation council.
+          success: Participation council successfully duplicated.
       assemblies_settings:
         update:
           error: There was a problem updating settings.
           success: Settings updated successfully.
       assemblies_types:
         create:
-          error: There was a problem creating a new assembly type.
-          success: Assembly type created successfully.
+          error: There was a problem creating a new participation council type.
+          success: Participation council type created successfully.
         destroy:
-          success: Assembly type successfully deleted.
+          success: Participation council type successfully deleted.
         new:
           create: Create
-          title: New assembly type
+          title: New participation council type
         update:
-          error: There was a problem updating this assembly type.
-          success: Assembly type successfully updated.
+          error: There was a problem updating this participation council type.
+          success: Participation council type successfully updated.
       assembly_copies:
         new:
           copy: Copy
           select: Select which data you would like to duplicate
-          title: Duplicate assembly
+          title: Duplicate participation council
       assembly_imports:
         create:
-          error: There was a problem importing this assembly.
-          success: Assembly successfully imported.
+          error: There was a problem importing this participation council.
+          success: Participation council successfully imported.
         new:
           import: Import
           select: Select which data you would like to import
-          title: Import assembly
+          title: Import participation council
       assembly_members:
         create:
-          error: There was a problem adding a member for this assembly.
-          success: Member successfully created for this assembly.
+          error: There was a problem adding a member for this participation council.
+          success: Member successfully created for this participation council.
         destroy:
-          success: Member successfully deleted for this assembly.
+          success: Member successfully deleted for this participation council.
         edit:
-          title: Update assembly member.
+          title: Update participation council member.
           update: Update
         index:
-          assembly_members_title: Assembly members
+          assembly_members_title: Participation council members
         new:
           create: Create
-          title: New assembly member.
+          title: New participation council member.
         update:
-          error: There was a problem updating the member for this assembly.
-          success: Member successfully updated for this assembly.
+          error: There was a problem updating the member for this participation council.
+          success: Member successfully updated for this participation council.
       assembly_publications:
         create:
-          error: There was a problem publishing this assembly.
-          success: Assembly successfully published.
+          error: There was a problem publishing this participation council.
+          success: Participation council successfully published.
         destroy:
-          error: There was a problem unpublishing this assembly.
-          success: Assembly successfully unpublished.
+          error: There was a problem unpublishing this participation council.
+          success: Participation council successfully unpublished.
       assembly_user_roles:
         create:
-          error: There was a problem adding an admin for this assembly.
-          success: Admin successfully added to this assembly.
+          error: There was a problem adding an admin for this participation council.
+          success: Admin successfully added to this participation council.
         destroy:
-          success: Admin successfully removed from this assembly.
+          success: Admin successfully removed from this participation council.
         edit:
-          title: Update assembly admin.
+          title: Update participation council admin.
           update: Update
         index:
-          assembly_admins_title: Assembly admins
+          assembly_admins_title: Participation council admins
         new:
           create: Create
-          title: New assembly admin.
+          title: New participation council admin.
         update:
-          error: There was a problem updating an admin for this assembly.
-          success: Admin updated successfully for this assembly.
+          error: There was a problem updating an admin for this participation council.
+          success: Admin updated successfully for this participation council.
       menu:
-        assemblies: Assemblies
+        assemblies: Participation councils
         assemblies_settings: Settings
         assemblies_submenu:
-          assembly_admins: Assembly admins
+          assembly_admins: Participation council admins
           assembly_members: Members
           attachment_collections: Folders
           attachment_files: Files
@@ -195,7 +195,7 @@ en:
           info: Info
           moderations: Moderations
           private_users: Private users
-        assemblies_types: Assemblies types
+        assemblies_types: Participation councils types
       models:
         assemblies_types:
           fields:
@@ -208,7 +208,7 @@ en:
             promoted: Highlighted
             published: Published
             title: Title
-          name: Assembly
+          name: Participation council
         assembly_member:
           fields:
             ceased_date: Ceased date
@@ -226,53 +226,53 @@ en:
             email: Email
             name: Name
             role: Role
-          name: Assembly admin
+          name: Participation council admin
           roles:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
             valuator: Valuator
       titles:
-        assemblies: Assemblies
-        assemblies_types: Assemblies types
+        assemblies: Participation councils
+        assemblies_types: Participation councils types
     admin_log:
       assembly:
-        create: "%{user_name} created the %{resource_name} assembly"
-        publish: "%{user_name} published the %{resource_name} assembly"
-        unpublish: "%{user_name} unpublished the %{resource_name} assembly"
-        update: "%{user_name} updated the %{resource_name} assembly"
+        create: "%{user_name} created the %{resource_name} participation council"
+        publish: "%{user_name} published the %{resource_name} participation council"
+        unpublish: "%{user_name} unpublished the %{resource_name} participation council"
+        update: "%{user_name} updated the %{resource_name} participation council"
       assembly_member:
-        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
-        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
-        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
+        create: "%{user_name} created the %{resource_name} member in the %{space_name} participation council"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} participation council"
+        update: "%{user_name} updated the %{resource_name} member in the %{space_name} participation council"
       assembly_setting:
-        update: "%{user_name} updated the assemblies settings"
+        update: "%{user_name} updated the participation councils settings"
       assembly_type:
-        create: "%{user_name} created the %{resource_name} assembly type"
-        delete: "%{user_name} removed the %{resource_name} assembly type"
-        publish: "%{user_name} published the %{resource_name} assembly type"
-        unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
-        update: "%{user_name} updated the %{resource_name} assembly type"
+        create: "%{user_name} created the %{resource_name} participation council type"
+        delete: "%{user_name} removed the %{resource_name} participation council type"
+        publish: "%{user_name} published the %{resource_name} participation council type"
+        unpublish: "%{user_name} unpublished the %{resource_name} participation council type"
+        update: "%{user_name} updated the %{resource_name} participation council type"
       assembly_user_role:
-        create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
-        delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} assembly"
-        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} assembly"
+        create: "%{user_name} invited %{resource_name} to the %{space_name} participation council"
+        delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participation council"
+        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} participation council"
     assemblies:
       admin:
         assemblies:
           form:
             duration: Duration
-            duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
+            duration_help: If the duration of this participation council is limited, select the end date. Otherwise, it will appear as indefinite.
             filters: Filters
             images: Images
-            included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
+            included_at_help: Select the date when this participation council was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             other: Other
             select_a_created_by: Select a created by
             select_an_area: Select an Area
-            select_an_assembly_type: Select an assembly type
-            select_parent_assembly: Select parent assembly
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            select_an_assembly_type: Select an participation council type
+            select_parent_assembly: Select parent participation council
+            slug_help: 'URL slugs are used to generate the URLs that point to this participation council. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
             title: General Information
             visbility: Visibility
@@ -280,17 +280,17 @@ en:
           edit:
             update: Update
           form:
-            title: Settings for assemblies
+            title: Settings for participation councils
         assemblies_types:
           form:
             title: Title
         assembly_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this participation council. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
           form:
             document_legend: Add a document
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this participation council. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
             existing_user: Existing participant
@@ -324,7 +324,7 @@ en:
         working_group: Working group
       content_blocks:
         highlighted_assemblies:
-          name: Highlighted assemblies
+          name: Highlighted participation councils
       created_by:
         city_council: City Council
         others: Others
@@ -340,22 +340,22 @@ en:
         participatory: Participatory
         working_group: Working group
       index:
-        title: Assemblies
+        title: Participation councils
       last_activity:
-        new_assembly: New assembly
+        new_assembly: New participation council
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Active assemblies
-            assemblies_button_title: Link to the Assemblies page displaying all the assemblies
-            see_all_assemblies: See all assemblies
+            active_assemblies: Active participation councils
+            assemblies_button_title: Link to the Participation councils page displaying all the participation councils
+            see_all_assemblies: See all participation councils
         user_profile:
           member_of:
             member_of: Member of
       show:
         area: Area
-        assembly_type: Assembly type
-        children: Assemblies
+        assembly_type: Participation council type
+        children: Participation councils
         closing_date: Closing date
         composition: Composition
         created_by: Created by
@@ -371,18 +371,18 @@ en:
         local_area: Organization area
         participatory_scope: What is decided
         participatory_structure: How is it decided
-        private_space: This is a private assembly
+        private_space: This is a private participation council
         purpose_of_action: Purpose of action
         read_less: Read less
         read_more: Read more
         related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
-        social_networks_title: Visit assembly on
+        social_networks_title: Visit participation council on
         target: Who participates
       statistics:
         answers_count: Answers
-        assemblies_count: Assemblies
+        assemblies_count: Participation councils
         comments_count: Comments
         debates_count: Debates
         endorsements_count: Endorsements
@@ -410,35 +410,35 @@ en:
     events:
       assemblies:
         create_assembly_member:
-          email_intro: An admin of the <a href="%{resource_url}">%{resource_name}</a> assembly has added you as one of its members.
-          email_outro: You have received this notification because you have been invited to an assembly. Check the <a href="%{resource_url}">assembly page</a> to contribute!
-          email_subject: You have been invited to be a member of the %{resource_name} assembly!
-          notification_title: You have been registered as a member of Assembly <a href="%{resource_path}">%{resource_name}</a>. Check the <a href="%{resource_path}">assembly page</a> to contribute!
+          email_intro: An admin of the <a href="%{resource_url}">%{resource_name}</a> participation council has added you as one of its members.
+          email_outro: You have received this notification because you have been invited to an participation council. Check the <a href="%{resource_url}">assembly page</a> to contribute!
+          email_subject: You have been invited to be a member of the %{resource_name} participation council!
+          notification_title: You have been registered as a member of participation council <a href="%{resource_path}">%{resource_name}</a>. Check the <a href="%{resource_path}">assembly page</a> to contribute!
       assembly:
         role_assigned:
-          email_intro: You have been assigned as %{role} for assembly "%{resource_title}".
-          email_outro: You have received this notification because you are %{role} of the "%{resource_title}" assembly.
+          email_intro: You have been assigned as %{role} for participation council "%{resource_title}".
+          email_outro: You have received this notification because you are %{role} of the "%{resource_title}" participation council.
           email_subject: You have been assigned as %{role} for "%{resource_title}".
-          notification_title: You have been assigned as %{role} for assembly <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: You have been assigned as %{role} for participation council <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>An <strong>assembly</strong> is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
-          page: "<p>An <strong>assembly</strong> is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
-          title: What are assemblies?
+          contextual: "<p>An <strong>participation council</strong> is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
+          page: "<p>An <strong>participation council</strong> is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Assemblies hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general assembly (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of assemblies.</p>\n"
+          title: What are participation councils?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'The assembly was not found on the database (ID: %{id})'
+          not_found: 'The participation council was not found on the database (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'The assembly type was not found on the database (ID: %{id})'
+          not_found: 'The participation council type was not found on the database (ID: %{id})'
     menu:
-      assemblies: Assemblies
+      assemblies: Participation councils
     metrics:
       assemblies:
-        description: Number of assemblies created
-        object: assemblies
-        title: Assemblies
+        description: Number of participation councils created
+        object: participation councils
+        title: Participation councils
     pages:
       home:
         hero:
@@ -451,7 +451,7 @@ en:
           highlighted_processes:
             processes_button_title: Link to page showing all processes
       show:
-        related_assemblies: Related assemblies
+        related_assemblies: Related participation councils
   errors:
     messages:
       cannot_be_blank: can't be blank
@@ -462,20 +462,20 @@ en:
           more_info: More information
           take_part: Take part
         index:
-          children: 'Assemblies: '
+          children: 'Participation councils: '
           organizational_chart: Organizational chart
-          promoted_assemblies: Highlighted assemblies
+          promoted_assemblies: Highlighted participation councils
           reset_chart: Reset
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblies"
-            other: "%{count} assemblies"
+            one: "%{count} participation councils"
+            other: "%{count} participation councils"
         promoted_assembly:
           more_info: More information
           take_part: Take part
       assembly_navigation:
         assembly_member_menu_item: Members
-        assembly_menu_item: Assembly
+        assembly_menu_item: Participation council
       assembly_widgets:
         show:
           take_part: Take part

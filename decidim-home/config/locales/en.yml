@@ -5,8 +5,8 @@ en:
         name: Feder
     menu:
       more_information: More information
-      stableareas_static: Assemblies
-      queries_static: Participation
+      stableareas_static: Participation councils
+      queries_static: Participation in regulation
       proces_static: Active processes
     pages:
       home:
@@ -32,7 +32,7 @@ en:
       meta_tags:
         see_all_processes: All processses
         see_all_assemblies: All participations
-        see_all_stableareas: All assemblies
+        see_all_stableareas: All paticipation councils
     stableareas:
       meta_tags:
         active_step: Active process

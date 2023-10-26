@@ -19,13 +19,13 @@ en:
             other: Others
             private_space: Private space
             promoting_unit: Promoting unit
-            select_an_area: Select an area
+            select_an_area: Select a department
             select_process_group: Select a process group
             title: General information
             visbility: Visibility
           proposal_component_alert: Remember that you have to activate the proposals component.
       show:
-        area: Area
+        area: Department
         cost: Cost
         facilitators: Facilitators
         has_summary_record: Has summary unit
@@ -34,7 +34,7 @@ en:
         'yes': 'Yes'
     projects:
       filters:
-        category: Category
+        category: Debate axis
         select_category: Select
     application:
       attachments:
@@ -50,7 +50,7 @@ en:
   activemodel:
     attributes:
       participatory_process:
-        area_id: Area
+        area_id: Department
         participatory_scope: What is decided
         participatory_structure: How is decided
         title: Title

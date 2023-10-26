@@ -18,17 +18,17 @@ en:
         <p>Once there is a <strong>draft regulation</strong>: when the Government has already drafted a first text, it opens it to the public to improve the wording and content.</p>
         <p>In this part of the process, you can make contributions and comments on the draft standard before its final approval.</p>
   menu:
-    regulations_static: Participation
+    regulations_static: Participation in regulation
   decidim:
     regulations:
       content_blocks:
         highlighted_regulations:
           active_step: Active step
-          name: Highlighted participations
+          name: Highlighted participations in regulation
       pages:
         home:
           highlighted_regulations:
-            active_processes: Participation
+            active_processes: Participation in regulation
             active_step: Active step
             more_information: More information
             participate: Participate
@@ -37,8 +37,8 @@ en:
         filters:
           counters:
             all:
-              one: 1 participation
-              other: "%{count} participations"
+              one: 1 participation in regulation
+              other: "%{count} participations in regulation"
             closed:
               one: 1 closed participation
               other: "%{count} closed participations"
@@ -61,7 +61,7 @@ en:
           see: See
         show:
           email: Support mailbox
-          categories: Categories
+          categories: Debate axis
         index:
           loading: Loading
       scopes:
@@ -78,7 +78,7 @@ en:
             select_a_type: Select type
             types: Type
     statistics:
-      regulations_count: Participation
+      regulations_count: Participations in regulation
     participatory_processes:
       participatory_processes:
         order_by_processes:
@@ -86,11 +86,11 @@ en:
           closed : Closed
           all : All
           select_type: Select type
-          select_department: Select area
+          select_department: Select department
           select_tema: Select scope
         show:
           email: Support mailbox
-          categories: Categories
+          categories: Debate axis
       show:
         theme: Theme
     proposals:
@@ -108,5 +108,5 @@ en:
     shared:
       participatory_space_filters:
         filters:
-          areas: Areas
-          select_an_area: Select area
+          areas: Departments
+          select_an_area: Select department

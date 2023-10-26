@@ -6,13 +6,13 @@ en:
           welcome: Welcome to the new Participa administration panel.
       categories:
         index:
-          categories_title: Categories
+          categories_title: Debate axis
       models:
         assembly:
           fields:
-            title: Assembly name
-          name: Assembly
+            title: Participation council name
+          name: Participation council
   activemodel:
     attributes:
       assembly:
-        title: Assembly name
+        title: Participation council name

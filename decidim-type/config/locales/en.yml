@@ -2,7 +2,7 @@ en:
   decidim:
     admin:
       menu:
-        departments: Areas
+        departments: Departments
         themes: Themes
         types: Types
       types:
