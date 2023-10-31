@@ -1,0 +1,41 @@
+en:
+  decidim:
+    content_blocks:
+      feder:
+        name: Feder
+    menu:
+      more_information: More information
+      stableareas_static: Participation councils
+      queries_static: Participation in regulation
+      proces_static: Active processes
+    pages:
+      home:
+        feder:
+          description: This project has been co-financed by the European Regional Development Fund of the European Union within the framework of the FEDER Operational Program of Catalonia 2014-2020
+        regulatory_inquiries:
+          active_step: Active process
+        extended:
+          debates: Participate
+          debates_explanation: Come to the discussion sessions, make contributions online or comment on those of other participants
+          how_to_participate: How do I take part in a process?
+          meetings: Get informed
+          meetings_explanation: Consult the participatory processes, regulatory initiatives or participation councils that are underway. You will be able to see the proposals that citizens have made and review the most recent, the most valued or the most commented
+          more_info: More information
+          proposals: Check the results
+          proposals_explanation: Review the session reports, access the participants' assessment and find out the Administration's response
+        footer_sub_hero:
+          footer_sub_hero_body: We build a more open, transparent and collaborative society. Join and participate
+          footer_sub_hero_headline: We welcome you to the %{organization} portal
+          register: Register
+  static:
+    queries:
+      meta_tags:
+        see_all_processes: All processses
+        see_all_assemblies: All participations
+        see_all_stableareas: All paticipation councils
+    stableareas:
+      meta_tags:
+        active_step: Active process
+    footer:
+      legal_advice_title: Legal advice
+      legal_advice_text: "In accordance with article 17.1 of law 19/2014, the @Generalitat de Catalunya allows the reuse of content and data as long as the source and update date are cited and the information is not denatured (article 8 of law 37/2007) and also that it does not contradict a specific license."
