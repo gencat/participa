@@ -73,10 +73,7 @@ module Decidim
       end
 
       def process_type
-        types = []
-        types << :virtual if proposals.count.positive? || debates.count.positive?
-        types << :presencial if meetings.count.positive?
-        types.size > 1 ? :ambdos : types.first
+        meetings.count.positive? ? :ambdos : :virtual
       end
 
       def duration_days
