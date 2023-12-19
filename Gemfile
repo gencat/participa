@@ -27,7 +27,7 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.4"
 gem "soda-ruby", require: false
 
-gem "puma", "~> 5.6.7"
+gem "puma"
 
 gem "figaro", ">= 1.1.1"
 
