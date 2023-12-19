@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-admin", ">= 0.9.3"
-  s.add_dependency "decidim-core", ">= 0.9.3"
+  s.add_dependency "decidim-admin", Decidim::Admin::Extended::DECIDIM_VER
+  s.add_dependency "decidim-core", Decidim::Admin::Extended::DECIDIM_VER
 
-  s.add_development_dependency "decidim-admin", ">= 0.9.3"
-  s.add_development_dependency "decidim-dev", ">= 0.9.3"
+  s.add_development_dependency "decidim-admin", Decidim::Admin::Extended::DECIDIM_VER
+  s.add_development_dependency "decidim-dev", Decidim::Admin::Extended::DECIDIM_VER
 end
