@@ -1,5 +1,7 @@
 en:
   decidim:
+    menu:
+      processes: Participatory processes
     themes:
       none: None
     participatory_processes:
@@ -21,3 +23,44 @@ en:
             select_process_group: Select a process group
             title: General information
             visbility: Visibility
+          proposal_component_alert: Remember that you have to activate the proposals component.
+      show:
+        area: Department
+        cost: Cost
+        facilitators: Facilitators
+        has_summary_record: Has summary unit
+        'no': 'No'
+        promoting_unit: Promoting unit
+        'yes': 'Yes'
+    projects:
+      filters:
+        category: Debate axis
+        select_category: Select
+    application:
+      attachments:
+        meetings_available: There are meetings available
+    proposals:
+      proposals:
+        votes_limit:
+          vote_limit:
+            description: Instead of supporting as many proposals as desired, you can only support up to a maximum of %{limit} proposals.
+            left: Left
+            title: You have %{limit} supports to distribute
+            votes: Votes
+  activemodel:
+    attributes:
+      participatory_process:
+        area_id: Department
+        participatory_scope: What is decided
+        participatory_structure: How is decided
+        title: Title
+        type_id: Type
+        email: Suggestion mailbox
+        weight: Weight
+      participatory_process_step:
+        title: Phase name
+  layouts:
+    decidim:
+      participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No results
