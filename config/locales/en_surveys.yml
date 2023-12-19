@@ -1,26 +1,26 @@
 ---
-es:
+en:
   activemodel:
     attributes:
       survey_answer:
-        choices: Las opciones
+        choices: Choices
     errors:
       models:
         survey_answer:
           attributes:
             choices:
-              missing: no estan completas
+              missing: are missing
   # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
   decidim:
     components:
       surveys:
         settings:
           global:
-            send_confirmation_email: Enviar un correo electrónico con las respuestas cuando se conteste a la encuesta
+            send_confirmation_email: Send an email with the answers when the survey is answered
     surveys:
       survey_confirmation_mailer:
         confirmation:
-          body: Has contestado correctamente al cuestionario %{questionnaire_title} dentro de %{participatory_space}
-          subject: Confirmación de respuesta al cuestionario %{questionnaire_title}
-        export_name: Respuestas del cuestionario
+          body: You have answered the questionnaire %{questionnaire_title} correctly in %{participatory_space}
+          subject: Confirmation of response to the questionnaire %{questionnaire_title}
+        export_name: Survey answers
     # Remove when merge: https://github.com/decidim/decidim/pull/11450/files

@@ -1,0 +1,39 @@
+en:
+  decidim:
+    admin:
+      newsletters:
+        select_recipients_to_deliver:
+          all_users_help: Send the newsletter to all participants who have confirmed their email address.
+          all_spaces: All
+          confirm_deliver: Are you sure you want to send this newsletter? This action can not be undone.
+          deliver: Send newsletter
+          followers_help: Send the newsletter to participants who follow a participatory space selected from the list.
+          none: None
+          participants_help: Send the newsletter to participants who have taken a participation action in a participatory space selected from the list.
+          scopes_help: Send the newsletter to users who have activated any of the topics selected in their "My interests" account settings.
+          select_scopes: Select scopes to segment the newsletter
+          select_spaces: Select spaces to segment the newsletter
+          select_users: Select which users you want to send the newsletter to
+          send_to_all_users: Send to all users
+          send_to_followers: Send to followers
+          send_to_participants: Send to participants
+          title: Select recipients to deliver
+          warning: "<strong>Warning:</strong> This newsletter will only be sent to those participants who have activated the <em>Newsletters</em> in notification settings."
+        send:
+          no_recipients: There are no recipients for this selection
+        show:
+          preview: Preview
+          select_recipients_to_deliver: Select recipients to deliver
+          subject: Subject
+    menu:
+      meetings_static: Meetings
+    notifications_settings:
+      show:
+        newsletter_notifications: I want to receive information about relevant activity and news on the portal.
+      shared:
+        share_modal:
+          share: Share
+  layouts:
+    decidim:
+      process_navigation:
+        regulation_menu_item: Participation in regulation

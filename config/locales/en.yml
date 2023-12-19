@@ -1,0 +1,36 @@
+en:
+  parent_scope:
+    themes:
+      name: Themes
+    types:
+      name: Types
+  participagencat:
+    menu:
+      decidims_finder: Search participatory processes
+    decidims_finder_page:
+      helper_html: >
+          In this space you can search for the participatory processes promoted by the different administrations of Catalonia in their citizen participation portals that are based on the digital participation platform Decidim.<br/>
+          The search engine collects participatory processes and participatory budgets.
+      description: Search engine for participatory processes of the Catalan Decidims
+      clear: Clear filters
+      txt: Text search
+      query_title: Enter the words to search
+      query_placeholder: Search...
+      territory: Territorial scope
+      start_date: Start date
+      end_date: End date
+      from: "From:"
+      to: "To:"
+      results: There have been found <strong>{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}</strong> results
+      no_results: No results found for your search <em>"{{query}}"</em>.
+      previous: previous
+      next: next
+      first: first
+      last: last
+  scope_type:
+    regulations:
+      name: Participation in regulation
+      plural: Participation in regulations
+    themes:
+      name: Theme
+      plural: Themes
