@@ -1111,3 +1111,10 @@ h1.part-primary-font{
 .inline-filters button[data-toggle], .inline-filters .dropdown-pane{
   width: 16rem !important;
 }
+
+// QUILL EDITOR
+
+// Fix space between number and text in li elements
+.ql-editor-display ol li::before {
+  width: auto;
+}

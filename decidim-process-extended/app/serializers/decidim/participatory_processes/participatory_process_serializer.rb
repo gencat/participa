@@ -5,6 +5,8 @@ module Decidim
     # This class serializes a ParticipatoryProcess so can be exported
     # to CSV, JSON or other formats (check Decidim::Exporters)
     class ParticipatoryProcessSerializer < Decidim::Exporters::Serializer
+      ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP= Regexp.union([",", ";", " i ", "\r\n", "\r", "\n"])
+
       # Public: Initializes the serializer with a ParticipatoryProcess.
       def initialize(process)
         @process = process
@@ -73,10 +75,7 @@ module Decidim
       end
 
       def process_type
-        types = []
-        types << :virtual if proposals.count.positive? || debates.count.positive?
-        types << :presencial if meetings.count.positive?
-        types.size > 1 ? :ambdos : types.first
+        meetings.count.positive? ? :ambdos : :virtual
       end
 
       def duration_days
@@ -123,12 +122,10 @@ module Decidim
       def meetings_num_entities
         return 0 if closed_meetings.blank?
 
-        delimiters = [",", ";", " i ", "\r\n", "\r", "\n"]
-        regex = Regexp.union(delimiters)
-        split_string = proc { |m| m.attending_organizations.split(regex) }
+        split_string = proc { |m| m.attending_organizations&.split(ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP) }
         @meetings_num_entities ||= closed_meetings
                                    .map(&split_string)
-                                   .flatten
+                                   .flatten.compact
                                    .map(&:strip)
                                    .uniq.count
       end
