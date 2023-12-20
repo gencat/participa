@@ -10,7 +10,7 @@ gem "decidim", TOP_COMMENTS_DECIDIM_VERSION
 gem "decidim-top_comments", path: "."
 
 gem "bootsnap", "~> 1.4"
-gem "puma", ">= 4.3"
+gem "puma"
 gem "uglifier", "~> 4.1"
 
 group :development, :test do

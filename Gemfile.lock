@@ -932,7 +932,7 @@ DEPENDENCIES
   figaro (>= 1.1.1)
   letter_opener_web
   listen
-  puma (< 6)
+  puma
   recaptcha
   rspec-rails
   rubocop-faker
