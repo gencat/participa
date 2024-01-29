@@ -40,6 +40,10 @@ Decidim.configure do |config|
 
   # Time window in which the throttling is applied.
   config.throttling_period = (Rails.application.secrets.decidim[:throttling_period] || 1).to_i.minutes
+
+  # How long can a user remained logged in before the session expires. Notice that
+  # this is also maximum time that user can idle before getting automatically signed out.
+  config.expire_session_after= 48.hours
 end
 
 Decidim.menu :menu do |menu|
