@@ -3,6 +3,8 @@
 module Decidim
   module Regulations
     module Admin
+      module AvoidDeletionOfRegulationsGroupDecorator; end
+
       # To avoid admin users to delete special process groups
       #
       module AvoidDeletionOfRegulationsGroup

@@ -1453,9 +1453,6 @@ oc:
         other: com a mínim %{count} caràcters
     required: Obligatori
     required_explanation: "* Els camps obligatoris estan marcats amb un asterisc"
-  invisible_captcha:
-    sentence_for_humans: S'ètz un uman, podetz ignorar aguest camp
-    timestamp_error_message: Ac sentem, auetz estat massa rapid/a! Tornatz a envià'c.
   layouts:
     decidim:
       cookie_warning:

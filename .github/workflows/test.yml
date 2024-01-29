@@ -32,6 +32,8 @@ jobs:
       TEST_DB_USERNAME: postgres
       TEST_DB_PASSWORD: postgres
       DB_HOST: localhost
+      RECAPTCHA_SITE_KEY: 'recaptcha_site_key'
+      RECAPTCHA_SECRET_KEY: 'recaptcha_secret_key'
     steps:
       - uses: actions/checkout@v2.0.0
         with:
@@ -48,7 +50,7 @@ jobs:
       - run: npm install
 
       - name: Recover Ruby dependency cache
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}

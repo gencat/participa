@@ -5,6 +5,7 @@ module Decidim
   module Admin
     module Extended
       VERSION = "0.2.0"
+      DECIDIM_VER = ">= 0.26"
     end
   end
 end

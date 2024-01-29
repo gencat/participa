@@ -8,12 +8,6 @@ Decidim.configure do |config|
   config.default_locale = :ca
   config.available_locales = [:en, :ca, :es, :oc]
 
-  # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  # config.throttling_max_requests = 30
-
-  # Time window in which the throttling is applied.
-  # config.throttling_period = 1.minute
-
   # Geocoder configuration
   # NOTE: to reenable the maps a new geocoder api token must be generated and replaced here. The `geocoder` gem has already been upgraded
   # config.maps = {
@@ -40,6 +34,12 @@ Decidim.configure do |config|
 
   # The number of reports which an object can receive before hiding it
   # config.max_reports_before_hiding = 3
+
+  # Max requests in a time period to prevent DoS attacks. Only applied on production.
+  config.throttling_max_requests = (Rails.application.secrets.decidim[:throttling_max_requests] || 200).to_i
+
+  # Time window in which the throttling is applied.
+  config.throttling_period = (Rails.application.secrets.decidim[:throttling_period] || 1).to_i.minutes
 
   # How long can a user remained logged in before the session expires. Notice that
   # this is also maximum time that user can idle before getting automatically signed out.

@@ -1,0 +1,4 @@
+en:
+  recaptcha:
+    errors:
+      recaptcha_unreachable: 'reCAPTCHA verification error, please try again.'

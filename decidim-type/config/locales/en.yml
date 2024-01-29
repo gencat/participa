@@ -1,0 +1,28 @@
+en:
+  decidim:
+    admin:
+      menu:
+        departments: Departments
+        themes: Themes
+        types: Types
+      types:
+        new:
+          title: New type
+          create: Create type
+        edit:
+          title: Title
+          update: Update
+        destroy:
+          success: Type deleted successfully
+        create:
+          error: Error creating type
+          success: Type created correctly
+          exists: Type already exists
+        fields:
+          updated_at: Updated at
+          created_at: Created at
+        update:
+          success: Type updated correctly
+          error: Error updating the type
+      titles:
+        types: Type

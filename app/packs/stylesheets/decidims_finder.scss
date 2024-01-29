@@ -1,0 +1,154 @@
+#hits {
+  width: 100%;
+}
+
+li.ais-Hits-item,
+ul.ais-HierarchicalMenu-list {
+    list-style-type: none;
+}
+
+span.ais-HierarchicalMenu-count:after {
+    content: ')';
+}
+span.ais-HierarchicalMenu-count:before {
+  content: ' (';
+}
+
+span.ais-HierarchicalMenu-count {
+  color: #333;
+  font-size: smaller;
+}
+
+div.ais-HierarchicalMenu > ul {
+    margin-left: 0;
+}
+
+div.ais-HierarchicalMenu a {
+  text-decoration: none;
+}
+
+div.ais-HierarchicalMenu a:hover, 
+li.ais-HierarchicalMenu-item--selected > div > a {
+  font-weight: bold;
+}
+
+ul.ais-HierarchicalMenu-list {
+    margin-left: 0.8em;
+}
+
+.card__icondata ul li:nth-child(odd),
+.card__block ul li:nth-child(odd) {
+  color: var(--primary);
+  flex: 0;
+}
+
+.ais-ClearRefinements {
+  float: right;
+  font-size: small;
+  position: relative;
+  top: -2em;
+}
+
+.ais-ClearRefinements {
+  float: right;
+  font-size: small;
+  position: relative;
+  top: -2em;
+}
+
+.ais-ClearRefinements-button {
+  cursor: pointer;
+}
+
+.ais-ClearRefinements-button.ais-ClearRefinements-button--disabled {
+  cursor: default;
+}
+
+.column.pagination {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+#pagination {
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #f4f4f4;
+  display: inline-block;
+}
+
+.ais-Pagination-item {
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+}
+.ais-Pagination-link {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.ais-Pagination-link:hover {
+  text-decoration: none;
+}
+
+ul.ais-Pagination-list {
+  margin: 0 0.5em;
+}
+
+p#stats {
+  margin-left: 2em;
+}
+
+li.ais-Pagination-item.ais-Pagination-item--page.ais-Pagination-item--selected,
+li.ais-Pagination-item.ais-Pagination-item--page.ais-Pagination-item--selected:hover {
+  background: #e8e8e8;
+  color: #3d393c;
+}
+
+.ais-Pagination li.ais-Pagination-item--nextPage a,
+.ais-Pagination li.ais-Pagination-item--previousPage a,
+.ais-Pagination li.ais-Pagination-item--firstPage a,
+.ais-Pagination li.ais-Pagination-item--lastPage a,
+.ais-Pagination li.ais-Pagination-item--nextPage span,
+.ais-Pagination li.ais-Pagination-item--previousPage span,
+.ais-Pagination li.ais-Pagination-item--firstPage span,
+.ais-Pagination li.ais-Pagination-item--lastPage span {
+  color: transparent;
+  display: block;
+  width: 35px;
+  height: 35px;
+  content: '';
+  padding: 0 0.5em;
+}
+
+.ais-Pagination li.ais-Pagination-item--nextPage a {
+  background: url("images/finder-next.png") no-repeat center center;
+}
+
+.ais-Pagination li.ais-Pagination-item--previousPage a {
+  background: url("images/finder-previous.png") no-repeat center center;
+}
+
+.ais-Pagination li.ais-Pagination-item--firstPage a {
+  background: url("images/finder-first.png") no-repeat center center;
+}
+
+.ais-Pagination li.ais-Pagination-item--lastPage a {
+  background: url("images/finder-last.png") no-repeat center center;
+}
+
+.ais-Pagination li.ais-Pagination-item--nextPage span {
+  background: url("images/finder-next_disabled.png") no-repeat center center;
+}
+
+.ais-Pagination li.ais-Pagination-item--previousPage span {
+  background: url("images/finder-previous_disabled.png") no-repeat center center;
+}
+
+.ais-Pagination li.ais-Pagination-item--firstPage span {
+  background: url("images/finder-first_disabled.png") no-repeat center center;
+}
+
+.ais-Pagination li.ais-Pagination-item--lastPage span {
+  background: url("images/finder-last_disabled.png") no-repeat center center;
+}

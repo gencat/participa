@@ -1,0 +1,112 @@
+en:
+  layouts:
+    decidim:
+      regulation_header:
+        unfold: Unfold
+        process_menu_item: Participation
+      participatory_processes:
+        no_processes_yet:
+          no_processes_yet: No results
+        order_by_processes:
+          regulations: "%{count} participations"
+        index:
+          promoted_regulation: Highlighted participations
+      regulations_info: |+
+        <p>During the rule creation process, there are two moments in which you can participate:</p>
+        <pIn <strong>public consultations</strong>: the Government, before starting to prepare the norm, consults the citizens about the opportunity and the most relevant aspects to regulate the matter in question.</p>
+        <p>In this initial phase, you can assess the need to regulate a subject and make contributions on what aspects must be taken into account when doing so.</p>
+        <p>Once there is a <strong>draft regulation</strong>: when the Government has already drafted a first text, it opens it to the public to improve the wording and content.</p>
+        <p>In this part of the process, you can make contributions and comments on the draft standard before its final approval.</p>
+  menu:
+    regulations_static: Participation in regulation
+  decidim:
+    regulations:
+      content_blocks:
+        highlighted_regulations:
+          active_step: Active step
+          name: Highlighted participations in regulation
+      pages:
+        home:
+          highlighted_regulations:
+            active_processes: Participation in regulation
+            active_step: Active step
+            more_information: More information
+            participate: Participate
+            see_all_processes: See all participations
+      regulation:
+        filters:
+          counters:
+            all:
+              one: 1 participation in regulation
+              other: "%{count} participations in regulation"
+            closed:
+              one: 1 closed participation
+              other: "%{count} closed participations"
+            opened:
+              one: 1 open participation
+              other: "%{count} open participations"
+            upcoming:
+              one: 1 upcoming participation
+              other: "%{count} upcoming participations"
+          explanations:
+            no_active: No active participations
+            no_active_nor_upcoming: No active or upcoming participations
+            no_active_nor_upcoming_callout: No active or upcoming particiption. There is a list of the closed ones.
+          names:
+            active: Active
+            all: All
+            closed: Closed
+            opened: Opened
+            upcoming: Upcoming
+          see: See
+        show:
+          email: Support mailbox
+          categories: Debate axis
+        index:
+          loading: Loading
+      scopes:
+        global: All types
+        picker:
+          cancel: Cancel
+          choose: Choose
+          title: Choose %{field}
+        prompt: Select type
+        types: Types
+      shared:
+        participatory_space_filters:
+          filters:
+            select_a_type: Select type
+            types: Type
+    statistics:
+      regulations_count: Participations in regulation
+    participatory_processes:
+      participatory_processes:
+        order_by_processes:
+          opened: Opened
+          closed : Closed
+          all : All
+          select_type: Select type
+          select_department: Select department
+          select_tema: Select scope
+        show:
+          email: Support mailbox
+          categories: Debate axis
+      show:
+        theme: Theme
+    proposals:
+      proposals:
+        index:
+          see_proposals: See Proposals
+    scopes:
+      global: All scopes
+      picker:
+        cancel: Cancel
+        choose: Choose
+        title: Choose %{field}
+      prompt: Select scope
+      scopes: Scopes
+    shared:
+      participatory_space_filters:
+        filters:
+          areas: Departments
+          select_an_area: Select department
