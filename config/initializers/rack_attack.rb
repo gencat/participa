@@ -7,6 +7,9 @@ unless %w(development test).include? Rails.env
   period= ENV["RACK_ATTACK_THROTTLE_PERIOD"] || 60
   Rails.logger.info("Configuring Rack::Attack.throttle with limit: #{limit}, period: #{period}")
   Rack::Attack.throttle("requests by (forwarded) ip", limit: limit.to_i, period: period.to_i) do |request|
+    # ignore requests to assets
+    next if request.path.start_with("/rails/active_storage")
+
     # x_forwarded_for= request.get_header('X-Forwarded-For')
     x_forwarded_for= request.get_header("HTTP_X_FORWARDED_FOR")
     Rails.logger.debug { ">>>>>>>>>>>>>>>>>>>> X-Forwarded-For: #{x_forwarded_for}" }
