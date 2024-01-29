@@ -40,6 +40,10 @@ Decidim.configure do |config|
 
   # The number of reports which an object can receive before hiding it
   # config.max_reports_before_hiding = 3
+
+  # How long can a user remained logged in before the session expires. Notice that
+  # this is also maximum time that user can idle before getting automatically signed out.
+  config.expire_session_after= 48.hours
 end
 
 Decidim.menu :menu do |menu|
