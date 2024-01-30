@@ -22,7 +22,7 @@ unless %w(development test).include? Rails.env
     end
   end
 
-  Rack::Attack.blocklist_ip(ENV["BLOCKED_IPS"])
+  Rack::Attack.blocklist_ip(ENV["RACK_ATTACK_BLOCKED_IPS"])
 end
 
 __END__
