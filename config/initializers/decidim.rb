@@ -43,7 +43,7 @@ Decidim.configure do |config|
 
   # How long can a user remained logged in before the session expires. Notice that
   # this is also maximum time that user can idle before getting automatically signed out.
-  config.expire_session_after= (ENV["EXPIRE_SESSION_AFTER"].presence || 0.5).hours
+  config.expire_session_after= (ENV["EXPIRE_SESSION_AFTER"].presence.to_i || 0.5).hours
 end
 
 Decidim.menu :menu do |menu|
