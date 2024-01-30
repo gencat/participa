@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-unless %w(development test).include? Rails.env
+# unless false && %w(development test).include? Rails.env
   require "rack/attack"
 
   limit= ENV["RACK_ATTACK_THROTTLE_LIMIT"] || 30
@@ -22,8 +22,12 @@ unless %w(development test).include? Rails.env
     end
   end
 
-  Rack::Attack.blocklist_ip(ENV["RACK_ATTACK_BLOCKED_IPS"].split(",")) if ENV["RACK_ATTACK_BLOCKED_IPS"].present?
-end
+  if ENV["RACK_ATTACK_BLOCKED_IPS"].present?
+    ENV["RACK_ATTACK_BLOCKED_IPS"].split(",").each do |ip_or_subnet|
+      Rack::Attack.blocklist_ip(ip_or_subnet)
+    end
+  end 
+# end
 
 __END__
 headers= []
