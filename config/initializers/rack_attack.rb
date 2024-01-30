@@ -21,6 +21,8 @@ unless %w(development test).include? Rails.env
       request.ip
     end
   end
+
+  Rack::Attack.blocklist_ip(ENV['BLOCKED_IPS'])
 end
 
 __END__
