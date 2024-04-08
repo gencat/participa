@@ -85,7 +85,7 @@ module Decidim
       end
 
       def component(component_name)
-        process.components.find_by(manifest_name: component_name)
+        process.components.published.find_by(manifest_name: component_name)
       end
 
       def proposals
@@ -100,7 +100,7 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= Decidim::Meetings::Meeting.where(component: component("meetings"))
+        @meetings ||= Decidim::Meetings::Meeting.where(component: component("meetings")).published
       end
 
       def debates
