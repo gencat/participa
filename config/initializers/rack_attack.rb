@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-unless ENV["CDTB_RACK_ATTACK_DISABLED"].to_i.positive? || %w[development test].include?(Rails.env)
+unless ENV["CDTB_RACK_ATTACK_DISABLED"].to_i.positive? || %w(development test).include?(Rails.env)
   require "rack/attack"
 
   def extract_ip(request)
@@ -32,7 +32,8 @@ unless ENV["CDTB_RACK_ATTACK_DISABLED"].to_i.positive? || %w[development test].i
     next if request.path.start_with?("/rails/active_storage")
 
     ip= extract_ip(request)
-    range_32bit= ip.split('.')[0,2]
+    # extract the 32bit range
+    ip.split(".")[0, 2]
   end
 
   if ENV["RACK_ATTACK_BLOCKED_IPS"].present?
