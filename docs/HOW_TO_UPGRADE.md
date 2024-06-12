@@ -55,6 +55,7 @@ Also, if you need to add locales there, add a comment with the why it was added 
     * Move omniauth buttons render below sign in form.
   * `app/views/decidim/devise/shared/_omniauth_buttons.html.erb (decidim-core)`
     * Move 'or' separator above social register button.
+
 ### Existing modules
 These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
 
