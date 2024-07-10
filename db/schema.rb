@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_10_135260) do
+ActiveRecord::Schema.define(version: 2024_07_10_153522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -399,6 +399,7 @@ ActiveRecord::Schema.define(version: 2024_07_10_135260) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "survey_enabled", default: false, null: false
+    t.string "card_image"
     t.index ["decidim_component_id"], name: "index_decidim_challenges_challenges_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_challenges_challenges_on_decidim_scope_id"
   end

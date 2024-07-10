@@ -6,7 +6,6 @@ Decidim.configure do |config|
 
   # The email that will be used as sender in all emails from Decidim
   config.mailer_sender = Rails.application.secrets.decidim[:mailer_sender]
-  # config.mailer_sender = ENV.fetch("SMTP_USERNAME") { "participagencat@gencat.cat" }
 
   # Change these lines to set your preferred locales
   config.available_locales = %w(en ca es oc)
