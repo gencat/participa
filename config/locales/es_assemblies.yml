@@ -3,7 +3,10 @@ es:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar organigrama
+      assemblies_type:
+        title: Título
       assembly:
+        announcement: Aviso
         area_id: Departamento
         assembly_type: Tipo de consejo de participación
         assembly_type_other: Tipo de consejo de participación otro
@@ -22,12 +25,16 @@ es:
         decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
         duration: Duración
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagen de portada
+        import_attachments: Importar archivos adjuntos
+        import_categories: Importar categorias
+        import_components: Importar componentes
         included_at: Incluido en
         instagram: Instagram
         internal_organisation: Organización interna
@@ -51,7 +58,7 @@ es:
         subtitle: Subtítulo
         target: Quién participa
         title: Título
-        twitter: Twitter
+        twitter: X
         youtube: YouTube
       assembly_member:
         birthday: Cumpleaños
@@ -61,8 +68,10 @@ es:
         designation_mode: Modo de designación
         full_name: Nombre completo
         gender: Género
+        non_user_avatar: Avatar
         position: Posición
         user_id: Usuaria
+        weight: Orden de posición
       assembly_user_role:
         email: Correo electrónico
         name: Nombre
@@ -72,7 +81,7 @@ es:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Tipo de documento inválido. Los formatos que se aceptan son: %{valid_mime_types}'
+              allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -181,6 +190,9 @@ es:
         update:
           error: Se ha producido un error al actualizar una administradora para este consejo de participación.
           success: Administradora actualizada correctamente para este consejo de participación.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de consejo de participación
       menu:
         assemblies: Consejos de participación
         assemblies_settings: Configuración
@@ -218,9 +230,9 @@ es:
           name: Miembro
           positions:
             other: Otro
-            president: Presidenta
+            president: Presidencia
             secretary: Secretaria
-            vice_president: Vicepresidenta
+            vice_president: Vicepresidencia
         assembly_user_role:
           fields:
             email: Correo electrónico
@@ -238,6 +250,9 @@ es:
     admin_log:
       assembly:
         create: "%{user_name} creó el consejo de participación %{resource_name}"
+        duplicate: "%{user_name} ha duplicado el consejo de participación %{resource_name}"
+        export: "%{user_name} ha exportado el consejo de participación %{resource_name}"
+        import: "%{user_name} ha importado el consejo de participación %{resource_name}"
         publish: "%{user_name} publicó el consejo de participación %{resource_name}"
         unpublish: "%{user_name} despublicó el consejo de participación %{resource_name}"
         update: "%{user_name} actualizó el consejo de participación %{resource_name}"
@@ -261,6 +276,7 @@ es:
       admin:
         assemblies:
           form:
+            announcement_help: El texto que introduzcas aquí se mostrará a la participante justo debajo de la información de la asamblea.
             duration: Duración
             duration_help: Si la duración de este consejo de participación es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
             filters: Filtros
@@ -293,8 +309,11 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este consejo de participación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
+            explanation: 'Instrucciones para la imagen:'
+            image_guide: Preferiblemente una imagen apaisada que no tenga ningún texto.
             existing_user: Participante existente
             non_user: No participante
+            non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarlas como miembros.
             select_a_position: Selecciona una posición
             select_user: Selecciona una participante
             user_type: Tipo de participante
@@ -311,6 +330,9 @@ es:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre este consejo de participación
       assembly_members:
         index:
           members: Miembros
@@ -325,6 +347,9 @@ es:
       content_blocks:
         highlighted_assemblies:
           name: Consejos de participación destacados
+      new_import:
+          accepted_types:
+            json: JSON
       created_by:
         city_council: Ayuntamiento
         others: Otros
@@ -378,7 +403,7 @@ es:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        social_networks_title: Compartir este consejo de participación en
+        social_networks_title: Visita este consejo de participación en
         target: Quién participa
       statistics:
         answers_count: Respuestas

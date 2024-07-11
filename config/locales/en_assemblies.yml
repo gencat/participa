@@ -3,7 +3,10 @@ en:
     attributes:
       assemblies_setting:
         enable_organization_chart: Enable organization chart
+      assemblies_type:
+        title: Title
       assembly:
+        announcement: Announcement
         area_id: Department
         assembly_type: Participation council type
         assembly_type_other: Participation council type other
@@ -22,12 +25,16 @@ en:
         decidim_scope_id: Scope
         description: Description
         developer_group: Promoter group
+        document: Document
         domain: Domain
         duration: Duration
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Home image
+        import_attachments: Import attachments
+        import_categories: Import categories
+        import_components: Import components
         included_at: Included at
         instagram: Instagram
         internal_organisation: Internal organization
@@ -36,7 +43,7 @@ en:
         meta_scope: Scope metadata
         parent_id: Parent participation council
         participatory_processes_ids: Related participatory processes
-        participatory_scope: What is decided
+        participatory_scope: What is decided?
         participatory_structure: How is decided
         private_space: Private space
         promoted: Highlighted
@@ -51,18 +58,19 @@ en:
         subtitle: Subtitle
         target: Who participates
         title: Title
-        twitter: Twitter
+        twitter: X
         youtube: YouTube
       assembly_member:
         birthday: Birthday
         birthplace: Birthplace
         ceased_date: Ceased date
         designation_date: Designation date
-        designation_mode: Designation mode
         full_name: Full name
         gender: Gender
+        non_user_avatar: Avatar
         position: Position
-        user_id: User of group
+        user_id: User or group
+        weight: Order position
       assembly_user_role:
         email: Email
         name: Name
@@ -72,7 +80,7 @@ en:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Invalid document type. The accepted types are: %{valid_mime_types}'
+              allowed_file_content_types: 'Invalid document type. Only files with the following extensions are allowed: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -181,6 +189,9 @@ en:
         update:
           error: There was a problem updating an admin for this participation council.
           success: Admin updated successfully for this participation council.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Participation councils type
       menu:
         assemblies: Participation councils
         assemblies_settings: Settings
@@ -238,6 +249,9 @@ en:
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} participation council"
+        duplicate: "%{user_name} duplicated the %{resource_name} participation council"
+        export: "%{user_name} exported the %{resource_name} participation council"
+        import: "%{user_name} imported the %{resource_name} participation council"
         publish: "%{user_name} published the %{resource_name} participation council"
         unpublish: "%{user_name} unpublished the %{resource_name} participation council"
         update: "%{user_name} updated the %{resource_name} participation council"
@@ -261,6 +275,7 @@ en:
       admin:
         assemblies:
           form:
+            announcement_help: The text you enter here will be shown to the user right below the assembly information.
             duration: Duration
             duration_help: If the duration of this participation council is limited, select the end date. Otherwise, it will appear as indefinite.
             filters: Filters
@@ -294,7 +309,10 @@ en:
         assembly_members:
           form:
             existing_user: Existing participant
+            explanation: 'Guidance for image:'
+            image_guide: Preferrably a portrait image that does not have any text.
             non_user: Non participant
+            non_user_avatar_help: You should get the consent of the persons before publishing them as a member.
             select_a_position: Select a position
             select_user: Select a participant
             user_type: Participant type
@@ -311,6 +329,9 @@ en:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: About this paticipation council
       assembly_members:
         index:
           members: Members
@@ -452,6 +473,8 @@ en:
             processes_button_title: Link to page showing all processes
       show:
         related_assemblies: Related participation councils
+    statistics:
+      assemblies_count: Participation councils
   errors:
     messages:
       cannot_be_blank: can't be blank
