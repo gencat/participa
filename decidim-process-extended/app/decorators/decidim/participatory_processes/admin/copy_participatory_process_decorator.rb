@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.class_eval do
+Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess.class_eval do
   def copy_participatory_process
     @copied_process = Decidim::ParticipatoryProcess.create!(
       organization: @participatory_process.organization,

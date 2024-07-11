@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when updating a scope.
-    class UpdateType < Rectify::Command
+    class UpdateType < Decidim::Command
       # Public: Initializes the command.
       #
       # scope - The Scope to update
