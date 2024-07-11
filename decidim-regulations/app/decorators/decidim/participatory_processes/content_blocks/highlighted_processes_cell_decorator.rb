@@ -11,11 +11,11 @@ module Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCellD
         @highlighted_processes ||= if max_results.to_i.zero?
                                      []
                                    else
-                                     query= (
-                                       ::Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user) |
-                                       ::Decidim::ParticipatoryProcesses::HighlightedParticipatoryProcesses.new |
-                                       ::Decidim::ParticipatoryProcesses::FilteredParticipatoryProcesses.new("active")
-                                     ).query
+                                     query = (
+                                          ::Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user) |
+                                          ::Decidim::ParticipatoryProcesses::HighlightedParticipatoryProcesses.new |
+                                          ::Decidim::ParticipatoryProcesses::FilteredParticipatoryProcesses.new("active")
+                                        ).query.with_attached_hero_image.includes([:organization, :hero_image_attachment]).limit(highlighted_processes_max_results)
 
                                      # the only change from the original is the conditional to ignore regulations
                                      query

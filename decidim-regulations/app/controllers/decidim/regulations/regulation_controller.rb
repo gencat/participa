@@ -40,15 +40,16 @@ module Decidim
 
       private
 
-      def search_klass
-        RegulationSearch
+      def search_collection
+        ParticipatoryProcess.where(organization: current_organization,
+                                   decidim_participatory_process_group_id: Rails.application.config.regulation).published.visible_for(current_user).includes(:area)
       end
 
       def default_filter_params
         {
-          scope_id: nil,
-          type_id: nil,
-          date: default_date_filter
+          with_any_scope: nil,
+          with_type: nil,
+          with_date: default_date_filter
         }
       end
 
@@ -95,7 +96,7 @@ module Decidim
       # This is customized because GENCAT don't Processes Groups on Index Page
 
       def filtered_processes
-        search.results.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
+        search.result.where(decidim_participatory_process_group_id: Rails.application.config.regulation)
       end
 
       # This is customized because GENCAT

@@ -187,11 +187,53 @@ GIT
       decidim-core (~> 0.27.0)
 
 PATH
+  remote: decidim-admin-extended
+  specs:
+    decidim-admin-extended (0.2.0)
+      decidim-admin (>= 0.27)
+      decidim-core (>= 0.27)
+
+PATH
   remote: decidim-home
   specs:
     decidim-home (0.3.0)
-      decidim-core (>= 0.27.6)
+      decidim-core (>= 0.27)
       rails (>= 5.2, < 7.0.x)
+
+PATH
+  remote: decidim-process-extended
+  specs:
+    decidim-process-extended (0.3.0)
+      decidim-core (>= 0.27)
+      decidim-type (= 0.3.0)
+      rails (>= 5.2, < 7.0.x)
+
+PATH
+  remote: decidim-recaptcha
+  specs:
+    decidim-recaptcha (0.1.0)
+      decidim-core (>= 0.27)
+
+PATH
+  remote: decidim-regulations
+  specs:
+    decidim-regulations (0.1.2)
+      decidim-type (= 0.3.0)
+      rails (>= 5.2, < 7.0.x)
+
+PATH
+  remote: decidim-top_comments
+  specs:
+    decidim-top_comments (0.26.2)
+      decidim-core (>= 0.27)
+      decidim-proposals (>= 0.27)
+      deface
+
+PATH
+  remote: decidim-type
+  specs:
+    decidim-type (0.3.0)
+      decidim-core (>= 0.27)
 
 GEM
   remote: https://rubygems.org/
@@ -870,12 +912,18 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
+  decidim-admin-extended!
   decidim-cdtb
   decidim-challenges!
   decidim-dev!
   decidim-home!
+  decidim-process-extended!
+  decidim-recaptcha!
+  decidim-regulations!
   decidim-templates!
   decidim-term_customizer!
+  decidim-top_comments!
+  decidim-type!
   deface
   delayed_job_active_record
   faker

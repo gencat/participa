@@ -59,15 +59,16 @@ Also, if you need to add locales there, add a comment with the why it was added 
 ### Existing modules
 These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
 
-  1. Decidim Espais Estables ("decidim-assemblies")
-      This module changes "Assembly" translation:
-        * CA: "Assemblea" for "Consell de participació"
-        * ES: "Asamblea" for "Consejo de participación"
+#### 1. Decidim Espais Estables ("decidim-assemblies")
+  This module changes "Assembly" translation:
+    * CA: "Assemblea" for "Consell de participació"
+    * ES: "Asamblea" for "Consejo de participación"
+    * EN: "Assembly" for "Participation council"
 
-      Modified files are:
+  Modified files are:
 
-      * `config/locales/`
-        * Copy the locale files from Decidim (decidim-assemblies), and change the string "Assembly" to the correct one
+  * `config/locales/`
+    * Copy the locale files from Decidim (decidim-assemblies), and change the string "Assembly" to the correct one
 
 #### 2. decidim-home (aka. decidim-core)
 
@@ -95,6 +96,7 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decidim-home/app/views/layouts/decidim/_top_navbar.html.erb`
     * Implement the a top navbar rendered in `_wrapper.html.erb`
+
 #### 3. Decidim Process Extended ("decidim-participatory-processes")
 
   This module adds new fields to the "ParticipatoryProcess": `email`, `promoting_unit`, `facilitators`, `cost`, `has_summary_record`, `type_id`
@@ -115,8 +117,6 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override to add new fields in the form.
   * `decorators/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
     * Override to filter by participatory process specific type.
-  * `decorators/decidim/participatory_processes/participatory_process_search_decorator.rb`
-    * Override to change initialize.
 
   Following ones, are same new fields in template:
   * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`
@@ -225,7 +225,9 @@ These are custom modules and this is what you have to keep in mind when updating
 
   #### 1. Decidim Type ("decidim-type")
 
-  This module adds a CRUD to create new Type records
+  This module adds a CRUD to create new Type records.
+
+  UPGRADE 0.27: participatory processes now have types. Maybe we don't need this module anymore.
 
   #### 2. Decidim Admin Extended ("decidim-admin-extended"):
 

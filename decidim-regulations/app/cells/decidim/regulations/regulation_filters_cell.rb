@@ -5,17 +5,11 @@ module Decidim
     class RegulationFiltersCell < Decidim::ViewModel
       ALL_FILTERS = %w(opened closed upcoming all).freeze
 
-      def filter_link(filter)
+      def filter_link(date_filter, type_filter = nil)
         Decidim::Regulations::Engine
           .routes
           .url_helpers
-          .regulation_index_path(
-            filter: {
-              scope_id: get_filter(:scope_id),
-              type_id: get_filter(:type_id),
-              date: filter
-            }
-          )
+          .regulation_index_path(**filter_params(date_filter, type_filter))
       end
 
       def current_filter
@@ -28,21 +22,36 @@ module Decidim
         params[:filter][filter_name]
       end
 
-      def filtered_processes(date_filter)
-        Decidim::Regulations::RegulationSearch.new(
-          date: date_filter,
-          scope_id: get_filter(:scope_id),
-          type_id: get_filter(:type_id),
-          current_user: current_user,
-          organization: current_organization
-        )
+      def filtered_processes(date_filter, filter_with_type: true)
+        query = ParticipatoryProcess.where(organization: current_organization).ransack(
+          {
+            with_date: date_filter,
+            with_any_scope: get_filter(:with_any_scope),
+            with_area: get_filter(:with_area),
+            with_type: filter_with_type ? get_filter(:with_type) : nil
+          },
+          current_user: current_user
+        ).result
+
+        query.published.visible_for(current_user)
+      end
+
+      def filter_params(date_filter, type_filter)
+        {
+          filter: {
+            with_date: date_filter,
+            with_any_scope: get_filter(:with_any_scope),
+            with_area: get_filter(:with_area),
+            with_type: type_filter || get_filter(:with_type)
+          }
+        }
       end
 
       def process_count_by_filter
         return @process_count_by_filter if @process_count_by_filter
 
         @process_count_by_filter = %w(opened closed upcoming).inject({}) do |collection_by_filter, filter_name|
-          filtered_processes = filtered_processes(filter_name).results
+          filtered_processes = filtered_processes(filter_name)
           processes = filtered_processes
           collection_by_filter.merge(filter_name => processes.count)
         end

@@ -5,37 +5,54 @@ module Decidim
     class ProcessFiltersCell < Decidim::ViewModel
       ALL_FILTERS = %w(active past upcoming all).freeze
 
-      def filter_link(filter)
+      def filter_link(date_filter, type_filter = nil)
         Decidim::ParticipatoryProcesses::Engine
           .routes
           .url_helpers
-          .participatory_processes_path(
-            filter: {
-              scope_id: get_filter(:scope_id),
-              area_id: get_filter(:area_id),
-              date: filter
-            }
-          )
+          .participatory_processes_path(**filter_params(date_filter, type_filter))
       end
 
       def current_filter
-        get_filter(:date, model[:default_filter])
+        get_filter_in(:with_date, ALL_FILTERS, model[:default_filter])
+      end
+
+      def current_type_filter_name
+        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_type) }&.first ||
+          I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
       end
 
       def get_filter(filter_name, default = nil)
-        return default unless params[:filter].try(:[], filter_name)
-
-        params[:filter][filter_name]
+        params&.dig(:filter, filter_name) || default
       end
 
-      def filtered_processes(date_filter)
-        ParticipatoryProcessSearch.new(
-          date: date_filter,
-          scope_id: get_filter(:scope_id),
-          area_id: get_filter(:area_id),
-          current_user: current_user,
-          organization: current_organization
-        )
+      def get_filter_in(filter_name, options, default = nil)
+        value = get_filter(filter_name)
+        options.include?(value) ? value : default
+      end
+
+      def filter_params(date_filter, type_filter)
+        {
+          filter: {
+            with_date: date_filter,
+            with_any_scope: get_filter(:with_any_scope),
+            with_area: get_filter(:with_area),
+            with_type: type_filter || get_filter(:with_type)
+          }
+        }
+      end
+
+      def filtered_processes(date_filter, filter_with_type: true)
+        query = ParticipatoryProcess.where(organization: current_organization).ransack(
+          {
+            with_date: date_filter,
+            with_any_scope: get_filter(:with_any_scope),
+            with_area: get_filter(:with_area),
+            with_type: filter_with_type ? get_filter(:with_type) : nil
+          },
+          current_user: current_user
+        ).result
+
+        query.published.visible_for(current_user)
       end
 
       # This is customized because GENCAT don't Processes Groups on Index Page
@@ -43,7 +60,7 @@ module Decidim
         return @process_count_by_filter if @process_count_by_filter
 
         @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
-          processes = filtered_processes(filter_name).results.where(decidim_participatory_process_group_id: Rails.application.config.process)
+          processes = filtered_processes(filter_name).where(decidim_participatory_process_group_id: Rails.application.config.process)
           collection_by_filter.merge(filter_name.to_s => processes.count)
         end
         @process_count_by_filter["all"] = @process_count_by_filter.values.sum
@@ -69,6 +86,10 @@ module Decidim
         I18n.t(current_filter, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: process_count_by_filter[current_filter])
       end
 
+      def filter_type_label
+        I18n.t("filter_by", scope: "decidim.participatory_processes.participatory_processes.filters")
+      end
+
       def filter_name(filter)
         I18n.t(filter, scope: "decidim.participatory_processes.participatory_processes.filters.names")
       end
@@ -76,13 +97,32 @@ module Decidim
       def explanation
         return if process_count_by_filter["active"].positive?
 
-        tag.span(I18n.t(explanation_text, scope: "decidim.participatory_processes.participatory_processes.filters.explanations"), class: "muted mr-s ml-s")
+        content_tag(
+          :span,
+          I18n.t(explanation_text, scope: "decidim.participatory_processes.participatory_processes.filters.explanations"),
+          class: "muted mr-s ml-s"
+        )
       end
 
       def explanation_text
         return "no_active" if process_count_by_filter["upcoming"].positive?
 
         "no_active_nor_upcoming"
+      end
+
+      def participatory_process_types
+        @participatory_process_types ||= Decidim::ParticipatoryProcessType.joins(:processes).where(
+          decidim_participatory_processes: { id: filtered_processes(current_filter, filter_with_type: false) }
+        ).distinct
+      end
+
+      def participatory_process_types_for_select
+        return if participatory_process_types.blank?
+
+        [[I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters"), ""]] +
+          participatory_process_types.map do |type|
+            [translated_attribute(type.title), type.id.to_s]
+          end
       end
     end
   end
