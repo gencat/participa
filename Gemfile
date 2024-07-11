@@ -23,8 +23,7 @@ gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challen
 # gem "decidim-idcat_mobil", "~> 0.3.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.27-stable"
 
-# update ruby version
-# gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.5"
+gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", branch: "downgrade_ruby"
 #### Custom gems and modifications block end ####
 
 gem "soda-ruby", require: false
