@@ -186,6 +186,13 @@ GIT
       decidim-admin (~> 0.27.0)
       decidim-core (~> 0.27.0)
 
+PATH
+  remote: decidim-home
+  specs:
+    decidim-home (0.3.0)
+      decidim-core (>= 0.26)
+      rails (>= 5.2, < 7.0.x)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -866,6 +873,7 @@ DEPENDENCIES
   decidim-cdtb
   decidim-challenges!
   decidim-dev!
+  decidim-home!
   decidim-templates!
   decidim-term_customizer!
   deface

@@ -2,16 +2,12 @@
   "name": "participa",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.18.13",
-    "@babel/preset-env": "^7.18.10",
-    "@decidim/browserslist-config": "file:packages/browserslist-config",
-    "@decidim/core": "file:packages/core",
-    "@decidim/elections": "file:packages/elections",
-    "@decidim/webpacker": "file:packages/webpacker",
-    "@rails/webpacker": "^5.4.3",
-    "algoliasearch": "^4.14.3",
-    "graphql": "^16.8.1",
-    "instantsearch.js": "^4.50.3"
+    "@decidim/browserslist-config": "^0.27.6",
+    "@decidim/core": "^0.27.6",
+    "@decidim/elections": "^0.27.6",
+    "@decidim/webpacker": "^0.27.6",
+    "algoliasearch": "^4.24.0",
+    "instantsearch.js": "^4.73.1"
   },
   "version": "0.1.0",
   "engines": {
@@ -26,10 +22,8 @@
     "extends @decidim/browserslist-config"
   ],
   "devDependencies": {
-    "@decidim/dev": "file:packages/dev",
-    "@decidim/eslint-config": "file:packages/eslint-config",
-    "@decidim/stylelint-config": "file:packages/stylelint-config",
-    "webpack": "^5.92.1",
-    "webpack-dev-server": "^4.15.1"
+    "@decidim/dev": "^0.27.6",
+    "@decidim/eslint-config": "^0.27.6",
+    "@decidim/stylelint-config": "^0.27.6"
   }
 }

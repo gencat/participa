@@ -43,8 +43,8 @@ storage/
 /public/packs
 /public/packs-test
 public/decidim-packs/
+public/sw.js.*
 public/sw.js
-public/sw.js.map
 
 yarn-debug.log*
 .yarn-integrity
