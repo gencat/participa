@@ -3,6 +3,6 @@
 module Decidim
   module Home
     VERSION = "0.3.0"
-    DECIDIM_VER = ">= 0.27.6"
+    DECIDIM_VER = ">= 0.27"
   end
 end
