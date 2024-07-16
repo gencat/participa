@@ -49,7 +49,7 @@ module Decidim
         end
 
         it "serializes the authors emails" do
-          expect(serialized).to include(authors_email: proposal.authors.pluck(:emails))
+          expect(serialized).to include(authors_emails: proposal.authors.pluck(:email))
         end
       end
     end
