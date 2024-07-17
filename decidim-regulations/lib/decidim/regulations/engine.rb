@@ -70,7 +70,6 @@ module Decidim
         Dir.glob(Decidim::Regulations::Engine.root + "app/decorators/**/*_decorator*.rb").each do |c|
           require_dependency(c)
         end
-        ::Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsController.prepend(Decidim::Regulations::Admin::AvoidDeletionOfRegulationsGroup)
       end
     end
   end

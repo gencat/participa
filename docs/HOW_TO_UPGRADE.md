@@ -147,12 +147,13 @@ These are custom modules and this is what you have to keep in mind when updating
   ##### 	Modified files:
   * `app/controllers/decidim/regulations/`
   * `app/decorators/lib/decidim/filter_form_builder_decorator.rb`
+  * `app/decorators/decidim/participatory_processes/admin/participatory_process_groups_controller_decorator.rb`
+  * `app/decorators/decidim/participatory_processes/helpers/participatory_process_helper_decorator.rb`
+    * Override participatory_process_cta_path in order to use it via `decidim_participatory_processes`
   * `app/views/decidim/regulations/regulation/_order_by_regulations.html (order_by_processes)`
     * Change the rendered cell
   * `app/views/decidim/regulations/regulation/_promoted_process.html`
     * Access `participatory_process_path` url helper via `decidim_participatory_processes`
-  *`app/decorators/decidim/participatory_processes/helpers/participatory_process_helper_decorator.rb`
-    * Override participatory_process_cta_path in order to use it via `decidim_participatory_processes`
   * `app/views/decidim/regulations/regulation/index.html`
     * Add section to show floating help (L:12-14)
     * Change traslations from *_processes to *_regulation
