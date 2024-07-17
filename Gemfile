@@ -19,8 +19,8 @@ gem "decidim-type", path: "decidim-type"
 
 gem "decidim-cdtb"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
-# gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v6.0.0"
-# gem "decidim-idcat_mobil", "~> 0.3.0"
+gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", branch: "upgrade/0.27"
+gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", branch: "upgrade/0.27"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.27-stable"
 
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", branch: "downgrade_ruby"
