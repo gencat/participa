@@ -8,9 +8,9 @@ module Decidim::Proposals::ProposalSerializerDecorator
       # Add authors to proposal exportation
       def serialize
         original_serialize.merge({
-          authors_names: proposal.authors.pluck(:name),
-          authors_emails: proposal.authors.pluck(:email)
-        })
+                                   authors_names: proposal.authors.pluck(:name),
+                                   authors_emails: proposal.authors.pluck(:email)
+                                 })
       end
     end
   end
