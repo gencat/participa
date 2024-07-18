@@ -48,7 +48,7 @@ bundle exec rake --backtrace -t
 
 # or
 
-bundle rspec decidim-process-extended/spec/serializers/decidim/participatory_processes/participatory_process_serializer_spec.rb`
+bundle exec rspec decidim-process-extended/spec/serializers/decidim/participatory_processes/participatory_process_serializer_spec.rb`
 ```
 
 ## Open Data
