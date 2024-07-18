@@ -7,8 +7,8 @@ unless ENV["CDTB_RACK_ATTACK_DISABLED"].to_i.positive? || %w(development test).i
     x_forwarded_for= request.get_header("HTTP_X_FORWARDED_FOR")
     Rails.logger.info { ">>>>>>>>>>>>>>>>>>>> X-Forwarded-For: #{x_forwarded_for}" }
     if x_forwarded_for.present?
-      ip= x_forwarded_for.split(":").first
-      ip
+      x_forwarded_for.split(":").first
+
     else
       request.ip
     end

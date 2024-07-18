@@ -9,6 +9,7 @@ module Decidim
       # scope - The Scope to update
       # form - A form object with the params.
       def initialize(type, form)
+        super
         @type = type
         @form = form
       end

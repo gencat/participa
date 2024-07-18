@@ -8,11 +8,9 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsControl
   #
   def self.decorate
     Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsController.class_eval do
-
       alias_method :original_destroy, :destroy
 
       def destroy
-        byebug
         forbidden_groups_ids = [
           Rails.application.config.process.to_s,
           Rails.application.config.regulation.to_s

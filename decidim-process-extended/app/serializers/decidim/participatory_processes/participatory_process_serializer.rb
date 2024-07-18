@@ -9,6 +9,7 @@ module Decidim
 
       # Public: Initializes the serializer with a ParticipatoryProcess.
       def initialize(process)
+        super
         @process = process
       end
 
