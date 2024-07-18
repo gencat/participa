@@ -18,7 +18,7 @@ describe "Homepage", type: :system do
 
   before do
     switch_to_host(organization.host)
-    visit decidim.root_path
+    visit decidim.root_path(locale: I18n.locale)
   end
 
   it "loads and shows organization name and main blocks" do
@@ -28,8 +28,8 @@ describe "Homepage", type: :system do
     within "section.hero .hero__container" do
       expect(page).to have_content("Benvinguda a Participa Gencat")
     end
-    within "section.subhero:not(.footer__subhero)" do
-      subhero_msg= translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1")
+    within "section.subhero" do
+      subhero_msg= translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1").gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
       expect(page).to have_content(subhero_msg)
     end
   end

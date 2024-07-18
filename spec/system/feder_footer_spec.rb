@@ -2,12 +2,12 @@
 
 require "rails_helper"
 
-describe "new registration" do
+describe "new registration", type: :system do
   let(:organization) { create :organization }
 
   before do
-    app_host = (organization.host ? "http://#{organization.host}:3000" : nil)
-    Capybara.app_host = app_host
+    switch_to_host(organization.host)
+    visit decidim.root_path
   end
 
   it "display feder logo on footer on homepage" do
