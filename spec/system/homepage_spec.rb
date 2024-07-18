@@ -28,7 +28,7 @@ describe "Homepage", type: :system do
     within "section.hero .hero__container" do
       expect(page).to have_content("Benvinguda a Participa Gencat")
     end
-    within "section.subhero" do
+    within "section.#sub_hero" do
       subhero_msg= translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1").gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
       expect(page).to have_content(subhero_msg)
     end
