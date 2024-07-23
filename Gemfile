@@ -3,8 +3,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-# DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.27-stable" }.freeze
-DECIDIM_VERSION = { path: "/home/laurajv/decidim_fork" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.27-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION

@@ -1,51 +1,7 @@
 GIT
-  remote: https://github.com/gencat/decidim-module-challenges.git
-  revision: 2f3f8c983544e0d73512c8f6a5f93318ecee01ad
-  tag: v0.3.3
-  specs:
-    decidim-challenges (0.3.3)
-      decidim-core (~> 0.27)
-
-GIT
-  remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: a202f8a49b19157eb1b2a455b82f33ce8d955c23
-  branch: upgrade/0.27
-  specs:
-    decidim-department_admin (0.7.0)
-      decidim-admin (~> 0.27.0)
-      decidim-core (~> 0.27.0)
-
-GIT
-  remote: https://github.com/gencat/decidim-module-idcat_mobil.git
-  revision: 406054a9ed7b83d4c6e542661e0b2200b064fe32
-  branch: upgrade/0.27
-  specs:
-    decidim-idcat_mobil (0.4.0)
-      decidim (>= 0.27.0)
-      decidim-core (>= 0.27.0)
-      omniauth-idcat_mobil (~> 0.5.0)
-
-GIT
-  remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: c6d9c4ee27262803491380c45032a16370040862
-  branch: downgrade_ruby
-  specs:
-    decidim-verifications-members_picker (0.0.6)
-      decidim-core (>= 0.27.5)
-      decidim-verifications (>= 0.27.5)
-      psych (< 4)
-
-GIT
-  remote: https://github.com/mainio/decidim-module-term_customizer.git
-  revision: abbf0c69e1bcaafebc5aa4f8da22fdb64ce62149
+  remote: https://github.com/CodiTramuntana/decidim
+  revision: e9d5cd060a191c5d557549462314fbdf3a3ef2a8
   branch: release/0.27-stable
-  specs:
-    decidim-term_customizer (0.27.0)
-      decidim-admin (~> 0.27.0)
-      decidim-core (~> 0.27.0)
-
-PATH
-  remote: /home/laurajv/decidim_fork
   specs:
     decidim (0.27.7)
       decidim-accountability (= 0.27.7)
@@ -213,6 +169,52 @@ PATH
       decidim-forms (= 0.27.7)
     decidim-verifications (0.27.7)
       decidim-core (= 0.27.7)
+
+GIT
+  remote: https://github.com/gencat/decidim-module-challenges.git
+  revision: 2f3f8c983544e0d73512c8f6a5f93318ecee01ad
+  tag: v0.3.3
+  specs:
+    decidim-challenges (0.3.3)
+      decidim-core (~> 0.27)
+
+GIT
+  remote: https://github.com/gencat/decidim-module-department_admin.git
+  revision: a202f8a49b19157eb1b2a455b82f33ce8d955c23
+  branch: upgrade/0.27
+  specs:
+    decidim-department_admin (0.7.0)
+      decidim-admin (~> 0.27.0)
+      decidim-core (~> 0.27.0)
+
+GIT
+  remote: https://github.com/gencat/decidim-module-idcat_mobil.git
+  revision: 406054a9ed7b83d4c6e542661e0b2200b064fe32
+  branch: upgrade/0.27
+  specs:
+    decidim-idcat_mobil (0.4.0)
+      decidim (>= 0.27.0)
+      decidim-core (>= 0.27.0)
+      omniauth-idcat_mobil (~> 0.5.0)
+
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: c6d9c4ee27262803491380c45032a16370040862
+  branch: downgrade_ruby
+  specs:
+    decidim-verifications-members_picker (0.0.6)
+      decidim-core (>= 0.27.5)
+      decidim-verifications (>= 0.27.5)
+      psych (< 4)
+
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer.git
+  revision: abbf0c69e1bcaafebc5aa4f8da22fdb64ce62149
+  branch: release/0.27-stable
+  specs:
+    decidim-term_customizer (0.27.0)
+      decidim-admin (~> 0.27.0)
+      decidim-core (~> 0.27.0)
 
 PATH
   remote: decidim-admin-extended

@@ -10,11 +10,7 @@ describe "new registration", type: :system do
     visit decidim.root_path
   end
 
-  it "display feder logo on footer on homepage" do
-    expect(page).to have_content "Fons Europeu de Desenvolupament Regional"
-  end
-
-  it "display feder logo on footer on user registration page" do
+  it "display feder logo on footer" do
     expect(page).to have_content "Fons Europeu de Desenvolupament Regional"
   end
 end
