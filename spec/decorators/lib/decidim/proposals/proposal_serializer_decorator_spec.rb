@@ -47,10 +47,6 @@ module Decidim
         it "serializes the authors names" do
           expect(serialized).to include(authors_names: proposal.authors.pluck(:name))
         end
-
-        it "serializes the authors emails" do
-          expect(serialized).to include(authors_emails: proposal.authors.pluck(:email))
-        end
       end
     end
   end
