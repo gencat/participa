@@ -14,7 +14,6 @@ module Decidim
       end
 
       # Public: Returns a hash with the serialized data.
-      # rubocop:disable Metrics/CyclomaticComplexity
       def serialize
         {
           # Process Information
@@ -30,8 +29,10 @@ module Decidim
           department_id: process.area&.id,
           department_name_ca: process.area&.name.try(:[], "ca"),
           participatory_space: process.participatory_process_group&.title.try(:[], "ca")&.downcase,
-          normative_type_id: process.decidim_type&.id,
-          normative_type_name_ca: process.decidim_type&.name.try(:[], "ca"),
+          participatory_process_type: {
+            id: process.participatory_process_type.try(:id),
+            title: process.participatory_process_type.try(:title) || empty_translatable
+          },
           duration_days: duration_days,
           start_date: process.start_date,
           end_date: process.end_date,
@@ -61,7 +62,6 @@ module Decidim
           related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
         }
       end
-      # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 

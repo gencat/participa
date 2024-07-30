@@ -9,8 +9,7 @@ Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.class_eval do
                                 has_summary_record: form.has_summary_record,
                                 promoting_unit: form.promoting_unit,
                                 facilitators: form.facilitators,
-                                email: form.email,
-                                decidim_type: form.type
+                                email: form.email
                               })
   end
 end

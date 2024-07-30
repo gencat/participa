@@ -31,8 +31,7 @@ module Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator
           has_summary_record: @participatory_process.has_summary_record,
           promoting_unit: @participatory_process.promoting_unit,
           facilitators: @participatory_process.facilitators,
-          email: @participatory_process.email,
-          decidim_type_id: @participatory_process.decidim_type_id
+          email: @participatory_process.email
         )
       end
     end

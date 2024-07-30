@@ -4,7 +4,7 @@
   </div>
   <div class="columns mediumlarge-6 large-5">
     <%= form.types_select :with_type,
-                          types_for_select(current_organization),
+                          types_for_select,
                           legend_title: t(".types"),
                           label: "",
                           selected: filter.with_type,
