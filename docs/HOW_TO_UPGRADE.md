@@ -24,7 +24,6 @@ bin/rails db:migrate
 ```
 
   Custom modules with migrations.
-  * Decidim::Type ("decidim-type")
   * Decidim::Process::Extended ("decidim-process-extended")
 
 
@@ -213,15 +212,3 @@ These are custom modules and this is what you have to keep in mind when updating
     * Custom fonts and styles added
   * `app/controllers/decidim_controller.rb`
     * This controller is needed in all Decidim installations (empty at the moment)
-
-### New modules
-
-  #### 1. Decidim Type ("decidim-type")
-
-  This module adds a CRUD to create new Type records.
-
-  UPGRADE 0.27: participatory processes now have types. Maybe we don't need this module anymore.
-
-  #### 2. Decidim Admin Extended ("decidim-admin-extended"):
-
-  This module adds the necessary routes, menus and views to show the Type module inside the admin area.
