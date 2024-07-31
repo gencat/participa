@@ -7,6 +7,8 @@ module Decidim
     class ParticipatoryProcessSerializer < Decidim::Exporters::Serializer
       ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP= Regexp.union([",", ";", " i ", "\r\n", "\r", "\n"])
 
+      include Decidim::TranslationsHelper
+
       # Public: Initializes the serializer with a ParticipatoryProcess.
       def initialize(process)
         super
