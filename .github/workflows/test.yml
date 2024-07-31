@@ -99,3 +99,16 @@ jobs:
           max_attempts: 3
           retry_on: error
           command: CI=1 RAILS_ENV=test bundle exec rspec --backtrace
+
+      # Prepare screenshots for upload
+      - name: Prepare screenshots for upload
+        run: RAILS_ENV=test bundle exec rails ci:screenshots:rename
+        if: always()
+
+      # Upload screenshots artifact
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: screenshot_artifact
+          path: /home/runner/work/participa/participa/tmp/screenshots/

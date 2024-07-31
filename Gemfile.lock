@@ -358,6 +358,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    capybara-screenshot (1.0.26)
+      capybara (>= 1.0, < 4)
+      launchy
     carrierwave (2.2.6)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -933,6 +936,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   byebug
+  capybara-screenshot
   daemons
   database_cleaner
   decidim!
