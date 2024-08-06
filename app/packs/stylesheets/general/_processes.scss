@@ -1,39 +1,39 @@
 .process-nav__link {
     text-transform: inherit !important;
     &:hover {
-        color: $RedGenCat !important;
+        color: var(--colors-gencat-red) !important;
         text-decoration: underline;
         .external-icon {
-            color: $RedGenCat !important;
-            fill: $RedGenCat !important;
+            color: var(--colors-gencat-red) !important;
+            fill: var(--colors-gencat-red) !important;
         }
     }
 }
 
 .process-nav__content {
     .is-active {
-      color: $RedGenCat !important;
+      color: var(--colors-gencat-red) !important;
       .external-icon {
-          color: $RedGenCat !important;
-          fill: $RedGenCat !important;
+          color: var(--colors-gencat-red) !important;
+          fill: var(--colors-gencat-red) !important;
       }
   }
 }
 
   .phase-item--past{
     &::after{
-      background-color: $RedGenCat !important;
+      background-color: var(--colors-gencat-red) !important;
     }
     span{
-      background-color: $RedGenCat !important;
+      background-color: var(--colors-gencat-red) !important;
       opacity: 1;
     }
   }
 
   .hollow {
       &:hover {
-          color: $RedGenCat !important;
-          border-color: $RedGenCat !important;
+          color: var(--colors-gencat-red) !important;
+          border-color: var(--colors-gencat-red) !important;
       }
   }
 
@@ -41,12 +41,12 @@
       .lead {
           p {
             font-size: 35px;
-            color: $cardNotice !important;
+            color: var(--colors-card-notice) !important;
           }
       }
     p, ul, li {
         font-size: 16px;
-        color: $colorText;
+        color: var(--colors-gencat-text-normal);
     }
   }
 
@@ -56,18 +56,18 @@
 
 .participatory_structure {
     p {
-        color: $colorText;
+        color: var(--colors-gencat-text-normal);
     }
 }
 
 .definition-data__item {
-    color: $colorText;
+    color: var(--colors-gencat-text-normal);
 }
 
 .is-dropdown-submenu-parent {
     ul {
         a {
-            color: $colorText !important;
+            color: var(--colors-gencat-text-normal) !important;
         }
         a:hover {
             font-weight: bold !important;
@@ -79,7 +79,7 @@
 #comments {
     .is-dropdown-submenu-parent {
         a {
-            color: $RedGenCat;
+            color: var(--colors-gencat-red);
         }
     }
 }
@@ -87,37 +87,37 @@
 #proposals {
     .is-dropdown-submenu-parent {
         a {
-            color: $RedGenCat;
+            color: var(--colors-gencat-red);
         }
     }
 }
 
 .author__name {
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
 }
 
 .icon-flag {
     &:hover {
-        color: $RedGenCat !important;
-        fill: $RedGenCat !important;
+        color: var(--colors-gencat-red) !important;
+        fill: var(--colors-gencat-red) !important;
     }
 }
 .button.hollow.secondary{
-    color: $white;
-    border-color: $RedGenCat;
+    color: var(--colors-gencat-white);
+    border-color: var(--colors-gencat-red);
 }
 .add-comment {
     .button--sc {
-        background: $RedGenCat;
+        background: var(--colors-gencat-red);
         &:hover {
-            background: $RedGenCat;
+            background: var(--colors-gencat-red);
         }
     }
 
     p {
         span {
             a {
-                color: $RedGenCat !important;
+                color: var(--colors-gencat-red) !important;
                 :hover {
                     text-decoration: underline !important;
                 }
@@ -125,16 +125,16 @@
         }
     }
         textarea.is-invalid-input {
-            border-color: $RedGenCat
+            border-color: var(--colors-gencat-red)
         }
         .form-error {
-            color: $RedGenCat;
+            color: var(--colors-gencat-red);
         }
 }
 
 .tags {
     a {
-        color: $RedGenCat !important;
+        color: var(--colors-gencat-red) !important;
     }
 }
 
@@ -142,18 +142,18 @@
     .address__icon {
         svg {
             use {
-                fill: $RedGenCat !important;
+                fill: var(--colors-gencat-red) !important;
             }
         }
     }
     .card__datetime {
-        border-left: 4px solid $RedGenCat;
+        border-left: 4px solid var(--colors-gencat-red);
     }
 
     .card__link {
         &:hover {
             text-decoration: underline !important;
-            color: $colorText !important;
+            color: var(--colors-gencat-text-normal) !important;
         }
     }
 }
@@ -162,48 +162,48 @@
     .address__icon {
         svg {
             use {
-                fill: $RedGenCat !important;
+                fill: var(--colors-gencat-red) !important;
             }
         }
     }
     .card__datetime {
-        border-left: 4px solid $RedGenCat;
+        border-left: 4px solid var(--colors-gencat-red);
     }
 
     .card__link {
         &:hover {
             text-decoration: underline !important;
-            color: $colorText !important;
+            color: var(--colors-gencat-text-normal) !important;
         }
     }
 }
 
 .card--result .card__link:hover, .card--result .card__link:focus {
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
 }
 
 .card--meeting .card__link:hover, .card--meeting .card__link:focus {
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
 }
 
 .card--proposal {
     .card__header {
         a {
-            color: $RedGenCat !important;
+            color: var(--colors-gencat-red) !important;
             &:hover {
                 text-decoration: underline !important;
-                color: $colorText !important;
+                color: var(--colors-gencat-text-normal) !important;
             }
 
         }
 
         .author__name {
-            color: $RedGenCat !important;
+            color: var(--colors-gencat-red) !important;
         }
     }
 
     p {
-        color: $colorText;
+        color: var(--colors-gencat-text-normal);
     }
 }
 
@@ -252,13 +252,13 @@
 
 .pagination {
     .current {
-        background: $RedGenCat;
+        background: var(--colors-gencat-red);
     }
 }
 
 .title-action__action {
-    color: $RedGenCat !important;
-    border-color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
+    border-color: var(--colors-gencat-red) !important;
 }
 .title-action__action.button{
   color: #fff !important;
@@ -279,19 +279,19 @@
 }
 
 .button:hover, .button:focus {
-    background-color: $RedGenCat;
+    background-color: var(--colors-gencat-red);
 }
 .process-nav__link:hover, .process-nav__link:focus {
-    color: $RedGenCat;
+    color: var(--colors-gencat-red);
     text-decoration: underline !important;
     svg{
-        fill:  $RedGenCat;
+        fill:  var(--colors-gencat-red);
     }
 }
 
 #new_proposal_ {
     button {
-        background: $RedGenCat;
+        background: var(--colors-gencat-red);
     }
     .ql-toolbar {
       button {
@@ -312,18 +312,18 @@
         border-color: #bababa !important;
     }
     .is-invalid-label {
-        color: $RedGenCat;
+        color: var(--colors-gencat-red);
         textarea {
-            border-color: $RedGenCat
+            border-color: var(--colors-gencat-red)
         }
         .form-error {
-            color: $RedGenCat;
+            color: var(--colors-gencat-red);
         }
     }
 }
 
 .muted-link {
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
 }
 
 .muted-link:hover {
@@ -333,7 +333,7 @@
 
 .card.extra {
     .button:not(.success) {
-        background: $RedGenCat !important;
+        background: var(--colors-gencat-red) !important;
 
         &:hover{
             background-color: #f30000 !important;
@@ -344,13 +344,13 @@
 .budget-summary {
     .budget-summary__progressbox {
         button {
-            background: $RedGenCat;
+            background: var(--colors-gencat-red);
         }
     }
 
     p {
         font-size: 16px;
-        color: $colorText;
+        color: var(--colors-gencat-text-normal);
     }
 }
 
@@ -369,7 +369,7 @@
 .process-header__container {
     .process-header__hashtag {
         a {
-            color: $white;
+            color: var(--colors-gencat-white);
             &:hover {
                 text-decoration: underline !important;
             }
@@ -380,7 +380,7 @@
 #loginModal {
     .register-form.new_user {
         button {
-            background: $RedGenCat;
+            background: var(--colors-gencat-red);
         }
     }
     .sign-up-link {
@@ -391,14 +391,14 @@
     }
     .reveal__title {
             font-size: 28px;
-    color: $colorText;
+    color: var(--colors-gencat-text-normal);
 
     }
 }
 
 .callout.next-meetings {
     &:hover {
-        color: $RedGenCat;
+        color: var(--colors-gencat-red);
         text-decoration: underline;
     }
 }

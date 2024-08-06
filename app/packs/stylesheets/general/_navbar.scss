@@ -1,6 +1,6 @@
 .navbar{
     padding-top: 8px;
-    background-color: #333;
+    background-color: red;
 
     .main-nav__link:not(.main-nav__link--active){
         a{
@@ -42,9 +42,6 @@
   font-weight: bold;
 }
 .site-title{
-    padding: 0;
-}
-.title-bar{
     padding: 0;
 }
 
@@ -90,13 +87,12 @@ nav {
   @include breakpoint(640 down){
     height: 46px;
     display: block !important;
-        a{
-            &:hover {
-                color: $White !important;
-            }
+      a{
+        &:hover {
+          color: var(--colors-gencat-white) !important;
         }
+      }
   }
-
 }
 
 .main-nav__link a{
@@ -104,7 +100,7 @@ nav {
   padding-top: 7px;
 
   border-top: 1px !important;
-  border-color: $white !important;
+  border-color: var(--colors-gencat-white) !important;
   padding-left: 15px;
   padding-right: 15px;
   @include breakpoint(640 down){
@@ -113,14 +109,14 @@ nav {
     background: -ms-linear-gradient(top, rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* IE 11 */
   }
   &:hover{
-    background: $navbar-bg-hover-participa;
-    color: $navbar-active-color;
+    background: var(--colors-background-gencat);
+    color: var(--colors-gencat-text-default);
     text-decoration: none;
 
     @include breakpoint(640 down){
       background-image: url("images/nav-bar-actiu.jpg"),
         -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) );
-            color: $navbar-color-hover;
+            color: var(--colors-gencat-text-default);
 
         // background: linear-gradient(top,rgba(162, 162, 162, 1), rgba(135, 135, 135, 1) ) ; /* Standard syntax */
         background: linear-gradient(to bottom,rgba(162, 162, 162, 1),rgba(135, 135, 135, 1) ) ; /* IE ? */
@@ -137,20 +133,20 @@ nav {
   }
 
   font-family: 'Open Sans Semibold';
-  color: $navbar-color-hover;
+  color: var(--colors-gencat-text-default);
 }
 .main-nav__link--active a {
-  box-shadow: $navbar-active-shadow-none;
+  box-shadow: inset 0px 0 0 0 var(--colors-gencat-white);;
 
-  color: $navbar-active-color;
-  background: $White;
+  color: var(--colors-gencat-text-default);
+  background: var(--colors-gencat-white);
   font-family: 'Open Sans Semibold';
   height: 36px;
 
   @include breakpoint(640 down){
     height: 46px;
     background-image: url("images/nav-bar-actiu.jpg"), linear-gradient(to bottom, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100% );
-    color: $White !important;
+    color: var(--colors-gencat-white) !important;
     background-repeat: no-repeat;
     background-position: left center;
     box-shadow: 0px !important;
@@ -158,7 +154,7 @@ nav {
         background-image: url("images/nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
         background-repeat: no-repeat !important;
         background-position: left center !important;
-        color: $White !important;
+        color: var(--colors-gencat-white) !important;
         // background: linear-gradient(top,rgba(135, 135, 135, 1), rgba(162, 162, 162, 1) ) !important; /* Standard syntax */
         background: linear-gradient(to bottom,rgba(135, 135, 135, 1),rgba(162, 162, 162, 1) ) !important; /* IE ? */
         background: -ms-linear-gradient(top, rgba(135, 135, 135, 1), rgba(162, 162, 162, 1) ) !important; /* IE 11 */
@@ -169,10 +165,10 @@ nav {
 .participa-left-bar li{
   font-weight: normal !important;
   font-family: 'Open Sans Semibold';
-  box-shadow: $navbar-active-shadow-small;
+  box-shadow: inset 1px 0 0 0 var(--colors-gencat-white);;
 
   @include breakpoint(640 down){
-    box-shadow: $navbar-active-shadow-none;
+    box-shadow: inset 0px 0 0 0 var(--colors-gencat-white);;
     background: linear-gradient(to bottom,rgba(109, 109, 109, 1),rgba(94, 94, 94, 1) ) ; /* IE ? */
     background: -ms-linear-gradient(top, rgba(109, 109, 109, 1), rgba(94, 94, 94, 1) ) ; /* IE 11 */
 
@@ -189,7 +185,7 @@ nav {
     @include breakpoint(640 down){
       background-image: image-url(""), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(109, 109, 109, 1) ), color-stop(100%, rgba(94, 94, 94, 1) ) );
       margin-top: 1px !important;
-      box-shadow: $navbar-active-shadow-none;
+      box-shadow: inset 0px 0 0 0 var(--colors-gencat-white);;
     }
 
   }
@@ -202,14 +198,14 @@ nav {
 }
 .participa-left-bar li{
   &:hover{
-    background-color: $navbar-bg-hover-participa;
+    background-color: var(--colors-background-gencat);
 
     @include breakpoint(640 down){
 
       &:hover{
         background-image: url("images/nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
         text-decoration: none !important;
-        color: $navbar-color-hover;
+        color: var(--colors-gencat-text-default);
         background-size: auto 100%;
       }
 
@@ -220,14 +216,14 @@ nav {
 
 }
 .usermenu-off-canvas-holder .usermenu-off-canvas a {
-   color: $navbar-color-hover;
+   color: var(--colors-gencat-text-default);
 }
 
 .topbar__user__login a{
-    color: $navbar-color-hover;
+    color: var(--colors-gencat-text-default);
     font-weight: normal;
     &:hover {
-      color: $navbar-color-hover;
+      color: var(--colors-gencat-text-default);
       font-weight: normal;
     }
 }
@@ -259,7 +255,7 @@ nav {
   font-family: 'Open Sans Semibold';
   font-weight: normal;
 
-  color: $navbar-color-hover;
+  color: var(--colors-gencat-text-default);
   margin-top: 0px !important;
   border-top: 0px !important;
   border-bottom: 0px !important;
@@ -272,7 +268,7 @@ nav {
 
     &:hover{
       background-image: url("images/nav-bar-actiu.jpg"), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(135, 135, 135, 1) ), color-stop(100%, rgba(162, 162, 162, 1) ) ) !important;
-      color: $navbar-active-color !important;
+      color: var(--colors-gencat-text-default) !important;
       text-decoration: none !important;
     }
   }
@@ -285,7 +281,7 @@ nav {
 }
 
 .part-bakcground-navbar {
-  background: $cardNotice;
+  background: var(--colors-card-notice);
 }
 
 
@@ -308,7 +304,7 @@ nav {
   }
 
   .part-icon-bars{
-    color: $white;
+    color: var(--colors-gencat-white);
 
     position: absolute;
     height: 20px;
@@ -328,7 +324,7 @@ nav {
 }
 
 .part-gencat-logo-nomargin {
-  background: url("images/logo_generalitat_white.png") no-repeat 0 0;
+  // background: url("images/logo_generalitat_white.png") no-repeat 0 0;
   height: 1.688em;
   display: block;
   color: transparent;
@@ -389,7 +385,7 @@ nav {
 /* Zona logo navbar (Gencat y cerrar, dispositivos móviles) */
 
 .part-topNavbar-logo {
-    background: url("images/logo_generalitat_white.png") no-repeat 0 0;
+    // background: url("images/logo_generalitat_white.png") no-repeat 0 0;
     height: 2em;
     text-indent: -555em;
     margin: .5em 0;
@@ -399,7 +395,7 @@ nav {
 }
 
 .part-background-grey-navbar {
-    background: $grayLogoNavbar;
+    background: var(--colors-gencat-gray-logo);
 }
 
 .part-close-button {
@@ -425,6 +421,10 @@ nav {
     border-top: 0px;
   }
 }
+.title-bar{
+  padding: 0;
+}
+
 
 .tool-bar{
   text-align: right;
@@ -459,9 +459,9 @@ nav {
       }
     }
     .is-dropdown-submenu li > a {
-      color: $dark-gray;
+      color: var(--colors-gencat-gray-dark);
       &:hover{
-        background-color: lighten($medium-gray, 30%)
+        background-color: lighten(#828282, 30%)
       }
     }
     @include breakpoint(smallmedium down){

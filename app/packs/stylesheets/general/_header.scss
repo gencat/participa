@@ -52,10 +52,10 @@
         }
     }
     .topbar__search input{
-      background: $white;
-      color: $grayHover;
+      background: var(--colors-gencat-white);
+      color: var(--colors-gencat-gray-hover);
       &::placeholder{
-        color: $grayLogoNavbar;
+        color: var(--colors-gencat-gray-logo);
       }
     }
     .topbar__search:not(:focus-within) button{

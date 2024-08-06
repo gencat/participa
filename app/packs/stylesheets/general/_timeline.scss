@@ -1,18 +1,18 @@
 .timeline{
     .timeline__item:not(.timeline__item--inactive){
         .timeline__phase{
-            background-color: $RedGenCat;
+            background-color: var(--colors-gencat-red);
         }
     }
     .timeline__item--current{
         .timeline__phase{
-            background-color: $RedGenCat;
+            background-color: var(--colors-gencat-red);
         }
         .timeline__header{
-            background-color: $RedGenCat;
+            background-color: var(--colors-gencat-red);
         }
         .timeline__info{
-            border-color: $RedGenCat;
+            border-color: var(--colors-gencat-red);
         }
     }
 }

@@ -1,5 +1,5 @@
 .callout{
   &.alert{
-    border-left-color: $RedGenCat !important;
+    border-left-color: var(--colors-gencat-red) !important;
   }
 }

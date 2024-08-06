@@ -6,6 +6,88 @@
 //
 // By default this is empty.
 
+$breakpoints: (
+  small: 0,
+  smallmedium: 450px,
+  medium: 640px,
+  mediumlarge: 800px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+
+:root {
+  --colors-gencat-red: #c00000;
+  --colors-gencat-select: #efefef;
+  --colors-gencat-white: #fff;
+  --colors-gencat-gray-hover: #404040;
+  --colors-gencat-gray-logo: #6c6c6c;
+  --colors-gencat-gray-soft: #efefef;
+  --colors-gencat-gray-dark: #2c2930;
+  --colors-gencat-gray-light: #e8e8e8;
+  --colors-gencat-gray-medium: #828282;
+  --colors-gencat-text-normal: #666666;
+
+  --colors-card-default: #d9d9d9;
+  --colors-card-info: #d9edf7;
+  --colors-card-warning: #fcf8e3;
+  --colors-card-danger: #f2dede;
+  --colors-card-success: #dff0d8;
+  --colors-card-primary: #f5f5f5;
+  --colors-card-notice: #333333;
+  --colors-card-purple: #7087B9;
+
+  --colors-text-success: #3c763d;
+  --colors-text-default: #333;
+  --colors-text-default2: #666;
+  --colors-text-info: #31708f;
+  --colors-text-warning: #8a6d3b;
+  --colors-text-danger: #a94442;
+  --colors-text-notice: #fff;
+
+  --colors-background-gencat: #bbb;
+}
+
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media (max-width: 600px) { @content; }
+  }
+  @elseif $point == medium {
+    @media (max-width: 900px) { @content; }
+  }
+  @elseif $point == large {
+    @media (max-width: 1200px) { @content; }
+  }
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('fonts/OpenSans-Regular.ttf');
+  src: url('fonts/OpenSans-Regular.ttf?#iefix') format('truetype'),
+       url('fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans Semibold';
+  src: url('fonts/OpenSans-Semibold.ttf');
+  src: url('fonts/OpenSans-Semibold.ttf?#iefix') format('truetype'),
+       url('fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  src: url('fonts/OpenSans-Bold.ttf');
+  src: url('fonts/OpenSans-Bold.ttf?#iefix') format('truetype'),
+       url('fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans Italic';
+  src: url('fonts/OpenSans-Italic.ttf');
+  src: url('fonts/OpenSans-Italic.ttf?#iefix') format('truetype'),
+       url('fonts/OpenSans-Italic.ttf') format('truetype');
+}
+
 @import "stylesheets/vendor/bootstrap";
 @import "stylesheets/vendor/mq";
 
@@ -30,7 +112,7 @@ button:focus{
 }
 .title-bar {
   @include breakpoint(640 down){
-    background-color: $textColorDefault;
+    background-color: var(--colors-text-default2);
     position: fixed !important;
     top: 0 !important;
     width: 100% !important;
@@ -39,8 +121,8 @@ button:focus{
   padding-top: 12px !important;
 }
 body {
-  color: $textColorDefault;
-  font-family: $body-font-family !important;
+  color: var(--colors-text-default2);
+  font-family: 'Open Sans', 'Source Sans Pro' !important;
 }
 
 .heading1 {
@@ -90,22 +172,22 @@ h5 {
 
 .share-link{
   &.link{
-    color: $RedGenCat;
+    color: var(--colors-gencat-red);
   }
 }
 .process-header__hashtag{
   a{
-    color: $white;
+    color: var(--colors-gencat-white);
 
     &:hover{
-      color: $RedGenCat;
+      color: var(--colors-gencat-red);
     }
   }
 }
 .card--list__data__icon{
   &:hover{
     .icon{
-      fill: $RedGenCat !important;
+      fill: var(--colors-gencat-red) !important;
     }
   }
 }
@@ -118,7 +200,7 @@ h5 {
 .process_stats{
   .process_stats-item{
     .icon{
-      color: $RedGenCat !important;
+      color: var(--colors-gencat-red) !important;
     }
   }
 }
@@ -126,28 +208,28 @@ h5 {
   .phase-item--past{
     span,
     &::after{
-      background-color: $RedGenCat !important;
+      background-color: var(--colors-gencat-red) !important;
     }
   }
 }
 .process-nav__link{
   &:hover,
   &.is-active{
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
   }
 }
-
+de pijos 
 .wrapper {
-  background: $white;
+  background: var(--colors-gencat-white);
 }
 
 .wrapper--inner {
-  background: $light-gray-dark;
+  background: var(--colors-gencat-gray-dark);
   padding-top: 1rem;
 }
 
 .wrapper-home {
-  background: $white;
+  background: var(--colors-gencat-white);
 }
 
 .part-pointer {
@@ -172,7 +254,7 @@ h5 {
   color: #3D393C;
   padding-right: 22px;
   &:hover {
-    color: $RedGenCat;
+    color: var(--colors-gencat-red);
     cursor: pointer;
   }
 }
@@ -181,11 +263,11 @@ h5 {
   padding-left: 4px;
 }
 .part-red {
-  color: $RedGenCat;
+  color: var(--colors-gencat-red);
 }
 
 .part-grey {
-  color: $colorTextLegalAdvice;
+  color: var(--colors-gencat-text-normal)LegalAdvice;
 }
 
 .part-bold {
@@ -208,7 +290,7 @@ h5 {
     a {
       font-size: 0.813em;
       color: #fff;
-      background: $textDefault;
+      background: var(--colors-text-default);
       font-family: "Open Sans Semibold";
       &:hover {
         text-decoration: underline !important;
@@ -217,7 +299,7 @@ h5 {
   }
   .part-is-here {
     font-size: 0.813em;
-    color: $textDefault;
+    color: var(--colors-text-default);
     background: none;
   }
 }
@@ -319,7 +401,7 @@ h5 {
 .part-dropdown-content {
   padding: 20px;
   font-size: 13px;
-  color: $colorText;
+  color: var(--colors-gencat-text-normal);
 }
 
 .part-dropdown-3 {
@@ -333,8 +415,8 @@ h5 {
 }
 
 .usermenu-off-canvas-holder .usermenu-off-canvas {
-  border-top: 1px solid $cardNotice;
-  border-bottom: 1px solid $cardNotice;
+  border-top: 1px solid var(--colors-card-notice);
+  border-bottom: 1px solid var(--colors-card-notice);
 }
 
 .participa-grey {
@@ -402,26 +484,26 @@ h5 {
 }
 
 .error-form input {
-  border-color: $RedGenCat !important;
-  color: $RedGenCat !important;
+  border-color: var(--colors-gencat-red) !important;
+  color: var(--colors-gencat-red) !important;
   font-size: 14px;
 }
 
 .error-form input:focus {
-  border-color: $RedGenCat !important;
-  color: $RedGenCat !important;
+  border-color: var(--colors-gencat-red) !important;
+  color: var(--colors-gencat-red) !important;
   font-size: 14px;
 }
 
 .error-form textarea {
-  border-color: $RedGenCat !important;
-  color: $RedGenCat !important;
+  border-color: var(--colors-gencat-red) !important;
+  color: var(--colors-gencat-red) !important;
   font-size: 14px;
 }
 
 .error-form textarea:focus {
-  border-color: $RedGenCat !important;
-  color: $RedGenCat !important;
+  border-color: var(--colors-gencat-red) !important;
+  color: var(--colors-gencat-red) !important;
   font-size: 14px;
 }
 
@@ -480,7 +562,7 @@ h5 {
 
 .input-group {
   .part-btn-group {
-    background-color: $RedGenCat !important;
+    background-color: var(--colors-gencat-red) !important;
     border-radius: 0px !important;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -488,7 +570,7 @@ h5 {
     padding-right: 10px;
 
     &:hover{
-      background-color: $RedGenCatHover !important;
+      background-color: var(--colors-gencat-red)Hover !important;
     }
   }
 }
@@ -496,12 +578,12 @@ h5 {
 .part-select {
   border-radius: 5px !important;
   -webkit-appearance: none !important;
-  background-color: $selectBGColor !important;
+  background-color: var(--colors-gencat-select) !important;
 }
 
 .part-select:focus {
   border: 1px solid #e8e8e8 !important;
-  background-color: $selectBGColor !important;
+  background-color: var(--colors-gencat-select) !important;
 }
 
 .part-error-msg {
@@ -531,8 +613,8 @@ h5 {
 }
 
 .day.active {
-  background: $RedGenCat !important;
-  color: $white !important;
+  background: var(--colors-gencat-red) !important;
+  color: var(--colors-gencat-white) !important;
   font-weight: bold;
 
   &:hover {
@@ -542,7 +624,7 @@ h5 {
 
 .datepicker-days {
   .day {
-    color: $textDefault;
+    color: var(--colors-text-default);
     font-weight: bold;
 
     &:hover {
@@ -556,14 +638,14 @@ h5 {
 
   .dow {
     font-weight: normal;
-    color: $textColorDefault;
+    color: var(--colors-text-default2);
   }
 
   .next {
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
   }
   .prev {
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
   }
 }
 
@@ -604,18 +686,18 @@ h5 {
   border-color: grey;
   tr {
     th {
-      background: $textColorDefault;
+      background: var(--colors-text-default2);
       font-size: 14px;
       font-family: "Open Sans";
       text-align: left;
-      color: $white;
+      color: var(--colors-gencat-white);
     }
     td {
       border-color: rgb(221, 221, 221);
       border-width: 1px;
       border-style: solid;
       font-size: 14px;
-      color: $textColorDefault;
+      color: var(--colors-text-default2);
     }
   }
 
@@ -627,7 +709,7 @@ h5 {
 /* buttons, links */
 
 .part-a {
-  color: $RedGenCat !important;
+  color: var(--colors-gencat-red) !important;
 }
 
 .part-a-bold {
@@ -635,52 +717,52 @@ h5 {
 }
 
 .part-a:hover {
-  color: $RedGenCat !important;
+  color: var(--colors-gencat-red) !important;
   text-decoration: underline !important;
 }
 
 .part-a-white {
-  color: $white;
+  color: var(--colors-gencat-white);
   &:hover {
-    color: $white;
+    color: var(--colors-gencat-white);
   }
 }
 
 .part-a-white{
   &:hover,
   &:focus{
-    color: $white;
+    color: var(--colors-gencat-white);
   }
 }
 .order-by__tab{
   &:hover,
   &.is-active{
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
   }
 }
 .card__button{
   &.hollow{
-    border-color: $RedGenCat !important;
-    color: $white !important;
+    border-color: var(--colors-gencat-red) !important;
+    color: var(--colors-gencat-white) !important;
   }
 }
 .button{
   &.hollow{
-    color: $white !important;
+    color: var(--colors-gencat-white) !important;
     &:hover{
-      border-color: $RedGenCat !important;
-      background-color: $RedGenCat !important;
+      border-color: var(--colors-gencat-red) !important;
+      background-color: var(--colors-gencat-red) !important;
 
-      color: $white !important;
+      color: var(--colors-gencat-white) !important;
     }
   }
 }
 .card__link {
-  color: $RedGenCat !important;
+  color: var(--colors-gencat-red) !important;
   &:hover,
   &:focus{
     text-decoration: underline !important;
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
   }
 }
 .row.attachments{
@@ -692,10 +774,10 @@ h5 {
   }
 }
 .part-a:active {
-  color: $RedGenCat !important;
+  color: var(--colors-gencat-red) !important;
   @include breakpoint(small down){
-    background-color: $textColorDefault;
-    color: $selectBGColor !important;
+    background-color: var(--colors-text-default2);
+    color: var(--colors-gencat-select) !important;
     border-radius: 5px;
   }
 }
@@ -720,32 +802,32 @@ h5 {
 }
 
 .button--sc.expanded:not(.success){
-  background-color: $RedGenCat !important;
-  color: $white !important;
-  border: 1px solid $RedGenCat;
+  background-color: var(--colors-gencat-red) !important;
+  color: var(--colors-gencat-white) !important;
+  border: 1px solid var(--colors-gencat-red);
 }
 
 .subhero-cta{
-  color: $RedGenCat !important;
+  color: var(--colors-gencat-red) !important;
 }
 .part-btn {
-  background-color: $RedGenCat !important;
+  background-color: var(--colors-gencat-red) !important;
   font-size: 14px;
   font-weight: bold;
 }
 
 .part-btn:hover {
-  background-color: $RedGenCatHover !important;
+  background-color: var(--colors-gencat-red)Hover !important;
 }
 
 .button {
-  background-color: $RedGenCat !important;
+  background-color: var(--colors-gencat-red) !important;
 }
 .button.clear {
   background-color: transparent !important;
 }
 .button:hover {
-  background-color: $RedGenCat !important;
+  background-color: var(--colors-gencat-red) !important;
 }
 
 .ql-toolbar {
@@ -771,7 +853,7 @@ h5 {
 
 .part-dropdown {
   a {
-    color: $textColorDefault !important;
+    color: var(--colors-text-default2) !important;
   }
   a:hover {
     font-weight: bold !important;
@@ -779,11 +861,11 @@ h5 {
 }
 
 .check-newsletter.button.clear.secondary {
-  background-color: $white;
-  color: $primary;
+  background-color: var(--colors-gencat-white);
+  color: var(--colors-gencat-red);
   &:hover, &:focus {
-    background-color: $primary;
-    color: $white;
+    background-color: var(--colors-gencat-red);
+    color: var(--colors-gencat-white);
   }
 }
 
@@ -837,7 +919,7 @@ h5 {
     @include breakpoint(992 down){
       border-top-width: 1px;
       border-top-style: solid;
-      border-top-color: $cardDefault;
+      border-top-color: var(--colors-card-default);
     }
   }
 
@@ -852,19 +934,19 @@ h5 {
 
 /* backgrounds */
 .part-background-header {
-  background-color: $cardPrimary;
+  background-color: var(--colors-card-primary);
 }
 
 .part-background-body {
-  background-color: $white;
+  background-color: var(--colors-gencat-white);
 }
 
 .part-background-fald {
-  background-color: $cardPrimary !important;
+  background-color: var(--colors-card-primary) !important;
 }
 
 .part-background-footer {
-  background-color: $selectBGColor;
+  background-color: var(--colors-gencat-select);
 }
 
 
@@ -936,7 +1018,7 @@ h1.part-primary-font{
 }
 
 .actions .button.expanded {
-  background: $RedGenCat;
+  background: var(--colors-gencat-red);
 }
 
 .hidden-submit {
@@ -949,40 +1031,40 @@ h1.part-primary-font{
 
 .part-cont-2 {
   font-size: 28px;
-  color: $colorText;
+  color: var(--colors-gencat-text-normal);
   @include breakpoint( small down){
     font-size: 20px;
-    color: $colorText;
+    color: var(--colors-gencat-text-normal);
   }
 }
 
 .part-cont-3 {
   font-family:'Open Sans Semibold';
   font-size: 24px;
-  color: $colorText;
+  color: var(--colors-gencat-text-normal);
   @include breakpoint( small down){
     font-size: 22px;
-    color: $colorText;
+    color: var(--colors-gencat-text-normal);
   }
 }
 
 .part-cont-4 {
   font-size: 14px;
-  color: $colorText;
+  color: var(--colors-gencat-text-normal);
   font-family:'Open Sans Semibold';
   @include breakpoint( small down){
     font-size: 14px;
-    color: $colorText;
+    color: var(--colors-gencat-text-normal);
     font-family:'Open Sans Semibold';
   }
 }
 
 .part-cont-5 {
   font-size: 14px;
-  color: $colorText;
+  color: var(--colors-gencat-text-normal);
   @include breakpoint( small down){
     font-size: 14px;
-    color: $colorText;
+    color: var(--colors-gencat-text-normal);
   }
 }
 
@@ -1089,19 +1171,19 @@ h1.part-primary-font{
 }
 
 .process-nav__more{
-  color: $white !important;
+  color: var(--colors-gencat-white) !important;
   &.hover{
-    color: $RedGenCat !important;
+    color: var(--colors-gencat-red) !important;
   }
 }
 .process-nav__hidden-content__more{
-  color: $RedGenCat !important;
+  color: var(--colors-gencat-red) !important;
 }
 .process-nav__more i{
-  background-color: $white !important;
+  background-color: var(--colors-gencat-white) !important;
 }
 .process-nav__hidden-content__more i{
-  background-color: $RedGenCat !important;
+  background-color: var(--colors-gencat-red) !important;
 }
 
 .feder-section{

@@ -1,6 +1,6 @@
 .off-canvas-wrapper{
   .main-footer {
-    background-color: $SoftGrey !important;
+    background-color: var(--colors-gencat-gray-soft) !important;
 
     @include mq($until: large_phone){
       padding: 16px 10px;
@@ -9,14 +9,14 @@
 }
 
 .main-footer a:hover, .mini-footer a:hover {
-  color: $MediumGrey;
+  color: var(--colors-gencat-gray-medium);
   text-decoration: underline;
 }
 
 .mini-footer {
   padding: 1rem 0;
-  color: $LightGrey;
-  background-color: $DarkGrey;
+  color: var(--colors-gencat-gray-light);
+  background-color: var(--colors-gencat-gray-dark);
 }
 
 .off-canvas-wrapper .main-footer {
@@ -139,7 +139,7 @@
 .part-circle {
     margin-left: .5em;
     padding: .40em;
-    background: $colorTextLegalAdvice;
+    background: var(--colors-gencat-text-normal)LegalAdvice;
     border-radius: 100%;
     color: #fff;
     font-weight: normal;
@@ -160,14 +160,14 @@
 .part-avis-legal {
     font-family: 'Open Sans';
     font-size: 11px;
-    color: $colorTextLegalAdvice !important;
+    color: var(--colors-gencat-text-normal)LegalAdvice !important;
     @include breakpoint( 768 down){
         text-align: center;
     }
 }
 
 section.footer__subhero.extended.subhero.home-section {
-  background-color: $white;
+  background-color: var(--colors-gencat-white);
   padding-bottom: 0;
   font-size: 14px;
   text-align: left;

@@ -1,16 +1,16 @@
 body{
   a{
-    color: $basicLink;
+    color: var(--colors-gencat-red);
 
     &:hover,
     &:focus{
-      color: $RedGenCat;
+      color: var(--colors-gencat-red);
       text-decoration: underline;
     }
   }
   .opinion-toggle--meh{
     &.is-active{
-      background-color: $RedGenCat;
+      background-color: var(--colors-gencat-red);
     }
   }
 }
