@@ -18,18 +18,23 @@
 <meta property="og:image" content="<%= decidim_meta_image_url %>">
 
 <% if current_organization.colors["theme"] %>
-  <meta name="theme-color" content="<%= current_organization.colors["theme"] %>">
+  <meta name="theme-color" content="<%= current_organization.colors["primary"] %>">
 <% end %>
 
+<%= legacy_favicon %>
 <%= favicon %>
-<%= stylesheet_pack_tag "decidim_core", media: "all" %>
-<%= organization_colors %>
-<%= javascript_pack_tag "decidim_core", defer: false %>
+<%= apple_favicon %>
+<link rel="manifest" href="/manifest.webmanifest">
 
-<%= javascript_pack_tag "application", defer: false %>
+<%= prepend_javascript_pack_tag "decidim_core", defer: false %>
+<%= append_stylesheet_pack_tag "decidim_overrides", media: "all" %>
+<%= stylesheet_pack_tag "decidim_core", media: "all" %>
+<%= yield :css_content %>
+
+<%= organization_colors %>
+<%= prepend_javascript_pack_tag "application", defer: false %>
 
 <%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>
-<%= favicon_pack_tag "media/images/favicon.ico" %>
 <%= snippets.display(:head) %>
 <%= content_for :header_snippets %>

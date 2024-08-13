@@ -34,7 +34,7 @@ $breakpoints: (
   --colors-card-danger: #f2dede;
   --colors-card-success: #dff0d8;
   --colors-card-primary: #f5f5f5;
-  --colors-card-notice: #333333;
+  --colors-card-notice: #333;
   --colors-card-purple: #7087B9;
 
   --colors-text-success: #3c763d;
@@ -106,6 +106,10 @@ $breakpoints: (
 @import "stylesheets/general/timeline";
 
 @import "stylesheets/decidims_finder";
+
+* {
+  font-family: "Open Sans" !important;
+}
 
 button:focus{
   outline: 0;
@@ -436,7 +440,7 @@ de pijos
 
 .part-show-sm {
   @include breakpoint(640 up){
-  display: none;
+    display: none;
   }
 }
 
@@ -723,17 +727,13 @@ de pijos
 
 .part-a-white {
   color: var(--colors-gencat-white);
-  &:hover {
-    color: var(--colors-gencat-white);
-  }
-}
 
-.part-a-white{
   &:hover,
   &:focus{
     color: var(--colors-gencat-white);
   }
 }
+
 .order-by__tab{
   &:hover,
   &.is-active{

@@ -9,7 +9,7 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifications block start ####
-# gem "decidim-home", path: "decidim-home"
+gem "decidim-home", path: "decidim-home"
 # gem "decidim-process-extended", path: "decidim-process-extended"
 # gem "decidim-recaptcha", path: "decidim-recaptcha"
 # gem "decidim-regulations", path: "decidim-regulations"

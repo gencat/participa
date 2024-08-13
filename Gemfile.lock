@@ -171,6 +171,13 @@ GIT
     decidim-verifications (0.28.2)
       decidim-core (= 0.28.2)
 
+PATH
+  remote: decidim-home
+  specs:
+    decidim-home (0.3.0)
+      decidim-core (>= 0.27)
+      rails (>= 5.2, < 7.0.x)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -823,6 +830,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-dev!
+  decidim-home!
   deface
   delayed_job_active_record
   faker

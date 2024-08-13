@@ -1,3 +1,26 @@
+// FEDER
+.footer-feder {
+  color: var(--colors-text-default2);
+
+  .main-footer__top {
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+
+    img {
+      max-width: 280px;
+    }
+
+    .external-link-indicator {
+      top: -8px !important;
+      right: -250px !important;
+    }
+  }
+}
+
+// TO REVIEW
 .off-canvas-wrapper{
   .main-footer {
     background-color: var(--colors-gencat-gray-soft) !important;
@@ -129,33 +152,26 @@
     }
 }
 
-.part-logo-footer-feder {
-  .external-link-indicator {
-    top: -8px !important;
-    right: -250px !important;
-  }
-}
-
 .part-circle {
-    margin-left: .5em;
-    padding: .40em;
-    background: var(--colors-gencat-text-normal)LegalAdvice;
-    border-radius: 100%;
-    color: #fff;
-    font-weight: normal;
-    display: inline;
-    float: left;
-    font-size: .875em;
-    height: 2.000em;
-    position: relative;
-    width: 2.000em;
-    text-align: center;
-    line-height: 1.1em;
+  margin-left: .5em;
+  padding: .40em;
+  background: var(--colors-gencat-text-normal);
+  border-radius: 100%;
+  color: #fff;
+  font-weight: normal;
+  display: inline;
+  float: left;
+  font-size: .875em;
+  height: 2.000em;
+  position: relative;
+  width: 2.000em;
+  text-align: center;
+  line-height: 1.1em;
 
-    &:hover{
-        background-color: #fff;
-        color: #000;
-    }
+  &:hover{
+    background-color: #fff;
+    color: #000;
+  }
 }
 .part-avis-legal {
     font-family: 'Open Sans';

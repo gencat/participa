@@ -1,3 +1,18 @@
+.gencat-navbar {
+  background-color: var(--colors-text-default);
+
+  .custom-navbar {
+    @apply flex justify-between w-full py-4 container;
+  }
+
+  .language-choose {
+    @include mq($until: large_phone) {
+      display: none !important;
+    }
+  }
+}
+
+// TO REVIEW
 .navbar{
     padding-top: 8px;
     background-color: red;
@@ -45,34 +60,33 @@
     padding: 0;
 }
 
-
-
 /* styles */
 
 .site-title{
   .column{
     padding: 0;
   }
+}
 
-}
-.title-sm{
-  //background: yellow;
- position: relative;
- width: 100%;
- left:-1px;
-margin-top: 27px;
-text-align: center;
-a{
-  font-weight: bold;
-  font-size: 22px;
+.title-sm {
+  position: relative;
+  width: 100%;
+  left:-1px;
+  margin-top: 27px;
+  text-align: center;
+
+  a {
+    font-weight: bold;
+    font-size: 22px;
     display: inline !important;
- }
+  }
 }
-.part-navbar-background{
-.title-sm{
-  margin-top: 14px;
- a{ outline: none !important;}
-}
+
+.part-navbar-background {
+  .title-sm {
+    margin-top: 14px;
+    a { outline: none !important;}
+  }
 }
 
 nav {
@@ -241,11 +255,7 @@ nav {
 
 }
 
-.language-choose {
-  @include breakpoint(640 down){
-    display: none !important;
-  }
-}
+
 
 .usermenu-off-canvas-holder .usermenu-off-canvas.is-dropdown-submenu {
   border-top: 0;
@@ -284,32 +294,18 @@ nav {
   background: var(--colors-card-notice);
 }
 
-
 .part-header {
-  font-family: "Open Sans Semibold";
   font-size: 28px;
 }
 
 .part-topNavbar-content  {
   margin: 8px;
-  padding-top: 9px;
-  padding-bottom: 9px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 9px 10px;
   width: 42px;
   height: 40px;
 
   &:hover {
-    background-color: #4d4d4d;
-  }
-
-  .part-icon-bars{
-    color: var(--colors-gencat-white);
-
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    cursor:pointer;
+    background-color: var(--colors-gencat-gray-logo);
   }
 }
 
@@ -423,60 +419,6 @@ nav {
 }
 .title-bar{
   padding: 0;
-}
-
-
-.tool-bar{
-  text-align: right;
-  position: absolute;
-  right: 2rem;
-  vertical-align: middle;
-  @include breakpoint(smallmedium down){
-    position: initial;
-  }
-  .user-login{
-    vertical-align: middle;
-    position: initial;
-    text-align: left;
-    display: inline-block;
-    margin-top: 0px;
-    @include breakpoint(smallmedium down){
-      position: absolute;
-      right: 2rem;
-      margin-top: -1.2rem;
-    }
-  }
-  .language-choose{
-    position: initial;
-    vertical-align: middle;
-    text-align: left;
-    display: inline-block;
-    vertical-align: middle;
-    .is-dropdown-submenu-parent a{
-      color: #fff;
-      &:after{
-        border-color: #fff transparent transparent !important;
-      }
-    }
-    .is-dropdown-submenu li > a {
-      color: var(--colors-gencat-gray-dark);
-      &:hover{
-        background-color: lighten(#828282, 30%)
-      }
-    }
-    @include breakpoint(smallmedium down){
-      font-size: .8rem;
-      position: absolute;
-      top: -2.2rem;
-      left: .5rem;
-      margin-left: 0;
-      .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
-        border-width: 3px;
-        right: 10px;
-        margin-top: 0;
-      }
-    }
-  }
 }
 
 .site-title {
