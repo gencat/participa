@@ -178,6 +178,12 @@ PATH
       decidim-core (>= 0.27)
       rails (>= 5.2, < 7.0.x)
 
+PATH
+  remote: decidim-recaptcha
+  specs:
+    decidim-recaptcha (0.1.0)
+      decidim-core (>= 0.27)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -833,6 +839,7 @@ DEPENDENCIES
   decidim-cdtb
   decidim-dev!
   decidim-home!
+  decidim-recaptcha!
   decidim-templates!
   deface
   delayed_job_active_record
