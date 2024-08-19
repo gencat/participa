@@ -324,6 +324,10 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
+    decidim-cdtb (0.2.0)
+      decidim (>= 0.27.0)
+      rails (>= 6)
+      ruby-progressbar
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -826,8 +830,10 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
+  decidim-cdtb
   decidim-dev!
   decidim-home!
+  decidim-templates!
   deface
   delayed_job_active_record
   faker

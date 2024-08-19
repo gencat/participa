@@ -6,7 +6,7 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
-# gem "decidim-templates", DECIDIM_VERSION
+gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifications block start ####
 gem "decidim-home", path: "decidim-home"
@@ -15,7 +15,7 @@ gem "decidim-home", path: "decidim-home"
 # gem "decidim-regulations", path: "decidim-regulations"
 # gem "decidim-top_comments", path: "decidim-top_comments"
 
-# gem "decidim-cdtb"
+gem "decidim-cdtb"
 # gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
 # gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", branch: "upgrade/0.27"
 # gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", branch: "upgrade/0.27"
