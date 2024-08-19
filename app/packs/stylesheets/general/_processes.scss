@@ -109,9 +109,6 @@
 .add-comment {
     .button--sc {
         background: var(--colors-gencat-red);
-        &:hover {
-            background: var(--colors-gencat-red);
-        }
     }
 
     p {
@@ -278,9 +275,6 @@
     }
 }
 
-.button:hover, .button:focus {
-    background-color: var(--colors-gencat-red);
-}
 .process-nav__link:hover, .process-nav__link:focus {
     color: var(--colors-gencat-red);
     text-decoration: underline !important;

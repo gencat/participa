@@ -1,16 +1,3 @@
-body{
-  a{
-    color: var(--colors-gencat-red);
-
-    &:hover,
-    &:focus{
-      color: var(--colors-gencat-red);
-      text-decoration: underline;
-    }
-  }
-  .opinion-toggle--meh{
-    &.is-active{
-      background-color: var(--colors-gencat-red);
-    }
-  }
+* {
+  font-family: "Open Sans" !important;
 }

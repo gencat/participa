@@ -8,9 +8,6 @@ ca:
       timepicker: "%d/%m/%Y %H:%M"
       datepicker_info: esto es para arreglar un bug que persiste en la 0.6.5. cuando lo arreglen podemos borrar el date y time
   decidim:
-    content_blocks:
-      feder:
-        name: Feder
     menu:
       more_information: Més informació
       stableareas_static: Consells de participació

@@ -77,24 +77,14 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decidim-home/app/views/layouts/decidim/_head.html.erb`
     * Include favicon_link_tag
-  * `decidim-home/app/views/layouts/decidim/_language_chooser.html.erb`
-    * Full rewrite, basically check for changes on the locales loop
-  * `decidim-home/app/views/layouts/decidim/_logo.html.erb`
+  * `decidim-home/overrides/layouts/decidim/header` and override views
+    * Add to the top of page a custom navbar for Gencat with language chooser
     * Remove outer link wrapping the logo
     * Custom logo
-  * `decidim-home/app/views/layouts/decidim/_main_footer.html.erb`
-    * Full rewrite
-  * `decidim-home/app/views/layouts/decidim/_wrapper.html.erb`
-    * Add class `part-background-gray` to menu
-    * Render custom partial `_top_navbar.html.erb`
-    * Add custom link to home page (`.site-title`)
+  * `decidim-home/overrides/layouts/decidim/footer`
+    * Add footer FEDER to footers
   * `config/locales/`
     * You need to add the new locales added in Decidim. (TODO: this translations are also in the general files)
-
-  ##### 	Custom files:
-
-  * `decidim-home/app/views/layouts/decidim/_top_navbar.html.erb`
-    * Implement the a top navbar rendered in `_wrapper.html.erb`
 
 #### 3. Decidim Process Extended ("decidim-participatory-processes")
 

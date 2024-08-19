@@ -3,6 +3,17 @@
 
   .custom-navbar {
     @apply flex justify-between w-full py-4 container;
+
+    img {
+      height: 2rem;
+    }
+
+    // Hide external link icon
+    a {
+      span {
+        display: none;
+      }
+    }
   }
 
   .language-choose {
@@ -13,87 +24,22 @@
 }
 
 // TO REVIEW
-.navbar{
-    padding-top: 8px;
-    background-color: red;
-
-    .main-nav__link:not(.main-nav__link--active){
-        a{
-            box-shadow: none;
-            color: #fff;
-
-            &:hover{
-                background-color: #bbb;
-                color: #333;
-            }
-        }
-    }
-    .main-nav__link--active{
-        background-color: #fff;
-
-        a, a:hover{
-            box-shadow: none;
-
-            color: #333;
-        }
-    }
-    @include mq($from: tablet){
-        .main-nav__link{
-            a{
-                padding: 6px 28px;
-            }
-        }
-    }
-}
 .part-gencat-logo-nomargin {
-    height: 1.688em;
-    display: block;
-    color: transparent;
-    cursor:pointer;
+  height: 1.688em;
+  display: block;
+  color: transparent;
+  cursor:pointer;
+  margin-left: -14px;
+  background: url("images/logo_generalitat_white.png") no-repeat 0 0;
 }
+
 .part-main-title {
   margin-left: -2px;
   font-size: 20px;
   font-weight: bold;
 }
-.site-title{
-    padding: 0;
-}
 
 /* styles */
-
-.site-title{
-  .column{
-    padding: 0;
-  }
-}
-
-.title-sm {
-  position: relative;
-  width: 100%;
-  left:-1px;
-  margin-top: 27px;
-  text-align: center;
-
-  a {
-    font-weight: bold;
-    font-size: 22px;
-    display: inline !important;
-  }
-}
-
-.part-navbar-background {
-  .title-sm {
-    margin-top: 14px;
-    a { outline: none !important;}
-  }
-}
-
-nav {
-  @include breakpoint(640 down){
-    background: gray;
-  }
-}
 
 .main-nav__link {
   height: 36px;
@@ -284,12 +230,6 @@ nav {
   }
 }
 
-.part-background-gray {
-  @include breakpoint(640 down){
-    background: gray !important;
-  }
-}
-
 .part-bakcground-navbar {
   background: var(--colors-card-notice);
 }
@@ -319,74 +259,13 @@ nav {
   cursor:pointer;
 }
 
-.part-gencat-logo-nomargin {
-  // background: url("images/logo_generalitat_white.png") no-repeat 0 0;
-  height: 1.688em;
-  display: block;
-  color: transparent;
-  cursor:pointer;
-  margin-left: -14px;
-}
-
-// .part-upArrow-white {
-//     background: image-url("upArrow_white.png") no-repeat 0 0;
-//     width: 30px;
-//     height: 36px;
-// }
-
-// .part-downArrow-white {
-//     background: image-url("downArrow_white.png") no-repeat 0 0;
-//     width: 30px;
-//     height: 36px;
-// }
-
-// .part-leftArrow-white {
-//     background: image-url("leftArrow_white.png") no-repeat 0 0;
-//     width: 30px;
-//     height: 36px;
-// }
-
-
-// .part-rightArrow-white {
-//     background: image-url("rightArrow_white.png") no-repeat 0 0;
-//     width: 30px;
-//     height: 36px;
-// }
-
-// .part-uparrow-circle-red {
-//     background: image-url("uparrow_red_circle.png") no-repeat 0 0;
-//     width: 30px;
-//     height: 36px;
-// }
-
-// .part-downarrow-circle-red {
-//     background: image-url("downarrow_red_circle.png") no-repeat 0 0;
-//     width: 30px;
-//     height: 36px;
-// }
-
-// .part-leftarrow-circle-red {
-//     background: image-url("leftarrow_red_circle.png") no-repeat 0 0;
-//     width: 30px;
-//     height: 36px;
-// }
-
-// .part-rightarrow-circle-red {
-//     background: image-url("rightarrow_red_circle.png") no-repeat 0 0;
-//     width: 30px;
-//     height: 36px;
-// }
-
-
 /* Zona logo navbar (Gencat y cerrar, dispositivos móviles) */
 
 .part-topNavbar-logo {
-    // background: url("images/logo_generalitat_white.png") no-repeat 0 0;
+    background: url("images/logo_generalitat_white.png") no-repeat 0 0;
     height: 2em;
     text-indent: -555em;
-    margin: .5em 0;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin: .5em 15px;
     cursor:pointer;
 }
 
@@ -421,10 +300,6 @@ nav {
   padding: 0;
 }
 
-.site-title {
-  background-color: #404040;
-}
-
 .navbar.js-append .row.column  {
   @include breakpoint(640 up){
     padding-left: 0px;
@@ -436,14 +311,6 @@ nav {
   @include breakpoint(640 up){
     display: none;
   }
-}
-
-.part-background-gray .navbar {
-    padding-top: 0px;
-    .row {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
 }
 
 .part-navbar-background {

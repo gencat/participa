@@ -1,29 +1,5 @@
 <% if organization %>
-  <% if organization.logo.attached? %>
-    <%= link_to "https://web.gencat.cat/ca/inici/", target: "_blank" do %>
-      <%= image_tag organization.attached_uploader(:logo).variant_url(:medium), alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
-    <% end %>
-  <% else %>
-      <!-- Only for small devices -->
-      <div class="part-show-sm">
-        <div class="sm:w-1/5 pr-4 pl-4">
-          <div class="part-topNavbar-content">
-            <%= icon "icon-menu", class: "icon--small", role: "img", "aria-hidden": true %>
-          </div>
-        </div>
-        <div class="sm:w-2/5 pr-4 pl-4">
-          <div class="title-sm">
-            <%= link_to "/", class: "part-a-white" do %>
-              Participa
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <%# large devices %>
-      <div class="part-hide-sm">
-        <div class="part-gencat-logo-nomargin" onclick="window.open('https://web.gencat.cat/ca/inici/','_blank');"></div>
-      </div>
+  <%= link_to "/" do %>
+    <span><%= organization.name %></span>
   <% end %>
-<% else %>
-  <%= Decidim.application_name %>
 <% end %>

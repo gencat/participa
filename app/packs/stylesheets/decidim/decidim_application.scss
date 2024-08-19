@@ -91,9 +91,9 @@ $breakpoints: (
 @import "stylesheets/vendor/bootstrap";
 @import "stylesheets/vendor/mq";
 
+@import "stylesheets/general/base";
 @import "stylesheets/general/alerts";
 @import "stylesheets/general/axis";
-@import "stylesheets/general/base";
 @import "stylesheets/general/card";
 @import "stylesheets/general/dropdown";
 @import "stylesheets/general/fixes";
@@ -107,9 +107,6 @@ $breakpoints: (
 
 @import "stylesheets/decidims_finder";
 
-* {
-  font-family: "Open Sans" !important;
-}
 
 button:focus{
   outline: 0;
@@ -129,50 +126,11 @@ body {
   font-family: 'Open Sans', 'Source Sans Pro' !important;
 }
 
-.heading1 {
-  font-family: "Open Sans";
-}
-
-.heading2 {
-  font-family: "Open Sans";
-}
-
-.heading3 {
-  font-family: "Open Sans";
-}
-
-.heading4 {
-  font-family: "Open Sans";
-}
-
-.heading5 {
-  font-family: "Open Sans";
-}
-
 .heading6 {
   font-family: "Open Sans";
   text-transform: inherit !important;
 }
 
-h1 {
-  font-family: "Open Sans";
-}
-
-h2 {
-  font-family: "Open Sans";
-}
-
-h3 {
-  font-family: "Open Sans";
-}
-
-h4 {
-  font-family: "Open Sans";
-}
-
-h5 {
-  font-family: "Open Sans";
-}
 
 .share-link{
   &.link{
@@ -222,7 +180,7 @@ h5 {
     color: var(--colors-gencat-red) !important;
   }
 }
-de pijos 
+
 .wrapper {
   background: var(--colors-gencat-white);
 }
@@ -725,15 +683,6 @@ de pijos
   text-decoration: underline !important;
 }
 
-.part-a-white {
-  color: var(--colors-gencat-white);
-
-  &:hover,
-  &:focus{
-    color: var(--colors-gencat-white);
-  }
-}
-
 .order-by__tab{
   &:hover,
   &.is-active{
@@ -749,12 +698,7 @@ de pijos
 .button{
   &.hollow{
     color: var(--colors-gencat-white) !important;
-    &:hover{
-      border-color: var(--colors-gencat-red) !important;
-      background-color: var(--colors-gencat-red) !important;
 
-      color: var(--colors-gencat-white) !important;
-    }
   }
 }
 .card__link {
@@ -825,9 +769,6 @@ de pijos
 }
 .button.clear {
   background-color: transparent !important;
-}
-.button:hover {
-  background-color: var(--colors-gencat-red) !important;
 }
 
 .ql-toolbar {

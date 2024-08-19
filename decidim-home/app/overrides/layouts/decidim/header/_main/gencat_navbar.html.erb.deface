@@ -15,12 +15,9 @@
               <%= icon "icon-menu", class: "icon--small", role: "img", "aria-hidden": true %>
             </div>
           </div>
-          <div class="sm:w-2/3 pr-4 pl-4">
-            <div class="title-sm">
-              <%= link_to "/", class: "part-a-white" do %>
-                Participa
-              <% end %>
-            </div>
+            <%= link_to "/" do %>
+              <%= current_organization.name %>
+            <% end %>
           </div>
         </div>
         <%# large devices %>

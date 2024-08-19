@@ -1,13 +1,13 @@
 .title-bar{
-    background-color: #333;
+  background-color: #333;
 
-    @include mq($until: large_phone){
-        .part-gencat-logo-nomargin{
-            top: -30px;
-            left: 10px;
-            position: absolute;
-        }
+  @include mq($until: large_phone){
+    .part-gencat-logo-nomargin{
+      top: -30px;
+      left: 10px;
+      position: absolute;
     }
+  }
 }
 .topbar{
     @include mq($until: large_phone){
