@@ -199,8 +199,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: c6d9c4ee27262803491380c45032a16370040862
-  branch: downgrade_ruby
+  revision: ee3a97421eeab3b21c8a6f8947830a91837ba2b9
+  tag: 0.0.6
   specs:
     decidim-verifications-members_picker (0.0.6)
       decidim-core (>= 0.27.5)
