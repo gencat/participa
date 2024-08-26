@@ -173,7 +173,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-process-extended (0.3.0)
+    decidim-process-extended (0.4.0)
       decidim-core (>= 0.27)
       rails (>= 5.2, < 7.0.x)
 

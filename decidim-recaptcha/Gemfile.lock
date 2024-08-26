@@ -144,7 +144,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-recaptcha (0.1.0)
+    decidim-recaptcha (0.2.0)
       decidim-core (>= 0.27)
 
 GEM

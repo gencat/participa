@@ -18,7 +18,7 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-cdtb"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", branch: "upgrade/0.27"
-gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", branch: "upgrade/0.27"
+gem "decidim-idcat_mobil"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.27-stable"
 
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.6"

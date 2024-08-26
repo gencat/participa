@@ -188,16 +188,6 @@ GIT
       decidim-core (~> 0.27.0)
 
 GIT
-  remote: https://github.com/gencat/decidim-module-idcat_mobil.git
-  revision: 406054a9ed7b83d4c6e542661e0b2200b064fe32
-  branch: upgrade/0.27
-  specs:
-    decidim-idcat_mobil (0.4.0)
-      decidim (>= 0.27.0)
-      decidim-core (>= 0.27.0)
-      omniauth-idcat_mobil (~> 0.5.0)
-
-GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: ee3a97421eeab3b21c8a6f8947830a91837ba2b9
   tag: 0.0.6
@@ -219,21 +209,21 @@ GIT
 PATH
   remote: decidim-home
   specs:
-    decidim-home (0.3.0)
+    decidim-home (0.4.0)
       decidim-core (>= 0.27)
       rails (>= 5.2, < 7.0.x)
 
 PATH
   remote: decidim-process-extended
   specs:
-    decidim-process-extended (0.3.0)
+    decidim-process-extended (0.4.0)
       decidim-core (>= 0.27)
       rails (>= 5.2, < 7.0.x)
 
 PATH
   remote: decidim-recaptcha
   specs:
-    decidim-recaptcha (0.1.0)
+    decidim-recaptcha (0.2.0)
       decidim-core (>= 0.27)
 
 PATH
@@ -245,7 +235,7 @@ PATH
 PATH
   remote: decidim-top_comments
   specs:
-    decidim-top_comments (0.26.2)
+    decidim-top_comments (0.27.8)
       decidim-core (>= 0.27)
       decidim-proposals (>= 0.27)
       deface
@@ -421,6 +411,10 @@ GEM
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
+    decidim-idcat_mobil (0.4.0)
+      decidim (>= 0.27.0)
+      decidim-core (>= 0.27.0)
+      omniauth-idcat_mobil (~> 0.5.0)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -945,7 +939,7 @@ DEPENDENCIES
   decidim-department_admin!
   decidim-dev!
   decidim-home!
-  decidim-idcat_mobil!
+  decidim-idcat_mobil
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!

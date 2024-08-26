@@ -173,7 +173,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-top_comments (0.26.2)
+    decidim-top_comments (0.27.8)
       decidim-core (>= 0.27)
       decidim-proposals (>= 0.27)
       deface

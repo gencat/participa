@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Add types_select method to show a select for types in
 module Decidim::FilterFormBuilderDecorator
   def self.decorate
     Decidim::FilterFormBuilder.class_eval do
