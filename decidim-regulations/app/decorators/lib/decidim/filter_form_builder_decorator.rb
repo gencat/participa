@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# This decorator add the method types_select to wrap the types select 
+# This decorator add the method types_select to wrap the types select
 # in a custom fieldset like categories or areas in Decidim.
 module Decidim::FilterFormBuilderDecorator
   def self.decorate
