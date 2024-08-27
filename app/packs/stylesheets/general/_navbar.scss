@@ -21,6 +21,28 @@
       display: none !important;
     }
   }
+
+  .part-circle {
+    display: inline;
+    position: relative;
+    height: 2.000em;
+    width: 2.000em;
+    float: left;
+    margin-left: .5em;
+    padding: .40em;
+    background: var(--colors-gencat-text-normal);
+    border-radius: 100%;
+    color: #fff;
+    font-weight: normal;
+    font-size: .875em;
+    text-align: center;
+    line-height: 1.1em;
+  
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  }
 }
 
 .main-bar__container {

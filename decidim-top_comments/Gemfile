@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-TOP_COMMENTS_DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.27-stable" }.freeze
+TOP_COMMENTS_DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", TOP_COMMENTS_DECIDIM_VERSION
 gem "decidim-top_comments", path: "."

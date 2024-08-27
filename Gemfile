@@ -13,7 +13,7 @@ gem "decidim-home", path: "decidim-home"
 # gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-recaptcha", path: "decidim-recaptcha"
 # gem "decidim-regulations", path: "decidim-regulations"
-# gem "decidim-top_comments", path: "decidim-top_comments"
+gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "decidim-cdtb"
 # gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"

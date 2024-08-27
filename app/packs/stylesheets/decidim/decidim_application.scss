@@ -27,7 +27,7 @@ $breakpoints: (
   --colors-gencat-gray-light: #e8e8e8;
   --colors-gencat-gray-medium: #828282;
   --colors-gencat-text-normal: #666666;
-
+  --colors-background-grey: #f3f4f7;
   --colors-card-default: #d9d9d9;
   --colors-card-info: #d9edf7;
   --colors-card-warning: #fcf8e3;
@@ -107,6 +107,7 @@ $breakpoints: (
 
 @import "stylesheets/decidims_finder";
 
+@import "stylesheets/top_comments/base";
 
 button:focus{
   outline: 0;
@@ -179,19 +180,6 @@ body {
   &.is-active{
     color: var(--colors-gencat-red) !important;
   }
-}
-
-.wrapper {
-  background: var(--colors-gencat-white);
-}
-
-.wrapper--inner {
-  background: var(--colors-gencat-gray-dark);
-  padding-top: 1rem;
-}
-
-.wrapper-home {
-  background: var(--colors-gencat-white);
 }
 
 .part-pointer {
@@ -764,13 +752,6 @@ body {
   background-color: var(--colors-gencat-red)Hover !important;
 }
 
-.button {
-  background-color: var(--colors-gencat-red) !important;
-}
-.button.clear {
-  background-color: transparent !important;
-}
-
 .ql-toolbar {
   button {
     background-color: #fff;    
@@ -997,15 +978,6 @@ h1.part-primary-font{
     font-size: 14px;
     color: var(--colors-gencat-text-normal);
     font-family:'Open Sans Semibold';
-  }
-}
-
-.part-cont-5 {
-  font-size: 14px;
-  color: var(--colors-gencat-text-normal);
-  @include breakpoint( small down){
-    font-size: 14px;
-    color: var(--colors-gencat-text-normal);
   }
 }
 

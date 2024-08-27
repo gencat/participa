@@ -20,112 +20,8 @@
   }
 }
 
-// TO REVIEW
-.off-canvas-wrapper{
-  .main-footer {
-    background-color: var(--colors-gencat-gray-soft) !important;
-
-    @include mq($until: large_phone){
-      padding: 16px 10px;
-    }
-  }
-}
-
-.main-footer a:hover, .mini-footer a:hover {
-  color: var(--colors-gencat-gray-medium);
-  text-decoration: underline;
-}
-
-.mini-footer {
-  padding: 1rem 0;
-  color: var(--colors-gencat-gray-light);
-  background-color: var(--colors-gencat-gray-dark);
-}
-
-.off-canvas-wrapper .main-footer {
-  background-color: #d3d3d3 !important;
-}
-
-.main-footer a {
-  color: #020202 !important;
-}
-
-.main-footer__badge {
-  @include breakpoint(992 down) {
-    margin-left: 0;
-  }
-
-  margin-top: 15px;
-  margin-left: 20%;
-}
-
-.main-footer {
-  .medium-8.large-6.large-offset-3.column {
-    width: 58%;
-    
-    @include breakpoint(992 down) {
-      width: 100%;
-    }
-  }
-}
-
-.footer-nav li {
-  padding: 0 1.7rem;
-}
-
-.part-footer-hr{
-    width: 100%;
-    margin: 5px;
-    background-color: #a6a6a6;
-    height: 1px;
-    margin-bottom: 15px;
-    margin-top: 0px;
-}
-
-.participa-footer-grey {
-    color: #666;
-    font-size: 11px;
-}
-
-.part-footer-sm-show {
-    display: none;
-    @include breakpoint( 768 down){
-        display: block;
-    }
-}
-.part-subfooter-hr {
-    width: 100%;
-    margin: 5px;
-    background-color: #d9d9d9;
-    height: 1px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-
-.part-subfooter-network-hr {
-    width: 100%;
-    margin: 5px;
-    background-color: #ccc;
-    height: 2px;
-    margin-top: 15px;
-}
-
 .part-no-padding-left {
   padding-left: 0px;
-}
-
-.part-footer-sm-hide {
-    @include breakpoint( 768 down){
-        display: none;
-    }
-    @include breakpoint( 992 down){
-        p {
-            text-align: center;
-        }
-        .part-footer-section {
-            text-align: center;
-        }
-    }
 }
 
 .input-telephone {
@@ -152,27 +48,6 @@
     }
 }
 
-.part-circle {
-  margin-left: .5em;
-  padding: .40em;
-  background: var(--colors-gencat-text-normal);
-  border-radius: 100%;
-  color: #fff;
-  font-weight: normal;
-  display: inline;
-  float: left;
-  font-size: .875em;
-  height: 2.000em;
-  position: relative;
-  width: 2.000em;
-  text-align: center;
-  line-height: 1.1em;
-
-  &:hover{
-    background-color: #fff;
-    color: #000;
-  }
-}
 .part-avis-legal {
     font-family: 'Open Sans';
     font-size: 11px;

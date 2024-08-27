@@ -182,7 +182,15 @@ PATH
   remote: decidim-recaptcha
   specs:
     decidim-recaptcha (0.1.0)
+      decidim-core (= 0.28.2)
+
+PATH
+  remote: decidim-top_comments
+  specs:
+    decidim-top_comments (0.26.2)
       decidim-core (>= 0.27)
+      decidim-proposals (>= 0.27)
+      deface
 
 GEM
   remote: https://rubygems.org/
@@ -841,6 +849,7 @@ DEPENDENCIES
   decidim-home!
   decidim-recaptcha!
   decidim-templates!
+  decidim-top_comments!
   deface
   delayed_job_active_record
   faker
