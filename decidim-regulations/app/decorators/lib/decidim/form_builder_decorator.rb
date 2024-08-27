@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This decorator add types_select to generates a select field with the types like areas_select in Decidim
 module Decidim::FormBuilderDecorate
   def self.decorate
     Decidim::FormBuilder.class_eval do
