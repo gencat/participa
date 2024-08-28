@@ -24,7 +24,7 @@ module Decidim::Admin::NewslettersHelperDecorator
                             { prompt: t("select_recipients_to_deliver.none", scope: "decidim.admin.newsletters"),
                               label: label_text_for(space_type),
                               include_hidden: false },
-                            multiple: true, size: spaces.size > 10 ? 10 : spaces.size, class: "chosen-select"
+                            multiple: true, size: [spaces.size, 10].min, class: "chosen-select"
         end
       end
 
