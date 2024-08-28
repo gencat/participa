@@ -14,122 +14,59 @@
   }
 </script>
 
-<div class="wrapper">
 
-  <%= content_tag "div", class: "row collapse" do %>
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= t("menu.decidims_finder", scope: "participagencat") %></h1>
+
+  <%= render partial: "filters" %>
+<% end %>
+
+<%= render layout:"layouts/decidim/shared/layout_two_col" do %>
   <%= render partial: "decidim/shared/floating_help", locals: { content: I18n.t('participagencat.decidims_finder_page.helper_html').html_safe, id: "decidims_finder-floating-help" } %>
-  <% end %>
 
-  <div class="row columns">
-    <div class="title-action">
-      <div class="row collapse">
-        <h3 class="title-action__title section-heading"><%= t("menu.decidims_finder", scope: "participagencat") %>
-        </h3>
-      </div>
-    </div>
-  </div>
-
-  <section class="padding-xs padding-sm padding-md" id="finder">
-    <article class="container">
-      <div class="row">
-        <div class="columns mediumlarge-4 large-3">
-          <div class="card card--secondary show-for-mediumlarge">
-            <div class="filters">
-              <div class="filters__section">
-                <fieldset>
-                  <legend class="mini-title">
-                    <%= t("decidims_finder_page.txt", scope: "participagencat") %>
-                  </legend>
-                  <div id="query"></div>
-                </fieldset>
-              </div>
-              <div id="territory" class="filters__section">
-                <fieldset>
-                  <div id="clear-territory"></div>
-                  <legend class="mini-title">
-                    <%= t("decidims_finder_page.territory", scope: "participagencat") %>
-                  </legend>
-                  <div class="panel-body-finder"></div>
-                </fieldset>
-              </div>
-              <div id="start_date" class="filters__section">
-                <fieldset>
-                  <div id="clear-start_date"></div>
-                  <legend class="mini-title">
-                    <%= t("start_date", scope: "participagencat.decidims_finder_page") %>
-                  </legend>
-                  <div class="panel-body-finder"></div>
-                </fieldset>
-              </div>
-              <div id="end_date" class="filters__section">
-                <fieldset>
-                  <div id="clear-end_date"></div>
-                  <legend class="mini-title">
-                    <%= t("end_date", scope: "participagencat.decidims_finder_page") %>
-                  </legend>
-                  <div class="panel-body-finder"></div>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="columns mediumlarge-8 large-9">
-          <div class="row small-up-1 medium-up-2 card-grid">
-            <p id="stats" class="txt_result"></p>
-            <div id="hits"></div>
-            <div class="column pagination">
-              <div id="pagination"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
+  <section id="decidims" class="layout-main__section layout-main__heading">
+    <p id="stats" class="txt_result"></p>
+    <div id="hits"></div>
+    <div class="column pagination">
+    <div id="pagination"></div>
   </section>
+<% end %>
 
-  <!-- TEMPLATES instantsearch -->
-
-  <script type="text/html" id="hit-template">
-    <div class="column">
-      <div class="card card--course">
-        <div class="card__content">
-          <div class="card__header">
-            <a class="card__link" target="_new" href="{{url}}">
-              <div class="card__title">{{title}}</div>
-            </a>
-          </div>
-          <div class="card__text">
-            <p>{{{description}}}</p>
-          </div>
+<!-- TEMPLATES instantsearch -->
+<script type="text/html" id="hit-template">
+  <section>
+    <div class="card card__highlight card__highlight-container">
+      <div class="card__highlight--text">
+        <div class="text">
+          <a class="h3 text-secondary" target="_new" href="{{url}}">
+            {{title}}
+          </a>
+          <p>{{{description}}}</p>
         </div>
-        <div class="card__icondata">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= icon "meetings", class: "icon--big", role: "img", "aria-hidden": true %>
-            </li>
-            <li class="card-data__item">
-              <div class="text-left">
-                <div class="card__icondata">{{entity}}</div>
-              </div>
-            </li>
-            <li class="card-data__item">
-              <%= icon "datetime", class: "icon--big", role: "img", "aria-hidden": true %>
-            </li>
-            <li class="card-data__item">
-              <p>{{start_date}} - {{end_date}}</p>
-            </li>
-          </ul>
+      </div>
+      <div class="card__icondata">
+        <div class="card-data">
+          <div class="card-data__item">
+            <%= icon "map-pin-line" %>
+            <div class="text-left">
+              <div class="card__icondata">{{entity}}</div>
+            </div>
+          </div>
+          <div class="card-data__item">
+            <%= icon "time-line", class: "w-3.5 h-3.5" %>
+            <p>{{start_date}} - {{end_date}}</p>
+          </div>
         </div>
       </div>
     </div>
-  </script>
+  </section>
+</script>
 
-  <script type="text/html" id="no-results-template">
-    <div class="callout warning">
-      <p><%= raw t("decidims_finder_page.no_results", scope: "participagencat") %></p>
-    </div>
-  </script>
+<script type="text/html" id="no-results-template">
+  <div class="callout warning">
+    <p><%= raw t("decidims_finder_page.no_results", scope: "participagencat") %></p>
+  </div>
+</script>
+<!-- END TEMPLATES instantsearch -->
 
-  <!-- END TEMPLATES instantsearch -->
-
-  <%= javascript_pack_tag 'decidims_finder' %>
-</div>
+<%= append_javascript_pack_tag 'decidims_finder' %>

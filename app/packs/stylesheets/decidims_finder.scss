@@ -33,13 +33,60 @@ li.ais-HierarchicalMenu-item--selected > div > a {
 }
 
 ul.ais-HierarchicalMenu-list {
-    margin-left: 0.8em;
+  margin-left: 0.8em;
 }
 
-.card__icondata ul li:nth-child(odd),
-.card__block ul li:nth-child(odd) {
-  color: var(--primary);
-  flex: 0;
+.ais-HierarchicalMenu-label {
+  color: var(--colors-gencat-red)
+}
+
+.card {
+  padding: 1.5rem;
+  margin-bottom: 30px;
+
+  &-data {
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .text-secondary {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .text {
+    p {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.card__highlight {
+  &-container {
+    display: block;
+  }
+}
+
+.mini-title {
+  font-weight: 700;
+  color: rgb(62 76 92 / var(--tw-text-opacity));
+  margin-bottom: 6px;
+}
+
+.filter-container {
+  .form-group {
+    margin-bottom: 12px;
+  }
 }
 
 .ais-ClearRefinements {
