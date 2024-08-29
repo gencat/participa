@@ -5,6 +5,17 @@ en:
     themes:
       none: None
     participatory_processes:
+      participatory_processes:
+        presenter:
+          has_summary_record:
+            false: No
+            true: Yes
+        description:
+          email: Suggestion mailbox
+          cost: Cost
+          facilitators: Facilitators
+          has_summary_record: Has summary record
+          promoting_unit: Promoting unit
       admin:
         participatory_processes:
           form:
@@ -55,8 +66,12 @@ en:
         participatory_structure: How is decided
         title: Title
         type_id: Type
-        email: Suggestion mailbox
         weight: Weight
+        email: Suggestion mailbox
+        cost: Cost
+        facilitators: Facilitators
+        has_summary_record: Has summary record
+        promoting_unit: Promoting unit
       participatory_process_step:
         title: Phase name
   layouts:

@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-PROCESS_EXTENDED_DECIDIM_VER = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.27-stable" }.freeze
+PROCESS_EXTENDED_DECIDIM_VER = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", PROCESS_EXTENDED_DECIDIM_VER
 gem "decidim-process-extended", path: "."

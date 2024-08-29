@@ -106,6 +106,10 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override to add new fields in the form.
   * `decorators/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
     * Override to filter by participatory process specific type.
+  * `decorators/cells/decidim/content_blocks/participatory_space_metadata_cell_decorator.rb`
+    * Override +metadata_valued_items+ to render two non string custom fields.
+  * `decorators/cells/decidim/participatory_processes/content_blocks/metadata_cell_decorator.rb`
+    * Override +metadata_items+ to add gencat custom fields.
 
   Following ones, are same new fields in template:
   * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`
@@ -114,13 +118,6 @@ These are custom modules and this is what you have to keep in mind when updating
     * Add new field: cost
     * Add new field: email
     * Add new field: has_summary_record
-    * Add new field: type_id
-  * `app/views/decidim/participatory_processes/participatory_processes/show.html.erb`
-    * Show new field: promoting_unit
-    * Show new field: facilitators
-    * Show new field: cost
-    * Show new field: has_summary_record
-    * Show new field: email
   * `config/locales/`
     * Overrides some translations keys (the full oc source is inside the application locales)
 

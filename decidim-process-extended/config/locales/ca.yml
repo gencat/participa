@@ -5,6 +5,17 @@ ca:
     themes:
       none: Cap
     participatory_processes:
+      participatory_processes:
+        presenter:
+          has_summary_record:
+            false: No
+            true: Si
+        description:
+          cost: Cost
+          facilitators: Entitats dinamitzadores
+          has_summary_record: Disposa de retorn
+          promoting_unit: Unitat promotora
+          email: Bústia de suggeriments
       admin:
         participatory_processes:
           form:
@@ -57,6 +68,10 @@ ca:
         type_id: Tipus
         email: Bústia de suggeriments
         weight: Pes
+        cost: Cost
+        facilitators: Entitats dinamitzadores
+        has_summary_record: Disposa de retorn
+        promoting_unit: Unitat promotora
       participatory_process_step:
         title: Nom de la fase
   layouts:
