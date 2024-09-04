@@ -2,7 +2,7 @@
 
 # This decorator add the method types_select to wrap the types select
 # in a custom fieldset like categories or areas in Decidim.
-module Decidim::FilterFormBuilderDecorator
+module Lib::Decidim::FilterFormBuilderDecorator
   def self.decorate
     Decidim::FilterFormBuilder.class_eval do
       def types_select(method, collection, options = {})
@@ -14,4 +14,4 @@ module Decidim::FilterFormBuilderDecorator
   end
 end
 
-::Decidim::FilterFormBuilderDecorator.decorate
+::Lib::Decidim::FilterFormBuilderDecorator.decorate
