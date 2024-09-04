@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Decidim::Proposals::ProposalSerializerDecorator
+module Lib::Decidim::Proposals::ProposalSerializerDecorator
   def self.decorate
     Decidim::Proposals::ProposalSerializer.class_eval do
       alias_method :original_serialize, :serialize
@@ -15,4 +15,4 @@ module Decidim::Proposals::ProposalSerializerDecorator
   end
 end
 
-::Decidim::Proposals::ProposalSerializerDecorator.decorate
+::Lib::Decidim::Proposals::ProposalSerializerDecorator.decorate
