@@ -180,8 +180,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: fdf422a6f870587869d01e5b285efcd54989af00
-  branch: fix/decorators
+  revision: 602ccc34738762824e464294e74958b26636840d
+  tag: v0.7.1
   specs:
     decidim-department_admin (0.7.1)
       decidim-admin (~> 0.27.0)
