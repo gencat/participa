@@ -3,8 +3,8 @@ class ChangeTypesInParticipatoryProcesses < ActiveRecord::Migration[6.1]
 
   # Change decidim type by participatory process type in participatory processes
   def change
-    previous_regulation_type = DecidimType.find(1)
-    initial_regulation_type = DecidimType.find(2)
+    previous_regulation_type = DecidimType.find_by(name: {"ca"=>"Consulta prèvia a l'elaboració de la norma", "es"=>"Consulta previa a la elaboración de la norma", "oc"=>"Consulta prèvia a l'elaboració de la norma"})
+    initial_regulation_type = DecidimType.find_by(name: {"ca"=>"Consulta sobre projecte normatiu inicial", "es"=>"Consulta sobre el proyecto normativo inicial", "oc"=>"Consulta sobre projecte normatiu inicial"})
 
     ppt_previous_regulation_type = Decidim::ParticipatoryProcessType.find_by(title: previous_regulation_type.name)
     ppt_initial_regulation_type = Decidim::ParticipatoryProcessType.find_by(title: initial_regulation_type.name)

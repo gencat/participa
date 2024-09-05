@@ -20,7 +20,7 @@ module Decidim
         types_for_select.find { |_, id| id == get_filter(:with_type) }&.first ||
           I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
       end
-      
+
       def get_filter(filter_name, default = nil)
         params&.dig(:filter, filter_name) || default
       end
