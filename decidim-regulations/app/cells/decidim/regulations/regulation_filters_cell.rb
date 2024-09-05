@@ -13,13 +13,16 @@ module Decidim
       end
 
       def current_filter
-        get_filter(:date, model[:default_filter])
+        get_filter_in(:with_date, ALL_FILTERS, model[:default_filter])
+      end
+      
+      def get_filter(filter_name, default = nil)
+        params&.dig(:filter, filter_name) || default
       end
 
-      def get_filter(filter_name, default = nil)
-        return default unless params[:filter].try(:[], filter_name)
-
-        params[:filter][filter_name]
+      def get_filter_in(filter_name, options, default = nil)
+        value = get_filter(filter_name)
+        options.include?(value) ? value : default
       end
 
       def filtered_processes(date_filter, filter_with_type: true)
