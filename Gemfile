@@ -38,6 +38,12 @@ gem "whenever", require: false
 
 gem "recaptcha"
 
+# Error uninitialized constant WickedPdf::WickedPdfHelper::Assets::SprocketsEnvironment::Sprockets
+# in update to 2.8.0
+# https://github.com/mileszs/wicked_pdf/issues/1102
+
+gem "wicked_pdf", "~> 2.7.0"
+
 group :development, :test do
   gem "bootsnap"
   gem "byebug", platform: :mri
