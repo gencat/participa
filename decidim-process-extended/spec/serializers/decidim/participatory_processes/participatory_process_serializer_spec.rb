@@ -15,17 +15,23 @@ module Decidim::ParticipatoryProcesses
       let(:user) { create :user, organization: organization }
       let(:user_group) { create(:user_group, :verified, organization: organization, users: [user]) }
 
-      context "when there is a process_group" do
-        let!(:process_group) { create :participatory_process_group, organization: organization }
+      context "when process belongs to process group" do
+        let(:process_group) { create :participatory_process_group, organization: organization }
 
         before do
-          participatory_process.participatory_process_group= process_group
+          participatory_process.participatory_process_group = process_group
+          participatory_process.save
         end
 
-        describe "#participatory_space" do
-          it "contains the title of the process_group" do
-            expect(subject.serialize).to include(participatory_space: process_group.title["ca"].downcase)
-          end
+        it "includes the participatory process group" do
+          serialized_participatory_process_group = subject.serialize[:participatory_process_group]
+
+          expect(serialized_participatory_process_group).to be_a(Hash)
+
+          expect(serialized_participatory_process_group).to include(id: participatory_process.participatory_process_group.id)
+          expect(serialized_participatory_process_group).to include(title: participatory_process.participatory_process_group.title)
+          expect(serialized_participatory_process_group).to include(description: participatory_process.participatory_process_group.description)
+          expect(serialized_participatory_process_group).to include(remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupPresenter.new(participatory_process.participatory_process_group).hero_image_url)
         end
       end
 
