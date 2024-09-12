@@ -16,6 +16,8 @@ module Decidim
       end
 
       # Public: Returns a hash with the serialized data.
+      # rubocop:disable Metrics/PerceivedComplexity
+      # rubocop:disable Metrics/CyclomaticComplexity
       def serialize
         {
           # Process Information
@@ -88,9 +90,11 @@ module Decidim
           attachments: {
             attachment_collections: serialize_attachment_collections,
             files: serialize_attachments
-          },
+          }
         }
       end
+      # rubocop:enable Metrics/PerceivedComplexity
+      # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 
