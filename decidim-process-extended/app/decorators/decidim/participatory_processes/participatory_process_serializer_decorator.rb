@@ -12,8 +12,6 @@ module Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializerDecorator
                        email: participatory_process.email
                      })
   end
-
-  private :serialize
 end
 
 ::Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer.prepend(Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializerDecorator)

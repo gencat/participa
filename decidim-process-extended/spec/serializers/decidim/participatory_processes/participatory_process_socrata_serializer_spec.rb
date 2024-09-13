@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
-  describe ParticipatoryProcessSerializer do
+  describe ParticipatoryProcessSocrataSerializer do
     describe "#serialize" do
       let(:participatory_process) { create(:participatory_process) }
       let(:subject) { described_class.new(participatory_process) }
