@@ -116,6 +116,8 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override to add new fields in the form.
   * `decorators/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
     * Override to filter by participatory process specific type.
+  * `decorators/decidim/participatory_processes/participatory_process_serialize_decorator.rb`
+    * Override to add new fields in serializer.
 
   Following ones, are same new fields in template:
   * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`

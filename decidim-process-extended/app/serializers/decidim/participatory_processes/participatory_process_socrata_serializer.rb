@@ -3,11 +3,9 @@
 module Decidim
   module ParticipatoryProcesses
     # This class serializes a ParticipatoryProcess so can be exported
-    # to CSV, JSON or other formats (check Decidim::Exporters)
-    class ParticipatoryProcessSerializer < Decidim::Exporters::Serializer
+    # to CSV, JSON or other formats (check Decidim::Exporters) for Socrata
+    class ParticipatoryProcessSocrataSerializer < Decidim::Exporters::Serializer
       ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP= Regexp.union([",", ";", " i ", "\r\n", "\r", "\n"])
-
-      include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a ParticipatoryProcess.
       def initialize(process)
@@ -16,7 +14,6 @@ module Decidim
       end
 
       # Public: Returns a hash with the serialized data.
-      # rubocop:disable Metrics/PerceivedComplexity
       # rubocop:disable Metrics/CyclomaticComplexity
       def serialize
         {
@@ -24,42 +21,17 @@ module Decidim
           id: process.id,
           socrata_published_at: Date.current,
           title_ca: process.title["ca"],
-          subtitle: process.subtitle,
           url: url,
           slug: process.slug,
+          short_description_ca: short_description_ca,
           process_type: process_type,
-          description: process.description,
-          short_description: process.short_description,
-          promoted: process.promoted,
-          developer_group: process.developer_group,
-          local_area: process.local_area,
-          target: process.target,
-          participatory_scope: process.participatory_scope,
-          participatory_structure: process.participatory_structure,
-          meta_scope: process.meta_scope,
-          announcement: process.announcement,
-          private_space: process.private_space,
-          scopes_enabled: process.scopes_enabled,
-          show_metrics: process.show_metrics,
-          show_statistics: process.show_statistics,
-          scope: {
-            id: process.scope.try(:id),
-            name: process.scope.try(:name) || empty_translatable
-          },
           scope_id: process.scope&.id,
           scope_name_ca: process.scope&.name.try(:[], "ca"),
           department_id: process.area&.id,
           department_name_ca: process.area&.name.try(:[], "ca"),
-          participatory_process_group: {
-            id: process.participatory_process_group&.try(:id),
-            title: process.participatory_process_group.try(:title) || empty_translatable,
-            description: process.participatory_process_group.try(:description) || empty_translatable,
-            remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupPresenter.new(process.participatory_process_group).hero_image_url
-          },
-          participatory_process_type: {
-            id: process.participatory_process_type.try(:id),
-            title: process.participatory_process_type.try(:title) || empty_translatable
-          },
+          participatory_space: process.participatory_process_group&.title.try(:[], "ca")&.downcase,
+          normative_type_id: process.decidim_type&.id,
+          normative_type_name_ca: process.decidim_type&.name.try(:[], "ca"),
           duration_days: duration_days,
           start_date: process.start_date,
           end_date: process.end_date,
@@ -86,54 +58,21 @@ module Decidim
           debates_num_debates: debates.count,
           # Related Resources: Assemblies
           has_related_assembly: related_assembly.present?,
-          related_assembly_name_ca: related_assembly&.title.try(:[], "ca"),
-          attachments: {
-            attachment_collections: serialize_attachment_collections,
-            files: serialize_attachments
-          }
+          related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
         }
       end
-      # rubocop:enable Metrics/PerceivedComplexity
       # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 
       attr_reader :process
 
-      def serialize_attachment_collections
-        return unless process.attachment_collections.any?
-
-        process.attachment_collections.map do |collection|
-          {
-            id: collection.try(:id),
-            name: collection.try(:name),
-            weight: collection.try(:weight),
-            description: collection.try(:description)
-          }
-        end
-      end
-
-      def serialize_attachments
-        return unless process.attachments.any?
-
-        process.attachments.map do |attachment|
-          {
-            id: attachment.try(:id),
-            title: attachment.try(:title),
-            weight: attachment.try(:weight),
-            description: attachment.try(:description),
-            attachment_collection: {
-              name: attachment.attachment_collection.try(:name),
-              weight: attachment.attachment_collection.try(:weight),
-              description: attachment.attachment_collection.try(:description)
-            },
-            remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url
-          }
-        end
-      end
-
       def url
         Decidim::ResourceLocatorPresenter.new(process).url&.split("?")&.first
+      end
+
+      def short_description_ca
+        ActionController::Base.helpers.strip_tags(process.short_description["ca"])
       end
 
       def process_type

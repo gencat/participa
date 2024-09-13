@@ -21,7 +21,7 @@ namespace :open_data do
 
     # Class used to transform ParticipatoryProcesses into data.
     def serializer
-      Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
+      Decidim::ParticipatoryProcesses::ParticipatoryProcessSocrataSerializer
     end
   end
 end
