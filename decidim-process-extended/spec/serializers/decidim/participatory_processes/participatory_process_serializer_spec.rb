@@ -8,8 +8,8 @@ module Decidim::ParticipatoryProcesses
       let(:participatory_process) { create(:participatory_process) }
       let(:subject) { described_class.new(participatory_process) }
 
-      let(:proposals_component) { create(:component, participatory_space: participatory_process, manifest_name: :proposals) }
-      let(:meetings_component) { create(:component, participatory_space: participatory_process, manifest_name: :meetings) }
+      let(:proposals_component) { create(:component, :published, participatory_space: participatory_process, manifest_name: :proposals) }
+      let(:meetings_component) { create(:component, :published, participatory_space: participatory_process, manifest_name: :meetings) }
 
       let(:organization) { participatory_process.organization }
       let(:user) { create :user, organization: organization }
@@ -30,7 +30,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when there are proposals" do
-        let!(:proposal) { create(:proposal, component: proposals_component) }
+        let!(:proposal) { create(:proposal, :published, component: proposals_component) }
 
         describe "#proposals_num_authors" do
           it "includes proposal authors of type: User" do
@@ -71,7 +71,15 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when there are closed meetings" do
-        let!(:meeting) { create(:meeting, :closed, component: meetings_component) }
+        let!(:meeting) { create(:meeting, :published, :closed, component: meetings_component) }
+
+        context "with unpublished meetings" do
+          let!(:meeting_2) { create(:meeting, :closed, component: meetings_component) }
+
+          it "only counts published meetings" do
+            expect(subject.serialize).to include(total_num_meetings: 1)
+          end
+        end
 
         describe "#meetings_num_participants" do
           before do
@@ -107,8 +115,8 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when there are proposals and closed meetings" do
-        let!(:proposal) { create(:proposal, component: proposals_component) }
-        let!(:meeting) { create(:meeting, :closed, component: meetings_component) }
+        let!(:proposal) { create(:proposal, :published, component: proposals_component) }
+        let!(:meeting) { create(:meeting, :published, :closed, component: meetings_component) }
 
         describe "#total_num_participants" do
           before do
