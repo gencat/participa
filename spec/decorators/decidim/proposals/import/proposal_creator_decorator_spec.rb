@@ -10,11 +10,10 @@ describe Decidim::Proposals::Import::ProposalCreator do
   let(:data) do
     {
       id: 1337,
-      "id" => "101",
       category: category,
       scope: scope,
-      :"title/en" => Faker::Lorem.sentence,
-      :"body/en" => Faker::Lorem.paragraph(sentence_count: 3),
+      "title/en": Faker::Lorem.sentence,
+      "body/en": Faker::Lorem.paragraph(sentence_count: 3),
       address: "#{Faker::Address.street_name}, #{Faker::Address.city}",
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
