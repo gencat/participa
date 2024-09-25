@@ -47,6 +47,9 @@ ca:
             left: Restant
             title: Té %{limit} suports a distribuir
             votes: Suports
+    events:
+      publish_proposals_event:
+        email_intro: S'han afegit noves propostes a l'espai "%{resource_title}". Pots veure les noves propostes seguint <a href="%{resource_url}">aquest enllaç</a>.
   activemodel:
     attributes:
       participatory_process:
