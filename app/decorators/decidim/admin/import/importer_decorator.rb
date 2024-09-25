@@ -17,13 +17,13 @@ Decidim::Admin::Import::Importer.class_eval do
       recipients.each do |recipient|
         next unless ["all", "followed-only"].include?(recipient.notification_types)
 
-        ProposalsMailer.notify_massive_import(collection, recipient).deliver_now
+        ProposalsMailer.notify_massive_import(collection, recipient).deliver_later
       end
     when :answers
       recipients.each do |recipient|
         next unless ["all", "followed-only"].include?(recipient.notification_types)
 
-        ProposalsAnswersMailer.notify_massive_import(collection, recipient).deliver_now
+        ProposalsAnswersMailer.notify_massive_import(collection, recipient).deliver_later
       end
     end
   end

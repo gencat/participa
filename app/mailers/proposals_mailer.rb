@@ -8,12 +8,13 @@ class ProposalsMailer < ApplicationMailer
 
   def notify_massive_import(proposals_collection, user)
     @organization = user.organization
-    @participatory_space_title = decidim_sanitize_translated(proposals_collection.first.participatory_space.title) if proposals_collection.first.present?
+    first_proposal = proposals_collection.first
+    @participatory_space_title = decidim_sanitize_translated(first_proposal.participatory_space.title) if first_proposal.present?
     @user = user
-    @component_url = manage_component_url(proposals_collection.first.component)
+    @component_url = manage_component_url(first_proposal.component)
     I18n.locale = user.locale if user.locale.present?
 
-    subject = I18n.t("proposals_publisheds_for_space.email_subject", scope: "decidim.events.proposals", participatory_space_title: @participatory_space_title)
+    subject = I18n.t("proposals_imported.email_subject", scope: "decidim.events.proposals", participatory_space_title: @participatory_space_title)
     mail(to: user.email, subject: subject)
   end
 

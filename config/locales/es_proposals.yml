@@ -3,12 +3,12 @@ es:
   decidim:
     events:
       proposals:
-        proposals_answers_publisheds_for_space:
+        proposals_answers_imported:
           email_intro: Se ha dado respuesta a propuestas del espacio "%{participatory_space_title}".
           email_link: "Puedes leer las respuestas desde esta página: <a href='%{participatory_space_url}'>enlace</a>."
           email_outro: Has recibido esta notificación porque estas siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nuevas respuestas a propuestas de %{participatory_space_title}
-        proposals_publisheds_for_space:
+        proposals_imported:
           email_intro: Se han añadido nuevas propuestas al espacio "%{participatory_space_title}".
           email_link: Puedes ver las nuevas propuestas siguiendo <a href="%{participatory_space_url}">este enlace</a>.
           email_outro: Has recibido esta notificación porque estas siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.

@@ -2,7 +2,6 @@
 
 require "rails_helper"
 require "decidim/proposals/import/proposal_creator_decorator"
-# require 'spec/shared/proposal_importer_examples'
 
 describe Decidim::Admin::Import::Importer do
   subject { described_class.new(file: blob, reader: reader, creator: creator, context: context) }

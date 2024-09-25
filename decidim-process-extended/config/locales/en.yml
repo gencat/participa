@@ -47,6 +47,9 @@ en:
             left: Left
             title: You have %{limit} supports to distribute
             votes: Votes
+    events:
+      publish_proposals_event:
+        email_intro: New proposals has been added to "%{resource_title}". You can see the new proposals by following <a href="%{resource_url}">this link</a>.
   activemodel:
     attributes:
       participatory_process:
