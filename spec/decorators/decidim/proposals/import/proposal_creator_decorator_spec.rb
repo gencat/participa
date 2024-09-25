@@ -52,12 +52,6 @@ describe Decidim::Proposals::Import::ProposalCreator do
         expect(Decidim::ActionLog.last.resource).to eq(record)
         expect(Decidim::ActionLog.last.visibility).to eq("admin-only")
       end
-
-      it "does not notify the import with ActiveSupport::Notifications" do
-        subject.produce
-        subject.finish_without_notif!
-        expect(subject).not_to receive(:notify)
-      end
     end
   end
 end

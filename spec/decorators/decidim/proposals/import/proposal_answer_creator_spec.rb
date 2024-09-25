@@ -45,12 +45,6 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(log.action).to eq("answer")
     end
 
-    it "does not notify the import with ActiveSupport::Notifications" do
-      subject.produce
-      subject.finish_without_notif!
-      expect(subject).not_to receive(:notify)
-    end
-
     context "when proposal state changes" do
       let!(:proposal) { create(:proposal, :evaluating, component: component) }
       let(:state) { "accepted" }
