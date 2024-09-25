@@ -110,8 +110,8 @@ describe "Most Voted Comments", type: :system do
       end
 
       context "when there are voted comments in Favor and Against" do
-        let!(:vote_1) { create(:comment_vote, :up_vote, author: author, comment: comment_for) }
-        let!(:vote_2) { create(:comment_vote, :up_vote, author: author, comment: comment_against) }
+        let!(:vote1) { create(:comment_vote, :up_vote, author: author, comment: comment_for) }
+        let!(:vote2) { create(:comment_vote, :up_vote, author: author, comment: comment_against) }
 
         it "most voted comments should render both comments" do
           visit resource_path

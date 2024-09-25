@@ -13,13 +13,21 @@ module Decidim
       end
 
       def current_filter
-        get_filter(:date, model[:default_filter])
+        get_filter_in(:with_date, ALL_FILTERS, model[:default_filter])
+      end
+
+      def current_type_filter_name
+        types_for_select.find { |_, id| id == get_filter(:with_type) }&.first ||
+          I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
       end
 
       def get_filter(filter_name, default = nil)
-        return default unless params[:filter].try(:[], filter_name)
+        params&.dig(:filter, filter_name) || default
+      end
 
-        params[:filter][filter_name]
+      def get_filter_in(filter_name, options, default = nil)
+        value = get_filter(filter_name)
+        options.include?(value) ? value : default
       end
 
       def filtered_processes(date_filter, filter_with_type: true)

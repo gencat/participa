@@ -9,21 +9,19 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifications block start ####
-gem "decidim-admin-extended", path: "decidim-admin-extended"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-recaptcha", path: "decidim-recaptcha"
 gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
-gem "decidim-type", path: "decidim-type"
 
 gem "decidim-cdtb"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
-# gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v6.0.0"
-# gem "decidim-idcat_mobil", "~> 0.3.0"
+gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v0.7.1"
+gem "decidim-idcat_mobil"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.27-stable"
 
-gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", branch: "downgrade_ruby"
+gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.6"
 #### Custom gems and modifications block end ####
 
 gem "soda-ruby", require: false
@@ -39,6 +37,12 @@ gem "delayed_job_active_record"
 gem "whenever", require: false
 
 gem "recaptcha"
+
+# Error uninitialized constant WickedPdf::WickedPdfHelper::Assets::SprocketsEnvironment::Sprockets
+# in update to 2.8.0
+# https://github.com/mileszs/wicked_pdf/issues/1102
+
+gem "wicked_pdf", "~> 2.7.0"
 
 group :development, :test do
   gem "bootsnap"
@@ -58,5 +62,6 @@ group :development do
 end
 
 group :test do
+  gem "capybara-screenshot"
   gem "database_cleaner"
 end

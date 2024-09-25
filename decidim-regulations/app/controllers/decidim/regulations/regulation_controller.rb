@@ -6,8 +6,9 @@ module Decidim
     # public layout.
     class RegulationController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
+
+      participatory_space_layout only: [:show, :all_metrics]
 
       helper_method :collection,
                     :promoted_collection,

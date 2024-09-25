@@ -26,5 +26,10 @@ describe "Overrides and customizations" do
     # have been backported to 0.28, otherwise we will need to do the backport in our fork
     expect(Decidim.version).to be < "0.28"
   end
+
+  it "Remove private users translation" do
+    # > remove key: participatory_space_private_user_csv_import.file in x_admin.yml because in 0.28 not exists this key
+    expect(Decidim.version).to be < "0.28"
+  end
   # rubocop: enable RSpec/RepeatedExample
 end

@@ -11,11 +11,17 @@ module Decidim::ParticipatoryProcesses::Admin
       create(:participatory_process, organization: organization,
                                      hero_image: nil, banner_image: nil)
     end
+
     let(:participatory_process_params) do
-      participatory_process.attributes.merge({
-                                               hero_image: "",
-                                               banner_image: ""
-                                             })
+      {
+        title: participatory_process.title,
+        subtitle: participatory_process.subtitle,
+        weight: participatory_process.weight,
+        description: participatory_process.description,
+        short_description: participatory_process.short_description,
+        slug: participatory_process.slug,
+        scopes_enabled: participatory_process.scopes_enabled
+      }
     end
 
     before do

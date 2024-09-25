@@ -24,7 +24,6 @@ bin/rails db:migrate
 ```
 
   Custom modules with migrations.
-  * Decidim::Type ("decidim-type")
   * Decidim::Process::Extended ("decidim-process-extended")
 
 
@@ -117,6 +116,8 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override to add new fields in the form.
   * `decorators/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
     * Override to filter by participatory process specific type.
+  * `decorators/decidim/participatory_processes/participatory_process_serialize_decorator.rb`
+    * Override to add new fields in serializer.
 
   Following ones, are same new fields in template:
   * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`
@@ -147,12 +148,13 @@ These are custom modules and this is what you have to keep in mind when updating
   ##### 	Modified files:
   * `app/controllers/decidim/regulations/`
   * `app/decorators/lib/decidim/filter_form_builder_decorator.rb`
+  * `app/decorators/decidim/participatory_processes/admin/participatory_process_groups_controller_decorator.rb`
+  * `app/decorators/decidim/participatory_processes/helpers/participatory_process_helper_decorator.rb`
+    * Override participatory_process_cta_path in order to use it via `decidim_participatory_processes`
   * `app/views/decidim/regulations/regulation/_order_by_regulations.html (order_by_processes)`
     * Change the rendered cell
   * `app/views/decidim/regulations/regulation/_promoted_process.html`
     * Access `participatory_process_path` url helper via `decidim_participatory_processes`
-  *`app/decorators/decidim/participatory_processes/helpers/participatory_process_helper_decorator.rb`
-    * Override participatory_process_cta_path in order to use it via `decidim_participatory_processes`
   * `app/views/decidim/regulations/regulation/index.html`
     * Add section to show floating help (L:12-14)
     * Change traslations from *_processes to *_regulation
@@ -212,15 +214,3 @@ These are custom modules and this is what you have to keep in mind when updating
     * Custom fonts and styles added
   * `app/controllers/decidim_controller.rb`
     * This controller is needed in all Decidim installations (empty at the moment)
-
-### New modules
-
-  #### 1. Decidim Type ("decidim-type")
-
-  This module adds a CRUD to create new Type records.
-
-  UPGRADE 0.27: participatory processes now have types. Maybe we don't need this module anymore.
-
-  #### 2. Decidim Admin Extended ("decidim-admin-extended"):
-
-  This module adds the necessary routes, menus and views to show the Type module inside the admin area.

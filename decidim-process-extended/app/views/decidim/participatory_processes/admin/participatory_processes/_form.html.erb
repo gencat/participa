@@ -30,11 +30,11 @@
     </div>
 
     <div class="row column">
-      <%= form.translated :editor, :description %>
+      <%= form.translated :editor, :short_description %>
     </div>
 
     <div class="row column">
-      <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
+      <%= form.translated :editor, :description %>
     </div>
 
     <div class="row column">
@@ -157,13 +157,6 @@
                             areas_for_select(current_organization),
                             selected: current_participatory_process.try(:decidim_area_id),
                             include_blank: t(".select_an_area") %>
-    </div>
-
-    <div class="columns xlarge-6">
-      <%= form.types_select :type_id,
-                            types_for_select(current_organization),
-                            selected: current_participatory_process.try(:decidim_type_id),
-                            include_blank: t("decidim.themes.none") %>
     </div>
   </div>
 

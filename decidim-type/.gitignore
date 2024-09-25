@@ -1,5 +1,0 @@
-.bundle/
-log/*.log
-pkg/
-
-spec/decidim_dummy_app/

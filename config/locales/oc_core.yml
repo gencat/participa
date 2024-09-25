@@ -970,7 +970,6 @@ oc:
       show:
         allow_public_contact: Permetre que qualsevol participant m'envïi missatges directes, encara que no la segueixi.
         direct_messages: Rebre missatges directes de qualsevol
-        email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         everything_followed: Tot el que segueixo
         newsletter_notifications: Voi arrecéber informacion sus l'activitat considerabla e es novetats deth portau.
         newsletters: Butlletins informatius
