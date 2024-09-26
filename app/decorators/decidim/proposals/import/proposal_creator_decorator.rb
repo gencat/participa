@@ -8,7 +8,6 @@ module Decidim::Proposals::Import::ProposalCreatorDecorator
           resource.save!
           resource
         end
-        publish(resource)
         resource
       end
     end
