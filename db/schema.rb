@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_10_01_104102) do
+ActiveRecord::Schema.define(version: 2024_10_08_075539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1123,7 +1123,6 @@ ActiveRecord::Schema.define(version: 2024_10_01_104102) do
     t.boolean "scopes_enabled", default: true, null: false
     t.date "start_date"
     t.string "email"
-    t.integer "decidim_type_id"
     t.string "reference"
     t.boolean "private_space", default: false
     t.bigint "decidim_area_id"
