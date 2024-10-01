@@ -174,14 +174,14 @@ GIT
 PATH
   remote: decidim-home
   specs:
-    decidim-home (0.3.0)
+    decidim-home (0.4.0)
       decidim-core (>= 0.27)
       rails (>= 5.2, < 7.0.x)
 
 PATH
   remote: decidim-process-extended
   specs:
-    decidim-process-extended (0.3.0)
+    decidim-process-extended (0.4.0)
       decidim-core (>= 0.27)
       rails (>= 5.2, < 7.0.x)
 
@@ -194,7 +194,7 @@ PATH
 PATH
   remote: decidim-top_comments
   specs:
-    decidim-top_comments (0.26.2)
+    decidim-top_comments (0.27.9)
       decidim-core (>= 0.27)
       decidim-proposals (>= 0.27)
       deface
@@ -326,7 +326,7 @@ GEM
       logger (~> 1.5)
     chronic (0.10.2)
     commonmarker (0.23.10)
-    concurrent-ruby (1.3.3)
+    concurrent-ruby (1.3.4)
     crack (1.0.0)
       bigdecimal
       rexml
@@ -345,7 +345,7 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-cdtb (0.2.0)
+    decidim-cdtb (0.2.1)
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
@@ -358,9 +358,9 @@ GEM
       polyglot
       railties (>= 5.2)
       rainbow (>= 2.1.0)
-    delayed_job (4.1.11)
+    delayed_job (4.1.12)
       activesupport (>= 3.0, < 8.0)
-    delayed_job_active_record (4.1.8)
+    delayed_job_active_record (4.1.10)
       activerecord (>= 3.0, < 8.0)
       delayed_job (>= 3.0, < 5)
     devise (4.9.4)
@@ -394,23 +394,24 @@ GEM
       temple
     erubi (1.13.0)
     escape_utils (1.2.2)
-    excon (0.111.0)
+    excon (0.112.0)
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
-    factory_bot (6.4.6)
+    factory_bot (6.5.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
-    faraday (2.11.0)
+    faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
+      json
       logger
     faraday-net_http (3.3.0)
       net-http
     ffi (1.17.0)
-    figjam (1.6.1)
+    figjam (1.6.2)
       thor (>= 0.14.0, < 2)
     file_validators (3.0.0)
       activemodel (>= 3.2)
@@ -452,7 +453,7 @@ GEM
       activesupport (>= 2)
       nokogiri (>= 1.4)
     htmlentities (4.3.4)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     i18n-tasks (1.0.14)
       activesupport (>= 4.0.2)
@@ -464,8 +465,9 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    icalendar (2.10.2)
+    icalendar (2.10.3)
       ice_cube (~> 0.16)
+      ostruct
     ice_cube (0.17.0)
     image_processing (1.13.0)
       mini_magick (>= 4.9.5, < 5)
@@ -474,7 +476,7 @@ GEM
       rails (>= 3.2.0)
     io-console (0.7.2)
     json (2.7.2)
-    jwt (2.8.2)
+    jwt (2.9.1)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -501,7 +503,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.0)
+    logger (1.6.1)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -515,16 +517,16 @@ GEM
     method_source (1.1.0)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.0820)
+    mime-types-data (3.2024.0903)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    minitest (5.24.1)
+    minitest (5.25.1)
     msgpack (1.7.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.14)
+    net-imap (0.4.16)
       date
       net-protocol
     net-pop (0.1.2)
@@ -555,8 +557,8 @@ GEM
       rack-protection
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-google-oauth2 (1.1.2)
-      jwt (>= 2.0)
+    omniauth-google-oauth2 (1.2.0)
+      jwt (>= 2.9)
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
@@ -575,13 +577,14 @@ GEM
       rack
     openssl (3.2.0)
     orm_adapter (0.5.0)
+    ostruct (0.6.0)
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
-    parallel (1.25.1)
-    parallel_tests (4.7.1)
+    parallel (1.26.3)
+    parallel_tests (4.7.2)
       parallel
-    parser (3.3.4.0)
+    parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
     pg (1.4.6)
@@ -600,7 +603,7 @@ GEM
     psych (4.0.6)
       stringio
     public_suffix (6.0.1)
-    puma (6.4.2)
+    puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.9)
@@ -663,15 +666,14 @@ GEM
     redcarpet (3.6.0)
     redis (4.8.1)
     regexp_parser (2.9.2)
-    reline (0.5.9)
+    reline (0.5.10)
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.3.4)
-      strscan
+    rexml (3.3.8)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -679,9 +681,9 @@ GEM
     rspec-cells (0.3.9)
       cells (>= 4.0.0, < 6.0.0)
       rspec-rails (>= 3.0.0, < 6.2.0)
-    rspec-core (3.13.0)
+    rspec-core (3.13.1)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.1)
+    rspec-expectations (3.13.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-html-matchers (0.10.0)
@@ -713,7 +715,7 @@ GEM
       rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.32.0)
+    rubocop-ast (1.32.3)
       parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
@@ -744,7 +746,7 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    selenium-webdriver (4.24.0)
+    selenium-webdriver (4.25.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -763,7 +765,7 @@ GEM
     simplecov-cobertura (2.1.0)
       rexml
       simplecov (~> 0.19)
-    simplecov-html (0.12.3)
+    simplecov-html (0.13.1)
     simplecov_json_formatter (0.1.4)
     smart_properties (1.17.0)
     snaky_hash (2.0.1)
@@ -786,19 +788,18 @@ GEM
       sprockets (>= 3.0.0)
     ssrf_filter (1.1.2)
     stringio (3.1.1)
-    strscan (3.1.0)
     sys-uname (1.0.4)
       ffi (>= 1.0.0)
     temple (0.10.3)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
-    thor (1.3.1)
+    thor (1.3.2)
     tilt (2.4.0)
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
     uniform_notifier (1.16.0)
     uri (0.13.1)
     valid_email2 (4.0.6)
@@ -823,7 +824,7 @@ GEM
     web-push (3.0.1)
       jwt (~> 2.0)
       openssl (~> 3.0)
-    webmock (3.23.1)
+    webmock (3.24.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -833,14 +834,14 @@ GEM
     websocket-extensions (0.1.5)
     whenever (1.0.0)
       chronic (>= 0.6.3)
-    wicked_pdf (2.8.1)
+    wicked_pdf (2.7.0)
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
     wkhtmltopdf-binary (0.12.6.8)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.17)
+    zeitwerk (2.6.18)
 
 PLATFORMS
   x86_64-linux
@@ -876,6 +877,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   web-console
   whenever
+  wicked_pdf (~> 2.7.0)
 
 RUBY VERSION
    ruby 3.1.1p18

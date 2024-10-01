@@ -19,7 +19,6 @@ module Participa
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.i18n.available_locales = %w(en ca es oc)
-    config.time_zone = "Madrid"
 
     # Processes group ids used to determine whether a process is a regulation or a process
     config.process = 1

@@ -3,11 +3,9 @@
 module Decidim
   module ParticipatoryProcesses
     # This class serializes a ParticipatoryProcess so can be exported
-    # to CSV, JSON or other formats (check Decidim::Exporters)
-    class ParticipatoryProcessSerializer < Decidim::Exporters::Serializer
+    # to CSV, JSON or other formats (check Decidim::Exporters) for Socrata
+    class ParticipatoryProcessSocrataSerializer < Decidim::Exporters::Serializer
       ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP= Regexp.union([",", ";", " i ", "\r\n", "\r", "\n"])
-
-      include Decidim::TranslationsHelper
 
       # Public: Initializes the serializer with a ParticipatoryProcess.
       def initialize(process)
@@ -16,6 +14,7 @@ module Decidim
       end
 
       # Public: Returns a hash with the serialized data.
+      # rubocop:disable Metrics/CyclomaticComplexity
       def serialize
         {
           # Process Information
@@ -31,10 +30,8 @@ module Decidim
           department_id: process.area&.id,
           department_name_ca: process.area&.name.try(:[], "ca"),
           participatory_space: process.participatory_process_group&.title.try(:[], "ca")&.downcase,
-          participatory_process_type: {
-            id: process.participatory_process_type.try(:id),
-            title: process.participatory_process_type.try(:title) || empty_translatable
-          },
+          normative_type_id: process.participatory_process_type&.id,
+          normative_type_name_ca: process.participatory_process_type&.title.try(:[], "ca"),
           duration_days: duration_days,
           start_date: process.start_date,
           end_date: process.end_date,
@@ -64,6 +61,7 @@ module Decidim
           related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
         }
       end
+      # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 

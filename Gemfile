@@ -17,11 +17,11 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "decidim-cdtb"
 # gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
-# gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", branch: "upgrade/0.27"
-# gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", branch: "upgrade/0.27"
+# gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v0.7.1"
+# gem "decidim-idcat_mobil"
 # gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.27-stable"
 
-# gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", branch: "downgrade_ruby"
+# gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.6"
 #### Custom gems and modifications block end ####
 
 gem "soda-ruby", require: false
@@ -41,6 +41,12 @@ gem "delayed_job_active_record"
 gem "whenever", require: false
 
 gem "recaptcha"
+
+# Error uninitialized constant WickedPdf::WickedPdfHelper::Assets::SprocketsEnvironment::Sprockets
+# in update to 2.8.0
+# https://github.com/mileszs/wicked_pdf/issues/1102
+
+gem "wicked_pdf", "~> 2.7.0"
 
 group :development, :test do
   gem "bootsnap"

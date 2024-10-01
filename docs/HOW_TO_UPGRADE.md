@@ -110,6 +110,8 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override +metadata_valued_items+ to render two non string custom fields.
   * `decorators/cells/decidim/participatory_processes/content_blocks/metadata_cell_decorator.rb`
     * Override +metadata_items+ to add gencat custom fields.
+  * `decorators/decidim/participatory_processes/participatory_process_serialize_decorator.rb`
+    * Override to add new fields in serializer.
 
   Following ones, are same new fields in template:
   * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`

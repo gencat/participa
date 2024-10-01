@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_19_110321) do
+ActiveRecord::Schema.define(version: 2024_09_25_142241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -197,8 +197,9 @@ ActiveRecord::Schema.define(version: 2024_08_19_110321) do
     t.string "facebook_handler"
     t.string "youtube_handler"
     t.string "github_handler"
-    t.boolean "destacat", default: false
     t.bigint "decidim_assemblies_type_id"
+    t.boolean "destacat", default: false
+    t.boolean "show_home", default: false
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
     t.jsonb "announcement"
