@@ -12,7 +12,7 @@ gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-home", path: "decidim-home"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-recaptcha", path: "decidim-recaptcha"
-# gem "decidim-regulations", path: "decidim-regulations"
+gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "decidim-cdtb"
