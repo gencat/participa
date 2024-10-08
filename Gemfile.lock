@@ -171,6 +171,14 @@ GIT
     decidim-verifications (0.28.2)
       decidim-core (= 0.28.2)
 
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer.git
+  revision: 9133eea57ebfc4164b640efd1ac6b9ca1628c793
+  specs:
+    decidim-term_customizer (0.28.0)
+      decidim-admin (~> 0.28.0)
+      decidim-core (~> 0.28.0)
+
 PATH
   remote: decidim-home
   specs:
@@ -867,6 +875,7 @@ DEPENDENCIES
   decidim-recaptcha!
   decidim-regulations!
   decidim-templates!
+  decidim-term_customizer!
   decidim-top_comments!
   deface
   delayed_job_active_record

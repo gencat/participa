@@ -19,7 +19,7 @@ gem "decidim-cdtb"
 # gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
 # gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v0.7.1"
 # gem "decidim-idcat_mobil"
-# gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.27-stable"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
 
 # gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.6"
 #### Custom gems and modifications block end ####
