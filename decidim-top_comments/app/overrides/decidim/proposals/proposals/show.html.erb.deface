@@ -1,4 +1,4 @@
-<!-- insert_after 'erb[loud]:root:last-child'
+<!-- insert_after "erb[silent]:contains('content_for :item_footer')"
   virtual_path 'decidim/proposals/proposals/show'
   original '56b8c50ba61c309780878dbc4d00c9c6f004f119'
 -->

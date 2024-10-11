@@ -2,7 +2,5 @@
 
 require "rails_helper"
 
-describe "Overrides and customizations" do
-  # rubocop: disable RSpec/RepeatedExample
-  # rubocop: enable RSpec/RepeatedExample
-end
+# describe "Overrides and customizations" do
+# end
