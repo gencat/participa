@@ -25,7 +25,7 @@ describe "Most Voted Comments", type: :system do
     context "when there are no comments" do
       it "renders the block empty" do
         visit resource_path
-        expect(page).to have_selector("#most-voted-comments")
+        expect(page).to have_selector(".most-voted-comments")
         expect(page).to have_content("MOST VOTED COMMENTS")
         expect(page).not_to have_selector(".comment-in-favor")
         expect(page).not_to have_selector(".comment-against")

@@ -3,7 +3,7 @@
 module Decidim::ParticipatoryProcesses::PermissionsDecorator
   def self.decorate
     Decidim::ParticipatoryProcesses::Permissions.class_eval do
-      # To allow invited private space users to acces public view
+      # To allow invited private space users to access public view
       def can_view_private_space?
         return true unless process.private_space
         return false unless user

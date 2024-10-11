@@ -28,12 +28,12 @@ es:
       pages:
         home:
           highlighted_regulations:
-            active_processes: Participación en normativa
+            active_spaces: Participación en normativa
             active_step: Paso activo
             more_information: Más información
             participate: Participa
             processes_button_title: Enlace a la página de Participación en normativa mostrando todas las participaciones
-            see_all_processes: Ver todas las participaciones
+            see_all_spaces: Ver todas las participaciones
       regulation:
         filters:
           counters:
@@ -65,6 +65,12 @@ es:
           categories: Ejes de debate
         index:
           loading: Cargando
+      regulations:
+        filters:
+          all: Todas
+          opened: Abiertas
+          closed: Cerradas
+          date: Data
       scopes:
         global: Todos los tipos
         picker:
@@ -92,6 +98,18 @@ es:
         show:
           email: Buzón de soporte
           categories: Ejes de debate
+        filters:
+          closed: Cerrados
+          counters:
+            all:
+              one: 1 participación en normativa
+              other: "%{count} participaciones"
+            past:
+              one: 1 participación cerrada
+              other: "%{count} participaciones cerradas"
+            active:
+              one: 1 participación abierta
+              other: "%{count} participaciones abiertas"
       show:
         theme: Tema
     proposals:

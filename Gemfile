@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.27-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
@@ -16,19 +16,23 @@ gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "decidim-cdtb"
-gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v0.7.1"
-gem "decidim-idcat_mobil"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.27-stable"
+# gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
+# gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v0.7.1"
+# gem "decidim-idcat_mobil"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
 
-gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.6"
+# gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.6"
 #### Custom gems and modifications block end ####
 
 gem "soda-ruby", require: false
 
 gem "puma"
 
-gem "figaro", ">= 1.1.1"
+# TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289
+# gem "figaro"
+# This gem is an alternative to Figaro meanwhile fix that problem in Figaro.
+# https://github.com/hlascelles/figjam
+gem "figjam"
 
 gem "daemons"
 gem "deface"
@@ -49,8 +53,11 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "faker"
-  gem "rspec-rails"
   gem "rubocop-faker"
+  # Set versions because Property AutoCorrect errors.
+  gem "rspec-rails", "~> 6.0.4"
+  gem "rubocop-factory_bot", "2.25.1"
+  gem "rubocop-rspec", "2.26.1"
 end
 
 group :development do

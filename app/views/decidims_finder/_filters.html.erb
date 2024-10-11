@@ -1,0 +1,47 @@
+<div id="finder">
+  <div class="filters">
+    <div class="filter-container">
+      <div class="filter-search">
+        <fieldset>
+          <div id="query"></div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="filter-container">
+      <div id="territory">
+        <fieldset>
+          <div id="clear-territory"></div>
+          <legend class="mini-title">
+            <span><%= t("decidims_finder_page.territory", scope: "participagencat") %></span>
+          </legend>
+          <div class="panel-body-finder"></div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="filter-container">
+      <div id="start_date">
+        <fieldset>
+          <div id="clear-start_date"></div>
+          <legend class="mini-title">
+            <%= t("start_date", scope: "participagencat.decidims_finder_page") %>
+          </legend>
+          <div class="panel-body-finder"></div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="filter-container">
+      <div id="end_date">
+        <fieldset>
+          <div id="clear-end_date"></div>
+          <legend class="mini-title">
+            <%= t("end_date", scope: "participagencat.decidims_finder_page") %>
+          </legend>
+          <div class="panel-body-finder"></div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
