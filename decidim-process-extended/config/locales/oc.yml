@@ -27,6 +27,9 @@ oc:
     application:
       attachments:
         meetings_available: Hi ha trobades programades actualment
+    events:
+      publish_proposals_event:
+        email_intro: S'han ahijut naues prepauses ar espaci "%{participatory_space_title}", que seguisses. Pòdes veir es naues prepauses en tot seguir <a href="%{participatory_space_url}">aguest lligam</a>.
   activemodel:
     attributes:
       participatory_process:
