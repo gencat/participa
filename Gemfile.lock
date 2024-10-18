@@ -407,7 +407,7 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-cdtb (0.2.0)
+    decidim-cdtb (0.2.1)
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
