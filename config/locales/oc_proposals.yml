@@ -255,6 +255,16 @@ oc:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
+        proposals_answers_imported:
+          email_intro: S'a dat responsa a prepauses der espaci "%{participatory_space_title}".
+          email_link: "Pòdes liéger es responses dempús d'aguesta pagina: <a href='%{participatory_space_url}'>ligam</a>."
+          email_outro: As arrecebut aguesta notificacion pr'amor qu'estas en tot seguir er espaci "%{participatory_space_title}". Pòdes quitar d'arrecéber notificacions en tot seguir eth ligam anterior.
+          email_subject: Naues responses a prepauses en %{participatory_space_title}
+        proposals_imported:
+          email_intro: S'han ahijut naues prepauses ar espaci "%{participatory_space_title}", que seguisses.
+          email_link: Pòdes veir es naues prepauses en tot seguir <a href="%{participatory_space_url}">aguest lligam</a>.
+          email_outro: As arrecebut aguesta notificacion pr'amor qu'estas en tot seguir er espaci "%{participatory_space_title}". Pòdes quitar d'arrecéber notificacions en tot seguir eth ligam anterior.
+          email_subject: Naues prepauses ahijudes en %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'

@@ -10,7 +10,6 @@ This is the open-source repository for "participa", based on [Decidim](https://g
 - `Decidim::Admin::SearchUser`, adds a search bar to Admin/users dashboard.
 - `Decidim::Process::Extended`, customizes Decidim Participatory processes.
 - `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
-- `Decidim::Type`, adds Types, for Participatory process.
 - `Decidim::Admin::Extended`, customize admin menu adding custom configurations.
 - `Decidim::Recaptcha`, use recaptcha instead invisible captcha.
 
@@ -48,7 +47,7 @@ bundle exec rake --backtrace -t
 
 # or
 
-bundle rspec decidim-process-extended/spec/serializers/decidim/participatory_processes/participatory_process_serializer_spec.rb`
+bundle exec rspec decidim-process-extended/spec/serializers/decidim/participatory_processes/participatory_process_serializer_spec.rb`
 ```
 
 ## Open Data
@@ -71,4 +70,4 @@ There are two rake tasks available to interact with this data:
 - `rake open_data:participatory_processes:export` to **export** the data to a CSV file
 - `rake open_data:participatory_processes:publish_to_socrata` to **update** the remote Socrata dataset
 
-The logic of these rake tasks has been extracted to a `Module` in `lib/open_data.rb`, and `ParticipatoryProcessSerializer`, located at `decidim-process-extended/app/serializers/decidim/participatory_processes`, is the `Class` responsible for transforming the objects into data for the Socrata dataset.
+The logic of these rake tasks has been extracted to a `Module` in `lib/open_data.rb`, and `ParticipatoryProcessSocrataSerializer`, located at `decidim-process-extended/app/serializers/decidim/participatory_processes`, is the `Class` responsible for transforming the objects into data for the Socrata dataset.

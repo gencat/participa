@@ -100,7 +100,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger = ActiveSupport::Logger.new(STDOUT)
+    logger = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
@@ -111,7 +111,7 @@ Rails.application.configure do
   # Participa: let's see SMTP data on server startup
   mail_values = config.action_mailer.smtp_settings.dup
   mail_values.delete(:password)
-  puts "=> Integration Mail Server: " + mail_values.to_s
+  puts "=> Integration Mail Server: #{mail_values}"
 
   # Store files locally.
   config.active_storage.service = :local

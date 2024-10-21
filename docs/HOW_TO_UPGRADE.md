@@ -24,7 +24,6 @@ bin/rails db:migrate
 ```
 
   Custom modules with migrations.
-  * Decidim::Type ("decidim-type")
   * Decidim::Process::Extended ("decidim-process-extended")
 
 
@@ -59,15 +58,16 @@ Also, if you need to add locales there, add a comment with the why it was added 
 ### Existing modules
 These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
 
-  1. Decidim Espais Estables ("decidim-assemblies")
-      This module changes "Assembly" translation:
-        * CA: "Assemblea" for "Consell de participació"
-        * ES: "Asamblea" for "Consejo de participación"
+#### 1. Decidim Espais Estables ("decidim-assemblies")
+  This module changes "Assembly" translation:
+    * CA: "Assemblea" for "Consell de participació"
+    * ES: "Asamblea" for "Consejo de participación"
+    * EN: "Assembly" for "Participation council"
 
-      Modified files are:
+  Modified files are:
 
-      * `config/locales/`
-        * Copy the locale files from Decidim (decidim-assemblies), and change the string "Assembly" to the correct one
+  * `config/locales/`
+    * Copy the locale files from Decidim (decidim-assemblies), and change the string "Assembly" to the correct one
 
 #### 2. decidim-home (aka. decidim-core)
 
@@ -95,6 +95,7 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decidim-home/app/views/layouts/decidim/_top_navbar.html.erb`
     * Implement the a top navbar rendered in `_wrapper.html.erb`
+
 #### 3. Decidim Process Extended ("decidim-participatory-processes")
 
   This module adds new fields to the "ParticipatoryProcess": `email`, `promoting_unit`, `facilitators`, `cost`, `has_summary_record`, `type_id`
@@ -115,8 +116,8 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override to add new fields in the form.
   * `decorators/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
     * Override to filter by participatory process specific type.
-  * `decorators/decidim/participatory_processes/participatory_process_search_decorator.rb`
-    * Override to change initialize.
+  * `decorators/decidim/participatory_processes/participatory_process_serialize_decorator.rb`
+    * Override to add new fields in serializer.
 
   Following ones, are same new fields in template:
   * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`
@@ -147,12 +148,13 @@ These are custom modules and this is what you have to keep in mind when updating
   ##### 	Modified files:
   * `app/controllers/decidim/regulations/`
   * `app/decorators/lib/decidim/filter_form_builder_decorator.rb`
+  * `app/decorators/decidim/participatory_processes/admin/participatory_process_groups_controller_decorator.rb`
+  * `app/decorators/decidim/participatory_processes/helpers/participatory_process_helper_decorator.rb`
+    * Override participatory_process_cta_path in order to use it via `decidim_participatory_processes`
   * `app/views/decidim/regulations/regulation/_order_by_regulations.html (order_by_processes)`
     * Change the rendered cell
   * `app/views/decidim/regulations/regulation/_promoted_process.html`
     * Access `participatory_process_path` url helper via `decidim_participatory_processes`
-  *`app/decorators/decidim/participatory_processes/helpers/participatory_process_helper_decorator.rb`
-    * Override participatory_process_cta_path in order to use it via `decidim_participatory_processes`
   * `app/views/decidim/regulations/regulation/index.html`
     * Add section to show floating help (L:12-14)
     * Change traslations from *_processes to *_regulation
@@ -192,17 +194,9 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decorators/decidim/participatory_processes/permissions_decorator.rb`
     * Override to allow private space users to acces public view
-    * probably removable from Decidim v0.24
 
   * `decorators/decidim/participatory_space_context_decorator.rb`
     * Override to allow private space users to acces public view
-    * probably removable from Decidim v0.24
-
-  * `lib/decidim/has_private_users.rb`
-    * Override to allow private space users to acces public view
-    * Could not use a decorator so the whole class has been copied
-    * Only the `#can_participate?(user)` has been modified
-    * probably removable from Decidim v0.24
 
   Following ones, for some addings or template overrides:
 
@@ -220,13 +214,3 @@ These are custom modules and this is what you have to keep in mind when updating
     * Custom fonts and styles added
   * `app/controllers/decidim_controller.rb`
     * This controller is needed in all Decidim installations (empty at the moment)
-
-### New modules
-
-  #### 1. Decidim Type ("decidim-type")
-
-  This module adds a CRUD to create new Type records
-
-  #### 2. Decidim Admin Extended ("decidim-admin-extended"):
-
-  This module adds the necessary routes, menus and views to show the Type module inside the admin area.

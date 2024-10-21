@@ -1,13 +1,13 @@
 <%= filter_form_for filter do |form| %>
   <div class="columns mediumlarge-6 large-5">
-    <%= scopes_picker_filter form, :scope_id, checkboxes_on_top: checkboxes_on_top %>
+    <%= scopes_picker_filter form, :with_any_scope, checkboxes_on_top: checkboxes_on_top %>
   </div>
   <div class="columns mediumlarge-6 large-5">
-    <%= form.types_select :type_id,
+    <%= form.types_select :with_type,
                           types_for_select(current_organization),
                           legend_title: t(".types"),
                           label: "",
-                          selected: filter.type_id,
+                          selected: filter.with_type,
                           include_blank: t(".select_a_type") %>
   </div>
 <% end %>

@@ -2,16 +2,12 @@
   "name": "participa",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.18.13",
-    "@babel/preset-env": "^7.18.10",
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",
     "@decidim/elections": "file:packages/elections",
     "@decidim/webpacker": "file:packages/webpacker",
-    "@rails/webpacker": "^5.4.3",
-    "algoliasearch": "^4.14.3",
-    "graphql": "^16.8.1",
-    "instantsearch.js": "^4.50.3"
+    "algoliasearch": "^4.24.0",
+    "instantsearch.js": "^4.73.1"
   },
   "version": "0.1.0",
   "engines": {
@@ -19,7 +15,7 @@
   },
   "babel": {
     "presets": [
-      "@babel/preset-env"
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
     ]
   },
   "browserslist": [

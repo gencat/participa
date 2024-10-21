@@ -1,23 +1,44 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = "Participa"
-  config.mailer_sender = ENV.fetch("SMTP_USERNAME") { "participagencat@gencat.cat" }
+  # The name of the application
+  config.application_name = Rails.application.secrets.decidim[:application_name]
+
+  # The email that will be used as sender in all emails from Decidim
+  config.mailer_sender = Rails.application.secrets.decidim[:mailer_sender]
 
   # Change these lines to set your preferred locales
-  config.default_locale = :ca
-  config.available_locales = [:en, :ca, :es, :oc]
+  config.available_locales = %w(en ca es oc)
+
+  # Sets the default locale for new organizations. When creating a new
+  # organization from the System area, system admins will be able to overwrite
+  # this value for that specific organization.
+  config.default_locale = Rails.application.secrets.decidim[:default_locale].presence || :ca
+
+  # Custom HTML Header snippets
+  #
+  # The most common use is to integrate third-party services that require some
+  # extra JavaScript or CSS. Also, you can use it to add extra meta tags to the
+  # HTML. Note that this will only be rendered in public pages, not in the admin
+  # section.
+  #
+  # Before enabling this you should ensure that any tracking that might be done
+  # is in accordance with the rules and regulations that apply to your
+  # environment and usage scenarios. This component also comes with the risk
+  # that an organization's administrator injects malicious scripts to spy on or
+  # take over user accounts.
+  #
+  config.enable_html_header_snippets = Rails.application.secrets.decidim[:enable_html_header_snippets].present?
+
+  # Allow organizations admins to track newsletter links.
+  config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links].present? unless Rails.application.secrets.decidim[:track_newsletter_links] == "auto"
 
   # Geocoder configuration
   # NOTE: to reenable the maps a new geocoder api token must be generated and replaced here. The `geocoder` gem has already been upgraded
   # config.maps = {
   #   provider: :here,
-  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   api_key: Rails.application.secrets.maps[:here_api_key],
   #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
-  # }
-  # config.geocoder = {
-  #   timeout: 5,
-  #   units: :km
   # }
 
   # Decidim::Exporters::CSV's default column separator
@@ -44,6 +65,8 @@ Decidim.configure do |config|
   # How long can a user remained logged in before the session expires. Notice that
   # this is also maximum time that user can idle before getting automatically signed out.
   config.expire_session_after= (ENV["EXPIRE_SESSION_AFTER"].presence || 0.5).to_f.hours
+
+  config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
 end
 
 Decidim.menu :menu do |menu|

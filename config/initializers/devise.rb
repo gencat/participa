@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 Devise.setup do |config|
-  config.mailer_sender = ENV.fetch("SMTP_USERNAME") { "participagencat@gencat.cat" }
+  config.mailer_sender = Decidim.config.mailer_sender
 end
