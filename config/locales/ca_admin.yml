@@ -1,5 +1,7 @@
 ca:
   activemodel:
     attributes:
+      participatory_space_private_user_csv_import:
+        file: Fitxer
       attachment_collection:
         weight: Pes
