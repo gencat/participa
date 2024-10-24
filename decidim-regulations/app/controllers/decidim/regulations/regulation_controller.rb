@@ -7,6 +7,9 @@ module Decidim
     class RegulationController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
       include FilterResource
+      include Paginable
+      include HasParticipatorySpaceContentBlocks
+      include RegulationHelper
 
       participatory_space_layout only: [:show, :all_metrics]
 
@@ -18,7 +21,8 @@ module Decidim
                     :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
-                    :linked_assemblies
+                    :linked_assemblies,
+                    :filter_sections_regulations
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -49,8 +53,9 @@ module Decidim
       def default_filter_params
         {
           with_any_scope: nil,
-          with_type: nil,
-          with_date: default_date_filter
+          with_any_area: nil,
+          with_date: default_date_filter,
+          with_any_type: nil
         }
       end
 
@@ -67,6 +72,19 @@ module Decidim
         @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
           organization_participatory_processes.where(id: params["slug"])
         ).first!
+      end
+
+      def active_content_blocks
+        @active_content_blocks ||= if current_participatory_space.present?
+                                     Decidim::ContentBlock.published.for_scope(
+                                       :participatory_process_homepage,
+                                       organization: current_organization
+                                     ).where(
+                                       scoped_resource_id: current_participatory_space.id
+                                     )
+                                   else
+                                     Decidim::ContentBlock.none
+                                   end
       end
 
       def published_processes
@@ -92,7 +110,7 @@ module Decidim
 
       # This is customized because GENCAT don't Processes Groups on Index Page
       def collection
-        @collection ||= participatory_processes
+        @collection ||= paginate(Kaminari.paginate_array(participatory_processes))
       end
       # This is customized because GENCAT don't Processes Groups on Index Page
 
@@ -124,9 +142,8 @@ module Decidim
       end
 
       def default_date_filter
-        return "opened" if published_processes.any?(&:active?)
-        return "closed" if published_processes.any?(&:past?)
-        return "upcoming" if published_processes.any?(&:upcoming?)
+        return "active" if published_processes.any?(&:active?)
+        return "past" if published_processes.any?(&:past?)
 
         "all"
       end

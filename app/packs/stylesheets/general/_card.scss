@@ -1,6 +1,6 @@
 body{
     .card--list__icon{
-        fill: $RedGenCat;
+        fill: var(--colors-gencat-red);
     }
 }
 
@@ -16,42 +16,42 @@ body{
 }
 
 .part-card-default {
-    background-color: $cardDefault !important;
-    color: $textDefault !important;
+    background-color: var(--colors-card-default) !important;
+    color: var(--colors-text-default) !important;
 }
 
 .part-card-info {
-    background-color: $cardinfo !important;
-    color: $textinfo !important;
+    background-color: var(--colors-card-info) !important;
+    color: var(--colors-text-info) !important;
 }
 
 .part-card-warning {
-    background-color: $cardWarning !important;
-    color: $textWarning !important;
+    background-color: var(--colors-card-warning) !important;
+    color: var(--colors-text-warning) !important;
 }
 
 .part-card-danger{
-    background-color : $cardDanger !important;
-    color: $textDanger !important;
+    background-color : var(--colors-card-danger) !important;
+    color: var(--colors-text-danger) !important;
 }
 
 .part-card-success{
-    background-color : $cardSuccess !important;
-    color: $textSuccess !important;
+    background-color : var(--colors-card-success) !important;
+    color: var(--colors-text-success) !important;
 }
 
 .part-card-notice {
-    background-color : $cardNotice !important;
-    color: $textNotice !important;
+    background-color : var(--colors-card-notice) !important;
+    color: var(--colors-text-notice) !important;
 }
 
 .part-card-purple {
-    background-color : $cardPurple !important;
-    color: $white !important;
+    background-color : var(--colors-card-purple) !important;
+    color: var(--colors-gencat-white) !important;
 }
 
 .part-card-primary{
-    background-color : $cardPrimary !important;
+    background-color : var(--colors-card-primary) !important;
 }
 
 .part-card-dropdown {
@@ -106,7 +106,7 @@ body{
 .part-card-content {
     .part-card-title:hover {
         text-decoration: underline !important;
-        color: $cardNotice !important;
+        color: var(--colors-card-notice) !important;
     }
     .part-card-title {
         font-size: 20px;

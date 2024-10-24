@@ -1,8 +1,5 @@
 es:
   decidim:
-    content_blocks:
-      feder:
-        name: Feder
     menu:
       more_information: Más información
       stableareas_static: Consejos de participación

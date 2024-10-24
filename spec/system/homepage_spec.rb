@@ -25,7 +25,7 @@ describe "Homepage", type: :system do
     visit decidim.root_path
 
     expect(page).to have_content("Participa Gencat")
-    within "section.hero .hero__container" do
+    within " .hero .hero__title" do
       expect(page).to have_content("Benvinguda a Participa Gencat")
     end
     within "section#sub_hero" do

@@ -1,12 +1,9 @@
-<!-- insert_after 'erb[loud]:root:last-child'
-  virtual_path 'decidim/debates/debates/show'
-  original 'cf2dee11f6fad057c3e2910a487b752770fc8329'
--->
-<div id="most-voted-comments" class="expanded">
-  <div class="wrapper wrapper--inner">
-    <div class="row">
-      <h2 class="order-by__text section-heading"><%= t("decidim.top_comments.show.most_voted_comments")%></h2>
-      <%= render partial: "decidim/top_comments/most_voted_comments", locals: {model_type: 'Decidim::Debates::Debate'} %>
-    </div>
+<!-- insert_after "erb[silent]:contains('content_for :item_footer')"
+      virtual_path 'decidim/debates/debates/show' -->
+
+<div class="most-voted-comments">
+  <div class="wrapper--inner rounded">
+    <h2 class="h4"><%= t("decidim.top_comments.show.most_voted_comments")%></h2>
+    <%= render partial: "decidim/top_comments/most_voted_comments", locals: {model_type: 'Decidim::Debates::Debate'} %>
   </div>
 </div>

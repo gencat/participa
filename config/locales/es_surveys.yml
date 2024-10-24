@@ -10,17 +10,3 @@ es:
           attributes:
             choices:
               missing: no estan completas
-  # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
-  decidim:
-    components:
-      surveys:
-        settings:
-          global:
-            send_confirmation_email: Enviar un correo electrónico con las respuestas cuando se conteste a la encuesta
-    surveys:
-      survey_confirmation_mailer:
-        confirmation:
-          body: Has contestado correctamente al cuestionario %{questionnaire_title} dentro de %{participatory_space}
-          subject: Confirmación de respuesta al cuestionario %{questionnaire_title}
-        export_name: Respuestas del cuestionario
-    # Remove when merge: https://github.com/decidim/decidim/pull/11450/files

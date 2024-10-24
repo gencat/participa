@@ -13,11 +13,6 @@ ca:
     components:
       surveys:
         name: Qüestionari
-        # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
-        settings:
-          global:
-            send_confirmation_email: Envieu un correu electrònic amb les respostes quan es respongui el qüestionari
-        # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
     surveys:
       admin:
         surveys:
@@ -39,10 +34,3 @@ ca:
             body: El qüestionari està tancada i no s'hi pot participar.
             title: Qüestionari tancat
           tos_agreement: En participar en aquest qüestionari acceptes els Termes de Servei
-      # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
-      survey_confirmation_mailer:
-        confirmation:
-          body: Has respost correctament el qüestionari %{questionnaire_title} dins de %{participatory_space}
-          subject: Confirmació de resposta al qüestionari %{questionnaire_title}
-        export_name: Repostes del qüestionari
-      # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
