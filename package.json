@@ -8,6 +8,7 @@
     "@decidim/webpacker": "file:packages/webpacker",
     "algoliasearch": "^4.24.0",
     "instantsearch.js": "^4.73.1",
+    "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
     "tailwindcss": "3.4.1"
   },
