@@ -16,7 +16,7 @@ gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "decidim-cdtb"
-# gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.3.3"
+gem "decidim-challenges", path: "/home/laurajv/decidim-module-challenges"
 # gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v0.7.1"
 # gem "decidim-idcat_mobil"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"

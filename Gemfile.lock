@@ -180,6 +180,12 @@ GIT
       decidim-core (~> 0.28.0)
 
 PATH
+  remote: /home/laurajv/decidim-module-challenges
+  specs:
+    decidim-challenges (0.4.1.1)
+      decidim-core (~> 0.27)
+
+PATH
   remote: decidim-home
   specs:
     decidim-home (0.4.0)
@@ -869,6 +875,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb
+  decidim-challenges!
   decidim-dev!
   decidim-home!
   decidim-process-extended!
