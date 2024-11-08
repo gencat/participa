@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_09_25_142241) do
+ActiveRecord::Schema.define(version: 2024_11_05_163000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -197,9 +197,8 @@ ActiveRecord::Schema.define(version: 2024_09_25_142241) do
     t.string "facebook_handler"
     t.string "youtube_handler"
     t.string "github_handler"
-    t.bigint "decidim_assemblies_type_id"
     t.boolean "destacat", default: false
-    t.boolean "show_home", default: false
+    t.bigint "decidim_assemblies_type_id"
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
     t.jsonb "announcement"
@@ -588,6 +587,15 @@ ActiveRecord::Schema.define(version: 2024_09_25_142241) do
     t.index ["decidim_user_group_id"], name: "index_decidim_endorsements_on_decidim_user_group_id"
     t.index ["resource_type", "resource_id", "decidim_author_type", "decidim_author_id", "decidim_user_group_id"], name: "idx_endorsements_rsrcs_and_authors", unique: true
     t.index ["resource_type", "resource_id"], name: "index_decidim_endorsements_on_resource_type_and_resource_id"
+  end
+
+  create_table "decidim_external_authors", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "decidim_organization_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_external_authors_on_decidim_organization_id"
+    t.index ["name"], name: "index_decidim_external_authors_on_name", unique: true
   end
 
   create_table "decidim_follows", force: :cascade do |t|
@@ -1835,6 +1843,7 @@ ActiveRecord::Schema.define(version: 2024_09_25_142241) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_external_authors", "decidim_organizations"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
