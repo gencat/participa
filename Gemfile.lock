@@ -172,6 +172,15 @@ GIT
       decidim-core (= 0.28.2)
 
 GIT
+  remote: https://github.com/gencat/decidim-module-department_admin.git
+  revision: 1f5717bb1b78c48f8073adfce142aa72b07647fa
+  tag: v0.8.0
+  specs:
+    decidim-department_admin (0.8.0)
+      decidim-admin (~> 0.28.0)
+      decidim-core (~> 0.28.0)
+
+GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil.git
   revision: b896b8a70bd9fe2599ba71e1277909be36502093
   tag: v0.5.0
@@ -197,12 +206,6 @@ GIT
     decidim-term_customizer (0.28.0)
       decidim-admin (~> 0.28.0)
       decidim-core (~> 0.28.0)
-
-PATH
-  remote: /home/laurajv/decidim-module-challenges
-  specs:
-    decidim-challenges (0.4.1.1)
-      decidim-core (~> 0.27)
 
 PATH
   remote: decidim-home
@@ -897,7 +900,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb
-  decidim-challenges!
+  decidim-department_admin!
   decidim-dev!
   decidim-home!
   decidim-idcat_mobil!
