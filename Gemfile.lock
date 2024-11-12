@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 21c297b5feafdeae836090a3a4ed3766aae3a69d
+  revision: e9bce93641db6629b509918e778af2afac808e99
   branch: release/0.27-stable
   specs:
     decidim (0.27.9)
@@ -179,25 +179,6 @@ GIT
       decidim-core (~> 0.27)
 
 GIT
-  remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: 602ccc34738762824e464294e74958b26636840d
-  tag: v0.7.1
-  specs:
-    decidim-department_admin (0.7.1)
-      decidim-admin (~> 0.27.0)
-      decidim-core (~> 0.27.0)
-
-GIT
-  remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: ee3a97421eeab3b21c8a6f8947830a91837ba2b9
-  tag: 0.0.6
-  specs:
-    decidim-verifications-members_picker (0.0.6)
-      decidim-core (>= 0.27.5)
-      decidim-verifications (>= 0.27.5)
-      psych (< 4)
-
-GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: abbf0c69e1bcaafebc5aa4f8da22fdb64ce62149
   branch: release/0.27-stable
@@ -310,8 +291,9 @@ GEM
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
-    axe-core-api (4.10.0)
+    axe-core-api (4.10.2)
       dumb_delegator
+      ostruct
       virtus
     axe-core-rspec (4.1.0)
       axe-core-api
@@ -411,10 +393,17 @@ GEM
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
+    decidim-department_admin (0.7.2)
+      decidim-admin (~> 0.27.0)
+      decidim-core (~> 0.27.0)
     decidim-idcat_mobil (0.4.0)
       decidim (>= 0.27.0)
       decidim-core (>= 0.27.0)
       omniauth-idcat_mobil (~> 0.5.0)
+    decidim-verifications-members_picker (0.0.6.1)
+      decidim-core (>= 0.27.5)
+      decidim-verifications (>= 0.27.5)
+      psych (< 4)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -546,7 +535,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.7.2)
-    json (2.7.2)
+    json (2.8.1)
     jwt (2.8.2)
       base64
     kaminari (1.2.2)
@@ -604,7 +593,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
-    mixlib-shellout (3.2.8)
+    mixlib-shellout (3.3.4)
       chef-utils
     msgpack (1.7.2)
     multi_xml (0.6.0)
@@ -664,6 +653,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    ostruct (0.6.1)
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
@@ -750,7 +740,7 @@ GEM
     redcarpet (3.6.0)
     redis (4.8.1)
     regexp_parser (2.9.2)
-    reline (0.5.10)
+    reline (0.5.11)
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -897,7 +887,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.23.1)
+    webmock (3.24.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -935,7 +925,7 @@ DEPENDENCIES
   decidim!
   decidim-cdtb
   decidim-challenges!
-  decidim-department_admin!
+  decidim-department_admin (~> 0.7.2)
   decidim-dev!
   decidim-home!
   decidim-idcat_mobil
@@ -945,7 +935,7 @@ DEPENDENCIES
   decidim-templates!
   decidim-term_customizer!
   decidim-top_comments!
-  decidim-verifications-members_picker!
+  decidim-verifications-members_picker (~> 0.0.6.1)
   deface
   delayed_job_active_record
   faker
