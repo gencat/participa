@@ -51,4 +51,9 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
+
+  # Change the default screenshots file name
+  Capybara::Screenshot.register_filename_prefix_formatter(:rspec) do |example|
+    "screenshot_#{example.description.gsub(" ", "-").gsub(":", "").gsub(%r{^.*/spec/}, "")}"
+  end
 end

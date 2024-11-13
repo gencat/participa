@@ -32,6 +32,7 @@ en:
             active_step: Active step
             more_information: More information
             participate: Participate
+            processes_button_title: Link to page of Participation in regulation showing all participations
             see_all_processes: See all participations
       regulation:
         filters:

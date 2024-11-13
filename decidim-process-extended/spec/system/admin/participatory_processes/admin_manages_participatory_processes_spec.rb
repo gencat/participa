@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe "Admin manages participatory processes", type: :system do
   let(:organization) { create(:organization) }
-  let!(:type) { create(:type, organization: organization) }
   let!(:user) { create :user, :admin, :confirmed, organization: organization }
 
   let!(:participatory_process_group) { nil }

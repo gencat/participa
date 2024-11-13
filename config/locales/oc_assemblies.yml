@@ -3,7 +3,10 @@ oc:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar organigrama
+      assemblies_type:
+        title: Títol
       assembly:
+        announcement: Avís
         area_id: Departament
         assembly_type: Tipus de consell de participació
         assembly_type_other: Altre tipus de consell de participació
@@ -22,12 +25,16 @@ oc:
         decidim_scope_id: Abast
         description: Descripció
         developer_group: Grup promotor
+        document: Document
         domain: Àrees municipals
         duration: Durada
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imatge de portada
+        import_attachments: Importar arxius adjunts
+        import_categories: Importar categories
+        import_components: Importar components
         included_at: Inclòs a
         instagram: Instagram
         internal_organisation: Organització interna
@@ -36,7 +43,7 @@ oc:
         meta_scope: Metadades d'àmbit
         parent_id: Consell de participació principal
         participatory_processes_ids: Processos participatius relacionats
-        participatory_scope: Què es decideix
+        participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
         private_space: Espai privat
         promoted: Destacat
@@ -50,8 +57,9 @@ oc:
         special_features: Característiques especials
         subtitle: Subtítol
         target: A qui va dirigit?
+        weight: Ordre de posició
         title: Títol
-        twitter: Twitter
+        twitter: X
         youtube: YouTube
       assembly_member:
         birthday: Aniversari
@@ -61,8 +69,10 @@ oc:
         designation_mode: Mode de designació
         full_name: Nom complet
         gender: Gènere
+        non_user_avatar: Avatar
         position: Posició
         user_id: Usuària
+        weight: Ordre de posició
       assembly_user_role:
         email: Correu electrònic
         name: Nom
@@ -72,7 +82,7 @@ oc:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Tipus de document invàlid. Els formats que s''accepten són: %{valid_mime_types}'
+              allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -181,6 +191,9 @@ oc:
         update:
           error: S'ha produït un error en l'actualització d'un usuari per a aquest consell de participació.
           success: L'usuari s'ha actualitzat correctament per a aquest consell de participació.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipus de consell de participació
       menu:
         assemblies: Consells de participació
         assemblies_settings: Configuració
@@ -218,9 +231,9 @@ oc:
           name: Membre
           positions:
             other: Altre
-            president: Presidenta
-            secretary: Secretària
-            vice_president: Vicepresidenta
+            president: Presidència
+            secretary: Secretaria
+            vice_president: Vicepresidència
         assembly_user_role:
           fields:
             email: Correu electrònic
@@ -238,6 +251,9 @@ oc:
     admin_log:
       assembly:
         create: "%{user_name} ha creat el consell de participació %{resource_name}"
+        duplicate: "%{user_name} ha duplicat el consell de participació %{resource_name}"
+        export: "%{user_name} ha exportat el consell de participació %{resource_name}"
+        import: "%{user_name} ha importat el consell de participació %{resource_name}"
         publish: "%{user_name} ha publicat el consell de participació %{resource_name}"
         unpublish: "%{user_name} ha despublicat el consell de participació %{resource_name}"
         update: "%{user_name} ha actualitzat el consell de participació %{resource_name}"
@@ -261,6 +277,7 @@ oc:
       admin:
         assemblies:
           form:
+            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del consell de participació
             duration: Durada
             duration_help: Si la durada d'aquest consell de participació és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
             filters: Filtres
@@ -294,7 +311,10 @@ oc:
         assembly_members:
           form:
             existing_user: Participant existent
+            explanation: 'Instruccions per a la imatge:'
+            image_guide: Preferiblement una imatge apaïsada que no tingui cap text.
             non_user: No participant
+            non_user_avatar_help: Cal tenir el consentiment de la persona abans publicar-la com a membre.
             select_a_position: Selecciona una posició
             select_user: Selecciona una participant
             user_type: Tipus de participant
@@ -311,6 +331,9 @@ oc:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre aquest consell de participació
       assembly_members:
         index:
           members: Membres
@@ -325,6 +348,9 @@ oc:
       content_blocks:
         highlighted_assemblies:
           name: Asemblees destacades
+      new_import:
+          accepted_types:
+            json: JSON
       created_by:
         city_council: Ajuntament
         others: Altres
@@ -378,7 +404,7 @@ oc:
         related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         social_networks: Xarxes socials
-        social_networks_title: Compartir aquest consell de participació a
+        social_networks_title: Visita aquest consell de participació a
         target: Qui participa
       statistics:
         answers_count: Respostes
@@ -404,7 +430,7 @@ oc:
         votes_count: Suports
     assembly_members:
       assembly_member:
-        designated_on: Designat a
+        designated_on: 'Data de designació:'
       index:
         title: Membres
     events:
@@ -452,6 +478,8 @@ oc:
             processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
       show:
         related_assemblies: Consells de participació relacionats
+    statistics:
+      assemblies_count: Consells de participació
   errors:
     messages:
       cannot_be_blank: no es pot estar en blanc

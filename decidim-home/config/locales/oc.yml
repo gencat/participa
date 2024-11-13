@@ -401,7 +401,6 @@ oc:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:
       show:
-        email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         newsletter_notifications: Vull rebre butlletins
         update_notifications_settings: Guardar canvis
       update:

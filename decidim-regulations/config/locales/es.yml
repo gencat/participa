@@ -32,6 +32,7 @@ es:
             active_step: Paso activo
             more_information: Más información
             participate: Participa
+            processes_button_title: Enlace a la página de Participación en normativa mostrando todas las participaciones
             see_all_processes: Ver todas las participaciones
       regulation:
         filters:

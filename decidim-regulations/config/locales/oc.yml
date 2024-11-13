@@ -35,6 +35,7 @@ oc:
             active_step: Pas actiu
             more_information: Mai informacion
             participate: Participa
+            processes_button_title: Enllaç a la pàgina de Participació en normativa mostrant totas las participacions
             see_all_processes: Veire totas las participacions
       regulation:
         show:

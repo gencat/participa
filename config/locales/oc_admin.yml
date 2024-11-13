@@ -1,6 +1,8 @@
 oc:
   activemodel:
     attributes:
+      participatory_space_private_user_csv_import:
+        file: Fitxer
       area:
         area_type: Tipus d'àrea
         name: Nom

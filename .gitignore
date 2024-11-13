@@ -13,10 +13,12 @@
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
+node_modules/
 
 yarn.lock
 /yarn-error.log
+yarn-debug.log*
+.yarn-integrity
 
 .byebug_history
 
@@ -29,6 +31,12 @@ public/uploads
 # Ignore public/assets as assets are generated in each server when deploying
 public/assets
 
+/public/packs
+/public/packs-test
+public/decidim-packs/
+public/sw.js.*
+public/sw.js
+
 # Ignore test app
 spec/decidim_dummy_app/
 .rspec-failures
@@ -39,10 +47,3 @@ spec/decidim_dummy_app/
 
 coverage/
 storage/
-
-/public/packs
-/public/packs-test
-public/decidim-packs/
-
-yarn-debug.log*
-.yarn-integrity
