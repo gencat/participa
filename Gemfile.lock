@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 21c297b5feafdeae836090a3a4ed3766aae3a69d
+  revision: c0ed5ddecaa61026a35021261ffc0cc4bc28d8e6
   branch: release/0.27-stable
   specs:
     decidim (0.27.9)
@@ -310,8 +310,9 @@ GEM
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
-    axe-core-api (4.10.0)
+    axe-core-api (4.10.2)
       dumb_delegator
+      ostruct
       virtus
     axe-core-rspec (4.1.0)
       axe-core-api
@@ -546,7 +547,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.7.2)
-    json (2.7.2)
+    json (2.8.1)
     jwt (2.8.2)
       base64
     kaminari (1.2.2)
@@ -604,7 +605,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
-    mixlib-shellout (3.2.8)
+    mixlib-shellout (3.3.4)
       chef-utils
     msgpack (1.7.2)
     multi_xml (0.6.0)
@@ -664,6 +665,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    ostruct (0.6.1)
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
@@ -750,7 +752,7 @@ GEM
     redcarpet (3.6.0)
     redis (4.8.1)
     regexp_parser (2.9.2)
-    reline (0.5.10)
+    reline (0.5.11)
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -897,7 +899,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.23.1)
+    webmock (3.24.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
