@@ -17,7 +17,7 @@ module Decidim
     def method_missing(method, *args)
       if method.to_s.ends_with?("?")
         false
-      elsif [:profile_path, :badge, :followers_count, :cache_key_with_version].include?(method)
+      elsif [:profile_path, :badge, :followers, :followers_count, :cache_key_with_version].include?(method)
         ""
       else
         super

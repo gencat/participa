@@ -3,12 +3,12 @@
 module Decidim
   class ExternalAuthor < ApplicationRecord
     include Decidim::ActsAsAuthor
+    include Decidim::Followable
+
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
 
     validates :name, presence: true, uniqueness: { scope: :organization }
 
-    # Returns the presenter for this author, to be used in the views.
-    # Required by ActsAsAuthor.
     def presenter
       Decidim::ExternalAuthorPresenter.new(self)
     end
