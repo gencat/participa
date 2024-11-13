@@ -1,15 +1,17 @@
-# frozen_string_literal
+# frozen_string_literal: true
 
 module Decidim
   class ExternalAuthorPresenter < SimpleDelegator
     include ActionView::Helpers::UrlHelper
 
-    def name
-      __getobj__.name
-    end
+    delegate :name, to: :__getobj__
 
     def avatar_url(_something)
       ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
+    end
+
+    def respond_to_missing?(*)
+      true
     end
 
     def method_missing(method, *args)

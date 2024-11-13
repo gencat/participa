@@ -1,7 +1,7 @@
-# frozen_string_literal
+# frozen_string_literal: true
 
 module Decidim
-  class ExternalAuthor < ActiveRecord::Base
+  class ExternalAuthor < ApplicationRecord
     include Decidim::ActsAsAuthor
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
 
@@ -12,6 +12,5 @@ module Decidim
     def presenter
       Decidim::ExternalAuthorPresenter.new(self)
     end
-
   end
 end

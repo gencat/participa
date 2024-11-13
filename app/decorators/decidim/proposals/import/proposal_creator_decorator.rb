@@ -12,9 +12,13 @@ module Decidim::Proposals::Import::ProposalCreatorDecorator
       end
 
       def produce
-        resource.add_coauthor(context[:current_user], user_group: context[:user_group]) unless (data.dig(:external_author, 'name').present? || data[:"external_author/name"].present?)
+        resource.add_coauthor(context[:current_user], user_group: context[:user_group]) unless data.dig(:external_author,
+                                                                                                        "name").present? || data[:"external_author/name"].present?
 
-        resource.add_external_author((data.dig(:external_author, 'name') || data[:'external_author/name']), context[:current_organization]) if (data[:external_author]['name'].present? || data[:"external_author/name"].present?)
+        if data[:external_author]["name"].present? || data[:"external_author/name"].present?
+          resource.add_external_author((data.dig(:external_author, "name") || data[:'external_author/name']),
+                                       context[:current_organization])
+        end
 
         resource
       end

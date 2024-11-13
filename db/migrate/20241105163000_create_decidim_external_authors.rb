@@ -4,10 +4,14 @@
 class CreateDecidimExternalAuthors < ActiveRecord::Migration[6.1]
   def change
     create_table :decidim_external_authors do |t|
-      t.string      :name, null: false
-      t.references  :decidim_organization, index: true, foreign_key: true
+      t.string   :name, null: false
+      t.integer  :decidim_organization_id, index: true, foreign_key: true
 
       t.timestamps
+
+      t.index [:decidim_organization_id, :name],
+              name: "index_unique_assembly_name_and_organization",
+              unique: true
     end
 
     add_index :decidim_external_authors, :name, unique: true

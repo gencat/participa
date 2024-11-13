@@ -591,9 +591,10 @@ ActiveRecord::Schema.define(version: 2024_11_05_163000) do
 
   create_table "decidim_external_authors", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "decidim_organization_id"
+    t.integer "decidim_organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_organization_id", "name"], name: "index_unique_assembly_name_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_external_authors_on_decidim_organization_id"
     t.index ["name"], name: "index_decidim_external_authors_on_name", unique: true
   end
@@ -1843,7 +1844,6 @@ ActiveRecord::Schema.define(version: 2024_11_05_163000) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
-  add_foreign_key "decidim_external_authors", "decidim_organizations"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
