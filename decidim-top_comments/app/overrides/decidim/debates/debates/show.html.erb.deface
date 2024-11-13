@@ -1,6 +1,6 @@
 <!-- insert_after 'erb[loud]:root:last-child'
   virtual_path 'decidim/debates/debates/show'
-  original 'cf2dee11f6fad057c3e2910a487b752770fc8329'
+  original '6f795ebcc7ec98156f02484fd7d1e6db5fc07d75'
 -->
 <div id="most-voted-comments" class="expanded">
   <div class="wrapper wrapper--inner">
