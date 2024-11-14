@@ -179,25 +179,6 @@ GIT
       decidim-core (~> 0.27)
 
 GIT
-  remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: 602ccc34738762824e464294e74958b26636840d
-  tag: v0.7.1
-  specs:
-    decidim-department_admin (0.7.1)
-      decidim-admin (~> 0.27.0)
-      decidim-core (~> 0.27.0)
-
-GIT
-  remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: ee3a97421eeab3b21c8a6f8947830a91837ba2b9
-  tag: 0.0.6
-  specs:
-    decidim-verifications-members_picker (0.0.6)
-      decidim-core (>= 0.27.5)
-      decidim-verifications (>= 0.27.5)
-      psych (< 4)
-
-GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: abbf0c69e1bcaafebc5aa4f8da22fdb64ce62149
   branch: release/0.27-stable
@@ -412,10 +393,17 @@ GEM
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
+    decidim-department_admin (0.7.2)
+      decidim-admin (~> 0.27.0)
+      decidim-core (~> 0.27.0)
     decidim-idcat_mobil (0.4.0)
       decidim (>= 0.27.0)
       decidim-core (>= 0.27.0)
       omniauth-idcat_mobil (~> 0.5.0)
+    decidim-verifications-members_picker (0.0.6.1)
+      decidim-core (>= 0.27.5)
+      decidim-verifications (>= 0.27.5)
+      psych (< 4)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -937,7 +925,7 @@ DEPENDENCIES
   decidim!
   decidim-cdtb
   decidim-challenges!
-  decidim-department_admin!
+  decidim-department_admin (~> 0.7.2)
   decidim-dev!
   decidim-home!
   decidim-idcat_mobil
@@ -947,7 +935,7 @@ DEPENDENCIES
   decidim-templates!
   decidim-term_customizer!
   decidim-top_comments!
-  decidim-verifications-members_picker!
+  decidim-verifications-members_picker (~> 0.0.6.1)
   deface
   delayed_job_active_record
   faker
