@@ -172,6 +172,14 @@ GIT
       decidim-core (= 0.28.2)
 
 GIT
+  remote: https://github.com/gencat/decidim-module-challenges.git
+  revision: 7ca7acf76a8ebda0916c0681fce2b548b5399725
+  branch: upgrade/decidim_0.28
+  specs:
+    decidim-challenges (0.4.2)
+      decidim-core (~> 0.27)
+
+GIT
   remote: https://github.com/gencat/decidim-module-department_admin.git
   revision: 1f5717bb1b78c48f8073adfce142aa72b07647fa
   tag: v0.8.0
@@ -900,6 +908,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb
+  decidim-challenges!
   decidim-department_admin!
   decidim-dev!
   decidim-home!

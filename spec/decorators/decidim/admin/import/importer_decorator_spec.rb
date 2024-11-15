@@ -34,7 +34,7 @@ describe Decidim::Admin::Import::Importer do
 
       it_behaves_like "proposal importer"
 
-      it "will call ProposalsMailer.notify_massive_import with the collection" do
+      it "calls ProposalsMailer.notify_massive_import with the collection" do
         subject.prepare
         subject.import!
         expect(ProposalsMailer).to have_received(:notify_massive_import)
@@ -52,7 +52,7 @@ describe Decidim::Admin::Import::Importer do
         allow(ProposalsAnswersMailer).to receive(:notify_massive_import).and_call_original
       end
 
-      it "will call ProposalsMailer.notify_massive_import with the collection" do
+      it "calls ProposalsMailer.notify_massive_import with the collection" do
         subject.prepare
         subject.import!
         expect(ProposalsAnswersMailer).to have_received(:notify_massive_import)
