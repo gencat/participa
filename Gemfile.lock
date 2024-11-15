@@ -180,15 +180,6 @@ GIT
       decidim-core (~> 0.27)
 
 GIT
-  remote: https://github.com/gencat/decidim-module-department_admin.git
-  revision: 1f5717bb1b78c48f8073adfce142aa72b07647fa
-  tag: v0.8.0
-  specs:
-    decidim-department_admin (0.8.0)
-      decidim-admin (~> 0.28.0)
-      decidim-core (~> 0.28.0)
-
-GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil.git
   revision: b896b8a70bd9fe2599ba71e1277909be36502093
   tag: v0.5.0
@@ -197,15 +188,6 @@ GIT
       decidim (>= 0.28.0)
       decidim-core (>= 0.28.0)
       omniauth-idcat_mobil (~> 0.5.0)
-
-GIT
-  remote: https://github.com/gencat/decidim-verifications-members_picker.git
-  revision: 79a833a96e45903ded7603e146d23dacc1f1b91b
-  tag: 0.0.7
-  specs:
-    decidim-verifications-members_picker (0.0.7)
-      decidim-core (>= 0.28.0)
-      decidim-verifications (>= 0.28.0)
 
 GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
@@ -360,15 +342,15 @@ GEM
       marcel (~> 1.0.0)
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
-    cells (4.1.7)
-      declarative-builder (< 0.2.0)
+    cells (4.1.8)
+      declarative-builder (~> 0.2.0)
       declarative-option (< 0.2.0)
       tilt (>= 1.4, < 3)
       uber (< 0.2.0)
     cells-erb (0.1.0)
       cells (~> 4.0)
       erbse (>= 0.1.1)
-    cells-rails (0.1.5)
+    cells-rails (0.1.6)
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.9)
@@ -385,13 +367,13 @@ GEM
       addressable
     csv (3.3.0)
     daemons (1.4.1)
-    database_cleaner (2.0.2)
+    database_cleaner (2.1.0)
       database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.2.0)
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
-    date (3.3.4)
+    date (3.4.0)
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
@@ -399,8 +381,14 @@ GEM
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
-    declarative-builder (0.1.0)
-      declarative-option (< 0.2.0)
+    decidim-department_admin (0.8.0)
+      decidim-admin (~> 0.28.0)
+      decidim-core (~> 0.28.0)
+    decidim-verifications-members_picker (0.0.7)
+      decidim-core (>= 0.28.0)
+      decidim-verifications (>= 0.28.0)
+    declarative-builder (0.2.0)
+      trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
     deface (1.9.0)
       actionview (>= 5.2)
@@ -408,10 +396,10 @@ GEM
       polyglot
       railties (>= 5.2)
       rainbow (>= 2.1.0)
-    delayed_job (4.1.12)
-      activesupport (>= 3.0, < 8.0)
-    delayed_job_active_record (4.1.10)
-      activerecord (>= 3.0, < 8.0)
+    delayed_job (4.1.13)
+      activesupport (>= 3.0, < 9.0)
+    delayed_job_active_record (4.1.11)
+      activerecord (>= 3.0, < 9.0)
       delayed_job (>= 3.0, < 5)
     devise (4.9.4)
       bcrypt (~> 3.0)
@@ -430,7 +418,7 @@ GEM
       nokogiri (>= 1.13.2, < 1.17.0)
       rubyzip (~> 2.3.0)
     docile (1.4.1)
-    doorkeeper (5.7.1)
+    doorkeeper (5.8.0)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     erb_lint (0.4.0)
@@ -444,31 +432,31 @@ GEM
       temple
     erubi (1.13.0)
     escape_utils (1.2.2)
-    excon (0.112.0)
+    excon (1.2.1)
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
     factory_bot (6.5.0)
       activesupport (>= 5.0.0)
-    factory_bot_rails (6.4.3)
-      factory_bot (~> 6.4)
+    factory_bot_rails (6.4.4)
+      factory_bot (~> 6.5)
       railties (>= 5.0.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
-    faraday (2.12.0)
-      faraday-net_http (>= 2.0, < 3.4)
+    faraday (2.12.1)
+      faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-net_http (3.3.0)
-      net-http
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
     ffi (1.17.0)
     figjam (1.6.2)
       thor (>= 0.14.0, < 2)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
-    fog-core (2.5.0)
+    fog-core (2.6.0)
       builder
-      excon (~> 0.71)
+      excon (~> 1.0)
       formatador (>= 0.2, < 2.0)
       mime-types
     fog-local (0.8.0)
@@ -495,7 +483,7 @@ GEM
       graphql (~> 2.0)
       html-pipeline (~> 2.9)
       sass (~> 3.4)
-    hashdiff (1.1.1)
+    hashdiff (1.1.2)
     hashie (3.6.0)
     highline (3.1.1)
       reline
@@ -525,7 +513,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.7.2)
-    json (2.7.3)
+    json (2.8.2)
     jwt (2.9.3)
       base64
     kaminari (1.2.2)
@@ -554,7 +542,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.6.1)
-    loofah (2.22.0)
+    loofah (2.23.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -568,16 +556,16 @@ GEM
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.1001)
+    mime-types-data (3.2024.1105)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.1)
-    msgpack (1.7.3)
+    msgpack (1.7.5)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    net-http (0.4.1)
+    net-http (0.5.0)
       uri
-    net-imap (0.5.0)
+    net-imap (0.5.1)
       date
       net-protocol
     net-pop (0.1.2)
@@ -586,7 +574,7 @@ GEM
       timeout
     net-smtp (0.3.4)
       net-protocol
-    nio4r (2.7.3)
+    nio4r (2.7.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -631,14 +619,14 @@ GEM
       rack
     openssl (3.2.0)
     orm_adapter (0.5.0)
-    ostruct (0.6.0)
+    ostruct (0.6.1)
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.26.3)
     parallel_tests (4.7.2)
       parallel
-    parser (3.3.5.0)
+    parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
     pg (1.4.6)
@@ -720,7 +708,7 @@ GEM
     redcarpet (3.6.0)
     redis (4.8.1)
     regexp_parser (2.9.2)
-    reline (0.5.10)
+    reline (0.5.11)
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -732,9 +720,9 @@ GEM
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-cells (0.3.9)
+    rspec-cells (0.3.10)
       cells (>= 4.0.0, < 6.0.0)
-      rspec-rails (>= 3.0.0, < 6.2.0)
+      rspec-rails (>= 3.0.0)
     rspec-core (3.13.2)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.3)
@@ -769,7 +757,7 @@ GEM
       rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.32.3)
+    rubocop-ast (1.36.1)
       parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
@@ -800,13 +788,13 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    selenium-webdriver (4.25.0)
+    selenium-webdriver (4.26.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    semantic_range (3.0.0)
+    semantic_range (3.1.0)
     shakapacker (7.1.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
@@ -840,8 +828,8 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    ssrf_filter (1.1.2)
-    stringio (3.1.1)
+    ssrf_filter (1.2.0)
+    stringio (3.1.2)
     sys-uname (1.0.4)
       ffi (>= 1.0.0)
     temple (0.10.3)
@@ -849,13 +837,14 @@ GEM
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.3.2)
     tilt (2.4.0)
-    timeout (0.4.1)
+    timeout (0.4.2)
+    trailblazer-option (0.1.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.16.0)
-    uri (0.13.1)
+    uri (1.0.2)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -909,7 +898,7 @@ DEPENDENCIES
   decidim!
   decidim-cdtb
   decidim-challenges!
-  decidim-department_admin!
+  decidim-department_admin (~> 0.8.0)
   decidim-dev!
   decidim-home!
   decidim-idcat_mobil!
@@ -919,7 +908,7 @@ DEPENDENCIES
   decidim-templates!
   decidim-term_customizer!
   decidim-top_comments!
-  decidim-verifications-members_picker!
+  decidim-verifications-members_picker (~> 0.0.7)
   deface
   delayed_job_active_record
   faker

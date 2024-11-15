@@ -17,10 +17,10 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "decidim-cdtb"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", branch: "upgrade/decidim_0.28"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin.git", tag: "v0.8.0"
+gem "decidim-department_admin", "~> 0.8.0"
 gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", tag: "v0.5.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
-gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", tag: "0.0.7"
+gem "decidim-verifications-members_picker", "~> 0.0.7"
 #### Custom gems and modifications block end ####
 
 gem "soda-ruby", require: false
