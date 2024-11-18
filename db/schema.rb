@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_11_05_163000) do
+ActiveRecord::Schema.define(version: 2024_11_14_111439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1483,6 +1483,11 @@ ActiveRecord::Schema.define(version: 2024_11_05_163000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "decidim_challenges_challenge_id"
+    t.string "project_status"
+    t.string "project_url"
+    t.string "coordinating_entity"
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_decidim_solutions_solutions_on_author_id"
     t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
     t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
     t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
@@ -1859,6 +1864,7 @@ ActiveRecord::Schema.define(version: 2024_11_05_163000) do
   add_foreign_key "decidim_scopes", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
+  add_foreign_key "decidim_solutions_solutions", "decidim_users", column: "author_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"

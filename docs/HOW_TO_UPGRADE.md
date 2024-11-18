@@ -175,7 +175,7 @@ These are custom modules and this is what you have to keep in mind when updating
 
 #### 6. Also, there are custom files in the application "participa.gencat.cat".
 
-  ##### 	Modified files:
+  ##### Modified files:
 
   With decorator pattern:
 
@@ -184,6 +184,17 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decorators/decidim/participatory_space_context_decorator.rb`
     * Override to allow private space users to acces public view
+    * probably removable from Decidim v0.24
+
+  * `decorators/lib/decidim/proposals/proposal_serializer_decorator.rb`
+    * Override to export proposal emails and names from authors
+    * probably removable from Decidim v0.28 (remember remove test too)
+
+  * `lib/decidim/has_private_users.rb`
+    * Override to allow private space users to acces public view
+    * Could not use a decorator so the whole class has been copied
+    * Only the `#can_participate?(user)` has been modified
+    * probably removable from Decidim v0.24
 
   Following ones, for some addings or template overrides:
 
