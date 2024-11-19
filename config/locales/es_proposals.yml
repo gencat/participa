@@ -14,6 +14,18 @@ es:
           email_outro: Has recibido esta notificación porque estas siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nuevas propuestas añadidas a %{participatory_space_title}
     proposals:
+      admin:
+        imports:
+          help:
+            proposals: |
+              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel. o nombres de claves en caso de archivos JSON:
+              <ul>
+              <li><b>title/es:</b> Título en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              <li><b>body/en:</b> Descripció en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              <li><b>scope/id:</b> ID de l'Ámbito</li>
+              <li><b>category/id:</b> ID de la Categoria</li>
+              <li><b>author/name:</b> Nombre del autor de la propuesta externo a la plataforma Decidim</li>
+              </ul>
       proposals:
         show:
           proposal_in_evaluation_reason: 'Esta propuesta está en evaluación porque:'

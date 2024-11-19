@@ -365,6 +365,17 @@ oc:
         exports:
           comments: Comentaris
           proposals: Propostes
+        imports:
+          help:
+            proposals: |
+              Eth document li cau includir es següents nòms de colomna en cas d'archius CSV o Excel o nòms de claus en cas d'archius JSON:
+              <ul>
+              <li><b>title/ca:</b> Títol en catalan. Açò depenerà dera configuracion d'idiòma predeterminat ara tua plataforma.</li>
+              <li><b>body/ca:</b> Descripcion en catalan. Açò depenerà dera configuracion d'idiòma predeterminat ara tua plataforma.</li>
+              <li><b>scope/id:</b> ID der encastre</li>
+              <li><b>category/id:</b> ID dera Categoria</li>
+              <li><b>author/name:</b> Nòm der autor dera prepausa extèrna ara plataforma Decidim</li>
+              </ul>
         models:
           proposal:
             name: Proposta
