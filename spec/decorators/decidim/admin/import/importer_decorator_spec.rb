@@ -24,7 +24,7 @@ describe Decidim::Admin::Import::Importer do
   describe "#notify_collection" do
     context "when imported collection are proposals" do
       let(:creator) { Decidim::Proposals::Import::ProposalCreator }
-      let(:blob) { upload_test_file(Decidim::Dev.asset("import_proposals.csv"), return_blob: true) }
+      let(:blob) { upload_test_file(Rails.root.join("lib", "assets", "import_proposals.csv").to_s, return_blob: true) }
 
       before do
         participatory_process.followers << follower

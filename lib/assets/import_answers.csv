@@ -1,4 +1,4 @@
-id;state;answer/ca;answer/es;answer/oc;answer/en
-89117;accepted;Example answer;Example answer;Example answer;Example answer
-89117;rejected;Example answer;Example answer;Example answer;Example answer
-89117;evaluating;Example answer;Example answer;Example answer;Example answer
+id,state,answer/ca,answer/es,answer/oc,answer/en
+89117,accepted,Example answer,Example answer,Example answer,Example answer
+89117,rejected,Example answer,Example answer,Example answer,Example answer
+89117,evaluating,Example answer,Example answer,Example answer,Example answer
