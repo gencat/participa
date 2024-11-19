@@ -10,7 +10,7 @@ class CreateDecidimExternalAuthors < ActiveRecord::Migration[6.1]
       t.timestamps
 
       t.index [:decidim_organization_id, :name],
-              name: "index_unique_assembly_name_and_organization",
+              name: "index_unique_name_and_organization",
               unique: true
     end
 
