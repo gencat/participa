@@ -40,7 +40,7 @@ ca:
               <li><b>body/ca:</b> Descripció en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
               <li><b>scope/id:</b> ID de l'Àmbit</li>
               <li><b>category/id:</b> ID de la Categoria</li>
-              <li><b>author/name:</b> Nom de l'autor de la proposta extern a la plataforma Decidim</li>
+              <li><b>external_author/name:</b> Nom de l'autor de la proposta extern a la plataforma Decidim</li>
               </ul>
       proposals:
         filters:
