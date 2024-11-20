@@ -14,7 +14,7 @@ Bundler.require(*Rails.groups)
 
 module Participa
   class Application < Rails::Application
-    # config.railties_order = [:main_app, Decidim::DepartmentAdmin::Engine, :all]
+    config.railties_order = [:main_app, Decidim::DepartmentAdmin::Engine, :all]
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
