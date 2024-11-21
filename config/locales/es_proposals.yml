@@ -25,6 +25,7 @@ es:
               <li><b>scope/id:</b> ID de l'Ámbito</li>
               <li><b>category/id:</b> ID de la Categoria</li>
               <li><b>external_author/name:</b> Nombre del autor de la propuesta externo a la plataforma Decidim</li>
+              <li><b>meeting_url:</b> Url del encuentro en la plataforma Decidim</li>
               </ul>
       proposals:
         show:

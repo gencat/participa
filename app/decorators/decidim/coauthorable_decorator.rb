@@ -16,6 +16,24 @@ module Decidim::CoauthorableDecorator
 
     authors << external_author
   end
+
+  def add_location(meeting_url)
+    segment_id = meeting_url.split("/").last.to_i
+
+    location = Decidim::Meetings::Meeting.find(segment_id)
+
+    return if coauthorships.exists?(decidim_author_id: location.id, decidim_author_type: location.class.base_class.name)
+
+    coauthorship_attributes = { author: location }
+
+    if persisted?
+      coauthorships.create!(coauthorship_attributes)
+    else
+      coauthorships.build(coauthorship_attributes)
+    end
+
+    authors << location
+  end
 end
 
 ::Decidim::Coauthorable.prepend ::Decidim::CoauthorableDecorator

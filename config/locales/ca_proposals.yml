@@ -41,6 +41,7 @@ ca:
               <li><b>scope/id:</b> ID de l'Àmbit</li>
               <li><b>category/id:</b> ID de la Categoria</li>
               <li><b>external_author/name:</b> Nom de l'autor de la proposta extern a la plataforma Decidim</li>
+              <li><b>meeting_url:</b> Url de la trobada a la plataforma Decidim</li>
               </ul>
       proposals:
         filters:

@@ -25,6 +25,7 @@ en:
               <li><b>scope/id:</b> ID for the Scope</li>
               <li><b>category/id:</b> ID for the Category</li>
               <li><b>external_author/name:</b> Proposal author name outside of the Decidim platform</li>
+              <li><b>meeting_url:</b> Meeting url on the Decidim platform</li>
               </ul>
       proposals:
         show:
