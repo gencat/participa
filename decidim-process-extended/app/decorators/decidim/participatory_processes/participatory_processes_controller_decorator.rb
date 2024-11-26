@@ -13,7 +13,7 @@ module Decidim::ParticipatoryProcesses::ParticipatoryProcessesControllerDecorato
 
       # This is customized because GENCAT don't Processes Groups on Index Page
       def collection
-        @collection ||= participatory_processes
+        @collection ||= paginate(Kaminari.paginate_array(participatory_processes))
       end
       # This is customized because GENCAT don't Processes Groups on Index Page
 

@@ -77,24 +77,14 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decidim-home/app/views/layouts/decidim/_head.html.erb`
     * Include favicon_link_tag
-  * `decidim-home/app/views/layouts/decidim/_language_chooser.html.erb`
-    * Full rewrite, basically check for changes on the locales loop
-  * `decidim-home/app/views/layouts/decidim/_logo.html.erb`
+  * `decidim-home/overrides/layouts/decidim/header` and override views
+    * Add to the top of page a custom navbar for Gencat with language chooser
     * Remove outer link wrapping the logo
     * Custom logo
-  * `decidim-home/app/views/layouts/decidim/_main_footer.html.erb`
-    * Full rewrite
-  * `decidim-home/app/views/layouts/decidim/_wrapper.html.erb`
-    * Add class `part-background-gray` to menu
-    * Render custom partial `_top_navbar.html.erb`
-    * Add custom link to home page (`.site-title`)
+  * `decidim-home/overrides/layouts/decidim/footer`
+    * Add footer FEDER to footers
   * `config/locales/`
     * You need to add the new locales added in Decidim. (TODO: this translations are also in the general files)
-
-  ##### 	Custom files:
-
-  * `decidim-home/app/views/layouts/decidim/_top_navbar.html.erb`
-    * Implement the a top navbar rendered in `_wrapper.html.erb`
 
 #### 3. Decidim Process Extended ("decidim-participatory-processes")
 
@@ -116,6 +106,10 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override to add new fields in the form.
   * `decorators/decidim/participatory_processes/participatory_processes_controller_decorator.rb`
     * Override to filter by participatory process specific type.
+  * `decorators/cells/decidim/content_blocks/participatory_space_metadata_cell_decorator.rb`
+    * Override +metadata_valued_items+ to render two non string custom fields.
+  * `decorators/cells/decidim/participatory_processes/content_blocks/metadata_cell_decorator.rb`
+    * Override +metadata_items+ to add gencat custom fields.
   * `decorators/decidim/participatory_processes/participatory_process_serialize_decorator.rb`
     * Override to add new fields in serializer.
 
@@ -126,13 +120,6 @@ These are custom modules and this is what you have to keep in mind when updating
     * Add new field: cost
     * Add new field: email
     * Add new field: has_summary_record
-    * Add new field: type_id
-  * `app/views/decidim/participatory_processes/participatory_processes/show.html.erb`
-    * Show new field: promoting_unit
-    * Show new field: facilitators
-    * Show new field: cost
-    * Show new field: has_summary_record
-    * Show new field: email
   * `config/locales/`
     * Overrides some translations keys (the full oc source is inside the application locales)
 
@@ -188,7 +175,7 @@ These are custom modules and this is what you have to keep in mind when updating
 
 #### 6. Also, there are custom files in the application "participa.gencat.cat".
 
-  ##### 	Modified files:
+  ##### Modified files:
 
   With decorator pattern:
 
@@ -197,6 +184,17 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decorators/decidim/participatory_space_context_decorator.rb`
     * Override to allow private space users to acces public view
+    * probably removable from Decidim v0.24
+
+  * `decorators/lib/decidim/proposals/proposal_serializer_decorator.rb`
+    * Override to export proposal emails and names from authors
+    * probably removable from Decidim v0.28 (remember remove test too)
+
+  * `lib/decidim/has_private_users.rb`
+    * Override to allow private space users to acces public view
+    * Could not use a decorator so the whole class has been copied
+    * Only the `#can_participate?(user)` has been modified
+    * probably removable from Decidim v0.24
 
   Following ones, for some addings or template overrides:
 

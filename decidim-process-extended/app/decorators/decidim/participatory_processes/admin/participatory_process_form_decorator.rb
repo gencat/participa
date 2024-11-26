@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessFormDecorator
       include Decidim::AttributeObject::Model
 
       # Participa added attributes
-      attribute :facilitators, String
-      attribute :promoting_unit, String
+      translatable_attribute :facilitators, String
+      translatable_attribute :promoting_unit, String
       attribute :cost, Float
       attribute :has_summary_record, :boolean
       attribute :email, String

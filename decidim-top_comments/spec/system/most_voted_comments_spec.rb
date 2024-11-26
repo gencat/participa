@@ -25,24 +25,13 @@ describe "Most Voted Comments", type: :system do
     context "when there are no comments" do
       it "renders the block empty" do
         visit resource_path
-        expect(page).to have_selector("#most-voted-comments")
-        expect(page).to have_content("MOST VOTED COMMENTS")
+        expect(page).to have_selector(".most-voted-comments")
+        expect(page).to have_content("Most voted comments")
         expect(page).not_to have_selector(".comment-in-favor")
         expect(page).not_to have_selector(".comment-against")
 
-        expect(page).to have_selector("#num-in-favor-comments")
-        counter= find("#num-in-favor-comments")
-        expect(counter).to have_text("0")
-        expect(page).to have_selector("#percent-in-favor-comments")
-        counter= find("#percent-in-favor-comments")
-        expect(counter).to have_text("(0%)")
-
-        expect(page).to have_selector("#num-against-comments")
-        counter= find("#num-against-comments")
-        expect(counter).to have_text("0")
-        expect(page).to have_selector("#percent-against-comments")
-        counter= find("#percent-against-comments")
-        expect(counter).to have_text("(0%)")
+        expect(page).to have_content("0\nin favor\n(0%)")
+        expect(page).to have_content("0\nagainst\n(0%)")
       end
     end
 
@@ -60,19 +49,8 @@ describe "Most Voted Comments", type: :system do
       it "shows the number of each kind of comments" do
         visit resource_path
 
-        expect(page).to have_selector("#num-in-favor-comments")
-        counter= find("#num-in-favor-comments")
-        expect(counter).to have_text("1")
-        expect(page).to have_selector("#percent-in-favor-comments")
-        counter= find("#percent-in-favor-comments")
-        expect(counter).to have_text("(33.3%)")
-
-        expect(page).to have_selector("#num-against-comments")
-        counter= find("#num-against-comments")
-        expect(counter).to have_text("1")
-        expect(page).to have_selector("#percent-against-comments")
-        counter= find("#percent-against-comments")
-        expect(counter).to have_text("(33.3%)")
+        expect(page).to have_content("1\nin favor\n(33.3%)")
+        expect(page).to have_content("1\nagainst\n(33.3%)")
       end
 
       context "when votes go to the neutral comment" do

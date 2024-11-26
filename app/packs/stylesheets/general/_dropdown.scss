@@ -5,7 +5,7 @@ body{
                 &.is-dropdown-submenu-parent{
                     >a{
                         &::after{
-                            border-top-color: $RedGenCat;
+                            border-top-color: var(--colors-gencat-red);
                         }
                     }
                 }

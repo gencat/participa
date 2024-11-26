@@ -13,7 +13,6 @@ ca:
           El cercador recull processos participatius i pressupostos participatius.
       description: Cercador de processos participatius dels Decidims catalans
       clear: Netejar filtres
-      txt: Cerca per text
       query_title: Introduïu les paraules a cercar
       query_placeholder: Cercar...
       territory: Àmbit territorial
