@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This decorator override +metadata_valued_items+ to render two non string custom fields.
-module Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator
+module Cells::Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator
   def self.decorate
     Decidim::ContentBlocks::ParticipatorySpaceMetadataCell.class_eval do
       private
@@ -32,4 +32,4 @@ module Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator
   end
 end
 
-::Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator.decorate
+::Cells::Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator.decorate
