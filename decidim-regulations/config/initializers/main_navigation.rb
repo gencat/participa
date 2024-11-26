@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.config.to_prepare do
   Decidim.menu :menu do |menu|
     menu.add_item :regulations,
