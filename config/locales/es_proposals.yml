@@ -18,12 +18,12 @@ es:
         imports:
           help:
             proposals: |
-              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel. o nombres de claves en caso de archivos JSON:
+              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel o nombres de claves en caso de archivos JSON:
               <ul>
               <li><b>title/es:</b> Título en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
-              <li><b>body/en:</b> Descripció en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
-              <li><b>scope/id:</b> ID de l'Ámbito</li>
-              <li><b>category/id:</b> ID de la Categoria</li>
+              <li><b>body/en:</b> Descripción en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              <li><b>scope/id:</b> ID del ámbito</li>
+              <li><b>category/id:</b> ID de la Categoría</li>
               <li><b>external_author/name:</b> Nombre del autor de la propuesta externo a la plataforma Decidim</li>
               <li><b>meeting_url:</b> Url del encuentro en la plataforma Decidim</li>
               </ul>

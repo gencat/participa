@@ -6,13 +6,7 @@ module Decidim::CoauthorableDecorator
 
     return if coauthorships.exists?(decidim_author_id: external_author.id, decidim_author_type: external_author.class.base_class.name)
 
-    coauthorship_attributes = { author: external_author }
-
-    if persisted?
-      coauthorships.create!(coauthorship_attributes)
-    else
-      coauthorships.build(coauthorship_attributes)
-    end
+    generate_coauthorship(external_author)
 
     authors << external_author
   end
@@ -24,15 +18,20 @@ module Decidim::CoauthorableDecorator
 
     return if coauthorships.exists?(decidim_author_id: location.id, decidim_author_type: location.class.base_class.name)
 
-    coauthorship_attributes = { author: location }
+    generate_coauthorship(location)
 
+    authors << location
+  end
+
+  private
+
+  def generate_coauthorship(new_author)
+    coauthorship_attributes = { author: new_author }
     if persisted?
       coauthorships.create!(coauthorship_attributes)
     else
       coauthorships.build(coauthorship_attributes)
     end
-
-    authors << location
   end
 end
 
