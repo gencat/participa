@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This decorator override +metadata_items+ to add gencat custom fields.
-module Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecorator
+module Cells::Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecorator
   def self.decorate
     Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCell.class_eval do
       private
@@ -14,4 +14,4 @@ module Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecorator
   end
 end
 
-::Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecorator.decorate
+::Cells::Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecorator.decorate
