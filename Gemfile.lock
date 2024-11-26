@@ -173,7 +173,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges.git
-  revision: 7ca7acf76a8ebda0916c0681fce2b548b5399725
+  revision: ee8514163744f00fb487fdd5662f7c2e5da81d3d
   branch: upgrade/decidim_0.28
   specs:
     decidim-challenges (0.4.2)
@@ -296,7 +296,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    acts_as_list (1.2.3)
+    acts_as_list (1.2.4)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
     addressable (2.8.7)
@@ -357,7 +357,7 @@ GEM
     childprocess (5.1.0)
       logger (~> 1.5)
     chronic (0.10.2)
-    commonmarker (0.23.10)
+    commonmarker (0.23.11)
     concurrent-ruby (1.3.4)
     crack (1.0.0)
       bigdecimal
@@ -381,7 +381,7 @@ GEM
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
-    decidim-department_admin (0.8.0)
+    decidim-department_admin (0.8.1)
       decidim-admin (~> 0.28.0)
       decidim-core (~> 0.28.0)
     decidim-verifications-members_picker (0.0.7)
@@ -559,7 +559,7 @@ GEM
     mime-types-data (3.2024.1105)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    minitest (5.25.1)
+    minitest (5.25.2)
     msgpack (1.7.5)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -645,7 +645,7 @@ GEM
     psych (4.0.6)
       stringio
     public_suffix (6.0.1)
-    puma (6.4.3)
+    puma (6.5.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.10)
@@ -788,7 +788,7 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    selenium-webdriver (4.26.0)
+    selenium-webdriver (4.27.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -881,6 +881,7 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
+    wkhtmltopdf-binary (0.12.6.8)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.18)
@@ -924,6 +925,7 @@ DEPENDENCIES
   web-console
   whenever
   wicked_pdf (~> 2.7.0)
+  wkhtmltopdf-binary
 
 RUBY VERSION
    ruby 3.1.1p18

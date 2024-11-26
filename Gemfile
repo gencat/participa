@@ -32,6 +32,7 @@ gem "puma"
 # This gem is an alternative to Figaro meanwhile fix that problem in Figaro.
 # https://github.com/hlascelles/figjam
 gem "figjam"
+gem "wkhtmltopdf-binary"
 
 gem "daemons"
 gem "deface"
