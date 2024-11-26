@@ -921,8 +921,6 @@ DEPENDENCIES
   rubocop-faker
   rubocop-rspec (= 2.26.1)
   soda-ruby
-  spring
-  spring-watcher-listen (~> 2.0.0)
   web-console
   whenever
   wicked_pdf (~> 2.7.0)
