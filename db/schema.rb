@@ -589,6 +589,16 @@ ActiveRecord::Schema.define(version: 2024_11_14_111439) do
     t.index ["resource_type", "resource_id"], name: "index_decidim_endorsements_on_resource_type_and_resource_id"
   end
 
+  create_table "decidim_external_authors", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "decidim_organization_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_organization_id", "name"], name: "index_unique_assembly_name_and_organization", unique: true
+    t.index ["decidim_organization_id"], name: "index_decidim_external_authors_on_decidim_organization_id"
+    t.index ["name"], name: "index_decidim_external_authors_on_name", unique: true
+  end
+
   create_table "decidim_follows", force: :cascade do |t|
     t.bigint "decidim_user_id", null: false
     t.string "decidim_followable_type"
