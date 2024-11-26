@@ -20,41 +20,10 @@
   }
 }
 
-.part-no-padding-left {
-  padding-left: 0px;
-}
-
-.input-telephone {
-    width: 91% !important;
-    background: #fff !important;
-    font-family: 'Open Sans Semibold',Helvetica,Arial,sans-serif !important;
-    font-size: .750em !important;
-    color: #666 !important;
-    width: 82% !important;
-    height: 1.6em !important;
-    margin-bottom: 1px !important;
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
-    
-    @include breakpoint( 992 down){
-        width: 50% !important;
-        margin-left: 25% !important;
-    }
-}
-
-.part-logo-footer-gencat{
-    @include breakpoint( 992 down){
-        display: none;
-    }
-}
-
-.part-avis-legal {
-    font-family: 'Open Sans';
-    font-size: 11px;
-    color: var(--colors-gencat-text-normal)LegalAdvice !important;
-    @include breakpoint( 768 down){
-        text-align: center;
-    }
+.main-footer {
+  h2 {
+    color: white;
+  }
 }
 
 section.footer__subhero.extended.subhero.home-section {
