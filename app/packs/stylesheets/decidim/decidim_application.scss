@@ -109,9 +109,21 @@ $breakpoints: (
 
 @import "stylesheets/top_comments/base";
 
-button:focus{
-  outline: 0;
+// Override Decidim styles
+// -----------------------
+
+body {
+  color: var(--colors-text-default2);
+  font-family: 'Open Sans', 'Source Sans Pro' !important;
 }
+
+// Public filters overflow text of container
+#dropdown-menu-filters {
+  .filter span {
+    white-space: wrap;
+  }
+}
+
 .title-bar {
   @include breakpoint(640 down){
     background-color: var(--colors-text-default2);
@@ -122,16 +134,11 @@ button:focus{
   }
   padding-top: 12px !important;
 }
-body {
-  color: var(--colors-text-default2);
-  font-family: 'Open Sans', 'Source Sans Pro' !important;
-}
 
 .heading6 {
   font-family: "Open Sans";
   text-transform: inherit !important;
 }
-
 
 .share-link{
   &.link{
