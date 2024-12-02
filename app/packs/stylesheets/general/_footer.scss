@@ -21,14 +21,36 @@
 }
 
 .main-footer {
-  h2 {
-    color: white;
+  background-color: #d3d3d3 !important;
+
+  p,
+  h2,
+  a {
+    color: black;
+  }
+
+  li,
+  a {
+    text-decoration-line: none !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+  }
+
+  &__language-container {
+    span {
+      color: black !important;
+    }
+
+    button {
+      border-color: black;
+    }
+    
+    svg {
+      fill: black !important;
+    }
   }
 }
 
-section.footer__subhero.extended.subhero.home-section {
-  background-color: var(--colors-gencat-white);
-  padding-bottom: 0;
-  font-size: 14px;
-  text-align: left;
+.mini-footer {
+  background-color: var(--colors-gencat-gray-dark) !important;
 }

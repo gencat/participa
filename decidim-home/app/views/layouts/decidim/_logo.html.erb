@@ -1,5 +1,9 @@
 <% if organization %>
-  <%= link_to "/" do %>
-    <span><%= organization.name %></span>
+  <% if organization.logo.attached? %>
+    <%= link_to "https://web.gencat.cat/ca/inici/", target: "_blank" do %>
+      <%= image_tag organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
+    <% end %>
   <% end %>
+<% else %>
+  <%= Decidim.application_name %>
 <% end %>
