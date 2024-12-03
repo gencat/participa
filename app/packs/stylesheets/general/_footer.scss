@@ -26,7 +26,7 @@
   p,
   h2,
   a {
-    color: black;
+    color: #020202;
   }
 
   li,
@@ -38,15 +38,15 @@
 
   &__language-container {
     span {
-      color: black !important;
+      color: #020202 !important;
     }
 
     button {
-      border-color: black;
+      border-color: #020202;
     }
     
     svg {
-      fill: black !important;
+      fill: #020202 !important;
     }
   }
 }

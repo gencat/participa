@@ -1,4 +1,4 @@
-body{
+body {
   .card--list__icon{
     fill: var(--colors-gencat-red);
   }
@@ -12,4 +12,8 @@ body{
 
 .badge-container .badge__logo--small {
   height: auto !important;
+}
+
+.card__grid-text {
+  font-weight: normal !important;
 }
