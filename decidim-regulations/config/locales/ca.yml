@@ -28,12 +28,12 @@ ca:
       pages:
         home:
           highlighted_regulations:
-            active_processes: Participació en normativa
+            active_spaces: Participació en normativa
             active_step: Pas actiu
             more_information: Més informació
             participate: Participa        
             processes_button_title: Enllaç a la pàgina de Participació en normativa mostrant totas las participacions
-            see_all_processes: Veure totes les participacions
+            see_all_spaces: Veure totes les participacions
       regulation:
         filters:
           counters:
@@ -65,6 +65,12 @@ ca:
         show:
           email: Bústia de suport
           categories: Eixos de debat
+      regulations:
+        filters:
+          all: Tots
+          opened: Obertes
+          closed: Tancats
+          date: Data
       scopes:
         global: Tots els tipus
         picker:
@@ -92,6 +98,18 @@ ca:
         show:
           email: Bústia de suport
           categories: Eixos de debat
+        filters:
+          closed: Tancats
+          counters:
+            active:
+              one: Un procés obert
+              other: "%{count} processos obertes"
+            all:
+              one: Un procés
+              other: "%{count} processos"
+            past:
+              one: Un procés tancat
+              other: "%{count} processos tancats"
       show:
         theme: Tema
     proposals:

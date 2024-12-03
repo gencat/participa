@@ -200,9 +200,6 @@ oc:
             dummy_step_attribute_1: Atribut de fase de prova 1
             dummy_step_attribute_2: Atribut de fase de prova 2
     contact: Contacte
-    content_blocks:
-      feder:
-        name: Feder
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció

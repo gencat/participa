@@ -15,6 +15,11 @@ module Decidim
         Decidim::TopComments::Engine.root, "app", "decorators", "{**}"
       )
 
+      initializer "decidim_top_comments.register_icons" do
+        Decidim.icons.register(name: "thumb-up", icon: "thumb-up", category: "", description: "", engine: :top_comments)
+        Decidim.icons.register(name: "thumb-down", icon: "thumb-down", category: "", description: "", engine: :top_comments)
+      end
+
       # make decorators available to applications that use this Engine
       config.to_prepare do
         Dir.glob("#{Decidim::TopComments::Engine.root}/app/decorators/**/*_decorator*.rb").each do |c|

@@ -54,7 +54,7 @@ describe "Redirect Middleware", type: :system do
     it "redirects to registrations when /assembleaclima/inscripcions is visited" do
       visit "/assembleaclima/inscripcions"
 
-      expect(page).to have_current_path("/processes/assembleaclima/f/3825")
+      expect(page).to have_current_path("/processes/assembleaclima/f/3825/meetings")
     end
   end
 end
