@@ -93,6 +93,7 @@ $breakpoints: (
 @import "stylesheets/vendor/mq";
 
 @import "stylesheets/general/base";
+@import "stylesheets/general/budgets";
 @import "stylesheets/general/alerts";
 @import "stylesheets/general/card";
 @import "stylesheets/general/dropdown";
@@ -102,6 +103,7 @@ $breakpoints: (
 @import "stylesheets/general/main";
 @import "stylesheets/general/navbar";
 @import "stylesheets/general/processes";
+@import "stylesheets/general/proposals";
 @import "stylesheets/general/tabs";
 @import "stylesheets/general/timeline";
 

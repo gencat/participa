@@ -84,14 +84,6 @@
     }
 }
 
-#proposals {
-    .is-dropdown-submenu-parent {
-        a {
-            color: var(--colors-gencat-red);
-        }
-    }
-}
-
 .author__name {
     color: var(--colors-gencat-red) !important;
 }
@@ -183,27 +175,6 @@
     color: var(--colors-gencat-red) !important;
 }
 
-.card--proposal {
-    .card__header {
-        a {
-            color: var(--colors-gencat-red) !important;
-            &:hover {
-                text-decoration: underline !important;
-                color: var(--colors-gencat-text-normal) !important;
-            }
-
-        }
-
-        .author__name {
-            color: var(--colors-gencat-red) !important;
-        }
-    }
-
-    p {
-        color: var(--colors-gencat-text-normal);
-    }
-}
-
 .process-header__phase .button, .process-phase .button{
   border: none;
 }
@@ -280,39 +251,6 @@
     text-decoration: underline !important;
     svg{
         fill:  var(--colors-gencat-red);
-    }
-}
-
-#new_proposal_ {
-    button {
-        background: var(--colors-gencat-red);
-    }
-    .ql-toolbar {
-      button {
-        background-color: #fff;    
-      }
-    }
-    input {
-        border-radius: 0px !important;
-    }
-    .input:focus{
-        border-color: #bababa !important;
-    }
-    textarea {
-        border-radius: 0px !important;
-        color: #9c9c9c;
-    }
-    .textarea:focus{
-        border-color: #bababa !important;
-    }
-    .is-invalid-label {
-        color: var(--colors-gencat-red);
-        textarea {
-            border-color: var(--colors-gencat-red)
-        }
-        .form-error {
-            color: var(--colors-gencat-red);
-        }
     }
 }
 
