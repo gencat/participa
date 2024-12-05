@@ -33,16 +33,16 @@
 }
 
 .main-bar__container {
-  background-color: #333;
+  background-color: var(--colors-gencat-text-grey);
 
   .main-bar__links-desktop__item {
     color: white;
 
     &:hover {
-      color: #333;
+      color: var(--colors-gencat-text-grey);
 
       svg {
-        fill: #333;
+        fill: var(--colors-gencat-text-grey);
       }
     }
 
@@ -61,15 +61,15 @@
     padding: .40em;
     background: var(--colors-gencat-text-normal);
     border-radius: 100%;
-    color: #fff;
+    color: white;
     font-weight: normal;
     font-size: .875em;
     text-align: center;
     line-height: 1.1em;
   
     &:hover {
-      background-color: #fff;
-      color: #000;
+      background-color: white;
+      color: black;
     }
   }
 

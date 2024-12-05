@@ -1,6 +1,6 @@
 // FEDER
 .footer-feder {
-  color: var(--colors-text-default2);
+  color: var(--colors-gencat-text-grey2);
 
   .main-footer__top {
     justify-content: space-between;
@@ -21,12 +21,12 @@
 }
 
 .main-footer {
-  background-color: #d3d3d3 !important;
+  background-color: var(--colors-gencat-gray-footer) !important;
 
   p,
   h2,
   a {
-    color: #020202;
+    color: var(--colors-gencat-black-footer);
   }
 
   li,
@@ -38,15 +38,15 @@
 
   &__language-container {
     span {
-      color: #020202 !important;
+      color: var(--colors-gencat-black-footer) !important;
     }
 
     button {
-      border-color: #020202;
+      border-color: var(--colors-gencat-black-footer);
     }
     
     svg {
-      fill: #020202 !important;
+      fill: var(--colors-gencat-black-footer) !important;
     }
   }
 }
