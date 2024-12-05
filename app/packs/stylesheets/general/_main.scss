@@ -9,3 +9,10 @@
     color: var(--colors-gencat-text-grey) !important;
   }
 }
+
+// Public filters overflow text of container
+#dropdown-menu-filters {
+  .filter span {
+    white-space: wrap;
+  }
+}

@@ -25,8 +25,6 @@ ca:
           preview: Vista prèvia
           select_recipients_to_deliver: Seleccioneu els destinataris a lliurar
           subject: Assumpte
-    menu:
-      meetings_static: Agenda
     notifications_settings:
       show:
         newsletter_notifications: Vull rebre informació sobre l'activitat rellevant i les novetats del portal.

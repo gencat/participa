@@ -4,7 +4,7 @@
     background-color: white;
   
     a {
-      color: #333;
+      color: var(--colors-gencat-text-grey);
     }
     
     &-element {
@@ -57,15 +57,31 @@
 
   a,
   span{
-    color: #333;
+    color: var(--colors-gencat-text-grey);
   }
 
   svg {
-    fill: #333 !important;
+    fill: var(--colors-gencat-text-grey) !important;
   }
 }
 
 .menu-bar__secondary-dropdown__menu {
   background-color: white !important;
   color: var(--colors-gencat-text-grey);
+}
+
+.menu-bar__actions {
+  &:hover {
+    span {
+      color: white !important;
+    }
+
+    svg {
+      fill: white !important;
+    }
+  }
+}
+
+.hero__title {
+  font-size: 4.5rem;
 }

@@ -75,14 +75,6 @@ Decidim.configure do |config|
   }
 end
 
-Decidim.menu :home_content_block_menu do |menu|
-  menu.add_item :meetings,
-                I18n.t("decidim.menu.meetings_static"),
-                "/meetings",
-                position: 40,
-                active: :inclusive
-end
-
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 

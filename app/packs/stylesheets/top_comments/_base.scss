@@ -2,7 +2,7 @@
   .comment-thread {
     min-width: 354px;
     margin-top: 8px;
-    background-color: #fff;
+    background-color: white;
     border-radius: 8px;
   }
 
@@ -17,12 +17,12 @@
   }
 
   .wrapper--inner {
-    background: var(--colors-background-grey);
+    background: var(--colors-gencat-select);
     padding: 1rem;
   }
   
   .wrapper-home {
-    background: var(--colors-gencat-white);
+    background: white;
   }
 
   .no-results {
