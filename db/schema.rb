@@ -1143,7 +1143,6 @@ ActiveRecord::Schema.define(version: 2024_11_14_111439) do
     t.boolean "scopes_enabled", default: true, null: false
     t.date "start_date"
     t.string "email"
-    t.integer "decidim_type_id"
     t.string "reference"
     t.boolean "private_space", default: false
     t.bigint "decidim_area_id"
@@ -1593,14 +1592,6 @@ ActiveRecord::Schema.define(version: 2024_11_14_111439) do
     t.index ["translation_set_id"], name: "decidim_term_customizer_translation_translation_set"
   end
 
-  create_table "decidim_types", force: :cascade do |t|
-    t.jsonb "name"
-    t.bigint "decidim_organization_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_organization_id"], name: "index_decidim_types_on_decidim_organization_id"
-  end
-
   create_table "decidim_user_blocks", force: :cascade do |t|
     t.bigint "decidim_user_id"
     t.integer "blocking_user_id"
@@ -1860,7 +1851,6 @@ ActiveRecord::Schema.define(version: 2024_11_14_111439) do
   add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
-  add_foreign_key "decidim_types", "decidim_organizations"
   add_foreign_key "decidim_user_blocks", "decidim_users"
   add_foreign_key "decidim_user_blocks", "decidim_users", column: "blocking_user_id"
   add_foreign_key "decidim_user_moderations", "decidim_users"
