@@ -1,11 +1,1 @@
 es:
-  activemodel:
-    attributes:
-      participatory_space_private_user_csv_import:
-        file: Fichero
-  # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
-  decidim:
-    admin:
-      components:
-        component:
-          answers_alert: Si publicas el componente todas las respuestas serán eliminadas. 

@@ -5,9 +5,3 @@ ca:
         file: Fitxer
       attachment_collection:
         weight: Pes
-  # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
-  decidim:
-    admin:
-      components:
-        component:
-          answers_alert: Si publiques el component, totes les respostes seran eliminades.

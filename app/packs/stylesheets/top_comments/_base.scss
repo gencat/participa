@@ -1,0 +1,37 @@
+.most-voted-comments {
+  .comment-thread {
+    min-width: 354px;
+    margin-top: 8px;
+    background-color: white;
+    border-radius: 8px;
+  }
+
+  .editor-content {
+    margin-bottom: 8px;
+  }
+
+  .comment__votes {
+    svg {
+      margin-right: 2px;
+    }
+  }
+
+  .wrapper--inner {
+    background: var(--colors-gencat-select);
+    padding: 1rem;
+  }
+  
+  .wrapper-home {
+    background: white;
+  }
+
+  .no-results {
+    font-size: 14px;
+    color: var(--colors-gencat-text-normal);
+
+    @include breakpoint( small down){
+      font-size: 14px;
+      color: var(--colors-gencat-text-normal);
+    }
+  }
+}

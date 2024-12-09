@@ -67,10 +67,12 @@ Decidim.configure do |config|
   config.expire_session_after= (ENV["EXPIRE_SESSION_AFTER"].presence || 0.5).to_f.hours
 
   config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
-end
 
-Decidim.menu :menu do |menu|
-  menu.item I18n.t("decidim.menu.meetings_static"), "/meetings", position: 3, active: :inclusive
+  # Configure CSP for Algolia search for Decidim Finder
+  config.content_security_policies_extra = {
+    "connect-src" => %w(https://*.algolianet.com https://*.algolianet.net),
+    "img-src" => %w(https://*.algolianet.com https://*.algolianet.net)
+  }
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

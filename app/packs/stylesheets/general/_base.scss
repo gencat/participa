@@ -1,16 +1,8 @@
-body{
-  a{
-    color: $basicLink;
+* {
+  font-family: "Open Sans" !important;
+}
 
-    &:hover,
-    &:focus{
-      color: $RedGenCat;
-      text-decoration: underline;
-    }
-  }
-  .opinion-toggle--meh{
-    &.is-active{
-      background-color: $RedGenCat;
-    }
-  }
+body {
+  color: var(--colors-gencat-text-grey2);
+  font-family: 'Open Sans', 'Source Sans Pro' !important;
 }

@@ -28,12 +28,12 @@ en:
       pages:
         home:
           highlighted_regulations:
-            active_processes: Participation in regulation
+            active_spaces: Participation in regulation
             active_step: Active step
             more_information: More information
             participate: Participate
             processes_button_title: Link to page of Participation in regulation showing all participations
-            see_all_processes: See all participations
+            see_all_spaces: See all participations
       regulation:
         filters:
           counters:
@@ -65,6 +65,12 @@ en:
           categories: Debate axis
         index:
           loading: Loading
+      regulations:
+        filters:
+          all: All
+          opened: Opened
+          closed: Closed
+          date: Date
       scopes:
         global: All types
         picker:
@@ -92,6 +98,18 @@ en:
         show:
           email: Support mailbox
           categories: Debate axis
+        filters:
+          closed: Closed
+          counters:
+            active:
+              one: 1 open participation
+              other: "%{count} open participations"
+            all:
+              one: 1 participation in regulation
+              other: "%{count} participations in regulation"
+            past:
+              one: 1 closed participation
+              other: "%{count} closed participations"
       show:
         theme: Theme
     proposals:
