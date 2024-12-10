@@ -25,6 +25,9 @@ ca:
           preview: Vista prèvia
           select_recipients_to_deliver: Seleccioneu els destinataris a lliurar
           subject: Assumpte
+      static_pages:
+        form:
+          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
     menu:
       meetings_static: Agenda
     notifications_settings:

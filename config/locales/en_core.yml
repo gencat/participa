@@ -25,6 +25,9 @@ en:
           preview: Preview
           select_recipients_to_deliver: Select recipients to deliver
           subject: Subject
+      static_pages:
+        form:
+          attachment_legend: "(Optional) Add an attachment"
     menu:
       meetings_static: Meetings
     notifications_settings:
