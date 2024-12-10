@@ -28,8 +28,6 @@ es:
       static_pages:
         form:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
-    menu:
-      meetings_static: Agenda
     notifications_settings:
       show:
         newsletter_notifications: Quiero recibir informació sobre la actividad relevante y las novedades del portal.

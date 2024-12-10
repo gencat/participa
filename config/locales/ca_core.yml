@@ -28,8 +28,6 @@ ca:
       static_pages:
         form:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-    menu:
-      meetings_static: Agenda
     notifications_settings:
       show:
         newsletter_notifications: Vull rebre informació sobre l'activitat rellevant i les novetats del portal.

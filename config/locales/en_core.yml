@@ -28,8 +28,6 @@ en:
       static_pages:
         form:
           attachment_legend: "(Optional) Add an attachment"
-    menu:
-      meetings_static: Meetings
     notifications_settings:
       show:
         newsletter_notifications: I want to receive information about relevant activity and news on the portal.
