@@ -102,6 +102,9 @@ oc:
     admin:
       actions:
         cancel: Cancel·lar
+      static_pages:
+        form:
+          attachment_legend: "(Opcional) Ahigetz un fichèr adjunt"
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
