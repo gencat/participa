@@ -33,6 +33,11 @@ es:
       shared:
         share_modal:
           share: Comparte
+    pages:
+      admin:
+        pages:
+          form:
+            attachment_legend: "(Opcional) Añadir un archivo adjunto"
   layouts:
     decidim:
       process_navigation:

@@ -30,6 +30,11 @@ ca:
     notifications_settings:
       show:
         newsletter_notifications: Vull rebre informació sobre l'activitat rellevant i les novetats del portal.
+    pages:
+      admin:
+        pages:
+          form:
+            attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
   layouts:
     decidim:
       process_navigation:
