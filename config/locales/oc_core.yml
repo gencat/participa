@@ -992,6 +992,10 @@ oc:
       explanation: Utilitzeu aquest pad per prendre notes durant la trobada de manera col·laborativa, així és més fàcil escriure l'acta després.
       pad: Pad
     pages:
+      admin:
+        pages:
+          form:
+            attachment_legend: "(Opcional) Ahigetz un fichèr adjunt"
       home:
         extended:
           debates: Debats
