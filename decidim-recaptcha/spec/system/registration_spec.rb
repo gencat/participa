@@ -4,15 +4,12 @@ require "spec_helper"
 
 def fill_registration_form(
   name: "Nikola Tesla",
-  nickname: "the-greatest-genius-in-history",
   email: "nikola.tesla@example.org",
   password: "sekritpass123"
 )
   fill_in :registration_user_name, with: name
-  fill_in :registration_user_nickname, with: nickname
   fill_in :registration_user_email, with: email
   fill_in :registration_user_password, with: password
-  fill_in :registration_user_password_confirmation, with: password
 end
 
 describe "Registration", type: :system do

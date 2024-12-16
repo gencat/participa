@@ -13,7 +13,6 @@ es:
           El buscador recoge procesos participativos y presupuestos participativos.
       description: Buscador de procesos participativos de los Decidims catalanes
       clear: Limpia filtros
-      txt: Busca por texto
       query_title: Introduzca las palabras a buscar
       query_placeholder: Buscar...
       territory: Ámbito territorial

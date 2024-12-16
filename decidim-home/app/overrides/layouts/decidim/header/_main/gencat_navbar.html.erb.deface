@@ -1,0 +1,9 @@
+<!-- insert_after ".main-bar__container" -->
+
+<div class="gencat-navbar">
+  <div class="custom-navbar">
+    <%= link_to  "/" do %>
+      <%= current_organization.name %>
+    <% end %>
+  </div>
+</div>

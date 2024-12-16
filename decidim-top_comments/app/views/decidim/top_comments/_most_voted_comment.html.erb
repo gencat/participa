@@ -1,41 +1,45 @@
-<%# <%= render partial: "most_voted_comment", locals: {comment: comment, alignment: :positive} %>
 <article class="comment">
   <div class="comment__header">
+    <span class="font-bold">
+      <span class="author">
+        <span class="author__container">
+          <span class="author__avatar-container">
+            <% if comment_author_avatar(comment.decidim_author_id).nil? %>
+              <%= image_tag asset_pack_path("media/images/default-avatar.svg"), alt: "member-avatar", class: "author__avatar" %>
+            <% else %>
+              <img class="author__avatar" src="/uploads/decidim/user/avatar/<%= comment.decidim_author_id %>/<%= comment_author_avatar(comment.decidim_author_id) %>" alt="author-avatar">
+            <% end %>
+          </span>
+        </span>
+      </span>
+    </span>
     <div class="author-data">
       <div class="author-data__main">
         <div class="author author--inline">
-          <a class="author__avatar">
-            <% if comment_author_avatar(comment.decidim_author_id).nil? %>
-              <%= image_tag asset_pack_path("media/images/default-avatar.svg"), alt: "member-avatar" %>
-            <% else %>
-              <img src="/uploads/decidim/user/avatar/<%= comment.decidim_author_id %>/<%= comment_author_avatar(comment.decidim_author_id) %>" alt="author-avatar">
-            <% end %>
-          </a>
-          <a class="author__name" href="#comment_<%= comment.id %>">
+          <a class="author__name underline" href="#comment_<%= comment.id %>">
             <%= comment_author(comment.decidim_author_id) %>
           </a>
-          <time> 
-            <%= comment.created_at.strftime("%d-%m-%Y") %>
-          </time>
+          <%= time_tag comment.created_at, time_ago_in_words(comment.created_at) %>
         </div>
       </div>
     </div>
   </div>
   <div class="comment__content">
-    <p>
-      <span><span class="label alignment <%= alignment == :positive ? 'success' : 'alert' %>"><%= alignment == :positive ? t(".actually_positive") : t(".actually_negattive") %></span><!-- react-text: 161 -->&nbsp;<!-- /react-text --></span>
-        <%# coditional to transition from non localized body (v0.22) to translated body (v0.23 and up) %>
-        <%= comment.body.is_a?(Hash) ? translated_attribute(comment.body) : comment.body %>
-      </p>
+    <span class="label alignment comment__content--label <%= alignment == :positive ? 'success' : 'alert' %>">
+      <%= alignment == :positive ? t(".actually_positive") : t(".actually_negattive") %>
+    </span>
+    <div class="editor-content">
+      <%= comment.body.is_a?(Hash) ? translated_attribute(comment.body) : comment.body %>
+    </div>
   </div>
   <div class="comment__footer">
-    <div class="comment__votes">
-      <button class="" disabled="">
-        <%= icon "chevron-top", class: "icon--small", role: "img", "aria-hidden": true %>
-        <%= comment.vote_sum %>
+    <div class="comment__votes flex">
+      <button class="flex mr-2 items-center" disabled="">
+        <%= icon "thumb-up-line" %>
+        <span><%= comment.vote_sum %></span>
       </button>
-      <button class="" disabled="">
-        <%= icon "chevron-bottom", class: "icon--small", role: "img", "aria-hidden": true %>
+      <button class="flex items-center" disabled="">
+        <%= icon "thumb-down-line" %>
         <%= count_negative_votes_for_comment(comment.id) %>
       </button>
     </div>

@@ -1,0 +1,16 @@
+<!-- insert_before ".main-footer"
+      original '45e003ac5969458f067be9d4c851c674cbe7f3d3'
+ -->
+<div class="footer-feder">
+  <div class="main-footer__top">
+    <div class="lg:w-5/6">
+      <%= t("decidim.pages.home.feder.description") %>
+    </div>
+
+    <div class="lg:w-1/6">
+      <%= link_to "http://www.accio.gencat.cat/ca/accio/agencia/feder/", target: "_blank", class: "block logo" do %>
+        <%= image_pack_tag "media/images/feder.png", alt: "FEDER" %>
+      <% end %>
+    </div>
+  </div>
+</div>

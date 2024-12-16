@@ -5,6 +5,17 @@ es:
     themes:
       none: Ninguno
     participatory_processes:
+      participatory_processes:
+        presenter:
+          has_summary_record:
+            false: No
+            true: Si
+        description:
+          email: Buzón de sugerencias
+          cost: Coste
+          facilitators: Entidades dinamizadoras
+          has_summary_record: Dispone de retorno
+          promoting_unit: Unidad promotora
       admin:
         participatory_processes:
           form:
@@ -60,6 +71,10 @@ es:
         type_id: Tipo
         email: Buzón de sugerencias
         weight: Peso
+        cost: Coste
+        facilitators: Entidades dinamizadoras
+        has_summary_record: Dispone de retorno
+        promoting_unit: Unidad promotora
       participatory_process_step:
         title: Nombre de la fase
   layouts:

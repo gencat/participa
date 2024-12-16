@@ -3,30 +3,6 @@
     <%= link_to "https://web.gencat.cat/ca/inici/", target: "_blank" do %>
       <%= image_tag organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
     <% end %>
-  <% else %>
-      <!-- Only for small devices -->
-      <div class="fwk-row part-show-sm">
-        <div class="fwk-col-xs-2">
-          <div class="part-topNavbar-content">
-            <svg aria-label="Navegació" role="img" class="icon--menu icon part-icon-bars" data-toggle="offCanvas">
-              <use xlink:href="<%= icon "icon-menu", class: "icon--small", role: "img", "aria-hidden": true %>" class="part-icon-bars"></use>
-            </svg>
-          </div>
-        </div>
-        <div class="fwk-col-xs-8">
-         <!-- <div class="part-gencat-cat-img" onclick="window.open('https://web.gencat.cat/ca/inici/','_blank');"></div> -->
-          <div class="title-sm show-for-small">
-            <%= link_to "/", class: "part-a-white" do %>
-              Participa
-            <% end %>
-          </div>
-        </div>
-        <div class="fwk-col-xs-2"></div>
-      </div>
-      <%# large devices %>
-      <div class="part-hide-sm">
-        <div class="part-gencat-logo-nomargin" onclick="window.open('https://web.gencat.cat/ca/inici/','_blank');"></div>
-      </div>
   <% end %>
 <% else %>
   <%= Decidim.application_name %>
