@@ -1,0 +1,26 @@
+<% add_decidim_page_title(translated_attribute(@page.title)) %>
+<% add_decidim_meta_tags({
+                           description: translated_attribute(@page.body)
+                         }) %>
+
+<%= render layout:"layouts/decidim/shared/layout_center" do %>
+  <div class="py-12 space-y-12">
+
+    <div class="text-center">
+      <h1 class="h1 decorator inline-block text-left">
+        <%= translated_attribute(@page.title) %>
+      </h1>
+    </div>
+
+    <%= render partial: "decidim/shared/component_announcement" %>
+
+    <div class="editor-content">
+      <% if translated_attribute(@page.body).empty? || translated_attribute(@page.body) == "<p></p>" %>
+        <%= cell("decidim/announcement", t("empty", scope: "decidim.pages.show")) %>
+      <% else %>
+        <%= decidim_sanitize_editor_admin translated_attribute(@page.body) %>
+      <% end %>
+    </div>
+    <%= cell "decidim/tab_panels", tab_panel_items %>
+  </div>
+<% end %>
