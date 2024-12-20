@@ -5,10 +5,10 @@ module Decidim::Pages::Admin::PageFormDecorator
     Decidim::Pages::Admin::PageForm.class_eval do
       include Decidim::AttachmentAttributes
       include Decidim::HasUploadValidations
-      
+
       attribute :attachment, ::Decidim::AttachmentForm
       attachments_attribute :documents
-      
+
       def map_model(model)
         super(model)
         self.attachment = if model.documents.first.present?
@@ -17,7 +17,6 @@ module Decidim::Pages::Admin::PageFormDecorator
                             {}
                           end
       end
-      
     end
   end
 end

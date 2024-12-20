@@ -4,7 +4,7 @@ module Decidim::Pages::Admin::UpdatePageDecorator
   def self.decorate
     Decidim::Pages::Admin::UpdatePage.class_eval do
       include ::Decidim::AttachmentMethods
-            
+
       def initialize(form, page)
         @form = form
         @page = page
@@ -13,7 +13,7 @@ module Decidim::Pages::Admin::UpdatePageDecorator
 
       def call
         return broadcast(:invalid) if @form.invalid?
-        
+
         if process_attachments?
           @page.attachments.destroy_all
 
@@ -27,7 +27,7 @@ module Decidim::Pages::Admin::UpdatePageDecorator
           broadcast(:ok)
         end
       end
-      
+
       def update_page
         parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
         Decidim.traceability.update!(
@@ -36,12 +36,11 @@ module Decidim::Pages::Admin::UpdatePageDecorator
           body: parsed_body
         )
       end
-      
-      
+
       private
 
       attr_reader :form, :page, :current_user, :attachment
-      
+
       def process_attachments?
         attachment_present? && attachment_file_uploaded?
       end
@@ -53,7 +52,6 @@ module Decidim::Pages::Admin::UpdatePageDecorator
       def attachment_file_uploaded?
         !@form.attachment.file.is_a?(::Decidim::ApplicationUploader)
       end
-
     end
   end
 end
