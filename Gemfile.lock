@@ -172,6 +172,16 @@ GIT
       decidim-core (= 0.28.4)
 
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-cdtb.git
+  revision: 9a6b33d80d026a1ee0769bcffd35e239c8056277
+  branch: feat/fix_youtube_bembeds
+  specs:
+    decidim-cdtb (0.2.2)
+      decidim (>= 0.27.0)
+      rails (>= 6)
+      ruby-progressbar
+
+GIT
   remote: https://github.com/gencat/decidim-module-challenges.git
   revision: f6e55a451a7a4cc362760cdb1f8a2d90fe742cb5
   tag: v0.5.0
@@ -377,10 +387,6 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-cdtb (0.2.1)
-      decidim (>= 0.27.0)
-      rails (>= 6)
-      ruby-progressbar
     decidim-department_admin (0.8.1)
       decidim-admin (~> 0.28.0)
       decidim-core (~> 0.28.0)
@@ -896,7 +902,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb
+  decidim-cdtb!
   decidim-challenges!
   decidim-department_admin (~> 0.8.0)
   decidim-dev!
