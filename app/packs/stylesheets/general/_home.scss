@@ -83,5 +83,11 @@
 }
 
 .hero__title {
-  font-size: 4.5rem;
+  font-size: 2.5rem;
+  line-height: 45px;
+  
+  @media (min-width: 640px) {
+    font-size: 4.5rem;
+    line-height: 60px;
+  }
 }
