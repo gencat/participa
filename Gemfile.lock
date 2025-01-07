@@ -173,10 +173,9 @@ GIT
 
 GIT
   remote: https://github.com/CodiTramuntana/decidim-module-cdtb.git
-  revision: 9a6b33d80d026a1ee0769bcffd35e239c8056277
-  branch: feat/fix_youtube_bembeds
+  revision: bbfa599c552e4074dec99538ce3b2de567393541
   specs:
-    decidim-cdtb (0.2.2)
+    decidim-cdtb (0.3.0)
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
@@ -902,7 +901,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb!
+  decidim-cdtb (~> 0.3.0)!
   decidim-challenges!
   decidim-department_admin (~> 0.8.0)
   decidim-dev!
