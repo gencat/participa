@@ -8,8 +8,8 @@ ca:
       participatory_processes:
         presenter:
           has_summary_record:
-            false: No
-            true: Si
+            "false": "No"
+            "true": "Si"
         description:
           cost: Cost
           facilitators: Entitats dinamitzadores
