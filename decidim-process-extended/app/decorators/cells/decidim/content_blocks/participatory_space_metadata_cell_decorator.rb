@@ -14,9 +14,11 @@ module Cells::Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator
               value: t("decidim.participatory_processes.participatory_processes.presenter.has_summary_record.#{presented_space.send(item)}")
             }
           elsif item == "cost"
+            next if (value = presented_space.send(item)).nil?
+
             {
               title: t(item, scope: translations_scope),
-              value: ActiveSupport::NumberHelper.number_to_currency(presented_space.send(item), unit: Decidim.currency_unit)
+              value: ActiveSupport::NumberHelper.number_to_currency(value, unit: Decidim.currency_unit)
             }
           else
             next if (value = decidim_escape_translated(presented_space.send(item))).blank?
