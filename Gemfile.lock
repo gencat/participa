@@ -173,7 +173,8 @@ GIT
 
 GIT
   remote: https://github.com/CodiTramuntana/decidim-module-cdtb.git
-  revision: bbfa599c552e4074dec99538ce3b2de567393541
+  revision: 343e3fcc827c783878504e5d7ef89248a1be9f5b
+  tag: v0.3.0
   specs:
     decidim-cdtb (0.3.0)
       decidim (>= 0.27.0)
@@ -321,7 +322,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (3.1.8)
+    bigdecimal (3.1.9)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
@@ -374,7 +375,7 @@ GEM
     crass (1.0.6)
     css_parser (1.21.0)
       addressable
-    csv (3.3.1)
+    csv (3.3.2)
     daemons (1.4.1)
     database_cleaner (2.1.0)
       database_cleaner-active_record (>= 2, < 3)
@@ -437,7 +438,7 @@ GEM
       temple
     erubi (1.13.1)
     escape_utils (1.2.2)
-    excon (1.2.2)
+    excon (1.2.3)
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
     factory_bot (6.5.0)
@@ -453,7 +454,9 @@ GEM
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
-    ffi (1.17.0)
+    ffi (1.17.1)
+    ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x86_64-darwin)
     figjam (1.6.2)
       thor (>= 0.14.0, < 2)
     file_validators (3.0.0)
@@ -473,7 +476,7 @@ GEM
       activesupport (>= 4.1, < 7.1)
       railties (>= 4.1, < 7.1)
     gemoji (3.0.1)
-    geocoder (1.8.4)
+    geocoder (1.8.5)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
     globalid (1.2.1)
@@ -490,7 +493,7 @@ GEM
       sass (~> 3.4)
     hashdiff (1.1.2)
     hashie (3.6.0)
-    highline (3.1.1)
+    highline (3.1.2)
       reline
     html-pipeline (2.14.3)
       activesupport (>= 2)
@@ -518,8 +521,8 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.8.0)
-    json (2.9.0)
-    jwt (2.9.3)
+    json (2.9.1)
+    jwt (2.10.1)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -546,7 +549,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.3)
+    logger (1.6.4)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -561,7 +564,7 @@ GEM
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.1203)
+    mime-types-data (3.2025.0107)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.4)
@@ -580,6 +583,10 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.4)
+    nokogiri (1.16.8-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.8-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.16.8-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -622,14 +629,14 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
-    openssl (3.2.0)
+    openssl (3.3.0)
     orm_adapter (0.5.0)
     ostruct (0.6.1)
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.26.3)
-    parallel_tests (4.7.2)
+    parallel_tests (4.8.0)
       parallel
     parser (3.3.6.0)
       ast (~> 2.4.1)
@@ -712,8 +719,8 @@ GEM
     recaptcha (5.18.0)
     redcarpet (3.6.0)
     redis (4.8.1)
-    regexp_parser (2.9.3)
-    reline (0.5.12)
+    regexp_parser (2.10.0)
+    reline (0.6.0)
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -784,7 +791,7 @@ GEM
     ruby-vips (2.2.2)
       ffi (~> 1.12)
       logger
-    rubyXL (3.4.31)
+    rubyXL (3.4.33)
       nokogiri (>= 1.10.8)
       rubyzip (>= 1.3.0)
     rubyzip (2.3.2)
@@ -841,7 +848,7 @@ GEM
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.3.2)
-    tilt (2.4.0)
+    tilt (2.5.0)
     timeout (0.4.3)
     trailblazer-option (0.1.2)
     tzinfo (2.0.6)
@@ -893,6 +900,8 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
+  arm64-darwin
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
@@ -902,7 +911,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb (~> 0.3.0)!
+  decidim-cdtb!
   decidim-challenges!
   decidim-department_admin (~> 0.8.0)
   decidim-dev!
