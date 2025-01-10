@@ -8,15 +8,7 @@ module Decidim::Pages::Admin::PageFormDecorator
 
       attribute :attachment, ::Decidim::AttachmentForm
       attachments_attribute :documents
-
-      def map_model(model)
-        super(model)
-        self.attachment = if model.documents.first.present?
-                            { file: model.documents.first.file, title: translated_attribute(model.documents.first.title) }
-                          else
-                            {}
-                          end
-      end
+      attachments_attribute :photos
     end
   end
 end

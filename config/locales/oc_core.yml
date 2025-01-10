@@ -996,6 +996,13 @@ oc:
         pages:
           form:
             attachment_legend: "(Opcional) Ahigetz un fichèr adjunt"
+      form:
+        add_documents: Ahíger documents
+        add_image: Ahíger imatge
+        attachment_legend: "(Opcional) Ahigetz un fichèr adjunt"
+        edit_documents: Editar documents
+        edit_image: Editar imatge
+        image_legend: "(Opcional) Ahig ua imatge"
       home:
         extended:
           debates: Debats
