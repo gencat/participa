@@ -79,6 +79,9 @@ jobs:
         with:
           chrome-version: 119.0.6045.105
 
+      - uses: Install ImageMagick
+        run: sudo apt install imagemagick
+
       - name: Install Ruby deps
         uses: nick-invision/retry@v2
         with:
