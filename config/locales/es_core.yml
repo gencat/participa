@@ -31,6 +31,18 @@ es:
       shared:
         share_modal:
           share: Comparte
+    pages:
+      admin:
+        pages:
+          form:
+            attachment_legend: "(Opcional) Añadir un archivo adjunto"
+      form:
+        add_documents: Añadir documentos
+        add_image: Añadir imagen
+        attachment_legend: "(Opcional) Agregar un archivo adjunto"
+        edit_documents: Editar documentos
+        edit_image: Editar imagen
+        image_legend: "(Opcional) Añadir una imagen"
   layouts:
     decidim:
       process_navigation:

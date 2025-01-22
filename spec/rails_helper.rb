@@ -17,6 +17,9 @@ require "decidim/dev"
 Decidim::Dev.dummy_app_path = File.expand_path(File.join(__dir__, ".."))
 require "decidim/dev/test/base_spec_helper"
 
+FactoryBot.definition_file_paths << Decidim::Pages::Engine.root.join("spec", "factories").to_s
+FactoryBot.find_definitions
+
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
