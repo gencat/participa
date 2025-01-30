@@ -60,7 +60,7 @@ module Decidim
           content_block.settings_form_cell = "decidim/regulations/content_blocks/highlighted_regulations_settings_form"
 
           content_block.settings do |settings|
-            settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :max_results, type: :integer, default: 6
           end
         end
       end

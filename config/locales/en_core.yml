@@ -25,14 +25,24 @@ en:
           preview: Preview
           select_recipients_to_deliver: Select recipients to deliver
           subject: Subject
-    menu:
-      meetings_static: Meetings
     notifications_settings:
       show:
         newsletter_notifications: I want to receive information about relevant activity and news on the portal.
       shared:
         share_modal:
           share: Share
+    pages:
+      admin:
+        pages:
+          form:
+            attachment_legend: "(Optional) Add an attachment"
+      form:
+        add_documents: Add documents
+        add_image: Add image
+        attachment_legend: "(Optional) Add an attachment"
+        edit_documents: Edit documents
+        edit_image: Edit image
+        image_legend: "(Optional) Add an image"
   layouts:
     decidim:
       process_navigation:

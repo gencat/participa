@@ -1,5 +1,7 @@
-.callout{
-  &.alert{
-    border-left-color: $RedGenCat !important;
+.alert {
+  border-left-color: var(--colors-gencat-red) !important;
+
+  svg {
+    fill: var(--colors-gencat-red) !important;
   }
 }

@@ -47,3 +47,5 @@ spec/decidim_dummy_app/
 
 coverage/
 storage/
+
+tailwind.config.js

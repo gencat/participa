@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.0.7
+  RUBY_VERSION: 3.1.1
   NODE_VERSION: 16.9.1
 
 jobs:
@@ -78,6 +78,9 @@ jobs:
       - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 119.0.6045.105
+
+      - name: Install ImageMagick
+        run: sudo apt install imagemagick
 
       - name: Install Ruby deps
         uses: nick-invision/retry@v2
