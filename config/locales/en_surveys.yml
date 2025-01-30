@@ -10,17 +10,3 @@ en:
           attributes:
             choices:
               missing: are missing
-  # Remove when merge: https://github.com/decidim/decidim/pull/11450/files
-  decidim:
-    components:
-      surveys:
-        settings:
-          global:
-            send_confirmation_email: Send an email with the answers when the survey is answered
-    surveys:
-      survey_confirmation_mailer:
-        confirmation:
-          body: You have answered the questionnaire %{questionnaire_title} correctly in %{participatory_space}
-          subject: Confirmation of response to the questionnaire %{questionnaire_title}
-        export_name: Survey answers
-    # Remove when merge: https://github.com/decidim/decidim/pull/11450/files

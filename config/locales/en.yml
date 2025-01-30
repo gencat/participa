@@ -13,7 +13,6 @@ en:
           The search engine collects participatory processes and participatory budgets.
       description: Search engine for participatory processes of the Catalan Decidims
       clear: Clear filters
-      txt: Text search
       query_title: Enter the words to search
       query_placeholder: Search...
       territory: Territorial scope

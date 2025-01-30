@@ -2,7 +2,7 @@
 
 module Decidim
   module Recaptcha
-    VERSION = "0.2.0"
-    DECIDIM_VER = ">= 0.27"
+    VERSION = "0.1.0"
+    DECIDIM_VER = ">= 0.28"
   end
 end
