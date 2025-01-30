@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable_decidim_templates" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
@@ -15,8 +15,8 @@ gem "decidim-recaptcha", path: "decidim-recaptcha"
 gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 
-gem "decidim-cdtb"
-gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", branch: "upgrade/decidim_0.28"
+gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", tag: "v0.3.0"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.5.0"
 gem "decidim-department_admin", "~> 0.8.0"
 gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", tag: "v0.5.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"

@@ -1,6 +1,6 @@
 // FEDER
 .footer-feder {
-  color: var(--colors-text-default2);
+  color: var(--colors-gencat-text-grey2);
 
   .main-footer__top {
     justify-content: space-between;
@@ -21,14 +21,36 @@
 }
 
 .main-footer {
-  h2 {
-    color: white;
+  background-color: var(--colors-gencat-gray-footer) !important;
+
+  p,
+  h2,
+  a {
+    color: var(--colors-gencat-black-footer);
+  }
+
+  li,
+  a {
+    text-decoration-line: none !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+  }
+
+  &__language-container {
+    span {
+      color: var(--colors-gencat-black-footer) !important;
+    }
+
+    button {
+      border-color: var(--colors-gencat-black-footer);
+    }
+    
+    svg {
+      fill: var(--colors-gencat-black-footer) !important;
+    }
   }
 }
 
-section.footer__subhero.extended.subhero.home-section {
-  background-color: var(--colors-gencat-white);
-  padding-bottom: 0;
-  font-size: 14px;
-  text-align: left;
+.mini-footer {
+  background-color: var(--colors-gencat-gray-dark) !important;
 }

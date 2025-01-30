@@ -8,8 +8,8 @@ es:
       participatory_processes:
         presenter:
           has_summary_record:
-            false: No
-            true: Si
+            "false": "No"
+            "true": "Si"
         description:
           email: Buzón de sugerencias
           cost: Coste

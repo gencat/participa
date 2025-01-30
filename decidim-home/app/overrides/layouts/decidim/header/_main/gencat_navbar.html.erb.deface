@@ -1,39 +1,9 @@
-<!-- insert_before "#main-bar" -->
+<!-- insert_after ".main-bar__container" -->
 
 <div class="gencat-navbar">
   <div class="custom-navbar">
-    <% if current_organization %>
-      <% if current_organization.logo.attached? %>
-        <%= link_to "https://web.gencat.cat/ca/inici/", target: "_blank" do %>
-          <%= image_tag current_organization.attached_uploader(:logo).variant_url(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization.name) %>
-        <% end %>
-      <% else %>
-        <!-- Only for small devices -->
-        <div class="part-show-sm">
-          <div class="sm:w-1/5 pr-4 pl-4">
-            <div class="part-topNavbar-content">
-              <%= icon "icon-menu", class: "icon--small", role: "img", "aria-hidden": true %>
-            </div>
-          </div>
-            <%= link_to "/" do %>
-              <%= current_organization.name %>
-            <% end %>
-          </div>
-        </div>
-        <%# large devices %>
-        <div class="part-hide-sm">
-          <div class="part-gencat-logo-nomargin" onclick="window.open('https://web.gencat.cat/ca/inici/','_blank');"></div>
-        </div>
-      <% end %>
-    <% else %>
-      <%= Decidim.application_name %>
-    <% end %>
-    <% if available_locales.length > 1 %>
-      <div class="topbar__dropmenu language-choose">
-        <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-          <%= link_to locale, decidim.locale_path(locale: locale), method: :post, class: "part-circle" %>
-        <% end %> 
-      </div>
+    <%= link_to  "/" do %>
+      <%= current_organization.name %>
     <% end %>
   </div>
 </div>

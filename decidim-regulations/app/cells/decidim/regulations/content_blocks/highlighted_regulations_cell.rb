@@ -36,7 +36,7 @@ module Decidim
             .visible_for(current_user)
             .where("DATE(published_at) > '1990/01/01'")
             .order(published_at: :desc)
-            .limit(8)
+            .limit(max_results)
         end
       end
     end
