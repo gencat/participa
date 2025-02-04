@@ -18,11 +18,13 @@ describe Decidim::Proposals::Import::ProposalCreator do
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
       component: component,
-      published_at: moment
+      published_at: moment,
+      "external_author/name": "Extenal author name"
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:user) { create(:user, organization: organization) }
+  let(:meeting) { create(:meeting) }
   let(:context) do
     {
       current_organization: organization,
@@ -51,6 +53,56 @@ describe Decidim::Proposals::Import::ProposalCreator do
         expect(Decidim::ActionLog.last.resource).to eq(record)
         expect(Decidim::ActionLog.last.visibility).to eq("admin-only")
       end
+    end
+  end
+
+  describe "#produce" do
+    it "makes a new proposal with external author" do
+      record = subject.produce
+
+      expect(record).to be_a(Decidim::Proposals::Proposal)
+      expect(record.category).to eq(category)
+      expect(record.scope).to eq(scope)
+      expect(record.title["en"]).to eq(data[:"title/en"])
+      expect(record.body["en"]).to eq(data[:"body/en"])
+      expect(record.address).to eq(data[:address])
+      expect(record.latitude).to eq(data[:latitude])
+      expect(record.longitude).to eq(data[:longitude])
+      expect(record.published_at).to be >= (moment)
+      expect(record.coauthorships.first.author.name).to eq(data["external_author/name".to_sym])
+    end
+  end
+
+  describe "#produce with meeting_url" do
+    let(:data) do
+      {
+        id: 1337,
+        category: category,
+        scope: scope,
+        "title/en": Faker::Lorem.sentence,
+        "body/en": Faker::Lorem.paragraph(sentence_count: 3),
+        address: "#{Faker::Address.street_name}, #{Faker::Address.city}",
+        latitude: Faker::Address.latitude,
+        longitude: Faker::Address.longitude,
+        component: component,
+        published_at: moment,
+        "meeting_url": "url_meeting/#{meeting.id}"
+      }
+    end
+
+    it "makes a new proposal with location" do
+      record = subject.produce
+
+      expect(record).to be_a(Decidim::Proposals::Proposal)
+      expect(record.category).to eq(category)
+      expect(record.scope).to eq(scope)
+      expect(record.title["en"]).to eq(data[:"title/en"])
+      expect(record.body["en"]).to eq(data[:"body/en"])
+      expect(record.address).to eq(data[:address])
+      expect(record.latitude).to eq(data[:latitude])
+      expect(record.longitude).to eq(data[:longitude])
+      expect(record.published_at).to be >= (moment)
+      expect(record.coauthorships.first.author.id).to eq(meeting.id)
     end
   end
 end
