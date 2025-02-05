@@ -14,6 +14,19 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New proposals added to %{participatory_space_title}
     proposals:
+      admin:
+        imports:
+          help:
+            proposals: |
+              The file must have the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              <ul>
+              <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
+              <li><b>body/en:</b> Body on English language. This will depend on your platform language configuration.</li>
+              <li><b>scope/id:</b> ID for the Scope</li>
+              <li><b>category/id:</b> ID for the Category</li>
+              <li><b>external_author/name:</b> Proposal author name outside of the Decidim platform</li>
+              <li><b>meeting_url:</b> Meeting url on the Decidim platform</li>
+              </ul>
       proposals:
         show:
           proposal_in_evaluation_reason: 'This proposal is under evaluation because:'

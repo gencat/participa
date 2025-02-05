@@ -30,8 +30,22 @@ ca:
       application_helper:
           filter_type_values:
             amendments: Esmenes
+      admin:
+        imports:
+          help:
+            proposals: |
+              El document ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
+              <ul>
+              <li><b>title/ca:</b> Títol en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              <li><b>body/ca:</b> Descripció en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              <li><b>scope/id:</b> ID de l'Àmbit</li>
+              <li><b>category/id:</b> ID de la Categoria</li>
+              <li><b>external_author/name:</b> Nom de l'autor de la proposta extern a la plataforma Decidim</li>
+              <li><b>meeting_url:</b> Url de la trobada a la plataforma Decidim</li>
+              </ul>
       proposals:
         filters:
           amendment_type: Tipus
         show:
           proposal_in_evaluation_reason: 'Aquesta proposta està en avaluació perquè:'
+  
