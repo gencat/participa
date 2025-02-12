@@ -172,16 +172,6 @@ GIT
       decidim-core (= 0.28.4)
 
 GIT
-  remote: https://github.com/CodiTramuntana/decidim-module-cdtb.git
-  revision: 343e3fcc827c783878504e5d7ef89248a1be9f5b
-  tag: v0.3.0
-  specs:
-    decidim-cdtb (0.3.0)
-      decidim (>= 0.27.0)
-      rails (>= 6)
-      ruby-progressbar
-
-GIT
   remote: https://github.com/gencat/decidim-module-challenges.git
   revision: f6e55a451a7a4cc362760cdb1f8a2d90fe742cb5
   tag: v0.5.0
@@ -387,6 +377,10 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
+    decidim-cdtb (0.4.0)
+      decidim (>= 0.27.0)
+      rails (>= 6)
+      ruby-progressbar
     decidim-department_admin (0.8.1)
       decidim-admin (~> 0.28.0)
       decidim-core (~> 0.28.0)
@@ -441,8 +435,8 @@ GEM
     excon (1.2.3)
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
-    factory_bot (6.5.0)
-      activesupport (>= 5.0.0)
+    factory_bot (6.5.1)
+      activesupport (>= 6.1.0)
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
@@ -521,7 +515,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.8.0)
-    json (2.9.1)
+    json (2.10.0)
     jwt (2.10.1)
       base64
     kaminari (1.2.2)
@@ -565,16 +559,16 @@ GEM
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0107)
+    mime-types-data (3.2025.0204)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.4)
-    msgpack (1.7.5)
+    msgpack (1.8.0)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     net-http (0.6.0)
       uri
-    net-imap (0.5.5)
+    net-imap (0.5.6)
       date
       net-protocol
     net-pop (0.1.2)
@@ -639,7 +633,7 @@ GEM
     parallel (1.26.3)
     parallel_tests (4.9.0)
       parallel
-    parser (3.3.7.0)
+    parser (3.3.7.1)
       ast (~> 2.4.1)
       racc
     pg (1.4.6)
@@ -736,7 +730,7 @@ GEM
     rspec-cells (0.3.10)
       cells (>= 4.0.0, < 6.0.0)
       rspec-rails (>= 3.0.0)
-    rspec-core (3.13.2)
+    rspec-core (3.13.3)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.3)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -789,7 +783,7 @@ GEM
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
-    ruby-vips (2.2.2)
+    ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
     rubyXL (3.4.33)
@@ -880,7 +874,7 @@ GEM
     web-push (3.0.1)
       jwt (~> 2.0)
       openssl (~> 3.0)
-    webmock (3.24.0)
+    webmock (3.25.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -913,7 +907,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb!
+  decidim-cdtb (~> 0.4.0)
   decidim-challenges!
   decidim-department_admin (~> 0.8.0)
   decidim-dev!
