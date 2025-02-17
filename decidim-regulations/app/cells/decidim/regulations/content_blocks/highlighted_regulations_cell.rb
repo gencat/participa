@@ -4,6 +4,18 @@ module Decidim
   module Regulations
     module ContentBlocks
       class HighlightedRegulationsCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
+        # ## Ordering Regulations in the **Highlighted Regulations** content block:
+        # Criteria for ordering which processes are displayed and in what order in the "Highlighted Regulations" content block:
+        #
+        # 1. Participatory process that belongs to the organization
+        # 2. Visible to the user (public/private)
+        # 3. Processes belong to a group marked as "regulations"
+        # 4. The publication date is later than 01/01/1990
+        # 5. Ordered by publication date from most recent to oldest
+        # 6. Finally, the limit of visible processes configured in the back office is taken into account
+        #
+        # Therefore, it does not take into account whether the process is promoted or not, whether it is active or completed, nor the phase dates.
+
         delegate :current_user, to: :controller
 
         def highlighted_spaces
