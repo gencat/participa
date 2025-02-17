@@ -28,8 +28,8 @@ $ gem install decidim-regulations
 To avoid admin users to accidentally delete the process group that defines which Processes should appear into Regulations, there's a decorator for the ParticipatoryProcessGroupsController#destroy method. The decorator is delared at `decidim-regulations/app/decorators/decidim/regulations/admin/avoid_deletion_of_regulations_group.rb` and is prepended to the controller in this module's engine `to_prepare` declaration.
 
 
-## Ordering Regulations in the **Highlited Regulations** content block:
-Criteria for ordering which processes are displayed and in what order in the "Highlited Regulations" content block:
+## Ordering Regulations in the **Highlighted Regulations** content block:
+Criteria for ordering which processes are displayed and in what order in the "Highlighted Regulations" content block:
 
 1. Participatory process that belongs to the organization
 2. Visible to the user (public/private)
