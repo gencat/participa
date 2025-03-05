@@ -71,7 +71,8 @@ Decidim.configure do |config|
   # Configure CSP for Algolia search for Decidim Finder
   config.content_security_policies_extra = {
     "connect-src" => %w(https://*.algolianet.com https://*.algolianet.net),
-    "img-src" => %w(https://*.algolianet.com https://*.algolianet.net)
+    "img-src" => %w(https://*.algolianet.com https://*.algolianet.net),
+    "script-src" => %w(https://www.googletagmanager.com)
   }
 end
 
