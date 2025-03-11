@@ -59,6 +59,38 @@ ca:
             title: Té %{limit} suports a distribuir
             votes: Suports
     events:
+      participatory_process:
+        created:
+          email_intro: |
+            S'ha creat un nou espai participatiu. S'ha creat un nou espai participatiu. Pots accedir-hi a través d'aquest enllaç:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Usuària responsable: poepe </li>
+              <li>Departament: pepe</li>
+              <li>Data d'inici: pepe</li>
+              <li>Data de finalització: pepe</li>
+            </ul>
+          email_outro: Reps aquesta notificació perquè se se ha creado  el procés participatiu "%{resource_title}".
+          email_subject: S'ha creat ha creat el procés participatiu "%{resource_title}".
+          notification_title: "%{author_name} ha creat el procés participatiu <a href='%{resource_url}'>%{resource_title}</a>."
+      participatory_space:  
+        published:
+          regulation: Normativa
+          process: Process
+          assembly: Consell
+          email_intro: |
+            S'ha creat un nou espai participatiu. Pots accedir-hi a través d'aquest enllaç:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Tipus: %{resource_type} </li>
+              <li>Usuària responsable: %{user_name} </li>
+              <li>Departament: %{area} </li>
+              <li>Data d'inici: %{start_date} </li>
+              <li>Data de finalització: %{start_date} </li>
+            </ul>
+          email_outro: Reps aquesta notificació perquè se se ha creado  el procés participatiu "%{resource_title}".
+          email_subject: S'ha creat ha creat el procés participatiu "%{resource_title}".
+          notification_title: "%{author_name} ha creat el procés participatiu <a href='%{resource_url}'>%{resource_title}</a>."
       publish_proposals_event:
         email_intro: S'han afegit noves propostes a l'espai "%{resource_title}". Pots veure les noves propostes seguint <a href="%{resource_url}">aquest enllaç</a>.
   activemodel:

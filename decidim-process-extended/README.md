@@ -1,5 +1,11 @@
 # Decidim::Process::Extended
-Short description and motivation.
+This module add some functionalities to participatory spaces.
+
+For participatory processes:
+- Add new fields: cost, has_summary_record, promoting_unit, facilitators and email.
+
+For participatory spaces:
+- Send notifications to admins when a participatory space is created and published.
 
 ## Usage
 How to use my plugin.
