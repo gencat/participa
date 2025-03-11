@@ -172,14 +172,6 @@ GIT
       decidim-core (= 0.28.4)
 
 GIT
-  remote: https://github.com/gencat/decidim-module-challenges.git
-  revision: 77701104b4f1b0da9e5043c48cf80d64581f294e
-  tag: v0.5.1
-  specs:
-    decidim-challenges (0.5.1)
-      decidim-core (~> 0.27)
-
-GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil.git
   revision: b896b8a70bd9fe2599ba71e1277909be36502093
   tag: v0.5.0
@@ -381,6 +373,8 @@ GEM
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
+    decidim-challenges (0.5.1)
+      decidim-core (~> 0.27)
     decidim-department_admin (0.8.1)
       decidim-admin (~> 0.28.0)
       decidim-core (~> 0.28.0)
@@ -908,7 +902,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb (~> 0.4.0)
-  decidim-challenges!
+  decidim-challenges (~> 0.5.1)
   decidim-department_admin (~> 0.8.0)
   decidim-dev!
   decidim-home!
