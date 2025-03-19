@@ -59,6 +59,39 @@ en:
             title: You have %{limit} supports to distribute
             votes: Votes
     events:
+      participatory_space:
+        created:
+          regulation: Regulation
+          process: Process
+          assembly: Assembly
+          email_intro: |
+            A new participatory space has been created. You can access it through this link:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Type: %{resource_type} </li>
+              <li>Responsible user: %{author_name} </li>
+              <li>Department: %{area}</li>
+              <li>Start date: %{start_date}</li>
+              <li>End date: %{end_date}</li>
+            </ul>
+          email_outro: You are receiving this notification because the participatory space "%{resource_title}" has been created.
+          email_subject: The participatory space "%{resource_title}" has been created.
+        published:
+          regulation: Published regulation
+          process: Published process
+          assembly: Published assembly
+          email_intro: |
+            A new participatory space has been published. You can access it through this link:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Type: %{resource_type} </li>
+              <li>Responsible user: %{author_name} </li>
+              <li>Department: %{area}</li>
+              <li>Start date: %{start_date}</li>
+              <li>End date: %{end_date}</li>
+            </ul>
+          email_outro: You are receiving this notification because the participatory space "%{resource_title}" has been published.
+          email_subject: The participatory space "%{resource_title}" has been published.
       publish_proposals_event:
         email_intro: New proposals has been added to "%{resource_title}". You can see the new proposals by following <a href="%{resource_url}">this link</a>.
   activemodel:

@@ -59,6 +59,41 @@ ca:
             title: Té %{limit} suports a distribuir
             votes: Suports
     events:
+      participatory_space:
+        created:
+          regulation: Normativa
+          process: Process
+          assembly: Consell
+          email_intro: |
+            S'ha creat un nou espai participatiu. Pots accedir-hi a través d'aquest enllaç:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Tipus: %{resource_type} </li>
+              <li>Usuària responsable: %{author_name} </li>
+              <li>Departament: %{area}</li>
+              <li>Data d'inici: %{start_date}</li>
+              <li>Data de finalització: %{end_date}</li>
+            </ul>
+          email_outro: Reps aquesta notificació perquè s'ha creat el espai participatiu "%{resource_title}".
+          email_subject: S'ha creat el espai participatiu "%{resource_title}".
+          notification_title: "%{author_name} ha creat el espai participatiu <a href='%{resource_url}'>%{resource_title}</a>."
+        published:
+          regulation: Normativa
+          process: Process
+          assembly: Consell
+          email_intro: |
+            S'ha pulicat un nou espai participatiu. Pots accedir-hi a través d'aquest enllaç:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Tipus: %{resource_type} </li>
+              <li>Usuària responsable: %{author_name} </li>
+              <li>Departament: %{area} </li>
+              <li>Data d'inici: %{start_date} </li>
+              <li>Data de finalització: %{start_date} </li>
+            </ul>
+          email_outro: Reps aquesta notificació perquè s'ha publicat el espai participatiu "%{resource_title}".
+          email_subject: S'ha pulicat el espai participatiu "%{resource_title}".
+          notification_title: "%{author_name} ha pulicat el espai participatiu <a href='%{resource_url}'>%{resource_title}</a>."
       publish_proposals_event:
         email_intro: S'han afegit noves propostes a l'espai "%{resource_title}". Pots veure les noves propostes seguint <a href="%{resource_url}">aquest enllaç</a>.
   activemodel:

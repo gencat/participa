@@ -39,6 +39,39 @@ oc:
       attachments:
         meetings_available: Hi ha trobades programades actualment
     events:
+      participatory_space:
+        created:
+          regulation: Regulacion
+          process: Procès
+          assembly: Assemblada
+          email_intro: |
+            S'es creat un nòu espaci participatiu. Pòdes accedir a el a travèrs d'aqueste ligam:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Tipo: %{resource_type} </li>
+              <li>Utilizaire responsable: %{author_name} </li>
+              <li>Departament: %{area}</li>
+              <li>Data de començament: %{start_date}</li>
+              <li>Data de finalizacion: %{end_date}</li>
+            </ul>
+          email_outro: Recebètz aquesta notificacion perque s'es creat l'espaci participatiu "%{resource_title}".
+          email_subject: S'es creat l'espaci participatiu "%{resource_title}".
+        published:
+          regulation: Regulacion publicada
+          process: Procès publicat
+          assembly: Assemblada publicada
+          email_intro: |
+            S'es publicat un nòu espaci participatiu. Pòdes accedir a el a travèrs d'aqueste ligam:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Tipo: %{resource_type} </li>
+              <li>Utilizaire responsable: %{author_name} </li>
+              <li>Departament: %{area}</li>
+              <li>Data de començament: %{start_date}</li>
+              <li>Data de finalizacion: %{end_date}</li>
+            </ul>
+          email_outro: Recebètz aquesta notificacion perque s'es publicat l'espaci participatiu "%{resource_title}".
+          email_subject: S'es publicat l'espaci participatiu "%{resource_title}".
       publish_proposals_event:
         email_intro: S'han ahijut naues prepauses ar espaci "%{participatory_space_title}", que seguisses. Pòdes veir es naues prepauses en tot seguir <a href="%{participatory_space_url}">aguest lligam</a>.
   activemodel:

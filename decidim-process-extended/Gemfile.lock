@@ -175,7 +175,7 @@ PATH
   remote: .
   specs:
     decidim-process-extended (0.4.0)
-      decidim-core (>= 0.27)
+      decidim-core (>= 0.28)
       rails (>= 5.2, < 7.0.x)
 
 GEM

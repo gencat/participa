@@ -59,6 +59,39 @@ es:
             title: Tiene %{limit} soportes a distribuir
             votes: Soportes
     events:
+      participatory_space:
+        created:
+          regulation: Normativa
+          process: Proceso
+          assembly: Asamblea
+          email_intro: |
+            Se ha creado un nuevo espacio participativo. Puedes acceder a él a través de este enlace:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Tipo: %{resource_type} </li>
+              <li>Usuario responsable: %{author_name} </li>
+              <li>Departamento: %{area}</li>
+              <li>Fecha de inicio: %{start_date}</li>
+              <li>Fecha de finalización: %{end_date}</li>
+            </ul>
+          email_outro: Recibes esta notificación porque se ha creado el espacio participativo "%{resource_title}".
+          email_subject: Se ha creado el espacio participativo "%{resource_title}".
+        published:
+          regulation: Normativa publicada
+          process: Proceso publicado
+          assembly: Asamblea publicada
+          email_intro: |
+            Se ha publicado un nuevo espacio participativo. Puedes acceder a él a través de este enlace:
+            <ul>
+              <li><a href='%{resource_url}'>%{resource_title}</a>.</li>
+              <li>Tipo: %{resource_type} </li>
+              <li>Usuario responsable: %{author_name} </li>
+              <li>Departamento: %{area}</li>
+              <li>Fecha de inicio: %{start_date}</li>
+              <li>Fecha de finalización: %{end_date}</li>
+            </ul>
+          email_outro: Recibes esta notificación porque se ha publicado el espacio participativo "%{resource_title}".
+          email_subject: Se ha publicado el espacio participativo "%{resource_title}".
       publish_proposals_event:
         email_intro: Se han añadido nuevas propuestas al espacio "%{resource_title}. Puedes ver las nuevas propuestas siguiendo <a href="%{resource_url}">este enlace</a>.
   activemodel:
