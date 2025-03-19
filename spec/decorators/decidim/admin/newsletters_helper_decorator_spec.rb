@@ -9,7 +9,7 @@ describe Decidim::Admin::NewslettersHelper do
 
   describe "#label_text_for" do
     let(:manifest) { Decidim::ParticipatorySpaceManifest.new name: "participatory_processes" }
-    let(:space_type) { Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest: manifest) }
+    let(:space_type) { Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest:) }
 
     context "when space_type has a process_group" do
       let(:process_group) { create(:participatory_process_group, id: 3) }

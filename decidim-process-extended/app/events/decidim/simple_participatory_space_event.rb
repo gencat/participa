@@ -21,15 +21,15 @@ module Decidim
         scope: event_name,
         resource_type:,
         author_name: extra[:author_name],
-        start_date: is_process?(resource) ? resource&.start_date : nil,
-        end_date: is_process?(resource) ? resource&.end_date : nil,
+        start_date: process?(resource) ? resource&.start_date : nil,
+        end_date: process?(resource) ? resource&.end_date : nil,
         area: translated_attribute(resource&.area&.name)
       }
     end
 
     def resource_type
-      if is_process?(resource)
-        if resource.is_regulation?
+      if process?(resource)
+        if resource.regulation?
           I18n.t("regulation", scope: event_name)
         else
           I18n.t("process", scope: event_name)
@@ -39,7 +39,7 @@ module Decidim
       end
     end
 
-    def is_process?(resource)
+    def process?(resource)
       resource.is_a?(Decidim::ParticipatoryProcess)
     end
   end

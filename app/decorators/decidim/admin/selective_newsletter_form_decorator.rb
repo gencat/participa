@@ -5,7 +5,7 @@ module Decidim::Admin::SelectiveNewsletterFormDecorator
     Decidim::Admin::SelectiveNewsletterForm.class_eval do
       def map_model(_newsletter)
         self.participatory_space_types = Decidim.participatory_space_manifests.map do |manifest|
-          Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest: manifest)
+          Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest:)
         end
         participatory_space_types.unshift(additional_participatory_space_manifest)
       end
@@ -15,7 +15,7 @@ module Decidim::Admin::SelectiveNewsletterFormDecorator
       def additional_participatory_space_manifest
         Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.from_model(
           manifest: Decidim.participatory_space_manifests.find { |m| m.name == :participatory_processes },
-          process_group_id: process_group_id
+          process_group_id:
         )
       end
 

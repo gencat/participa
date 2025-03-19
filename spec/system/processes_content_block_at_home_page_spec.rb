@@ -10,11 +10,11 @@ describe "Processes ContentBlock at home page" do
   end
 
   describe "with highlighted processes content block active" do
-    let!(:process) { create(:participatory_process, :promoted, :active, slug: "process", organization: organization, skip_injection: true) }
-    let!(:regulation) { create(:participatory_process, :promoted, :active, slug: "regulation", organization: organization, decidim_participatory_process_group_id: Rails.application.config.regulation) }
+    let!(:process) { create(:participatory_process, :promoted, :active, slug: "process", organization:, skip_injection: true) }
+    let!(:regulation) { create(:participatory_process, :promoted, :active, slug: "regulation", organization:, decidim_participatory_process_group_id: Rails.application.config.regulation) }
 
     before do
-      create(:content_block, manifest_name: :highlighted_processes, organization: organization, scope_name: :homepage)
+      create(:content_block, manifest_name: :highlighted_processes, organization:, scope_name: :homepage)
     end
 
     it "renders the process but not the regulation" do

@@ -10,20 +10,20 @@ describe Decidim::Proposals::Import::ProposalCreator do
   let(:data) do
     {
       id: 1337,
-      category: category,
-      scope: scope,
+      category:,
+      scope:,
       "title/en": Faker::Lorem.sentence,
       "body/en": Faker::Lorem.paragraph(sentence_count: 3),
       address: "#{Faker::Address.street_name}, #{Faker::Address.city}",
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
-      component: component,
+      component:,
       published_at: moment,
       "external_author/name": "Extenal author name"
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, organization:) }
   let(:meeting) { create(:meeting) }
   let(:context) do
     {
@@ -33,9 +33,9 @@ describe Decidim::Proposals::Import::ProposalCreator do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
-  let(:scope) { create :scope, organization: organization }
+  let(:scope) { create :scope, organization: }
   let(:category) { create :category, participatory_space: participatory_process }
 
   describe "#finish_without_notif!" do
@@ -77,14 +77,14 @@ describe Decidim::Proposals::Import::ProposalCreator do
     let(:data) do
       {
         id: 1337,
-        category: category,
-        scope: scope,
+        category:,
+        scope:,
         "title/en": Faker::Lorem.sentence,
         "body/en": Faker::Lorem.paragraph(sentence_count: 3),
         address: "#{Faker::Address.street_name}, #{Faker::Address.city}",
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude,
-        component: component,
+        component:,
         published_at: moment,
         "meeting_url": "url_meeting/#{meeting.id}"
       }

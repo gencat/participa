@@ -15,7 +15,7 @@ class ProposalsMailer < ApplicationMailer
     I18n.locale = user.locale if user.locale.present?
 
     subject = I18n.t("proposals_imported.email_subject", scope: "decidim.events.proposals", participatory_space_title: @participatory_space_title)
-    mail(to: user.email, subject: subject)
+    mail(to: user.email, subject:)
   end
 
   private

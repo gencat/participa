@@ -6,7 +6,7 @@ describe "ExternalAuthor" do
   subject { external_author }
 
   let(:organization) { create(:organization) }
-  let(:external_author) { build(:external_author, organization: organization) }
+  let(:external_author) { build(:external_author, organization:) }
 
   it { is_expected.to be_valid }
 

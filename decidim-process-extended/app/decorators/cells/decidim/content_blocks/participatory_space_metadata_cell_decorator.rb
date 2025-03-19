@@ -25,7 +25,7 @@ module Cells::Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator
 
             {
               title: t(item, scope: translations_scope),
-              value: value
+              value:
             }
           end
         end

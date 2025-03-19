@@ -5,7 +5,7 @@
 <%=
   extended_navigation_bar([
     {
-      name: current_participatory_space.is_regulation? ? t(".regulation_menu_item") : t(".process_menu_item"),
+      name: current_participatory_space.regulation? ? t(".regulation_menu_item") : t(".process_menu_item"),
       url: decidim_participatory_processes.participatory_process_path(participatory_space),
       active: is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive) ||
               is_active_link?(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_space), :exclusive)
@@ -19,7 +19,7 @@
   end)
 %>
 
-<% if current_participatory_space.is_regulation? %>
+<% if current_participatory_space.regulation? %>
     <script>
         jQuery("li.main-nav__link").removeClass("main-nav__link--active");
         jQuery("li a[href^='/regulations']").parent().addClass("main-nav__link--active")
