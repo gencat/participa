@@ -1,5 +1,9 @@
 en:
   decidim:
+    notifications_settings:
+      show:
+        notification_settings:
+          participatory_space_news: I want to receive an email every time a new participatory space is created.
     menu:
       processes: Participatory processes
     themes:

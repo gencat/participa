@@ -1,5 +1,9 @@
 ca:
   decidim:
+    notifications_settings:
+      show:
+        notification_settings:
+          participatory_space_news: Vull rebre un correu electrònic cada cop que es creï un nou espai participatiu.
     menu:
       processes: Processos participatius
     themes:

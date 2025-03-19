@@ -25,6 +25,13 @@ module Decidim
         initializer "decidim_process_extended.webpacker.assets_path" do
           Decidim.register_assets_path File.expand_path("app/packs", root)
         end
+
+        initializer "decidim_process_extended.notification_settings" do
+          Decidim.notification_settings(:participatory_space_news) do |notification_setting|
+            notification_setting.settings_area = :administrators
+            notification_setting.default_value = false
+          end
+        end
       end
     end
   end

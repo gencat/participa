@@ -1,5 +1,9 @@
 oc:
   decidim:
+    notifications_settings:
+      show:
+        notification_settings:
+          participatory_space_news: Vòli recebre un correu electronic cada còp que se crei un nòu espaci participatiu.
     menu:
       processes: Processos participatius
     themes:

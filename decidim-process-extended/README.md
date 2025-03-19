@@ -6,7 +6,7 @@ For participatory processes:
 
 For participatory spaces (process and assemblies):
 - Send an internal notification and an email to admins when a participatory space is created and published.
-
+- Add a notification setting for admins to enabled/disabled these notifications
 
 ## Installation
 Add this line to your application's Gemfile:

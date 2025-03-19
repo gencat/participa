@@ -1,5 +1,9 @@
 es:
   decidim:
+    notifications_settings:
+      show:
+        notification_settings:
+          participatory_space_news: Quiero recibir un correo electrónico cada vez que se cree un nuevo espacio participativo.
     menu:
       processes: Procesos participativos
     themes:
