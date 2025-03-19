@@ -39,7 +39,7 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
       event: "decidim.events.participatory_space.created",
       event_class: Decidim::SimpleParticipatorySpaceEvent,
       resource: process,
-      affected_users: Decidim::User.org_admins_except_me(form.current_user)
+      affected_users: Decidim::User.org_admins_except_me(form.current_user),
       extra: {
         author_name: current_user.name,
         area: translated_attribute(process.area&.name),

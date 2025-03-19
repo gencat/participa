@@ -23,7 +23,7 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
           event: "decidim.events.participatory_space.published",
           event_class: Decidim::SimpleParticipatorySpaceEvent,
           resource: participatory_space,
-          affected_users: Decidim::User.org_admins_except_me(form.current_user)
+          affected_users: Decidim::User.org_admins_except_me(form.current_user),
           extra: {
             author_name: current_user.name
           }
