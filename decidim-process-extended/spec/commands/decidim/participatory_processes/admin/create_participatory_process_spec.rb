@@ -2,6 +2,7 @@
 
 require "rails_helper"
 
+# rubocop:disable RSpec/MultipleMemoizedHelpers
 module Decidim::ParticipatoryProcesses
   describe Admin::CreateParticipatoryProcess, versioning: true do
     subject { described_class.new(form) }
@@ -55,7 +56,7 @@ module Decidim::ParticipatoryProcesses
         has_summary_record: true,
         facilitators: "facilitators",
         promoting_unit: "promoting_unit",
-        email: "email",
+        email: "email"
       )
     end
     let(:invalid) { false }
@@ -122,3 +123,4 @@ module Decidim::ParticipatoryProcesses
     end
   end
 end
+# rubocop:enable RSpec/MultipleMemoizedHelpers

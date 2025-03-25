@@ -12,8 +12,8 @@ module Decidim
         email_on_moderations: true,
         newsletter_notifications_at: Time.current,
         direct_message_types: "followed-only",
-        notification_settings: { 
-          close_meeting_reminder: "0",  
+        notification_settings: {
+          close_meeting_reminder: "0",
           participatory_space_news: "1"
         },
         notifications_sending_frequency: "weekly"

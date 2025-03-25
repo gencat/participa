@@ -2,6 +2,7 @@
 
 require "rails_helper"
 
+# rubocop:disable RSpec/MultipleMemoizedHelpers
 module Decidim::Assemblies
   describe Admin::CreateAssembly do
     subject { described_class.new(form) }
@@ -120,7 +121,8 @@ module Decidim::Assemblies
           .to receive(:publish)
 
         subject.call
-      end      
+      end
     end
   end
 end
+# rubocop:enable RSpec/MultipleMemoizedHelpers
