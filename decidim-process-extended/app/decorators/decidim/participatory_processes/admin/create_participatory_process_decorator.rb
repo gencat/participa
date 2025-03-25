@@ -41,8 +41,8 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
       resource: process,
       affected_users: Decidim::User.org_admins_except_me(form.current_user),
       extra: {
-        author_name: current_user.name,
-        area: translated_attribute(process.area&.name),
+        author_name: form.current_user.name,
+        area: process.area&.name,
         start_date: process.start_date,
         end_date: process.end_date
       }

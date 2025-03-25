@@ -29,8 +29,8 @@ module Decidim::Assemblies::Admin::CreateAssemblyDecorator
       resource: assembly,
       affected_users: Decidim::User.org_admins_except_me(form.current_user),
       extra: {
-        author_name: current_user.name,
-        area: translated_attribute(assembly.area&.name),
+        author_name: form.current_user.name,
+        area: assembly.area&.name,
         start_date: assembly.creation_date,
         end_date: assembly.closing_date
       }
