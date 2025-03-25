@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rails_helper"
+require "rspec_helper"
 
 # rubocop:disable RSpec/MultipleMemoizedHelpers
 module Decidim::Assemblies
