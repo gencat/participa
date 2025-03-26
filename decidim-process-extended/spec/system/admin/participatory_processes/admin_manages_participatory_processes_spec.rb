@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rspec_helper"
+require "rails_helper"
 
 describe "Admin manages participatory processes", type: :system do
   let(:organization) { create(:organization) }
