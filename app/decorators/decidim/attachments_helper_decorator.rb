@@ -27,4 +27,4 @@ module Decidim::AttachmentsHelperDecorator
   end
 end
 
-::Decidim::AttachmentsHelperDecorator.decorate
+Decidim::AttachmentsHelperDecorator.decorate

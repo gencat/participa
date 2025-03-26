@@ -1,3 +1,82 @@
 inherit_from:
   - .rubocop_ruby.yml
   - .rubocop_rails.yml
+
+RSpec:
+  Include:
+    - "(?:^|/)spec/"
+    - "(?:^|/)test/"
+
+RSpec/BeforeAfterAll:
+  Enabled: true
+
+RSpec/ContextWording:
+  Enabled: true
+  Prefixes:
+    - when
+    - with
+    - without
+    - and
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/gemfiles_spec.rb
+    - spec/system/**/*.rb
+    - spec/features/**/*.rb
+    - spec/js_bundles_spec.rb
+    - spec/i18n_spec.rb
+    - "**/*/spec/**/*_badge_spec.rb"
+    - decidim-core/spec/lib/global_engines_spec.rb
+    - "**/tasks/**/*"
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
+
+RSpec/ExampleLength:
+  Max: 49
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/IteratedExpectation:
+  Enabled: true
+
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/Rails/InferredSpecType:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupDescription:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupBody:
+  Enabled: false
+
+RSpec/StubbedMock:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false

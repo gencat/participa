@@ -16,4 +16,4 @@ module Decidim::Pages::ApplicationControllerDecorator
   end
 end
 
-::Decidim::Pages::ApplicationControllerDecorator.decorate
+Decidim::Pages::ApplicationControllerDecorator.decorate

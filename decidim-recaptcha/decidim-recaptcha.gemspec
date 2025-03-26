@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Recaptcha::DECIDIM_VER
   s.add_development_dependency "decidim", Decidim::Recaptcha::DECIDIM_VER
   s.add_development_dependency "decidim-dev", Decidim::Recaptcha::DECIDIM_VER
+  s.metadata["rubygems_mfa_required"] = "true"
 end

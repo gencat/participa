@@ -8,4 +8,4 @@ module Decidim::Debates::DebatesControllerDecorator
   end
 end
 
-::Decidim::Debates::DebatesControllerDecorator.decorate
+Decidim::Debates::DebatesControllerDecorator.decorate

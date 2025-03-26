@@ -26,4 +26,4 @@ module Decidim::Admin::SelectiveNewsletterFormDecorator
   end
 end
 
-::Decidim::Admin::SelectiveNewsletterFormDecorator.decorate
+Decidim::Admin::SelectiveNewsletterFormDecorator.decorate

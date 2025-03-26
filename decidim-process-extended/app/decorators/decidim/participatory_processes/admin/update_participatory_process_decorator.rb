@@ -14,4 +14,4 @@ module Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessDecorat
   private :attributes
 end
 
-::Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.prepend(Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessDecorator)
+Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.prepend(Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcessDecorator)

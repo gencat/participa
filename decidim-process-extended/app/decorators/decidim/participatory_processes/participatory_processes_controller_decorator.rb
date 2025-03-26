@@ -30,4 +30,4 @@ module Decidim::ParticipatoryProcesses::ParticipatoryProcessesControllerDecorato
   end
 end
 
-::Decidim::ParticipatoryProcesses::ParticipatoryProcessesControllerDecorator.decorate
+Decidim::ParticipatoryProcesses::ParticipatoryProcessesControllerDecorator.decorate
