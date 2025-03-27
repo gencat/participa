@@ -25,10 +25,10 @@ describe "Most Voted Comments", type: :system do
     context "when there are no comments" do
       it "renders the block empty" do
         visit resource_path
-        expect(page).to have_selector(".most-voted-comments")
+        expect(page).to have_css(".most-voted-comments")
         expect(page).to have_content("Most voted comments")
-        expect(page).not_to have_selector(".comment-in-favor")
-        expect(page).not_to have_selector(".comment-against")
+        expect(page).to have_no_css(".comment-in-favor")
+        expect(page).to have_no_css(".comment-against")
 
         expect(page).to have_content("0\nin favor\n(0%)")
         expect(page).to have_content("0\nagainst\n(0%)")
@@ -42,8 +42,8 @@ describe "Most Voted Comments", type: :system do
 
       it "when the comments don't have votes most voted comments should be empty" do
         visit resource_path
-        expect(page).not_to have_selector(".comment-in-favor")
-        expect(page).not_to have_selector(".comment-against")
+        expect(page).to have_no_css(".comment-in-favor")
+        expect(page).to have_no_css(".comment-against")
       end
 
       it "shows the number of each kind of comments" do
@@ -58,8 +58,8 @@ describe "Most Voted Comments", type: :system do
 
         it "most voted comments should be empty" do
           visit resource_path
-          expect(page).not_to have_selector(".comment-in-favor")
-          expect(page).not_to have_selector(".comment-against")
+          expect(page).to have_no_css(".comment-in-favor")
+          expect(page).to have_no_css(".comment-against")
         end
       end
 
@@ -68,10 +68,10 @@ describe "Most Voted Comments", type: :system do
 
         it "most voted comments should render the comment in favor" do
           visit resource_path
-          expect(page).to have_selector(".comment-in-favor")
+          expect(page).to have_css(".comment-in-favor")
           comment= find(".comment-in-favor")
           expect(comment).to have_text(comment_for.body["en"])
-          expect(page).not_to have_selector(".comment-against")
+          expect(page).to have_no_css(".comment-against")
         end
       end
 
@@ -80,8 +80,8 @@ describe "Most Voted Comments", type: :system do
 
         it "most voted comments should render the comment against" do
           visit resource_path
-          expect(page).not_to have_selector(".comment-in-favor")
-          expect(page).to have_selector(".comment-against")
+          expect(page).to have_no_css(".comment-in-favor")
+          expect(page).to have_css(".comment-against")
           comment= find(".comment-against")
           expect(comment).to have_text(comment_against.body["en"])
         end
@@ -93,10 +93,10 @@ describe "Most Voted Comments", type: :system do
 
         it "most voted comments should render both comments" do
           visit resource_path
-          expect(page).to have_selector(".comment-in-favor")
+          expect(page).to have_css(".comment-in-favor")
           comment= find(".comment-in-favor")
           expect(comment).to have_text(comment_for.body["en"])
-          expect(page).to have_selector(".comment-against")
+          expect(page).to have_css(".comment-against")
           comment= find(".comment-against")
           expect(comment).to have_text(comment_against.body["en"])
         end

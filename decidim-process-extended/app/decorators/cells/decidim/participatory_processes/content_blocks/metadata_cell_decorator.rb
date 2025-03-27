@@ -14,4 +14,4 @@ module Cells::Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecora
   end
 end
 
-::Cells::Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecorator.decorate
+Cells::Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecorator.decorate

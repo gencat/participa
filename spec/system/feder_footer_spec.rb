@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "new registration", type: :system do
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
 
   before do
     switch_to_host(organization.host)

@@ -16,4 +16,4 @@ module Decidim::ParticipatoryProcesses::PermissionsDecorator
   end
 end
 
-::Decidim::ParticipatoryProcesses::PermissionsDecorator.decorate
+Decidim::ParticipatoryProcesses::PermissionsDecorator.decorate

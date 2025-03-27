@@ -23,4 +23,4 @@ module Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeFormDecorator
   end
 end
 
-::Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeFormDecorator.decorate
+Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeFormDecorator.decorate
