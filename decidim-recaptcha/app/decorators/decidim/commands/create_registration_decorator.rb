@@ -34,4 +34,4 @@ module Decidim::Commands::CreateRegistrationDecorator
   end
 end
 
-::Decidim::Commands::CreateRegistrationDecorator.decorate
+Decidim::Commands::CreateRegistrationDecorator.decorate

@@ -34,4 +34,4 @@ module Cells::Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator
   end
 end
 
-::Cells::Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator.decorate
+Cells::Decidim::ContentBlocks::ParticipatorySpaceMetadataCellDecorator.decorate

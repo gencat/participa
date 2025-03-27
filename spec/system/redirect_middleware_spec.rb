@@ -44,11 +44,11 @@ describe "Redirect Middleware", type: :system do
     let(:title_ca) { "Assemblea clima inscripcions" }
     let(:slug) { "assembleaclima" }
     let!(:component) do
-      create :component,
+      create(:component,
              id: 3825,
              manifest_name: :meetings,
              published_at: Time.zone.now,
-             participatory_space: process
+             participatory_space: process)
     end
 
     it "redirects to registrations when /assembleaclima/inscripcions is visited" do
