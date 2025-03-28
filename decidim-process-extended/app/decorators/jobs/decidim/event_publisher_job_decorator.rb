@@ -15,4 +15,4 @@ module Jobs::Decidim::EventPublisherJobDecorator
   end
 end
 
-::Jobs::Decidim::EventPublisherJobDecorator.decorate
+Jobs::Decidim::EventPublisherJobDecorator.decorate

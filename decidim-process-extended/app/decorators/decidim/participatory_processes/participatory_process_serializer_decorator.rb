@@ -14,4 +14,4 @@ module Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializerDecorator
   end
 end
 
-::Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer.prepend(Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializerDecorator)
+Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer.prepend(Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializerDecorator)

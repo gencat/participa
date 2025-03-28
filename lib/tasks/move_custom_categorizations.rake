@@ -86,10 +86,10 @@ namespace :move_custom_categorizations do
   desc "Move all custom categorizations and assign the new relations"
   task all: [:departments_to_areas, :themes_to_scopes, :assign_scopes_to_participatory_processes, :assign_areas_to_participatory_processes]
 
-  def localized(locales, key, &block)
+  def localized(locales, key, &)
     locales.inject({}) do |result, locale|
       I18n.locale = locale
-      text = I18n.t(key, &block)
+      text = I18n.t(key, &)
 
       result.update(locale => text)
     end.with_indifferent_access

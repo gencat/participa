@@ -35,4 +35,4 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
   end
 end
 
-::Decidim::Admin::ParticipatorySpace::PublishDecorator.decorate
+Decidim::Admin::ParticipatorySpace::PublishDecorator.decorate

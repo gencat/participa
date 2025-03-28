@@ -26,4 +26,4 @@ module Decidim::Admin::Import::ImporterDecorator
   end
 end
 
-::Decidim::Admin::Import::ImporterDecorator.decorate
+Decidim::Admin::Import::ImporterDecorator.decorate

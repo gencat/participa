@@ -2,6 +2,7 @@ require: rubocop-rspec
 
 # Common configuration.
 AllCops:
+  NewCops: enable
   Include:
     - .simplecov
     - "**/*.rb"
@@ -72,11 +73,6 @@ AllCops:
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
   TargetRubyVersion: 3.1
 
-  RSpec:
-    Patterns:
-      - "(?:^|/)spec/"
-      - "(?:^|/)test/"
-
 Gemspec/RequiredRubyVersion:
   Enabled: false
 
@@ -95,6 +91,9 @@ Style/Alias:
   SupportedStyles:
     - prefer_alias
     - prefer_alias_method
+
+Style/MutableConstant:
+  Enabled: false
 
 # Align the elements of a hash literal if they span more than one line.
 Layout/HashAlignment:
@@ -253,7 +252,7 @@ Style/BlockDelimiters:
     - let!
     - subject
     - watch
-  IgnoredMethods:
+  AllowedMethods:
     # Methods that can be either procedural or functional and cannot be
     # categorised from their usage alone, e.g.
     #
@@ -964,7 +963,7 @@ Style/SymbolArray:
 Style/SymbolProc:
   # A list of method names to be ignored by the check.
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
-  IgnoredMethods:
+  AllowedMethods:
     - respond_to
     - define_method
 
@@ -1080,6 +1079,9 @@ Metrics/AbcSize:
   Max: 15
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/BlockNesting:
   Max: 3
 
@@ -1183,77 +1185,3 @@ Lint/UnusedBlockArgument:
 Lint/UnusedMethodArgument:
   AllowUnusedKeywordArguments: false
   IgnoreEmptyMethods: true
-
-##################### Performance ############################
-
-Metrics/BlockLength:
-  Enabled: false
-
-RSpec/BeforeAfterAll:
-  Enabled: true
-
-RSpec/ContextWording:
-  Enabled: true
-  Prefixes:
-    - when
-    - with
-    - without
-    - and
-
-RSpec/DescribeClass:
-  Exclude:
-    - spec/gemfiles_spec.rb
-    - spec/system/**/*.rb
-    - spec/features/**/*.rb
-    - spec/js_bundles_spec.rb
-    - spec/i18n_spec.rb
-    - "**/*/spec/**/*_badge_spec.rb"
-    - decidim-core/spec/lib/global_engines_spec.rb
-    - "**/tasks/**/*"
-
-RSpec/EmptyExampleGroup:
-  Exclude:
-    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
-
-RSpec/ExampleLength:
-  Max: 49
-
-RSpec/ExpectInHook:
-  Enabled: false
-
-RSpec/IteratedExpectation:
-  Enabled: true
-
-RSpec/LetSetup:
-  Enabled: false
-
-RSpec/MessageSpies:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/NestedGroups:
-  Max: 7
-
-RSpec/NamedSubject:
-  Enabled: false
-
-RSpec/RepeatedExampleGroupDescription:
-  Enabled: false
-
-RSpec/RepeatedExampleGroupBody:
-  Enabled: false
-RSpec/VerifiedDoubles:
-  Enabled: false
-
-RSpec/LeakyConstantDeclaration:
-  Enabled: false
-
-RSpec/DescribedClass:
-  Enabled: false
-
-RSpec/MultipleMemoizedHelpers:
-  Max: 10
-
-inherit_from: .rubocop_rails.yml

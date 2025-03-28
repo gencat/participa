@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe "Admin manages participatory processes", type: :system do
   let(:organization) { create(:organization) }
-  let!(:user) { create :user, :admin, :confirmed, organization: }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let!(:participatory_process_group) { nil }
   let!(:participatory_process) { create(:participatory_process, organization:, decidim_participatory_process_group_id: participatory_process_group&.id) }
@@ -22,9 +22,9 @@ describe "Admin manages participatory processes", type: :system do
 
       it "don't show the proposal component alert" do
         visit decidim_admin_participatory_processes.participatory_processes_path
-        click_link translated(participatory_process.title)
-        expect(page).not_to have_css(".alert")
-        expect(page).not_to have_text("Recordeu que heu d'activar el component propostes.")
+        click_on translated(participatory_process.title)
+        expect(page).to have_no_css(".alert")
+        expect(page).to have_no_text("Recordeu que heu d'activar el component propostes.")
       end
     end
   end
@@ -38,9 +38,9 @@ describe "Admin manages participatory processes", type: :system do
     context "and there is not a proposal component" do
       it "don't show the proposal component alert" do
         visit decidim_admin_participatory_processes.participatory_processes_path
-        click_link translated(participatory_process.title)
-        expect(page).not_to have_css(".alert")
-        expect(page).not_to have_text("Recordeu que heu d'activar el component propostes.")
+        click_on translated(participatory_process.title)
+        expect(page).to have_no_css(".alert")
+        expect(page).to have_no_text("Recordeu que heu d'activar el component propostes.")
       end
     end
 
@@ -51,9 +51,9 @@ describe "Admin manages participatory processes", type: :system do
 
       it "show proposal component alert" do
         visit decidim_admin_participatory_processes.participatory_processes_path
-        click_link translated(participatory_process.title)
-        expect(page).not_to have_css(".alert")
-        expect(page).not_to have_text("Recordeu que heu d'activar el component propostes.")
+        click_on translated(participatory_process.title)
+        expect(page).to have_no_css(".alert")
+        expect(page).to have_no_text("Recordeu que heu d'activar el component propostes.")
       end
     end
 
@@ -64,9 +64,9 @@ describe "Admin manages participatory processes", type: :system do
 
       it "don't show the proposal component alert" do
         visit decidim_admin_participatory_processes.participatory_processes_path
-        click_link translated(participatory_process.title)
-        expect(page).not_to have_css(".alert")
-        expect(page).not_to have_text("Recordeu que heu d'activar el component propostes.")
+        click_on translated(participatory_process.title)
+        expect(page).to have_no_css(".alert")
+        expect(page).to have_no_text("Recordeu que heu d'activar el component propostes.")
       end
     end
   end

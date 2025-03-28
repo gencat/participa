@@ -40,4 +40,4 @@ module Decidim::Assemblies::Admin::CreateAssemblyDecorator
   end
 end
 
-::Decidim::Assemblies::Admin::CreateAssembly.prepend(Decidim::Assemblies::Admin::CreateAssemblyDecorator)
+Decidim::Assemblies::Admin::CreateAssembly.prepend(Decidim::Assemblies::Admin::CreateAssemblyDecorator)

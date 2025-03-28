@@ -52,4 +52,4 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
   end
 end
 
-::Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.prepend(Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorator)
+Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.prepend(Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorator)

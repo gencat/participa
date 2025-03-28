@@ -33,10 +33,10 @@ describe Decidim::Proposals::Import::ProposalCreator do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
-  let(:scope) { create :scope, organization: }
-  let(:category) { create :category, participatory_space: participatory_process }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
+  let(:scope) { create(:scope, organization:) }
+  let(:category) { create(:category, participatory_space: participatory_process) }
 
   describe "#finish_without_notif!" do
     context "when a proposals file are created" do
@@ -69,7 +69,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.latitude).to eq(data[:latitude])
       expect(record.longitude).to eq(data[:longitude])
       expect(record.published_at).to be >= (moment)
-      expect(record.coauthorships.first.author.name).to eq(data["external_author/name".to_sym])
+      expect(record.coauthorships.first.author.name).to eq(data[:"external_author/name"])
     end
   end
 
@@ -86,7 +86,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
         longitude: Faker::Address.longitude,
         component:,
         published_at: moment,
-        "meeting_url": "url_meeting/#{meeting.id}"
+        meeting_url: "url_meeting/#{meeting.id}"
       }
     end
 

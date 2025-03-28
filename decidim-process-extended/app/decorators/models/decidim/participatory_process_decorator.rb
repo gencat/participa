@@ -12,4 +12,4 @@ module Models::Decidim::ParticipatoryProcessDecorator
   end
 end
 
-::Models::Decidim::ParticipatoryProcessDecorator.decorate
+Models::Decidim::ParticipatoryProcessDecorator.decorate
