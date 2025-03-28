@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rspec_helper"
+require "spec_helper"
 
 module Decidim
   describe UpdateNotificationsSettings do

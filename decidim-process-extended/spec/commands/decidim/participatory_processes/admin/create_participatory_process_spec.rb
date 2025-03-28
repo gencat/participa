@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rspec_helper"
+require "spec_helper"
 
 # rubocop:disable RSpec/MultipleMemoizedHelpers
 module Decidim::ParticipatoryProcesses
