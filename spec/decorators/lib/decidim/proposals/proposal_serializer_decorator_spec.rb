@@ -10,7 +10,7 @@ module Decidim
         described_class.new(proposal)
       end
 
-      let!(:proposal) { create(:proposal, :accepted, body: body) }
+      let!(:proposal) { create(:proposal, :accepted, body:) }
       let!(:category) { create(:category, participatory_space: component.participatory_space) }
       let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let(:participatory_process) { component.participatory_space }
@@ -35,8 +35,8 @@ module Decidim
       end
 
       before do
-        proposal.update!(category: category)
-        proposal.update!(scope: scope)
+        proposal.update!(category:)
+        proposal.update!(scope:)
         proposal.link_resources(meetings, "proposals_from_meeting")
         proposal.link_resources(other_proposals, "copied_from_component")
       end
