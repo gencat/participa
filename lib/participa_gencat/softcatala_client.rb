@@ -51,8 +51,8 @@ module ParticipaGencat
 
       response = http.request(@request)
 
-      Rails.logger.debug("SoftCatala RS code: #{response.code} #{response.msg}")
-      Rails.logger.debug("SoftCatala RS body: #{response.body}")
+      Rails.logger.debug { "SoftCatala RS code: #{response.code} #{response.msg}" }
+      Rails.logger.debug { "SoftCatala RS body: #{response.body}" }
 
       response
     end

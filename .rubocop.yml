@@ -2,9 +2,6 @@ inherit_from:
   - .rubocop_ruby.yml
   - .rubocop_rails.yml
 
-RSpec/StubbedMock:
-  Enabled: false
-
 RSpec:
   Include:
     - "(?:^|/)spec/"
@@ -80,5 +77,3 @@ RSpec/RepeatedExampleGroupBody:
 
 RSpec/StubbedMock:
   Enabled: false
-
-RSpec/VerifiedDoubles:

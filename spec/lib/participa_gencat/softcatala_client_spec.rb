@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-# require "participa_gencat/softcatala_translator"
 
 module ParticipaGencat
   describe SoftcatalaClient do
@@ -11,27 +10,31 @@ module ParticipaGencat
     let(:source_locale) { :en }
     let(:target_locale) { :ca }
     let(:translated_value) { "El meu títol" }
+    let(:response) do
+      %({"responseData": {"translatedText": "#{translated_value}"}})
+    end
 
     before do
-      expect(SoftcatalaClient).to receive(:new).and_return(softcatala_client)
-      expect(softcatala_client).to receive(:translate).with(original_value, :en, :ca).and_return(translated_value)
-    end
-
-    it "invokes the softcatala" do
-      subject.translate
-    end
-
-    it "schedules a job to save the attribute" do
-      expect(::Decidim::MachineTranslationSaveJob)
-        .to receive(:perform_later)
+      stub_request(:post, "https://www.softcatala.org/api/traductor/translate")
         .with(
-          resource,
-          field_name,
-          target_locale,
-          translated_value
+          body: { "langpair"=>"en|cat", "markUnknown"=>"y", "q"=>"My title" },
+          headers: {
+            "Accept" => "application/json, text/javascript, */*; q=0.01",
+            "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+            "Accept-Language" => "ca,en-US;q=0.7,en;q=0.3",
+            "Cache-Control" => "no-cache",
+            "Content-Type" => "application/x-www-form-urlencoded; charset=UTF-8",
+            "Host" => "www.softcatala.org",
+            "Pragma" => "no-cache",
+            "User-Agent" => "ParticipaGencat.cat"
+          }
         )
+        .to_return(status: 200, body: response, headers: {})
+    end
 
-      subject.translate
+    it "invokes the SoftCatalà web site" do
+      translation= subject.translate(original_value, source_locale, target_locale)
+      expect(translation).to eq(translated_value)
     end
   end
 end
