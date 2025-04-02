@@ -56,6 +56,18 @@ Decidim.configure do |config|
   # The number of reports which an object can receive before hiding it
   # config.max_reports_before_hiding = 3
 
+  # Machine Translation Configuration
+  #
+  # See Decidim docs at https://docs.decidim.org/en/develop/machine_translations/
+  # for more information about how it works and how to set it up.
+  #
+  # Enable machine translations
+  config.enable_machine_translations = Decidim::Env.new("ENABLE_MACHINE_TRANSLATIONS").to_boolean_string
+  #
+  # Machine translation service to interact with third party service to translate the user content.
+  # See https://docs.decidim.org/en/develop/develop/machine_translations.html
+  config.machine_translation_service = "ParticipaGencat::SoftcatalaTranslator"
+
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
   config.throttling_max_requests = (Rails.application.secrets.decidim[:throttling_max_requests] || 200).to_i
 

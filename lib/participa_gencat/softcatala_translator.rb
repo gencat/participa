@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module ParticipaGencat
-  # This translator recieves the field value
-  # and the locale of the field which has to be
-  # translated.
+  # This translator recieves the field value and the locale of the field
+  # which has to be translated.
   # It translates from :source_locale to :target_locale and
   # sends the resulting translation to the MachineTRanslationsSaveJob
   # which must be in charge of persisting it to the model.
