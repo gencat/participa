@@ -15,7 +15,7 @@ module Decidim::Proposals::Import::ProposalCreatorDecorator
         if data[:meeting_url].present?
           resource.add_location(data[:meeting_url])
         elsif data.dig(:external_author, "name").present? || data[:"external_author/name"].present?
-          resource.add_external_author((data.dig(:external_author, "name") || data[:'external_author/name']),
+          resource.add_external_author((data.dig(:external_author, "name") || data[:"external_author/name"]),
                                        context[:current_organization])
         else
           resource.add_coauthor(context[:current_user], user_group: context[:user_group])
@@ -27,4 +27,4 @@ module Decidim::Proposals::Import::ProposalCreatorDecorator
   end
 end
 
-::Decidim::Proposals::Import::ProposalCreatorDecorator.decorate
+Decidim::Proposals::Import::ProposalCreatorDecorator.decorate

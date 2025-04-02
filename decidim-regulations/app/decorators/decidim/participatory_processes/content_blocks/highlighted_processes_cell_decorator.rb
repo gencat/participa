@@ -30,4 +30,4 @@ module Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCellD
   end
 end
 
-::Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCellDecorator.decorate
+Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCellDecorator.decorate

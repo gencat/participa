@@ -51,4 +51,4 @@ module Decidim::Pages::Admin::UpdatePageDecorator
   end
 end
 
-::Decidim::Pages::Admin::UpdatePageDecorator.decorate
+Decidim::Pages::Admin::UpdatePageDecorator.decorate

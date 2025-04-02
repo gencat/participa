@@ -14,4 +14,4 @@ module Lib::Decidim::FilterFormBuilderDecorator
   end
 end
 
-::Lib::Decidim::FilterFormBuilderDecorator.decorate
+Lib::Decidim::FilterFormBuilderDecorator.decorate

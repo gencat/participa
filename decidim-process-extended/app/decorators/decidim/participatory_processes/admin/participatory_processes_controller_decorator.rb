@@ -117,7 +117,7 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesControllerD
   end
 end
 
-::Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesControllerDecorator.decorate
+Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesControllerDecorator.decorate
 
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity

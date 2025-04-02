@@ -17,4 +17,4 @@ module Decidim::ParticipatorySpaceContextDecorator
   end
 end
 
-::Decidim::ParticipatorySpaceContextDecorator.decorate
+Decidim::ParticipatorySpaceContextDecorator.decorate

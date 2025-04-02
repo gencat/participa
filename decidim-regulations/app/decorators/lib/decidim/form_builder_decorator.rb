@@ -31,4 +31,4 @@ module Lib::Decidim::FormBuilderDecorator
   end
 end
 
-::Lib::Decidim::FormBuilderDecorator.decorate
+Lib::Decidim::FormBuilderDecorator.decorate

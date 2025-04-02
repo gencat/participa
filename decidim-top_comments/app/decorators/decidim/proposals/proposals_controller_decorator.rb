@@ -8,4 +8,4 @@ module Decidim::Proposals::ProposalsControllerDecorator
   end
 end
 
-::Decidim::Proposals::ProposalsControllerDecorator.decorate
+Decidim::Proposals::ProposalsControllerDecorator.decorate

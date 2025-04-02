@@ -68,7 +68,7 @@ Rails.application.configure do
   # Keeps the Last 5 log files which are rotated at every 10MB
   # config.logger = Logger.new("./log/preprod.log", 5, 50.megabytes)
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger = ActiveSupport::Logger.new($stdout)

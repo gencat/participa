@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-env :PATH, ENV["PATH"]
+env :PATH, ENV.fetch("PATH", nil)
 
 every :sunday, at: "4:00 am" do
   rake "decidim:delete_data_portability_files"

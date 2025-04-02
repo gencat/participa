@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Processes ContentBlock at home page" do
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
 
   before do
     switch_to_host(organization.host)
@@ -20,7 +20,7 @@ describe "Processes ContentBlock at home page" do
     it "renders the process but not the regulation" do
       visit decidim.root_path(locale: I18n.locale)
       expect(page).to have_content(translated(process.title))
-      expect(page).not_to have_content(translated(regulation.title))
+      expect(page).to have_no_content(translated(regulation.title))
     end
   end
 end

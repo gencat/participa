@@ -16,13 +16,13 @@ gem "decidim-recaptcha", path: "decidim-recaptcha"
 gem "decidim-regulations", path: "decidim-regulations"
 gem "decidim-top_comments", path: "decidim-top_comments"
 
-gem "concurrent-ruby", "1.3.4"
 gem "decidim-cdtb", "~> 0.4.0"
-gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", tag: "v0.5.0"
+gem "decidim-challenges", "~> 0.5.1"
 gem "decidim-department_admin", "~> 0.8.0"
 gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", tag: "v0.5.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
 gem "decidim-verifications-members_picker", "~> 0.0.7"
+gem "stringio", "3.1.5"
 #### Custom gems and modifications block end ####
 
 gem "soda-ruby", require: false

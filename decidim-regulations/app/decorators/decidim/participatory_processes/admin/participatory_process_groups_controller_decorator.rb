@@ -26,4 +26,4 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsControl
   end
 end
 
-::Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsControllerDecorator.decorate
+Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsControllerDecorator.decorate

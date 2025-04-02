@@ -23,4 +23,4 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessFormDecorator
   end
 end
 
-::Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessFormDecorator.decorate
+Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessFormDecorator.decorate

@@ -35,4 +35,4 @@ module Decidim::CoauthorableDecorator
   end
 end
 
-::Decidim::Coauthorable.prepend ::Decidim::CoauthorableDecorator
+Decidim::Coauthorable.prepend Decidim::CoauthorableDecorator

@@ -41,6 +41,9 @@ Rails/HasManyOrHasOneDependent:
   Include:
     - decidim-*/app/models/**/*.rb
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 Rails/InverseOf:
   Enabled: false
 

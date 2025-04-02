@@ -38,4 +38,4 @@ module Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator
   end
 end
 
-::Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator.decorate
+Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator.decorate

@@ -8,4 +8,4 @@ module Decidim::Pages::Admin::PagesControllerDecorator
   end
 end
 
-::Decidim::Pages::Admin::PagesControllerDecorator.decorate
+Decidim::Pages::Admin::PagesControllerDecorator.decorate

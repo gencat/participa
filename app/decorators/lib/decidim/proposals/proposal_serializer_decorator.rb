@@ -15,4 +15,4 @@ module Lib::Decidim::Proposals::ProposalSerializerDecorator
   end
 end
 
-::Lib::Decidim::Proposals::ProposalSerializerDecorator.decorate
+Lib::Decidim::Proposals::ProposalSerializerDecorator.decorate

@@ -13,4 +13,4 @@ module Decidim::Pages::Admin::PageFormDecorator
   end
 end
 
-::Decidim::Pages::Admin::PageFormDecorator.decorate
+Decidim::Pages::Admin::PageFormDecorator.decorate
