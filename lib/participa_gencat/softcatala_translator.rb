@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "action_text"
+
 module ParticipaGencat
   # This translator recieves the field value and the locale of the field
   # which has to be translated.
@@ -18,7 +20,8 @@ module ParticipaGencat
     end
 
     def translate
-      translated_text = softcatala_client.translate(text, source_locale, target_locale)
+      content = ActionText::Content.new(text)
+      translated_text = softcatala_client.translate(content.to_plain_text, source_locale, target_locale)
 
       ::Decidim::MachineTranslationSaveJob.perform_later(
         resource,
