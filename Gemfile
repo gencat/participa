@@ -5,7 +5,6 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable_decidim_templates" }.freeze
 
-
 gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
@@ -24,8 +23,8 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 gem "decidim-verifications-members_picker", "~> 0.0.7"
 #### Custom gems and modifications block end ####
 
-gem "stringio", "~> 3.1.6"
 gem "soda-ruby", require: false
+gem "stringio", "~> 3.1.6"
 
 gem "puma"
 
