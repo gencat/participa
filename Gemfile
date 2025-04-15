@@ -21,10 +21,10 @@ gem "decidim-department_admin", "~> 0.8.0"
 gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", tag: "v0.5.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
 gem "decidim-verifications-members_picker", "~> 0.0.7"
-gem "stringio", "3.1.5"
 #### Custom gems and modifications block end ####
 
 gem "soda-ruby", require: false
+gem "stringio", "~> 3.1.6"
 
 gem "puma"
 
@@ -62,7 +62,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "letter_opener_web"
+  gem "letter_opener_web", "~> 3.0"
   gem "listen"
   gem "web-console"
 end
