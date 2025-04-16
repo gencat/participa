@@ -62,7 +62,8 @@ Decidim.configure do |config|
   # for more information about how it works and how to set it up.
   #
   # Enable machine translations
-  config.enable_machine_translations = Decidim::Env.new("ENABLE_MACHINE_TRANSLATIONS").to_boolean_string
+  config.enable_machine_translations = Decidim::Env.new("ENABLE_MACHINE_TRANSLATIONS").to_boolean_string == "true"
+
   #
   # Machine translation service to interact with third party service to translate the user content.
   # See https://docs.decidim.org/en/develop/develop/machine_translations.html
