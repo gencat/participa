@@ -3,17 +3,14 @@
 module Decidim::Admin::ParticipatorySpace::PublishDecorator
   def self.decorate
     Decidim::Admin::ParticipatorySpace::Publish.class_eval do
+      alias_method :original_call, :call
+
       def call
-        return broadcast(:invalid) if participatory_space.nil? || participatory_space.published?
+        subscribe(self) # from whisper gem
 
-        Decidim.traceability.perform_action!(:publish, participatory_space, user, **default_options) do
-          participatory_space.publish!
-          # process-extended customization
-          notify_admins
-          # process-extended customization
-        end
+        result = original_call
 
-        broadcast(:ok, participatory_space)
+        on(:ok) { notify_admins }
       end
 
       private
