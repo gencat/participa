@@ -94,7 +94,7 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: cd decidim-process-extended && CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
+          command: cd decidim-process-extended && bundle exec rake --backtrace -t
 
       -  name: Upload coverage
          run: ./.github/upload_coverage.sh cd decidim-process-extended $GITHUB_EVENT_PATH

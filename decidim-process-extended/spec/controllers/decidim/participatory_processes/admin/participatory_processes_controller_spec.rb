@@ -6,9 +6,9 @@ module Decidim::ParticipatoryProcesses::Admin
   describe ParticipatoryProcessesController, type: :controller do
     routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
     let(:organization) { create(:organization, available_locales: [:ca, :en, :es]) }
-    let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let(:participatory_process) do
-      create(:participatory_process, organization: organization,
+      create(:participatory_process, organization:,
                                      hero_image: nil, banner_image: nil)
     end
 
