@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.1.1
+  RUBY_VERSION: 3.1.7
   NODE_VERSION: 16.9.1
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
       RECAPTCHA_SITE_KEY: 'recaptcha_site_key'
       RECAPTCHA_SECRET_KEY: 'recaptcha_secret_key'
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
@@ -43,7 +43,7 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
