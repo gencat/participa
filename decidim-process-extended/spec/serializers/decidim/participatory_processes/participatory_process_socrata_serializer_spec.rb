@@ -12,11 +12,11 @@ module Decidim::ParticipatoryProcesses
       let(:meetings_component) { create(:component, participatory_space: participatory_process, manifest_name: :meetings) }
 
       let(:organization) { participatory_process.organization }
-      let(:user) { create(:user, organization: organization) }
-      let(:user_group) { create(:user_group, :verified, organization: organization, users: [user]) }
+      let(:user) { create(:user, organization:) }
+      let(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
 
       context "when there is a process_group" do
-        let!(:process_group) { create(:participatory_process_group, organization: organization) }
+        let!(:process_group) { create(:participatory_process_group, organization:) }
 
         before do
           participatory_process.participatory_process_group= process_group
@@ -51,7 +51,7 @@ module Decidim::ParticipatoryProcesses
         describe "#proposals_num_author_entities" do
           before do
             proposal.coauthorships.clear
-            proposal.coauthorships.create(author: user, user_group: user_group)
+            proposal.coauthorships.create(author: user, user_group:)
           end
 
           it "includes proposal authors of type: UserGroup" do
@@ -83,7 +83,7 @@ module Decidim::ParticipatoryProcesses
           end
 
           it "does not count User registrations" do
-            create_list(:registration, 10, meeting: meeting)
+            create_list(:registration, 10, meeting:)
 
             expect(subject.serialize).to include(meetings_num_participants: 5)
           end
@@ -99,7 +99,7 @@ module Decidim::ParticipatoryProcesses
           end
 
           it "does not count UserGroup registrations" do
-            create_list(:registration, 10, meeting: meeting, user_group: user_group)
+            create_list(:registration, 10, meeting:, user_group:)
 
             expect(subject.serialize).to include(meetings_num_entities: 1)
           end
@@ -123,7 +123,7 @@ module Decidim::ParticipatoryProcesses
         describe "#total_num_entities" do
           before do
             proposal.coauthorships.clear
-            proposal.coauthorships.create(author: user, user_group: user_group)
+            proposal.coauthorships.create(author: user, user_group:)
             meeting.update(attending_organizations: "CodiTramuntana")
           end
 
