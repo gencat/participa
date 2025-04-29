@@ -83,7 +83,7 @@ jobs:
         run: sudo apt install imagemagick
 
       - name: Install Ruby deps
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3
@@ -96,7 +96,7 @@ jobs:
           RAILS_ENV=test bundle exec rake db:migrate
 
       - name: Run RSpec
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3
