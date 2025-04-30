@@ -31,7 +31,7 @@ module ParticipaGencat
       form_fields[:q]= text
       form_fields[:markUnknown]= "y"
 
-      url = URI("https://www.softcatala.org/api/traductor/translate")
+      url = URI(ENV.fetch("MACHINE_TRANSLATIONS_ENDPOINT_URL", nil))
 
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true

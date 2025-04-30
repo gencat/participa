@@ -15,7 +15,7 @@ module ParticipaGencat
     end
 
     before do
-      stub_request(:post, "https://www.softcatala.org/api/traductor/translate")
+      stub_request(:post, "https://softcatala.example.org/machine_translations/endpoint")
         .with(
           body: { "langpair"=>"en|cat", "markUnknown"=>"y", "q"=>"My title" },
           headers: {
@@ -24,7 +24,7 @@ module ParticipaGencat
             "Accept-Language" => "ca,en-US;q=0.7,en;q=0.3",
             "Cache-Control" => "no-cache",
             "Content-Type" => "application/x-www-form-urlencoded; charset=UTF-8",
-            "Host" => "www.softcatala.org",
+            "Host" => "softcatala.example.org",
             "Pragma" => "no-cache",
             "User-Agent" => "ParticipaGencat.cat"
           }
