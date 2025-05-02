@@ -3,11 +3,9 @@
 module Decidim::Admin::ParticipatorySpace::PublishDecorator
   def self.decorate
     Decidim::Admin::ParticipatorySpace::Publish.class_eval do
-      alias_method :original_call, :call
+      alias_method :original_call, :call unless method_defined?(:original_call)
 
       def call
-        subscribe(self) # from whisper gem
-
         result = original_call
 
         on(:ok) { notify_admins }
