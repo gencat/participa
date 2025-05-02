@@ -3,14 +3,12 @@
 module Decidim::Admin::ParticipatorySpace::PublishDecorator
   def self.decorate
     Decidim::Admin::ParticipatorySpace::Publish.class_eval do
-      alias_method :original_call, :call
+      alias_method :original_call, :call unless method_defined?(:original_call)
 
       def call
-        subscribe(self) # from whisper gem
-
-        result = original_call
-
         on(:ok) { notify_admins }
+
+        original_call
       end
 
       private
@@ -20,7 +18,7 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
           event: "decidim.events.participatory_space.published",
           event_class: Decidim::SimpleParticipatorySpaceEvent,
           resource: participatory_space,
-          affected_users: Decidim::User.org_admins_except_me(form.current_user),
+          affected_users: Decidim::User.org_admins_except_me(current_user),
           extra: {
             author_name: current_user.name
           }
