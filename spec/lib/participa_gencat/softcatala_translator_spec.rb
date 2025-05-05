@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-# require "participa_gencat/softcatala_translator"
 
 module ParticipaGencat
   describe SoftcatalaTranslator do
