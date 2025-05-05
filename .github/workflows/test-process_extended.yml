@@ -69,7 +69,14 @@ jobs:
         with:
           chrome-version: 119.0.6045.105
 
+      - name: Fix apt mirrors and update
+        run: |
+          sudo rm /etc/apt/sources.list.d/*
+          sudo rm /etc/apt/apt-mirrors.txt || true
+          sudo apt-get update
+
       - name: Install ImageMagick
+        shell: "bash"
         run: sudo apt install imagemagick
 
       - name: Install Ruby deps
