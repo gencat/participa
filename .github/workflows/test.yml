@@ -82,7 +82,7 @@ jobs:
           chrome-version: 119.0.6045.105
 
       - name: Install ImageMagick
-        run: sudo apt install imagemagick
+        run: sudo apt update && sudo apt install imagemagick
 
       - name: Install Ruby deps
         uses: nick-fields/retry@v3
