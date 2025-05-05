@@ -911,7 +911,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb (~> 0.4.0)
+  decidim-cdtb (~> 0.5.0)
   decidim-challenges (~> 0.5.1)
   decidim-department_admin (~> 0.8.0)
   decidim-dev!
@@ -943,7 +943,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 3.1.7p261
 
 BUNDLED WITH
    2.6.8
