@@ -77,6 +77,3 @@ RSpec/RepeatedExampleGroupBody:
 
 RSpec/StubbedMock:
   Enabled: false
-
-RSpec/VerifiedDoubles:
-  Enabled: false

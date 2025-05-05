@@ -594,7 +594,7 @@ ActiveRecord::Schema.define(version: 2024_11_14_111439) do
     t.integer "decidim_organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["decidim_organization_id", "name"], name: "index_unique_assembly_name_and_organization", unique: true
+    t.index ["decidim_organization_id", "name"], name: "index_unique_name_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_external_authors_on_decidim_organization_id"
     t.index ["name"], name: "index_decidim_external_authors_on_name", unique: true
   end

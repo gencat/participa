@@ -34,6 +34,8 @@ jobs:
       DB_HOST: localhost
       RECAPTCHA_SITE_KEY: 'recaptcha_site_key'
       RECAPTCHA_SECRET_KEY: 'recaptcha_secret_key'
+      MACHINE_TRANSLATIONS_ENDPOINT_URL: "https://softcatala.example.org/machine_translations/endpoint"
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -80,10 +82,10 @@ jobs:
           chrome-version: 119.0.6045.105
 
       - name: Install ImageMagick
-        run: sudo apt install imagemagick
+        run: sudo apt update && sudo apt install imagemagick
 
       - name: Install Ruby deps
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3
@@ -96,7 +98,7 @@ jobs:
           RAILS_ENV=test bundle exec rake db:migrate
 
       - name: Run RSpec
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3

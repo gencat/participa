@@ -19,6 +19,9 @@ module Middlewares
       else
         @app.call(env)
       end
+    rescue StandardError => e
+      Rails.logger.error("@app.call rescued from: #{e.message} => #{e.backtrace.join("\n")}")
+      raise e
     end
   end
 end
