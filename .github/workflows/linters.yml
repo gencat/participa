@@ -58,7 +58,9 @@ jobs:
 
       - name: Install ImageMagick
         shell: "bash"
-        run: sudo apt install imagemagick
+        run: |
+          sudo apt-get update
+          sudo apt install imagemagick
 
       - uses: browser-actions/setup-chrome@v1
         with:
