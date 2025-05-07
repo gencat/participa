@@ -79,20 +79,11 @@ jobs:
         with:
           chrome-version: 119.0.6045.105
 
-      - name: Fix apt mirrors and update
-        run: |
-          sudo rm /etc/apt/sources.list.d/*
-          sudo rm /etc/apt/apt-mirrors.txt || true
-          sudo apt-get update
-
       - name: Install ImageMagick
-        shell: "bash"
-        run: |
-          sudo apt-get update
-          sudo apt install imagemagick
+        run: sudo apt update && sudo apt install imagemagick
 
       - name: Install Ruby deps
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3
@@ -105,7 +96,7 @@ jobs:
           RAILS_ENV=test bundle exec rake db:migrate
 
       - name: Run RSpec
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3
