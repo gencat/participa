@@ -32,7 +32,8 @@ module Decidim::Assemblies::Admin::CreateAssemblyDecorator
         author_name: form.current_user.name,
         area: assembly.area&.name,
         start_date: assembly.creation_date,
-        end_date: assembly.closing_date
+        end_date: assembly.closing_date,
+        participatory_space_news: true
       }
     }
 

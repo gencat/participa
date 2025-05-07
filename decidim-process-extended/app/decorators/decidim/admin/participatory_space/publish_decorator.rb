@@ -20,7 +20,8 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
           resource: participatory_space,
           affected_users: Decidim::User.org_admins_except_me(current_user),
           extra: {
-            author_name: current_user.name
+            author_name: current_user.name,
+            participatory_space_news: true
           }
         }
 
