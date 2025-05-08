@@ -1,4 +1,6 @@
-<!-- insert_after ".main-bar__container" -->
+<!-- insert_after ".main-bar__container"
+    original '12392ccb9ae046cf13e7c5bd745f1a7bcdd6fb3e'
+-->
 
 <div class="gencat-navbar">
   <div class="custom-navbar">
