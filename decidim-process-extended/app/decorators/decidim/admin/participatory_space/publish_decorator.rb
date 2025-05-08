@@ -21,7 +21,7 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
           affected_users: Decidim::User.org_admins_except_me(current_user),
           extra: {
             author_name: current_user.name,
-            force_email: true
+            participatory_space_news: true
           }
         }
 

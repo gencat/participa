@@ -45,7 +45,7 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
         area: process.area&.name,
         start_date: process.start_date,
         end_date: process.end_date,
-        force_email: true
+        participatory_space_news: true
       }
     }
 

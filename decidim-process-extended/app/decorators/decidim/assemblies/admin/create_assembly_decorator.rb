@@ -33,7 +33,7 @@ module Decidim::Assemblies::Admin::CreateAssemblyDecorator
         area: assembly.area&.name,
         start_date: assembly.creation_date,
         end_date: assembly.closing_date,
-        force_email: true
+        participatory_space_news: true
       }
     }
 
