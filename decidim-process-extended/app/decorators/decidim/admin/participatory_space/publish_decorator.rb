@@ -6,19 +6,23 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
       alias_method :original_call, :call unless method_defined?(:original_call)
 
       def call
-        on(:ok) { notify_admins }
+        on(:ok) do
+          Decidim::User.org_admins_except_me(current_user).find_each do |user|
+            notify_admin(user) if send_participatory_space_news_email?(user)
+          end
+        end
 
         original_call
       end
 
       private
 
-      def notify_admins
+      def notify_admin(user)
         data = {
           event: "decidim.events.participatory_space.published",
           event_class: Decidim::SimpleParticipatorySpaceEvent,
           resource: participatory_space,
-          affected_users: Decidim::User.org_admins_except_me(current_user),
+          affected_users: [user],
           extra: {
             author_name: current_user.name,
             participatory_space_news: true
@@ -26,6 +30,10 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
         }
 
         Decidim::EventsManager.publish(**data)
+      end
+
+      def send_participatory_space_news_email?(user)
+        user.notification_settings.has_key?("participatory_space_news") && user.notification_settings["participatory_space_news"] == "1"
       end
     end
   end
