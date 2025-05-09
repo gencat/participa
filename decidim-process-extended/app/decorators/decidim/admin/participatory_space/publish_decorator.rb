@@ -8,6 +8,7 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
       def call
         on(:ok) do
           Decidim::User.org_admins_except_me(current_user).find_each do |user|
+            # Otherwise, it will be sent if realtime notifications are enabled
             notify_admin(user) if send_participatory_space_news_email?(user)
           end
         end
@@ -25,7 +26,7 @@ module Decidim::Admin::ParticipatorySpace::PublishDecorator
           affected_users: [user],
           extra: {
             author_name: current_user.name,
-            participatory_space_news: true
+            force_email: send_participatory_space_news_email?(user)
           }
         }
 

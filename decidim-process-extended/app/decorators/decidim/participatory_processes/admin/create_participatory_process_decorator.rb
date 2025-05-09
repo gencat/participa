@@ -9,6 +9,7 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
     if process.persisted?
       # process-extended customization
       Decidim::User.org_admins_except_me(current_user).find_each do |user|
+        # Otherwise, it will be sent if realtime notifications are enabled
         notify_admin(user) if send_participatory_space_news_email?(user)
       end
       # process-extended customization
@@ -47,7 +48,7 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
         area: process.area&.name,
         start_date: process.start_date,
         end_date: process.end_date,
-        participatory_space_news: true
+        force_email: send_participatory_space_news_email?(user)
       }
     }
 
