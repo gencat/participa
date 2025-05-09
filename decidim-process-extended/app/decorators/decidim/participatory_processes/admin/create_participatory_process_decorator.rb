@@ -8,7 +8,10 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
 
     if process.persisted?
       # process-extended customization
-      notify_admins
+      Decidim::User.org_admins_except_me(current_user).find_each do |user|
+        # Otherwise, it will be sent if realtime notifications are enabled
+        notify_admin(user) if send_participatory_space_news_email?(user)
+      end
       # process-extended customization
       add_admins_as_followers(process)
       link_related_processes
@@ -34,22 +37,26 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
                 })
   end
 
-  def notify_admins
+  def notify_admin(user)
     data = {
       event: "decidim.events.participatory_space.created",
       event_class: Decidim::SimpleParticipatorySpaceEvent,
       resource: process,
-      affected_users: Decidim::User.org_admins_except_me(form.current_user),
+      affected_users: [user],
       extra: {
         author_name: form.current_user.name,
         area: process.area&.name,
         start_date: process.start_date,
         end_date: process.end_date,
-        participatory_space_news: true
+        force_email: send_participatory_space_news_email?(user)
       }
     }
 
     Decidim::EventsManager.publish(**data)
+  end
+
+  def send_participatory_space_news_email?(user)
+    user.notification_settings.has_key?("participatory_space_news") && user.notification_settings["participatory_space_news"] == "1"
   end
 end
 
