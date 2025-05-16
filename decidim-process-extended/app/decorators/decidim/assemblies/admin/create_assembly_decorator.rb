@@ -9,7 +9,7 @@ module Decidim::Assemblies::Admin::CreateAssemblyDecorator
       link_participatory_processes(assembly)
       Decidim::ContentBlocksCreator.new(assembly).create_default!
       # process-extended customization
-      Decidim::User.org_admins_except_me(current_user).find_each do |user|
+      Decidim::User.org_admins_except_me(form.current_user).find_each do |user|
         # Otherwise, it will be sent if realtime notifications are enabled
         notify_admin(user) if send_participatory_space_news_email?(user)
       end

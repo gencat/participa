@@ -9,6 +9,7 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let!(:admin) { create(:user, :admin, :confirmed, organization:, notification_settings: { participatory_space_news: "1" }) }
     let(:assembly_type) { create(:assemblies_type, organization:) }
     let(:scope) { create(:scope, organization:) }
     let(:area) { create(:area, organization:) }

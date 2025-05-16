@@ -9,6 +9,7 @@ module Decidim::ParticipatoryProcesses
 
     let(:organization) { create(:organization) }
     let(:participatory_process_group) { create(:participatory_process_group, organization:) }
+    let!(:admin) { create(:user, :admin, :confirmed, organization:, notification_settings: { participatory_space_news: "1" }) }
     let(:participatory_process_type) { create(:participatory_process_type, organization:) }
     let(:scope) { create(:scope, organization:) }
     let(:area) { create(:area, organization:) }
