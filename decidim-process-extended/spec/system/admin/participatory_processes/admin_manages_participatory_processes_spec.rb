@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Admin manages participatory processes", type: :system do
   let(:organization) { create(:organization) }
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let!(:participatory_process_group) { nil }
-  let!(:participatory_process) { create(:participatory_process, organization: organization, decidim_participatory_process_group_id: participatory_process_group&.id) }
+  let!(:participatory_process) { create(:participatory_process, organization:, decidim_participatory_process_group_id: participatory_process_group&.id) }
 
   before do
     switch_to_host(organization.host)
@@ -31,7 +31,7 @@ describe "Admin manages participatory processes", type: :system do
 
   describe "when participatory process group is 'Normativa'" do
     let!(:participatory_process_group) do
-      create(:participatory_process_group, organization: organization,
+      create(:participatory_process_group, organization:,
                                            title: { en: "Normativa", es: "Normativa", ca: "Normativa" })
     end
 

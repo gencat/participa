@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe "Redirect Middleware", type: :system do
   let!(:organization) { process.organization }
-  let!(:process) { create(:participatory_process, slug: slug, title: { ca: title_ca }) }
+  let!(:process) { create(:participatory_process, slug:, title: { ca: title_ca }) }
 
   before do
     switch_to_host(organization.host)
