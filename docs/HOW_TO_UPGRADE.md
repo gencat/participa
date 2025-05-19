@@ -27,7 +27,7 @@ bin/rails db:migrate
   * Decidim::Process::Extended ("decidim-process-extended")
 
 
-4. Go to the changelog of the specific branch you are updating. For example, https://github.com/decidim/decidim/blob/master/CHANGELOG.md. And review each of the new developments introduced, and apply the new changes.
+4. Go to the changelog of the specific branch you are updating. For example, https://github.com/decidim/decidim/blob/main/CHANGELOG.md. And review each of the new developments introduced, and apply the new changes.
    If there are some new locales added or changed, take in mind, that until the locale :oc is added to the Decidim, you must add the new Occitan translations to the application.
 
 5. also, you can make sure new translations are complete for all languages in your application doing this:
