@@ -22,7 +22,7 @@
 - **Changed**: Hide `assembly_type` filter from `Assembly` index page as per request of Product Owner [#87](https://github.com/gencat/participa/pull/87)
 - **Added**: Admin Department Module [#84](https://github.com/gencat/participa/pull/84)
 - **Added**: Feat socrata open data. [#70](https://github.com/gencat/participa/pull/70)
-Review the [README#open-data](https://github.com/gencat/participa/blob/master/README.md#open-data) section to find out the required actions to perform
+Review the [README#open-data](https://github.com/gencat/participa/blob/main/README.md#open-data) section to find out the required actions to perform
 - **Added**: Add new metadata fields to ParticipatoryProcesses. [#69](https://github.com/gencat/participa/pull/69)
 - **Decidim::Verifications::MembersPicker** After installing and activating the verification module, review the [README usage section](https://github.com/gencat/decidim-verifications-members_picker/blob/0.0.2/README.md#usage) to execute the necessary actions
 - **DecidimDepartment, DecidimTheme, DecidimType:** Only for upgrades from 0.18 or earlier versions [#67](https://github.com/gencat/participa/pull/67)

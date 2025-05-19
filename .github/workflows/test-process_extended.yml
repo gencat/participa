@@ -3,7 +3,7 @@ name: "[CI] Process Extended"
 on:
   push:
     branches:
-      - master
+      - main
       - release/*
       - "*-stable"
   pull_request:

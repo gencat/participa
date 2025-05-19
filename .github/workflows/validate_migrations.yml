@@ -3,7 +3,7 @@ name: "[CI] Validate migrations"
 on:
   push:
     branches:
-      - master
+      - main
       - release/*
       - "*-stable"
   pull_request:
