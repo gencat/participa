@@ -1,4 +1,6 @@
-<!-- insert_before "erb[loud]:contains('layouts/decidim/header/main_links_desktop')" -->
+<!-- insert_before "erb[loud]:contains('layouts/decidim/header/main_links_desktop')"
+    original 'a937953b974b16d0e6107d45f55a076229f689ca'
+ -->
 
 <% if available_locales.length > 1 %>
   <div class="topbar__dropmenu language-choose">

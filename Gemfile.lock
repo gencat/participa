@@ -171,6 +171,15 @@ GIT
       decidim-forms (= 0.28.6)
     decidim-verifications (0.28.6)
       decidim-core (= 0.28.6)
+GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-cdtb.git
+  revision: d8721c197f3a59707382d412034e8017f10b5ef8
+  branch: main
+  specs:
+    decidim-cdtb (0.5.1)
+      decidim (>= 0.28.0)
+      rails (>= 6)
+      ruby-progressbar
 
 GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil.git
@@ -370,10 +379,6 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-cdtb (0.5.0)
-      decidim (>= 0.28.0)
-      rails (>= 6)
-      ruby-progressbar
     decidim-challenges (0.5.1)
       decidim-core (~> 0.27)
     decidim-department_admin (0.8.1)
@@ -444,7 +449,14 @@ GEM
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
+    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-aarch64-linux-musl)
+    ffi (1.17.2-arm-linux-gnu)
+    ffi (1.17.2-arm-linux-musl)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
     figjam (2.0.0)
       thor (>= 0.14.0, < 2)
     file_validators (3.0.0)
@@ -576,7 +588,21 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.4)
+    nokogiri (1.18.8-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.18.8-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-musl)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -892,7 +918,14 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
-  x86_64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  x86_64-darwin
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   bootsnap
@@ -901,7 +934,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb (~> 0.5.0)
+  decidim-cdtb!
   decidim-challenges (~> 0.5.1)
   decidim-department_admin (~> 0.8.0)
   decidim-dev!
