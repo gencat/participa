@@ -24,7 +24,7 @@ gem "decidim-verifications-members_picker", "~> 0.0.7"
 #### Custom gems and modifications block end ####
 
 gem "soda-ruby", require: false
-gem "stringio", "~> 3.1.6"
+gem "stringio", "~> 3.1.7"
 
 gem "puma"
 

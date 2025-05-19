@@ -827,7 +827,7 @@ GEM
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
     ssrf_filter (1.2.0)
-    stringio (3.1.6)
+    stringio (3.1.7)
     sys-uname (1.0.4)
       ffi (>= 1.0.0)
     temple (0.10.3)
@@ -921,7 +921,7 @@ DEPENDENCIES
   rubocop-faker
   rubocop-rspec (= 2.26.1)
   soda-ruby
-  stringio (~> 3.1.6)
+  stringio (~> 3.1.7)
   web-console
   whenever
   wicked_pdf (~> 2.7.0)
