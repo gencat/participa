@@ -961,7 +961,7 @@ DEPENDENCIES
   rubocop-faker
   rubocop-rspec (= 2.26.1)
   soda-ruby
-  stringio (~> 3.1.6)
+  stringio (~> 3.1.7)
   web-console
   whenever
   wicked_pdf (~> 2.7.0)
