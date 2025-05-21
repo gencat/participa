@@ -27,7 +27,7 @@ module ParticipaGencat
         resource,
         field_name,
         target_locale,
-        translated_text
+        translated_text || ""
       )
     end
 

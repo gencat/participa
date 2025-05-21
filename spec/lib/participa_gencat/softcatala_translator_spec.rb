@@ -46,5 +46,22 @@ module ParticipaGencat
         subject.translate
       end
     end
+
+    context "when the translation fails" do
+      let(:translated_value) { nil }
+
+      it "schedules a job to save an empty string" do
+        expect(::Decidim::MachineTranslationSaveJob)
+          .to receive(:perform_later)
+          .with(
+            resource,
+            field_name,
+            target_locale,
+            ""
+          )
+
+        subject.translate
+      end
+    end
   end
 end
