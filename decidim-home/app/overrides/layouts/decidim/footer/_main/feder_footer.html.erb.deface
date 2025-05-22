@@ -9,7 +9,7 @@
 
     <div class="lg:w-1/6">
       <%= link_to "http://www.accio.gencat.cat/ca/accio/agencia/feder/", target: "_blank", class: "block logo" do %>
-        <%= image_pack_tag "media/images/feder.png", alt: "FEDER" %>
+        <%= image_pack_tag "media/images/feder.png", alt: "Unió Europea. Fons Europeu de Desenvolupament Regional" %>
       <% end %>
     </div>
   </div>
