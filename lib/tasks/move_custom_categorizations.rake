@@ -16,7 +16,7 @@ namespace :move_custom_categorizations do
         DecidimDepartment.where(decidim_organization_id: organization.id).each do |department|
           area = Decidim::Area.find_or_create_by(
             name: organization.available_locales.index_with { |_l| department.name.to_s },
-            organization: organization
+            organization:
           )
           puts "---Area created - #{area.id} - #{area.name}"
         end
@@ -36,7 +36,7 @@ namespace :move_custom_categorizations do
           scope = Decidim::Scope.find_or_create_by(
             name: t.name,
             code: "tema-#{t.name[organization.default_locale].parameterize}",
-            organization: organization
+            organization:
           )
 
           puts "ScopeChild created #{scope.id} - #{scope.name}"
@@ -52,12 +52,12 @@ namespace :move_custom_categorizations do
     end
 
     Decidim::Organization.find_each do |organization|
-      Decidim::ParticipatoryProcess.where(organization: organization).find_each do |process|
+      Decidim::ParticipatoryProcess.where(organization:).find_each do |process|
         next if process.decidim_theme_id.blank?
         next unless DecidimTheme.any?
 
         scope = Decidim::Scope.find_by(code: "tema-#{DecidimTheme.find_by(id: process.decidim_theme_id).name[organization.default_locale].parameterize}")
-        process.update(scopes_enabled: true, scope: scope)
+        process.update(scopes_enabled: true, scope:)
         puts "--- Process #{process.id} - Scope_id Updated #{scope.id}"
       end
     end
@@ -71,12 +71,12 @@ namespace :move_custom_categorizations do
 
     ActiveRecord::Base.transaction do
       Decidim::Organization.find_each do |organization|
-        Decidim::ParticipatoryProcess.where(organization: organization).find_each do |process|
+        Decidim::ParticipatoryProcess.where(organization:).find_each do |process|
           next if process.decidim_department_id.blank?
           next unless DecidimDepartment.any?
 
           area = Decidim::Area.find_by("name->>'ca' = ?", DecidimDepartment.find_by(id: process.decidim_department_id).name.to_s)
-          process.update(area: area)
+          process.update(area:)
           puts "--- Process #{process.id} - Area id Updated #{area.id}"
         end
       end
@@ -86,10 +86,10 @@ namespace :move_custom_categorizations do
   desc "Move all custom categorizations and assign the new relations"
   task all: [:departments_to_areas, :themes_to_scopes, :assign_scopes_to_participatory_processes, :assign_areas_to_participatory_processes]
 
-  def localized(locales, key, &block)
+  def localized(locales, key, &)
     locales.inject({}) do |result, locale|
       I18n.locale = locale
-      text = I18n.t(key, &block)
+      text = I18n.t(key, &)
 
       result.update(locale => text)
     end.with_indifferent_access

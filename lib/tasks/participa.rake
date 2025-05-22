@@ -25,14 +25,14 @@ namespace :participa do
       subtitle: { "ca" => "soluciona registres orfes" },
       short_description: { "ca" => "soluciona registres orfes" },
       description: { "ca" => "soluciona registres orfes" },
-      organization: organization
+      organization:
     )
 
     orphan_components = Decidim::Component.where(participatory_space: nil)
 
     orphan_components.each do |component|
       puts "----- Upgrade #{component.manifest_name} ---#{component.id}"
-      component.update(participatory_space: participatory_space)
+      component.update(participatory_space:)
     end
   end
 
@@ -53,12 +53,12 @@ namespace :participa do
       subtitle: { "ca" => "soluciona registres orfes" },
       short_description: { "ca" => "soluciona registres orfes" },
       description: { "ca" => "soluciona registres orfes" },
-      organization: organization
+      organization:
     )
     proposal_component = Decidim::Component.find_or_create_by(
       name: { "ca" => "Procés registres orfes" },
       manifest_name: "proposals",
-      participatory_space: participatory_space
+      participatory_space:
     )
     orphan_proposals = Decidim::Proposals::Proposal.where(component: nil)
 
@@ -86,12 +86,12 @@ namespace :participa do
       subtitle: { "ca" => "soluciona registres orfes" },
       short_description: { "ca" => "soluciona registres orfes" },
       description: { "ca" => "soluciona registres orfes" },
-      organization: organization
+      organization:
     )
     meeting_component = Decidim::Component.find_or_create_by(
       name: { "ca" => "Procés registres orfes" },
       manifest_name: "meetings",
-      participatory_space: participatory_space
+      participatory_space:
     )
     orphan_meetings = Decidim::Meetings::Meeting.where(component: nil)
 
