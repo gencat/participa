@@ -1,8 +1,12 @@
 # Decidim::Process::Extended
-Short description and motivation.
+This module add some functionalities to participatory spaces.
 
-## Usage
-How to use my plugin.
+For participatory processes:
+- Add new fields: cost, has_summary_record, promoting_unit, facilitators and email.
+
+For participatory spaces (process and assemblies):
+- Send an internal notification and an email to admins when a participatory space is created and published.
+- Add a notification setting for admins to enabled/disabled these notifications
 
 ## Installation
 Add this line to your application's Gemfile:

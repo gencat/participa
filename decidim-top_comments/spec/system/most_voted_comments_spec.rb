@@ -11,8 +11,8 @@ describe "Most Voted Comments", type: :system do
       available_locales: [:ca, :en]
     )
   end
-  let!(:process) { create(:participatory_process, :with_steps, organization: organization) }
-  let!(:author) { create(:user, :confirmed, organization: organization) }
+  let!(:process) { create(:participatory_process, :with_steps, organization:) }
+  let!(:author) { create(:user, :confirmed, organization:) }
 
   let(:resource_path) { resource_locator(commentable).path }
 
@@ -36,9 +36,9 @@ describe "Most Voted Comments", type: :system do
     end
 
     context "when there are comments" do
-      let!(:comment_for) { create(:comment, author: author, commentable: commentable, alignment: 1) }
-      let!(:comment_neutral) { create(:comment, author: author, commentable: commentable, alignment: 0) }
-      let!(:comment_against) { create(:comment, author: author, commentable: commentable, alignment: -1) }
+      let!(:comment_for) { create(:comment, author:, commentable:, alignment: 1) }
+      let!(:comment_neutral) { create(:comment, author:, commentable:, alignment: 0) }
+      let!(:comment_against) { create(:comment, author:, commentable:, alignment: -1) }
 
       it "when the comments don't have votes most voted comments should be empty" do
         visit resource_path
@@ -54,7 +54,7 @@ describe "Most Voted Comments", type: :system do
       end
 
       context "when votes go to the neutral comment" do
-        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_neutral) }
+        let!(:vote) { create(:comment_vote, :up_vote, author:, comment: comment_neutral) }
 
         it "most voted comments should be empty" do
           visit resource_path
@@ -64,7 +64,7 @@ describe "Most Voted Comments", type: :system do
       end
 
       context "when there is a voted comment which is in Favor" do
-        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_for) }
+        let!(:vote) { create(:comment_vote, :up_vote, author:, comment: comment_for) }
 
         it "most voted comments should render the comment in favor" do
           visit resource_path
@@ -76,7 +76,7 @@ describe "Most Voted Comments", type: :system do
       end
 
       context "when there is a voted comment which is Against" do
-        let!(:vote) { create(:comment_vote, :up_vote, author: author, comment: comment_against) }
+        let!(:vote) { create(:comment_vote, :up_vote, author:, comment: comment_against) }
 
         it "most voted comments should render the comment against" do
           visit resource_path
@@ -88,8 +88,8 @@ describe "Most Voted Comments", type: :system do
       end
 
       context "when there are voted comments in Favor and Against" do
-        let!(:vote1) { create(:comment_vote, :up_vote, author: author, comment: comment_for) }
-        let!(:vote2) { create(:comment_vote, :up_vote, author: author, comment: comment_against) }
+        let!(:vote1) { create(:comment_vote, :up_vote, author:, comment: comment_for) }
+        let!(:vote2) { create(:comment_vote, :up_vote, author:, comment: comment_against) }
 
         it "most voted comments should render both comments" do
           visit resource_path
@@ -106,14 +106,14 @@ describe "Most Voted Comments", type: :system do
 
   describe "proposals with top_comments" do
     let!(:component) { create(:proposal_component, participatory_space: process) }
-    let!(:commentable) { create(:proposal, component: component, users: [author]) }
+    let!(:commentable) { create(:proposal, component:, users: [author]) }
 
     it_behaves_like "has top_comments"
   end
 
   describe "debates with top_comments" do
     let!(:component) { create(:debates_component, participatory_space: process) }
-    let!(:commentable) { create(:debate, component: component) }
+    let!(:commentable) { create(:debate, component:) }
 
     it_behaves_like "has top_comments"
   end

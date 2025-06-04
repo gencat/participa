@@ -9,7 +9,7 @@ namespace :proposals do
 
     query = Decidim::Proposals::Proposal
     query = query.where(id: args.start_id.to_i..) if args.start_id != "nil"
-    query = query.where("id < ?", args.end_id.to_i)
+    query = query.where(id: ...args.end_id.to_i)
 
     puts "Affected proposals: #{query.count}"
     query.find_each do |proposal|

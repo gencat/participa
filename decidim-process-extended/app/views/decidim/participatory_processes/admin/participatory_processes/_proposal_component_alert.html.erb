@@ -1,5 +1,5 @@
 <%
-  def proposal_component_published?
+  def proposal_component_unpublished?
     proposal_component = nil
 
     if defined?(current_participatory_process)
@@ -8,11 +8,11 @@
       proposal_component = current_participatory_process.components.find_by(manifest_name: 'proposals')
     end
 
-    proposal_component.nil? || !proposal_component.published?
+    !proposal_component.nil? && !proposal_component&.published?
   end
 %>
 
-<% if proposal_component_published? %>
+<% if proposal_component_unpublished? %>
   <% if translated_attribute(@group&.title) == 'Normativa' %>
     <div class="callout alert">
       <%= t('decidim.participatory_processes.admin.participatory_processes.proposal_component_alert') %>

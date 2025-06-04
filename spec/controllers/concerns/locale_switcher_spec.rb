@@ -7,7 +7,7 @@ module Decidim
     let(:default_locale) { "ca" }
     let(:alt_locale) { "es" }
     let(:available_locales) { %w(en ca oc es) }
-    let(:organization) { create(:organization, default_locale: default_locale) }
+    let(:organization) { create(:organization, default_locale:) }
 
     before do
       allow(Decidim).to receive(:default_locale).and_return default_locale
@@ -64,7 +64,7 @@ module Decidim
     end
 
     describe "request with user session" do
-      let(:user) { create(:user, :confirmed, locale: "es", organization: organization) }
+      let(:user) { create(:user, :confirmed, locale: "es", organization:) }
 
       before do
         allow(controller).to receive(:current_user) { user }
