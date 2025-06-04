@@ -50,6 +50,12 @@ jobs:
         shell: "bash"
         run: sudo apt remove google-chrome-stable
 
+      - name: Install ImageMagick
+        shell: "bash"
+        run: |
+          sudo apt-get update
+          sudo apt install imagemagick
+
       - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 119.0.6045.105

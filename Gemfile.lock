@@ -171,7 +171,6 @@ GIT
       decidim-forms (= 0.28.6)
     decidim-verifications (0.28.6)
       decidim-core (= 0.28.6)
-
 GIT
   remote: https://github.com/CodiTramuntana/decidim-module-cdtb.git
   revision: 960b7b978c0c5a09db739f8b7f9f9927958fb042
@@ -972,4 +971,4 @@ RUBY VERSION
    ruby 3.1.7p261
 
 BUNDLED WITH
-   2.5.14
+   2.3.27
