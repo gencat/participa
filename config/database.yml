@@ -2,27 +2,31 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV['DB_POOL'] %>
-  host: <%= ENV['DB_HOST'] %>
+  #  host: <%#= ENV['DB_HOST'] %>
+  host: "localhost"
   port: <%= ENV['DB_PORT'] %>
+  database: "participa_gencat_development"
+  username: "postgres"
+  password: "4F!9gT@qPzA$2rYj"
 
 development:
   <<: *default
   min_messages: notice
-  database: <%= ENV['DB_DATABASE'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+#  database: <%#= ENV['DB_DATABASE'] %>
+#  username: <%#= ENV['DB_USERNAME'] %>
+#  password: <%#= ENV['DB_PASSWORD'] %>
 
 test:
   <<: *default
-  database: <%= ENV['TEST_DB_DATABASE'] %>
-  username: <%= ENV['TEST_DB_USERNAME'] %>
-  password: <%= ENV['TEST_DB_PASSWORD'] %>
+#  database: <%#= ENV['TEST_DB_DATABASE'] %>
+#  username: <%#= ENV['TEST_DB_USERNAME'] %>
+#  password: <%#= ENV['TEST_DB_PASSWORD'] %>
 
 integration:
   <<: *default
-  database: <%= ENV['DB_DATABASE'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+#  database: <%#= ENV['DB_DATABASE'] %>
+#  username: <%#= ENV['DB_USERNAME'] %>
+#  password: <%#= ENV['DB_PASSWORD'] %>
 
 preprod:
   <<: *default
