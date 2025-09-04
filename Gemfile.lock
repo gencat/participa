@@ -171,6 +171,7 @@ GIT
       decidim-forms (= 0.28.6)
     decidim-verifications (0.28.6)
       decidim-core (= 0.28.6)
+
 GIT
   remote: https://github.com/CodiTramuntana/decidim-module-cdtb.git
   revision: 960b7b978c0c5a09db739f8b7f9f9927958fb042
@@ -180,6 +181,14 @@ GIT
       decidim (>= 0.28.0)
       rails (>= 6)
       ruby-progressbar
+
+GIT
+  remote: https://github.com/gencat/decidim-module-challenges
+  revision: 6affff7f48dc02f0461d1e283eee0fc7bdcfa319
+  branch: fix/change_user_to_author_challenges_surveys
+  specs:
+    decidim-challenges (0.6.1)
+      decidim-core (~> 0.27)
 
 GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil.git
@@ -379,8 +388,6 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-challenges (0.5.1)
-      decidim-core (~> 0.27)
     decidim-department_admin (0.8.1)
       decidim-admin (~> 0.28.0)
       decidim-core (~> 0.28.0)
@@ -936,7 +943,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb!
-  decidim-challenges (~> 0.5.1)
+  decidim-challenges!
   decidim-department_admin (~> 0.8.0)
   decidim-dev!
   decidim-home!

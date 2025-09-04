@@ -10,7 +10,7 @@ gem "decidim-templates", DECIDIM_VERSION
 
 #### Custom gems and modifications block start ####
 gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "main"
-gem "decidim-challenges", "~> 0.5.1"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", branch: "fix/change_user_to_author_challenges_surveys"
 gem "decidim-department_admin", "~> 0.8.0"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", tag: "v0.5.0"
