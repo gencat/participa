@@ -63,5 +63,8 @@ jobs:
           retry_on: error
           command: bundle install --jobs 4 --retry 3
 
+      - name: Create empty application.yml
+        run: touch config/application.yml
+
       - name: Run specs
         run: bin/rails cdtb:upgrades:validate_migrations

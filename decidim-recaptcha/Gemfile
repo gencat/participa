@@ -6,7 +6,7 @@ ruby RUBY_VERSION
 
 gemspec
 
-RECAPTCHA_DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
+RECAPTCHA_DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.29-stable" }.freeze
 
 gem "decidim", RECAPTCHA_DECIDIM_VERSION
 

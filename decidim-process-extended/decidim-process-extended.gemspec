@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Process::Extended::DECIDIM_VER
-  s.add_dependency "rails", ">= 5.2", "< 7.0.x"
+  s.add_dependency "rails", "~> 7.0.8"
   s.add_development_dependency "decidim-dev", Decidim::Process::Extended::DECIDIM_VER
   s.metadata["rubygems_mfa_required"] = "true"
 end
