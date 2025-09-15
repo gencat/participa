@@ -1,6 +1,12 @@
+require: rubocop-rspec
+require: rubocop-rspec_rails
+
 inherit_from:
   - .rubocop_ruby.yml
   - .rubocop_rails.yml
+
+Gemspec/DevelopmentDependencies:
+  Enabled: false
 
 RSpec:
   Include:
@@ -66,9 +72,6 @@ RSpec/NestedGroups:
 RSpec/NamedSubject:
   Enabled: false
 
-RSpec/Rails/InferredSpecType:
-  Enabled: false
-
 RSpec/RepeatedExampleGroupDescription:
   Enabled: false
 
@@ -76,4 +79,7 @@ RSpec/RepeatedExampleGroupBody:
   Enabled: false
 
 RSpec/StubbedMock:
+  Enabled: false
+
+RSpecRails/InferredSpecType:
   Enabled: false

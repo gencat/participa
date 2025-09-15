@@ -27,9 +27,6 @@ gem "stringio", "~> 3.1.7"
 
 gem "puma"
 
-# TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289
-# gem "figaro"
-# This gem is an alternative to Figaro meanwhile fix that problem in Figaro.
 # https://github.com/hlascelles/figjam
 gem "figjam"
 gem "wkhtmltopdf-binary"
@@ -55,9 +52,10 @@ group :development, :test do
   gem "faker"
   gem "rubocop-faker"
   # Set versions because Property AutoCorrect errors.
-  gem "rspec-rails", "~> 6.0.4"
-  gem "rubocop-factory_bot", "2.26"
-  gem "rubocop-rspec"
+  gem "rspec-rails"
+  gem "rubocop-factory_bot", "2.26", require: false
+  gem "rubocop-rspec", require: false
+  gem "rubocop-rspec_rails", require: false
 end
 
 group :development do
