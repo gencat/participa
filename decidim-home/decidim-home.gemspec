@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.summary = "Summary of Decidim::Home."
   s.description = "Description of Decidim::Home."
   s.license = "MIT"
+  s.required_ruby_version = ">= 3.2.9"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
