@@ -11,13 +11,13 @@ gem "decidim-templates", DECIDIM_VERSION
 #### Custom gems and modifications block start ####
 gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "chore/rework_cdtb_rack_attack_to_parse_ips_as_expected"
 # gem "decidim-challenges", "~> 0.5.1"
-gem "decidim-department_admin", "~> 0.9.0", path: "/home/oliver/prog/decidim/gencat/decidim-department_admin"
+gem "decidim-department_admin", "~> 0.9.0", git: "https://github.com/gencat/decidim-module-department_admin", branch: "upgrade/0.29-stable"
 gem "decidim-home", path: "decidim-home"
 gem "decidim-idcat_mobil", "~> 0.6.0", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", branch: "dep/upgrade-decidim-v0_29"
 gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-recaptcha", path: "decidim-recaptcha"
 gem "decidim-regulations", path: "decidim-regulations"
-gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
+gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git", branch: "upgrade/decidim_0.29"
 gem "decidim-top_comments", path: "decidim-top_comments"
 gem "decidim-verifications-members_picker", "~> 0.2.0", github: "gencat/decidim-verifications-members_picker", branch: "dep/upgrade-decidim-0_29"
 #### Custom gems and modifications block end ####
