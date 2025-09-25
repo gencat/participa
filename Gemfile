@@ -49,9 +49,9 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "faker"
-  gem "rubocop-faker"
   gem "rspec-rails"
   gem "rubocop-factory_bot", "2.26", require: false
+  gem "rubocop-faker"
   gem "rubocop-rspec", require: false
   gem "rubocop-rspec_rails", require: false
 end
