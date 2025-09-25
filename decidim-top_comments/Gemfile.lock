@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: d6d17c566caa98f91112ff786e7af67cb0c4faa3
+  revision: 7ba58b002231d28bbe5dbaf0105b067b70219439
   branch: release/0.29-stable
   specs:
     decidim (0.29.4)
@@ -262,9 +262,9 @@ GEM
     base64 (0.3.0)
     batch-loader (1.5.0)
     bcrypt (3.1.20)
-    better_html (2.1.1)
-      actionview (>= 6.0)
-      activesupport (>= 6.0)
+    better_html (2.2.0)
+      actionview (>= 7.0)
+      activesupport (>= 7.0)
       ast (~> 2.0)
       erubi (~> 1.4)
       parser (>= 2.4)
@@ -302,7 +302,7 @@ GEM
     charlock_holmes (0.7.9)
     childprocess (5.1.0)
       logger (~> 1.5)
-    commonmarker (0.23.11)
+    commonmarker (0.23.12)
     concurrent-ruby (1.3.4)
     crack (1.0.0)
       bigdecimal
@@ -385,7 +385,7 @@ GEM
       mime-types
     fog-local (0.9.0)
       fog-core (>= 1.27, < 3.0)
-    formatador (1.2.0)
+    formatador (1.2.1)
       reline
     foundation_rails_helper (4.0.1)
       actionpack (>= 4.1, < 7.1)
@@ -393,7 +393,7 @@ GEM
       activesupport (>= 4.1, < 7.1)
       railties (>= 4.1, < 7.1)
     gemoji (3.0.1)
-    geocoder (1.8.5)
+    geocoder (1.8.6)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
     globalid (1.2.1)
@@ -441,7 +441,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.8.1)
-    json (2.13.2)
+    json (2.14.1)
     jwt (3.1.2)
       base64
     kaminari (1.2.2)
@@ -480,13 +480,13 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.0.4)
+    marcel (1.1.0)
     matrix (0.4.3)
     method_source (1.1.0)
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0909)
+    mime-types-data (3.2025.0916)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.5)
@@ -507,20 +507,20 @@ GEM
     nio4r (2.7.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
-    oauth (1.1.0)
-      oauth-tty (~> 1.0, >= 1.0.1)
+    oauth (1.1.2)
+      oauth-tty (~> 1.0, >= 1.0.6)
       snaky_hash (~> 2.0)
-      version_gem (~> 1.1)
-    oauth-tty (1.0.5)
-      version_gem (~> 1.1, >= 1.1.1)
-    oauth2 (2.0.16)
+      version_gem (~> 1.1, >= 1.1.9)
+    oauth-tty (1.0.6)
+      version_gem (~> 1.1, >= 1.1.9)
+    oauth2 (2.0.17)
       faraday (>= 0.17.3, < 4.0)
       jwt (>= 1.0, < 4.0)
       logger (~> 1.2)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0, >= 2.0.3)
-      version_gem (~> 1.1, >= 1.1.8)
+      version_gem (~> 1.1, >= 1.1.9)
     omniauth (2.1.3)
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
@@ -672,7 +672,7 @@ GEM
       rspec-support (~> 3.13)
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
-    rspec-support (3.13.5)
+    rspec-support (3.13.6)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.65.1)
@@ -686,7 +686,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.46.0)
+    rubocop-ast (1.47.1)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
     rubocop-capybara (2.21.0)
@@ -763,7 +763,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
-    uri (0.13.2)
+    uri (1.0.3)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -815,16 +815,13 @@ DEPENDENCIES
   decidim-top_comments!
   faker
   letter_opener_web
-  listen (~> 3.1)
   puma
-  spring (~> 4.0)
-  spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
-  uri (~> 0.13.1)
+  uri (>= 1.0.3)
   web-console (~> 3.5)
 
 RUBY VERSION
-   ruby 3.2.6p234
+   ruby 3.2.9p265
 
 BUNDLED WITH
    2.4.22

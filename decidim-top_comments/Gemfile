@@ -12,7 +12,7 @@ gem "decidim-top_comments", path: "."
 gem "bootsnap", "~> 1.4"
 gem "puma"
 gem "uglifier", "~> 4.1"
-gem "uri", "~> 0.13.1"
+gem "uri", ">= 1.0.3"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
@@ -23,8 +23,5 @@ end
 group :development do
   gem "faker"
   gem "letter_opener_web"
-  gem "listen", "~> 3.1"
-  gem "spring", "~> 4.0"
-  gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 3.5"
 end

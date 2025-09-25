@@ -103,6 +103,42 @@ GIT
     decidim-debates (0.29.4)
       decidim-comments (= 0.29.4)
       decidim-core (= 0.29.4)
+    decidim-dev (0.29.4)
+      bullet (~> 7.1.6)
+      byebug (~> 11.0)
+      capybara (~> 3.39)
+      decidim (= 0.29.4)
+      erb_lint (~> 0.4.0)
+      factory_bot_rails (~> 6.2)
+      faker (~> 3.2)
+      i18n-tasks (~> 1.0)
+      nokogiri (~> 1.16, >= 1.16.2)
+      parallel_tests (~> 4.2)
+      puma (~> 6.2, >= 6.3.1)
+      rails-controller-testing (~> 1.0)
+      rspec (~> 3.12)
+      rspec-cells (~> 0.3.7)
+      rspec-html-matchers (~> 0.10)
+      rspec-rails (~> 6.0)
+      rspec-retry (~> 0.6.2)
+      rspec_junit_formatter (~> 0.6.0)
+      rubocop (~> 1.65.0)
+      rubocop-capybara (~> 2.21)
+      rubocop-factory_bot (~> 2.26)
+      rubocop-faker (~> 1.1)
+      rubocop-performance (~> 1.21)
+      rubocop-rails (~> 2.25)
+      rubocop-rspec (~> 3.0)
+      rubocop-rspec_rails (~> 2.30)
+      rubocop-rubycw (~> 0.1)
+      selenium-webdriver (~> 4.9)
+      simplecov (~> 0.22.0)
+      simplecov-cobertura (~> 2.1.0)
+      spring (~> 4.0)
+      spring-watcher-listen (~> 2.0)
+      w3c_rspec_validators (~> 0.3.0)
+      webmock (~> 3.18)
+      wisper-rspec (~> 1.0)
     decidim-forms (0.29.4)
       decidim-core (= 0.29.4)
       wicked_pdf (~> 2.1)
@@ -135,14 +171,93 @@ GIT
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0, >= 2.0.9)
+    decidim-templates (0.29.4)
+      decidim-core (= 0.29.4)
+      decidim-forms (= 0.29.4)
     decidim-verifications (0.29.4)
       decidim-core (= 0.29.4)
 
+GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-cdtb.git
+  revision: 39aec64ec38579b187a77b0276d068f449b73da0
+  branch: chore/rework_cdtb_rack_attack_to_parse_ips_as_expected
+  specs:
+    decidim-cdtb (0.5.6)
+      decidim (>= 0.28.0)
+      rails (>= 6)
+      ruby-progressbar
+
+GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer.git
+  revision: e369bc933f06fd1e47d6987fa6e408f0a2549e73
+  branch: upgrade/decidim_0.29
+  specs:
+    decidim-term_customizer (0.29.0)
+      decidim-admin (~> 0.29.0)
+      decidim-core (~> 0.29.0)
+
+GIT
+  remote: https://github.com/gencat/decidim-module-department_admin
+  revision: 038624034ab519563dcac5a5a62ce9b9e248d028
+  branch: upgrade/0.29-stable
+  specs:
+    decidim-department_admin (0.9.0)
+      decidim-admin (~> 0.29.0)
+      decidim-core (~> 0.29.0)
+
+GIT
+  remote: https://github.com/gencat/decidim-module-idcat_mobil.git
+  revision: d674100e3f2218f8a9366b7c6dda061eb7f4a380
+  branch: dep/upgrade-decidim-v0_29
+  specs:
+    decidim-idcat_mobil (0.6.0)
+      decidim (>= 0.29.0)
+      decidim-core (>= 0.29.0)
+      omniauth-idcat_mobil (~> 0.5.0)
+
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: dd9a5266d6b54d3629771d6d352f54f4fbfed49c
+  branch: dep/upgrade-decidim-0_29
+  specs:
+    decidim-verifications-members_picker (0.2.0)
+      decidim-core (~> 0.29.0)
+      decidim-verifications (~> 0.29.0)
+
 PATH
-  remote: .
+  remote: decidim-home
+  specs:
+    decidim-home (0.4.0)
+      decidim-core (>= 0.29)
+      rails (>= 7.0.8)
+
+PATH
+  remote: decidim-process-extended
+  specs:
+    decidim-process-extended (0.4.0)
+      decidim-admin (>= 0.29)
+      decidim-core (>= 0.29)
+      rails (~> 7.0.8)
+
+PATH
+  remote: decidim-recaptcha
   specs:
     decidim-recaptcha (0.1.0)
       decidim-core (>= 0.29)
+
+PATH
+  remote: decidim-regulations
+  specs:
+    decidim-regulations (0.1.3)
+      rails (~> 7.0.8)
+
+PATH
+  remote: decidim-top_comments
+  specs:
+    decidim-top_comments (0.27.9)
+      decidim-core (>= 0.28)
+      decidim-proposals (>= 0.28)
+      deface
 
 GEM
   remote: https://rubygems.org/
@@ -232,6 +347,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     bigdecimal (3.2.3)
+    bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
     browser (2.7.1)
@@ -249,6 +365,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    capybara-screenshot (1.0.26)
+      capybara (>= 1.0, < 4)
+      launchy
     cells (4.1.8)
       declarative-builder (~> 0.2.0)
       declarative-option (< 0.2.0)
@@ -263,6 +382,7 @@ GEM
     charlock_holmes (0.7.9)
     childprocess (5.1.0)
       logger (~> 1.5)
+    chronic (0.10.2)
     commonmarker (0.23.12)
     concurrent-ruby (1.3.4)
     crack (1.0.0)
@@ -272,50 +392,32 @@ GEM
     css_parser (1.21.1)
       addressable
     csv (3.3.5)
+    daemons (1.4.1)
     dartsass (1.49.8)
+    database_cleaner (2.1.0)
+      database_cleaner-active_record (>= 2, < 3)
+    database_cleaner-active_record (2.2.2)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0)
+    database_cleaner-core (2.0.1)
     date (3.4.1)
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-dev (0.29.4)
-      bullet (~> 7.1.6)
-      byebug (~> 11.0)
-      capybara (~> 3.39)
-      decidim (= 0.29.4)
-      erb_lint (~> 0.4.0)
-      factory_bot_rails (~> 6.2)
-      faker (~> 3.2)
-      i18n-tasks (~> 1.0)
-      nokogiri (~> 1.16, >= 1.16.2)
-      parallel_tests (~> 4.2)
-      puma (~> 6.2, >= 6.3.1)
-      rails-controller-testing (~> 1.0)
-      rspec (~> 3.12)
-      rspec-cells (~> 0.3.7)
-      rspec-html-matchers (~> 0.10)
-      rspec-rails (~> 6.0)
-      rspec-retry (~> 0.6.2)
-      rspec_junit_formatter (~> 0.6.0)
-      rubocop (~> 1.65.0)
-      rubocop-capybara (~> 2.21)
-      rubocop-factory_bot (~> 2.26)
-      rubocop-faker (~> 1.1)
-      rubocop-performance (~> 1.21)
-      rubocop-rails (~> 2.25)
-      rubocop-rspec (~> 3.0)
-      rubocop-rspec_rails (~> 2.30)
-      rubocop-rubycw (~> 0.1)
-      selenium-webdriver (~> 4.9)
-      simplecov (~> 0.22.0)
-      simplecov-cobertura (~> 2.1.0)
-      spring (~> 4.0)
-      spring-watcher-listen (~> 2.0)
-      w3c_rspec_validators (~> 0.3.0)
-      webmock (~> 3.18)
-      wisper-rspec (~> 1.0)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
+    delayed_job (4.1.13)
+      activesupport (>= 3.0, < 9.0)
+    delayed_job_active_record (4.1.11)
+      activerecord (>= 3.0, < 9.0)
+      delayed_job (>= 3.0, < 5)
     devise (4.9.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -364,7 +466,16 @@ GEM
       logger
     faraday-net_http (3.4.1)
       net-http (>= 0.5.0)
+    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-aarch64-linux-musl)
+    ffi (1.17.2-arm-linux-gnu)
+    ffi (1.17.2-arm-linux-musl)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
+    figjam (3.0.0)
+      thor (>= 0.14.0, < 2)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -386,7 +497,7 @@ GEM
     geocoder (1.8.6)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
-    globalid (1.2.1)
+    globalid (1.3.0)
       activesupport (>= 6.1)
     graphql (2.2.17)
       base64
@@ -399,7 +510,7 @@ GEM
       graphql (~> 2.0)
       html-pipeline (~> 2.14, >= 2.14.3)
     hashdiff (1.2.1)
-    hashie (5.0.0)
+    hashie (3.6.0)
     highline (3.1.2)
       reline
     html-pipeline (2.14.3)
@@ -431,7 +542,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.8.1)
-    json (2.14.1)
+    json (2.15.0)
     jwt (3.1.2)
       base64
     kaminari (1.2.2)
@@ -476,13 +587,14 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0916)
+    mime-types-data (3.2025.0924)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
+    multipart-post (2.0.0)
     net-http (0.6.0)
       uri
     net-imap (0.5.10)
@@ -495,7 +607,21 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.4)
+    nokogiri (1.18.10-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.10-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.10-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.10-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.10-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.10-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.10-x86_64-linux-musl)
       racc (~> 1.4)
     oauth (1.1.2)
       oauth-tty (~> 1.0, >= 1.0.6)
@@ -511,9 +637,9 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0, >= 2.0.3)
       version_gem (~> 1.1, >= 1.1.9)
-    omniauth (2.1.3)
+    omniauth (2.0.4)
       hashie (>= 3.4.6)
-      rack (>= 2.2.3)
+      rack (>= 1.6.2, < 3)
       rack-protection
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
@@ -522,6 +648,9 @@ GEM
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
+    omniauth-idcat_mobil (0.5.0)
+      omniauth (~> 2.0.4)
+      omniauth-oauth2 (>= 1.7.2, < 2.0)
     omniauth-oauth (1.2.1)
       oauth
       omniauth (>= 1.0, < 3)
@@ -551,6 +680,7 @@ GEM
     pg_search (2.3.7)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
+    polyglot (0.3.5)
     premailer (1.27.0)
       addressable
       css_parser (>= 1.19.0)
@@ -681,8 +811,8 @@ GEM
       prism (~> 1.4)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
-    rubocop-factory_bot (2.26.1)
-      rubocop (~> 1.61)
+    rubocop-factory_bot (2.26.0)
+      rubocop (~> 1.41)
     rubocop-faker (1.2.0)
       faker (>= 2.12.0)
       rubocop (>= 1.13.0)
@@ -734,11 +864,17 @@ GEM
     snaky_hash (2.0.3)
       hashie (>= 0.1.0, < 6)
       version_gem (>= 1.1.8, < 3)
+    soda-ruby (1.0.1)
+      hashie (~> 3.5)
+      multipart-post (~> 2.0.0)
+      sys-uname (~> 1.0.2)
     spring (4.4.0)
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
       spring (>= 4)
     stringio (3.1.7)
+    sys-uname (1.0.4)
+      ffi (>= 1.0.0)
     temple (0.10.4)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
@@ -766,6 +902,11 @@ GEM
       rexml (~> 3.2)
     warden (1.2.9)
       rack (>= 2.0.9)
+    web-console (4.2.1)
+      actionview (>= 6.0.0)
+      activemodel (>= 6.0.0)
+      bindex (>= 0.4.0)
+      railties (>= 6.0.0)
     web-push (3.0.2)
       jwt (~> 3.0)
       openssl (~> 3.0)
@@ -778,31 +919,69 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     wicked_pdf (2.8.2)
       activesupport
       ostruct
     wisper (2.0.1)
     wisper-rspec (1.1.0)
+    wkhtmltopdf-binary (0.12.6.10)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.3)
 
 PLATFORMS
-  x86_64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  x86_64-darwin
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   bootsnap
   byebug
+  capybara-screenshot
+  daemons
+  database_cleaner
   decidim!
-  decidim-dev (>= 0.29)
+  decidim-cdtb!
+  decidim-department_admin (~> 0.9.0)!
+  decidim-dev!
+  decidim-home!
+  decidim-idcat_mobil (~> 0.6.0)!
+  decidim-process-extended!
   decidim-recaptcha!
+  decidim-regulations!
+  decidim-templates!
+  decidim-term_customizer!
+  decidim-top_comments!
+  decidim-verifications-members_picker (~> 0.2.0)!
+  deface
+  delayed_job_active_record
   faker
-  letter_opener_web
+  figjam
+  letter_opener_web (~> 3.0)
+  listen
+  puma
   recaptcha
-  stringio (>= 3.1.7)
+  rspec-rails
+  rubocop-factory_bot (= 2.26)
+  rubocop-faker
+  rubocop-rspec
+  rubocop-rspec_rails
+  soda-ruby
+  stringio (~> 3.1.7)
+  web-console
+  whenever
+  wicked_pdf (~> 2.8.0)
+  wkhtmltopdf-binary
 
 RUBY VERSION
    ruby 3.2.9p265
 
 BUNDLED WITH
-   2.4.22
+   2.6.8

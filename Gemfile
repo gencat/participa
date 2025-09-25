@@ -8,19 +8,19 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "r
 gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-#### Custom gems and modifications block start ####
-# gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "main"
+gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "chore/rework_cdtb_rack_attack_to_parse_ips_as_expected"
 # gem "decidim-challenges", "~> 0.5.1"
-# gem "decidim-department_admin", "~> 0.8.0"
-# gem "decidim-home", path: "decidim-home"
-# gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", tag: "v0.5.0"
-# gem "decidim-process-extended", path: "decidim-process-extended"
-# gem "decidim-recaptcha", path: "decidim-recaptcha"
-# gem "decidim-regulations", path: "decidim-regulations"
-# gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git"
-# gem "decidim-top_comments", path: "decidim-top_comments"
-# gem "decidim-verifications-members_picker", "~> 0.0.7"
-#### Custom gems and modifications block end ####
+gem "decidim-department_admin", "~> 0.9.0", git: "https://github.com/gencat/decidim-module-department_admin", branch: "upgrade/0.29-stable"
+gem "decidim-idcat_mobil", "~> 0.6.0", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", branch: "dep/upgrade-decidim-v0_29"
+gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git", branch: "upgrade/decidim_0.29"
+gem "decidim-verifications-members_picker", "~> 0.2.0", github: "gencat/decidim-verifications-members_picker", branch: "dep/upgrade-decidim-0_29"
+
+# Internal modules
+gem "decidim-home", path: "decidim-home"
+gem "decidim-process-extended", path: "decidim-process-extended"
+gem "decidim-recaptcha", path: "decidim-recaptcha"
+gem "decidim-regulations", path: "decidim-regulations"
+gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "soda-ruby", require: false
 gem "stringio", "~> 3.1.7"
@@ -42,7 +42,6 @@ gem "recaptcha"
 # Error uninitialized constant WickedPdf::WickedPdfHelper::Assets::SprocketsEnvironment::Sprockets
 # in update to 2.8.0
 # https://github.com/mileszs/wicked_pdf/issues/1102
-
 gem "wicked_pdf", "~> 2.8.0"
 
 group :development, :test do
@@ -51,7 +50,6 @@ group :development, :test do
   gem "decidim-dev", DECIDIM_VERSION
   gem "faker"
   gem "rubocop-faker"
-  # Set versions because Property AutoCorrect errors.
   gem "rspec-rails"
   gem "rubocop-factory_bot", "2.26", require: false
   gem "rubocop-rspec", require: false

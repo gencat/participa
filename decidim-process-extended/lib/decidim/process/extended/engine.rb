@@ -19,7 +19,9 @@ module Decidim
 
         # activate Decidim LayoutHelper for the overriden views
         initializer "decidim_process_extended.helpers" do
-          ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
+          Rails.application.config.to_prepare do
+            ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
+          end
         end
 
         initializer "decidim_process_extended.webpacker.assets_path" do
