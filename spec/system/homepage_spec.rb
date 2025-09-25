@@ -8,7 +8,7 @@ describe "Homepage", type: :system do
   let!(:organization) do
     create(
       :organization,
-      name: "Participa Gencat",
+      name: { ca: "Participa Gencat", en: "Participa Gencat", es: "Participa Gencat" },
       default_locale: :ca,
       available_locales: [:ca, :en, :es]
     )
