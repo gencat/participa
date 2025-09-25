@@ -9,7 +9,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "chore/rework_cdtb_rack_attack_to_parse_ips_as_expected"
-# gem "decidim-challenges", "~> 0.5.1"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges.git", branch: "dep/upgrade-decidim-0_29"
 gem "decidim-department_admin", "~> 0.9.0", git: "https://github.com/gencat/decidim-module-department_admin", branch: "upgrade/0.29-stable"
 gem "decidim-idcat_mobil", "~> 0.6.0", git: "https://github.com/gencat/decidim-module-idcat_mobil.git", branch: "dep/upgrade-decidim-v0_29"
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git", branch: "upgrade/decidim_0.29"
