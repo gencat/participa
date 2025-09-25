@@ -1,4 +1,10 @@
 en:
+  decidim:
+    verifications:
+        id_documents:
+          dni: DNI
+          nie: NIE
+          passport: Passport
   parent_scope:
     themes:
       name: Themes
