@@ -134,6 +134,8 @@ GIT
       selenium-webdriver (~> 4.9)
       simplecov (~> 0.22.0)
       simplecov-cobertura (~> 2.1.0)
+      spring (~> 4.0)
+      spring-watcher-listen (~> 2.0)
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
@@ -196,15 +198,15 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges.git
-  revision: dfc9b458672db4290cfe556eb51016948613909a
-  branch: dep/upgrade-decidim-0_29
+  revision: bb6835cdc25be89c220e5a132b8d09fa7784a729
+  tag: v0.7.0
   specs:
     decidim-challenges (0.7.0)
       decidim-core (~> 0.29)
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin
-  revision: 038624034ab519563dcac5a5a62ce9b9e248d028
+  revision: a81d618c2b29a5806233c1f08bb6dff951dffd2f
   branch: upgrade/0.29-stable
   specs:
     decidim-department_admin (0.9.0)
@@ -702,7 +704,7 @@ GEM
     puma (6.6.1)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.17)
+    rack (2.2.18)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)
@@ -874,6 +876,10 @@ GEM
       hashie (~> 3.5)
       multipart-post (~> 2.0.0)
       sys-uname (~> 1.0.2)
+    spring (4.4.0)
+    spring-watcher-listen (2.1.0)
+      listen (>= 2.7, < 4.0)
+      spring (>= 4)
     stringio (3.1.7)
     sys-uname (1.0.4)
       ffi (>= 1.0.0)
