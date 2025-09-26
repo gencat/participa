@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Deface::Override.new(
   virtual_path: "decidim/assemblies/admin/assemblies/_form",
   name: "disable-area-id-select-in-assemblies-form",
