@@ -20,7 +20,6 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
       broadcast(:ok, process)
     else
       form.errors.add(:hero_image, process.errors[:hero_image]) if process.errors.include? :hero_image
-      form.errors.add(:banner_image, process.errors[:banner_image]) if process.errors.include? :banner_image
       broadcast(:invalid)
     end
   end
