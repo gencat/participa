@@ -80,6 +80,9 @@ jobs:
           retry_on: error
           command: cd decidim-recaptcha && bundle install --jobs 4 --retry 3 
 
+      - name: Disable Spring
+        run: echo "DISABLE_SPRING=1" >> $GITHUB_ENV
+
       - name: Generate recaptcha test_app
         run: |
           cd decidim-recaptcha
