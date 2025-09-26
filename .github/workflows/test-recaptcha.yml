@@ -97,6 +97,3 @@ jobs:
           max_attempts: 3
           retry_on: error
           command: cd decidim-recaptcha && CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
-
-      -  name: Upload coverage
-         run: ./.github/upload_coverage.sh decidim-recaptcha $GITHUB_EVENT_PATH

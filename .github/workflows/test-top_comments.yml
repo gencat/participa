@@ -96,7 +96,4 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: cd decidim-top_comments && CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
-
-      -  name: Upload coverage
-         run: ./.github/upload_coverage.sh decidim-top_comments $GITHUB_EVENT_PATH
+          command: cd decidim-top_comments && bundle exec rake --backtrace -t
