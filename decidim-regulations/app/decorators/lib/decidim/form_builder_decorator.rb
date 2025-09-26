@@ -4,7 +4,7 @@
 module Lib::Decidim::FormBuilderDecorator
   def self.decorate
     Decidim::FormBuilder.class_eval do
-      def types_select(name, collection, options = {})
+      def types_select(name, collection, options = {}, html_options = {})
         selectables = if collection.first.is_a?(Decidim::ParticipatoryProcessType)
                         collection_transformed = collection
                                                  .map { |a| [a.title[I18n.locale.to_s], a.id] }
@@ -25,7 +25,7 @@ module Lib::Decidim::FormBuilderDecorator
                         )
                       end
 
-        select(name, selectables, options)
+        select(name, selectables, options, html_options)
       end
     end
   end

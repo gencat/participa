@@ -182,8 +182,8 @@
       <div class="row column">
         <%= form.areas_select :area_id,
                               areas_for_select(current_organization),
-                              selected: current_participatory_process.try(:decidim_area_id),
-                              include_blank: t(".select_an_area") %>
+                              { include_blank: t(".select_an_area"), selected: current_user.areas.first.id || current_participatory_process.try(:decidim_area_id) },
+                              { disabled: true } %>
       </div>
     </div>
   </div>
