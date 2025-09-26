@@ -80,6 +80,9 @@ jobs:
           retry_on: error
           command: cd decidim-process-extended && bundle install --jobs 4 --retry 3 
 
+      - name: Disable Spring
+        run: echo "DISABLE_SPRING=1" >> $GITHUB_ENV
+
       - name: Generate process_extended test_app
         run: |
           cd decidim-process-extended
