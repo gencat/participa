@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/PerceivedComplexity
 module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesControllerDecorator
   def self.decorate
     Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_eval do
@@ -15,9 +13,7 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesControllerD
         Decidim::ParticipatoryProcesses::Admin::UpdateParticipatoryProcess.call(@form, current_participatory_process) do
           on(:ok) do |participatory_process|
             # add "default" hero image code
-            if participatory_process.attached_uploader(:hero_image).path.blank?
-              add_default_image_hero participatory_process.id
-            end
+            add_default_image_hero participatory_process.id if participatory_process.attached_uploader(:hero_image).path.blank?
             flash[:notice] = I18n.t("participatory_processes.update.success", scope: "decidim.admin")
             redirect_to edit_participatory_process_path(participatory_process)
           end
@@ -79,6 +75,3 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesControllerD
 end
 
 Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesControllerDecorator.decorate
-
-# rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/PerceivedComplexity

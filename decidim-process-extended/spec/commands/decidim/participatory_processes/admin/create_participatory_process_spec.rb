@@ -66,7 +66,7 @@ module Decidim::ParticipatoryProcesses
           persisted?: false,
           valid?: false,
           errors: {
-            hero_image: "File resolution is too large",
+            hero_image: "File resolution is too large"
           }
         ).as_null_object
       end
