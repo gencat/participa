@@ -215,8 +215,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil.git
-  revision: d674100e3f2218f8a9366b7c6dda061eb7f4a380
-  branch: dep/upgrade-decidim-v0_29
+  revision: e774591c6af309b171300fdc6e1365547473c0f1
+  tag: v0.6.0
   specs:
     decidim-idcat_mobil (0.6.0)
       decidim (>= 0.29.0)
@@ -468,7 +468,7 @@ GEM
       railties (>= 6.1.0)
     faker (3.5.2)
       i18n (>= 1.8.11, < 2)
-    faraday (2.13.4)
+    faraday (2.14.0)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -538,7 +538,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.8, >= 1.8.1)
       terminal-table (>= 1.5.1)
-    icalendar (2.11.2)
+    icalendar (2.12.0)
       base64
       ice_cube (~> 0.16)
       logger
@@ -961,7 +961,7 @@ DEPENDENCIES
   decidim-department_admin (~> 0.9.0)!
   decidim-dev!
   decidim-home!
-  decidim-idcat_mobil (~> 0.6.0)!
+  decidim-idcat_mobil!
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
