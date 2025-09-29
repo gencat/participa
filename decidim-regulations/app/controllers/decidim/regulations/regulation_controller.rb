@@ -11,8 +11,6 @@ module Decidim
       include HasParticipatorySpaceContentBlocks
       include RegulationHelper
 
-      participatory_space_layout only: [:show, :all_metrics]
-
       helper_method :collection,
                     :promoted_collection,
                     :participatory_processes,
@@ -50,8 +48,8 @@ module Decidim
         {
           with_any_scope: nil,
           with_any_area: nil,
-          with_date: default_date_filter,
-          with_any_type: nil
+          with_any_type: nil,
+          with_date: default_date_filter
         }
       end
 
