@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe UpdateNotificationsSettings do
-    let(:command) { described_class.new(user, form) }
+    let(:command) { described_class.new(form) }
     let(:user) { create(:user) }
     let(:valid) { true }
     let(:data) do
