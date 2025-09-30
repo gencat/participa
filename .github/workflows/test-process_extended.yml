@@ -88,6 +88,7 @@ jobs:
           cd decidim-process-extended
           bundle exec rake decidim:generate_external_test_app
           cd spec/decidim_dummy_app/
+          bundle exec rake decidim_process_extended:install:migrations
           RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Run RSpec
