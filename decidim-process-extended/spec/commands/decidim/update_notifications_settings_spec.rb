@@ -28,7 +28,8 @@ module Decidim
         direct_message_types: data[:direct_message_types],
         notification_settings: data[:notification_settings],
         notifications_sending_frequency: data[:notifications_sending_frequency],
-        valid?: valid
+        valid?: valid,
+        current_user: user
       )
     end
 
