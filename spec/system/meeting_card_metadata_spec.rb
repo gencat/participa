@@ -20,7 +20,7 @@ describe "Meeting card metadata", type: :system do
     it "shows participatory process name for each meeting card" do
       expect(page).to have_content("Test participatory process")
 
-      within("[data-meeting-id='#{meeting.id}']") do
+      within("#meetings__meeting_#{meeting.id}") do
         expect(page).to have_content("Test participatory process")
       end
     end
@@ -34,7 +34,7 @@ describe "Meeting card metadata", type: :system do
     it "does not show participatory process name for meetings from the same process" do
       expect(page).to have_content("Test participatory process")
 
-      within("[data-meeting-id='#{meeting.id}']") do
+      within("#meetings__meeting_#{meeting.id}") do
         expect(page).to have_no_content("Test participatory process")
       end
     end
