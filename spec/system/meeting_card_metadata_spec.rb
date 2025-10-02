@@ -14,7 +14,7 @@ describe "Meeting card metadata", type: :system do
 
   context "when viewing general meetings page (/meetings)" do
     before do
-      visit decidim.meetings_path
+      visit meetings_path
     end
 
     it "shows participatory process name for each meeting card" do
