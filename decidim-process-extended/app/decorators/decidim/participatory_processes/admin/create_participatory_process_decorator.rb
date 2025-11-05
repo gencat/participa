@@ -31,7 +31,7 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
         data = {
           event: "decidim.events.participatory_space.created",
           event_class: Decidim::SimpleParticipatorySpaceEvent,
-          resource: resource,
+          resource:,
           affected_users: [user],
           extra: {
             author_name: form.current_user.name,
