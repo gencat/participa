@@ -31,13 +31,13 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
         data = {
           event: "decidim.events.participatory_space.created",
           event_class: Decidim::SimpleParticipatorySpaceEvent,
-          resource: process,
+          resource: resource,
           affected_users: [user],
           extra: {
             author_name: form.current_user.name,
-            area: process.area&.name,
-            start_date: process.start_date,
-            end_date: process.end_date,
+            area: resource.area&.name,
+            start_date: resource.start_date,
+            end_date: resource.end_date,
             force_email: send_participatory_space_news_email?(user)
           }
         }
