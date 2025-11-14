@@ -9,7 +9,7 @@ module Decidim::ParticipatoryProcesses::Admin
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let(:participatory_process) do
       create(:participatory_process, organization:,
-                                     hero_image: nil, banner_image: nil)
+                                     hero_image: nil)
     end
 
     let(:participatory_process_params) do
@@ -39,7 +39,6 @@ module Decidim::ParticipatoryProcesses::Admin
           expect(response).to have_http_status(:found)
 
           expect(participatory_process.reload.hero_image.attachment&.blob&.filename).not_to eq(nil)
-          expect(participatory_process.reload.banner_image.attachment&.blob&.filename).not_to eq(nil)
         end
       end
     end

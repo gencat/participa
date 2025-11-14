@@ -6,7 +6,7 @@ describe "Most Voted Comments", type: :system do
   let(:organization) do
     create(
       :organization,
-      name: "Participa Gencat",
+      name: { ca: "Participa Gencat", en: "Participa Gencat", es: "Participa Gencat" },
       default_locale: :en,
       available_locales: [:ca, :en]
     )

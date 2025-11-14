@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.1.7
+  RUBY_VERSION: 3.2.9
 
 jobs:
   test-report:
@@ -80,6 +80,9 @@ jobs:
           retry_on: error
           command: cd decidim-recaptcha && bundle install --jobs 4 --retry 3 
 
+      - name: Disable Spring
+        run: echo "DISABLE_SPRING=1" >> $GITHUB_ENV
+
       - name: Generate recaptcha test_app
         run: |
           cd decidim-recaptcha
@@ -94,6 +97,3 @@ jobs:
           max_attempts: 3
           retry_on: error
           command: cd decidim-recaptcha && CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
-
-      -  name: Upload coverage
-         run: ./.github/upload_coverage.sh decidim-recaptcha $GITHUB_EVENT_PATH

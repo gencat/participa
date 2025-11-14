@@ -19,7 +19,11 @@ end
 require "decidim/dev/common_rake"
 
 desc "Generates a dummy app for testing"
-task test_app: "decidim:generate_external_test_app"
+task test_app: "decidim:generate_external_test_app" do
+  app_yml = File.join("spec", "decidim_dummy_app", "config", "application.yml")
+  FileUtils.mkdir_p(File.dirname(app_yml))
+  FileUtils.touch(app_yml)
+end
 
 desc "Generates a development app."
 task development_app: "decidim:generate_external_development_app"

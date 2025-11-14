@@ -17,7 +17,7 @@ module Participa
     config.railties_order = [:main_app, Decidim::DepartmentAdmin::Engine, :all]
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.0
     config.i18n.available_locales = %w(en ca es oc)
 
     # Processes group ids used to determine whether a process is a regulation or a process
@@ -41,7 +41,7 @@ module Participa
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.eager_load_paths << Rails.root.join("lib")
 
     # Make decorators available
     config.to_prepare do

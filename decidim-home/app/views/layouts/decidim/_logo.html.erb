@@ -1,7 +1,7 @@
 <% if organization %>
   <% if organization.logo.attached? %>
     <%= link_to "https://web.gencat.cat/ca/inici/", target: "_blank" do %>
-      <%= image_tag organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: organization.name) %>
+      <%= image_tag organization.attached_uploader(:logo).variant_path(:medium), alt: t("logo", scope: "decidim.accessibility", organization: translated_attribute(organization.name)) %>
     <% end %>
   <% end %>
 <% else %>

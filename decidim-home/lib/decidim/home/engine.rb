@@ -12,8 +12,10 @@ module Decidim
 
       initializer "decidim_home.helpers" do
         # activate Decidim LayoutHelper for the overriden views
-        ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
-        ::Decidim::ApplicationController.helper ::Decidim::LayoutHelper
+        Rails.application.config.to_prepare do
+          ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
+          ::Decidim::ApplicationController.helper ::Decidim::LayoutHelper
+        end
       end
 
       initializer "decidim_home.register_icons" do

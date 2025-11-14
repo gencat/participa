@@ -5,7 +5,7 @@
 <div class="gencat-navbar">
   <div class="custom-navbar">
     <%= link_to  "/" do %>
-      <%= current_organization.name %>
+      <%= translated_attribute(current_organization.name) %>
     <% end %>
   </div>
 </div>

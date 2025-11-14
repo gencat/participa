@@ -21,6 +21,7 @@ default: &default
   RECAPTCHA_SITE_KEY: 'site key'
   RECAPTCHA_SECRET_KEY: 'secret key'
   ENABLE_MACHINE_TRANSLATIONS: "true"
+  VERIFICATIONS_DOCUMENT_TYPES: "dni,nie,passport"
 
 development:
   <<: *default

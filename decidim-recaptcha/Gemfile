@@ -6,15 +6,17 @@ ruby RUBY_VERSION
 
 gemspec
 
-RECAPTCHA_DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
+RECAPTCHA_DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.29-stable" }.freeze
 
 gem "decidim", RECAPTCHA_DECIDIM_VERSION
 
 gem "recaptcha"
 
+gem "stringio", ">= 3.1.7"
+
 group :development, :test do
   gem "bootsnap", require: true
   gem "byebug", platform: :mri
   gem "faker"
-  gem "listen"
+  gem "letter_opener_web"
 end

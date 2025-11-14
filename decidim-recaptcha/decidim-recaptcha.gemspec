@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.summary = "Summary of Decidim::Recaptcha."
   s.description = "Description of Decidim::Recaptcha."
   s.license = "MIT"
+  s.required_ruby_version = ">= 3.2.9"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 

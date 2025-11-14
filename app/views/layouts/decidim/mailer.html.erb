@@ -48,7 +48,7 @@
                         <tr>
                           <td style="font-family: sans-serif, 'Open Sans'; font-size: 35px; padding-top: 15px; color: #fff;">
                           <% if (@organization) %>
-                            <%= @organization.name %>
+                            <%= translated(@organization.name) %>
                           <% else %>
                             <%= Decidim.application_name %>
                           <% end %>

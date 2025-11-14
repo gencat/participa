@@ -11,8 +11,6 @@ module Decidim
       include HasParticipatorySpaceContentBlocks
       include RegulationHelper
 
-      participatory_space_layout only: [:show, :all_metrics]
-
       helper_method :collection,
                     :promoted_collection,
                     :participatory_processes,
@@ -36,11 +34,7 @@ module Decidim
       end
 
       def all_metrics
-        if current_participatory_space.show_statistics
-          enforce_permission_to :read, :process, process: current_participatory_space
-        else
-          render status: :not_found
-        end
+        enforce_permission_to :read, :process, process: current_participatory_space
       end
 
       private
@@ -54,8 +48,8 @@ module Decidim
         {
           with_any_scope: nil,
           with_any_area: nil,
-          with_date: default_date_filter,
-          with_any_type: nil
+          with_any_type: nil,
+          with_date: default_date_filter
         }
       end
 

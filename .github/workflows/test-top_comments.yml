@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.1.7
+  RUBY_VERSION: 3.2.9
 
 jobs:
   test-report:
@@ -80,6 +80,9 @@ jobs:
           retry_on: error
           command: cd decidim-top_comments && bundle install --jobs 4 --retry 3 
 
+      - name: Disable Spring
+        run: echo "DISABLE_SPRING=1" >> $GITHUB_ENV
+
       - name: Generate top_comments test_app
         run: |
           cd decidim-top_comments
@@ -93,7 +96,4 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: cd decidim-top_comments && CI=1 PARTICIPA_SIMPLECOV=1 bundle exec rake --backtrace -t
-
-      -  name: Upload coverage
-         run: ./.github/upload_coverage.sh decidim-top_comments $GITHUB_EVENT_PATH
+          command: cd decidim-top_comments && bundle exec rake --backtrace -t
