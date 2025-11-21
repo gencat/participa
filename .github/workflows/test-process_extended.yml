@@ -89,9 +89,15 @@ jobs:
       - name: Generate process_extended test_app
         run: |
           cd decidim-process-extended
-          bundle exec rake test_app
-          cd spec/decidim_dummy_app/
-          RAILS_ENV=test bundle exec rails db:migrate
+          bundle exec rake decidim:generate_external_test_app
+
+      - name: Add process_extended migrations to test_app
+        run: |
+          pwd \
+          cd spec/decidim_dummy_app \
+          && bundle install --jobs 4 --retry 3 \
+          && bundle exec rake railties:install:migrations FROM=decidim_process_extended \
+          && RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Run RSpec
         uses: nick-fields/retry@v3
