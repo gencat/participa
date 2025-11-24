@@ -94,9 +94,14 @@ jobs:
       - name: Add process_extended migrations to test_app
         run: |
           pwd \
-          cd spec/decidim_dummy_app \
+          && ls \
+          && cd decidim-process-extended/spec/decidim_dummy_app \
           && bundle install --jobs 4 --retry 3 \
+          && echo $? \
           && bundle exec rake railties:install:migrations FROM=decidim_process_extended \
+          && echo $? \
+          && echo "all migrations installed..." \
+          && ls db/migrate \
           && RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Run RSpec
