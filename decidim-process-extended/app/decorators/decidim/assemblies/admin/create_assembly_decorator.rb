@@ -21,13 +21,13 @@ module Decidim::Assemblies::Admin::CreateAssemblyDecorator
         data = {
           event: "decidim.events.participatory_space.created",
           event_class: Decidim::SimpleParticipatorySpaceEvent,
-          resource: assembly,
+          resource: resource,
           affected_users: [user],
           extra: {
             author_name: form.current_user.name,
-            area: assembly.area&.name,
-            start_date: assembly.creation_date,
-            end_date: assembly.closing_date,
+            area: resource.area&.name,
+            start_date: resource.creation_date,
+            end_date: resource.closing_date,
             force_email: send_participatory_space_news_email?(user)
           }
         }
