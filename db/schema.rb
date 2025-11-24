@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_08_13_152955) do
+ActiveRecord::Schema[7.0].define(version: 2025_11_24_084828) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -424,13 +424,13 @@ ActiveRecord::Schema[7.0].define(version: 2025_08_13_152955) do
   end
 
   create_table "decidim_challenges_surveys", force: :cascade do |t|
-    t.bigint "decidim_user_id", null: false
+    t.bigint "decidim_author_id", null: false
     t.bigint "decidim_challenge_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.index ["decidim_author_id", "decidim_challenge_id"], name: "decidim_challenges_surveys_author_challenge_unique", unique: true
+    t.index ["decidim_author_id"], name: "index_decidim_challenges_surveys_on_decidim_author_id"
     t.index ["decidim_challenge_id"], name: "index_decidim_challenges_surveys_on_decidim_challenge_id"
-    t.index ["decidim_user_id", "decidim_challenge_id"], name: "decidim_challenges_surveys_user_challenge_unique", unique: true
-    t.index ["decidim_user_id"], name: "index_decidim_challenges_surveys_on_decidim_user_id"
   end
 
   create_table "decidim_coauthorships", force: :cascade do |t|
