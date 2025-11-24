@@ -394,7 +394,7 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-challenges (0.7.0)
+    decidim-challenges (0.7.3)
       decidim-core (~> 0.29)
     decidim-idcat_mobil (0.6.0)
       decidim (>= 0.29.0)
@@ -945,7 +945,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb!
-  decidim-challenges (~> 0.7.0)
+  decidim-challenges (~> 0.7.3)
   decidim-department_admin!
   decidim-dev!
   decidim-home!
