@@ -75,10 +75,11 @@ jobs:
       - name: Install Ruby deps
         uses: nick-fields/retry@v3
         with:
+          working-directory: "decidim-process-extended"
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: cd decidim-process-extended && bundle install --jobs 4 --retry 3 
+          command: bundle install --jobs 4 --retry 3
 
       - name: Disable Spring
         run: echo "DISABLE_SPRING=1" >> $GITHUB_ENV
@@ -87,27 +88,17 @@ jobs:
         run: touch config/application.yml
 
       - name: Generate process_extended test_app
-        run: |
-          cd decidim-process-extended
-          bundle exec rake decidim:generate_external_test_app
-
-      - name: Add process_extended migrations to test_app
-        run: |
-          pwd \
-          && ls \
-          && cd decidim-process-extended/spec/decidim_dummy_app \
-          && bundle install --jobs 4 --retry 3 \
-          && echo $? \
-          && bundle exec rake railties:install:migrations FROM=decidim_process_extended \
-          && echo $? \
-          && echo "all migrations installed..." \
-          && ls db/migrate \
-          && RAILS_ENV=test bundle exec rails db:migrate
+        run: bundle exec rake test_app
+        shell: "bash"
+        with:
+          working-directory: "decidim-process-extended"
 
       - name: Run RSpec
         uses: nick-fields/retry@v3
+        shell: "bash"
         with:
+          working-directory: "decidim-process-extended"
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: cd decidim-process-extended && bundle exec rake --backtrace -t
+          command: bundle exec rspec --backtrace

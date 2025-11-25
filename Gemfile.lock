@@ -227,6 +227,7 @@ PATH
     decidim-process-extended (0.4.0)
       decidim-admin (>= 0.29)
       decidim-core (>= 0.29)
+      deface (~> 1.9.0)
       rails (~> 7.0.8)
 
 PATH
@@ -883,7 +884,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
-    uri (1.0.3)
+    uri (1.0.4)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)

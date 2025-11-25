@@ -4,6 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
+gemspec
+
 PROCESS_EXTENDED_DECIDIM_VER = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.29-stable" }.freeze
 
 gem "decidim", PROCESS_EXTENDED_DECIDIM_VER
