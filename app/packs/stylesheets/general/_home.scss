@@ -91,3 +91,18 @@
     line-height: 60px;
   }
 }
+
+@media (min-width: 768px) {
+  #meetings {
+    .card__list-metadata {
+      gap: 1rem !important;
+  
+      div {
+        padding-left: 0 !important;
+      }
+    }
+    .card__list-metadata > div:last-child{
+      flex-basis: 100%;
+    }
+  }
+}
