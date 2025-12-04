@@ -14,11 +14,14 @@ Gem::Specification.new do |s|
   s.summary = "Summary of Decidim::Process::Extended."
   s.description = "Description of Decidim::Process::Extended."
   s.license = "MIT"
+  s.required_ruby_version = ">= 3.2.9"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
+  s.add_dependency "decidim-admin", Decidim::Process::Extended::DECIDIM_VER
   s.add_dependency "decidim-core", Decidim::Process::Extended::DECIDIM_VER
-  s.add_dependency "rails", ">= 5.2", "< 7.0.x"
+  s.add_dependency "deface", "~> 1.9.0"
+  s.add_dependency "rails", "~> 7.0.8"
   s.add_development_dependency "decidim-dev", Decidim::Process::Extended::DECIDIM_VER
   s.metadata["rubygems_mfa_required"] = "true"
 end

@@ -14,10 +14,11 @@ Gem::Specification.new do |s|
   s.summary = "Summary of Decidim::Home."
   s.description = "Description of Decidim::Home."
   s.license = "MIT"
+  s.required_ruby_version = ">= 3.2.9"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Home::DECIDIM_VER
-  s.add_dependency "rails", ">= 5.2", "< 7.0.x"
+  s.add_dependency "rails", ">= 7.0.8"
   s.metadata["rubygems_mfa_required"] = "true"
 end

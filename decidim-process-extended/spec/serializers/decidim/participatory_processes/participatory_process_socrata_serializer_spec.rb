@@ -2,6 +2,8 @@
 
 require "spec_helper"
 
+require_relative "../../../../app/serializers/decidim/participatory_processes/participatory_process_socrata_serializer"
+
 module Decidim::ParticipatoryProcesses
   describe ParticipatoryProcessSocrataSerializer do
     describe "#serialize" do

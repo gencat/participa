@@ -9,7 +9,6 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
-    let!(:admin) { create(:user, :admin, :confirmed, organization:, notification_settings: { participatory_space_news: "1" }) }
     let(:assembly_type) { create(:assemblies_type, organization:) }
     let(:scope) { create(:scope, organization:) }
     let(:area) { create(:area, organization:) }
@@ -22,6 +21,8 @@ module Decidim::Assemblies
       )
     end
     let(:related_process_ids) { [participatory_processes.map(&:id)] }
+    let(:hero_image) { nil }
+    let(:banner_image) { nil }
 
     let(:form) do
       instance_double(
@@ -34,8 +35,8 @@ module Decidim::Assemblies
         slug: "slug",
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
-        hero_image: nil,
-        banner_image: nil,
+        hero_image:,
+        banner_image:,
         promoted: nil,
         developer_group: { en: "developer group" },
         local_area: { en: "local" },
@@ -44,7 +45,7 @@ module Decidim::Assemblies
         participatory_structure: { en: "participatory structure" },
         description: { en: "description" },
         short_description: { en: "short_description" },
-        current_organization: organization,
+        organization:,
         scopes_enabled: true,
         scope:,
         area:,
@@ -52,7 +53,6 @@ module Decidim::Assemblies
         private_space: false,
         errors:,
         participatory_processes_ids: related_process_ids,
-        show_statistics: false,
         purpose_of_action: { en: "purpose of action" },
         composition: { en: "composition of internal working groups" },
         assembly_type:,
@@ -77,21 +77,17 @@ module Decidim::Assemblies
     let(:invalid) { false }
 
     context "when the assembly is not persisted" do
-      let(:invalid_assembly) do
-        instance_double(
-          Decidim::Assembly,
-          persisted?: false,
-          valid?: false,
-          errors: {
-            hero_image: "File resolution is too large",
-            banner_image: "File resolution is too large"
-          }
-        ).as_null_object
+      let(:hero_image) do
+        ActiveStorage::Blob.create_and_upload!(
+          io: File.open(Decidim::Dev.asset("invalid.jpeg")),
+          filename: "avatar.jpeg",
+          content_type: "image/jpeg"
+        )
       end
+      let(:banner_image) { hero_image }
 
       before do
         allow(Decidim::ActionLogger).to receive(:log).and_return(true)
-        allow(Decidim::Assembly).to receive(:create).and_return(invalid_assembly)
       end
 
       it "broadcasts invalid" do
@@ -102,6 +98,12 @@ module Decidim::Assemblies
         expect(Decidim::EventsManager)
           .not_to receive(:publish)
 
+        subject.call
+      end
+
+      it "adds errors to the form" do
+        expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
+        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
         subject.call
       end
     end

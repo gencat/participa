@@ -1,10 +1,17 @@
 # frozen_string_literal: true
 
+require "rails"
+require "active_support/all"
+require "decidim/core"
+
 module Decidim
   module Process
     module Extended
       class Engine < ::Rails::Engine
         isolate_namespace Decidim::Process::Extended
+
+        config.paths["db/migrate"] = File.expand_path("../../db/migrate", __dir__)
+
         # make decorators autoload in development env
         config.autoload_paths << File.join(
           Decidim::Process::Extended::Engine.root, "app", "decorators", "{**}"
@@ -19,7 +26,9 @@ module Decidim
 
         # activate Decidim LayoutHelper for the overriden views
         initializer "decidim_process_extended.helpers" do
-          ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
+          Rails.application.config.to_prepare do
+            ::Decidim::Admin::ApplicationController.helper ::Decidim::LayoutHelper
+          end
         end
 
         initializer "decidim_process_extended.webpacker.assets_path" do
