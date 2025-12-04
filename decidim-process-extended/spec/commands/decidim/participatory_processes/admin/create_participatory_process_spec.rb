@@ -28,7 +28,6 @@ module Decidim::ParticipatoryProcesses
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
         hero_image: nil,
-        banner_image: nil,
         promoted: nil,
         developer_group: { en: "developer group" },
         local_area: { en: "local" },
@@ -50,8 +49,6 @@ module Decidim::ParticipatoryProcesses
         related_process_ids:,
         participatory_process_group:,
         participatory_process_type:,
-        show_statistics: false,
-        show_metrics: false,
         announcement: { en: "message" },
         cost: 123,
         has_summary_record: true,
@@ -69,8 +66,7 @@ module Decidim::ParticipatoryProcesses
           persisted?: false,
           valid?: false,
           errors: {
-            hero_image: "File resolution is too large",
-            banner_image: "File resolution is too large"
+            hero_image: "File resolution is too large"
           }
         ).as_null_object
       end

@@ -4,6 +4,7 @@ User-agent: *
 Disallow: /profiles/
 Disallow: /comments
 Disallow: /search
+Disallow: /rails/active_storage
 
 User-agent: SemrushBot
 Disallow: /

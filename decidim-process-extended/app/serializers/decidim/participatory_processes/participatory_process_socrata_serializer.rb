@@ -97,7 +97,7 @@ module Decidim
                          decidim_coauthorships: {
                            decidim_author_type: "Decidim::Organization"
                          }
-                       ).published.not_hidden.except_withdrawn
+                       ).published.not_hidden.not_withdrawn
       end
 
       def meetings

@@ -9,8 +9,8 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.1.7
-  NODE_VERSION: 16.9.1
+  RUBY_VERSION: 3.2.9
+  NODE_VERSION: 18.17.1
 
 jobs:
   test-app:
@@ -91,6 +91,9 @@ jobs:
           max_attempts: 3
           retry_on: error
           command: bundle install --jobs 4 --retry 3
+
+      - name: Create empty application.yml
+        run: touch config/application.yml
 
       - name: Setup database
         run: |

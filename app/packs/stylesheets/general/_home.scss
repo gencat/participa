@@ -65,7 +65,8 @@
   }
 }
 
-.menu-bar__secondary-dropdown__menu {
+.menu-bar__secondary-dropdown__menu,
+.menu-bar__dropdown-menu {
   background-color: white !important;
   color: var(--colors-gencat-text-grey);
 }
@@ -89,5 +90,20 @@
   @media (min-width: 640px) {
     font-size: 4.5rem;
     line-height: 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  #meetings {
+    .card__list-metadata {
+      gap: 1rem !important;
+  
+      div {
+        padding-left: 0 !important;
+      }
+    }
+    .card__list-metadata > div:last-child{
+      flex-basis: 100%;
+    }
   }
 }
