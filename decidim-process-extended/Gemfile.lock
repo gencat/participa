@@ -174,6 +174,15 @@ GIT
     decidim-verifications (0.29.5)
       decidim-core (= 0.29.5)
 
+PATH
+  remote: .
+  specs:
+    decidim-process-extended (0.4.0)
+      decidim-admin (>= 0.29)
+      decidim-core (>= 0.29)
+      deface (~> 1.9.0)
+      rails (~> 7.0.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -311,6 +320,12 @@ GEM
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     devise (4.9.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -567,6 +582,7 @@ GEM
     pg_search (2.3.7)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
+    polyglot (0.3.5)
     premailer (1.27.0)
       addressable
       css_parser (>= 1.19.0)
@@ -823,7 +839,8 @@ DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
   decidim!
-  decidim-dev!
+  decidim-dev (>= 0.29, >= 0)!
+  decidim-process-extended!
   faker
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
