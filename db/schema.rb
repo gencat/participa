@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_11_24_084828) do
+ActiveRecord::Schema[7.0].define(version: 2025_12_15_113051) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1557,6 +1557,18 @@ ActiveRecord::Schema[7.0].define(version: 2025_11_24_084828) do
     t.boolean "allow_public_access", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_static_pages_on_decidim_organization_id"
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
+  end
+
+  create_table "decidim_stratified_sortitions_stratified_sortitions", force: :cascade do |t|
+    t.jsonb "title"
+    t.integer "num_candidates", null: false
+    t.jsonb "description"
+    t.jsonb "selection_criteria"
+    t.jsonb "selected_profiles_description"
+    t.bigint "decidim_component_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["decidim_component_id"], name: "index_decidim_stratified_sortitions_component_id"
   end
 
   create_table "decidim_surveys_surveys", id: :serial, force: :cascade do |t|
