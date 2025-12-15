@@ -206,6 +206,14 @@ GIT
       decidim-core (~> 0.29.0)
 
 GIT
+  remote: https://github.com/gencat/decidim-module-stratified_sortitions
+  revision: 09f60d8fdb95e2d9de837d5e28a4d51f99df2f9a
+  branch: main
+  specs:
+    decidim-stratified_sortitions (1.0.0)
+      decidim-core (~> 0.29)
+
+GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: d02e5d51a4798f275865ea2270135471ce47041d
   tag: v0.2.0
@@ -954,6 +962,7 @@ DEPENDENCIES
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
+  decidim-stratified_sortitions!
   decidim-templates!
   decidim-term_customizer!
   decidim-top_comments!
