@@ -207,10 +207,12 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: 09f60d8fdb95e2d9de837d5e28a4d51f99df2f9a
-  branch: main
+  revision: 7954a6f6488de93588865327a818b8b362dea08e
+  branch: upload/sample_csv
   specs:
     decidim-stratified_sortitions (1.0.0)
+      chartkick (~> 5.2.1)
+      decidim-admin (~> 0.29)
       decidim-core (~> 0.29)
 
 GIT
@@ -379,6 +381,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.9)
+    chartkick (5.2.1)
     childprocess (5.1.0)
       logger (~> 1.5)
     chronic (0.10.2)
