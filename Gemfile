@@ -26,6 +26,7 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "soda-ruby", require: false
 gem "stringio", "~> 3.1.7"
+gem "uri", "~> 1.0.4"
 
 gem "puma"
 

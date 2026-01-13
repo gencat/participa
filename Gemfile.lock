@@ -985,6 +985,7 @@ DEPENDENCIES
   rubocop-rspec_rails
   soda-ruby
   stringio (~> 3.1.7)
+  uri (~> 1.0.4)
   web-console
   whenever
   wicked_pdf (~> 2.8.0)
