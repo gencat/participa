@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_01_12_144259) do
+ActiveRecord::Schema[7.0].define(version: 2026_01_13_122631) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1605,6 +1605,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_01_12_144259) do
     t.integer "decidim_stratified_sortition_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
     t.index ["decidim_stratified_sortition_id"], name: "index_strata_on_sortition_id"
   end
 
@@ -1629,6 +1630,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_01_12_144259) do
     t.integer "decidim_stratified_sortitions_stratum_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
     t.index ["decidim_stratified_sortitions_stratum_id"], name: "index_substrata_on_stratum_id"
   end
 
