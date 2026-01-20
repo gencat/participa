@@ -395,7 +395,7 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-challenges (0.7.3)
+    decidim-challenges (0.7.4)
       decidim-core (~> 0.29)
     decidim-idcat_mobil (0.6.0)
       decidim (>= 0.29.0)
@@ -693,7 +693,7 @@ GEM
     puma (6.6.1)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.18)
+    rack (2.2.21)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)
@@ -946,7 +946,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb!
-  decidim-challenges (~> 0.7.3)
+  decidim-challenges (~> 0.7.4)
   decidim-department_admin!
   decidim-dev!
   decidim-home!
