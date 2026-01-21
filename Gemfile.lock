@@ -206,6 +206,16 @@ GIT
       decidim-core (~> 0.29.0)
 
 GIT
+  remote: https://github.com/gencat/decidim-module-stratified_sortitions
+  revision: a6140cf9f1fc09dec6b55b1fff628ef7e8cd6e1c
+  branch: main
+  specs:
+    decidim-stratified_sortitions (1.0.0)
+      chartkick (~> 5.2.1)
+      decidim-admin (~> 0.29)
+      decidim-core (~> 0.29)
+
+GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: d02e5d51a4798f275865ea2270135471ce47041d
   tag: v0.2.0
@@ -371,6 +381,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.9)
+    chartkick (5.2.1)
     childprocess (5.1.0)
       logger (~> 1.5)
     chronic (0.10.2)
@@ -954,6 +965,7 @@ DEPENDENCIES
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
+  decidim-stratified_sortitions!
   decidim-templates!
   decidim-term_customizer!
   decidim-top_comments!
@@ -973,6 +985,7 @@ DEPENDENCIES
   rubocop-rspec_rails
   soda-ruby
   stringio (~> 3.1.7)
+  uri (~> 1.0.4)
   web-console
   whenever
   wicked_pdf (~> 2.8.0)

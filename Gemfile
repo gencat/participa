@@ -12,6 +12,7 @@ gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.
 gem "decidim-challenges", "~> 0.7.3"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", tag: "v0.10.0"
 gem "decidim-idcat_mobil", "~> 0.6.0"
+gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", branch: "main"
 # PR pending to merge in mainio repo: https://github.com/mainio/decidim-module-term_customizer/pull/125
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git", branch: "upgrade/decidim_0.29"
 gem "decidim-verifications-members_picker", github: "gencat/decidim-verifications-members_picker", tag: "v0.2.0"
@@ -25,6 +26,7 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "soda-ruby", require: false
 gem "stringio", "~> 3.1.7"
+gem "uri", "~> 1.0.4"
 
 gem "puma"
 
