@@ -996,7 +996,7 @@ DEPENDENCIES
   uri (~> 1.0.4)
   web-console
   whenever
-  wicked_pdf (~> 2.8.0)
+  wicked_pdf (~> 2.8.2)
   wkhtmltopdf-binary
 
 RUBY VERSION
