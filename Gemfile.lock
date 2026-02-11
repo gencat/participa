@@ -216,13 +216,14 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: f5bd2a3ac6aa1fc95354062163507426059b7aca
+  revision: 58c81efbf404c8afe2e44f3cd4881af3d3f356d2
   branch: main
   specs:
     decidim-stratified_sortitions (1.0.0)
       chartkick (~> 5.2.1)
       decidim-admin (~> 0.29)
       decidim-core (~> 0.29)
+      ruby-cbc (~> 0.3.19)
 
 GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
@@ -378,6 +379,7 @@ GEM
     capybara-screenshot (1.0.26)
       capybara (>= 1.0, < 4)
       launchy
+    cbc-wrapper (2.9.9.5)
     cells (4.1.8)
       declarative-builder (~> 0.2.0)
       declarative-option (< 0.2.0)
@@ -847,6 +849,8 @@ GEM
       rubocop-rspec (~> 3, >= 3.0.1)
     rubocop-rubycw (0.1.6)
       rubocop (~> 1.0)
+    ruby-cbc (0.3.19)
+      cbc-wrapper (~> 2.9.9.2)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.5)
       ffi (~> 1.12)
