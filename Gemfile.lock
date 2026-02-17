@@ -978,7 +978,7 @@ DEPENDENCIES
   stringio (~> 3.1.7)
   web-console
   whenever
-  wicked_pdf (~> 2.8.0)
+  wicked_pdf (~> 2.8.2)
   wkhtmltopdf-binary
 
 RUBY VERSION

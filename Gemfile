@@ -43,7 +43,7 @@ gem "recaptcha"
 # Error uninitialized constant WickedPdf::WickedPdfHelper::Assets::SprocketsEnvironment::Sprockets
 # in update to 2.8.0
 # https://github.com/mileszs/wicked_pdf/issues/1102
-gem "wicked_pdf", "~> 2.8.0"
+gem "wicked_pdf", "~> 2.8.2"
 
 group :development, :test do
   gem "bootsnap"
