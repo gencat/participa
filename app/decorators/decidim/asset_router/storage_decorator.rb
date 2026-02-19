@@ -22,7 +22,11 @@ module Decidim::AssetRouter::StorageDecorator
       def blob_url(**options)
         return unless blob
 
-        routes.rails_blob_url(blob, **default_options, **options, only_path: true)
+        if Rails.application.config.active_storage.resolve_model_to_route&.to_sym == :rails_storage_proxy
+          routes.rails_blob_url(blob, **default_options, **options, only_path: true)
+        else
+          blob.url(**options)
+        end
       end
     end
   end
