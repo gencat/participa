@@ -1,6 +1,6 @@
 <!-- insert_after "erb[silent]:contains('content_for :item_footer')"
   virtual_path 'decidim/proposals/proposals/show'
-  original '56b8c50ba61c309780878dbc4d00c9c6f004f119'
+  original '7f3fab0288ad5d643b226270d9a9a792bde2955c'
 -->
 <div class="most-voted-comments" class="expanded">
   <div class="wrapper--inner">
