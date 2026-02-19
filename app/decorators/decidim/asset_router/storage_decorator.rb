@@ -28,4 +28,4 @@ module Decidim::AssetRouter::StorageDecorator
   end
 end
 
-::Decidim::AssetRouter::StorageDecorator.decorate
+Decidim::AssetRouter::StorageDecorator.decorate
