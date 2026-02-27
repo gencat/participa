@@ -206,6 +206,16 @@ GIT
       decidim-core (~> 0.29.0)
 
 GIT
+  remote: https://github.com/gencat/decidim-module-idcat_mobil
+  revision: a5ab2cb4a960a8b3ec0c308dbdf3e9156ea55517
+  branch: release/0.7-stable
+  specs:
+    decidim-idcat_mobil (0.7.1)
+      decidim (>= 0.29.0)
+      decidim-core (>= 0.29.0)
+      omniauth-idcat_mobil (~> 0.6.0)
+
+GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: d02e5d51a4798f275865ea2270135471ce47041d
   tag: v0.2.0
@@ -397,10 +407,6 @@ GEM
       activesupport (>= 3)
     decidim-challenges (0.7.4)
       decidim-core (~> 0.29)
-    decidim-idcat_mobil (0.7.0)
-      decidim (>= 0.29.0)
-      decidim-core (>= 0.29.0)
-      omniauth-idcat_mobil (~> 0.6.0)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -953,7 +959,7 @@ DEPENDENCIES
   decidim-department_admin!
   decidim-dev!
   decidim-home!
-  decidim-idcat_mobil (~> 0.7.0)
+  decidim-idcat_mobil (~> 0.7.1)!
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
