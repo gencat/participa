@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_01_13_122631) do
+ActiveRecord::Schema[7.0].define(version: 2026_01_20_111521) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -428,7 +428,8 @@ ActiveRecord::Schema[7.0].define(version: 2026_01_13_122631) do
     t.bigint "decidim_challenge_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["decidim_author_id", "decidim_challenge_id"], name: "decidim_challenges_surveys_author_challenge_unique", unique: true
+    t.string "decidim_author_type", null: false
+    t.index ["decidim_author_id", "decidim_author_type", "decidim_challenge_id"], name: "decidim_challenges_surveys_author_challenge_unique", unique: true
     t.index ["decidim_author_id"], name: "index_decidim_challenges_surveys_on_decidim_author_id"
     t.index ["decidim_challenge_id"], name: "index_decidim_challenges_surveys_on_decidim_challenge_id"
   end

@@ -198,16 +198,16 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin
-  revision: 6d643ce943be58d57478d1c9f74e91f2f3597cab
-  tag: v0.9.0
+  revision: 227286fee3e14ca085a42581f46ef046121695ae
+  tag: v0.10.0
   specs:
-    decidim-department_admin (0.9.0)
+    decidim-department_admin (0.10.0)
       decidim-admin (~> 0.29.0)
       decidim-core (~> 0.29.0)
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: 4cb1fae4ac2bf08f9d6bf0e3f9c144ac3dd2dd47
+  revision: 0b61401d6a0f5646f0188e40c20a07dedf12a321
   branch: main
   specs:
     decidim-stratified_sortitions (1.0.0)
@@ -408,12 +408,12 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-challenges (0.7.3)
+    decidim-challenges (0.7.4)
       decidim-core (~> 0.29)
-    decidim-idcat_mobil (0.6.0)
+    decidim-idcat_mobil (0.7.0)
       decidim (>= 0.29.0)
       decidim-core (>= 0.29.0)
-      omniauth-idcat_mobil (~> 0.5.0)
+      omniauth-idcat_mobil (~> 0.6.0)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -520,7 +520,8 @@ GEM
       graphql (~> 2.0)
       html-pipeline (~> 2.14, >= 2.14.3)
     hashdiff (1.2.1)
-    hashie (3.6.0)
+    hashie (5.1.0)
+      logger
     highline (3.1.2)
       reline
     html-pipeline (2.14.3)
@@ -647,9 +648,10 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0, >= 2.0.3)
       version_gem (~> 1.1, >= 1.1.9)
-    omniauth (2.0.4)
+    omniauth (2.1.4)
       hashie (>= 3.4.6)
-      rack (>= 1.6.2, < 3)
+      logger
+      rack (>= 2.2.3)
       rack-protection
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
@@ -658,8 +660,9 @@ GEM
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
-    omniauth-idcat_mobil (0.5.0)
-      omniauth (~> 2.0.4)
+    omniauth-idcat_mobil (0.6.0)
+      hashie (>= 5.0.0)
+      omniauth (~> 2.1.2)
       omniauth-oauth2 (>= 1.7.2, < 2.0)
     omniauth-oauth (1.2.1)
       oauth
@@ -706,7 +709,7 @@ GEM
     puma (6.6.1)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.18)
+    rack (2.2.21)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)
@@ -876,10 +879,10 @@ GEM
     snaky_hash (2.0.3)
       hashie (>= 0.1.0, < 6)
       version_gem (>= 1.1.8, < 3)
-    soda-ruby (1.0.1)
-      hashie (~> 3.5)
-      multipart-post (~> 2.0.0)
-      sys-uname (~> 1.0.2)
+    soda-ruby (0.2.15)
+      hashie
+      multipart-post
+      sys-uname
     spring (4.4.0)
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
@@ -961,11 +964,11 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb!
-  decidim-challenges (~> 0.7.3)
+  decidim-challenges (~> 0.7.4)
   decidim-department_admin!
   decidim-dev!
   decidim-home!
-  decidim-idcat_mobil (~> 0.6.0)
+  decidim-idcat_mobil (~> 0.7.0)
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
@@ -992,7 +995,7 @@ DEPENDENCIES
   uri (~> 1.0.4)
   web-console
   whenever
-  wicked_pdf (~> 2.8.0)
+  wicked_pdf (~> 2.8.2)
   wkhtmltopdf-binary
 
 RUBY VERSION

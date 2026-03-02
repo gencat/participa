@@ -9,9 +9,9 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "chore/rework_cdtb_rack_attack_to_parse_ips_as_expected"
-gem "decidim-challenges", "~> 0.7.3"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", tag: "v0.9.0"
-gem "decidim-idcat_mobil", "~> 0.6.0"
+gem "decidim-challenges", "~> 0.7.4"
+gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", tag: "v0.10.0"
+gem "decidim-idcat_mobil", "~> 0.7.0"
 gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", branch: "main"
 # PR pending to merge in mainio repo: https://github.com/mainio/decidim-module-term_customizer/pull/125
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git", branch: "upgrade/decidim_0.29"
@@ -45,7 +45,7 @@ gem "recaptcha"
 # Error uninitialized constant WickedPdf::WickedPdfHelper::Assets::SprocketsEnvironment::Sprockets
 # in update to 2.8.0
 # https://github.com/mileszs/wicked_pdf/issues/1102
-gem "wicked_pdf", "~> 2.8.0"
+gem "wicked_pdf", "~> 2.8.2"
 
 group :development, :test do
   gem "bootsnap"
