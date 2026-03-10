@@ -10,6 +10,7 @@ on:
 
 env:
   RUBY_VERSION: 3.2.9
+  NODE_VERSION: 18.17.1
 
 jobs:
   test-report:
