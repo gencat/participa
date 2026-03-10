@@ -207,7 +207,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: 4acbe5ebfc3f1ccc7f7fca96e8c950667c709e27
+  revision: 97f84c7344fba114fb5100c3697b13d8b0622a13
   branch: main
   specs:
     decidim-stratified_sortitions (1.0.0)
