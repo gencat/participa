@@ -207,10 +207,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil
-  revision: a5ab2cb4a960a8b3ec0c308dbdf3e9156ea55517
-  branch: release/0.7-stable
+  revision: 3206d2ea5cffbf76cebec3015a42dcc8b7e3047b
+  branch: backport/fix/user_verification
   specs:
-    decidim-idcat_mobil (0.7.1)
+    decidim-idcat_mobil (0.7.2)
       decidim (>= 0.29.0)
       decidim-core (>= 0.29.0)
       omniauth-idcat_mobil (~> 0.6.0)
@@ -959,7 +959,7 @@ DEPENDENCIES
   decidim-department_admin!
   decidim-dev!
   decidim-home!
-  decidim-idcat_mobil (~> 0.7.1)!
+  decidim-idcat_mobil (~> 0.7.2)!
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
