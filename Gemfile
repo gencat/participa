@@ -11,7 +11,7 @@ gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "chore/rework_cdtb_rack_attack_to_parse_ips_as_expected"
 gem "decidim-challenges", "~> 0.7.4"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", tag: "v0.10.1"
-gem "decidim-idcat_mobil", "~> 0.7.1", git: "https://github.com/gencat/decidim-module-idcat_mobil", branch: "release/0.7-stable"
+gem "decidim-idcat_mobil", "~> 0.7.2", git: "https://github.com/gencat/decidim-module-idcat_mobil", branch: "backport/fix/user_verification"
 gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", branch: "main"
 # PR pending to merge in mainio repo: https://github.com/mainio/decidim-module-term_customizer/pull/125
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git", branch: "upgrade/decidim_0.29"
