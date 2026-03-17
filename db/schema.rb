@@ -1161,7 +1161,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_03_16_160034) do
     t.boolean "private_space", default: false
     t.bigint "decidim_area_id"
     t.decimal "cost"
-    t.boolean "has_summary_record", null: false
+    t.boolean "has_summary_record", default: false, null: false
     t.string "facilitators"
     t.string "promoting_unit"
     t.bigint "decidim_scope_type_id"
