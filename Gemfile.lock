@@ -207,7 +207,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil
-  revision: 3206d2ea5cffbf76cebec3015a42dcc8b7e3047b
+  revision: 7bcd991ac2c75bfdeecd8001d98b8fe8b92854ad
   branch: backport/fix/user_verification
   specs:
     decidim-idcat_mobil (0.7.2)
