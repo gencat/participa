@@ -397,7 +397,7 @@ GEM
       activesupport (>= 3)
     decidim-challenges (0.7.4)
       decidim-core (~> 0.29)
-    decidim-idcat_mobil (0.7.0)
+    decidim-idcat_mobil (0.7.2)
       decidim (>= 0.29.0)
       decidim-core (>= 0.29.0)
       omniauth-idcat_mobil (~> 0.6.0)
@@ -953,7 +953,7 @@ DEPENDENCIES
   decidim-department_admin!
   decidim-dev!
   decidim-home!
-  decidim-idcat_mobil (~> 0.7.0)
+  decidim-idcat_mobil (~> 0.7.2)
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
