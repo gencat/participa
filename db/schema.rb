@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_01_20_111521) do
+ActiveRecord::Schema[7.0].define(version: 2026_03_16_160034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1161,7 +1161,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_01_20_111521) do
     t.boolean "private_space", default: false
     t.bigint "decidim_area_id"
     t.decimal "cost"
-    t.boolean "has_summary_record"
+    t.boolean "has_summary_record", default: false, null: false
     t.string "facilitators"
     t.string "promoting_unit"
     t.bigint "decidim_scope_type_id"
