@@ -7,7 +7,7 @@
     "@decidim/webpacker": "file:packages/webpacker",
     "algoliasearch": "^4.24.0",
     "emojibase": "^15.3.1",
-    "instantsearch.js": "^4.73.1",
+    "instantsearch.js": "^4.86.1",
     "picmo": "^5.8.5",
     "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1"
