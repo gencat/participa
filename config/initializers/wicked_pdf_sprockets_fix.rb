@@ -13,9 +13,9 @@
 Rails.application.config.after_initialize do
   WickedPdf::WickedPdfHelper::Assets::SprocketsEnvironment.class_eval do
     def self.instance
-      return nil unless defined?(::Sprockets)
+      return nil unless defined?(Sprockets)
 
-      @instance ||= ::Sprockets::Railtie.build_environment(Rails.application)
+      @instance ||= Sprockets::Railtie.build_environment(Rails.application)
     end
 
     def self.find_asset(*args)
