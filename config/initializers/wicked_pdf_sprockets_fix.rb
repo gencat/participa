@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# NOTE: This problem does NOT occur in newer versions of Decidim (>= 0.30).
+
 # Fix for wicked_pdf 2.8.x when Sprockets is not available (app uses Shakapacker).
 # The find_asset method falls through to SprocketsEnvironment which references
 # the Sprockets constant that doesn't exist, causing:
