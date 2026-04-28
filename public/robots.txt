@@ -2,9 +2,23 @@
 
 User-agent: *
 Disallow: /profiles/
-Disallow: /comments
-Disallow: /search
-Disallow: /rails/active_storage
+Disallow: /comments/
+Disallow: /search/
+Disallow: /system/
+Disallow: /rails/
+Disallow: /last_activities/
+Disallow: /admin/
+Allow: /processes/
+Allow: /assemblies/
+Allow: /meetings/
+Allow: /pages/
+Allow: /*.pdf$
+Allow: /*.js$
+Allow: /*.css$
+Sitemap: https://participa.gencat.cat/sitemap.xml
+
+User-agent: bingbot
+Allow: /
 
 User-agent: SemrushBot
 Disallow: /
@@ -36,14 +50,3 @@ Disallow: /
 # To block SEMrushBot from crawling your site for SEO A/B Testing tool:
 User-agent: SemrushBot-SEOAB
 Disallow: /
-
-# msnbot-13-66-139-20.search.msn.com.
-User-agent: search.msn.com
-Disallow: /
-
-#User-agent: bingbot
-#Disallow: /
-
-User-agent: msnbot
-Disallow: /
-
