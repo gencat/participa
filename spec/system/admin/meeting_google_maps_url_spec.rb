@@ -37,7 +37,7 @@ describe "Admin Google Maps URL field for meetings", type: :system do
     it "shows a validation error for an invalid URL" do
       fill_in "meeting[google_maps_url]", with: "not-a-url"
       find("button[name='commit']").click
-      expect(page).to have_admin_callout("problem")
+      expect(page).to have_admin_callout("problem updating this meeting")
     end
 
     it "allows saving with a blank google_maps_url" do
