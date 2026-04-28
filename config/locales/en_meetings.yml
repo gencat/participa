@@ -1,0 +1,12 @@
+---
+en:
+  activemodel:
+    attributes:
+      meeting:
+        google_maps_url: Google Maps URL
+  decidim:
+    meetings:
+      admin:
+        meetings:
+          form:
+            google_maps_url_help: "Add a Google Maps link with the meeting address to help participants get to the venue."
