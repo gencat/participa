@@ -7,7 +7,7 @@ describe "Admin Google Maps URL field for meetings", type: :system do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let!(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
   let!(:meetings_component) { create(:meeting_component, :published, participatory_space: participatory_process) }
-  let(:google_maps_url) { "https://maps.google.com/maps?q=test+location" }
+  let(:google_maps_url) { "https://www.google.com/maps/place/test+location" }
 
   before do
     switch_to_host(organization.host)
@@ -36,6 +36,12 @@ describe "Admin Google Maps URL field for meetings", type: :system do
 
     it "shows a validation error for an invalid URL" do
       fill_in "meeting[google_maps_url]", with: "not-a-url"
+      find("button[name='commit']").click
+      expect(page).to have_admin_callout("problem updating this meeting")
+    end
+
+    it "shows a validation error for a URL not from Google Maps" do
+      fill_in "meeting[google_maps_url]", with: "https://example.com/maps/place/test"
       find("button[name='commit']").click
       expect(page).to have_admin_callout("problem updating this meeting")
     end
