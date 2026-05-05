@@ -8,13 +8,12 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "r
 gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-# gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "chore/rework_cdtb_rack_attack_to_parse_ips_as_expected"
+gem "decidim-cdtb", "~> 0.5.6"
 # gem "decidim-challenges", "~> 0.7.4"
 # gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", tag: "v0.10.1"
-# gem "decidim-idcat_mobil", "~> 0.7.2"
-# # PR pending to merge in mainio repo: https://github.com/mainio/decidim-module-term_customizer/pull/125
-# gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git", branch: "upgrade/decidim_0.29"
-# gem "decidim-verifications-members_picker", github: "gencat/decidim-verifications-members_picker", tag: "v0.2.0"
+gem "decidim-idcat_mobil", "~> 0.8.2"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "main"
+gem "decidim-verifications-members_picker", github: "gencat/decidim-verifications-members_picker", branch: "upgrade/release-0.30"
 
 # Internal modules
 gem "decidim-home", path: "decidim-home"

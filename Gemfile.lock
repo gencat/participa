@@ -184,6 +184,24 @@ GIT
     decidim-verifications (0.30.8)
       decidim-core (= 0.30.8)
 
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: 2af2fbd001df0cf2fa8f514733ce8467ff32f797
+  branch: upgrade/release-0.30
+  specs:
+    decidim-verifications-members_picker (0.3.0)
+      decidim-core (~> 0.30.0)
+      decidim-verifications (~> 0.30.0)
+
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer.git
+  revision: d82e145ba9d2886109bdad92770edaafb3a94b16
+  branch: main
+  specs:
+    decidim-term_customizer (0.30.0)
+      decidim-admin (~> 0.30.0)
+      decidim-core (~> 0.30.0)
+
 PATH
   remote: decidim-home
   specs:
@@ -376,6 +394,14 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
+    decidim-cdtb (0.5.6)
+      decidim (>= 0.28.0)
+      rails (>= 6)
+      ruby-progressbar
+    decidim-idcat_mobil (0.8.2)
+      decidim (>= 0.30.0)
+      decidim-core (>= 0.30.0)
+      omniauth-idcat_mobil (~> 0.6.0)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -656,6 +682,10 @@ GEM
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
+    omniauth-idcat_mobil (0.6.0)
+      hashie (>= 5.0.0)
+      omniauth (~> 2.1.2)
+      omniauth-oauth2 (>= 1.7.2, < 2.0)
     omniauth-oauth (1.2.1)
       oauth
       omniauth (>= 1.0, < 3)
@@ -972,13 +1002,17 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
+  decidim-cdtb (~> 0.5.6)
   decidim-dev!
   decidim-home!
+  decidim-idcat_mobil (~> 0.8.2)
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
   decidim-templates!
+  decidim-term_customizer!
   decidim-top_comments!
+  decidim-verifications-members_picker!
   deface
   delayed_job_active_record
   faker
