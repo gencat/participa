@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_debates (originally 20200716143929)
 
+# This migration comes from decidim_debates (originally 20200716143929)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:03 UTC
 class AddEndorsableToDebates < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_debates_debates, :endorsements_count, :integer, null: false, default: 0
