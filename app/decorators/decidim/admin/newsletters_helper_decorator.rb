@@ -8,22 +8,33 @@ module Decidim::Admin::NewslettersHelperDecorator
 
         html = ""
         form_object.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
+          html += participatory_space_title(space_type)
           html += ff.hidden_field :manifest_name, value: space_type.manifest_name
           html += select_tag_participatory_spaces(space_type, spaces_for_select(space_type), ff)
         end
         html.html_safe
       end
 
+      def participatory_space_title(space_type)
+        return unless space_type
+
+        content_tag :h4 do
+          label_text_for(space_type)
+        end
+      end
+
       def select_tag_participatory_spaces(space_type, spaces, child_form)
         return unless spaces
 
-        tag.div(class: "#{space_type.manifest_name}-block spaces-block-tag cell small-12 medium-6") do
-          child_form.select :ids, options_for_select(spaces),
-                            { prompt: t("select_recipients_to_deliver.none", scope: "decidim.admin.newsletters"),
-                              label: label_text_for(space_type),
-                              include_hidden: false },
-                            multiple: true, size: [spaces.size, 10].min, class: "chosen-select"
-        end
+        raw(cell("decidim/admin/multi_select_picker", nil, context: {
+                   select_id: "#{space_type.manifest_name}-spaces-select",
+                   field_name: "#{child_form.object_name}[ids][]",
+                   options_for_select: spaces,
+                   selected_values: selected_options(:participatory_space_types)[space_type.manifest_name] || [],
+                   placeholder: t("select_recipients_to_deliver.select_#{space_type.manifest_name}", scope: "decidim.admin.newsletters"),
+                   class: "mb-2",
+                   label: label_text_for(space_type)
+                 }))
       end
 
       def label_text_for(space_type)

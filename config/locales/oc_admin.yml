@@ -526,6 +526,8 @@ oc:
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
           recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
           scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
+          select_normatives: Selecciona normatives
+          select_participatory_processes: Selecciona processos participatius
           select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
           select_spaces: Selecciona espais per segmentar el butlletí
           select_users: Selecciona a quines participants vols enviar el butlletí de notícies
