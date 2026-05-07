@@ -8,4 +8,4 @@ module Decidim::StaticPagesDecorator
   end
 end
 
-::Decidim::StaticPagesDecorator.decorate
+Decidim::StaticPagesDecorator.decorate

@@ -1,4 +1,4 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 module Decidim::Admin::UpdateStaticPageDecorator
   def self.decorate
@@ -53,4 +53,4 @@ module Decidim::Admin::UpdateStaticPageDecorator
   end
 end
 
-::Decidim::Admin::UpdateStaticPageDecorator.decorate
+Decidim::Admin::UpdateStaticPageDecorator.decorate

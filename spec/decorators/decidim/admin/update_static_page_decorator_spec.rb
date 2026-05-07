@@ -52,7 +52,7 @@ describe Decidim::Admin::UpdateStaticPage do
       it "does not update the static page" do
         expect do
           command.call
-        end.not_to change { static_page.reload.content }
+        end.not_to(change { static_page.reload.content })
       end
     end
 
@@ -64,7 +64,7 @@ describe Decidim::Admin::UpdateStaticPage do
       it "updates the static page content" do
         expect do
           command.call
-        end.to change { static_page.reload.content["en"] }
+        end.to(change { static_page.reload.content["en"] })
       end
 
       context "when photos are uploaded" do
