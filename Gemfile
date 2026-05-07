@@ -36,6 +36,7 @@ gem "daemons"
 gem "deface"
 gem "delayed_job_active_record"
 
+gem "sitemap_generator", "~> 7.0"
 gem "whenever", require: false
 
 gem "recaptcha"
