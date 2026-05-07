@@ -26,7 +26,8 @@ yarn-debug.log*
 /config/puma.rb
 
 # Ignore public uploaded files
-public/uploads
+public/uploads/
+public/sitemaps/
 
 # Ignore public/assets as assets are generated in each server when deploying
 public/assets
