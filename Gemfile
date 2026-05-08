@@ -18,7 +18,7 @@ gem "decidim-verifications-members_picker", github: "gencat/decidim-verification
 
 # Internal modules
 gem "decidim-home", path: "decidim-home"
-# gem "decidim-process-extended", path: "decidim-process-extended"
+gem "decidim-process-extended", path: "decidim-process-extended"
 gem "decidim-recaptcha", path: "decidim-recaptcha"
 gem "decidim-regulations", path: "decidim-regulations"
 # gem "decidim-top_comments", path: "decidim-top_comments"

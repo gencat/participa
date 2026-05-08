@@ -210,6 +210,15 @@ PATH
       rails (>= 7.0.8)
 
 PATH
+  remote: decidim-process-extended
+  specs:
+    decidim-process-extended (0.4.0)
+      decidim-admin (>= 0.29)
+      decidim-core (>= 0.29)
+      deface (~> 1.9.0)
+      rails (~> 7.0.8)
+
+PATH
   remote: decidim-recaptcha
   specs:
     decidim-recaptcha (0.1.0)
@@ -989,6 +998,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-home!
   decidim-idcat_mobil (~> 0.8.2)
+  decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
   decidim-templates!
