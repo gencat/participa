@@ -12,7 +12,7 @@ module Decidim::ParticipatorySpaceContextDecorator
         return true if user_has_any_role?(current_user, current_participatory_space, broad_check: true)
 
         current_participatory_space.users.include?(current_user) ||
-        current_participatory_space.participatory_space_private_users.exists?(decidim_user_id: current_user.id)
+          current_participatory_space.participatory_space_private_users.exists?(decidim_user_id: current_user.id)
       end
     end
   end

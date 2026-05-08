@@ -6,7 +6,7 @@ module Decidim::Assemblies::Admin::CreateAssemblyDecorator
       alias_method :run_after_hooks_original, :run_after_hooks
       def run_after_hooks
         run_after_hooks_original
-        
+
         # process-extended customization
         Decidim::User.org_admins_except_me(form.current_user).find_each do |user|
           # Otherwise, it will be sent if realtime notifications are enabled
