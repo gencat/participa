@@ -42,8 +42,17 @@ module Decidim::Admin::UpdateStaticPageDecorator
         Decidim.traceability.update!(
           page,
           form.current_user,
+          title: form.title,
+          slug: form.slug,
+          weight: form.weight,
+          topic: form.topic,
+          allow_public_access: form.allow_public_access,
           content: parsed_content
         )
+
+        return unless form.changed_notably
+
+        Decidim::Admin::UpdateOrganizationTosVersion.call(form.organization, page, form)
       end
 
       private

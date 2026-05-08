@@ -30,6 +30,8 @@ describe Decidim::Admin::UpdateStaticPage do
           slug: static_page.slug,
           title: { en: "Updated title" },
           content: { en: "<p>Updated content</p>" },
+          weight: 5,
+          allow_public_access: true,
           add_documents: nil,
           add_photos: uploaded_photos
         }
@@ -65,6 +67,24 @@ describe Decidim::Admin::UpdateStaticPage do
         expect do
           command.call
         end.to(change { static_page.reload.content["en"] })
+      end
+
+      it "updates the static page title" do
+        expect do
+          command.call
+        end.to(change { static_page.reload.title["en"] }.to("Updated title"))
+      end
+
+      it "updates the static page weight" do
+        expect do
+          command.call
+        end.to(change { static_page.reload.weight }.to(5))
+      end
+
+      it "updates the static page allow_public_access" do
+        expect do
+          command.call
+        end.to(change { static_page.reload.allow_public_access }.to(true))
       end
 
       context "when photos are uploaded" do

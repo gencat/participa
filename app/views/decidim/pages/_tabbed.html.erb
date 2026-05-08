@@ -1,0 +1,47 @@
+<%# NOTE: the structure of this file is the same as: decidim-core/app/views/layouts/decidim/shared/_layout_user_profile.html.erb %>
+<%= render layout:"layouts/decidim/shared/layout_center", locals: { columns: 10 } do %>
+  <header class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left mb-12">
+      <%= title %>
+    </h1>
+    <p class="text-lg text-gray-2">
+      <%= description %>
+    </p>
+  </header>
+
+  <div class="vertical-tabs">
+    <nav role="navigation" aria-label="<%= I18n.t("layouts.decidim.navigation.aria_label", title: translated_attribute(page.title)) %>">
+      <button id="dropdown-trigger-pages" data-component="dropdown" data-target="dropdown-menu-pages" data-open-md="true" data-auto-close="true">
+        <span>
+          <%= translated_attribute(page.title) %>
+        </span>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+      <ul id="dropdown-menu-pages" class="vertical-tabs__list" role="menu">
+        <% pages.each do |sibling| %>
+          <li class="<%= "is-active" if page == sibling %>" role="menuitem">
+            <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), "aria-current": ("page" if page == sibling) %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <section>
+      <%= cell "decidim/tos_page", :announcement %>
+
+      <h2 class="h2"><%= translated_attribute page.title %></h2>
+
+      <div class="editor-content mt-6">
+        <% page_content_blocks.each do |content_block| %>
+          <%= cell content_block.manifest.cell, content_block %>
+        <% end %>
+
+        <%= decidim_sanitize_editor_admin translated_attribute page.content %>
+      </div>
+      <%= cell "decidim/tos_page", :form %>
+
+      <%= cell "decidim/tab_panels", tab_panel_items %>
+    </section>
+  </div>
+<% end %>
