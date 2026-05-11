@@ -2,9 +2,9 @@
 
 require "rails_helper"
 
-describe Decidim::Admin::StaticPageForm do
+describe Decidim::Admin::StaticPagesFormDecorator do
   subject do
-    described_class.from_params(attributes).with_context(
+    Decidim::Admin::StaticPageForm.from_params(attributes).with_context(
       current_organization:
     )
   end
