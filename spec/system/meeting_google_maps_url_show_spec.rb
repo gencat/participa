@@ -6,7 +6,7 @@ describe "Google Maps URL on meeting show page", type: :system do
   let!(:organization) { create(:organization) }
   let!(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
   let!(:meetings_component) { create(:meeting_component, :published, participatory_space: participatory_process) }
-  let(:google_maps_url) { "https://maps.google.com/maps?q=Test+Location" }
+  let(:google_maps_url) { "https://www.google.com/maps/place/Test+Location" }
 
   before { switch_to_host(organization.host) }
 

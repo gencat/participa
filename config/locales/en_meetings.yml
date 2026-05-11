@@ -4,6 +4,9 @@ en:
     attributes:
       meeting:
         google_maps_url: Google Maps URL
+    errors:
+      messages:
+        invalid_google_maps_domain: "must be a valid Google Maps URL (google.com/maps or maps.app.goo.gl)"
   decidim:
     meetings:
       admin:

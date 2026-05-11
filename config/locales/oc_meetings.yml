@@ -35,6 +35,8 @@ oc:
         video_url: URL del vídeo
         visible: És visible
     errors:
+      messages:
+        invalid_google_maps_domain: "deu èsser un URL valid de Google Maps (google.com/maps o maps.app.goo.gl)"
       models:
         meeting_agenda:
           attributes:
