@@ -184,9 +184,9 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-process-extended (0.4.0)
-      decidim-admin (>= 0.29)
-      decidim-core (>= 0.29)
+    decidim-process-extended (0.5.0)
+      decidim-admin (>= 0.30.0)
+      decidim-core (>= 0.30.0)
       deface (~> 1.9.0)
       rails (~> 7.0.8)
 

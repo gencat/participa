@@ -142,8 +142,8 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-recaptcha (0.1.0)
-      decidim-core (>= 0.29)
+    decidim-recaptcha (0.2.0)
+      decidim-core (>= 0.30.0)
 
 GEM
   remote: https://rubygems.org/
@@ -872,8 +872,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   byebug
-  decidim (>= 0.29, >= 0)!
-  decidim-dev (>= 0.29)
+  decidim (>= 0.30.0, >= 0)!
+  decidim-dev (>= 0.30.0)
   decidim-recaptcha!
   faker
   letter_opener_web
