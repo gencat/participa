@@ -49,7 +49,7 @@ ENABLE_MACHINE_TRANSLATIONS: "true"
 
 ## Testing
 
-Run `bin/rake decidim:generate_external_test_app` to generate a dummy application to test both the application and the modules.
+Run `DISABLE_SPRING=1 bundle exec rake test_app` to generate a dummy application to test both the application and the modules.
 
 Require missing factories in `spec/factories.rb`
 
