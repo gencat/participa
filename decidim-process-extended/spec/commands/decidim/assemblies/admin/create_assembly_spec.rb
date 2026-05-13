@@ -9,6 +9,7 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let!(:admin) { create(:user, :admin, :confirmed, organization:, notification_settings: { participatory_space_news: "1" }) }
     let(:assembly_type) { create(:assemblies_type, organization:) }
     let(:scope) { create(:scope, organization:) }
     let(:area) { create(:area, organization:) }
@@ -23,6 +24,9 @@ module Decidim::Assemblies
     let(:related_process_ids) { [participatory_processes.map(&:id)] }
     let(:hero_image) { nil }
     let(:banner_image) { nil }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
 
     let(:form) do
       instance_double(
@@ -46,16 +50,13 @@ module Decidim::Assemblies
         description: { en: "description" },
         short_description: { en: "short_description" },
         organization:,
-        scopes_enabled: true,
-        scope:,
-        area:,
+        taxonomizations:,
         parent: nil,
         private_space: false,
         errors:,
         participatory_processes_ids: related_process_ids,
         purpose_of_action: { en: "purpose of action" },
         composition: { en: "composition of internal working groups" },
-        assembly_type:,
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: { en: "other created by" },

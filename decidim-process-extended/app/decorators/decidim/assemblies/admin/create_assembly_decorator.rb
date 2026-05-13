@@ -3,9 +3,10 @@
 module Decidim::Assemblies::Admin::CreateAssemblyDecorator
   def self.decorate
     Decidim::Assemblies::Admin::CreateAssembly.class_eval do
-      alias_method :run_after_hooks_original, :run_after_hooks
       def run_after_hooks
-        run_after_hooks_original
+        add_admins_as_followers
+        link_participatory_processes
+        Decidim::ContentBlocksCreator.new(resource).create_default!
 
         # process-extended customization
         Decidim::User.org_admins_except_me(form.current_user).find_each do |user|
