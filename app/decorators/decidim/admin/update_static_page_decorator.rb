@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim::Admin::UpdateStaticPageDecorator
-  def self.decorate
+  def self.decorate # rubocop:disable Metrics/CyclomaticComplexity
     Decidim::Admin::UpdateStaticPage.class_eval do
       include ::Decidim::MultipleAttachmentsMethods
       include ::Decidim::GalleryMethods
