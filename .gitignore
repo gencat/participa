@@ -42,9 +42,10 @@ public/sw.js
 spec/decidim_dummy_app/
 .rspec-failures
 
-# Ignore idea config files
+# Ignore IDE config files
 .idea
 *.iml
+.vscode/
 
 coverage/
 storage/

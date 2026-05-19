@@ -53,7 +53,7 @@ SitemapGenerator::Sitemap.create do
     Decidim::ParticipatoryProcess
       .where(organization:)
       .published
-      .where.not(decidim_participatory_process_group_id: regulation_group_id)
+      .where("decidim_participatory_process_group_id IS NULL OR decidim_participatory_process_group_id != ?", regulation_group_id)
       .preload(:components)
       .find_each do |process|
         next if process.slug.blank?
