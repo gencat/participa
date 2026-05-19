@@ -8,7 +8,7 @@ Deface::Override.new(
   text: <<~EOHTML
     <% if current_component.settings.attachments_allowed? %>
       <th>
-        <%= t("models.proposal.fields.attachments", scope: "decidim.proposals") %>
+        <%= sort_link(query, :attachments_count, t("models.proposal.fields.attachments", scope: "decidim.proposals")) %>
       </th>
     <% end %>
   EOHTML
