@@ -185,6 +185,15 @@ GIT
       decidim-core (= 0.30.9)
 
 GIT
+  remote: https://github.com/gencat/decidim-module-department_admin
+  revision: 93ce5ed285f80613f93d621d3234e25feba6a82d
+  branch: upgrade/release-0.30
+  specs:
+    decidim-department_admin (0.11.0)
+      decidim-admin (~> 0.30.0)
+      decidim-core (~> 0.30.0)
+
+GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: 2af2fbd001df0cf2fa8f514733ce8467ff32f797
   branch: upgrade/release-0.30
@@ -1003,6 +1012,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb (~> 0.5.6)
+  decidim-department_admin!
   decidim-dev!
   decidim-home!
   decidim-idcat_mobil (~> 0.8.2)
