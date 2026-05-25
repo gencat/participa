@@ -207,7 +207,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: 0c12a7ea98f74a9d3cbb9225ee7560b24187764a
+  revision: 6b1e479290a7ed2baf9d96779ef5e3c6ffe4212b
   branch: main
   specs:
     decidim-stratified_sortitions (1.0.0)
@@ -902,7 +902,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
-    uri (1.0.4)
+    uri (1.1.1)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -992,7 +992,7 @@ DEPENDENCIES
   rubocop-rspec_rails
   soda-ruby
   stringio (~> 3.1.7)
-  uri (~> 1.0.4)
+  uri (~> 1.1.1)
   web-console
   whenever
   wicked_pdf (~> 2.8.2)

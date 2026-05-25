@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_01_20_111521) do
+ActiveRecord::Schema[7.0].define(version: 2026_05_25_151058) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1560,6 +1560,25 @@ ActiveRecord::Schema[7.0].define(version: 2026_01_20_111521) do
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
 
+  create_table "decidim_stratified_sortitions_panel_portfolios", force: :cascade do |t|
+    t.bigint "decidim_stratified_sortitions_stratified_sortition_id", null: false
+    t.jsonb "panels", default: [], null: false
+    t.jsonb "probabilities", default: [], null: false
+    t.jsonb "selection_probabilities", default: {}, null: false
+    t.datetime "generated_at", null: false
+    t.float "generation_time_seconds"
+    t.integer "num_iterations"
+    t.boolean "convergence_achieved", default: false, null: false
+    t.integer "selected_panel_index"
+    t.datetime "selected_at"
+    t.string "verification_seed"
+    t.float "random_value_used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_stratified_sortitions_stratified_sortition_id"], name: "idx_panel_portfolios_on_sortition_id"
+    t.index ["decidim_stratified_sortitions_stratified_sortition_id"], name: "idx_panel_portfolios_unique_sortition", unique: true
+  end
+
   create_table "decidim_stratified_sortitions_sample_imports", force: :cascade do |t|
     t.bigint "stratified_sortition_id", null: false
     t.string "filename"
@@ -1950,12 +1969,16 @@ ActiveRecord::Schema[7.0].define(version: 2026_01_20_111521) do
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
   add_foreign_key "decidim_solutions_solutions", "decidim_users", column: "author_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
-  add_foreign_key "decidim_stratified_sortitions_sample_imports", "decidim_stratified_sortitions_stratified_sortitions", column: "stratified_sortition_id"
-  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_sample_participants"
-  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_strata"
-  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_substrata"
-  add_foreign_key "decidim_stratified_sortitions_sample_participants", "decidim_stratified_sortitions_sample_imports"
-  add_foreign_key "decidim_stratified_sortitions_sample_participants", "decidim_stratified_sortitions_stratified_sortitions", column: "decidim_stratified_sortition_id"
+  add_foreign_key "decidim_stratified_sortitions_panel_portfolios", "decidim_stratified_sortitions_stratified_sortitions", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_imports", "decidim_stratified_sortitions_stratified_sortitions", column: "stratified_sortition_id", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_sample_participants", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_strata", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_substrata", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participants", "decidim_stratified_sortitions_sample_imports", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participants", "decidim_stratified_sortitions_stratified_sortitions", column: "decidim_stratified_sortition_id", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_strata", "decidim_stratified_sortitions_stratified_sortitions", column: "decidim_stratified_sortition_id", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_stratified_sortitions", "decidim_components", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_substrata", "decidim_stratified_sortitions_strata", on_delete: :cascade
   add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
