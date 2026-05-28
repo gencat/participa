@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 459c6ac3cbeb205ac0bc80eb2da037e494fc3631
+  revision: 14024997da7a9151e68129d7c5e84e493deabd8d
   branch: release/0.29-stable
   specs:
     decidim (0.29.7)
@@ -887,7 +887,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
-    uri (1.0.4)
+    uri (1.1.1)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
