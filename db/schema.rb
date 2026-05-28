@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_05_20_122009) do
+ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -423,7 +423,6 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_20_122009) do
     t.bigint "decidim_component_id", null: false
     t.jsonb "tags"
     t.string "sdg_code"
-    t.bigint "decidim_scope_id"
     t.integer "state", default: 0, null: false
     t.date "start_date"
     t.date "end_date"
@@ -435,7 +434,6 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_20_122009) do
     t.boolean "survey_enabled", default: false, null: false
     t.string "card_image"
     t.index ["decidim_component_id"], name: "index_decidim_challenges_challenges_on_decidim_component_id"
-    t.index ["decidim_scope_id"], name: "index_decidim_challenges_challenges_on_decidim_scope_id"
   end
 
   create_table "decidim_challenges_surveys", force: :cascade do |t|
@@ -1275,8 +1273,6 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_20_122009) do
     t.jsonb "description"
     t.bigint "decidim_component_id", null: false
     t.bigint "decidim_challenges_challenge_id", null: false
-    t.bigint "decidim_sectorial_scope_id"
-    t.bigint "decidim_technological_scope_id"
     t.jsonb "tags"
     t.string "causes"
     t.string "groups_affected"
