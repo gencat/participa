@@ -15,7 +15,7 @@ Allow: /pages/
 Allow: /*.pdf$
 Allow: /*.js$
 Allow: /*.css$
-Sitemap: https://participa.gencat.cat/sitemap.xml
+Sitemap: https://participa.gencat.cat/sitemaps/sitemap.xml.gz
 
 User-agent: bingbot
 Allow: /
