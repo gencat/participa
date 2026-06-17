@@ -1,1 +1,11 @@
 en:
+  decidim:
+    admin:
+      static_pages:
+        form:
+          add_documents: Add documents
+          edit_documents: Edit documents
+          attachment_legend: Add the documents you want to appear on the static page. You can add as many as you want.
+          add_image: Add image
+          edit_image: Edit image
+          image_legend: Add the images you want to appear on the static page. You can add as many as you want.

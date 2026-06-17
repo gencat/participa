@@ -190,6 +190,18 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override to export proposal emails and names from authors
     * probably removable from Decidim v0.28 (remember remove test too)
 
+  * `app/decorators/decidim/admin/static_pages_form_decorator.rb`
+    * Adds attachment and gallery attributes (`documents`, `photos`) to `Decidim::Admin::StaticPageForm`
+    * Includes `Decidim::AttachmentAttributes` and `Decidim::HasUploadValidations`
+
+  * `app/decorators/decidim/admin/update_static_page_decorator.rb`
+    * Overrides `call` to process attachments and gallery before/after updating the page
+    * Overrides `initialize` to set `@attached_to` required by attachment methods
+    * Includes `Decidim::MultipleAttachmentsMethods` and `Decidim::GalleryMethods`
+
+  * `app/decorators/decidim/admin/static_pages_controller_decorator.rb`
+    * Exposes `tab_panel_items` as a helper method in `Decidim::Admin::StaticPagesController`
+
   * `app/decorators/decidim/proposals/proposal_decorator.rb`
     * Adds `sort_by_attachments_count_asc` and `sort_by_attachments_count_desc` scopes to `Decidim::Proposals::Proposal`
     * Ransack picks up these scopes automatically via the `sort_by_X_asc/desc` naming convention when the field is not a DB column
