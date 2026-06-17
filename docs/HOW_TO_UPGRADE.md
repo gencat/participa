@@ -202,6 +202,10 @@ These are custom modules and this is what you have to keep in mind when updating
   * `app/decorators/decidim/admin/static_pages_controller_decorator.rb`
     * Exposes `tab_panel_items` as a helper method in `Decidim::Admin::StaticPagesController`
 
+  * `app/decorators/decidim/proposals/proposal_decorator.rb`
+    * Adds `sort_by_attachments_count_asc` and `sort_by_attachments_count_desc` scopes to `Decidim::Proposals::Proposal`
+    * Ransack picks up these scopes automatically via the `sort_by_X_asc/desc` naming convention when the field is not a DB column
+
   * `lib/decidim/has_private_users.rb`
     * Override to allow private space users to acces public view
     * Could not use a decorator so the whole class has been copied
@@ -215,6 +219,10 @@ These are custom modules and this is what you have to keep in mind when updating
   * `config/locales/`
     * Overrides some translations keys
     * Fixes some Decidim translations in `*_fix.yml` files
+  * `app/overrides/decidim/admin/proposals_index_attachments_th.rb (decidim-proposals)`
+    * Inserts an "Attachments" column header in the proposals admin index, with ascending/descending sort support via `sort_link`
+  * `app/overrides/decidim/admin/proposals_tr_attachments_td.rb (decidim-proposals)`
+    * Inserts the attachments count cell in each proposal row of the admin index
 
   ##### 	Custom files:
 
