@@ -12,6 +12,7 @@ This is the open-source repository for "participa", based on [Decidim](https://g
 - `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
 - `Decidim::Admin::Extended`, customize admin menu adding custom configurations.
 - `Decidim::Recaptcha`, use recaptcha instead invisible captcha.
+- Proposals admin index: adds an "Attachments" column with ascending/descending sort support (see `app/overrides/decidim/admin/proposals_index_attachments_th.rb`, `app/overrides/decidim/admin/proposals_tr_attachments_td.rb`, and `app/decorators/decidim/proposals/proposal_decorator.rb`).
 
 ## Decidim Core Overrides
 
