@@ -18,7 +18,7 @@ module Decidim::Commands::CreateRegistrationDecorator
         if recaptcha_valid
           original_create_user ? broadcast(:ok, @user) : broadcast(:invalid)
         else
-          @form.errors.add(:recaptcha, t("recaptcha.errors.recaptcha_unreachable"))
+          @form.errors.add(:recaptcha, I18n.t("recaptcha.errors.recaptcha_unreachable"))
           broadcast(:invalid)
         end
         # Recaptcha
