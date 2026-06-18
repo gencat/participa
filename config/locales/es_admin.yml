@@ -1,1 +1,11 @@
 es:
+  decidim:
+    admin:
+      static_pages:
+        form:
+          add_documents: Añadir documentos
+          edit_documents: Editar documentos
+          attachment_legend: Añade los documentos que quieres que aparezcan en la página estática. Puedes añadir tantos como quieras.
+          add_image: Añadir imagen
+          edit_image: Editar imagen
+          image_legend: Añade las imágenes que quieres que aparezcan en la página estática. Puedes añadir tantas como quieras.

@@ -896,6 +896,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
     t.integer "registration_type", default: 0, null: false
     t.datetime "withdrawn_at", precision: nil
     t.datetime "deleted_at"
+    t.text "google_maps_url"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"

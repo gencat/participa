@@ -725,6 +725,12 @@ oc:
         form:
           none: Cap
           slug_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Exemple: %{url}'
+          add_documents: Afegir documents
+          edit_documents: Editar documents
+          attachment_legend: Afegir los documents que vòles que apareisson a la pagina estatica. Pòts n'afegir tants coma vòles.
+          add_image: Afegir imatge
+          edit_image: Editar imatge
+          image_legend: Afegir les imatges que vòles que apareisson a la pagina estatica. Pòts n'afegir tantes coma vòles.
         index:
           last_notable_change: Últims canvis notables
         new:

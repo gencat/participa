@@ -379,6 +379,8 @@ oc:
               </ul>
         models:
           proposal:
+            fields:
+              attachments: Adjunts
             name: Proposta
         participatory_texts:
           bulk-actions:

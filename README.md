@@ -12,6 +12,35 @@ This is the open-source repository for "participa", based on [Decidim](https://g
 - `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
 - `Decidim::Admin::Extended`, customize admin menu adding custom configurations.
 - `Decidim::Recaptcha`, use recaptcha instead invisible captcha.
+- Static pages admin: adds attachment and gallery support to `Decidim::Admin::StaticPage` (form, command and controller helper) via decorators.
+- Proposals admin index: adds an "Attachments" column with ascending/descending sort support (see `app/overrides/decidim/admin/proposals_index_attachments_th.rb`, `app/overrides/decidim/admin/proposals_tr_attachments_td.rb`, and `app/decorators/decidim/proposals/proposal_decorator.rb`).
+
+## Decidim Core Overrides
+
+Customizations applied on top of Decidim core via decorators (`app/decorators/`) and Deface view overrides (`app/overrides/`).
+
+### Google Maps URL for meetings
+
+Adds an optional **Google Maps URL** field to in-person and hybrid meetings, allowing admins to link participants directly to the meeting location on Google Maps.
+
+**Behavior:**
+- Field is visible only in the **admin** meeting form.
+- Shown/hidden dynamically by the existing meeting-type JavaScript: visible when type is _In-person_ or _Hybrid_, hidden for _Online_.
+- On the **public meeting show page**, the address text becomes a clickable link that opens Google Maps in a new browser tab when a URL is set.
+- The address renders as plain text when no URL is set, or for online meetings.
+
+**Implementation files:**
+
+| File | Purpose |
+|---|---|
+| `db/migrate/20260427100000_add_google_maps_url_to_meetings.rb` | Adds `google_maps_url` column to `decidim_meetings_meetings` |
+| `app/decorators/decidim/meetings/admin/meeting_form_decorator.rb` | Adds `google_maps_url` attribute + URL validation to the admin form |
+| `app/decorators/decidim/meetings/admin/create_meeting_decorator.rb` | Persists `google_maps_url` when creating a meeting |
+| `app/decorators/decidim/meetings/admin/update_meeting_decorator.rb` | Persists `google_maps_url` when updating a meeting |
+| `app/overrides/decidim/meetings/admin/meetings/form_google_maps_url.rb` | Deface override — inserts the field in the admin form view |
+| `app/decorators/decidim/address_cell_decorator.rb` | Decorator — overrides `AddressCell#address` to wrap the address in a Google Maps link |
+| `config/locales/{en,ca,es}_meetings.yml` | Translations (new files) |
+| `config/locales/oc_meetings.yml` | Occitan translations (updated) |
 
 ## Deploying the app
 
