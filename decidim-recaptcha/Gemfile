@@ -10,7 +10,7 @@ RECAPTCHA_DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", 
 
 gem "decidim", RECAPTCHA_DECIDIM_VERSION
 
-gem "recaptcha"
+gem "recaptcha", "~> 5.21.2"
 
 gem "stringio", ">= 3.1.7"
 

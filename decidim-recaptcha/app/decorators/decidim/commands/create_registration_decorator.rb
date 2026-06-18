@@ -13,17 +13,12 @@ module Decidim::Commands::CreateRegistrationDecorator
         end
 
         # Recaptcha
-        original_create_user
-        recaptcha_valid = verify_recaptcha(model: @user, action: "registration", minimum_score: 0.9)
+        recaptcha_valid = verify_recaptcha(model: @form, action: "registration", minimum_score: 0.9)
 
         if recaptcha_valid
-          if @user.save
-            broadcast(:ok, @user)
-          else
-            broadcast(:invalid)
-          end
+          original_create_user ? broadcast(:ok, @user) : broadcast(:invalid)
         else
-          @form.errors.add(:recaptcha, t("recaptcha.errors.recaptcha_unreachable"))
+          @form.errors.add(:recaptcha, I18n.t("recaptcha.errors.recaptcha_unreachable"))
           broadcast(:invalid)
         end
         # Recaptcha
