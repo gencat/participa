@@ -1,6 +1,7 @@
-# This migration comes from decidim_budgets (originally 20170130101825)
 # frozen_string_literal: true
 
+# This migration comes from decidim_budgets (originally 20170130101825)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:03 UTC
 class CreateLineItems < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_budgets_line_items do |t|

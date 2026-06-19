@@ -12,14 +12,14 @@ env:
   DB_DATABASE: app
   DB_USERNAME: postgres
   DB_PASSWORD: postgres
-  RUBY_VERSION: 3.2.9
+  RUBY_VERSION: 3.3.4
 
 jobs:
   test:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11
+        image: postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
