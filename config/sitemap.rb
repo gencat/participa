@@ -53,7 +53,7 @@ SitemapGenerator::Sitemap.create do
     Decidim::ParticipatoryProcess
       .where(organization:)
       .published
-      .where.not(decidim_participatory_process_group_id: regulation_group_id)
+      .where("decidim_participatory_process_group_id IS NULL OR decidim_participatory_process_group_id != ?", regulation_group_id)
       .preload(:components)
       .find_each do |process|
         next if process.slug.blank?
@@ -120,7 +120,7 @@ SitemapGenerator::Sitemap.create do
         prefix = space_url_prefix(space)
         next unless prefix && space&.slug.present?
 
-        add "#{prefix}/#{space.slug}/f/#{meeting.component_id}/meetings/#{meeting.id}",
+        add "#{prefix}/#{space.slug}/f/#{meeting.decidim_component_id}/meetings/#{meeting.id}",
             lastmod: meeting.updated_at, changefreq: "weekly", priority: 0.5
       end
   end
@@ -137,7 +137,7 @@ SitemapGenerator::Sitemap.create do
         prefix = space_url_prefix(space)
         next unless prefix && space&.slug.present?
 
-        add "#{prefix}/#{space.slug}/f/#{proposal.component_id}/proposals/#{proposal.id}",
+        add "#{prefix}/#{space.slug}/f/#{proposal.decidim_component_id}/proposals/#{proposal.id}",
             lastmod: proposal.updated_at, changefreq: "monthly", priority: 0.5
       end
   end
@@ -167,7 +167,7 @@ SitemapGenerator::Sitemap.create do
         prefix = space_url_prefix(space)
         next unless prefix && space&.slug.present?
 
-        add "#{prefix}/#{space.slug}/f/#{post.component_id}/posts/#{post.id}",
+        add "#{prefix}/#{space.slug}/f/#{post.decidim_component_id}/posts/#{post.id}",
             lastmod: post.updated_at, changefreq: "monthly", priority: 0.5
       end
   end
@@ -183,7 +183,7 @@ SitemapGenerator::Sitemap.create do
         prefix = space_url_prefix(space)
         next unless prefix && space&.slug.present?
 
-        add "#{prefix}/#{space.slug}/f/#{debate.component_id}/debates/#{debate.id}",
+        add "#{prefix}/#{space.slug}/f/#{debate.decidim_component_id}/debates/#{debate.id}",
             lastmod: debate.updated_at, changefreq: "weekly", priority: 0.5
       end
   end
@@ -199,8 +199,8 @@ SitemapGenerator::Sitemap.create do
         prefix = space_url_prefix(space)
         next unless prefix && space&.slug.present?
 
-        add "#{prefix}/#{space.slug}/f/#{project.budget.component_id}" \
-            "/budgets/#{project.budget_id}/projects/#{project.id}",
+        add "#{prefix}/#{space.slug}/f/#{project.budget.decidim_component_id}" \
+            "/budgets/#{project.decidim_budgets_budget_id}/projects/#{project.id}",
             lastmod: project.updated_at, changefreq: "monthly", priority: 0.4
       end
   end
@@ -216,7 +216,7 @@ SitemapGenerator::Sitemap.create do
         prefix = space_url_prefix(space)
         next unless prefix && space&.slug.present?
 
-        add "#{prefix}/#{space.slug}/f/#{result.component_id}/results/#{result.id}",
+        add "#{prefix}/#{space.slug}/f/#{result.decidim_component_id}/results/#{result.id}",
             lastmod: result.updated_at, changefreq: "monthly", priority: 0.4
       end
   end
