@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
   enable_extension "pg_trgm"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
