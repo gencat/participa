@@ -7,7 +7,7 @@ module Cells::Decidim::ParticipatoryProcesses::ContentBlocks::MetadataCellDecora
       private
 
       def metadata_items
-        %w(participatory_scope target participatory_structure area_name meta_scope local_area developer_group
+        %w(meta_scope developer_group local_area target participatory_scope participatory_structure area_name
            promoting_unit facilitators cost has_summary_record email)
       end
     end

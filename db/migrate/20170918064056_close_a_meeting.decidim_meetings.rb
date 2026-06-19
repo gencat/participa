@@ -1,6 +1,7 @@
-# This migration comes from decidim_meetings (originally 20170110142105)
 # frozen_string_literal: true
 
+# This migration comes from decidim_meetings (originally 20170110142105)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:04 UTC
 class CloseAMeeting < ActiveRecord::Migration[5.0]
   def change
     add_column :decidim_meetings_meetings, :closing_report, :jsonb

@@ -11,6 +11,8 @@ es:
           none: Ninguno
           participants_help: Envía el boletín a los participantes que hayan hecho una acción de participación en algun espacio participativo seleccionado de la lista.
           scopes_help: Envía el boletín a los usuarios que hayan activado alguno de los temas seleccionados en la configuración de su cuenta "Mis intereses".
+          select_normatives: Seleccione normativas
+          select_participatory_processes: Seleccione procesos participativos
           select_scopes: Seleccione ámbitos para segmentar el boletín
           select_spaces: Seleccione espacios para segmentar el boletín
           select_users: Seleccione a qué usuarios desea enviar el boletín

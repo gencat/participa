@@ -11,6 +11,8 @@ ca:
           none: Cap
           participants_help: Envia el butlletí als participants que hagin fet una acció de participació en algun dels espais participatius seleccionats a la llista.
           scopes_help: Envia el butlletí als usuaris que hagin activat algun dels temes seleccionats en la configuració del seu compte "Els meus interessos".
+          select_normatives: Seleccioneu normatives
+          select_participatory_processes: Seleccioneu processos participatius
           select_scopes: Seleccioneu àmbits per segmentar el butlletí de notícies
           select_spaces: Seleccioneu els espais per segmentar el butlletí
           select_users: Seleccioneu quins usuaris voleu enviar el butlletí de notícies
