@@ -207,11 +207,11 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: 8eec3b96e779337303263d1b62efa5a5ccd8fe58
+  revision: aff3032131774c5c35ed13b2db4597030d69afe2
   branch: main
   specs:
     decidim-stratified_sortitions (1.0.0)
-      chartkick (~> 5.2.1)
+      chartkick (~> 5.1.2)
       decidim-admin (~> 0.29)
       decidim-core (~> 0.29)
       ruby-cbc (~> 0.3.19)
@@ -383,7 +383,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.9)
-    chartkick (5.2.1)
+    chartkick (5.1.5)
     childprocess (5.1.0)
       logger (~> 1.5)
     chronic (0.10.2)
@@ -902,7 +902,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
-    uri (1.1.1)
+    uri (1.0.4)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -992,7 +992,7 @@ DEPENDENCIES
   rubocop-rspec_rails
   soda-ruby
   stringio (~> 3.1.7)
-  uri (~> 1.1.1)
+  uri (~> 1.0.4)
   web-console
   whenever
   wicked_pdf (~> 2.8.2)
