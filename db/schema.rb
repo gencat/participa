@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
+ActiveRecord::Schema[7.0].define(version: 2026_06_16_093741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1713,6 +1713,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "status", default: "pending"
+    t.text "execution_error"
     t.index ["decidim_component_id"], name: "index_decidim_stratified_sortitions_component_id"
   end
 
@@ -1720,7 +1721,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
     t.jsonb "name", default: "{}", null: false
     t.text "value"
     t.string "range"
-    t.string "weighing"
+    t.string "max_quota_percentage"
     t.integer "decidim_stratified_sortitions_stratum_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

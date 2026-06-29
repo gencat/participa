@@ -203,8 +203,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: 79d111a14e4be4fb9e74f90c082146742bdf8e22
-  branch: dep/downgrade_chartkick
+  revision: aff3032131774c5c35ed13b2db4597030d69afe2
+  branch: main
   specs:
     decidim-stratified_sortitions (1.0.0)
       chartkick (~> 5.1.2)
