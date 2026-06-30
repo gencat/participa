@@ -1,0 +1,15 @@
+---
+es:
+  activemodel:
+    attributes:
+      meeting:
+        google_maps_url: URL de Google Maps
+    errors:
+      messages:
+        invalid_google_maps_domain: "debe ser una URL válida de Google Maps (google.com/maps o maps.app.goo.gl)"
+  decidim:
+    meetings:
+      admin:
+        meetings:
+          form:
+            google_maps_url_help: "Añade un enlace de Google Maps con la dirección del encuentro para facilitar a las usuarias llegar al lugar."

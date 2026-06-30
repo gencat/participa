@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 459c6ac3cbeb205ac0bc80eb2da037e494fc3631
+  revision: 14024997da7a9151e68129d7c5e84e493deabd8d
   branch: release/0.29-stable
   specs:
     decidim (0.29.7)
@@ -198,10 +198,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin
-  revision: d7339fe6d66223b44fab8af4cf4c845f56d83bfa
-  tag: v0.10.1
+  revision: ac66fda8f56119b92259f9880a5d06fd327529dd
+  tag: v0.10.2
   specs:
-    decidim-department_admin (0.10.1)
+    decidim-department_admin (0.10.2)
       decidim-admin (~> 0.29.0)
       decidim-core (~> 0.29.0)
 
@@ -860,6 +860,8 @@ GEM
       simplecov (~> 0.19)
     simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
+    sitemap_generator (7.0.1)
+      builder (~> 3.0)
     smart_properties (1.17.0)
     snaky_hash (2.0.3)
       hashie (>= 0.1.0, < 6)
@@ -887,7 +889,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
-    uri (1.0.4)
+    uri (1.1.1)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -974,6 +976,7 @@ DEPENDENCIES
   rubocop-faker
   rubocop-rspec
   rubocop-rspec_rails
+  sitemap_generator (~> 7.0)
   soda-ruby
   stringio (~> 3.1.7)
   web-console

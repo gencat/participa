@@ -27,6 +27,10 @@ es:
               <li><b>external_author/name:</b> Nombre del autor de la propuesta externo a la plataforma Decidim</li>
               <li><b>meeting_url:</b> Url del encuentro en la plataforma Decidim</li>
               </ul>
+      models:
+        proposal:
+          fields:
+            attachments: Adjuntos
       proposals:
         show:
           proposal_in_evaluation_reason: 'Esta propuesta está en evaluación porque:'
