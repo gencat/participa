@@ -34,6 +34,7 @@
         <%= form.number_field :weight, label: false %>
       </div>
 
+      <%#= Participa gencat override %>
       <% unless form.object.slug == "terms-of-service" %>
         <div class="row column">
           <legend><%= t(".attachment_legend") %></legend>
@@ -54,13 +55,13 @@
                               help_text: t("decidim.admin.static_pages.form.image_legend") %>
         </div>
       <% end %>
+      <%#= Participa gencat override %>
 
       <% if form.object.control_public_access? %>
         <div class="row column">
           <%= form.check_box :allow_public_access %>
         </div>
       <% end %>
-
     </div>
   </div>
 </div>

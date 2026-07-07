@@ -4,62 +4,62 @@ module Decidim
   module ParticipatoryProcesses
     # This class serializes a ParticipatoryProcess so can be exported
     # to CSV, JSON or other formats (check Decidim::Exporters) for Socrata
-    class ParticipatoryProcessSocrataSerializer < Decidim::Exporters::Serializer
+    class ParticipatoryProcessSocrataSerializer < Decidim::ParticipatoryProcesses::OpenDataParticipatoryProcessSerializer
       ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP= Regexp.union([",", ";", " i ", "\r\n", "\r", "\n"])
 
-      # Public: Initializes the serializer with a ParticipatoryProcess.
-      def initialize(process)
-        super
-        @process = process
-      end
-
-      # Public: Returns a hash with the serialized data.
+      # Public: Exports a hash with the serialized data for this resource.
       # rubocop:disable Metrics/CyclomaticComplexity
       def serialize
-        {
-          # Process Information
-          id: process.id,
-          socrata_published_at: Date.current,
-          title_ca: process.title["ca"],
-          url:,
-          slug: process.slug,
-          short_description_ca:,
-          process_type:,
-          scope_id: process.scope&.id,
-          scope_name_ca: process.scope&.name.try(:[], "ca"),
-          department_id: process.area&.id,
-          department_name_ca: process.area&.name.try(:[], "ca"),
-          participatory_space: process.participatory_process_group&.title.try(:[], "ca")&.downcase,
-          normative_type_id: process.participatory_process_type&.id,
-          normative_type_name_ca: process.participatory_process_type&.title.try(:[], "ca"),
-          duration_days:,
-          start_date: process.start_date,
-          end_date: process.end_date,
-          cost: process.cost,
-          has_record: process.has_summary_record?,
-          facilitators: process.facilitators,
-          promoting_unit: process.promoting_unit,
-          total_num_participants: meetings_num_participants + proposals_num_authors,
-          total_num_entities: meetings_num_entities + proposals_num_entities,
-          # Related Resources: Proposals
-          proposals_num_authors:,
-          proposals_num_author_entities: proposals_num_entities,
-          total_num_proposals: proposals.count,
-          total_accepted_proposals: proposals.accepted.count,
-          total_rejected_proposals: proposals.rejected.count,
-          total_evaluating_proposals: proposals.evaluating.count,
-          proposals_num_proposals: proposals_no_meeting.count,
-          # Related Resources: Meetings
-          meetings_num_participants:,
-          meetings_num_entities:,
-          total_num_meetings: meetings.count,
-          meetings_num_proposals: proposals.where(created_in_meeting: true).count,
-          # Related Resources: Debates
-          debates_num_debates: debates.count,
-          # Related Resources: Assemblies
-          has_related_assembly: related_assembly.present?,
-          related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
-        }
+        super.merge(
+          {
+            # Process Information
+            id: process.id,
+            socrata_published_at: Date.current,
+            title_ca: process.title["ca"],
+            slug: process.slug,
+            short_description_ca:,
+            process_type:,
+            participatory_space: process.participatory_process_group&.title.try(:[], "ca")&.downcase,
+            normative_type_id: process.participatory_process_type&.id,
+            normative_type_name_ca: process.participatory_process_type&.title.try(:[], "ca"),
+            duration_days:,
+            cost: process.cost,
+            has_record: process.has_summary_record?,
+            facilitators: process.facilitators,
+            promoting_unit: process.promoting_unit,
+            total_num_participants: meetings_num_participants + proposals_num_authors,
+            total_num_entities: meetings_num_entities + proposals_num_entities,
+            # Related Resources: Proposals
+            proposals_num_authors:,
+            proposals_num_author_entities: proposals_num_entities,
+            total_num_proposals: proposals.count,
+            total_accepted_proposals: proposals.accepted.count,
+            total_rejected_proposals: proposals.rejected.count,
+            total_evaluating_proposals: proposals.evaluating.count,
+            proposals_num_proposals: proposals_no_meeting.count,
+            # Related Resources: Meetings
+            meetings_num_participants:,
+            meetings_num_entities:,
+            total_num_meetings: meetings.count,
+            meetings_num_proposals: proposals.where(created_in_meeting: true).count,
+            # Related Resources: Debates
+            debates_num_debates: debates.count,
+            # Related Resources: Assemblies
+            has_related_assembly: related_assembly.present?,
+            related_assembly_name_ca: related_assembly&.title.try(:[], "ca"),
+            # From core
+            categories: serialize_categories,
+            taxonomies:,
+            attachments: {
+              attachment_collections: serialize_attachment_collections,
+              files: serialize_attachments
+            },
+            private_space: resource.private_space,
+            weight: resource.weight,
+            components: serialize_components,
+            participatory_process_steps: serialize_participatory_process_steps
+          }
+        )
       end
       # rubocop:enable Metrics/CyclomaticComplexity
 
@@ -159,6 +159,24 @@ module Decidim
           :assemblies,
           "included_participatory_processes"
         ).first
+      end
+
+      def serialize_participatory_process_steps
+        return unless resource.steps.any?
+
+        resource.steps.map do |step|
+          {
+            id: step.try(:id),
+            title: step.try(:title),
+            description: step.try(:description),
+            start_date: step.try(:start_date),
+            end_date: step.try(:end_date),
+            cta_path: step.try(:cta_path),
+            cta_text: step.try(:cta_text),
+            active: step.active,
+            position: step.position
+          }
+        end
       end
     end
   end

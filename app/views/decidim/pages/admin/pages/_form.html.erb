@@ -4,6 +4,8 @@
       <div class="row column">
         <%= form.translated :editor, :body, lines: 30, label: t("models.components.body", scope: "decidim.pages.admin") %>
       </div>
+
+      <%#= Participa gencat override %>
       <div class="row column">
         <legend><%= t(".attachment_legend") %></legend>
         <%= form.attachment :documents,
@@ -22,6 +24,7 @@
                             button_edit_label: t("decidim.pages.form.edit_image"),
                             help_text: t("decidim.pages.form.image_legend") %>
       </div>
+      <%#= Participa gencat override %>
     </div>
   </div>
 </div>
