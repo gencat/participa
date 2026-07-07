@@ -8,7 +8,6 @@ module Decidim
       ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP= Regexp.union([",", ";", " i ", "\r\n", "\r", "\n"])
 
       # Public: Exports a hash with the serialized data for this resource.
-      # rubocop:disable Metrics/CyclomaticComplexity
       def serialize
         super.merge(
           {
@@ -61,7 +60,6 @@ module Decidim
           }
         )
       end
-      # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 
