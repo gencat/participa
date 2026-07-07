@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: 1b3efbd4b6705435a44901241ea24963181a7562
+  revision: 0c4e214b424db65de04065649e8015e4047e9dd6
   branch: release/0.30-stable
   specs:
     decidim (0.30.9)
@@ -186,7 +186,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges
-  revision: 41ad6f38afc0e804bd97b98b0abbb9eaf4b70854
+  revision: ecabee7bf93a01580b72019d696c3eed67ed4cca
   branch: upgrade/release-0.30
   specs:
     decidim-challenges (1.0.0)
@@ -194,7 +194,7 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin
-  revision: 93ce5ed285f80613f93d621d3234e25feba6a82d
+  revision: 4e95a80786b8fc209b0a0aaef4579b6c663acd9c
   branch: upgrade/release-0.30
   specs:
     decidim-department_admin (0.11.0)
