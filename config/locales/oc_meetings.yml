@@ -19,6 +19,7 @@ oc:
         description: Descripció
         end_time: Hora de finalització
         location: Ubicació
+        google_maps_url: URL de Google Maps
         location_hints: Detalls d'ubicació
         organizer_id: Organitzador
         private_meeting: Trobada privada
@@ -34,6 +35,8 @@ oc:
         video_url: URL del vídeo
         visible: És visible
     errors:
+      messages:
+        invalid_google_maps_domain: "deu èsser un URL valid de Google Maps (google.com/maps o maps.app.goo.gl)"
       models:
         meeting_agenda:
           attributes:
@@ -248,6 +251,7 @@ oc:
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
+            google_maps_url_help: "Afortís un ligam de Google Maps amb l'adreça de la trobada per facilitar a las utilizadoras d'arribar al luòc."
             location_hints_help: 'Ajuda de localització: informació addicional. Per exemple: la planta de l''edifici'
             select_organizer: Selecciona l'organitzadora
           index:

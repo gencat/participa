@@ -43,6 +43,10 @@ ca:
               <li><b>external_author/name:</b> Nom de l'autor de la proposta extern a la plataforma Decidim</li>
               <li><b>meeting_url:</b> Url de la trobada a la plataforma Decidim</li>
               </ul>
+      models:
+        proposal:
+          fields:
+            attachments: Adjunts
       proposals:
         filters:
           amendment_type: Tipus
