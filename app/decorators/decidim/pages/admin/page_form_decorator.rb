@@ -7,8 +7,12 @@ module Decidim::Pages::Admin::PageFormDecorator
       include Decidim::HasUploadValidations
 
       attribute :attachment, ::Decidim::AttachmentForm
+
       attachments_attribute :documents
-      attachments_attribute :photos
+
+      def map_model(model)
+        self.documents = model.attachments
+      end
     end
   end
 end

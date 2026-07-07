@@ -36,12 +36,9 @@ ca:
           form:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
       form:
-        add_documents: Afegir documents
-        add_image: Afegir imatge
-        attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-        edit_documents: Editar documents
-        edit_image: Editar imatge
-        image_legend: "(Opcional) Afegeix una imatge"
+        add_attachments: Afegir fitxer(s) adjunt(s)
+        attachment_legend: "(Opcional) Afegiu fitxer(s) adjunt(s)"
+        edit_attachments: Editar fitxer(s) adjunt(s)
   layouts:
     decidim:
       process_navigation:

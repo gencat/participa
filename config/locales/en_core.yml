@@ -39,12 +39,9 @@ en:
           form:
             attachment_legend: "(Optional) Add an attachment"
       form:
-        add_documents: Add documents
-        add_image: Add image
-        attachment_legend: "(Optional) Add an attachment"
-        edit_documents: Edit documents
-        edit_image: Edit image
-        image_legend: "(Optional) Add an image"
+        add_attachments: Add attachment(s)
+        attachment_legend: "(Optional) Add attachment(s)"
+        edit_attachments: Edit attachment(s)
   layouts:
     decidim:
       process_navigation:
