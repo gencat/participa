@@ -8,7 +8,10 @@ describe "Google Maps URL on meeting show page", type: :system do
   let!(:meetings_component) { create(:meeting_component, :published, participatory_space: participatory_process) }
   let(:google_maps_url) { "https://www.google.com/maps/place/Test+Location" }
 
-  before { switch_to_host(organization.host) }
+  before do
+    switch_to_host(organization.host)
+    stub_request(:get, %r{nominatim\.openstreetmap\.org/reverse}).to_return(status: 200, body: "{}", headers: { "Content-Type" => "application/json" })
+  end
 
   def meeting_show_path(meeting)
     "/processes/#{participatory_process.slug}/f/#{meetings_component.id}/meetings/#{meeting.id}"
