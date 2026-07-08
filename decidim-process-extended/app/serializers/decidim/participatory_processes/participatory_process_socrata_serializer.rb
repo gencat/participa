@@ -12,20 +12,20 @@ module Decidim
         super.merge(
           {
             # Process Information
-            id: process.id,
+            id: resource.id,
             socrata_published_at: Date.current,
-            title_ca: process.title["ca"],
-            slug: process.slug,
+            title_ca: resource.title["ca"],
+            slug: resource.slug,
             short_description_ca:,
             process_type:,
-            participatory_space: process.participatory_process_group&.title.try(:[], "ca")&.downcase,
-            normative_type_id: process.participatory_process_type&.id,
-            normative_type_name_ca: process.participatory_process_type&.title.try(:[], "ca"),
+            participatory_space: resource.participatory_process_group&.title.try(:[], "ca")&.downcase,
+            normative_type_id: resource.participatory_process_type&.id,
+            normative_type_name_ca: resource.participatory_process_type&.title.try(:[], "ca"),
             duration_days:,
-            cost: process.cost,
-            has_record: process.has_summary_record?,
-            facilitators: process.facilitators,
-            promoting_unit: process.promoting_unit,
+            cost: resource.cost,
+            has_record: resource.has_summary_record?,
+            facilitators: resource.facilitators,
+            promoting_unit: resource.promoting_unit,
             total_num_participants: meetings_num_participants + proposals_num_authors,
             total_num_entities: meetings_num_entities + proposals_num_entities,
             # Related Resources: Proposals
@@ -63,14 +63,12 @@ module Decidim
 
       private
 
-      attr_reader :process
-
       def url
-        Decidim::ResourceLocatorPresenter.new(process).url&.split("?")&.first
+        Decidim::ResourceLocatorPresenter.new(resource).url&.split("?")&.first
       end
 
       def short_description_ca
-        ActionController::Base.helpers.strip_tags(process.short_description["ca"])
+        ActionController::Base.helpers.strip_tags(resource.short_description["ca"])
       end
 
       def process_type
@@ -78,13 +76,13 @@ module Decidim
       end
 
       def duration_days
-        return unless process.start_date.present? && process.end_date.present?
+        return unless resource.start_date.present? && resource.end_date.present?
 
-        (process.end_date - process.start_date).to_i
+        (resource.end_date - resource.start_date).to_i
       end
 
       def component(component_name)
-        process.components.find_by(manifest_name: component_name)
+        resource.components.find_by(manifest_name: component_name)
       end
 
       def proposals
@@ -153,7 +151,7 @@ module Decidim
       end
 
       def related_assembly
-        @related_assembly ||= process.linked_participatory_space_resources(
+        @related_assembly ||= resource.linked_participatory_space_resources(
           :assemblies,
           "included_participatory_processes"
         ).first
