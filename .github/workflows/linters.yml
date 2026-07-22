@@ -26,7 +26,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
 
       - name: Recover Ruby dependency cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
@@ -57,12 +57,18 @@ jobs:
           sudo apt-get update
           sudo apt install imagemagick
 
+      - name: Install CBC solver dependencies
+        shell: "bash"
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y coinor-cbc coinor-libcbc-dev
+
       - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 119.0.6045.105
 
       - name: Install Ruby deps
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@v4
         with:
           timeout_minutes: 10
           max_attempts: 3
