@@ -19,8 +19,12 @@ module Decidim
             short_description_ca:,
             process_type:,
             participatory_space: resource.participatory_process_group&.title.try(:[], "ca")&.downcase,
-            normative_type_id: resource.participatory_process_type&.id,
-            normative_type_name_ca: resource.participatory_process_type&.title.try(:[], "ca"),
+            department_id:,
+            department_name_ca:,
+            scope_id: scope_id,
+            scope_name_ca: scope_name_ca,
+            normative_type_id: normative_type_id,
+            normative_type_name_ca: normative_type_name_ca,
             duration_days:,
             cost: resource.cost,
             has_record: resource.has_summary_record?,
@@ -46,17 +50,6 @@ module Decidim
             # Related Resources: Assemblies
             has_related_assembly: related_assembly.present?,
             related_assembly_name_ca: related_assembly&.title.try(:[], "ca"),
-            # From core
-            categories: serialize_categories,
-            taxonomies:,
-            attachments: {
-              attachment_collections: serialize_attachment_collections,
-              files: serialize_attachments
-            },
-            private_space: resource.private_space,
-            weight: resource.weight,
-            components: serialize_components,
-            participatory_process_steps: serialize_participatory_process_steps
           }
         )
       end
@@ -173,6 +166,59 @@ module Decidim
             position: step.position
           }
         end
+      end
+
+      def department_id
+        return unless resource.respond_to?(:decidim_department_admin_department_id)
+
+        resource.decidim_department_admin_department_id
+      end
+
+      def department_name_ca
+        return if department_id.blank?
+        return unless defined?(Decidim::DepartmentAdmin::Department)
+
+        Decidim::DepartmentAdmin::Department.find_by(id: department_id)&.name&.[]("ca")
+      end
+
+      def process_type_taxonomy?(taxonomy)
+        root_name_ca = taxonomy.root_taxonomy&.name&.[]("ca").to_s.downcase
+        root_name_ca.include?("tipus de processos participatius") || root_name_ca.include?("tipus de processos") || root_name_ca.include?("tipus")
+      end
+
+      def scope_item
+        return @scope_item if defined?(@scope_item)
+        return unless resource.respond_to?(:taxonomies)
+
+        # First taxonomy assigned to the resource that is NOT the
+        # "Tipus de processos participatius" one (already exposed as normative_type_*)
+        @scope_item = resource.taxonomies.detect { |taxonomy| !process_type_taxonomy?(taxonomy) }
+      end
+
+      def scope_id
+        scope_item&.id
+      end
+
+      def scope_name_ca
+        scope_item&.name&.[]("ca")
+      end
+
+      def normative_item
+        return @normative_item if defined?(@normative_item)
+        return unless resource.respond_to?(:taxonomies)
+
+        @normative_item = resource.taxonomies.detect do |item|
+          text = (item.try(:title)&.[]("ca") || item.try(:name)&.[]("ca") || "").to_s.downcase
+          text.include?("consulta") || text.include?("norma") || text.include?("projecte normatiu") || text.include?("prèvia") || text.include?("inicial") || text.include?("projecte")
+        end
+      end
+
+      def normative_type_id
+        normative_item&.id
+      end
+
+      def normative_type_name_ca
+        normative_item&.name&.[]("ca") || normative_item&.title&.[]("ca")
       end
     end
   end
