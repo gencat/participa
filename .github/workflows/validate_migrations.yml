@@ -34,11 +34,18 @@ jobs:
       DB_PASSWORD: postgres
       DB_HOST: localhost
       SECRET_KEY_BASE: "secret_key_base"
+      BUNDLE_BUILD__CBC_WRAPPER: "--with-cbc-include=/usr/include/coin --with-cbc-lib=/usr/lib/x86_64-linux-gnu"
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+
+      - name: Install CBC solver dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y coinor-cbc coinor-libcbc-dev coinor-libclp-dev coinor-libcoinutils-dev coinor-libosi-dev
+
       - uses: ruby/setup-ruby@master
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
@@ -54,11 +61,6 @@ jobs:
 
       - name: Set bundle local config vendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
-
-      - name: Install CBC solver dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y coinor-cbc coinor-libcbc-dev
 
       - name: Install Ruby deps
         uses: nick-fields/retry@v4
