@@ -49,7 +49,7 @@ module Decidim
             debates_num_debates: debates.count,
             # Related Resources: Assemblies
             has_related_assembly: related_assembly.present?,
-            related_assembly_name_ca: related_assembly&.title.try(:[], "ca"),
+            related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
           }
         )
       end
@@ -203,15 +203,20 @@ module Decidim
         scope_item&.name&.[]("ca")
       end
 
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
       def normative_item
         return @normative_item if defined?(@normative_item)
         return unless resource.respond_to?(:taxonomies)
 
         @normative_item = resource.taxonomies.detect do |item|
           text = (item.try(:title)&.[]("ca") || item.try(:name)&.[]("ca") || "").to_s.downcase
-          text.include?("consulta") || text.include?("norma") || text.include?("projecte normatiu") || text.include?("prèvia") || text.include?("inicial") || text.include?("projecte")
+          text.include?("consulta") || text.include?("norma") || text.include?("projecte normatiu") ||
+            text.include?("prèvia") || text.include?("inicial") || text.include?("projecte")
         end
       end
+      # rubocop:enable Metrics/CyclomaticComplexity
+      # rubocop:enable Metrics/PerceivedComplexity
 
       def normative_type_id
         normative_item&.id
