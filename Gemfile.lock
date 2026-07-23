@@ -206,6 +206,17 @@ GIT
       decidim-core (~> 0.29.0)
 
 GIT
+  remote: https://github.com/gencat/decidim-module-stratified_sortitions
+  revision: a1ba96188b49673e7b45614dcca2e3fbe23f2a56
+  branch: main
+  specs:
+    decidim-stratified_sortitions (1.0.0)
+      chartkick (~> 5.1.2)
+      decidim-admin (~> 0.29)
+      decidim-core (~> 0.29)
+      ruby-cbc (~> 0.3.19)
+
+GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: d02e5d51a4798f275865ea2270135471ce47041d
   tag: v0.2.0
@@ -359,6 +370,7 @@ GEM
     capybara-screenshot (1.0.26)
       capybara (>= 1.0, < 4)
       launchy
+    cbc-wrapper (2.9.9.5)
     cells (4.1.8)
       declarative-builder (~> 0.2.0)
       declarative-option (< 0.2.0)
@@ -371,6 +383,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.9)
+    chartkick (5.1.5)
     childprocess (5.1.0)
       logger (~> 1.5)
     chronic (0.10.2)
@@ -831,6 +844,8 @@ GEM
       rubocop-rspec (~> 3, >= 3.0.1)
     rubocop-rubycw (0.1.6)
       rubocop (~> 1.0)
+    ruby-cbc (0.3.19)
+      cbc-wrapper (~> 2.9.9.2)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.5)
       ffi (~> 1.12)
@@ -889,7 +904,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
-    uri (1.1.1)
+    uri (1.0.4)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -959,6 +974,7 @@ DEPENDENCIES
   decidim-process-extended!
   decidim-recaptcha!
   decidim-regulations!
+  decidim-stratified_sortitions!
   decidim-templates!
   decidim-term_customizer!
   decidim-top_comments!
@@ -979,6 +995,7 @@ DEPENDENCIES
   sitemap_generator (~> 7.0)
   soda-ruby
   stringio (~> 3.1.7)
+  uri (~> 1.0.4)
   web-console
   whenever
   wicked_pdf (~> 2.8.2)
