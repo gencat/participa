@@ -904,7 +904,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
-    uri (1.0.4)
+    uri (1.1.1)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -995,7 +995,7 @@ DEPENDENCIES
   sitemap_generator (~> 7.0)
   soda-ruby
   stringio (~> 3.1.7)
-  uri (~> 1.0.4)
+  uri (~> 1.1.1)
   web-console
   whenever
   wicked_pdf (~> 2.8.2)
