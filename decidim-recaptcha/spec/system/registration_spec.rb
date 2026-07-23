@@ -28,19 +28,42 @@ describe "Registration", type: :system do
 
   describe "when signing up" do
     context "with v3 recaptcha" do
-      it "renders input" do
+      it "renders the hidden recaptcha input" do
         expect(page).to have_css("#g-recaptcha-response-data-registration", visible: :hidden)
       end
     end
 
-    it "signing up successfully" do
-      fill_registration_form
-      page.check("registration_user_tos_agreement")
-      page.check("registration_user_newsletter")
-      within "form.new_user" do
-        find("*[type=submit]").click
+    context "when recaptcha passes" do
+      before do
+        allow_any_instance_of(Decidim::CreateRegistration).to receive(:verify_recaptcha).and_return(true)
       end
-      expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
+
+      it "signs up successfully" do
+        fill_registration_form
+        page.check("registration_user_tos_agreement")
+        page.check("registration_user_newsletter")
+        within "form.new_user" do
+          find("*[type=submit]").click
+        end
+        expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
+      end
+    end
+
+    context "when recaptcha fails" do
+      before do
+        allow_any_instance_of(Decidim::CreateRegistration).to receive(:verify_recaptcha).and_return(false)
+      end
+
+      it "does not sign up the user and shows an error" do
+        fill_registration_form
+        page.check("registration_user_tos_agreement")
+        page.check("registration_user_newsletter")
+        within "form.new_user" do
+          find("*[type=submit]").click
+        end
+        expect(page).to have_no_content("A message with a confirmation link has been sent to your email address.")
+        expect(Decidim::User.where(email: "nikola.tesla@example.org")).not_to exist
+      end
     end
   end
 end
