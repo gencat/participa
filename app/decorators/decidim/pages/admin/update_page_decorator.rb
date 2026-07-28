@@ -4,7 +4,6 @@ module Decidim::Pages::Admin::UpdatePageDecorator
   def self.decorate
     Decidim::Pages::Admin::UpdatePage.class_eval do
       include ::Decidim::MultipleAttachmentsMethods
-      include ::Decidim::GalleryMethods
 
       def initialize(form, page)
         @form = form
@@ -20,19 +19,13 @@ module Decidim::Pages::Admin::UpdatePageDecorator
           return broadcast(:invalid) if attachments_invalid?
         end
 
-        if process_gallery?
-          build_gallery
-          return broadcast(:invalid) if gallery_invalid?
-        end
-
         transaction do
           update_page
-          document_cleanup!
-          photo_cleanup!
-          create_attachments if process_attachments?
-          create_gallery if process_gallery?
-          broadcast(:ok)
+          document_cleanup!(include_all_attachments: true)
+          create_attachments(first_weight: first_attachment_weight) if process_attachments?
         end
+
+        broadcast(:ok)
       end
 
       def update_page
@@ -47,6 +40,12 @@ module Decidim::Pages::Admin::UpdatePageDecorator
       private
 
       attr_reader :form, :page, :current_user
+
+      def first_attachment_weight
+        return 1 if page.photos.count.zero?
+
+        page.photos.count
+      end
     end
   end
 end

@@ -1,24 +1,25 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_debates (originally 20181016132850)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:03 UTC
 class AddOrganizationAsAuthorToDebates < ActiveRecord::Migration[5.2]
   class Debate < ApplicationRecord
     self.table_name = :decidim_debates_debates
     include Decidim::HasComponent
   end
+
   class User < ApplicationRecord
     self.table_name = :decidim_users
   end
+
   def change
     add_column :decidim_debates_debates, :decidim_author_type, :string
 
-    Debate.reset_column_information
     Debate.find_each do |debate|
       if debate.decidim_author_id.present?
         debate.decidim_author_type = "Decidim::UserBaseEntity"
       else
-        debate.decidim_author_id = Decidim::Organization.first.id
+        debate.decidim_author_id = debate.organization.id
         debate.decidim_author_type = "Decidim::Organization"
       end
       debate.save!

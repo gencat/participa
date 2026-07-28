@@ -37,6 +37,7 @@ public/assets
 public/decidim-packs/
 public/sw.js.*
 public/sw.js
+/public/sw.js*
 
 # Ignore test app
 spec/decidim_dummy_app/

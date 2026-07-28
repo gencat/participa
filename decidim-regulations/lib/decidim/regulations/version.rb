@@ -2,6 +2,7 @@
 
 module Decidim
   module Regulations
-    VERSION = "0.1.3"
+    VERSION = "0.2.3"
+    DECIDIM_VER = ">= 0.30.0"
   end
 end

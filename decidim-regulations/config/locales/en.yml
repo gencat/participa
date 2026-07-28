@@ -79,11 +79,6 @@ en:
           title: Choose %{field}
         prompt: Select type
         types: Types
-      shared:
-        participatory_space_filters:
-          filters:
-            select_a_type: Select type
-            types: Type
     statistics:
       regulations_count: Participations in regulation
     participatory_processes:

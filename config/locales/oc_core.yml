@@ -997,12 +997,9 @@ oc:
           form:
             attachment_legend: "(Opcional) Ahigetz un fichèr adjunt"
       form:
-        add_documents: Ahíger documents
-        add_image: Ahíger imatge
+        add_attachments: Ahíger fichèr(s) adjunt(s)
         attachment_legend: "(Opcional) Ahigetz un fichèr adjunt"
-        edit_documents: Editar documents
-        edit_image: Editar imatge
-        image_legend: "(Opcional) Ahig ua imatge"
+        edit_attachments: Editar fichèr(s) adjunt(s)
       home:
         extended:
           debates: Debats

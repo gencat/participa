@@ -24,6 +24,7 @@ module Decidim
       double(
         notification_types: "none",
         email_on_moderations: data[:email_on_moderations],
+        email_on_assigned_proposals: data[:email_on_assigned_proposals],
         newsletter_notifications_at: data[:newsletter_notifications_at],
         direct_message_types: data[:direct_message_types],
         notification_settings: data[:notification_settings],

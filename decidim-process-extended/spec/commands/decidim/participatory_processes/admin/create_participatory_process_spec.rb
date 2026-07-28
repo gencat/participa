@@ -11,12 +11,13 @@ module Decidim::ParticipatoryProcesses
     let(:participatory_process_group) { create(:participatory_process_group, organization:) }
     let!(:admin) { create(:user, :admin, :confirmed, organization:, notification_settings: { participatory_space_news: "1" }) }
     let(:participatory_process_type) { create(:participatory_process_type, organization:) }
-    let(:scope) { create(:scope, organization:) }
-    let(:area) { create(:area, organization:) }
     let(:current_user) { create(:user, :admin, organization:) }
     let(:errors) { double.as_null_object }
     let(:related_process_ids) { [] }
     let(:weight) { 1 }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessForm,
@@ -40,15 +41,12 @@ module Decidim::ParticipatoryProcesses
         short_description: { en: "short_description" },
         current_user:,
         current_organization: organization,
-        scopes_enabled: true,
+        organization:,
         private_space: false,
-        scope:,
-        scope_type_max_depth: nil,
-        area:,
+        taxonomizations:,
         errors:,
         related_process_ids:,
         participatory_process_group:,
-        participatory_process_type:,
         announcement: { en: "message" },
         cost: 123,
         has_summary_record: true,
@@ -60,19 +58,9 @@ module Decidim::ParticipatoryProcesses
     let(:invalid) { false }
 
     context "when the process is not persisted" do
-      let(:invalid_process) do
-        instance_double(
-          Decidim::ParticipatoryProcess,
-          persisted?: false,
-          valid?: false,
-          errors: {
-            hero_image: "File resolution is too large"
-          }
-        ).as_null_object
-      end
-
       before do
-        allow(Decidim::ParticipatoryProcess).to receive(:new).and_return(invalid_process)
+        invalid_process = build(:participatory_process, organization:)
+        allow(Decidim.traceability).to receive(:create).and_return(invalid_process)
       end
 
       it "broadcasts invalid" do
@@ -95,9 +83,9 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "traces the creation", versioning: true do
-        expect(Decidim::ActionLogger)
-          .to receive(:log)
-          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcess), a_kind_of(Integer))
+        expect(Decidim.traceability)
+          .to receive(:create)
+          .with(Decidim::ParticipatoryProcess, current_user, kind_of(Hash))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
