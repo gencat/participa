@@ -1050,6 +1050,7 @@ DEPENDENCIES
   sitemap_generator (~> 7.0)
   soda-ruby
   stringio (~> 3.1.7)
+  uri (~> 1.1.1)
   web-console
   whenever
   wicked_pdf (~> 2.8.2)

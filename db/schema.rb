@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
+ActiveRecord::Schema[7.0].define(version: 2026_06_16_093741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1635,6 +1635,101 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
     t.index ["topic_id"], name: "index_decidim_static_pages_on_topic_id"
   end
 
+  create_table "decidim_stratified_sortitions_panel_portfolios", force: :cascade do |t|
+    t.bigint "decidim_stratified_sortitions_stratified_sortition_id", null: false
+    t.jsonb "panels", default: [], null: false
+    t.jsonb "probabilities", default: [], null: false
+    t.jsonb "selection_probabilities", default: {}, null: false
+    t.datetime "generated_at", null: false
+    t.float "generation_time_seconds"
+    t.integer "num_iterations"
+    t.boolean "convergence_achieved", default: false, null: false
+    t.integer "selected_panel_index"
+    t.datetime "selected_at"
+    t.string "verification_seed"
+    t.float "random_value_used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_stratified_sortitions_stratified_sortition_id"], name: "idx_panel_portfolios_on_sortition_id"
+    t.index ["decidim_stratified_sortitions_stratified_sortition_id"], name: "idx_panel_portfolios_unique_sortition", unique: true
+  end
+
+  create_table "decidim_stratified_sortitions_sample_imports", force: :cascade do |t|
+    t.bigint "stratified_sortition_id", null: false
+    t.string "filename"
+    t.integer "total_rows", default: 0
+    t.integer "imported_rows", default: 0
+    t.integer "failed_rows", default: 0
+    t.jsonb "import_errors", default: {}
+    t.string "status", default: "pending"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stratified_sortition_id"], name: "idx_sample_imports_on_sortition_id"
+  end
+
+  create_table "decidim_stratified_sortitions_sample_participant_strata", force: :cascade do |t|
+    t.bigint "decidim_stratified_sortitions_sample_participant_id", null: false
+    t.bigint "decidim_stratified_sortitions_stratum_id", null: false
+    t.bigint "decidim_stratified_sortitions_substratum_id"
+    t.string "raw_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_stratified_sortitions_sample_participant_id"], name: "idx_sample_part_strata_on_participants"
+    t.index ["decidim_stratified_sortitions_stratum_id"], name: "idx_sample_part_strata_on_strata"
+    t.index ["decidim_stratified_sortitions_substratum_id"], name: "idx_sample_part_strata_on_substrata"
+  end
+
+  create_table "decidim_stratified_sortitions_sample_participants", force: :cascade do |t|
+    t.bigint "decidim_stratified_sortition_id", null: false
+    t.bigint "decidim_stratified_sortitions_sample_import_id"
+    t.string "personal_data_1", null: false
+    t.string "personal_data_2"
+    t.string "personal_data_3"
+    t.string "personal_data_4"
+    t.jsonb "column_values", default: []
+    t.string "reference_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_stratified_sortition_id"], name: "idx_sample_part_on_sortition_id"
+    t.index ["decidim_stratified_sortitions_sample_import_id"], name: "idx_sample_part_on_sample_import_id"
+  end
+
+  create_table "decidim_stratified_sortitions_strata", force: :cascade do |t|
+    t.jsonb "name", default: "{}", null: false
+    t.string "kind", null: false
+    t.integer "decidim_stratified_sortition_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
+    t.index ["decidim_stratified_sortition_id"], name: "index_strata_on_sortition_id"
+  end
+
+  create_table "decidim_stratified_sortitions_stratified_sortitions", force: :cascade do |t|
+    t.jsonb "title"
+    t.integer "num_candidates", null: false
+    t.jsonb "description"
+    t.jsonb "selection_criteria"
+    t.jsonb "selected_profiles_description"
+    t.bigint "decidim_component_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "status", default: "pending"
+    t.text "execution_error"
+    t.index ["decidim_component_id"], name: "index_decidim_stratified_sortitions_component_id"
+  end
+
+  create_table "decidim_stratified_sortitions_substrata", force: :cascade do |t|
+    t.jsonb "name", default: "{}", null: false
+    t.text "value"
+    t.string "range"
+    t.string "max_quota_percentage"
+    t.integer "decidim_stratified_sortitions_stratum_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
+    t.index ["decidim_stratified_sortitions_stratum_id"], name: "index_substrata_on_stratum_id"
+  end
+
   create_table "decidim_surveys_surveys", id: :serial, force: :cascade do |t|
     t.integer "decidim_component_id"
     t.datetime "created_at", precision: nil, null: false
@@ -2016,6 +2111,16 @@ ActiveRecord::Schema[7.0].define(version: 2026_05_26_140553) do
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
   add_foreign_key "decidim_solutions_solutions", "decidim_users", column: "author_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
+  add_foreign_key "decidim_stratified_sortitions_panel_portfolios", "decidim_stratified_sortitions_stratified_sortitions", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_imports", "decidim_stratified_sortitions_stratified_sortitions", column: "stratified_sortition_id", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_sample_participants", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_strata", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participant_strata", "decidim_stratified_sortitions_substrata", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participants", "decidim_stratified_sortitions_sample_imports", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_sample_participants", "decidim_stratified_sortitions_stratified_sortitions", column: "decidim_stratified_sortition_id", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_strata", "decidim_stratified_sortitions_stratified_sortitions", column: "decidim_stratified_sortition_id", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_stratified_sortitions", "decidim_components", on_delete: :cascade
+  add_foreign_key "decidim_stratified_sortitions_substrata", "decidim_stratified_sortitions_strata", on_delete: :cascade
   add_foreign_key "decidim_taxonomy_filter_items", "decidim_taxonomies", column: "taxonomy_item_id"
   add_foreign_key "decidim_taxonomy_filters", "decidim_taxonomies", column: "root_taxonomy_id"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"

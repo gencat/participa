@@ -14,6 +14,7 @@ gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-d
 gem "decidim-idcat_mobil", "~> 0.8.2"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "main"
 gem "decidim-verifications-members_picker", github: "gencat/decidim-verifications-members_picker", branch: "upgrade/release-0.30"
+# gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", branch: "main"
 
 # Internal modules
 gem "decidim-home", path: "decidim-home"
@@ -24,6 +25,7 @@ gem "decidim-top_comments", path: "decidim-top_comments"
 
 gem "soda-ruby", require: false
 gem "stringio", "~> 3.1.7"
+gem "uri", "~> 1.1.1"
 
 gem "puma"
 
