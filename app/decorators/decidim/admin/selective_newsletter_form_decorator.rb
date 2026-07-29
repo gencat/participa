@@ -3,10 +3,11 @@
 module Decidim::Admin::SelectiveNewsletterFormDecorator
   def self.decorate
     Decidim::Admin::SelectiveNewsletterForm.class_eval do
-      def map_model(_newsletter)
+      def map_model(newsletter)
         self.participatory_space_types = Decidim.participatory_space_manifests.map do |manifest|
           Decidim::Admin::SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest:)
         end
+
         self.verification_types = newsletter.organization.available_authorizations
 
         participatory_space_types.unshift(additional_participatory_space_manifest)
