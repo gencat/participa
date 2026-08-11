@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Global Permissions-Policy header with deny-by-default directives.
+# Global security headers, including a deny-by-default Permissions-Policy.
 # Apply consistently across environments so tests can catch policy regressions.
 policy = [
   "accelerometer=()",
@@ -44,5 +44,8 @@ policy = [
 ].join(", ")
 
 Rails.application.config.action_dispatch.default_headers.merge!(
-  "Permissions-Policy" => policy
+  "Permissions-Policy" => policy,
+  "Cross-Origin-Opener-Policy" => "same-origin-allow-popups",
+  "Cross-Origin-Embedder-Policy" => "unsafe-none",
+  "Cross-Origin-Resource-Policy" => "same-origin"
 )

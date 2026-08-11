@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Permissions-Policy header", type: :request do
+RSpec.describe "Security headers", type: :request do
   let(:expected_permissions_policy) do
     [
       "accelerometer=()",
@@ -46,10 +46,17 @@ RSpec.describe "Permissions-Policy header", type: :request do
     ].join(", ")
   end
 
-  it "returns the configured Permissions-Policy on the public root endpoint" do
+  let(:expected_cross_origin_opener_policy) { "same-origin-allow-popups" }
+  let(:expected_cross_origin_embedder_policy) { "unsafe-none" }
+  let(:expected_cross_origin_resource_policy) { "same-origin" }
+
+  it "returns the configured security headers on the public root endpoint" do
     get "/"
 
     expect(response.status).to be_between(200, 399)
     expect(response.headers["Permissions-Policy"]).to eq(expected_permissions_policy)
+    expect(response.headers["Cross-Origin-Opener-Policy"]).to eq(expected_cross_origin_opener_policy)
+    expect(response.headers["Cross-Origin-Embedder-Policy"]).to eq(expected_cross_origin_embedder_policy)
+    expect(response.headers["Cross-Origin-Resource-Policy"]).to eq(expected_cross_origin_resource_policy)
   end
 end
