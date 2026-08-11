@@ -55,6 +55,7 @@ RSpec.describe "Security headers", type: :request do
 
     expect(response.status).to be_between(200, 399)
     expect(response.headers["Permissions-Policy"]).to eq(expected_permissions_policy)
+    expect(response.headers["X-Frame-Options"]).to eq("SAMEORIGIN")
     expect(response.headers["Cross-Origin-Opener-Policy"]).to eq(expected_cross_origin_opener_policy)
     expect(response.headers["Cross-Origin-Embedder-Policy"]).to eq(expected_cross_origin_embedder_policy)
     expect(response.headers["Cross-Origin-Resource-Policy"]).to eq(expected_cross_origin_resource_policy)

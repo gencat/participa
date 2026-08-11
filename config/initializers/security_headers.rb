@@ -45,6 +45,7 @@ policy = [
 
 Rails.application.config.action_dispatch.default_headers.merge!(
   "Permissions-Policy" => policy,
+  "X-Frame-Options" => "SAMEORIGIN",
   "Cross-Origin-Opener-Policy" => "same-origin-allow-popups",
   "Cross-Origin-Embedder-Policy" => "unsafe-none",
   "Cross-Origin-Resource-Policy" => "same-origin"
