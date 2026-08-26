@@ -186,10 +186,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges
-  revision: ecabee7bf93a01580b72019d696c3eed67ed4cca
-  branch: upgrade/release-0.30
+  revision: 227343f21a0fed75db0080b82410995c13013dba
+  branch: master
   specs:
-    decidim-challenges (1.0.0)
+    decidim-challenges (0.8.0)
       decidim-core (~> 0.30)
 
 GIT
