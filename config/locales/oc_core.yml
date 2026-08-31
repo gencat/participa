@@ -991,15 +991,6 @@ oc:
       disclaimer: Els continguts d'aquest pad han estat escrits per participants registrades i expressen les seves opinions. %{organization} no es fa responsable dels seu contingut.
       explanation: Utilitzeu aquest pad per prendre notes durant la trobada de manera col·laborativa, així és més fàcil escriure l'acta després.
       pad: Pad
-    pages:
-      admin:
-        pages:
-          form:
-            attachment_legend: "(Opcional) Ahigetz un fichèr adjunt"
-      form:
-        add_attachments: Ahíger fichèr(s) adjunt(s)
-        attachment_legend: "(Opcional) Ahigetz un fichèr adjunt"
-        edit_attachments: Editar fichèr(s) adjunt(s)
       home:
         extended:
           debates: Debats
