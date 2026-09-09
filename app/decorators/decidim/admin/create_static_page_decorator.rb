@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This decorator adds the ability to the static page creation flow to support attachments
+# (images/documents) in the same creation process.
 module Decidim::Admin::CreateStaticPageDecorator
   def self.decorate
     Decidim::Admin::CreateStaticPage.class_eval do

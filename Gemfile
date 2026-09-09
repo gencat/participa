@@ -12,9 +12,9 @@ gem "decidim-cdtb", "~> 0.5.6"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", branch: "master"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", branch: "upgrade/release-0.30"
 gem "decidim-idcat_mobil", "~> 0.8.2"
+gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", branch: "feat/adapt_to_decidim_30"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "main"
 gem "decidim-verifications-members_picker", github: "gencat/decidim-verifications-members_picker", tag: "0.3.0"
-gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", branch: "feat/adapt_to_decidim_30"
 
 # Internal modules
 gem "decidim-home", path: "decidim-home"
@@ -29,8 +29,7 @@ gem "uri", "~> 1.1.1"
 
 gem "puma"
 
-# https://github.com/hlascelles/figjam
-gem "figjam", "~> 3.0.1"
+gem "dotenv", "~> 3.2.0"
 gem "wkhtmltopdf-binary"
 
 gem "daemons"
