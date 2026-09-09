@@ -29,8 +29,7 @@ gem "uri", "~> 1.1.1"
 
 gem "puma"
 
-# https://github.com/hlascelles/figjam
-gem "figjam", "~> 3.0.1"
+gem "dotenv", "~> 3.2.0"
 gem "wkhtmltopdf-binary"
 
 gem "daemons"

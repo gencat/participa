@@ -255,7 +255,7 @@ PATH
 PATH
   remote: decidim-regulations
   specs:
-    decidim-regulations (0.2.3)
+    decidim-regulations (0.2.0)
       rails (~> 7.0.8)
 
 PATH
@@ -466,6 +466,7 @@ GEM
     doorkeeper (5.9.0)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
+    dotenv (3.2.0)
     drb (2.2.3)
     erb_lint (0.8.0)
       activesupport
@@ -504,8 +505,6 @@ GEM
     ffi (1.17.4-x86_64-linux-gnu)
     ffi (1.17.4-x86_64-linux-musl)
     fiber-storage (1.0.1)
-    figjam (3.0.1)
-      thor (>= 0.14.0, < 2)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -1051,8 +1050,8 @@ DEPENDENCIES
   decidim-verifications-members_picker!
   deface
   delayed_job_active_record
+  dotenv (~> 3.2.0)
   faker
-  figjam (~> 3.0.1)
   letter_opener_web (~> 3.0)
   listen
   puma

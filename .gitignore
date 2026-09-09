@@ -22,7 +22,10 @@ yarn-debug.log*
 
 .byebug_history
 
-/config/application.yml
+/.env
+/.env.*
+!/.env.example
+
 /config/puma.rb
 
 # Ignore public uploaded files
@@ -37,7 +40,6 @@ public/assets
 public/decidim-packs/
 public/sw.js.*
 public/sw.js
-/public/sw.js*
 
 # Ignore test app
 spec/decidim_dummy_app/
