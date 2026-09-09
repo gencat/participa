@@ -44,16 +44,34 @@ describe Decidim::Admin::StaticPagesFormDecorator do
       expect(subject).to respond_to(:add_documents)
     end
 
-    it "responds to photos" do
-      expect(subject).to respond_to(:photos)
-    end
-
-    it "responds to add_photos" do
-      expect(subject).to respond_to(:add_photos)
-    end
-
     it "responds to attachment" do
       expect(subject).to respond_to(:attachment)
+    end
+  end
+
+  describe "map_model" do
+    let(:static_page) { create(:static_page, organization: current_organization) }
+
+    let(:mapped_form) do
+      Decidim::Admin::StaticPageForm.from_model(static_page).with_context(
+        current_organization:
+      )
+    end
+
+    context "when the page has a document attachment" do
+      let!(:document) { create(:attachment, :with_pdf, attached_to: static_page) }
+
+      it "includes it in documents" do
+        expect(mapped_form.documents).to include(document)
+      end
+    end
+
+    context "when the page has an image attachment" do
+      let!(:photo) { create(:attachment, :with_image, attached_to: static_page) }
+
+      it "includes it in documents" do
+        expect(mapped_form.documents).to include(photo)
+      end
     end
   end
 end

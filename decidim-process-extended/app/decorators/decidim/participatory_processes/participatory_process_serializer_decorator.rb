@@ -5,11 +5,11 @@ module Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializerDecorator
   def serialize
     attributes = super
     attributes.merge({
-                       cost: participatory_process.cost,
-                       has_record: participatory_process.has_summary_record?,
-                       facilitators: participatory_process.facilitators,
-                       promoting_unit: participatory_process.promoting_unit,
-                       email: participatory_process.email
+                       cost: resource.cost,
+                       has_record: resource.has_summary_record?,
+                       facilitators: resource.facilitators,
+                       promoting_unit: resource.promoting_unit,
+                       email: resource.email
                      })
   end
 end

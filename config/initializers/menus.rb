@@ -5,7 +5,7 @@ Rails.application.config.to_prepare do
     menu.add_item :decidims_finder,
                   I18n.t("menu.decidims_finder", scope: "participagencat"),
                   Rails.application.routes.url_helpers.decidims_finder_page_path,
-                  position: 2.2,
+                  position: 2.8,
                   active: :inclusive
   end
 

@@ -30,7 +30,7 @@ Create a dummy app in your application (if not present):
 bin/rails decidim:generate_external_test_app
 cd spec/decidim_dummy_app/
 bundle exec rake decidim_process_extended:install:migrations
-RAILS_ENV=test bundle exec rails db:migrate
+DISABLE_SPRING=1 RAILS_ENV=test bundle exec rails db:migrate
 cd ../..
 ```
 

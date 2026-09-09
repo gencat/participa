@@ -6,3 +6,9 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+desc "Generates a dummy app for testing"
+task test_app: "decidim:generate_external_test_app"
+
+desc "Generates a development app."
+task development_app: "decidim:generate_external_development_app"

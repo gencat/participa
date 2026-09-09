@@ -11,6 +11,8 @@ en:
           none: None
           participants_help: Send the newsletter to participants who have taken a participation action in a participatory space selected from the list.
           scopes_help: Send the newsletter to users who have activated any of the topics selected in their "My interests" account settings.
+          select_normatives: Choose normatives
+          select_participatory_processes: Choose participatory processes
           select_scopes: Select scopes to segment the newsletter
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter to
@@ -31,18 +33,6 @@ en:
       shared:
         share_modal:
           share: Share
-    pages:
-      admin:
-        pages:
-          form:
-            attachment_legend: "(Optional) Add an attachment"
-      form:
-        add_documents: Add documents
-        add_image: Add image
-        attachment_legend: "(Optional) Add an attachment"
-        edit_documents: Edit documents
-        edit_image: Edit image
-        image_legend: "(Optional) Add an image"
   layouts:
     decidim:
       process_navigation:

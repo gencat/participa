@@ -32,30 +32,16 @@
   <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
     <%= recaptcha_v3(action: 'registration') %>
 
-    <div class="form__wrapper">
+    <div class="form__wrapper pb-12">
       <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
 
       <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
+      <span class="sr-only"><%= t("placeholder_email", scope: "decidim.devise.shared") %></span>
 
       <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
     </div>
 
-    <div id="card__tos" class="form__wrapper-block">
-      <h2 class="h4"><%= t("decidim.devise.registrations.new.tos_title") %></h2>
-
-      <div class="tos-text">
-        <% terms_of_service_summary_content_blocks.each do |content_block| %>
-          <%= cell content_block.manifest.cell, content_block %>
-        <% end %>
-      </div>
-
-      <%= f.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), page_path("terms-of-service"))), label_options: { class: "form__wrapper-checkbox-label" } %>
-    </div>
-
-    <div id="card__newsletter" class="form__wrapper-block">
-      <h2 class="h4"><%= t("decidim.devise.registrations.new.newsletter_title") %></h2>
-      <%= f.check_box :newsletter, label: t("decidim.devise.registrations.new.newsletter"), checked: @form.newsletter, label_options: { class: "form__wrapper-checkbox-label" } %>
-    </div>
+    <%= render partial: "decidim/devise/shared/tos_fields", locals: { form: f, user: :user } %>
 
     <div class="form__wrapper-block">
       <button type="submit" class="button button__lg button__secondary">
@@ -65,7 +51,13 @@
     </div>
 
     <div class="login__links">
-      <%= render "decidim/devise/shared/links" %>
+      <%- if current_organization.sign_up_enabled? && devise_mapping.confirmable? && controller_name != "confirmations" %>
+        <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %>
+      <% end -%>
+
+      <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != "unlocks" %>
+        <%= link_to t("devise.shared.links.didn_t_receive_unlock_instructions"), new_unlock_path(resource_name) %>
+      <% end -%>
     </div>
   <% end %>
 <% end %>

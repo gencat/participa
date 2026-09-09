@@ -22,7 +22,10 @@ yarn-debug.log*
 
 .byebug_history
 
-/config/application.yml
+/.env
+/.env.*
+!/.env.example
+
 /config/puma.rb
 
 # Ignore public uploaded files

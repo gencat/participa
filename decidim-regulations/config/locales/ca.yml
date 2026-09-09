@@ -79,11 +79,6 @@ ca:
           title: Seleccioneu %{field}
         prompt: Seleccioneu un tipus
         types: Tipus
-      shared:
-        participatory_space_filters:
-          filters:
-            select_a_type: Seleccioneu un tipus
-            types: Tipus
     statistics:
       regulations_count: Participacions en normativa
     participatory_processes:
