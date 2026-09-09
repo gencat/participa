@@ -54,6 +54,8 @@ Overrides the private `blob_url` method in `Decidim::AssetRouter::Storage`. When
 
 ### Proposal Imports
 
+Allow to import Proposals with a Meeting as author.
+
 #### `decidim/proposals/import/proposal_creator_decorator.rb`
 Extends `ProposalCreator` (used when importing proposals from CSV/Excel) to:
 - Assign a **meeting as a proposal location** if the data has `meeting_url`.
@@ -73,6 +75,8 @@ Overrides the `import!` method of the general importer so that instead of notify
 
 ### Proposal Co-authorship
 
+Allow to import Proposals with a Meeting as author.
+
 #### `decidim/coauthorable_decorator.rb`
 Adds two methods to `Coauthorable` objects (using `prepend` instead of `class_eval`):
 - `add_external_author(name, organization)`: creates or retrieves an `ExternalAuthor` and adds them as a coauthor.
@@ -81,6 +85,8 @@ Adds two methods to `Coauthorable` objects (using `prepend` instead of `class_ev
 ---
 
 ### Proposal Export
+
+Allow to import Proposals with a Meeting as author.
 
 #### `lib/decidim/proposals/proposal_serializer_decorator.rb`
 Extends `ProposalSerializer` to include the `authors_names` field (array with author names) in exported proposal data, useful for CSV/Excel exports.

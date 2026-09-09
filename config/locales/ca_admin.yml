@@ -10,5 +10,5 @@ ca:
       static_pages:
         form:
           add_attachments: Afegeix fitxer(s) adjunt(s)
-          edit_attachments: Editar fitxer(s) adjunt(s)
+          edit_attachments: Edita els fitxer(s) adjunt(s)
           attachment_legend: Afegeix els fitxer(s) adjunt(s) que vols que apareguin a la pàgina estàtica. Pots afegir tants com vulguis.
