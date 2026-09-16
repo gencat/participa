@@ -10,7 +10,7 @@ gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-cdtb", "~> 0.5.6"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", branch: "master"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", branch: "upgrade/release-0.30"
+gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", tag: "v0.11.0"
 gem "decidim-idcat_mobil", "~> 0.8.2"
 gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", branch: "feat/adapt_to_decidim_30"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "main"
