@@ -194,8 +194,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin
-  revision: 907260931e28755c6af87fc8db8e0349a46080b8
-  branch: upgrade/release-0.30
+  revision: 9c6f82c80306c63ab781c2d13a465f5c5dfdb7bc
+  tag: v0.11.0
   specs:
     decidim-department_admin (0.11.0)
       decidim-admin (~> 0.30.0)
@@ -203,13 +203,13 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: 9147cafd0328d187f504b0f61f5f8f59306db421
-  branch: feat/adapt_to_decidim_30
+  revision: cbad1c0b75a24bee48159016d995425e643f153c
+  tag: v0.0.2
   specs:
-    decidim-stratified_sortitions (2.0.0)
+    decidim-stratified_sortitions (0.0.2)
       chartkick (~> 5.1.2)
-      decidim-admin (~> 0.29)
-      decidim-core (~> 0.29)
+      decidim-admin (~> 0.30)
+      decidim-core (~> 0.30)
       ruby-cbc (~> 0.3.19)
 
 GIT
