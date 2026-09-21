@@ -1,6 +1,7 @@
-# This migration comes from decidim_pages (originally 20161116121353)
 # frozen_string_literal: true
 
+# This migration comes from decidim_pages (originally 20161116121353)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:04 UTC
 class CreateDecidimPages < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_pages_pages do |t|

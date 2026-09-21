@@ -10,8 +10,6 @@ module Decidim
       class Engine < ::Rails::Engine
         isolate_namespace Decidim::Process::Extended
 
-        config.paths["db/migrate"] = File.expand_path("../../db/migrate", __dir__)
-
         # make decorators autoload in development env
         config.autoload_paths << File.join(
           Decidim::Process::Extended::Engine.root, "app", "decorators", "{**}"

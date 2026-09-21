@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20181022090732)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:03 UTC
 class AddColumnsToPages < ActiveRecord::Migration[5.2]
   class StaticPage < ApplicationRecord
     self.table_name = :decidim_static_pages
@@ -15,7 +15,7 @@ class AddColumnsToPages < ActiveRecord::Migration[5.2]
     end
 
     Decidim::StaticPage.where(
-      slug: ["faq", "terms-and-conditions", "accessibility"]
+      slug: ["faq", "terms-and-conditions", "terms-of-service", "accessibility"]
     ).update_all(show_in_footer: true)
     # rubocop:enable Rails/SkipsModelValidations
   end

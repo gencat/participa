@@ -1,41 +1,59 @@
 # frozen_string_literal: true
-# This migration comes from decidim_proposals (originally 20200708091228)
 
+# This migration comes from decidim_proposals (originally 20200708091228)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:04 UTC
 class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
+  class Proposal < ApplicationRecord
+    include Decidim::HasComponent
+
+    self.table_name = :decidim_proposals_proposals
+  end
+
+  class Coauthorship < ApplicationRecord
+    self.table_name = :decidim_coauthorships
+  end
+
+  class UserBaseEntity < ApplicationRecord
+    self.table_name = :decidim_users
+    self.inheritance_column = nil # disable the default inheritance
+  end
+
+  class Organization < ApplicationRecord
+    self.table_name = :decidim_organizations
+  end
+
   def up
     add_column :decidim_proposals_proposals, :new_title, :jsonb
     add_column :decidim_proposals_proposals, :new_body, :jsonb
 
-    reset_column_information
+    PaperTrail.request(enabled: false) do
+      Proposal.find_each do |proposal|
+        coauthorship = Coauthorship.order(:id).find_by(coauthorable_type: "Decidim::Proposals::Proposal", coauthorable_id: proposal.id)
+        author =
+          if coauthorship.decidim_author_type == "Decidim::Organization"
+            Organization.find_by(id: coauthorship.decidim_author_id)
+          else
+            UserBaseEntity.find_by(id: coauthorship.decidim_author_id)
+          end
 
-    # PaperTrail.request(enabled: false) do
-    #   Decidim::Proposals::Proposal.find_each do |proposal|
-    #     author = proposal.coauthorships.first&.author
+        locale = if author
+                   author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
+                 elsif proposal.component && proposal.component.participatory_space
+                   proposal.component.participatory_space.organization.default_locale
+                 else
+                   I18n.default_locale.to_s
+                 end
 
-    #     locale = if author
-    #                author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
-    #              elsif proposal.component && proposal.component.participatory_space
-    #                proposal.component.participatory_space.organization.default_locale
-    #              else
-    #                I18n.default_locale.to_s
-    #              end
+        proposal.new_title = {
+          locale => proposal.title
+        }
+        proposal.new_body = {
+          locale => proposal.body
+        }
 
-    #     proposal.new_title = {
-    #       locale => proposal.title
-    #     }
-    #     proposal.new_body = {
-    #       locale => proposal.body
-    #     }
-
-    #     proposal.save(validate: false)
-    #   end
-    # end
-
-    # We're replacing the previous code with the invokation of a rake task as performing data migration from inside migrations (paradoxically)
-    # ends up with out of memory crashes in large datasets
-    success = Rake::Task['proposals:tmp_title'].invoke(0,90_000)
-    puts "exit status is: #{$?}"
-    raise "couldn't move title to new tmp columns" unless success
+        proposal.save(validate: false)
+      end
+    end
 
     remove_indexs
 
@@ -45,17 +63,13 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
     rename_column :decidim_proposals_proposals, :new_body, :body
 
     create_indexs
-
-    reset_column_information
   end
 
   def down
     add_column :decidim_proposals_proposals, :new_title, :string
     add_column :decidim_proposals_proposals, :new_body, :string
 
-    reset_column_information
-
-    Decidim::Proposals::Proposal.find_each do |proposal|
+    Proposal.find_each do |proposal|
       proposal.new_title = proposal.title.values.first
       proposal.new_body = proposal.body.values.first
 
@@ -70,15 +84,6 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
     rename_column :decidim_proposals_proposals, :new_body, :body
 
     create_indexs
-
-    reset_column_information
-  end
-
-  def reset_column_information
-    Decidim::User.reset_column_information
-    Decidim::Coauthorship.reset_column_information
-    Decidim::Proposals::Proposal.reset_column_information
-    Decidim::Organization.reset_column_information
   end
 
   def remove_indexs

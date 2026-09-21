@@ -9,7 +9,7 @@ module Decidim::ParticipatoryProcesses::PermissionsDecorator
         return false unless user
 
         user.admin ||
-          process.users.include?(user) ||
+          user_has_any_role?(user, process, broad_check: true) ||
           process.participatory_space_private_users.exists?(decidim_user_id: user.id)
       end
     end

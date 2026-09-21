@@ -49,7 +49,7 @@ namespace :comments do
       query.find_each do |process|
         if process.active_step.nil? || process&.active_step&.end_date.nil?
           undefined_state_processes << process
-        elsif process&.active_step&.end_date&.< Time.zone.today
+        elsif process.active_step.end_date < Time.zone.today
           closed_processes << process
         else
           open_processes << process
@@ -79,7 +79,7 @@ namespace :comments do
 
         if process.active_step.nil? || process&.active_step&.end_date.nil?
           puts "- IGNORING   : #{process.id}.#{process.slug}.#{process.title[I18n.default_locale.to_s]}"
-        elsif process&.active_step&.end_date&.< Time.zone.today
+        elsif process.active_step.end_date < Time.zone.today
           print "- BLOCK_COMMS.: #{process.id}.#{process.slug}.#{process&.active_step&.end_date}.#{process.title[I18n.default_locale.to_s]}"
           commentable_components= process.components.where(manifest_name: components.keys)
           commentable_components.each do |component|

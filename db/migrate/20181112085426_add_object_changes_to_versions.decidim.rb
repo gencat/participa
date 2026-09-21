@@ -1,6 +1,7 @@
-# This migration comes from decidim (originally 20171107103254)
 # frozen_string_literal: true
 
+# This migration comes from decidim (originally 20171107103254)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:03 UTC
 # This migration adds the optional `object_changes` column, in which PaperTrail
 # will store the `changes` diff for each update event. See the readme for
 # details.

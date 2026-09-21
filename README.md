@@ -70,15 +70,15 @@ To enable automatic machine translations it should:
 1. be defined an "ENABLE_MACHINE_TRANSLATIONS" ENV var set to "true":
 
 ```
-# Figjam example
-ENABLE_MACHINE_TRANSLATIONS: "true"
+# .env example
+ENABLE_MACHINE_TRANSLATIONS=true
 ```
 
 2. from "Configuration/Configuration" in the admin panel, the "Enable machine translations" checkbox must be selected and then click "Save". After that, a new "Machine translation display priority [] Original text first [x] Translated text first" option is displayed. Probably the second option is the more user friendly.
 
 ## Testing
 
-Run `bin/rake decidim:generate_external_test_app` to generate a dummy application to test both the application and the modules.
+Run `DISABLE_SPRING=1 bundle exec rake test_app` to generate a dummy application to test both the application and the modules.
 
 Require missing factories in `spec/factories.rb`
 

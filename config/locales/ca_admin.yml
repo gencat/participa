@@ -9,9 +9,6 @@ ca:
     admin:
       static_pages:
         form:
-          add_documents: Afegeix documents
-          edit_documents: Edita documents
-          attachment_legend: Afegeix els documents que vols que apareguin a la pàgina estàtica. Pots afegir tants com vulguis.
-          add_image: Afegeix imatge
-          edit_image: Edita imatge
-          image_legend: Afegeix les imatges que vols que apareguin a la pàgina estàtica. Pots afegir tantes com vulguis.
+          add_attachments: Afegeix fitxer(s) adjunt(s)
+          edit_attachments: Edita els fitxer(s) adjunt(s)
+          attachment_legend: Afegeix els fitxer(s) adjunt(s) que vols que apareguin a la pàgina estàtica. Pots afegir tants com vulguis.

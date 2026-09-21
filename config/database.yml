@@ -1,9 +1,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV['DB_POOL'] %>
-  host: <%= ENV['DB_HOST'] %>
-  port: <%= ENV['DB_PORT'] %>
+  pool: <%= ENV.fetch("DB_POOL") { ENV.fetch("RAILS_MAX_THREADS", "5") } %>
+  host: <%= ENV.fetch("DB_HOST") { ENV.fetch("DATABASE_HOST", "localhost") } %>
+  port: <%= ENV.fetch("DB_PORT", "5432") %>
 
 development:
   <<: *default
