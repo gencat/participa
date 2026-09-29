@@ -36,15 +36,19 @@ unless ENV["CDTB_RACK_ATTACK_DISABLED"].to_i.positive? || %w(development test).i
     ip.split(".")[0, 2]
   end
 
-  # Each request to a not yet generated open data file enqueues a new Decidim::OpenDataJob
-  Rack::Attack.blocklist("open data downloads") do |request|
-    request.path.start_with?("/open-data/download")
-  end
-
   if ENV["RACK_ATTACK_BLOCKED_IPS"].present?
     ENV["RACK_ATTACK_BLOCKED_IPS"].split(",").each do |ip_or_subnet|
       Rack::Attack.blocklist_ip(ip_or_subnet)
     end
+  end
+end
+
+# Each request to a not yet generated open data file enqueues a new Decidim::OpenDataJob
+unless %w(development test).include?(Rails.env)
+  require "rack/attack"
+
+  Rack::Attack.blocklist("open data downloads") do |request|
+    request.path.start_with?("/open-data/download")
   end
 end
 
