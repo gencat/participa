@@ -26,7 +26,7 @@ describe "Admin static page form", type: :system do
     it "shows the attachment fields" do
       visit decidim_admin.edit_static_page_path(other_page)
 
-      expect(page).to have_css("legend", text: I18n.t("decidim.admin.static_pages.form.attachment_legend"))
+      expect(page).to have_css("p.help-text", text: I18n.t("decidim.admin.static_pages.form.attachment_legend"))
     end
   end
 end

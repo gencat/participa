@@ -1,6 +1,7 @@
-# This migration comes from decidim_assemblies (originally 20170727190859)
 # frozen_string_literal: true
 
+# This migration comes from decidim_assemblies (originally 20170727190859)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:02 UTC
 class AddAssemblies < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_assemblies do |t|

@@ -4,75 +4,64 @@ module Decidim
   module ParticipatoryProcesses
     # This class serializes a ParticipatoryProcess so can be exported
     # to CSV, JSON or other formats (check Decidim::Exporters) for Socrata
-    class ParticipatoryProcessSocrataSerializer < Decidim::Exporters::Serializer
+    class ParticipatoryProcessSocrataSerializer < Decidim::ParticipatoryProcesses::OpenDataParticipatoryProcessSerializer
       ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP= Regexp.union([",", ";", " i ", "\r\n", "\r", "\n"])
 
-      # Public: Initializes the serializer with a ParticipatoryProcess.
-      def initialize(process)
-        super
-        @process = process
-      end
-
-      # Public: Returns a hash with the serialized data.
-      # rubocop:disable Metrics/CyclomaticComplexity
+      # Public: Exports a hash with the serialized data for this resource.
       def serialize
-        {
-          # Process Information
-          id: process.id,
-          socrata_published_at: Date.current,
-          title_ca: process.title["ca"],
-          url:,
-          slug: process.slug,
-          short_description_ca:,
-          process_type:,
-          scope_id: process.scope&.id,
-          scope_name_ca: process.scope&.name.try(:[], "ca"),
-          department_id: process.area&.id,
-          department_name_ca: process.area&.name.try(:[], "ca"),
-          participatory_space: process.participatory_process_group&.title.try(:[], "ca")&.downcase,
-          normative_type_id: process.participatory_process_type&.id,
-          normative_type_name_ca: process.participatory_process_type&.title.try(:[], "ca"),
-          duration_days:,
-          start_date: process.start_date,
-          end_date: process.end_date,
-          cost: process.cost,
-          has_record: process.has_summary_record?,
-          facilitators: process.facilitators,
-          promoting_unit: process.promoting_unit,
-          total_num_participants: meetings_num_participants + proposals_num_authors,
-          total_num_entities: meetings_num_entities + proposals_num_entities,
-          # Related Resources: Proposals
-          proposals_num_authors:,
-          proposals_num_author_entities: proposals_num_entities,
-          total_num_proposals: proposals.count,
-          total_accepted_proposals: proposals.accepted.count,
-          total_rejected_proposals: proposals.rejected.count,
-          total_evaluating_proposals: proposals.evaluating.count,
-          proposals_num_proposals: proposals_no_meeting.count,
-          # Related Resources: Meetings
-          meetings_num_participants:,
-          meetings_num_entities:,
-          total_num_meetings: meetings.count,
-          meetings_num_proposals: proposals.where(created_in_meeting: true).count,
-          # Related Resources: Debates
-          debates_num_debates: debates.count,
-          # Related Resources: Assemblies
-          has_related_assembly: related_assembly.present?,
-          related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
-        }
+        super.merge(
+          {
+            # Process Information
+            id: resource.id,
+            socrata_published_at: Date.current,
+            title_ca: resource.title["ca"],
+            slug: resource.slug,
+            short_description_ca:,
+            process_type:,
+            participatory_space: resource.participatory_process_group&.title.try(:[], "ca")&.downcase,
+            department_id:,
+            department_name_ca:,
+            scope_id: scope_id,
+            scope_name_ca: scope_name_ca,
+            normative_type_id: normative_type_id,
+            normative_type_name_ca: normative_type_name_ca,
+            duration_days:,
+            cost: resource.cost,
+            has_record: resource.has_summary_record?,
+            facilitators: resource.facilitators,
+            promoting_unit: resource.promoting_unit,
+            total_num_participants: meetings_num_participants + proposals_num_authors,
+            total_num_entities: meetings_num_entities + proposals_num_entities,
+            # Related Resources: Proposals
+            proposals_num_authors:,
+            proposals_num_author_entities: proposals_num_entities,
+            total_num_proposals: proposals.count,
+            total_accepted_proposals: proposals.accepted.count,
+            total_rejected_proposals: proposals.rejected.count,
+            total_evaluating_proposals: proposals.evaluating.count,
+            proposals_num_proposals: proposals_no_meeting.count,
+            # Related Resources: Meetings
+            meetings_num_participants:,
+            meetings_num_entities:,
+            total_num_meetings: meetings.count,
+            meetings_num_proposals: proposals.where(created_in_meeting: true).count,
+            # Related Resources: Debates
+            debates_num_debates: debates.count,
+            # Related Resources: Assemblies
+            has_related_assembly: related_assembly.present?,
+            related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
+          }
+        )
       end
-      # rubocop:enable Metrics/CyclomaticComplexity
 
       private
 
-      attr_reader :process
-
       def url
-        Decidim::ResourceLocatorPresenter.new(process).url&.split("?")&.first
+        Decidim::ResourceLocatorPresenter.new(resource).url&.split("?")&.first
       end
 
       def short_description_ca
-        ActionController::Base.helpers.strip_tags(process.short_description["ca"])
+        ActionController::Base.helpers.strip_tags(resource.short_description["ca"])
       end
 
       def process_type
@@ -80,13 +69,13 @@ module Decidim
       end
 
       def duration_days
-        return unless process.start_date.present? && process.end_date.present?
+        return unless resource.start_date.present? && resource.end_date.present?
 
-        (process.end_date - process.start_date).to_i
+        (resource.end_date - resource.start_date).to_i
       end
 
       def component(component_name)
-        process.components.find_by(manifest_name: component_name)
+        resource.components.find_by(manifest_name: component_name)
       end
 
       def proposals
@@ -155,10 +144,86 @@ module Decidim
       end
 
       def related_assembly
-        @related_assembly ||= process.linked_participatory_space_resources(
+        @related_assembly ||= resource.linked_participatory_space_resources(
           :assemblies,
           "included_participatory_processes"
         ).first
+      end
+
+      def serialize_participatory_process_steps
+        return unless resource.steps.any?
+
+        resource.steps.map do |step|
+          {
+            id: step.try(:id),
+            title: step.try(:title),
+            description: step.try(:description),
+            start_date: step.try(:start_date),
+            end_date: step.try(:end_date),
+            cta_path: step.try(:cta_path),
+            cta_text: step.try(:cta_text),
+            active: step.active,
+            position: step.position
+          }
+        end
+      end
+
+      def department_id
+        return unless resource.respond_to?(:decidim_department_admin_department_id)
+
+        resource.decidim_department_admin_department_id
+      end
+
+      def department_name_ca
+        return if department_id.blank?
+        return unless defined?(Decidim::DepartmentAdmin::Department)
+
+        Decidim::DepartmentAdmin::Department.find_by(id: department_id)&.name&.[]("ca")
+      end
+
+      def process_type_taxonomy?(taxonomy)
+        root_name_ca = taxonomy.root_taxonomy&.name&.[]("ca").to_s.downcase
+        root_name_ca.include?("tipus de processos participatius") || root_name_ca.include?("tipus de processos") || root_name_ca.include?("tipus")
+      end
+
+      def scope_item
+        return @scope_item if defined?(@scope_item)
+        return unless resource.respond_to?(:taxonomies)
+
+        # First taxonomy assigned to the resource that is NOT the
+        # "Tipus de processos participatius" one (already exposed as normative_type_*)
+        @scope_item = resource.taxonomies.detect { |taxonomy| !process_type_taxonomy?(taxonomy) }
+      end
+
+      def scope_id
+        scope_item&.id
+      end
+
+      def scope_name_ca
+        scope_item&.name&.[]("ca")
+      end
+
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
+      def normative_item
+        return @normative_item if defined?(@normative_item)
+        return unless resource.respond_to?(:taxonomies)
+
+        @normative_item = resource.taxonomies.detect do |item|
+          text = (item.try(:title)&.[]("ca") || item.try(:name)&.[]("ca") || "").to_s.downcase
+          text.include?("consulta") || text.include?("norma") || text.include?("projecte normatiu") ||
+            text.include?("prèvia") || text.include?("inicial") || text.include?("projecte")
+        end
+      end
+      # rubocop:enable Metrics/CyclomaticComplexity
+      # rubocop:enable Metrics/PerceivedComplexity
+
+      def normative_type_id
+        normative_item&.id
+      end
+
+      def normative_type_name_ca
+        normative_item&.name&.[]("ca") || normative_item&.title&.[]("ca")
       end
     end
   end

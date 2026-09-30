@@ -13,10 +13,8 @@ module Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator
           description: @participatory_process.description,
           short_description: @participatory_process.short_description,
           promoted: @participatory_process.promoted,
-          scope: @participatory_process.scope,
           developer_group: @participatory_process.developer_group,
           local_area: @participatory_process.local_area,
-          area: @participatory_process.area,
           target: @participatory_process.target,
           participatory_scope: @participatory_process.participatory_scope,
           participatory_structure: @participatory_process.participatory_structure,
@@ -25,6 +23,7 @@ module Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator
           end_date: @participatory_process.end_date,
           participatory_process_group: @participatory_process.participatory_process_group,
           private_space: @participatory_process.private_space,
+          taxonomies: @participatory_process.taxonomies,
 
           # Participa added attributes
           cost: @participatory_process.cost,

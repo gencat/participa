@@ -5,7 +5,7 @@ Rails.application.config.to_prepare do
     menu.add_item :regulations,
                   I18n.t("menu.regulations_static"),
                   "/regulations",
-                  position: 2.1,
+                  position: 2.4,
                   active: :inclusive
   end
 

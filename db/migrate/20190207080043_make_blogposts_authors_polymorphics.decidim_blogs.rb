@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_blogs (originally 20181017084519)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:03 UTC
 class MakeBlogpostsAuthorsPolymorphics < ActiveRecord::Migration[5.2]
   class Post < ApplicationRecord
     self.table_name = :decidim_blogs_posts

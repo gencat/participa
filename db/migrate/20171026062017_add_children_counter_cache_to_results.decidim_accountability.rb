@@ -1,6 +1,7 @@
-# This migration comes from decidim_accountability (originally 20170623144902)
 # frozen_string_literal: true
 
+# This migration comes from decidim_accountability (originally 20170623144902)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-05-05 09:26:02 UTC
 class AddChildrenCounterCacheToResults < ActiveRecord::Migration[5.0]
   def change
     add_column :decidim_accountability_results, :children_count, :integer, default: 0

@@ -10,7 +10,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
   let(:data) do
     {
       id: 1337,
-      category:,
+      taxonomies:,
       scope:,
       "title/en": Faker::Lorem.sentence,
       "body/en": Faker::Lorem.paragraph(sentence_count: 3),
@@ -36,7 +36,10 @@ describe Decidim::Proposals::Import::ProposalCreator do
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
   let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space: participatory_process) }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let(:taxonomy1) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomy2) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomies) { { "ids" => [taxonomy1.id, taxonomy2.id] } }
 
   describe "#finish_without_notif!" do
     context "when a proposals file are created" do
@@ -61,7 +64,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
       record = subject.produce
 
       expect(record).to be_a(Decidim::Proposals::Proposal)
-      expect(record.category).to eq(category)
+      expect(record.taxonomies).to contain_exactly(taxonomy1, taxonomy2)
       expect(record.scope).to eq(scope)
       expect(record.title["en"]).to eq(data[:"title/en"])
       expect(record.body["en"]).to eq(data[:"body/en"])
@@ -77,7 +80,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
     let(:data) do
       {
         id: 1337,
-        category:,
+        taxonomies:,
         scope:,
         "title/en": Faker::Lorem.sentence,
         "body/en": Faker::Lorem.paragraph(sentence_count: 3),
@@ -94,7 +97,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
       record = subject.produce
 
       expect(record).to be_a(Decidim::Proposals::Proposal)
-      expect(record.category).to eq(category)
+      expect(record.taxonomies).to contain_exactly(taxonomy1, taxonomy2)
       expect(record.scope).to eq(scope)
       expect(record.title["en"]).to eq(data[:"title/en"])
       expect(record.body["en"]).to eq(data[:"body/en"])
