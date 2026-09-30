@@ -7,51 +7,53 @@ module Decidim
     class ParticipatoryProcessSocrataSerializer < Decidim::ParticipatoryProcesses::OpenDataParticipatoryProcessSerializer
       ATTENDING_ORGANIZATIONS_SEPARATOR_REGEXP= Regexp.union([",", ";", " i ", "\r\n", "\r", "\n"])
 
-      # Public: Exports a hash with the serialized data for this resource.
+      # Public: Returns a hash with the serialized data.
+      # Keys must match the columns of the Socrata dataset, any other key is rejected.
       def serialize
-        super.merge(
-          {
-            # Process Information
-            id: resource.id,
-            socrata_published_at: Date.current,
-            title_ca: resource.title["ca"],
-            slug: resource.slug,
-            short_description_ca:,
-            process_type:,
-            participatory_space: resource.participatory_process_group&.title.try(:[], "ca")&.downcase,
-            department_id:,
-            department_name_ca:,
-            scope_id: scope_id,
-            scope_name_ca: scope_name_ca,
-            normative_type_id: normative_type_id,
-            normative_type_name_ca: normative_type_name_ca,
-            duration_days:,
-            cost: resource.cost,
-            has_record: resource.has_summary_record?,
-            facilitators: resource.facilitators,
-            promoting_unit: resource.promoting_unit,
-            total_num_participants: meetings_num_participants + proposals_num_authors,
-            total_num_entities: meetings_num_entities + proposals_num_entities,
-            # Related Resources: Proposals
-            proposals_num_authors:,
-            proposals_num_author_entities: proposals_num_entities,
-            total_num_proposals: proposals.count,
-            total_accepted_proposals: proposals.accepted.count,
-            total_rejected_proposals: proposals.rejected.count,
-            total_evaluating_proposals: proposals.evaluating.count,
-            proposals_num_proposals: proposals_no_meeting.count,
-            # Related Resources: Meetings
-            meetings_num_participants:,
-            meetings_num_entities:,
-            total_num_meetings: meetings.count,
-            meetings_num_proposals: proposals.where(created_in_meeting: true).count,
-            # Related Resources: Debates
-            debates_num_debates: debates.count,
-            # Related Resources: Assemblies
-            has_related_assembly: related_assembly.present?,
-            related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
-          }
-        )
+        {
+          # Process Information
+          id: resource.id,
+          socrata_published_at: Date.current,
+          title_ca: resource.title["ca"],
+          url:,
+          slug: resource.slug,
+          short_description_ca:,
+          process_type:,
+          scope_id:,
+          scope_name_ca:,
+          department_id:,
+          department_name_ca:,
+          participatory_space: resource.participatory_process_group&.title.try(:[], "ca")&.downcase,
+          normative_type_id:,
+          normative_type_name_ca:,
+          duration_days:,
+          start_date: resource.start_date,
+          end_date: resource.end_date,
+          cost: resource.cost,
+          has_record: resource.has_summary_record?,
+          facilitators: resource.facilitators,
+          promoting_unit: resource.promoting_unit,
+          total_num_participants: meetings_num_participants + proposals_num_authors,
+          total_num_entities: meetings_num_entities + proposals_num_entities,
+          # Related Resources: Proposals
+          proposals_num_authors:,
+          proposals_num_author_entities: proposals_num_entities,
+          total_num_proposals: proposals.count,
+          total_accepted_proposals: proposals.accepted.count,
+          total_rejected_proposals: proposals.rejected.count,
+          total_evaluating_proposals: proposals.evaluating.count,
+          proposals_num_proposals: proposals_no_meeting.count,
+          # Related Resources: Meetings
+          meetings_num_participants:,
+          meetings_num_entities:,
+          total_num_meetings: meetings.count,
+          meetings_num_proposals: proposals.where(created_in_meeting: true).count,
+          # Related Resources: Debates
+          debates_num_debates: debates.count,
+          # Related Resources: Assemblies
+          has_related_assembly: related_assembly.present?,
+          related_assembly_name_ca: related_assembly&.title.try(:[], "ca")
+        }
       end
 
       private
@@ -148,24 +150,6 @@ module Decidim
           :assemblies,
           "included_participatory_processes"
         ).first
-      end
-
-      def serialize_participatory_process_steps
-        return unless resource.steps.any?
-
-        resource.steps.map do |step|
-          {
-            id: step.try(:id),
-            title: step.try(:title),
-            description: step.try(:description),
-            start_date: step.try(:start_date),
-            end_date: step.try(:end_date),
-            cta_path: step.try(:cta_path),
-            cta_text: step.try(:cta_text),
-            active: step.active,
-            position: step.position
-          }
-        end
       end
 
       def department_id
