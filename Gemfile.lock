@@ -194,8 +194,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-department_admin
-  revision: b566d47856728943a2b1fef45e64db2341f8f489
-  branch: fixes_0.30
+  revision: c66e77b43cc947aa83c102340db5319893b9ea6d
+  tag: v0.11.1
   specs:
     decidim-department_admin (0.11.1)
       decidim-admin (~> 0.30.0)
