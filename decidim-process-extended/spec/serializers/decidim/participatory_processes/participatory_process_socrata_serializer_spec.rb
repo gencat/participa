@@ -17,6 +17,21 @@ module Decidim::ParticipatoryProcesses
       let(:user) { create(:user, organization:) }
       let(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
 
+      it "only includes the columns of the Socrata dataset" do
+        expect(subject.serialize.keys).to match_array(
+          [
+            :id, :socrata_published_at, :title_ca, :url, :slug, :short_description_ca, :process_type,
+            :scope_id, :scope_name_ca, :department_id, :department_name_ca, :participatory_space,
+            :normative_type_id, :normative_type_name_ca, :duration_days, :start_date, :end_date, :cost,
+            :has_record, :facilitators, :promoting_unit, :total_num_participants, :total_num_entities,
+            :proposals_num_authors, :proposals_num_author_entities, :total_num_proposals,
+            :total_accepted_proposals, :total_rejected_proposals, :total_evaluating_proposals,
+            :proposals_num_proposals, :meetings_num_participants, :meetings_num_entities, :total_num_meetings,
+            :meetings_num_proposals, :debates_num_debates, :has_related_assembly, :related_assembly_name_ca
+          ]
+        )
+      end
+
       context "when there is a process_group" do
         let!(:process_group) { create(:participatory_process_group, organization:) }
 
