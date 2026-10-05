@@ -43,6 +43,15 @@ unless ENV["CDTB_RACK_ATTACK_DISABLED"].to_i.positive? || %w(development test).i
   end
 end
 
+# Each request to a not yet generated open data file enqueues a new Decidim::OpenDataJob
+unless %w(development test).include?(Rails.env)
+  require "rack/attack"
+
+  Rack::Attack.blocklist("open data downloads") do |request|
+    request.path.start_with?("/open-data/download")
+  end
+end
+
 __END__
 headers= []
 request.each_header {|h| headers << h };nil
