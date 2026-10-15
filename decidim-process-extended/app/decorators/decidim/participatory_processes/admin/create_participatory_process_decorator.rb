@@ -23,6 +23,8 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
         add_admins_as_followers
         link_related_processes
         Decidim::ContentBlocksCreator.new(resource).create_default!
+        author = form.current_user
+        resource.update(decidim_department_admin_department_id: author.departments.first&.id) if author.try(:department_admin?)
       end
 
       private

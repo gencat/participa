@@ -14,6 +14,9 @@ module Decidim::Assemblies::Admin::CreateAssemblyDecorator
           notify_admin(user) if send_participatory_space_news_email?(user)
         end
         # process-extended customization
+
+        author = form.current_user
+        resource.update(decidim_department_admin_department_id: author.departments.first&.id) if author.try(:department_admin?)
       end
 
       private
