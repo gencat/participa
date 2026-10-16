@@ -2,7 +2,8 @@
 
 module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorator
   def self.decorate
-    Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess.class_eval do
+    klass = Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess
+    klass.class_eval do
       fetch_form_attributes :organization, :title, :subtitle, :weight, :slug, :hashtag, :description,
                             :short_description, :promoted, :taxonomizations, :announcement,
                             :private_space, :developer_group, :local_area, :target,
@@ -10,45 +11,14 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
                             :participatory_process_group,
                             :cost, :has_summary_record, :promoting_unit, :facilitators, :email
 
-      def run_after_hooks
-        create_steps
-
-        # process-extended customization
-        Decidim::User.org_admins_except_me(form.current_user).find_each do |user|
-          # Otherwise, it will be sent if realtime notifications are enabled
-          notify_admin(user) if send_participatory_space_news_email?(user)
-        end
-        # process-extended customization
-
-        add_admins_as_followers
-        link_related_processes
-        Decidim::ContentBlocksCreator.new(resource).create_default!
-      end
-
       private
 
-      def notify_admin(user)
-        data = {
-          event: "decidim.events.participatory_space.created",
-          event_class: Decidim::SimpleParticipatorySpaceEvent,
-          resource:,
-          affected_users: [user],
-          extra: {
-            author_name: form.current_user.name,
-            area: resource.area&.name,
-            start_date: resource.start_date,
-            end_date: resource.end_date,
-            force_email: send_participatory_space_news_email?(user)
-          }
-        }
-
-        Decidim::EventsManager.publish(**data)
-      end
-
-      def send_participatory_space_news_email?(user)
-        user.notification_settings.has_key?("participatory_space_news") && user.notification_settings["participatory_space_news"] == "1"
+      # Used by Decidim::Process::Extended::NotifyAdminsOnCreate
+      def notification_dates
+        [resource.start_date, resource.end_date]
       end
     end
+    klass.prepend(Decidim::Process::Extended::NotifyAdminsOnCreate) unless klass.ancestors.include?(Decidim::Process::Extended::NotifyAdminsOnCreate)
   end
 end
 
