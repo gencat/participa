@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/process/extended/engine"
+require "decidim/process/extended/notify_admins_on_create"
 
 module Decidim
   module Process
