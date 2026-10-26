@@ -12,7 +12,7 @@
     "picmo": "^5.8.5",
     "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
-    "workbox-webpack-plugin": "7.0.0"
+    "workbox-webpack-plugin": "~7.3.0"
   },
   "version": "0.1.0",
   "browserslist": [
@@ -22,7 +22,8 @@
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
     "@decidim/prettier-config": "file:packages/prettier-config",
-    "@decidim/stylelint-config": "file:packages/stylelint-config"
+    "@decidim/stylelint-config": "file:packages/stylelint-config",
+    "shakapacker": "^8.3.0"
   },
   "engines": {
     "node": "22.23.4",

@@ -33,8 +33,8 @@ module OpenData
     def publish_to_socrata(collection, serializer)
       log(:info, "Pushing data to Socrata...")
 
-      client = SODA::Client.new(Rails.application.secrets.soda)
-      identifier = Rails.application.secrets.soda[:dataset_identifier]
+      client = SODA::Client.new(soda_config)
+      identifier = ENV.fetch("SODA_DATASET_IDENTIFIER", nil)
       payload = serialize_in_batches(collection, serializer)
       response = client.post(identifier, payload)
 
@@ -50,6 +50,16 @@ module OpenData
       @logger ||= Logger.new(Rails.root.join("log", "open_data.log"))
       @logger.send(level, message)
       puts message
+    end
+
+    # Socrata client configuration, read from the environment.
+    def soda_config
+      {
+        domain: ENV.fetch("SODA_DOMAIN", nil),
+        username: ENV.fetch("SODA_USERNAME", nil),
+        password: ENV.fetch("SODA_PASSWORD", nil),
+        app_token: ENV.fetch("SODA_APP_TOKEN", nil)
+      }
     end
 
     # Serializes the collection in batches to avoid server memory problems.

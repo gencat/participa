@@ -10,7 +10,7 @@
   }
 
   function getAlgolia() {
-    return <%= Rails.application.secrets.algolia.to_json.html_safe %>;
+    return <%= { id: ENV.fetch("ALGOLIA_ID", nil), key: ENV.fetch("ALGOLIA_KEY", nil), index: ENV.fetch("ALGOLIA_INDEX", nil) }.to_json.html_safe %>;
   }
 </script>
 
