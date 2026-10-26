@@ -191,8 +191,8 @@ GIT
 PATH
   remote: decidim-home
   specs:
-    decidim-home (0.5.0)
-      decidim-core (>= 0.30.0)
+    decidim-home (0.6.0)
+      decidim-core (>= 0.31.0)
 
 PATH
   remote: decidim-process-extended
@@ -205,8 +205,8 @@ PATH
 PATH
   remote: decidim-recaptcha
   specs:
-    decidim-recaptcha (0.2.0)
-      decidim-core (>= 0.30.0)
+    decidim-recaptcha (0.3.0)
+      decidim-core (>= 0.31.0)
 
 PATH
   remote: decidim-regulations
