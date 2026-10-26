@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-# Inserts the attachments count <td> after the "Valuators" <td>.
+# Inserts the attachments count <td> after the "Evaluators" <td>.
 Deface::Override.new(
   virtual_path: "decidim/proposals/admin/proposals/_proposal-tr",
   name: "proposals_admin_tr_attachments_td",
-  original: "8283579c95f0cfd7086fc8eeabfea86bd207a2f1",
-  insert_after: "td.valuators-count",
+  original: "c1256e7ba75bd431d03eddac54dd913e15e7dc10",
+  insert_after: "td.evaluators-count",
   text: <<~EOHTML
     <% if current_component.settings.attachments_allowed? %>
-      <td>
+      <td data-label="<%= t("models.proposal.fields.attachments", scope: "decidim.proposals") %>">
         <%= proposal.attachments.size %>
       </td>
     <% end %>

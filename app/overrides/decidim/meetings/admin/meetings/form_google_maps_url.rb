@@ -7,6 +7,7 @@
 Deface::Override.new(
   virtual_path: "decidim/meetings/admin/meetings/_form",
   name: "meeting_form_google_maps_url",
+  original: "81d87804381d84f34e24bd978f82db21268bb937",
   insert_before: "div.row.column:not(.iframe-fields--embed-type)[data-meeting-type='online']",
   text: <<~HTML
     <div class="row column" data-meeting-type="in_person">
