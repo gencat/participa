@@ -1,9 +1,8 @@
 PATH
   remote: .
   specs:
-    decidim-home (0.5.0)
-      decidim-core (>= 0.30.0)
-      rails (>= 7.0.8)
+    decidim-home (0.6.0)
+      decidim-core (>= 0.31.0)
 
 GEM
   remote: https://rubygems.org/
