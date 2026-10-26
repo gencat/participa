@@ -129,20 +129,31 @@ module Decidim
       def proposals_num_authors
         return 0 if proposals_no_meeting.blank?
 
-        no_user_group = proc { |p| p.creator.user_group.nil? }
-        author_ids = proc { |p| p.coauthorships.pluck(:decidim_author_id) }
         @proposals_num_authors ||= proposals_no_meeting
-                                   .select(&no_user_group)
-                                   .map(&author_ids)
-                                   .flatten.uniq.count
+                                   .reject { |p| entity_coauthorship?(p.creator) }
+                                   .flat_map { |p| p.coauthorships.pluck(:decidim_author_id) }
+                                   .uniq.count
       end
 
       def proposals_num_entities
         return 0 if proposals_no_meeting.blank?
 
         @proposals_num_entities ||= proposals_no_meeting
-                                    .map(&:user_group_ids)
-                                    .flatten.uniq.count
+                                    .flat_map(&:coauthorships)
+                                    .filter_map { |c| entity_id(c) }
+                                    .uniq.count
+      end
+
+      def entity_coauthorship?(coauthorship)
+        entity_id(coauthorship).present?
+      end
+
+      # Before Decidim 0.31 the group was stored apart (decidim_user_group_id) and the author was the member;
+      # since 0.31 the group is a user (extended_data["group"]) and it is the author itself.
+      def entity_id(coauthorship)
+        return if coauthorship.nil?
+
+        coauthorship.attributes["decidim_user_group_id"] || (coauthorship.author.id if coauthorship.author.try(:group?))
       end
 
       def related_assembly
