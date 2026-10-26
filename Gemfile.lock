@@ -207,6 +207,7 @@ PATH
   specs:
     decidim-recaptcha (0.3.0)
       decidim-core (>= 0.31.0)
+      deface (~> 1.9.0)
 
 PATH
   remote: decidim-regulations
@@ -216,9 +217,9 @@ PATH
 PATH
   remote: decidim-top_comments
   specs:
-    decidim-top_comments (0.30.9)
-      decidim-core (>= 0.30.0)
-      decidim-proposals (>= 0.30.0)
+    decidim-top_comments (0.31.8)
+      decidim-core (>= 0.31.0)
+      decidim-proposals (>= 0.31.0)
       deface
 
 GEM
