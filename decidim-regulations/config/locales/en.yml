@@ -21,6 +21,10 @@ en:
     regulations_static: Participation in regulation
   decidim:
     regulations:
+      admin:
+        participatory_process_groups:
+          destroy:
+            protected: "This process group is protected and can't be deleted."
       content_blocks:
         highlighted_regulations:
           active_step: Active step
