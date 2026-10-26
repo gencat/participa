@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
-module Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator
+# Also copy the Participa custom fields when an admin duplicates a participatory process.
+module Decidim::ParticipatoryProcesses::Admin::DuplicateParticipatoryProcessDecorator
   def self.decorate
-    Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess.class_eval do
-      def copy_participatory_process
-        @copied_process = Decidim::ParticipatoryProcess.create!(
+    Decidim::ParticipatoryProcesses::Admin::DuplicateParticipatoryProcess.class_eval do
+      private
+
+      def duplicate_participatory_process
+        @duplicated_process = Decidim::ParticipatoryProcess.create!(
           organization: @participatory_process.organization,
           title: form.title,
           subtitle: @participatory_process.subtitle,
           slug: form.slug,
-          hashtag: @participatory_process.hashtag,
           description: @participatory_process.description,
           short_description: @participatory_process.short_description,
           promoted: @participatory_process.promoted,
@@ -37,4 +39,4 @@ module Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator
   end
 end
 
-Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator.decorate
+Decidim::ParticipatoryProcesses::Admin::DuplicateParticipatoryProcessDecorator.decorate

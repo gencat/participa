@@ -20,7 +20,7 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesControllerD
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("participatory_processes.update.error", scope: "decidim.admin")
-            render :edit, layout: "decidim/admin/participatory_process"
+            render :edit, layout: "decidim/admin/participatory_process", status: :unprocessable_entity
           end
         end
       end

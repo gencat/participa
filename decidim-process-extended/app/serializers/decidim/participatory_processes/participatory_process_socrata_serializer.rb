@@ -67,7 +67,7 @@ module Decidim
       end
 
       def process_type
-        meetings.count.positive? ? :ambdos : :virtual
+        meetings.any? ? :ambdos : :virtual
       end
 
       def duration_days
