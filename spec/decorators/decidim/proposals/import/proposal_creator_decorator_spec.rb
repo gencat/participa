@@ -71,7 +71,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.address).to eq(data[:address])
       expect(record.latitude).to eq(data[:latitude])
       expect(record.longitude).to eq(data[:longitude])
-      expect(record.published_at).to be >= (moment)
+      expect(record.published_at).to be >= moment
       expect(record.coauthorships.first.author.name).to eq(data[:"external_author/name"])
     end
   end
@@ -104,8 +104,26 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.address).to eq(data[:address])
       expect(record.latitude).to eq(data[:latitude])
       expect(record.longitude).to eq(data[:longitude])
-      expect(record.published_at).to be >= (moment)
+      expect(record.published_at).to be >= moment
       expect(record.coauthorships.first.author.id).to eq(meeting.id)
+    end
+  end
+
+  describe "#produce without meeting_url nor external author" do
+    let(:data) do
+      {
+        id: 1337,
+        "title/en": Faker::Lorem.sentence,
+        "body/en": Faker::Lorem.paragraph(sentence_count: 3),
+        component:,
+        published_at: moment
+      }
+    end
+
+    it "makes a new proposal authored by the organization, like Decidim does" do
+      record = subject.produce
+
+      expect(record.coauthorships.first.author).to eq(organization)
     end
   end
 end
