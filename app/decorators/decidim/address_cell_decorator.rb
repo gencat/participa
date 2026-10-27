@@ -12,6 +12,7 @@ module Decidim::AddressCellDecorator
 
       def address
         text = address_without_google_maps_url
+        return text if text.blank?
         return text unless model.respond_to?(:google_maps_url) && model.google_maps_url.present?
 
         url = ERB::Util.html_escape(model.google_maps_url)
