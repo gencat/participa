@@ -1,0 +1,5 @@
+<!-- insert_before "erb[loud]:contains('yield')"
+     original 'b3d74eb9c18fd9e6853da04dc69add3ac807c275'
+-->
+<%# Participa: alert in "Normativa" processes when the proposals component is not published %>
+<%= render partial: "decidim/participatory_processes/admin/participatory_processes/proposal_component_alert" %>

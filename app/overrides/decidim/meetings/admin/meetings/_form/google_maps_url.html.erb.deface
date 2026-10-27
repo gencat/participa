@@ -1,0 +1,7 @@
+<!-- insert_before "div.row.column:not(.iframe-fields--embed-type)[data-meeting-type='online']"
+     original '81d87804381d84f34e24bd978f82db21268bb937'
+-->
+<%# Participa: Google Maps URL field, only visible for in-person and hybrid meetings %>
+<div class="row column" data-meeting-type="in_person">
+  <%= form.text_field :google_maps_url, help_text: t(".google_maps_url_help") %>
+</div>
