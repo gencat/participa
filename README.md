@@ -11,13 +11,13 @@ This is the open-source repository for "participa", based on [Decidim](https://g
 - `Decidim::Process::Extended`, customizes Decidim Participatory processes.
 - `Decidim::Regulations`, adds Regulations, a new type of Participatory process.
 - `Decidim::Admin::Extended`, customize admin menu adding custom configurations.
-- `Decidim::Recaptcha`, use recaptcha instead invisible captcha.
-- Static pages admin: adds attachment and gallery support to `Decidim::Admin::StaticPage` (form, command and controller helper) via decorators.
-- Proposals admin index: adds an "Attachments" column with ascending/descending sort support (see `app/overrides/decidim/admin/proposals_index_attachments_th.rb`, `app/overrides/decidim/admin/proposals_tr_attachments_td.rb`, and `app/decorators/decidim/proposals/proposal_decorator.rb`).
+- `Decidim::Recaptcha`, use recaptcha instead invisible captcha (Deface override on the sign up form, see `decidim-recaptcha/app/overrides/`).
+- Static pages admin: adds attachment and gallery support to `Decidim::Admin::StaticPage` (form, command and controller helper) via decorators, and the attachments field in the admin form via a Deface override (`app/overrides/decidim/admin/static_pages/_form/attachments.html.erb.deface`).
+- Proposals admin index: adds an "Attachments" column with ascending/descending sort support (see `app/overrides/decidim/proposals/admin/proposals/_proposals-thead/attachments_th.html.erb.deface`, `app/overrides/decidim/proposals/admin/proposals/_proposal-tr/attachments_td.html.erb.deface`, and `app/decorators/decidim/proposals/proposal_decorator.rb`).
 
 ## Decidim Core Overrides
 
-Customizations applied on top of Decidim core via decorators (`app/decorators/`) and Deface view overrides (`app/overrides/`).
+Customizations applied on top of Decidim core via decorators (`app/decorators/`) and Deface view overrides (`app/overrides/`, always as `.html.erb.deface` files, see `docs/decorators_and_overrides.md`).
 
 ### Google Maps URL for meetings
 
@@ -37,7 +37,7 @@ Adds an optional **Google Maps URL** field to in-person and hybrid meetings, all
 | `app/decorators/decidim/meetings/admin/meeting_form_decorator.rb` | Adds `google_maps_url` attribute + URL validation to the admin form |
 | `app/decorators/decidim/meetings/admin/create_meeting_decorator.rb` | Persists `google_maps_url` when creating a meeting |
 | `app/decorators/decidim/meetings/admin/update_meeting_decorator.rb` | Persists `google_maps_url` when updating a meeting |
-| `app/overrides/decidim/meetings/admin/meetings/form_google_maps_url.rb` | Deface override — inserts the field in the admin form view |
+| `app/overrides/decidim/meetings/admin/meetings/_form/google_maps_url.html.erb.deface` | Deface override — inserts the field in the admin form view |
 | `app/decorators/decidim/address_cell_decorator.rb` | Decorator — overrides `AddressCell#address` to wrap the address in a Google Maps link |
 | `config/locales/{en,ca,es}_meetings.yml` | Translations (new files) |
 | `config/locales/oc_meetings.yml` | Occitan translations (updated) |

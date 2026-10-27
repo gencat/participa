@@ -212,7 +212,9 @@ PATH
 PATH
   remote: decidim-regulations
   specs:
-    decidim-regulations (0.2.0)
+    decidim-regulations (0.3.0)
+      decidim-core (>= 0.31.0)
+      decidim-participatory_processes (>= 0.31.0)
 
 PATH
   remote: decidim-top_comments

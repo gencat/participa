@@ -3,6 +3,8 @@ This module add some functionalities to participatory spaces.
 
 For participatory processes:
 - Add new fields: cost, has_summary_record, promoting_unit, facilitators and email.
+  - They are added to the admin form with a Deface override (`app/overrides/decidim/participatory_processes/admin/participatory_processes/_form/participa_metadata_fields.html.erb.deface`) and copied when a process is duplicated (`duplicate_participatory_process_decorator.rb`).
+- Show an alert in the admin of "Normativa" processes when the proposals component is not published (Deface override in `app/overrides/layouts/decidim/admin/participatory_process/proposal_component_alert.html.erb.deface`).
 
 For participatory spaces (process and assemblies):
 - Send an internal notification and an email to admins when a participatory space is created and published.

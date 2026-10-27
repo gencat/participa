@@ -23,21 +23,21 @@ Adds the `can_view_private_space?` method to `Decidim::ParticipatoryProcesses::P
 
 ---
 
-### Attachments in Pages
+### Attachments in static pages
 
-#### `decidim/pages/page_decorator.rb`
-Includes the `HasAttachments` concern in the `Decidim::Pages::Page` model, enabling support for file attachments (documents and images) on static pages.
+#### `decidim/static_pages_decorator.rb`
+Includes the `HasAttachments` concern in the `Decidim::StaticPage` model, enabling support for file attachments (documents and images) on static pages.
 
-#### `decidim/pages/admin/page_form_decorator.rb`
-Adds attributes to the page edit form (`PageForm`) for uploading attachments: `attachment`, `documents` (multiple), and `photos` (multiple), including corresponding upload validations.
+#### `decidim/admin/static_pages_form_decorator.rb`
+Adds the attachment attributes to `Decidim::Admin::StaticPageForm`: `attachment` and `attachments` (with `add_attachments`, via `attachments_attribute :attachments`), including upload validations. Since Decidim 0.31 the attribute must be called `attachments`, because `Decidim::MultipleAttachmentsMethods` reads `form.attachments` and `form.add_attachments` (until 0.30 it was `documents`).
 
-#### `decidim/pages/admin/update_page_decorator.rb`
-Extends the `UpdatePage` command to process and persist attachments and photo gallery when updating a page. Includes cleanup of previous attachments and validation before saving.
+#### `decidim/admin/create_static_page_decorator.rb` and `decidim/admin/update_static_page_decorator.rb`
+Extend the `CreateStaticPage` and `UpdateStaticPage` commands with `Decidim::MultipleAttachmentsMethods` to validate, create and clean up (`attachment_cleanup!`) the attachments when saving a page.
 
-#### `decidim/pages/admin/pages_controller_decorator.rb`
-Exposes `tab_panel_items` as a helper in the admin pages controller to display document and photo tabs in the admin view.
+#### `decidim/admin/static_pages_controller_decorator.rb`
+Exposes `tab_panel_items` as a helper in the admin static pages controller to display document and photo tabs in the admin view.
 
-#### `decidim/pages/application_controller_decorator.rb`
+#### `decidim/pages_controller_decorator.rb`
 Extends the public pages controller to include `AttachmentsHelper` and expose `tab_panel_items` as a helper, enabling attachment tabs in the public page view.
 
 #### `decidim/attachments_helper_decorator.rb`
@@ -60,7 +60,7 @@ Allow to import Proposals with a Meeting as author.
 Extends `ProposalCreator` (used when importing proposals from CSV/Excel) to:
 - Assign a **meeting as a proposal location** if the data has `meeting_url`.
 - Assign an **external author** (person outside the platform) if the data has `external_author/name`.
-- Add the current user as a coauthor in the default case.
+- Add the organization as the author in the default case, like Decidim 0.31 does (until 0.30 it was the current user).
 - Add `finish_without_notif!` to create the proposal without sending individual notifications (used in bulk imports).
 
 #### `decidim/proposals/import/proposal_answer_creator_decorator.rb`
@@ -93,6 +93,13 @@ Extends `ProposalSerializer` to include the `authors_names` field (array with au
 
 ---
 
+### Meetings
+
+#### `decidim/meetings/meeting_card_metadata_cell_decorator.rb`
+Extends `MeetingCardMetadataCell` with `prepend` to add the **participatory process name** as metadata in the meeting card, but only when viewed from a different context than the space it belongs to (for example, when listing all meetings from a different space). Until Decidim 0.30 it was in `app/overrides/decidim/meetings/meeting_card_metadata_cell_extension.rb`.
+
+---
+
 ### Newsletters
 
 #### `decidim/admin/selective_newsletter_participatory_space_type_form_decorator.rb`
@@ -112,21 +119,63 @@ Extends the admin newsletters panel helper with methods for:
 
 ---
 
-## Cells (View Components)
-
-#### `app/cells/decidim/admin/multi_select_picker/show.erb`
-Overrides the multi-select picker cell template to render a `label_tag` when a label is provided in the context, properly associating it with the select element via `for` attribute.
-
----
-
 ## Overrides
 
-Overrides in `app/overrides/` extend Decidim behavior either with `prepend` (for Ruby) or with `Deface::Override` (for ERB views).
+Overrides in `app/overrides/` change Decidim views with Deface. Ruby extensions of Decidim classes go to `app/decorators/` (see above), not here.
+
+**Write view overrides as `.html.erb.deface` files, not as `.rb` files.** The file must be in a folder that matches the view virtual path (for example `app/overrides/decidim/admin/static_pages/_form/attachments.html.erb.deface` changes `decidim/admin/static_pages/_form`), the override name is the file name, and the Deface options go in a first HTML comment:
+
+```erb
+<!-- insert_after "div.row.column:has(erb[loud]:contains('number_field :weight'))"
+     original 'f262dbb35b9efa006a99115ff87df970da3c5bb0'
+-->
+<%# Description of the override (it is not rendered) %>
+<div>...</div>
+```
+
+Since Rails 7.1, Deface no longer tells Zeitwerk to ignore `app/overrides` (it checks `config.autoloader`, which was removed). Zeitwerk then expects every `.rb` file there to define a constant, and the app does not boot in the test environment (`Zeitwerk::NameError: expected file .../app/overrides/... to define constant ...`). `.deface` files are not Ruby, so Zeitwerk ignores them.
 
 ---
 
-#### `decidim/meetings/meeting_card_metadata_cell_extension.rb`
-Extends `MeetingCardMetadataCell` with `prepend` to add the **participatory process name** as metadata in the meeting card, but only when viewed from a different context than the space it belongs to (for example, when listing all meetings from a different space).
-
-#### `decidim/devise/passwords/edit.rb`
+#### `decidim/devise/passwords/edit/user_password_errors.html.erb.deface`
 Deface override on the `decidim/devise/passwords/edit` view. Inserts a paragraph with resource validation errors (`resource.errors`) at the end of the `div.form__wrapper` to display error messages when changing password.
+
+#### `decidim/proposals/admin/proposals/_proposals-thead/attachments_th.html.erb.deface` and `decidim/proposals/admin/proposals/_proposal-tr/attachments_td.html.erb.deface`
+When the component allows attachments, they add an "Attachments" column to the proposals admin index, right after the "Evaluators" one: the header (sortable with `sort_link`, using the scopes in `decidim/proposals/proposal_decorator.rb`) and the cell with the number of attachments of each proposal (with `data-label`, like the rest of cells). Since Decidim 0.31 the evaluators cell is `td.evaluators-count` (it was `td.valuators-count`).
+
+#### `decidim/meetings/admin/meetings/_form/google_maps_url.html.erb.deface`
+Inserts the `google_maps_url` field before the online meeting URL field of the admin meeting form, visible only for in-person and hybrid meetings. See the "Google Maps URL for meetings" section in the README.
+
+#### `decidim/admin/static_pages/_form/attachments.html.erb.deface`
+Inserts the attachments field (`form.attachment :attachments`) after the "weight" field of the admin static page form, except for the terms of service page. The attributes are handled by `decidim/admin/static_pages_form_decorator.rb` and the create/update command decorators. It replaces the full copy of the form that was used until Decidim 0.30.
+
+---
+
+### Overrides in internal modules
+
+#### `decidim-recaptcha/app/overrides/decidim/devise/registrations/new/recaptcha_v3.html.erb.deface`
+Replaces `invisible_captcha` with `recaptcha_v3(action: "registration")` in the sign up form. It replaces the full copy of the view that was used until Decidim 0.30.
+
+#### `decidim-process-extended/app/overrides/decidim/participatory_processes/admin/participatory_processes/_form/participa_metadata_fields.html.erb.deface`
+Inserts the Participa fields (`promoting_unit`, `facilitators`, `cost`, `email`, `has_summary_record`) in the metadata section of the admin process form, after `developer_group`. It replaces the full copy of the form that was used until Decidim 0.30.
+
+#### `decidim-process-extended/app/overrides/layouts/decidim/admin/participatory_process/proposal_component_alert.html.erb.deface`
+Shows an alert in the admin of the "Normativa" processes when the proposals component is not published.
+
+#### `decidim-top_comments/app/overrides/decidim/{proposals,debates}/.../show.html.erb.deface`
+Insert the "most voted comments" block in the proposal and debate show pages, after `content_for :item_footer`.
+
+#### `decidim-home/app/overrides/layouts/decidim/{header,footer}/_main/*.html.erb.deface`
+Gencat navbar, language chooser and FEDER footer.
+
+---
+
+### About the `original` option
+
+Every Deface override sets `original`, so Deface logs `Deface: [ERROR] The original source for '<name>' has changed` when Decidim changes that part of the view, and the override has to be reviewed. The value is **not** the SHA1 of the whole file, but the SHA1 of the HTML matched by the selector, without whitespace. To get it, from a Rails console:
+
+```ruby
+src = File.read(File.join(Gem.loaded_specs["decidim-admin"].full_gem_path, "app/views/decidim/admin/static_pages/_form.html.erb"))
+match = Deface::Parser.convert(src).css("div.row.column:has(erb[loud]:contains('number_field :weight'))")
+Digest::SHA1.hexdigest(match.to_s.gsub(/\s/, ""))
+```
