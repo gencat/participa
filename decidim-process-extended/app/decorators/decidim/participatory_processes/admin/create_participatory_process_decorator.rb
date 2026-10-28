@@ -9,7 +9,8 @@ module Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessDecorat
                             :private_space, :developer_group, :local_area, :target,
                             :participatory_scope, :participatory_structure, :meta_scope, :start_date, :end_date,
                             :participatory_process_group,
-                            :cost, :has_summary_record, :promoting_unit, :facilitators, :email
+                            :cost, :has_summary_record, :promoting_unit, :facilitators, :email,
+                            :twitter_handler, :facebook_handler, :instagram_handler, :youtube_handler, :github_handler
 
       private
 

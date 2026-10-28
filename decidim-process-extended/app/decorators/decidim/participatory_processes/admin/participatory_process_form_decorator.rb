@@ -11,6 +11,11 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessFormDecorator
       attribute :cost, Float
       attribute :has_summary_record, :boolean
       attribute :email, String
+      attribute :twitter_handler, String
+      attribute :facebook_handler, String
+      attribute :instagram_handler, String
+      attribute :youtube_handler, String
+      attribute :github_handler, String
 
       def map_model(model)
         self.participatory_process_group_id = model.decidim_participatory_process_group_id
