@@ -24,6 +24,7 @@ module Decidim::ParticipatoryProcesses
         title: { en: "title" },
         copy_steps?: false,
         copy_components?: false,
+        copy_landing_page_blocks?: false,
         slug: "duplicated-slug",
         current_user:
       )
