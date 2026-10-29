@@ -30,7 +30,12 @@ module Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcessDecorator
           has_summary_record: @participatory_process.has_summary_record,
           promoting_unit: @participatory_process.promoting_unit,
           facilitators: @participatory_process.facilitators,
-          email: @participatory_process.email
+          email: @participatory_process.email,
+          twitter_handler: @participatory_process.twitter_handler,
+          facebook_handler: @participatory_process.facebook_handler,
+          instagram_handler: @participatory_process.instagram_handler,
+          youtube_handler: @participatory_process.youtube_handler,
+          github_handler: @participatory_process.github_handler
         )
       end
     end
