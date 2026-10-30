@@ -9,6 +9,7 @@ require "decidim/blogs/test/factories"
 require "decidim/debates/test/factories"
 require "decidim/budgets/test/factories"
 require "decidim/accountability/test/factories"
+require "decidim/surveys/test/factories"
 
 FactoryBot.define do
   factory :external_author, class: "Decidim::ExternalAuthor" do
