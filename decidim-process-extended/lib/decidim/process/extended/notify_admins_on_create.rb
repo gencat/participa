@@ -5,23 +5,22 @@ module Decidim
     module Extended
       # Notifies the organization admins when a participatory space is created.
       #
-      # Prepended to the space creation commands (instead of redefining
-      # `run_after_hooks` with class_eval) so that it composes with Decidim and with
-      # other decorators of the command, like the ones in decidim-department_admin
-      # that assign the department of the space.
+      # Prepended to the space creation commands so that it composes with Decidim
+      # and with other decorators of the command, like the ones in
+      # decidim-department_admin that assign the department of the space.
       #
       # The including command must define `notification_dates`, returning the
       # `[start_date, end_date]` of the created space.
       module NotifyAdminsOnCreate
-        protected
-
-        def run_after_hooks
-          super
-
-          Decidim::User.org_admins_except_me(form.current_user).find_each do |user|
-            # Otherwise, it will be sent if realtime notifications are enabled
-            notify_admin(user) if send_participatory_space_news_email?(user)
+        def call
+          on(:ok) do
+            Decidim::User.org_admins_except_me(form.current_user).find_each do |user|
+              # Only admins subscribed to participatory space news are notified, by email and in the notifications page.
+              notify_admin(user) if send_participatory_space_news_email?(user)
+            end
           end
+
+          super
         end
 
         private
@@ -34,12 +33,14 @@ module Decidim
             event_class: Decidim::SimpleParticipatorySpaceEvent,
             resource:,
             affected_users: [user],
+            force_send: true,
             extra: {
               author_name: form.current_user.name,
               area: resource.area&.name,
               start_date:,
               end_date:,
-              force_email: send_participatory_space_news_email?(user)
+              force_email: true,
+              skip_can_participate: true
             }
           )
         end

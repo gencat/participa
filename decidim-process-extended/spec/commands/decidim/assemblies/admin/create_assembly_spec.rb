@@ -123,8 +123,27 @@ module Decidim::Assemblies
       it "notify to admins" do
         expect(Decidim::EventsManager)
           .to receive(:publish)
+          .with(hash_including(event: "decidim.events.participatory_space.created", affected_users: [admin], force_send: true,
+                               extra: hash_including(skip_can_participate: true)))
 
         subject.call
+      end
+
+      context "when the notification jobs are performed" do
+        before do
+          clear_enqueued_jobs
+          ActionMailer::Base.deliveries.clear
+          perform_enqueued_jobs { subject.call }
+        end
+
+        it "notifies the admins subscribed to participatory space news although the assembly is unpublished" do
+          notification = Decidim::Notification.find_by(user: admin, resource: assembly)
+
+          expect(assembly).not_to be_published
+          expect(notification).to be_present
+          expect(notification.can_participate?(admin)).to be(true)
+          expect(ActionMailer::Base.deliveries.flat_map(&:to)).to include(admin.email)
+        end
       end
     end
   end

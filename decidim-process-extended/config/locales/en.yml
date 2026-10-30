@@ -83,6 +83,7 @@ en:
             </ul>
           email_outro: You are receiving this notification because the participatory space "%{resource_title}" has been created.
           email_subject: The participatory space "%{resource_title}" has been created.
+          notification_title: "%{author_name} has created the participatory space <a href='%{resource_url}'>%{resource_title}</a>."
         published:
           regulation: Published regulation
           process: Published process
@@ -99,6 +100,7 @@ en:
             </ul>
           email_outro: You are receiving this notification because the participatory space "%{resource_title}" has been published.
           email_subject: The participatory space "%{resource_title}" has been published.
+          notification_title: "%{author_name} has published the participatory space <a href='%{resource_url}'>%{resource_title}</a>."
       publish_proposals_event:
         email_intro: New proposals has been added to "%{resource_title}". You can see the new proposals by following <a href="%{resource_url}">this link</a>.
   activemodel:
