@@ -222,4 +222,25 @@
       </div>
     </div>
   </div>
+
+  <div class="card" data-component="accordion" id="accordion-social">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-social" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="social">
+          <%= t("social", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </h2>
+      </button>
+    </div>
+    <div id="panel-social" class="card-section">
+      <div class="row column">
+        <%= form.social_field :text_field,
+                              :social_handlers,
+                              Decidim::Organization::SOCIAL_HANDLERS,
+                              label: content_tag(:span,
+                                                 t("social_networks",
+                                                 scope: "decidim.participatory_processes.admin.participatory_processes.form")) %>
+      </div>
+    </div>
+  </div>
 </div>
