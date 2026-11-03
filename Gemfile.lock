@@ -203,8 +203,8 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-stratified_sortitions
-  revision: cbad1c0b75a24bee48159016d995425e643f153c
-  tag: v0.0.2
+  revision: 08e981ff5c2a54dabae1afd8d3548553bcd94f33
+  branch: remove_email_restriction
   specs:
     decidim-stratified_sortitions (0.0.2)
       chartkick (~> 5.1.2)
