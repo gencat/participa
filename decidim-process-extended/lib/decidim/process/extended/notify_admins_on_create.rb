@@ -5,22 +5,23 @@ module Decidim
     module Extended
       # Notifies the organization admins when a participatory space is created.
       #
-      # Prepended to the space creation commands so that it composes with Decidim
-      # and with other decorators of the command, like the ones in
-      # decidim-department_admin that assign the department of the space.
+      # Prepended to the space creation commands (instead of redefining
+      # `run_after_hooks` with class_eval) so that it composes with Decidim and with
+      # other decorators of the command, like the ones in decidim-department_admin
+      # that assign the department of the space.
       #
       # The including command must define `notification_dates`, returning the
       # `[start_date, end_date]` of the created space.
       module NotifyAdminsOnCreate
-        def call
-          on(:ok) do
-            Decidim::User.org_admins_except_me(form.current_user).find_each do |user|
-              # Only admins subscribed to participatory space news are notified, by email and in the notifications page.
-              notify_admin(user) if send_participatory_space_news_email?(user)
-            end
-          end
+        protected
 
+        def run_after_hooks
           super
+
+          Decidim::User.org_admins_except_me(form.current_user).find_each do |user|
+            # Only admins subscribed to participatory space news are notified, by email and in the notifications page.
+            notify_admin(user) if send_participatory_space_news_email?(user)
+          end
         end
 
         private
