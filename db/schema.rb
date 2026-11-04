@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_09_16_070435) do
+ActiveRecord::Schema[7.0].define(version: 2026_10_28_114152) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1220,6 +1220,11 @@ ActiveRecord::Schema[7.0].define(version: 2026_09_16_070435) do
     t.bigint "decidim_participatory_process_type_id"
     t.datetime "deleted_at"
     t.bigint "decidim_department_admin_department_id"
+    t.string "twitter_handler"
+    t.string "facebook_handler"
+    t.string "instagram_handler"
+    t.string "youtube_handler"
+    t.string "github_handler"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_department_admin_department_id"], name: "idx_processes_on_decidim_department_admin_department_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true

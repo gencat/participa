@@ -36,6 +36,8 @@ ca:
             promoting_unit: Unitat promotora
             select_an_area: Selecciona un departament
             select_process_group: Selecciona un àmbit
+            social: Social
+            social_networks: Xarxes socials
             title: Informació general
             visbility: Visibilitat
           proposal_component_alert: Recordeu que heu d'activar el component propostes.
@@ -46,6 +48,7 @@ ca:
         has_summary_record: Disposa de retorn
         'no': 'No'
         promoting_unit: Unitat promotora
+        social_networks_title: Visita aquest procés a
         'yes': 'Sí'
     projects:
       filters:
@@ -114,6 +117,11 @@ ca:
         facilitators: Entitats dinamitzadores
         has_summary_record: Disposa de retorn
         promoting_unit: Unitat promotora
+        facebook: Facebook
+        github: GitHub
+        instagram: Instagram
+        twitter: X
+        youtube: YouTube
       participatory_process_step:
         title: Nom de la fase
   layouts:

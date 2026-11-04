@@ -36,6 +36,8 @@ en:
             promoting_unit: Promoting unit
             select_an_area: Select a department
             select_process_group: Select a process group
+            social: Social
+            social_networks: Social networks
             title: General information
             visbility: Visibility
           proposal_component_alert: Remember that you have to activate the proposals component.
@@ -46,6 +48,7 @@ en:
         has_summary_record: Has summary unit
         'no': 'No'
         promoting_unit: Promoting unit
+        social_networks_title: Visit this process on
         'yes': 'Yes'
     projects:
       filters:
@@ -112,6 +115,11 @@ en:
         facilitators: Facilitators
         has_summary_record: Has summary record
         promoting_unit: Promoting unit
+        facebook: Facebook
+        github: GitHub
+        instagram: Instagram
+        twitter: X
+        youtube: YouTube
       participatory_process_step:
         title: Phase name
   layouts:

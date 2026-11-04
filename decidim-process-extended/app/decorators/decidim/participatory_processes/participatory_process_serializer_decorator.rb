@@ -9,7 +9,12 @@ module Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializerDecorator
                        has_record: resource.has_summary_record?,
                        facilitators: resource.facilitators,
                        promoting_unit: resource.promoting_unit,
-                       email: resource.email
+                       email: resource.email,
+                       twitter_handler: resource.twitter_handler,
+                       facebook_handler: resource.facebook_handler,
+                       instagram_handler: resource.instagram_handler,
+                       youtube_handler: resource.youtube_handler,
+                       github_handler: resource.github_handler
                      })
   end
 end

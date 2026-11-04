@@ -52,7 +52,12 @@ module Decidim::ParticipatoryProcesses
         has_summary_record: true,
         facilitators: "facilitators",
         promoting_unit: "promoting_unit",
-        email: "email"
+        email: "email",
+        twitter_handler: "twitter_handler",
+        facebook_handler: "facebook_handler",
+        instagram_handler: "instagram_handler",
+        youtube_handler: "youtube_handler",
+        github_handler: "github_handler"
       )
     end
     let(:invalid) { false }
@@ -97,6 +102,16 @@ module Decidim::ParticipatoryProcesses
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      it "stores the social handlers" do
+        subject.call
+
+        expect(process.twitter_handler).to eq("twitter_handler")
+        expect(process.facebook_handler).to eq("facebook_handler")
+        expect(process.instagram_handler).to eq("instagram_handler")
+        expect(process.youtube_handler).to eq("youtube_handler")
+        expect(process.github_handler).to eq("github_handler")
       end
 
       it "notify to admins" do
