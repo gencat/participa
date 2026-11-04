@@ -60,6 +60,7 @@ oc:
             </ul>
           email_outro: Recebètz aquesta notificacion perque s'es creat l'espaci participatiu "%{resource_title}".
           email_subject: S'es creat l'espaci participatiu "%{resource_title}".
+          notification_title: "%{author_name} ha creat l'espai participatiu <a href='%{resource_url}'>%{resource_title}</a>."
         published:
           regulation: Regulacion publicada
           process: Procès publicat
@@ -76,6 +77,7 @@ oc:
             </ul>
           email_outro: Recebètz aquesta notificacion perque s'es publicat l'espaci participatiu "%{resource_title}".
           email_subject: S'es publicat l'espaci participatiu "%{resource_title}".
+          notification_title: "%{author_name} ha creat l'espai participatiu <a href='%{resource_url}'>%{resource_title}</a>."
       publish_proposals_event:
         email_intro: S'han ahijut naues prepauses ar espaci "%{participatory_space_title}", que seguisses. Pòdes veir es naues prepauses en tot seguir <a href="%{participatory_space_url}">aguest lligam</a>.
   activemodel:
