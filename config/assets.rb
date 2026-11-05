@@ -21,5 +21,6 @@ Decidim::Webpacker.register_path("#{base_path}/app/packs")
 
 Decidim::Webpacker.register_entrypoints(
   application: "#{base_path}/app/packs/entrypoints/application.js",
-  decidims_finder: "#{base_path}/app/packs/entrypoints/decidims_finder.js"
+  decidims_finder: "#{base_path}/app/packs/entrypoints/decidims_finder.js",
+  participa_admin_space_filters: "#{base_path}/app/packs/entrypoints/participa_admin_space_filters.js"
 )

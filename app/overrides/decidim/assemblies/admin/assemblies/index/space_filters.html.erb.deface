@@ -1,0 +1,5 @@
+<!-- replace "erb[loud]:contains('admin_filter_selector')"
+     original '9be87734e97d6a5a879d91fdf3290cc49369ae28'
+-->
+<%# Participa: filters with an extra collapsible row (creation date and author) %>
+<%= render partial: "decidim/participa/admin/space_filters" %>
