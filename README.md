@@ -14,6 +14,7 @@ This is the open-source repository for "participa", based on [Decidim](https://g
 - `Decidim::Recaptcha`, use recaptcha instead invisible captcha.
 - Static pages admin: adds attachment and gallery support to `Decidim::Admin::StaticPage` (form, command and controller helper) via decorators.
 - Proposals admin index: adds an "Attachments" column with ascending/descending sort support (see `app/overrides/decidim/admin/proposals_index_attachments_th.rb`, `app/overrides/decidim/admin/proposals_tr_attachments_td.rb`, and `app/decorators/decidim/proposals/proposal_decorator.rb`).
+- Surveys: when a surveys component has only one published survey, the index redirects straight to it (see `app/decorators/decidim/surveys/surveys_controller_decorator.rb`).
 
 ## Decidim Core Overrides
 
