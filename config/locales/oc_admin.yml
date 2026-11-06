@@ -140,6 +140,14 @@ oc:
         redirect_uri: URL de redirecció
         site: Lloc web
   decidim:
+    participa:
+      admin:
+        space_filters:
+          created_at_from_date: Data posterior o igual a
+          created_at_to_date: Data anterior o igual a
+          creator_search: Usuària
+          creator_search_placeholder: Cerca per correu electrònic, nom o àlies
+          toggle: Mostra o amaga més filtres
     admin:
       actions:
         add: Afegir
@@ -299,6 +307,8 @@ oc:
       filters:
         category_id_eq:
           label: Categoria
+        decidim_department_admin_department_id_eq:
+          label: Departament
         filter_label: Filtre
         officialized_at_null:
           label: Estat

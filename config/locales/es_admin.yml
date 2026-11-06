@@ -1,5 +1,13 @@
 es:
   decidim:
+    participa:
+      admin:
+        space_filters:
+          created_at_from_date: Fecha posterior o igual a
+          created_at_to_date: Fecha anterior o igual a
+          creator_search: Usuaria
+          creator_search_placeholder: Buscar por correo electrónico, nombre o alias
+          toggle: Mostrar u ocultar más filtros
     admin:
       static_pages:
         form:

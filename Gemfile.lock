@@ -188,6 +188,15 @@ GIT
     decidim-verifications (0.31.8)
       decidim-core (= 0.31.8)
 
+GIT
+  remote: https://github.com/gencat/decidim-module-department_admin
+  revision: dabc051622c6e07255a18283ddf3abc421f8c212
+  branch: rf008/new_bo_filters
+  specs:
+    decidim-department_admin (0.12.1)
+      decidim-admin (~> 0.31.0)
+      decidim-core (~> 0.31.0)
+
 PATH
   remote: decidim-home
   specs:
@@ -1061,6 +1070,7 @@ DEPENDENCIES
   database_cleaner
   decidim!
   decidim-cdtb (~> 0.5.6)
+  decidim-department_admin!
   decidim-dev!
   decidim-home!
   decidim-process-extended!

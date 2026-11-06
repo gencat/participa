@@ -1,5 +1,13 @@
 en:
   decidim:
+    participa:
+      admin:
+        space_filters:
+          created_at_from_date: Date after or equal to
+          created_at_to_date: Date before or equal to
+          creator_search: User
+          creator_search_placeholder: Search by user email, name or nickname
+          toggle: Show or hide more filters
     admin:
       static_pages:
         form:
