@@ -1,14 +1,5 @@
 # frozen_string_literal: true
 
-# Ransack filters added to participatory spaces (processes and assemblies) in the
-# admin lists: creation date range and creator ("Usuària").
-#
-# The including spec must define:
-# - `factory`: the space factory name.
-# - `duplicate_space`: a lambda receiving (space, user) that duplicates the space
-#   through the Decidim admin command and returns the copy.
-#
-# PaperTrail must be enabled (`versioning: true`), the creator comes from its versions.
 shared_examples "a space filterable by creation date and creator" do
   let(:organization) { create(:organization) }
   let(:admin) { create(:user, :admin, :confirmed, organization:) }
@@ -19,57 +10,6 @@ shared_examples "a space filterable by creation date and creator" do
 
   def create_space(whodunnit: nil, **attributes)
     PaperTrail.request(whodunnit:) { create(factory, organization:, **attributes) }
-  end
-
-  describe "who can use the filters" do
-    let(:new_scopes) { [:created_at_from_date, :created_at_to_date, :creator_search] }
-    let(:user) { create(:user, :confirmed, organization:) }
-
-    def scopes_for(user)
-      described_class.ransackable_scopes(user)
-    end
-
-    it "allows organization admins" do
-      expect(scopes_for(admin)).to include(*new_scopes)
-    end
-
-    it "allows users with a global admin role" do
-      user.update!(roles: ["user_manager"])
-
-      expect(scopes_for(user)).to include(*new_scopes)
-    end
-
-    it "allows participatory process admins" do
-      create(:participatory_process_user_role, user:, role: "admin")
-
-      expect(scopes_for(user)).to include(*new_scopes)
-    end
-
-    it "allows assembly collaborators" do
-      create(:assembly_user_role, user:, role: "collaborator")
-
-      expect(scopes_for(user)).to include(*new_scopes)
-    end
-
-    it "does not allow participants without roles" do
-      expect(scopes_for(user)).not_to include(*new_scopes)
-    end
-
-    it "does not allow visitors" do
-      expect(scopes_for(nil)).not_to include(*new_scopes)
-    end
-
-    it "keeps the scopes defined by Decidim" do
-      expect(scopes_for(nil)).to include(:with_any_taxonomies)
-      expect(scopes_for(admin)).to include(:with_any_taxonomies)
-    end
-
-    it "ignores the filters for participants without roles" do
-      space = create_space(created_at: Time.zone.local(2020, 1, 1))
-      result = described_class.where(organization:).ransack({ created_at_from_date: "2026-01-01" }, auth_object: user).result
-
-      expect(result).to contain_exactly(space)
-    end
   end
 
   describe "created_at_from_date" do

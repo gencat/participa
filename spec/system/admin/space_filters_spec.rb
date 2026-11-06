@@ -2,8 +2,6 @@
 
 require "rails_helper"
 
-# Extra filters (creation date and creator) in the participatory processes and
-# assemblies admin lists.
 describe "Admin space filters", type: :system, versioning: true do
   let!(:organization) { create(:organization) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }

@@ -2,7 +2,7 @@
 
 module Participa
   # Ransack scopes used by the participatory processes and assemblies admin
-  # lists to filter by creation date (whole days) and by creator ("Usuària").
+  # lists to filter by creation date (whole days) and by creator.
   #
   # Spaces have no author column, so the creator is taken from the PaperTrail
   # version of the `create` event. It covers spaces created, imported and
@@ -31,7 +31,6 @@ module Participa
         where(id: Participa::SpaceCreationFilters.created_by_matching_users(base_class.name, term))
       }
 
-      # The class already defines `ransackable_scopes`, so it has to be prepended
       singleton_class.prepend(RansackableScopes)
     end
 
@@ -45,16 +44,12 @@ module Participa
     end
 
     class << self
-      # Dates come from the datepicker as ISO 8601 (YYYY-MM-DD)
       def parse_date(value)
         Date.iso8601(value.to_s)
       rescue Date::Error
         nil
       end
 
-      # Ids of the spaces of the given class whose `create` version was done by
-      # a user whose name, nickname or email contains the term. The whodunnit is
-      # stored as a GlobalID, older versions may store the plain user id.
       def created_by_matching_users(item_type, term)
         users = Decidim::User.where(
           "decidim_users.name ILIKE :term OR decidim_users.nickname ILIKE :term OR decidim_users.email ILIKE :term",
@@ -69,9 +64,6 @@ module Participa
           .select(:item_id)
       end
 
-      # Users that can reach the spaces admin lists: organization admins, users
-      # with a global role (e.g. department admins) and participatory space
-      # admins or collaborators.
       def admin_access?(user)
         return false unless user.is_a?(Decidim::User)
 
