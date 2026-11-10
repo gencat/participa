@@ -20,8 +20,8 @@ module ParticipaGencat
     end
 
     def translate
-      content = ActionText::Content.new(text)
-      translated_text = softcatala_client.translate(content.to_plain_text, source_locale, target_locale)
+      plain_text = ActionText::Fragment.wrap(text).to_plain_text
+      translated_text = softcatala_client.translate(plain_text, source_locale, target_locale)
 
       ::Decidim::MachineTranslationSaveJob.perform_later(
         resource,

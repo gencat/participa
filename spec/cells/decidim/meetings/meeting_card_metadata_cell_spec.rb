@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe Decidim::Meetings::MeetingCardMetadataCell, type: :cell do
-  subject { cell("decidim/meetings/meeting_card_metadata", meeting).call }
+  subject { cell("decidim/meetings/meeting_card_metadata", meeting, context: { view_context: controller.view_context }).call }
 
   let(:participatory_process) { create(:participatory_process, :published, title: { en: "Process of the meeting", ca: "Procés de la trobada" }) }
   let(:component) { create(:meeting_component, :published, participatory_space: participatory_process) }
