@@ -9,12 +9,12 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-cdtb", "~> 0.5.6"
-# gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", branch: "master"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", branch: "upgrade/decidim_0.31"
+gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", branch: "upgrade/decidim_0.31"
+gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil", branch: "upgrade_to_v0.31"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", branch: "rf008/new_bo_filters"
-# gem "decidim-idcat_mobil", "~> 0.8.2"
-# gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", tag: "v0.0.2"
-# gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "main"
-# gem "decidim-verifications-members_picker", github: "gencat/decidim-verifications-members_picker", tag: "0.3.0"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.31-stable"
+gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker", branch: "upgrade/decidim_0.31"
 
 # Internal modules
 gem "decidim-home", path: "decidim-home"

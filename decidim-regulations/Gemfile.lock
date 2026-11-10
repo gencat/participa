@@ -155,6 +155,11 @@ GIT
       decidim-core (= 0.31.8)
     decidim-generators (0.31.8)
       decidim-core (= 0.31.8)
+    decidim-initiatives (0.31.8)
+      decidim-admin (= 0.31.8)
+      decidim-comments (= 0.31.8)
+      decidim-core (= 0.31.8)
+      decidim-verifications (= 0.31.8)
     decidim-meetings (0.31.8)
       decidim-core (= 0.31.8)
       decidim-forms (= 0.31.8)
@@ -989,6 +994,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   decidim!
   decidim-dev!
+  decidim-initiatives!
   decidim-regulations!
   faker
   letter_opener_web (~> 1.3)

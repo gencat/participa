@@ -19,6 +19,7 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "decidim-dev", REGULATIONS_DECIDIM_VER
+  gem "decidim-initiatives", REGULATIONS_DECIDIM_VER
 end
 
 group :development do
