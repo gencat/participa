@@ -25,6 +25,9 @@
     "@decidim/stylelint-config": "file:packages/stylelint-config",
     "shakapacker": "8.3.0"
   },
+  "overrides": {
+    "webpack-dev-server": "^4.15.1"
+  },
   "engines": {
     "node": "22.23.4",
     "npm": ">=9.6.7",
