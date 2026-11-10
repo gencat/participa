@@ -1,0 +1,5 @@
+<% if seo_noindex_path? %>
+  <meta name="robots" content="noindex">
+<% elsif decidim_meta_url.present? %>
+  <link rel="canonical" href="<%= decidim_meta_url %>">
+<% end %>
