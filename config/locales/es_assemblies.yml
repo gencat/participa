@@ -324,6 +324,9 @@ es:
             filter_by: Filtra por
             search: Buscar
         content_blocks:
+          children_assemblies:
+            list_mode: Ver en modo lista
+            list_mode_help: Al activar esta opción, los consejos hijos se verán en modo lista.
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
         new_import:
