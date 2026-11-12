@@ -206,12 +206,6 @@ GIT
       decidim-core (~> 0.31.0)
 
 GIT
-  remote: https://github.com/gencat/decidim-module-department_admin
-  revision: b2e533bacebd50da4c56ee7ff2d59f6f0612ad56
-  branch: upgrade/decidim_0.31
-  specs:
-
-GIT
   remote: https://github.com/gencat/decidim-module-idcat_mobil
   revision: 74f9d0ec57737ce26ec7f8349fa2ffc1a8035f15
   branch: upgrade_to_v0.31
