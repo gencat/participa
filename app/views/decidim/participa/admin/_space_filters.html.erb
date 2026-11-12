@@ -1,0 +1,92 @@
+<%#
+  Participa: copy of decidim/admin/shared/_filters used in the processes and
+  assemblies admin lists. It adds a collapsible row inside the search form with
+  extra filters: creation date (from / to) and author.
+%>
+<% i18n_ctx = local_assigns.fetch(:i18n_ctx, nil) %>
+<% panel_id = "space-filters-#{SecureRandom.uuid}" %>
+<% extra_values = ransack_params.slice(:created_at_from_date, :created_at_to_date, :creator_search) %>
+<% panel_open = extra_values.compact_blank.any? %>
+<div class="filters__section space-filters">
+  <div class="fcell">
+    <% dropdown_id = "top-#{SecureRandom.uuid}" %>
+    <a href="#" class="button button__xs button__transparent-secondary" data-controller="dropdown" data-target="dropdown-filters-<%= dropdown_id %>">
+      <%= t("filter_label", scope: "decidim.admin.filters") %>
+      <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+      <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+    </a>
+    <%= dropdown_submenu(submenu_options_tree(i18n_ctx), dropdown_id) %>
+  </div>
+  <div class="fcell search">
+    <%= search_form_for(query, url: url_for) do |form| %>
+      <%= applied_filters_hidden_field_tags %>
+      <div class="space-filters__search-row">
+        <div class="input-group space-filters__search">
+          <%= form.search_field(
+                search_field_predicate,
+                class: "input-group-field",
+                label: false,
+                placeholder: t(search_field_predicate,
+                               collection: collection_name,
+                               scope: "decidim.admin.filters.search_placeholder")
+              ) %>
+          <div class="input-group-button">
+            <button type="submit" class="space-filters__search-button" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+              <%= icon "search-line", class: "space-filters__search-icon" %>
+            </button>
+          </div>
+        </div>
+        <button type="button"
+                class="space-filters__toggle"
+                aria-controls="<%= panel_id %>"
+                aria-expanded="<%= panel_open %>"
+                aria-label="<%= t(".toggle") %>"
+                title="<%= t(".toggle") %>"
+                data-space-filters-toggle>
+          <%= icon "arrow-down-s-line", class: "space-filters__toggle-icon" %>
+        </button>
+      </div>
+
+      <div id="<%= panel_id %>" <%= "hidden" unless panel_open %>>
+        <div class="space-filters__panel form-defaults">
+          <% [:created_at_from_date, :created_at_to_date].each do |filter| %>
+            <% label = t(".#{filter}") %>
+            <div>
+              <%= label_tag "q_#{filter}", label, class: "space-filters__label" %>
+              <%= date_field_tag "q[#{filter}]",
+                                 extra_values[filter],
+                                 id: "q_#{filter}",
+                                 hide_help: true,
+                                 autocomplete: "off",
+                                 data: {
+                                   controller: "date-picker",
+                                   "date-label": t("datetime.widget.label.date", label:),
+                                   "button-date-label": t("datetime.widget.picker.date_button", label:)
+                                 } %>
+            </div>
+          <% end %>
+          <div class="space-filters__creator">
+            <div>
+              <%= label_tag "q_creator_search", t(".creator_search"), class: "space-filters__label" %>
+              <%= search_field_tag "q[creator_search]",
+                                   extra_values[:creator_search],
+                                   id: "q_creator_search",
+                                   class: "space-filters__creator-input",
+                                   autocomplete: "off",
+                                   placeholder: t(".creator_search_placeholder") %>
+            </div>
+            <div>
+              <button type="submit" class="button button__sm button__secondary space-filters__submit" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+                <%= icon "search-line", class: "space-filters__submit-icon" %>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="space-filters__applied" data-applied-filters-tags>
+  <%= applied_filters_tags(i18n_ctx) %>
+</div>
+<%= append_javascript_pack_tag "participa_admin_space_filters" %>

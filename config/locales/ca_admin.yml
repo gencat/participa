@@ -6,6 +6,14 @@ ca:
       attachment_collection:
         weight: Pes
   decidim:
+    participa:
+      admin:
+        space_filters:
+          created_at_from_date: Data posterior o igual a
+          created_at_to_date: Data anterior o igual a
+          creator_search: Usuària
+          creator_search_placeholder: Cerca per correu electrònic, nom o àlies
+          toggle: Mostra o amaga més filtres
     admin:
       static_pages:
         form:
