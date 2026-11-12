@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-require "decidim/proposals/import/proposal_creator_decorator"
 
 describe Decidim::Admin::Import::Importer do
   subject { described_class.new(file: blob, reader:, creator:, context:) }

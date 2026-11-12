@@ -14,10 +14,10 @@ Bundler.require(*Rails.groups)
 
 module Participa
   class Application < Rails::Application
-    config.railties_order = [:main_app, Decidim::DepartmentAdmin::Engine, :all]
+    # config.railties_order = [:main_app, Decidim::DepartmentAdmin::Engine, :all]
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.2
     config.i18n.available_locales = %w(en ca es oc)
 
     # Processes group ids used to determine whether a process is a regulation or a process

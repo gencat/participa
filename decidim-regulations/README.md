@@ -25,7 +25,24 @@ $ gem install decidim-regulations
 ```
 
 ## Overrides
-To avoid admin users to accidentally delete the process group that defines which Processes should appear into Regulations, there's a decorator for the ParticipatoryProcessGroupsController#destroy method. The decorator is delared at `decidim-regulations/app/decorators/decidim/regulations/admin/avoid_deletion_of_regulations_group.rb` and is prepended to the controller in this module's engine `to_prepare` declaration.
+- To avoid admin users to accidentally delete the process groups that define which Processes should appear into Processes and Regulations (`Rails.application.config.process` and `Rails.application.config.regulation`), there's a decorator for the `ParticipatoryProcessGroupsController#destroy` method: `app/decorators/decidim/participatory_processes/admin/participatory_process_groups_controller_decorator.rb`. It is loaded in this module's engine `to_prepare` declaration.
+- To hide the Regulations from the homepage "highlighted processes" block, there's a decorator for `HighlightedProcessesCell#highlighted_processes`: `app/decorators/decidim/participatory_processes/content_blocks/highlighted_processes_cell_decorator.rb`.
+
+## Testing
+
+Create a dummy app in your application (if not present):
+
+```bash
+cd decidim-regulations
+bundle
+DISABLE_SPRING=1 bundle exec rake test_app
+```
+
+And run tests:
+
+```bash
+bundle exec rspec spec
+```
 
 
 ## License

@@ -37,7 +37,6 @@ en:
             select_an_area: Select a department
             select_process_group: Select a process group
             title: General information
-            visbility: Visibility
           proposal_component_alert: Remember that you have to activate the proposals component.
       show:
         area: Department

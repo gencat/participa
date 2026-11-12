@@ -1,5 +1,5 @@
-<article class="comment">
-  <div class="comment__header">
+<article class="comment flex flex-col gap-3 h-full">
+  <div class="comment__header flex items-center gap-2">
     <span class="font-bold">
       <span class="author">
         <span class="author__container">
@@ -15,7 +15,7 @@
     </span>
     <div class="author-data">
       <div class="author-data__main">
-        <div class="author author--inline">
+        <div class="author author--inline flex flex-wrap items-center gap-x-2">
           <a class="author__name underline" href="#comment_<%= comment.id %>">
             <%= comment_author(comment.decidim_author_id) %>
           </a>
@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <div class="comment__content">
+  <div class="comment__content flex flex-col items-start gap-2">
     <span class="label alignment comment__content--label <%= alignment == :positive ? 'success' : 'alert' %>">
       <%= alignment == :positive ? t(".actually_positive") : t(".actually_negattive") %>
     </span>
@@ -32,7 +32,7 @@
       <%= comment.body.is_a?(Hash) ? translated_attribute(comment.body) : comment.body %>
     </div>
   </div>
-  <div class="comment__footer">
+  <div class="comment__footer mt-auto">
     <div class="comment__votes flex">
       <button class="flex mr-2 items-center" disabled="">
         <%= icon "thumb-up-line" %>

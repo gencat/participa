@@ -9,7 +9,7 @@ describe Decidim::Admin::CreateStaticPage do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:attachment_params) { nil }
-  let(:uploaded_documents) { [] }
+  let(:uploaded_attachments) { [] }
 
   let(:form) do
     form_klass.from_params(
@@ -29,7 +29,7 @@ describe Decidim::Admin::CreateStaticPage do
           content: { en: "<p>New content</p>" },
           weight: 1,
           allow_public_access: true,
-          add_documents: uploaded_documents
+          add_attachments: uploaded_attachments
         }
       }
     end
@@ -83,7 +83,7 @@ describe Decidim::Admin::CreateStaticPage do
             file: blob.signed_id
           }
         end
-        let(:uploaded_documents) { [attachment_params] }
+        let(:uploaded_attachments) { [attachment_params] }
 
         it "creates an attachment for the static page" do
           expect { command.call }.to change(Decidim::Attachment, :count).by(1)
@@ -104,7 +104,7 @@ describe Decidim::Admin::CreateStaticPage do
             file: blob.signed_id
           }
         end
-        let(:uploaded_documents) { [attachment_params] }
+        let(:uploaded_attachments) { [attachment_params] }
 
         before do
           allow(command).to receive(:attachments_invalid?).and_return(true)
@@ -135,7 +135,7 @@ describe Decidim::Admin::CreateStaticPage do
           content: { en: "<p>Terms</p>" },
           weight: 1,
           allow_public_access: true,
-          add_documents: uploaded_documents
+          add_attachments: uploaded_attachments
         }
       }
     end

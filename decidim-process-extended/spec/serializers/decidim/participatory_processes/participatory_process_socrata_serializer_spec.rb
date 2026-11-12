@@ -15,7 +15,7 @@ module Decidim::ParticipatoryProcesses
 
       let(:organization) { participatory_process.organization }
       let(:user) { create(:user, organization:) }
-      let(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
+      let(:user_group) { create(:user, :confirmed, organization:, extended_data: { group: true }) }
 
       it "only includes the columns of the Socrata dataset" do
         expect(subject.serialize.keys).to match_array(
@@ -68,11 +68,26 @@ module Decidim::ParticipatoryProcesses
         describe "#proposals_num_author_entities" do
           before do
             proposal.coauthorships.clear
-            proposal.coauthorships.create(author: user, user_group:)
+            proposal.coauthorships.create(author: user_group)
           end
 
           it "includes proposal authors of type: UserGroup" do
             expect(subject.serialize).to include(proposals_num_author_entities: 1)
+          end
+
+          context "when the group comes from a coauthorship created before Decidim 0.31" do
+            before do
+              proposal.coauthorships.clear
+              proposal.coauthorships.create(author: user, decidim_user_group_id: user_group.id)
+            end
+
+            it "counts the group as an entity" do
+              expect(subject.serialize).to include(proposals_num_author_entities: 1)
+            end
+
+            it "does not count the member as a User author" do
+              expect(subject.serialize).to include(proposals_num_authors: 0)
+            end
           end
 
           it "does not include proposal authors of type: User" do
@@ -116,7 +131,7 @@ module Decidim::ParticipatoryProcesses
           end
 
           it "does not count UserGroup registrations" do
-            create_list(:registration, 10, meeting:, user_group:)
+            create(:registration, meeting:, user: user_group)
 
             expect(subject.serialize).to include(meetings_num_entities: 1)
           end
@@ -140,7 +155,7 @@ module Decidim::ParticipatoryProcesses
         describe "#total_num_entities" do
           before do
             proposal.coauthorships.clear
-            proposal.coauthorships.create(author: user, user_group:)
+            proposal.coauthorships.create(author: user_group)
             meeting.update(attending_organizations: "CodiTramuntana")
           end
 

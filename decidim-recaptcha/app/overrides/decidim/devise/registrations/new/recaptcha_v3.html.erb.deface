@@ -1,0 +1,5 @@
+<!-- replace "erb[loud]:contains('invisible_captcha')"
+     original 'a9b54598e526eb0d4fd6bdbb7585ca902c41e56f'
+-->
+<%# decidim-recaptcha: Google reCAPTCHA v3 instead of invisible_captcha %>
+<%= recaptcha_v3(action: "registration") %>

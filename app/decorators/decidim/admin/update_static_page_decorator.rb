@@ -31,14 +31,14 @@ module Decidim::Admin::UpdateStaticPageDecorator
       def run_after_hooks
         original_run_after_hooks
 
-        document_cleanup!(include_all_attachments: true)
+        attachment_cleanup!(include_all_attachments: true)
         create_attachments(first_weight: first_attachment_weight) if process_attachments?
       end
 
       private
 
       def first_attachment_weight
-        return 1 if resource.photos.count.zero?
+        return 1 if resource.photos.none?
 
         resource.photos.count
       end

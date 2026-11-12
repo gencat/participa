@@ -21,6 +21,10 @@ es:
     regulations_static: Participación en normativa
   decidim:
     regulations:
+      admin:
+        participatory_process_groups:
+          destroy:
+            protected: Este grupo de procesos está protegido y no se puede eliminar.
       content_blocks:
         highlighted_regulations:
           active_step: Paso activo
