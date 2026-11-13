@@ -100,6 +100,26 @@ Extends `MeetingCardMetadataCell` with `prepend` to add the **participatory proc
 
 ---
 
+### Assemblies (Consells)
+
+Adds a "list mode" option to the "Related assemblies" ("Consells relacionats") content block of the **assembly homepage**, which shows the children assemblies. When it is enabled, the children assemblies are shown as a compact list (the search card, `card_for(assembly, size: :s)`) instead of the default grid of big cards. The block of the process homepage and the highlighted assemblies block of the organization homepage are not changed.
+
+#### `config/initializers/children_assemblies_list_mode.rb`
+In `after_initialize`, finds the `assembly_homepage` / `related_assemblies` content block manifest (it raises if it does not exist) and:
+- adds the `list_mode` setting (boolean, `false` by default, so existing blocks keep the grid);
+- replaces its `settings_form_cell` with `decidim/assemblies/content_blocks/children_assemblies_settings_form`. The original form cell (`highlighted_assemblies_settings_form`) is shared with the other two blocks, so it is not changed.
+
+#### `app/cells/decidim/assemblies/content_blocks/children_assemblies_settings_form_cell.rb` (and `children_assemblies_settings_form/show.erb`)
+Settings form of the block: inherits from `HighlightedAssembliesSettingsFormCell` and adds the "Veure en mode llista" checkbox, with its help text, after the `max_results` field. Texts in `decidim.assemblies.admin.content_blocks.children_assemblies` of `config/locales/{ca,es,en}_assemblies.yml`.
+
+#### `decidim/assemblies/content_blocks/children_assemblies_cell_decorator.rb`
+Extends `ChildrenAssembliesCell` with `prepend`. When `list_mode` is enabled, `show` renders the `list` template; otherwise it calls `super` (original grid). It reuses `related_assemblies`, `total_count`, `limit` and `title` of the original cell, so `max_results` is also applied in list mode.
+
+#### `app/cells/decidim/assemblies/content_blocks/children_assemblies/list.erb`
+List template. It is a copy of the content block wrapper (`decidim-core/app/cells/decidim/content_blocks/base/show.erb`) and of the header of `decidim-assemblies/app/cells/decidim/assemblies/assemblies/show.erb` (title and counter), with a vertical container instead of the grid. **When upgrading Decidim, check that those two templates have not changed**, because the copy will not get the changes.
+
+---
+
 ### Newsletters
 
 #### `decidim/admin/selective_newsletter_participatory_space_type_form_decorator.rb`
