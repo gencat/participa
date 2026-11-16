@@ -80,6 +80,7 @@ es:
             </ul>
           email_outro: Recibes esta notificación porque se ha creado el espacio participativo "%{resource_title}".
           email_subject: Se ha creado el espacio participativo "%{resource_title}".
+          notification_title: "%{author_name} ha creado el espacio participativo <a href='%{resource_url}'>%{resource_title}</a>."
         published:
           regulation: Normativa publicada
           process: Proceso publicado
@@ -96,6 +97,7 @@ es:
             </ul>
           email_outro: Recibes esta notificación porque se ha publicado el espacio participativo "%{resource_title}".
           email_subject: Se ha publicado el espacio participativo "%{resource_title}".
+          notification_title: "%{author_name} ha publicado el espacio participativo <a href='%{resource_url}'>%{resource_title}</a>."
       publish_proposals_event:
         email_intro: Se han añadido nuevas propuestas al espacio "%{resource_title}. Puedes ver las nuevas propuestas siguiendo <a href="%{resource_url}">este enlace</a>.
   activemodel:
