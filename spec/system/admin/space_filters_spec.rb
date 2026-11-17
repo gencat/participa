@@ -68,6 +68,50 @@ describe "Admin space filters", type: :system, versioning: true do
         expect(toggle["aria-expanded"]).to eq("true")
         expect(page).to have_field("q[creator_search]", with: "anapuig")
       end
+
+      it "shows the applied filter as a tag that removes it" do
+        within "[data-applied-filters-tags]" do
+          expect(page).to have_content("anapuig")
+          expect(page).to have_no_content("Remove all")
+          find("a[href*='reset_filters']").click
+        end
+
+        expect(page).to have_no_css("[data-applied-filters-tags] .label")
+        expect(page).to have_content("January by Joan")
+        expect(toggle["aria-expanded"]).to eq("false")
+      end
+    end
+
+    context "when several extra filters are applied" do
+      before { visit "#{list_path}?q[creator_search]=anapuig&q[created_at_to_date]=2026-01-31" }
+
+      it "shows a tag per filter and a link to remove all of them" do
+        within "[data-applied-filters-tags]" do
+          expect(page).to have_content("anapuig")
+          expect(page).to have_content("31/01/2026")
+          expect(page).to have_link("Remove all")
+        end
+        expect(page).to have_no_content("February by Ana")
+
+        click_on "Remove all"
+
+        expect(page).to have_no_css("[data-applied-filters-tags] .label")
+        expect(page).to have_content("February by Ana")
+        expect(page).to have_content("January by Joan")
+      end
+
+      it "removes a single filter keeping the others" do
+        within "[data-applied-filters-tags] .label", text: "31/01/2026" do
+          find("a").click
+        end
+
+        within "[data-applied-filters-tags]" do
+          expect(page).to have_content("anapuig")
+          expect(page).to have_no_content("31/01/2026")
+        end
+        expect(page).to have_content("February by Ana")
+        expect(page).to have_no_content("January by Joan")
+      end
     end
 
     it "filters by creator" do

@@ -86,7 +86,19 @@
     <% end %>
   </div>
 </div>
+
+<% i18n_scope = filterable_i18n_scope_from_ctx(i18n_ctx) %>
+<% applied_tags = ransack_params.slice(*filters).map { |filter, value| applied_filter_tag(filter, value, i18n_scope) } %>
+<% applied_tags += extra_values.compact_blank.map do |filter, value|
+     date = Participa::SpaceCreationFilters.parse_date(value) unless filter.to_sym == :creator_search
+     content_tag(:span, class: "label reverse") do
+       concat "#{t(".#{filter}")}: "
+       concat date ? l(date, format: :decidim_short) : value
+       concat remove_filter_icon_link(filter)
+     end
+   end %>
+<% applied_tags << remove_all_filters_tag if applied_tags.count > 1 %>
 <div class="space-filters__applied" data-applied-filters-tags>
-  <%= applied_filters_tags(i18n_ctx) %>
+  <%= safe_join(applied_tags) %>
 </div>
 <%= append_javascript_pack_tag "participa_admin_space_filters" %>
