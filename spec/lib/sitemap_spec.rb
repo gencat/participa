@@ -317,6 +317,40 @@ describe "config/sitemap.rb" do
       end
     end
 
+    context "with an attachment in a private process" do
+      let!(:private_process) { create(:participatory_process, :published, :private, organization:) }
+      let!(:attachment) do
+        create(:attachment, attached_to: private_process,
+                            content_type: "application/pdf",
+                            file: Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
+      end
+
+      before { generate_sitemap! }
+
+      it "excludes the public ActiveStorage blob path" do
+        blob_path = Rails.application.routes.url_helpers.rails_blob_path(attachment.file, only_path: true)
+        expect(sitemap_paths).not_to include(blob_path)
+      end
+    end
+
+    context "with an attachment in a private component" do
+      let!(:private_process) { create(:participatory_process, :published, :private, organization:) }
+      let!(:component) { create(:proposal_component, :published, participatory_space: private_process) }
+      let!(:proposal) { create(:proposal, :published, component:) }
+      let!(:attachment) do
+        create(:attachment, attached_to: proposal,
+                            content_type: "application/pdf",
+                            file: Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
+      end
+
+      before { generate_sitemap! }
+
+      it "excludes the public ActiveStorage blob path" do
+        blob_path = Rails.application.routes.url_helpers.rails_blob_path(attachment.file, only_path: true)
+        expect(sitemap_paths).not_to include(blob_path)
+      end
+    end
+
     context "with a plain-text attachment" do
       let!(:other_attachment) do
         # Create an attachment with a non-image, non-PDF content type by directly
