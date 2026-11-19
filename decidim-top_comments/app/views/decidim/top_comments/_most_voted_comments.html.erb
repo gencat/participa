@@ -1,31 +1,31 @@
 <% @tc_presenter= top_comments_presenter(model_type, params[:id]) %>
-<div class="flex justify-between pt-4">
-	<div class="most-voted-comments-favor">
-		<p class="flex items-center">
+<div class="flex flex-col md:flex-row gap-6 pt-4">
+	<div class="most-voted-comments-favor flex-1 min-w-0 flex flex-col">
+		<p class="flex items-center gap-1">
 			<%= icon "thumb-up-line" %>
-			<span id="num-in-favor-comments mr-2"><%= @tc_presenter.in_favor_comments.size %></span>
+			<span id="num-in-favor-comments"><%= @tc_presenter.in_favor_comments.size %></span>
 		  <%= t(".positive").downcase %>
 		  <span id="percent-in-favor-comments">(<%= @tc_presenter.percentage_of_comments(@tc_presenter.in_favor_comments.size) %>%)</span>
 		</p>
 		<% if @tc_presenter.most_voted_in_favor_comments.any? %>
 			<% comment= @tc_presenter.most_voted_in_favor_comments.first %>
-			<div class="comment-thread comment-in-favor">
+			<div class="comment-thread comment-in-favor p-4 flex-1">
 				<%= render partial: "decidim/top_comments/most_voted_comment", locals: {comment: comment, alignment: :positive} %>
 			</div>
 		<% else %>
 			<p class="no-results"><%= t(".no_results") %></p>
 		<% end %>
 	</div>
-	<div class="most-voted-comments-against" class="column">
-		<p class="flex items-center">
+	<div class="most-voted-comments-against flex-1 min-w-0 flex flex-col">
+		<p class="flex items-center gap-1">
 			<%= icon "thumb-down-line" %>
-			<span id="num-against-comments mr-2"><%= @tc_presenter.against_comments.size %></span>
+			<span id="num-against-comments"><%= @tc_presenter.against_comments.size %></span>
 			<%= t(".negative").downcase %>
 		  <span id="percent-against-comments">(<%= @tc_presenter.percentage_of_comments(@tc_presenter.against_comments.size) %>%)</span>
 		</p>
 		<% if @tc_presenter.most_voted_against_comments.any? %>
 			<% comment= @tc_presenter.most_voted_against_comments.first %>
-			<div class="comment-thread comment-against">
+			<div class="comment-thread comment-against p-4 flex-1">
 				<%= render partial: "decidim/top_comments/most_voted_comment", locals: {comment: comment, alignment: :negative} %>
 			</div>
 		<% else %>

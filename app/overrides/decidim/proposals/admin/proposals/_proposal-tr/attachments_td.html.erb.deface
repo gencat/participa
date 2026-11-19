@@ -1,0 +1,9 @@
+<!-- insert_after "td.evaluators-count"
+     original 'c1256e7ba75bd431d03eddac54dd913e15e7dc10'
+-->
+<%# Participa: number of attachments of the proposal, after the "Evaluators" cell %>
+<% if current_component.settings.attachments_allowed? %>
+  <td data-label="<%= t("models.proposal.fields.attachments", scope: "decidim.proposals") %>">
+    <%= proposal.attachments.size %>
+  </td>
+<% end %>

@@ -8,10 +8,10 @@ module Decidim::Admin::StaticPagesFormDecorator
 
       attribute :attachment, ::Decidim::AttachmentForm
 
-      attachments_attribute :documents
+      attachments_attribute :attachments
 
       def map_model(model)
-        self.documents = model.attachments
+        self.attachments = model.attachments
       end
     end
   end

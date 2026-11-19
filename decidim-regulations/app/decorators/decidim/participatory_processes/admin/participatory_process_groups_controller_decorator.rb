@@ -16,7 +16,7 @@ module Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessGroupsControl
           Rails.application.config.regulation.to_s
         ]
         if forbidden_groups_ids.include?(params[:id])
-          flash[:alert] = "Protected ParticipatoryProcessGroup, can't be deleted."
+          flash[:alert] = I18n.t("decidim.regulations.admin.participatory_process_groups.destroy.protected")
           redirect_to participatory_process_groups_path
         else
           original_destroy

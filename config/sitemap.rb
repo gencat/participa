@@ -228,8 +228,10 @@ SitemapGenerator::Sitemap.create do
   group(filename: :attachments) do
     Decidim::Attachment
       .where("content_type LIKE 'image/%' OR content_type = 'application/pdf'")
+      .includes(:attached_to)
       .find_each do |attachment|
         next unless attachment.file.attached?
+        next if attachment.private_download_required?
 
         blob_path = rails_blob_path(attachment.file, only_path: true)
 
