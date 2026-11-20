@@ -323,6 +323,9 @@ en:
             filter_by: Filter by
             search: Search
         content_blocks:
+          children_assemblies:
+            list_mode: Show as list
+            list_mode_help: When enabled, child councils will be shown as a list.
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
         new_import:
