@@ -25,6 +25,8 @@ oc:
           form:
             appear_home: Sortir al home (imatge)
             select_an_area: Selecciona una departament
+            social: Social
+            social_networks: Xarxes socials
       pages:
         home:
           highlighted_processes:
@@ -35,6 +37,7 @@ oc:
         area: Departament
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
+        social_networks_title: Visita aguest procès a
     projects:
       filters:
         category: Eixos de debat
@@ -92,6 +95,11 @@ oc:
         facilitators: Entitats dinamitzadores
         has_summary_record: Disposa de retorn
         promoting_unit: Unitat promotora
+        facebook: Facebook
+        github: GitHub
+        instagram: Instagram
+        twitter: X
+        youtube: YouTube
       participatory_process_step:
         title: Nom de la fase
   layouts:

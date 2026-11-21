@@ -33,6 +33,22 @@ module Decidim
           Decidim.register_assets_path File.expand_path("app/packs", root)
         end
 
+        initializer "decidim_process_extended.content_blocks" do
+          Decidim.content_blocks.register(:participatory_process_homepage, :social_networks_metadata) do |content_block|
+            content_block.cell = "decidim/content_blocks/participatory_space_social_networks"
+            content_block.public_name_key = "decidim.content_blocks.social_networks_metadata.name"
+          end
+        end
+
+        # The social networks content block asks for "#{handler}-line" icons, but Decidim
+        # does not register some of them, so they are rendered as the "other" icon (or
+        # raise in development and test). Map them to the registered social icons.
+        initializer "decidim_process_extended.icons" do
+          Decidim.icons.register(name: "twitter-line", icon: "twitter-x-line", category: "social icon", description: "", engine: :core)
+          Decidim.icons.register(name: "facebook-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
+          Decidim.icons.register(name: "github-line", icon: "github-fill", category: "social icon", description: "", engine: :core)
+        end
+
         initializer "decidim_process_extended.notification_settings" do
           Decidim.notification_settings(:participatory_space_news) do |notification_setting|
             notification_setting.settings_area = :administrators
