@@ -50,7 +50,7 @@ Rails.application.configure do
   # config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
@@ -94,7 +94,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  config.active_job.queue_adapter = ENV["QUEUE_ADAPTER"] if ENV["QUEUE_ADAPTER"].present?
+  config.active_job.queue_adapter = :delayed_job
   # config.active_job.queue_name_prefix = "decidim_development_app_production"
 
   # Disable caching for Action Mailer templates even if Action Controller

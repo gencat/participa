@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# require "decidim/participatory_processes/content_blocks/highlighted_processes_cell"
-
 module Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCellDecorator
   def self.decorate
     Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCell.class_eval do
