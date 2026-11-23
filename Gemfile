@@ -11,12 +11,12 @@ gem "decidim-elections", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-cdtb", "~> 0.5.6"
-gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", tag: "v0.9.0"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", tag: "v0.12.0"
-gem "decidim-idcat_mobil", git: "https://github.com/gencat/decidim-module-idcat_mobil", tag: "v0.9.0"
-gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", tag: "v0.1.0"
+gem "decidim-challenges", "~> 0.9.0"
+gem "decidim-department_admin", "~> 0.12.0"
+gem "decidim-idcat_mobil", "~> 0.9.0"
+gem "decidim-stratified_sortitions", "~> 0.1.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.31-stable"
-gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker", tag: "0.4.0"
+gem "decidim-verifications-members_picker", "~> 0.4.0"
 
 # Internal modules
 gem "decidim-home", path: "decidim-home"
