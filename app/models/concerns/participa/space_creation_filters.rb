@@ -4,10 +4,12 @@ module Participa
   # Ransack scopes used by the participatory processes and assemblies admin
   # lists to filter by creation date (whole days) and by creator.
   #
-  # Spaces have no author column, so the creator is taken from the PaperTrail
-  # version of the `create` event. It covers spaces created, imported and
-  # duplicated from the admin, because all of them are created inside a
-  # `Decidim.traceability` block that sets the whodunnit.
+  # Spaces have no author column, so the creator is taken from two sources:
+  #
+  # - The action log of the `create` or `import` action. `duplicate` is left out
+  #   because its log points to the original space, not to the copy.
+  # - The PaperTrail version of the `create` event, which records the copies of
+  #   duplicated spaces and some older spaces without action log.
   module SpaceCreationFilters
     extend ActiveSupport::Concern
 
@@ -28,7 +30,10 @@ module Participa
         term = term.to_s.strip
         next all if term.blank?
 
-        where(id: Participa::SpaceCreationFilters.created_by_matching_users(base_class.name, term))
+        users = Participa::SpaceCreationFilters.users_matching(term)
+        logged = Participa::SpaceCreationFilters.created_in_action_logs(base_class.name, users)
+        versioned = Participa::SpaceCreationFilters.created_in_versions(base_class.name, users)
+        where(id: logged).or(where(id: versioned))
       }
 
       singleton_class.prepend(RansackableScopes)
@@ -50,11 +55,20 @@ module Participa
         nil
       end
 
-      def created_by_matching_users(item_type, term)
-        users = Decidim::User.where(
+      def users_matching(term)
+        Decidim::User.where(
           "decidim_users.name ILIKE :term OR decidim_users.nickname ILIKE :term OR decidim_users.email ILIKE :term",
           term: "%#{ActiveRecord::Base.sanitize_sql_like(term)}%"
         )
+      end
+
+      def created_in_action_logs(resource_type, users)
+        Decidim::ActionLog
+          .where(resource_type:, action: %w(create import), user_type: "Decidim::User", user_id: users.select(:id))
+          .select(:resource_id)
+      end
+
+      def created_in_versions(item_type, users)
         gid_prefix = ActiveRecord::Base.connection.quote("gid://#{GlobalID.app}/Decidim::User/")
 
         versions = PaperTrail::Version.where(item_type:, event: "create")

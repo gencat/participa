@@ -12,6 +12,10 @@ shared_examples "a space filterable by creation date and creator" do
     PaperTrail.request(whodunnit:) { create(factory, organization:, **attributes) }
   end
 
+  def log_action(space, user, action)
+    create(:action_log, user:, organization:, resource: space, participatory_space: space, component: nil, action:)
+  end
+
   describe "created_at_from_date" do
     let!(:on_day_start) { create_space(created_at: Time.zone.local(2026, 1, 20, 0, 0, 0)) }
     let!(:day_before) { create_space(created_at: Time.zone.local(2026, 1, 19, 23, 59, 59)) }
@@ -94,6 +98,32 @@ shared_examples "a space filterable by creation date and creator" do
       end
     end
 
+    context "when the creator is only in the action log" do
+      let!(:logged_space) { create_space.tap { |space| log_action(space, creator, "create") } }
+
+      it "finds the spaces created by that user" do
+        expect(search(creator_search: "anapuig")).to contain_exactly(created_by_creator, logged_space)
+      end
+    end
+
+    context "when the space was imported" do
+      let!(:imported_space) { create_space.tap { |space| log_action(space, creator, "import") } }
+
+      it "finds the spaces imported by that user" do
+        expect(search(creator_search: "anapuig")).to contain_exactly(created_by_creator, imported_space)
+      end
+    end
+
+    context "when the action log has other actions of a user" do
+      before do
+        %w(update publish duplicate).each { |action| log_action(without_creator, other_user, action) }
+      end
+
+      it "does not consider that user the creator" do
+        expect(search(creator_search: "jribas")).to contain_exactly(created_by_other)
+      end
+    end
+
     context "when another user updates the space" do
       before do
         PaperTrail.request(whodunnit: other_user.to_gid.to_s) do
@@ -116,6 +146,9 @@ shared_examples "a space filterable by creation date and creator" do
 
       it "assigns the copy to the user who duplicated it" do
         expect(copy).to be_persisted
+        # The copy has no creation log, the `duplicate` log points to the original.
+        expect(Decidim::ActionLog.where(resource: copy)).to be_empty
+        expect(Decidim::ActionLog.where(resource: created_by_creator, action: "duplicate", user: duplicator)).to exist
         expect(search(creator_search: "mduplica")).to contain_exactly(copy)
         expect(search(creator_search: "anapuig")).to contain_exactly(created_by_creator)
       end
