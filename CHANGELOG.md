@@ -1,6 +1,7 @@
 # Change Log
 **Upgrade notes:**
 
+- **Security**: Inspect PDF uploads before association, constrain PDF parsing in a separate process, and force PDF downloads.
 - **Upgraded**: Upgrade participa to Decidim 0.21-stable. [#141](https://github.com/gencat/participa/pull/141)
 - **Upgraded**: Upgrade participa to Decidim 0.20-stable. [#140](https://github.com/gencat/participa/pull/140)
 - **Upgraded**: Upgrade participa to Decidim 0.19-stable. [#137](https://github.com/gencat/participa/pull/137)

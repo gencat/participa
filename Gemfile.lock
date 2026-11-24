@@ -499,7 +499,7 @@ GEM
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
-    faker (3.5.2)
+    faker (3.8.0)
       i18n (>= 1.8.11, < 2)
     faraday (2.15.1)
       faraday-net_http (>= 2.0, < 3.6)
@@ -1119,6 +1119,7 @@ DEPENDENCIES
   delayed_job_active_record
   dotenv (~> 3.2.0)
   faker
+  hexapdf (~> 1.1.0)
   letter_opener_web (~> 3.0)
   listen
   puma

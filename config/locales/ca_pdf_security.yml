@@ -1,0 +1,11 @@
+ca:
+  activerecord:
+    errors:
+      models:
+        "decidim/attachment":
+          attributes:
+            file:
+              pdf_prohibited_content: "El PDF conté elements no permesos (codi, accions automàtiques, multimèdia o fitxers incrustats). Puja'n una còpia sense aquests elements."
+              pdf_uninspectable: "No s'ha pogut validar el PDF (pot estar danyat, xifrat o ser massa complex). Torna-ho a provar o puja'n una altra còpia."
+  pdf_security:
+    import_attachment_error: "El fitxer adjunt «%{title}» no s'ha pogut validar i no s'ha importat."

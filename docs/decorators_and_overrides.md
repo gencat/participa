@@ -25,6 +25,15 @@ Adds the `can_view_private_space?` method to `Decidim::ParticipatoryProcesses::P
 
 ### Attachments in static pages
 
+#### `decidim/attachment_decorator.rb`
+Inspects uploaded PDFs synchronously before they can be associated with an attachment. The inspector reads the original bytes and rejects prohibited PDF actions, embedded files, multimedia, encrypted/corrupt files, and documents that exceed configured processing limits. Non-PDF attachments continue through Decidim's existing validation.
+
+#### `decidim/admin/update_attachment_decorator.rb`
+Validates a replacement file before running the traceable update. A rejected PDF returns the form's invalid event and leaves the previously stored attachment unchanged.
+
+#### `decidim/participatory_processes/participatory_process_importer_decorator.rb`
+Keeps process imports running when an imported PDF fails validation, records a user-visible warning, and does not create that attachment.
+
 #### `decidim/static_pages_decorator.rb`
 Includes the `HasAttachments` concern in the `Decidim::StaticPage` model, enabling support for file attachments (documents and images) on static pages.
 
