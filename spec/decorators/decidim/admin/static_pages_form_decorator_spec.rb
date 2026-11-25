@@ -36,12 +36,12 @@ describe Decidim::Admin::StaticPagesFormDecorator do
   end
 
   describe "attachment attributes added by decorator" do
-    it "responds to documents" do
-      expect(subject).to respond_to(:documents)
+    it "responds to attachments" do
+      expect(subject).to respond_to(:attachments)
     end
 
-    it "responds to add_documents" do
-      expect(subject).to respond_to(:add_documents)
+    it "responds to add_attachments" do
+      expect(subject).to respond_to(:add_attachments)
     end
 
     it "responds to attachment" do
@@ -61,16 +61,16 @@ describe Decidim::Admin::StaticPagesFormDecorator do
     context "when the page has a document attachment" do
       let!(:document) { create(:attachment, :with_pdf, attached_to: static_page) }
 
-      it "includes it in documents" do
-        expect(mapped_form.documents).to include(document)
+      it "includes it in attachments" do
+        expect(mapped_form.attachments).to include(document)
       end
     end
 
     context "when the page has an image attachment" do
       let!(:photo) { create(:attachment, :with_image, attached_to: static_page) }
 
-      it "includes it in documents" do
-        expect(mapped_form.documents).to include(photo)
+      it "includes it in attachments" do
+        expect(mapped_form.attachments).to include(photo)
       end
     end
   end

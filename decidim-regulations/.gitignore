@@ -1,7 +1,18 @@
-.bundle/
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
 log/*.log
-pkg/
-test/dummy/db/*.sqlite3
-test/dummy/db/*.sqlite3-journal
-test/dummy/log/*.log
-test/dummy/tmp/
+
+# rspec failure tracking
+.rspec-failures
+
+# default test application
+spec/decidim_dummy_app
+
+# default development application
+development_app

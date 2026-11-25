@@ -37,7 +37,6 @@ es:
             select_an_area: Selecciona un departamento
             select_process_group: Selecciona un ámbito
             title: Información general
-            visbility: Visibilidad
           proposal_component_alert: Recuerda que tienes que activar el componente propuestas.
       show:
         area: Departamento

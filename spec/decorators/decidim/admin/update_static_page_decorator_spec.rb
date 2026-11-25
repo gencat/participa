@@ -9,7 +9,7 @@ describe Decidim::Admin::UpdateStaticPage do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:attachment_params) { nil }
-  let(:uploaded_documents) { [] }
+  let(:uploaded_attachments) { [] }
 
   let(:form) do
     form_klass.from_params(
@@ -32,7 +32,7 @@ describe Decidim::Admin::UpdateStaticPage do
           content: { en: "<p>Updated content</p>" },
           weight: 5,
           allow_public_access: true,
-          add_documents: uploaded_documents
+          add_attachments: uploaded_attachments
         }
       }
     end
@@ -98,7 +98,7 @@ describe Decidim::Admin::UpdateStaticPage do
             file: blob.signed_id
           }
         end
-        let(:uploaded_documents) { [attachment_params] }
+        let(:uploaded_attachments) { [attachment_params] }
 
         it "creates an attachment for the static page" do
           expect { command.call }.to change(Decidim::Attachment, :count).by(1)
@@ -119,7 +119,7 @@ describe Decidim::Admin::UpdateStaticPage do
             file: blob.signed_id
           }
         end
-        let(:uploaded_documents) { [attachment_params] }
+        let(:uploaded_attachments) { [attachment_params] }
 
         before do
           allow(command).to receive(:attachments_invalid?).and_return(true)
@@ -151,8 +151,8 @@ describe Decidim::Admin::UpdateStaticPage do
               content: { en: "<p>Updated content</p>" },
               weight: 5,
               allow_public_access: true,
-              documents: [],
-              add_documents: uploaded_documents
+              attachments: [],
+              add_attachments: uploaded_attachments
             }
           }
         end
@@ -181,8 +181,8 @@ describe Decidim::Admin::UpdateStaticPage do
               content: { en: "<p>Updated content</p>" },
               weight: 5,
               allow_public_access: true,
-              documents: edit_form.documents.map(&:id),
-              add_documents: uploaded_documents
+              attachments: edit_form.attachments.map(&:id),
+              add_attachments: uploaded_attachments
             }
           }
         end
@@ -208,7 +208,7 @@ describe Decidim::Admin::UpdateStaticPage do
           weight: static_page.weight,
           allow_public_access: static_page.allow_public_access,
           changed_notably:,
-          add_documents: uploaded_documents
+          add_attachments: uploaded_attachments
         }
       }
     end

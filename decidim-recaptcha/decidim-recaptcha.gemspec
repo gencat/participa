@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Recaptcha::DECIDIM_VER
+  s.add_dependency "deface", "~> 1.9.0"
   s.add_development_dependency "decidim", Decidim::Recaptcha::DECIDIM_VER
   s.add_development_dependency "decidim-dev", Decidim::Recaptcha::DECIDIM_VER
   s.metadata["rubygems_mfa_required"] = "true"

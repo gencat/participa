@@ -2,10 +2,10 @@
 
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = Rails.application.secrets.decidim[:application_name]
+  config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = Rails.application.secrets.decidim[:mailer_sender]
+  config.mailer_sender = Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
 
   # Change these lines to set your preferred locales
   config.available_locales = %w(en ca es oc)
@@ -13,7 +13,7 @@ Decidim.configure do |config|
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = Rails.application.secrets.decidim[:default_locale].presence || :ca
+  config.default_locale = Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").to_s.presence || :ca
 
   # Custom HTML Header snippets
   #
@@ -28,16 +28,17 @@ Decidim.configure do |config|
   # that an organization's administrator injects malicious scripts to spy on or
   # take over user accounts.
   #
-  config.enable_html_header_snippets = Rails.application.secrets.decidim[:enable_html_header_snippets].present?
+  config.enable_html_header_snippets = Decidim::Env.new("DECIDIM_ENABLE_HTML_HEADER_SNIPPETS").present?
 
   # Allow organizations admins to track newsletter links.
-  config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links].present? unless Rails.application.secrets.decidim[:track_newsletter_links] == "auto"
+  track_newsletter_links = Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.to_s
+  config.track_newsletter_links = track_newsletter_links.present? unless track_newsletter_links == "auto"
 
   # Geocoder configuration
   # NOTE: to reenable the maps a new geocoder api token must be generated and replaced here. The `geocoder` gem has already been upgraded
   # config.maps = {
   #   provider: :here,
-  #   api_key: Rails.application.secrets.maps[:here_api_key],
+  #   api_key: Decidim::Env.new("GEOCODER_LOOKUP_API_KEY").to_s,
   #   static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
   # }
 
@@ -70,16 +71,46 @@ Decidim.configure do |config|
   config.machine_translation_service = "ParticipaGencat::SoftcatalaTranslator"
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config.throttling_max_requests = (Rails.application.secrets.decidim[:throttling_max_requests] || 200).to_i
+  config.throttling_max_requests = Decidim::Env.new("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
 
   # Time window in which the throttling is applied.
-  config.throttling_period = (Rails.application.secrets.decidim[:throttling_period] || 1).to_i.minutes
+  config.throttling_period = Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
 
   # How long can a user remained logged in before the session expires. Notice that
   # this is also maximum time that user can idle before getting automatically signed out.
   config.expire_session_after= (ENV["EXPIRE_SESSION_AFTER"].presence || 0.5).to_f.hours
 
-  config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
+  config.follow_http_x_forwarded_host = Decidim::Env.new("DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST").present?
+
+  # OmniAuth providers. Same behaviour as the old `secrets.yml`: IdCat mòbil always
+  # enabled, Facebook, Twitter and Google only enabled in the test environment.
+  config.omniauth_providers = {
+    facebook: {
+      enabled: Rails.env.test?,
+      app_id: ENV.fetch("OMNIAUTH_FACEBOOK_APP_ID", nil),
+      app_secret: ENV.fetch("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
+      icon_path: "media/images/facebook.svg"
+    },
+    twitter: {
+      enabled: Rails.env.test?,
+      api_key: ENV.fetch("OMNIAUTH_TWITTER_API_KEY", nil),
+      api_secret: ENV.fetch("OMNIAUTH_TWITTER_API_SECRET", nil),
+      icon_path: "media/images/twitter-x.svg"
+    },
+    google_oauth2: {
+      enabled: Rails.env.test?,
+      client_id: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
+      client_secret: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil),
+      icon_path: "media/images/google.svg"
+    },
+    idcat_mobil: {
+      enabled: true,
+      client_id: ENV.fetch("IDCAT_MOBIL_CLIENT_ID", nil),
+      client_secret: ENV.fetch("IDCAT_MOBIL_CLIENT_SECRET", nil),
+      site: ENV.fetch("IDCAT_MOBIL_SITE_URL", nil),
+      icon_path: "media/images/idcat_mobil-icon.svg"
+    }
+  }
 
   # Configure CSP for Algolia search for Decidim Finder
   config.content_security_policies_extra = {
@@ -97,6 +128,6 @@ Decidim.register_assets_path File.expand_path("app/packs", Rails.application.roo
 
 if Decidim.module_installed? :verifications
   Decidim::Verifications.configure do |config|
-    config.document_types = Rails.application.secrets.dig(:verifications, :document_types).presence || %w(identification_number passport)
+    config.document_types = Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", "identification_number,passport").to_array
   end
 end

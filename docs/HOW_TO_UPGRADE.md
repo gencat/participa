@@ -42,18 +42,16 @@ https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-y
 Participa has some `config/locales/*_fix.yml` you should try to get rid of the locales that were aded here and are not necessary anymore.
 Also, if you need to add locales there, add a comment with the why it was added and when we will be able to remove them.
 
+6. Review the Deface overrides (`app/overrides/` of the app and of each internal module). After upgrading, start the app and look for `Deface: [ERROR] The original source for '<name>' has changed` in the log: it means Decidim changed that part of the view, so check that the override still works and update its `original`. See `docs/decorators_and_overrides.md` for the list of overrides and how to calculate `original`. Write new view overrides always as `.html.erb.deface` files: with Rails 7.1+ a `.rb` override can make the app fail to boot in tests.
+
 ## Customizations
 
-#### 1. In sign in and sing up views, omniauth buttons are below form
+#### 1. Sign up view uses reCAPTCHA v3
 
   ##### 	Modified files:
 
-  * `app/views/decidim/devise/registrations/new.html.erb (decidim-core)`
-    * Move omniauth buttons render below sign up form.
-  * `app/views/decidim/devise/sessions/new.html.erb (decidim-core)`
-    * Move omniauth buttons render below sign in form.
-  * `app/views/decidim/devise/shared/_omniauth_buttons.html.erb (decidim-core)`
-    * Move 'or' separator above social register button.
+  * `decidim-recaptcha/app/overrides/decidim/devise/registrations/new/recaptcha_v3.html.erb.deface (decidim-core)`
+    * Deface override that replaces `invisible_captcha` with reCAPTCHA v3 in the sign up form (it replaces the full copy of `registrations/new.html.erb`).
 
 ### Existing modules
 These are custom modules and this is what you have to keep in mind when updating the version of Decidim.
@@ -77,12 +75,14 @@ These are custom modules and this is what you have to keep in mind when updating
 
   * `decidim-home/app/views/layouts/decidim/_head.html.erb`
     * Include favicon_link_tag
-  * `decidim-home/overrides/layouts/decidim/header` and override views
-    * Add to the top of page a custom navbar for Gencat with language chooser
-    * Remove outer link wrapping the logo
-    * Custom logo
-  * `decidim-home/overrides/layouts/decidim/footer`
-    * Add footer FEDER to footers
+  * `decidim-home/app/overrides/layouts/decidim/header/_main/gencat_navbar.html.erb.deface`
+    * Deface override that adds to the top of page a custom navbar for Gencat
+  * `decidim-home/app/overrides/layouts/decidim/header/_main/gencat_locales.html.erb.deface`
+    * Deface override that adds the language chooser to the header
+  * `decidim-home/app/views/layouts/decidim/_logo.html.erb (decidim-core)`
+    * Custom logo, linked to web.gencat.cat
+  * `decidim-home/app/overrides/layouts/decidim/footer/_main/feder_footer.html.erb.deface`
+    * Deface override that adds footer FEDER to footers
   * `config/locales/`
     * You need to add the new locales added in Decidim. (TODO: this translations are also in the general files)
 
@@ -94,8 +94,8 @@ These are custom modules and this is what you have to keep in mind when updating
 
   Following overrides have been resolved with corresponding decorator pattern as follows:
 
-  * `decorators/decidim/participatory_processes/admin/copy_participatory_process_decorator.rb`
-    * Override to add new fields in the command.
+  * `decorators/decidim/participatory_processes/admin/duplicate_participatory_process_decorator.rb`
+    * Override to copy the new fields when duplicating a process (since Decidim 0.31 "copy" is "duplicate").
   * `decorators/decidim/participatory_processes/admin/create_participatory_process_decorator.rb`
     * Override to add new fields in the command.
   * `decorators/decidim/participatory_processes/admin/update_participatory_process_decorator.rb`
@@ -114,12 +114,15 @@ These are custom modules and this is what you have to keep in mind when updating
     * Override to add new fields in serializer.
 
   Following ones, are same new fields in template:
-  * `app/views/decidim/participatory_processes/admin/participatory_processes/form.html.erb`
+  * `app/overrides/decidim/participatory_processes/admin/participatory_processes/_form/participa_metadata_fields.html.erb.deface`
+    * Deface override that adds the new fields to the metadata section of the admin form, after `developer_group` (it replaces the full copy of `_form.html.erb`):
     * Add new field: promoting_unit
     * Add new field: facilitators
     * Add new field: cost
     * Add new field: email
     * Add new field: has_summary_record
+  * `app/overrides/layouts/decidim/admin/participatory_process/proposal_component_alert.html.erb.deface`
+    * Deface override that shows an alert in "Normativa" processes when the proposals component is not published
   * `config/locales/`
     * Overrides some translations keys (the full oc source is inside the application locales)
 
@@ -191,13 +194,13 @@ These are custom modules and this is what you have to keep in mind when updating
     * probably removable from Decidim v0.28 (remember remove test too)
 
   * `app/decorators/decidim/admin/static_pages_form_decorator.rb`
-    * Adds attachment and gallery attributes (`documents`, `photos`) to `Decidim::Admin::StaticPageForm`
+    * Adds the attachment attributes (`attachment`, `attachments`) to `Decidim::Admin::StaticPageForm`. Since Decidim 0.31 they must be called `attachments` (it was `documents`), because `Decidim::MultipleAttachmentsMethods` reads `form.attachments` and `form.add_attachments`
     * Includes `Decidim::AttachmentAttributes` and `Decidim::HasUploadValidations`
 
   * `app/decorators/decidim/admin/update_static_page_decorator.rb`
     * Overrides `call` to process attachments and gallery before/after updating the page
     * Overrides `initialize` to set `@attached_to` required by attachment methods
-    * Includes `Decidim::MultipleAttachmentsMethods` and `Decidim::GalleryMethods`
+    * Includes `Decidim::MultipleAttachmentsMethods` (it calls `attachment_cleanup!`, `document_cleanup!` until Decidim 0.30)
 
   * `app/decorators/decidim/admin/static_pages_controller_decorator.rb`
     * Exposes `tab_panel_items` as a helper method in `Decidim::Admin::StaticPagesController`
@@ -219,10 +222,14 @@ These are custom modules and this is what you have to keep in mind when updating
   * `config/locales/`
     * Overrides some translations keys
     * Fixes some Decidim translations in `*_fix.yml` files
-  * `app/overrides/decidim/admin/proposals_index_attachments_th.rb (decidim-proposals)`
+  * `app/overrides/decidim/proposals/admin/proposals/_proposals-thead/attachments_th.html.erb.deface (decidim-proposals)`
     * Inserts an "Attachments" column header in the proposals admin index, with ascending/descending sort support via `sort_link`
-  * `app/overrides/decidim/admin/proposals_tr_attachments_td.rb (decidim-proposals)`
-    * Inserts the attachments count cell in each proposal row of the admin index
+  * `app/overrides/decidim/proposals/admin/proposals/_proposal-tr/attachments_td.html.erb.deface (decidim-proposals)`
+    * Inserts the attachments count cell in each proposal row of the admin index, after `td.evaluators-count` (`td.valuators-count` until Decidim 0.30)
+  * `app/overrides/decidim/admin/static_pages/_form/attachments.html.erb.deface (decidim-admin)`
+    * Inserts the attachments field in the static page admin form, after "weight" (it replaces the full copy of `static_pages/_form.html.erb`)
+  * `app/overrides/decidim/meetings/admin/meetings/_form/google_maps_url.html.erb.deface (decidim-meetings)`
+    * Inserts the Google Maps URL field in the admin meeting form
 
   ##### 	Custom files:
 
