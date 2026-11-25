@@ -39,7 +39,6 @@ es:
             social: Social
             social_networks: Redes sociales
             title: Información general
-            visbility: Visibilidad
           proposal_component_alert: Recuerda que tienes que activar el componente propuestas.
       show:
         area: Departamento

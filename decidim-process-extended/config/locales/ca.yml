@@ -39,7 +39,6 @@ ca:
             social: Social
             social_networks: Xarxes socials
             title: Informació general
-            visbility: Visibilitat
           proposal_component_alert: Recordeu que heu d'activar el component propostes.
       show:
         area: Departament

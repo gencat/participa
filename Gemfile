@@ -3,18 +3,20 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.30-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "release/0.31-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
+gem "decidim-collaborative_texts", DECIDIM_VERSION
+gem "decidim-elections", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-cdtb", "~> 0.5.6"
-gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", branch: "master"
-gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", branch: "fixes_0.30"
-gem "decidim-idcat_mobil", "~> 0.8.2"
-gem "decidim-stratified_sortitions", git: "https://github.com/gencat/decidim-module-stratified_sortitions", branch: "remove_email_restriction"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "main"
-gem "decidim-verifications-members_picker", github: "gencat/decidim-verifications-members_picker", tag: "0.3.0"
+gem "decidim-challenges", "~> 0.9.0"
+gem "decidim-department_admin", "~> 0.12.0"
+gem "decidim-idcat_mobil", "~> 0.9.0"
+gem "decidim-stratified_sortitions", "~> 0.1.0"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.31-stable"
+gem "decidim-verifications-members_picker", "~> 0.4.0"
 
 # Internal modules
 gem "decidim-home", path: "decidim-home"
@@ -52,7 +54,7 @@ group :development, :test do
   gem "decidim-dev", DECIDIM_VERSION
   gem "faker"
   gem "rspec-rails"
-  gem "rubocop-factory_bot", "2.26", require: false
+  gem "rubocop-factory_bot", require: false
   gem "rubocop-faker"
   gem "rubocop-rspec", require: false
   gem "rubocop-rspec_rails", require: false

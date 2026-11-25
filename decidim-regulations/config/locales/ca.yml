@@ -21,6 +21,10 @@ ca:
     regulations_static: Participació en normativa
   decidim:
     regulations:
+      admin:
+        participatory_process_groups:
+          destroy:
+            protected: Aquest grup de processos està protegit i no es pot esborrar.
       content_blocks:
         highlighted_regulations:
           active_step: Pas actiu

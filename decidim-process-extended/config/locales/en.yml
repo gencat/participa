@@ -39,7 +39,6 @@ en:
             social: Social
             social_networks: Social networks
             title: General information
-            visbility: Visibility
           proposal_component_alert: Remember that you have to activate the proposals component.
       show:
         area: Department
