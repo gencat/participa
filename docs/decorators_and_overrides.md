@@ -26,7 +26,7 @@ Adds the `can_view_private_space?` method to `Decidim::ParticipatoryProcesses::P
 ### Attachments in static pages
 
 #### `decidim/attachment_decorator.rb`
-Inspects uploaded PDFs synchronously before they can be associated with an attachment. The inspector reads the original bytes and rejects prohibited PDF actions, embedded files, multimedia, encrypted/corrupt files, and documents that exceed configured processing limits. Non-PDF attachments continue through Decidim's existing validation.
+Inspects uploaded PDFs synchronously before they can be associated with an attachment. The inspector reads the original bytes, traverses all revisions, and rejects identified prohibited PDF actions, embedded files, multimedia, encrypted/corrupt files, and documents that exceed configured processing limits. Action dictionaries are interpreted in their structural context, so passive dictionaries such as transparency groups are not rejected just for having an `/S` key. Objects whose action context cannot be determined are accepted if no prohibited content is identified: this is a residual risk and does not guarantee that every prohibited action is detected. Non-PDF attachments continue through Decidim's existing validation.
 
 #### `decidim/admin/update_attachment_decorator.rb`
 Validates a replacement file before running the traceable update. A rejected PDF returns the form's invalid event and leaves the previously stored attachment unchanged.
