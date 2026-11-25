@@ -102,8 +102,41 @@ module Decidim::ParticipatoryProcesses
       it "notify to admins" do
         expect(Decidim::EventsManager)
           .to receive(:publish)
+          .with(hash_including(event: "decidim.events.participatory_space.created", affected_users: [admin], force_send: true,
+                               extra: hash_including(skip_can_participate: true)))
 
         subject.call
+      end
+
+      context "when the notification jobs are performed" do
+        let!(:admin_without_news) { create(:user, :admin, :confirmed, organization:) }
+
+        before do
+          # Defined by the host application, used by SimpleParticipatorySpaceEvent through ParticipatoryProcess#regulation?
+          Rails.application.config.regulation = nil
+          # Create it beforehand so that its confirmation email is not mixed with the notification ones
+          current_user
+          clear_enqueued_jobs
+          ActionMailer::Base.deliveries.clear
+          perform_enqueued_jobs { subject.call }
+        end
+
+        it "creates the process unpublished" do
+          expect(process).not_to be_published
+        end
+
+        it "notifies the admins subscribed to participatory space news although the process is unpublished" do
+          notification = Decidim::Notification.find_by(user: admin, resource: process)
+
+          expect(notification).to be_present
+          expect(notification.can_participate?(admin)).to be(true)
+          expect(ActionMailer::Base.deliveries.flat_map(&:to)).to include(admin.email)
+        end
+
+        it "does not notify the creator nor the admins not subscribed to participatory space news" do
+          expect(Decidim::Notification.where(user: [current_user, admin_without_news])).to be_empty
+          expect(ActionMailer::Base.deliveries.flat_map(&:to)).not_to include(current_user.email, admin_without_news.email)
+        end
       end
     end
   end
