@@ -8,7 +8,7 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim", branch: "r
 gem "decidim", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-gem "decidim-cdtb", "~> 0.5.6"
+gem "decidim-cdtb", "~> 0.6.4"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", branch: "master"
 gem "decidim-department_admin", git: "https://github.com/gencat/decidim-module-department_admin", tag: "v0.11.2"
 gem "decidim-idcat_mobil", "~> 0.8.2"

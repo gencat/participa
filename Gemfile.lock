@@ -423,8 +423,8 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-cdtb (0.5.6)
-      decidim (>= 0.28.0)
+    decidim-cdtb (0.6.4)
+      decidim (>= 0.29.0)
       rails (>= 6)
       ruby-progressbar
     decidim-idcat_mobil (0.8.2)
@@ -1034,7 +1034,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb (~> 0.5.6)
+  decidim-cdtb (~> 0.6.4)
   decidim-challenges!
   decidim-department_admin!
   decidim-dev!
