@@ -18,7 +18,7 @@ module Decidim::Assemblies::ContentBlocks::ChildrenAssembliesCellDecorator
   private
 
   def list_mode?
-    model.settings.try(:list_mode).present?
+    model.settings.list_mode
   end
 end
 
