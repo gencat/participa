@@ -16,7 +16,7 @@ gem "decidim-department_admin", "~> 0.12.0"
 gem "decidim-idcat_mobil", "~> 0.9.0"
 gem "decidim-stratified_sortitions", "~> 0.1.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "release/0.31-stable"
-gem "decidim-verifications-members_picker", "~> 0.4.0"
+gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git", branch: "upgrade_min_decidim_version"
 
 # Internal modules
 gem "decidim-home", path: "decidim-home"
