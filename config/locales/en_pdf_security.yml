@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    errors:
+      models:
+        "decidim/attachment":
+          attributes:
+            file:
+              pdf_prohibited_content: "The PDF contains disallowed elements (code, automatic actions, multimedia, or embedded files). Upload a copy without these elements."
+              pdf_uninspectable: "The PDF could not be validated (it may be damaged, encrypted, or too complex). Try again or upload another copy."
+  pdf_security:
+    import_attachment_error: "The attachment \"%{title}\" could not be validated and was not imported."

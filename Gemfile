@@ -41,6 +41,7 @@ gem "delayed_job_active_record"
 gem "sitemap_generator", "~> 7.0"
 gem "whenever", require: false
 
+gem "hexapdf", "~> 1.1.0"
 gem "recaptcha"
 
 # Error uninitialized constant WickedPdf::WickedPdfHelper::Assets::SprocketsEnvironment::Sprockets

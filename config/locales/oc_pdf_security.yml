@@ -1,0 +1,11 @@
+oc:
+  activerecord:
+    errors:
+      models:
+        "decidim/attachment":
+          attributes:
+            file:
+              pdf_prohibited_content: "Lo PDF conten d'elements pas permeses (còdi, accions automaticas, multimèdia o fichièrs encastrats). Cargatz-ne una còpia sens aquestes elements."
+              pdf_uninspectable: "Lo PDF a pas pogut èsser validat (pòt èsser damatjat, chifrat o tròp complèxe). Tornatz ensajar o cargatz una autra còpia."
+  pdf_security:
+    import_attachment_error: "Lo fichièr junt «%{title}» a pas pogut èsser validat e a pas estat importat."

@@ -26,6 +26,10 @@ every 1.day, at: "3:15 am" do
   rake "sitemap:generate"
 end
 
+every 1.day, at: "3:30 am" do
+  rake "decidim:upgrade:attachments_cleanup[1440]"
+end
+
 every 5.minutes do
   rake "participatory_processes_phases:enqueue_change_active_step"
 end
