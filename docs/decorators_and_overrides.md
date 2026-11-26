@@ -119,6 +119,13 @@ Extends the admin newsletters panel helper with methods for:
 
 ---
 
+### Surveys
+
+#### `decidim/surveys/surveys_controller_decorator.rb`
+Adds a `before_action` on `SurveysController#index` (HTML requests only): when the component has exactly one published survey, it redirects straight to that survey (`survey_path`), so browsing from the participatory space skips the surveys index.
+
+---
+
 ## Overrides
 
 Overrides in `app/overrides/` change Decidim views with Deface. Ruby extensions of Decidim classes go to `app/decorators/` (see above), not here.
