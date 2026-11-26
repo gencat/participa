@@ -159,6 +159,9 @@ Replaces `invisible_captcha` with `recaptcha_v3(action: "registration")` in the 
 #### `decidim-process-extended/app/overrides/decidim/participatory_processes/admin/participatory_processes/_form/participa_metadata_fields.html.erb.deface`
 Inserts the Participa fields (`promoting_unit`, `facilitators`, `cost`, `email`, `has_summary_record`) in the metadata section of the admin process form, after `developer_group`. It replaces the full copy of the form that was used until Decidim 0.30.
 
+#### `decidim-process-extended/app/overrides/decidim/participatory_processes/admin/participatory_processes/_form/social_networks.html.erb.deface`
+Inserts the social networks section (`twitter`, `facebook`, `instagram`, `youtube` and `github` handlers) in the admin process form, after the related processes.
+
 #### `decidim-process-extended/app/overrides/layouts/decidim/admin/participatory_process/proposal_component_alert.html.erb.deface`
 Shows an alert in the admin of the "Normativa" processes when the proposals component is not published.
 

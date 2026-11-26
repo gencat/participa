@@ -88,7 +88,7 @@ These are custom modules and this is what you have to keep in mind when updating
 
 #### 3. Decidim Process Extended ("decidim-participatory-processes")
 
-  This module adds new fields to the "ParticipatoryProcess": `email`, `promoting_unit`, `facilitators`, `cost`, `has_summary_record`, `type_id`
+  This module adds new fields to the "ParticipatoryProcess": `email`, `promoting_unit`, `facilitators`, `cost`, `has_summary_record`, `type_id`, `twitter_handler`, `facebook_handler`, `instagram_handler`, `youtube_handler`, `github_handler`
 
   ##### 	Modified files:
 
@@ -121,6 +121,8 @@ These are custom modules and this is what you have to keep in mind when updating
     * Add new field: cost
     * Add new field: email
     * Add new field: has_summary_record
+  * `app/overrides/decidim/participatory_processes/admin/participatory_processes/_form/social_networks.html.erb.deface`
+    * Deface override that adds the social networks section (twitter, facebook, instagram, youtube and github handlers) to the admin form, after the related processes
   * `app/overrides/layouts/decidim/admin/participatory_process/proposal_component_alert.html.erb.deface`
     * Deface override that shows an alert in "Normativa" processes when the proposals component is not published
   * `config/locales/`

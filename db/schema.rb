@@ -1327,6 +1327,11 @@ ActiveRecord::Schema[7.2].define(version: 2026_11_25_111803) do
     t.bigint "decidim_participatory_process_type_id"
     t.datetime "deleted_at"
     t.bigint "decidim_department_admin_department_id"
+    t.string "twitter_handler"
+    t.string "facebook_handler"
+    t.string "instagram_handler"
+    t.string "youtube_handler"
+    t.string "github_handler"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_department_admin_department_id"], name: "idx_processes_on_decidim_department_admin_department_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
