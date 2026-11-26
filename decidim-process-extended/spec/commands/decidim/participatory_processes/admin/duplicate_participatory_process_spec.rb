@@ -10,7 +10,12 @@ module Decidim::ParticipatoryProcesses
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let!(:participatory_process) do
       create(:participatory_process, organization:, cost: 1500.5, email: "bustia@example.org", has_summary_record: true,
-                                     promoting_unit: "Unitat promotora", facilitators: "Entitats dinamitzadores")
+                                     promoting_unit: "Unitat promotora", facilitators: "Entitats dinamitzadores",
+                                     twitter_handler: "twitter_handler",
+                                     facebook_handler: "facebook_handler",
+                                     instagram_handler: "instagram_handler",
+                                     youtube_handler: "youtube_handler",
+                                     github_handler: "github_handler")
     end
     let(:form) do
       instance_double(
@@ -38,6 +43,18 @@ module Decidim::ParticipatoryProcesses
         has_summary_record: true,
         promoting_unit: "Unitat promotora",
         facilitators: "Entitats dinamitzadores"
+      )
+    end
+
+    it "copies the social handlers" do
+      subject.call
+
+      expect(duplicated_process).to have_attributes(
+        twitter_handler: "twitter_handler",
+        facebook_handler: "facebook_handler",
+        instagram_handler: "instagram_handler",
+        youtube_handler: "youtube_handler",
+        github_handler: "github_handler"
       )
     end
   end
