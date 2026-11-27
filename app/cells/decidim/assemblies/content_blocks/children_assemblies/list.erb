@@ -1,0 +1,12 @@
+<%= content_tag :section, class: section_class, id: block_id, data: do %>
+  <div class="content-block__title">
+    <h2 class="h2 decorator"><%= title %></h2>
+    <div class="label text-lg"><%= total_count %></div>
+  </div>
+
+  <div class="children-assemblies__list flex flex-col gap-4">
+    <% related_assemblies.limit(limit).each do |assembly| %>
+      <%= card_for(assembly, size: :s) %>
+    <% end %>
+  </div>
+<% end %>

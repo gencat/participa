@@ -1,0 +1,8 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <div class="row column">
+    <%= settings_fields.number_field :max_results, label: %>
+  </div>
+  <div class="row column">
+    <%= settings_fields.check_box :list_mode, label: list_mode_label, help_text: list_mode_help %>
+  </div>
+<% end %>

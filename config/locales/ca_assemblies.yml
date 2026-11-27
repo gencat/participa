@@ -324,6 +324,9 @@ ca:
             filter_by: Filtra per
             search: Cerca
         content_blocks:
+          children_assemblies:
+            list_mode: Veure en mode llista
+            list_mode_help: En activar aquesta opció, els consells fills es veuran en mode llista.
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
         new_import:
